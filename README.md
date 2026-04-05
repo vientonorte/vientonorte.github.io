@@ -12,12 +12,12 @@ Dashboard unificado de proyectos de [@vientonorte](https://github.com/vientonort
 |----------|--------|-----|
 | Contra-Archivo | 🟢 Live | [antropologia-corrupcion](https://vientonorte.github.io/antropologia-corrupcion/) |
 | table-ro | 🟢 Live | [table-ro](https://vientonorte.github.io/table-ro/) |
-| dashfin | 🟡 Privado | — |
+| dashfin | 🟢 Live | [dashfin](https://vientonorte.github.io/dashfin/) |
 | mi-portafolio | 🟢 Live | [mi-portafolio](https://vientonorte.github.io/mi-portafolio/) |
 | Poemario Beta | 🟢 Live | [29092020](https://vientonorte.github.io/29092020/) |
-| SURA Investments | 🟢 Live | [sura-investments](https://vientonorte.github.io/sura-investments/) |
-| contra-archivo | 🟢 Live | — |
-| Portafolio Lead UX | 🟡 Privado | — |
+| SURA Investments | 🟡 Privado | [GitHub](https://github.com/vientonorte/sura-investments) |
+| contra-archivo | 🟣 Repo | [GitHub](https://github.com/vientonorte/contra-archivo) |
+| Portafolio Lead UX | 🟣 Repo | [GitHub](https://github.com/vientonorte/Portafolio-Lead-UX) |
 | dihe | 🟣 Repo | [GitHub](https://github.com/vientonorte/dihe) |
 | khuro | 🟣 Repo | [GitHub](https://github.com/vientonorte/khuro) |
 
