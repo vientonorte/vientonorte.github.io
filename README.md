@@ -5,6 +5,8 @@ Dashboard unificado de proyectos de [@vientonorte](https://github.com/vientonort
 **Live:** https://vientonorte.github.io
 
 Log operativo: ver `CHANGELOG.md`.
+Handoff operativo: ver `HANDOFF.md`.
+Runbook de deploy y QA: ver `DEPLOY.md`.
 
 ---
 
@@ -17,7 +19,7 @@ Log operativo: ver `CHANGELOG.md`.
 | dashfin | 🟢 Live | [dashfin](https://vientonorte.github.io/dashfin/) |
 | mi-portafolio | 🟢 Live | [mi-portafolio](https://vientonorte.github.io/mi-portafolio/) |
 | Poemario Beta | 🟢 Live | [29092020](https://vientonorte.github.io/29092020/) |
-| SURA Investments | 🟡 Privado | [GitHub](https://github.com/vientonorte/sura-investments) |
+| SURA Investments | 🟡 Privado | Acceso restringido |
 | contra-archivo | 🟣 Repo | [GitHub](https://github.com/vientonorte/contra-archivo) |
 | Portafolio Lead UX | 🟣 Repo | [GitHub](https://github.com/vientonorte/Portafolio-Lead-UX) |
 | dihe | 🟣 Repo | [GitHub](https://github.com/vientonorte/dihe) |
@@ -45,6 +47,12 @@ open index.html
 # o con live server:
 npx serve .
 ```
+
+## QA y Debug rápido
+
+- Validar enlaces externos desde `index.html` antes de publicar.
+- No exponer enlaces clickeables a repos privados (evita 404 públicos).
+- Confirmar `git status --short --branch` limpio al cierre.
 
 ---
 

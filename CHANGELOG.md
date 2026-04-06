@@ -11,6 +11,13 @@ Formato:
 
 ## 2026-04-06
 
+### fix
+- Se corrige representación de proyecto privado `SURA Investments` en `index.html`: se elimina enlace público que devolvía 404 y se reemplaza por estado visual `Acceso restringido`.
+
+### ops
+- QA de enlaces externos del dashboard ejecutada con `curl`; todos los destinos públicos responden 200.
+- Se agregan `HANDOFF.md` y `DEPLOY.md` para estandarizar continuidad, debugging y publicación.
+
 ### docs
 - Se crea este `CHANGELOG.md` para mantener trazabilidad continua del repositorio general de Vientonorte.
 - Se documenta en `README.md` la política de mantenimiento del log para futuras sesiones.
