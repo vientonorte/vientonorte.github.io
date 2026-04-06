@@ -4,6 +4,8 @@ Dashboard unificado de proyectos de [@vientonorte](https://github.com/vientonort
 
 **Live:** https://vientonorte.github.io
 
+Log operativo: ver `CHANGELOG.md`.
+
 ---
 
 ## Proyectos listados
