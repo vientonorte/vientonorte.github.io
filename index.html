@@ -175,6 +175,15 @@
             border-color: var(--purple);
         }
         
+        .card__badge--deprecated {
+            color: var(--red);
+            border-color: var(--red);
+        }
+        
+        .card--deprecated {
+            opacity: 0.6;
+        }
+        
         .card__desc {
             color: var(--text-muted);
             font-size: 0.875rem;
@@ -265,9 +274,9 @@
         <h1><span>vientonorte</span> — proyectos</h1>
         <p>Rodrigo Gaete Gaona · UX Lead · Investigador doctoral en Antropología</p>
         <div class="stats">
-            <div class="stat"><span class="dot dot--live"></span> <strong>5</strong> en producción</div>
+            <div class="stat"><span class="dot dot--live"></span> <strong>4</strong> en producción</div>
             <div class="stat"><span class="dot dot--private"></span> <strong>1</strong> privado</div>
-            <div class="stat"><span class="dot dot--off"></span> <strong>4</strong> sin deploy</div>
+            <div class="stat"><span class="dot dot--off"></span> <strong>2</strong> sin deploy</div>
             <div class="stat"><span class="dot dot--live"></span> <strong>2026</strong> sprint activo</div>
         </div>
     </header>
@@ -360,11 +369,14 @@
                     <span class="card__badge card__badge--live">LIVE</span>
                 </div>
                 <div class="card__desc">
-                    Portafolio personal de diseño UX/UI. Proyectos, proceso de trabajo y experiencia profesional.
+                    Portafolio profesional UX Lead — React 19, Radix/shadcn, Tailwind CSS v4, Vite 6. Casos de estudio SURA, Transvip, Karri. Design System y metodología.
                 </div>
                 <div class="card__tags">
-                    <span class="tag">portafolio</span>
-                    <span class="tag">UX/UI</span>
+                    <span class="tag">React 19</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Tailwind v4</span>
+                    <span class="tag">UX Lead</span>
+                    <span class="tag">Vite</span>
                 </div>
                 <div class="card__links">
                     <a href="https://vientonorte.github.io/mi-portafolio/">
@@ -376,11 +388,11 @@
                 </div>
             </div>
 
-            <!-- 29092020 -->
-            <div class="card">
+            <!-- 29092020 — DEPRECATED -->
+            <div class="card card--deprecated">
                 <div class="card__header">
                     <div class="card__title"><a href="https://vientonorte.github.io/29092020/">Poemario Beta</a></div>
-                    <span class="card__badge card__badge--live">LIVE</span>
+                    <span class="card__badge card__badge--deprecated">DEPRECATED</span>
                 </div>
                 <div class="card__desc">
                     Poemario digital "Beta" — poesía y experimentación web. Navegación por secciones con diseño editorial.
@@ -419,48 +431,6 @@
                         <svg class="icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
                         Acceso restringido
                     </span>
-                </div>
-            </div>
-
-            <!-- CONTRA-ARCHIVO (Standalone repo) -->
-            <div class="card">
-                <div class="card__header">
-                    <div class="card__title"><a href="https://github.com/vientonorte/contra-archivo">contra-archivo</a></div>
-                    <span class="card__badge card__badge--repo">REPO</span>
-                </div>
-                <div class="card__desc">
-                    Repositorio complementario del Contra-Archivo. Versión separada del dispositivo crítico de investigación.
-                </div>
-                <div class="card__tags">
-                    <span class="tag">tesis</span>
-                    <span class="tag">archivo</span>
-                </div>
-                <div class="card__links">
-                    <a href="https://github.com/vientonorte/contra-archivo">
-                        <svg class="icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>                        Código
-                    </a>
-                </div>
-            </div>
-
-            <!-- PORTAFOLIO LEAD UX -->
-            <div class="card">
-                <div class="card__header">
-                    <div class="card__title"><a href="https://github.com/vientonorte/Portafolio-Lead-UX">Portafolio Lead UX</a></div>
-                    <span class="card__badge card__badge--repo">REPO</span>
-                </div>
-                <div class="card__desc">
-                    Portafolio profesional de liderazgo UX — casos de estudio, metodología y entregables. Build validado localmente con Vite y librería amplia de componentes UI.
-                </div>
-                <div class="card__tags">
-                    <span class="tag">UX Lead</span>
-                    <span class="tag">Vite</span>
-                    <span class="tag">portafolio</span>
-                    <span class="tag">build OK</span>
-                </div>
-                <div class="card__links">
-                    <a href="https://github.com/vientonorte/Portafolio-Lead-UX">
-                        <svg class="icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>                        Código
-                    </a>
                 </div>
             </div>
 
