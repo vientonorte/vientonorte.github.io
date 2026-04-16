@@ -39,6 +39,7 @@ Archivo: index.html
 ## Riesgos abiertos
 
 - Conteo de KPIs es manual; puede desalinearse si se agregan/remueven tarjetas sin actualizar stats.
+  → **Mitigado 2026-04-16**: se agregó stat "deprecado" para cubrir Poemario Beta; ahora los 8 cards están representados en los 5 stats del header.
 
 ## Próximo paso recomendado
 
