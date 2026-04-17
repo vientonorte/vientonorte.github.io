@@ -9,6 +9,26 @@ Formato:
 
 ---
 
+## 2026-04-15
+
+### fix(meta)
+- Se agrega `og:image` y `twitter:card summary_large_image` para preview social completo en LinkedIn y Twitter/X.
+
+### fix(a11y)
+- Se agrega skip-link "Saltar al contenido" visible al foco (`#proyectos`).
+- Se añaden `aria-label` descriptivos en dots de estado del header para lectores de pantalla.
+
+---
+
+## 2026-04-09
+
+### refactor
+- Se depreca tarjeta Poemario Beta (`29092020`): badge cambia a `DEPRECATED`, card con `opacity: 0.6`.
+- Se eliminan cards redundantes que ya no correspondían a proyectos activos.
+- Se actualiza descripción de `mi-portafolio` a stack real: React 19, Radix/shadcn, Tailwind v4, Vite 6.
+
+---
+
 ## 2026-04-06
 
 ### fix
