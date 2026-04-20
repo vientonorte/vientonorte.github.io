@@ -9,6 +9,18 @@ Formato:
 
 ---
 
+## 2026-04-20
+
+### fix
+- `fix(a11y)`: estado `:focus` agregado en `.link-disabled` y en `.card__links a` — cumplimiento WCAG 2.4.7 (foco visible).
+- `fix(a11y)`: hover de enlaces en `.card__links` ahora usa `--accent-hover` para diferenciación visual respecto al estado estático.
+- `fix(css)`: `font-size: 14px` en `.skip-link` reemplazado por `0.875rem` — consistencia de unidades relativas.
+- `feat(meta)`: `<meta name="theme-color">` y `<link rel="icon">` SVG inline añadidos al `<head>`.
+- `feat(seo)`: `<link rel="canonical">` añadido al `<head>`.
+- `docs`: README.md sincronizado con el estado actual del dashboard — eliminadas filas `contra-archivo` y `Portafolio Lead UX` que no existen en index.html.
+
+---
+
 ## 2026-04-16
 
 ### fix
