@@ -18,6 +18,21 @@ Formato:
 
 ---
 
+## 2026-04-22
+
+### fix
+- `fix(a11y)`: jerarquía de headings — `div.card__title` convertido a `h2.card__title` en las 9 cards. Lectores de pantalla y SEO navegan correctamente `h1 > h2`.
+- `fix(a11y)`: skip-link migrado de `top: -100%` a `clip-path: inset(100%)` — método preferido WCAG; se revela con `clip-path: inset(0)` al recibir foco.
+- `fix(a11y)`: SURA Investments span — eliminado `role="link"` y `tabindex="0"` de elemento no interactivo; reemplazado por `aria-label` descriptivo. Usuarios de teclado ya no tabulan a un elemento que no responde a Enter/Space.
+- `fix(css)`: sprite SVG migrado de `style="display:none"` a clase CSS `.svg-sprite` — elimina inline style inconsistente.
+- `fix(css)`: `--accent-hover` (#79c0ff) aplicado en hovers de `.card__title a`, `.card__links a` y `footer a`; variable que estaba definida pero sin uso.
+- `fix(css)`: `transition: color 0.15s` en `.card__links a` y `footer a` — hover suave en lugar de cambio abrupto.
+- `feat(css)`: breakpoint tablet `@media (max-width: 768px)` — grid ajusta a `minmax(280px, 1fr)` antes del colapso a columna única en 600px.
+- `feat(css)`: `line-height: 1.3` en `.card__title` — mejora lectura en títulos multi-línea.
+- `feat(seo)`: `<link rel="canonical">` y `<meta name="theme-color">` agregados al `<head>`.
+
+---
+
 ## 2026-04-16
 
 ### fix
