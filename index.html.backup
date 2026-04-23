@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proyectos de Rodrigo Gaete Gaona — UX Lead e Investigador doctoral en Antropología. Dashboard de repositorios en producción.">
+    <meta property="og:title" content="vientonorte — Proyectos">
+    <meta property="og:description" content="UX Lead · Investigador doctoral en Antropología · Proyectos en producción">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vientonorte.github.io">
+    <meta property="og:image" content="https://vientonorte.github.io/antropologia-corrupcion/img/an-lisis-ux-ui-mapeo-de-vulnerabilidades-de-expe.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="vientonorte — Proyectos">
+    <meta name="twitter:description" content="UX Lead · Investigador doctoral en Antropología · Proyectos en producción">
+    <meta name="twitter:image" content="https://vientonorte.github.io/antropologia-corrupcion/img/an-lisis-ux-ui-mapeo-de-vulnerabilidades-de-expe.jpg">
+    <title>vientonorte — Proyectos</title>
+    <style>
+         :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --border: #30363d;
+            --text: #e6edf3;
+            --text-muted: #8b949e;
+            --accent: #58a6ff;
+            --accent-hover: #79c0ff;
+            --accent-alpha: rgba(88, 166, 255, 0.1);
+            --green: #3fb950;
+            --yellow: #d29922;
+            --red: #f85149;
+            --purple: #bc8cff;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            background: var(--accent);
+            color: #000;
+            padding: 8px 16px;
+            font-size: 14px;
+            z-index: 9999;
+            text-decoration: none;
+        }
+        .skip-link:focus { top: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 1.5rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        header h1 span {
+            color: var(--accent);
+        }
+
+        header p {
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .stat strong {
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot--live {
+            background: var(--green);
+        }
+
+        .dot--private {
+            background: var(--yellow);
+        }
+
+        .dot--off {
+            background: var(--text-muted);
+        }
+
+        .dot--deprecated {
+            background: var(--red);
+        }
+
+        .dot--sprint {
+            background: var(--accent);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: border-color 0.15s;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+        }
+
+        .card__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .card__title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .card__title a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .card__title a:hover {
+            text-decoration: underline;
+        }
+
+        .card__badge {
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 12px;
+            border: 1px solid;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .card__badge--live {
+            color: var(--green);
+            border-color: var(--green);
+        }
+
+        .card__badge--private {
+            color: var(--yellow);
+            border-color: var(--yellow);
+        }
+
+        .card__badge--repo {
+            color: var(--purple);
+            border-color: var(--purple);
+        }
+
+        .card__badge--deprecated {
+            color: var(--red);
+            border-color: var(--red);
+        }
+
+        .card--deprecated {
+            opacity: 0.6;
+        }
+
+        .card__desc {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            flex: 1;
+        }
+
+        .card__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            background: var(--accent-alpha);
+            color: var(--accent);
+            padding: 0.15rem 0.5rem;
+            border-radius: 12px;
+        }
+
+        .card__links {
+            display: flex;
+            gap: 0.75rem;
+            font-size: 0.8rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .card__links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .card__links .link-disabled {
+            color: var(--text-muted);
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            cursor: not-allowed;
+        }
+
+        .card__links a:hover {
+            color: var(--accent);
+        }
+
+        .icon {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- SVG sprite — iconos reutilizables via <use href="#id"> -->
+    <svg style="display:none" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="icon-site" viewBox="0 0 16 16">
+                <path d="M4.5 8a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5h-7Z"/>
+                <path d="M1 1.75C1 .784 1.784 0 2.75 0h10.5c.966 0 1.75.784 1.75 1.75v12.5A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25V1.75Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Z"/>
+            </symbol>
+            <symbol id="icon-github" viewBox="0 0 16 16">
+                <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <a class="skip-link" href="#proyectos">Saltar al contenido</a>
+
+    <header>
+        <h1><span>vientonorte</span> — proyectos</h1>
+        <p>Rodrigo Gaete Gaona · UX Lead · Investigador doctoral en Antropología</p>
+        <div class="stats">
+            <div class="stat"><span class="dot dot--live" aria-label="En producción"></span> <strong>5</strong> en producción</div>
+            <div class="stat"><span class="dot dot--private" aria-label="Privado"></span> <strong>1</strong> privado</div>
+            <div class="stat"><span class="dot dot--off" aria-label="Sin deploy"></span> <strong>2</strong> sin deploy</div>
+            <div class="stat"><span class="dot dot--deprecated" aria-label="Deprecado"></span> <strong>1</strong> deprecado</div>
+            <div class="stat"><span class="dot dot--sprint" aria-label="Sprint activo"></span> <strong>2026</strong> sprint activo</div>
+        </div>
+    </header>
+
+    <main id="proyectos">
+        <div class="grid">
+
+            <!-- ANTROPOLOGÍA CORRUPCIÓN -->
+            <article class="card" aria-label="Contra-Archivo">
+                <div class="card__header">
+                    <div class="card__title"><a href="https://vientonorte.github.io/antropologia-corrupcion/">Contra-Archivo</a></div>
+                    <span class="card__badge card__badge--live">LIVE</span>
+                </div>
+                <div class="card__desc">
+                    Instrumento cualitativo de análisis multi-situado — Tesis doctoral en Antropología y Corrupción. Grafo SVG force-directed, campo Coulomb, simulación termodinámica, buscador de fricción epistemológica.
+                </div>
+                <div class="card__tags">
+                    <span class="tag">etnografía</span>
+                    <span class="tag">vanilla JS</span>
+                    <span class="tag">SVG</span>
+                    <span class="tag">Canvas2D</span>
+                    <span class="tag">zero deps</span>
+                </div>
+                <div class="card__links">
+                    <a href="https://vientonorte.github.io/antropologia-corrupcion/">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
+                        Ver sitio
+                    </a>
+                    <a href="https://github.com/vientonorte/antropologia-corrupcion">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+                        Código
+                    </a>
+                </div>
+            </article>
+
+            <!-- TABLE-RO -->
+            <article class="card" aria-label="table-ro">
+                <div class="card__header">
+                    <div class="card__title"><a href="https://vientonorte.github.io/table-ro/">table-ro</a></div>
+                    <span class="card__badge card__badge--live">LIVE</span>
+                </div>
+                <div class="card__desc">
+                    Planificador semanal con sync Google Calendar, PWA, análisis BuJo con IA y CRUD completo de eventos. Bullet journal digital con edición, cancelación, notas y borrado desde menú contextual.
+                </div>
+                <div class="card__tags">
+                    <span class="tag">productividad</span>
+                    <span class="tag">IA multimodal</span>
+                    <span class="tag">vanilla JS</span>
+                    <span class="tag">PWA</span>
+                    <span class="tag">CRUD</span>
+                </div>
+                <div class="card__links">
+                    <a href="https://vientonorte.github.io/table-ro/">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
+                        Ver sitio
+                    </a>
+                    <a href="https://github.com/vientonorte/table-ro">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+                        Código
+                    </a>
+                </div>
+            </article>
+
+            <!-- DASHFIN -->
+            <article class="card" aria-label="dashfin">
+                <div class="card__header">
+                    <div class="card__title"><a href="https://vientonorte.github.io/dashfin/">dashfin</a></div>
+                    <span class="card__badge card__badge--live">LIVE</span>
+                </div>
+                <div class="card__desc">
+                    CFO Dashboard — React + TypeScript + Tailwind. Import CSV, roles RBAC, AI insights y persistencia híbrida localStorage + Supabase.
+                </div>
+                <div class="card__tags">
+                    <span class="tag">React</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">dashboard</span>
+                    <span class="tag">Tailwind</span>
+                    <span class="tag">Supabase</span>
+                </div>
+                <div class="card__links">
+                    <a href="https://vientonorte.github.io/dashfin/">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
+                        Ver sitio
+                    </a>
+                    <a href="https://github.com/vientonorte/dashfin">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+                        Código
+                    </a>
+                </div>
+            </article>
+
+            <!-- MI-PORTAFOLIO -->
+            <article class="card" aria-label="mi-portafolio">
+                <div class="card__header">
+                    <div class="card__title"><a href="https://vientonorte.github.io/mi-portafolio/">mi-portafolio · Design Sprint</a></div>
+                    <span class="card__badge card__badge--live">LIVE</span>
+                </div>
+                <div class="card__desc">
+                    Portafolio UX Lead con enfoque Design Sprint + Design Thinking. Evolución de casos y metodología aplicada en líneas Evolve y Syncronzy sobre stack React 19, Tailwind v4 y Vite 6.
+                </div>
+                <div class="card__tags">
+                    <span class="tag">React 19</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Design Sprint</span>
+                    <span class="tag">Evolve</span>
+                    <span class="tag">Syncronzy</span>
+                </div>
+                <div class="card__links">
+                    <a href="https://vientonorte.github.io/mi-portafolio/">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
+                        Ver sitio
+                    </a>
+                    <a href="https://github.com/vientonorte/mi-portafolio">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+                        Código
+                    </a>
+                </div>
+            </article>
+
+            <article class="card" aria-label="uxtools">
+                <div class="card__header">
+                    <div class="card__title"><a href="https://vientonorte.github.io/uxtools/">uxtools</a></div>
+                    <span class="card__badge card__badge--live">LIVE</span>
+                </div>
+                <div class="card__desc">
+                    UX Auto-Doc Engine — Generador de documentación técnica UX: flujos de interacción, criterios de aceptación, tablas de integridad y assets para Figma. Identidad SURA Investments.
+                </div>
+                <div class="card__tags">
+                    <span class="tag">UX Tools</span>
+                    <span class="tag">Vanilla JS</span>
+                    <span class="tag">localStorage</span>
+                    <span class="tag">SURA</span>
+                    <span class="tag">Figma export</span>
+                </div>
+                <div class="card__links">
+                    <a href="https://vientonorte.github.io/uxtools/">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
+                        Ver sitio
+                    </a>
+                    <a href="https://github.com/vientonorte/UXFLOW">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+                        Código
+                    </a>
+                </div>
+            </article>
+
+            <!-- 29092020 — DEPRECATED -->
+            <article class="card card--deprecated" aria-label="Poemario Beta (deprecado)">
+                <div class="card__header">
+                    <div class="card__title"><a href="https://vientonorte.github.io/29092020/">Poemario Beta</a></div>
+                    <span class="card__badge card__badge--deprecated">DEPRECATED</span>
+                </div>
+                <div class="card__desc">
+                    Poemario digital "Beta" — poesía y experimentación web. Navegación por secciones con diseño editorial.
+                </div>
+                <div class="card__tags">
+                    <span class="tag">poesía</span>
+                    <span class="tag">editorial</span>
+                    <span class="tag">HTML</span>
+                </div>
+                <div class="card__links">
+                    <a href="https://vientonorte.github.io/29092020/">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
+                        Ver sitio
+                    </a>
+                    <a href="https://github.com/vientonorte/29092020">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+                        Código
+                    </a>
+                </div>
+            </article>
+
+            <!-- SURA INVESTMENTS -->
+            <article class="card" aria-label="SURA Investments">
+                <div class="card__header">
+                    <div class="card__title">SURA Investments</div>
+                    <span class="card__badge card__badge--private">PRIVADO</span>
+                </div>
+                <div class="card__desc">
+                    UX Lead Dashboard — Estado del Arte, análisis DEI, CMA, entregables y seguimiento Q1 2026. Estrategia digital y gobernanza de datos.
+                </div>
+                <div class="card__tags">
+                    <span class="tag">UX Lead</span>
+                    <span class="tag">fintech</span>
+                    <span class="tag">gobernanza</span>
+                </div>
+                <div class="card__links">
+                    <span class="link-disabled" role="link" aria-disabled="true" tabindex="0" title="Repositorio privado">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+                        Acceso restringido
+                    </span>
+                </div>
+            </article>
+
+            <!-- DIHE -->
+            <article class="card" aria-label="dihe">
+                <div class="card__header">
+                    <div class="card__title"><a href="https://github.com/vientonorte/dihe">dihe</a></div>
+                    <span class="card__badge card__badge--repo">REPO</span>
+                </div>
+                <div class="card__desc">
+                    Proyecto experimental de diseño e interacción.
+                </div>
+                <div class="card__tags">
+                    <span class="tag">experimental</span>
+                </div>
+                <div class="card__links">
+                    <a href="https://github.com/vientonorte/dihe">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+                        Código
+                    </a>
+                </div>
+            </article>
+
+            <!-- KHURO -->
+            <article class="card" aria-label="khuro">
+                <div class="card__header">
+                    <div class="card__title"><a href="https://github.com/vientonorte/khuro">khuro</a></div>
+                    <span class="card__badge card__badge--repo">REPO</span>
+                </div>
+                <div class="card__desc">
+                    Proyecto legacy — archivo de código temprano.
+                </div>
+                <div class="card__tags">
+                    <span class="tag">archivo</span>
+                </div>
+                <div class="card__links">
+                    <a href="https://github.com/vientonorte/khuro">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+                        Código
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>vientonorte · <a href="https://github.com/vientonorte">github.com/vientonorte</a> · Abril 2026</p>
+    </footer>
+
+</body>
+
+</html>

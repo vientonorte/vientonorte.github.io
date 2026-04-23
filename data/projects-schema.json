@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/data/projects-schema.json",
+  "title": "Vientonorte Projects",
+  "description": "Schema for vientonorte project metadata",
+  "type": "object",
+  "required": ["version", "updated", "projects"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Schema version (semver)",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "updated": {
+      "type": "string",
+      "description": "Last update date (ISO 8601)",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "projects": {
+      "type": "array",
+      "description": "List of vientonorte projects",
+      "items": {
+        "$ref": "#/definitions/project"
+      }
+    }
+  },
+  "definitions": {
+    "project": {
+      "type": "object",
+      "required": ["id", "title", "status", "description", "tags", "deprecated", "private", "ariaLabel"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique project identifier (kebab-case)",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "title": {
+          "type": "string",
+          "description": "Display title",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "description": "Project status",
+          "enum": ["live", "deprecated", "private", "repo"]
+        },
+        "url": {
+          "type": ["string", "null"],
+          "description": "Live site URL (null if not deployed)",
+          "format": "uri"
+        },
+        "repo": {
+          "type": ["string", "null"],
+          "description": "GitHub repository URL (null if private)",
+          "format": "uri"
+        },
+        "description": {
+          "type": "string",
+          "description": "Project description",
+          "minLength": 1
+        },
+        "tags": {
+          "type": "array",
+          "description": "Technology/category tags",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "deprecated": {
+          "type": "boolean",
+          "description": "Whether project is deprecated"
+        },
+        "private": {
+          "type": "boolean",
+          "description": "Whether project is private"
+        },
+        "ariaLabel": {
+          "type": "string",
+          "description": "Accessible label for screen readers",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

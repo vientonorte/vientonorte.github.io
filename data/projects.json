@@ -1,0 +1,115 @@
+{
+  "$schema": "./projects-schema.json",
+  "version": "1.0.0",
+  "updated": "2026-04-23",
+  "projects": [
+    {
+      "id": "antropologia-corrupcion",
+      "title": "Contra-Archivo",
+      "status": "live",
+      "url": "https://vientonorte.github.io/antropologia-corrupcion/",
+      "repo": "https://github.com/vientonorte/antropologia-corrupcion",
+      "description": "Instrumento cualitativo de análisis multi-situado — Tesis doctoral en Antropología y Corrupción. Grafo SVG force-directed, campo Coulomb, simulación termodinámica, buscador de fricción epistemológica.",
+      "tags": ["etnografía", "vanilla JS", "SVG", "Canvas2D", "zero deps"],
+      "deprecated": false,
+      "private": false,
+      "ariaLabel": "Contra-Archivo"
+    },
+    {
+      "id": "table-ro",
+      "title": "table-ro",
+      "status": "live",
+      "url": "https://vientonorte.github.io/table-ro/",
+      "repo": "https://github.com/vientonorte/table-ro",
+      "description": "Planificador semanal con sync Google Calendar, PWA, análisis BuJo con IA y CRUD completo de eventos. Bullet journal digital con edición, cancelación, notas y borrado desde menú contextual.",
+      "tags": ["productividad", "IA multimodal", "vanilla JS", "PWA", "CRUD"],
+      "deprecated": false,
+      "private": false,
+      "ariaLabel": "table-ro"
+    },
+    {
+      "id": "dashfin",
+      "title": "dashfin",
+      "status": "live",
+      "url": "https://vientonorte.github.io/dashfin/",
+      "repo": "https://github.com/vientonorte/dashfin",
+      "description": "CFO Dashboard — React + TypeScript + Tailwind. Import CSV, roles RBAC, AI insights y persistencia híbrida localStorage + Supabase.",
+      "tags": ["React", "TypeScript", "dashboard", "Tailwind", "Supabase"],
+      "deprecated": false,
+      "private": false,
+      "ariaLabel": "dashfin"
+    },
+    {
+      "id": "mi-portafolio",
+      "title": "mi-portafolio · Design Sprint",
+      "status": "live",
+      "url": "https://vientonorte.github.io/mi-portafolio/",
+      "repo": "https://github.com/vientonorte/mi-portafolio",
+      "description": "Portafolio UX Lead con enfoque Design Sprint + Design Thinking. Evolución de casos y metodología aplicada en líneas Evolve y Syncronzy sobre stack React 19, Tailwind v4 y Vite 6.",
+      "tags": ["React 19", "TypeScript", "Design Sprint", "Evolve", "Syncronzy"],
+      "deprecated": false,
+      "private": false,
+      "ariaLabel": "mi-portafolio"
+    },
+    {
+      "id": "uxtools",
+      "title": "uxtools",
+      "status": "live",
+      "url": "https://vientonorte.github.io/uxtools/",
+      "repo": "https://github.com/vientonorte/UXFLOW",
+      "description": "UX Auto-Doc Engine — Generador de documentación técnica UX: flujos de interacción, criterios de aceptación, tablas de integridad y assets para Figma. Identidad SURA Investments.",
+      "tags": ["UX Tools", "Vanilla JS", "localStorage", "SURA", "Figma export"],
+      "deprecated": false,
+      "private": false,
+      "ariaLabel": "uxtools"
+    },
+    {
+      "id": "29092020",
+      "title": "Poemario Beta",
+      "status": "deprecated",
+      "url": "https://vientonorte.github.io/29092020/",
+      "repo": "https://github.com/vientonorte/29092020",
+      "description": "Poemario digital \"Beta\" — poesía y experimentación web. Navegación por secciones con diseño editorial.",
+      "tags": ["poesía", "editorial", "HTML"],
+      "deprecated": true,
+      "private": false,
+      "ariaLabel": "Poemario Beta (deprecado)"
+    },
+    {
+      "id": "sura-investments",
+      "title": "SURA Investments",
+      "status": "private",
+      "url": null,
+      "repo": null,
+      "description": "UX Lead Dashboard — Estado del Arte, análisis DEI, CMA, entregables y seguimiento Q1 2026. Estrategia digital y gobernanza de datos.",
+      "tags": ["UX Lead", "fintech", "gobernanza"],
+      "deprecated": false,
+      "private": true,
+      "ariaLabel": "SURA Investments"
+    },
+    {
+      "id": "dihe",
+      "title": "dihe",
+      "status": "repo",
+      "url": null,
+      "repo": "https://github.com/vientonorte/dihe",
+      "description": "Proyecto experimental de diseño e interacción.",
+      "tags": ["experimental"],
+      "deprecated": false,
+      "private": false,
+      "ariaLabel": "dihe"
+    },
+    {
+      "id": "khuro",
+      "title": "khuro",
+      "status": "repo",
+      "url": null,
+      "repo": "https://github.com/vientonorte/khuro",
+      "description": "Proyecto legacy — archivo de código temprano.",
+      "tags": ["archivo"],
+      "deprecated": false,
+      "private": false,
+      "ariaLabel": "khuro"
+    }
+  ]
+}
