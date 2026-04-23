@@ -9,6 +9,15 @@ Formato:
 
 ---
 
+## 2026-04-23
+
+### feat
+- Actualización de tarjeta `mi-portafolio` en `index.html` para reflejar foco en Design Sprint y Design Thinking.
+- Se incorpora referencia explícita a líneas `Evolve` y `Syncronzy` en descripción y tags de la tarjeta.
+- Se mantiene estructura de enlaces y estado `LIVE` sin alterar KPIs globales del header.
+
+---
+
 ## 2026-04-22
 
 ### fix
