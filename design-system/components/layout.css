@@ -1,0 +1,89 @@
+/**
+ * Vientonorte Design System - Layout Components
+ * Version: 1.0.0
+ * 
+ * Header, main, footer, and grid layout components.
+ */
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+header {
+    border-bottom: var(--vn-border-width) solid var(--vn-color-border);
+    padding: var(--vn-space-6xl) var(--vn-space-5xl) var(--vn-space-5xl);
+    max-width: var(--vn-container-max-width);
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: var(--vn-font-size-3xl);
+    font-weight: var(--vn-font-weight-semibold);
+    letter-spacing: var(--vn-letter-spacing-tight);
+}
+
+header h1 span {
+    color: var(--vn-color-accent);
+}
+
+header p {
+    color: var(--vn-color-text-muted);
+    margin-top: var(--vn-space-sm);
+    font-size: var(--vn-font-size-lg);
+}
+
+/* ============================================
+   MAIN
+   ============================================ */
+
+main {
+    max-width: var(--vn-container-max-width);
+    margin: 0 auto;
+    padding: var(--vn-space-5xl);
+}
+
+/* ============================================
+   GRID
+   ============================================ */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--vn-grid-min-column-width), 1fr));
+    gap: var(--vn-space-3xl);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer {
+    text-align: center;
+    padding: var(--vn-space-6xl);
+    color: var(--vn-color-text-muted);
+    font-size: var(--vn-font-size-sm);
+    border-top: var(--vn-border-width) solid var(--vn-color-border);
+    margin-top: var(--vn-space-6xl);
+}
+
+footer a {
+    color: var(--vn-color-accent);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    header h1 {
+        font-size: var(--vn-font-size-2xl);
+    }
+}

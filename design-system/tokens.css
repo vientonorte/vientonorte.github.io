@@ -1,0 +1,150 @@
+/**
+ * Vientonorte Design System - Design Tokens
+ * Version: 1.0.0
+ * 
+ * CSS custom properties for consistent theming across all vientonorte projects.
+ * Usage: Import this file or use via CDN: https://vientonorte.github.io/cdn/v1/tokens.css
+ */
+
+:root {
+    /* ============================================
+       COLOR TOKENS
+       ============================================ */
+    
+    /* Base colors */
+    --vn-color-bg: #0d1117;
+    --vn-color-surface: #161b22;
+    --vn-color-border: #30363d;
+    
+    /* Text colors */
+    --vn-color-text: #e6edf3;
+    --vn-color-text-muted: #8b949e;
+    
+    /* Accent colors */
+    --vn-color-accent: #58a6ff;
+    --vn-color-accent-hover: #79c0ff;
+    --vn-color-accent-alpha: rgba(88, 166, 255, 0.1);
+    
+    /* Status colors */
+    --vn-color-green: #3fb950;
+    --vn-color-yellow: #d29922;
+    --vn-color-red: #f85149;
+    --vn-color-purple: #bc8cff;
+    
+    /* ============================================
+       TYPOGRAPHY TOKENS
+       ============================================ */
+    
+    /* Font families */
+    --vn-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    
+    /* Font sizes */
+    --vn-font-size-xs: 0.7rem;      /* 11.2px - tags, badges */
+    --vn-font-size-sm: 0.8rem;      /* 12.8px - links */
+    --vn-font-size-base: 0.85rem;   /* 13.6px - stats */
+    --vn-font-size-md: 0.875rem;    /* 14px - card description */
+    --vn-font-size-lg: 0.95rem;     /* 15.2px - header subtitle */
+    --vn-font-size-xl: 1.1rem;      /* 17.6px - card title, stat value */
+    --vn-font-size-2xl: 1.3rem;     /* 20.8px - mobile header */
+    --vn-font-size-3xl: 1.75rem;    /* 28px - desktop header */
+    
+    /* Font weights */
+    --vn-font-weight-normal: 400;
+    --vn-font-weight-medium: 500;
+    --vn-font-weight-semibold: 600;
+    
+    /* Line heights */
+    --vn-line-height-base: 1.6;
+    --vn-line-height-tight: 1.2;
+    
+    /* Letter spacing */
+    --vn-letter-spacing-tight: -0.02em;
+    
+    /* ============================================
+       SPACING TOKENS
+       ============================================ */
+    
+    /* Base spacing scale (rem units) */
+    --vn-space-xs: 0.15rem;    /* 2.4px - badge/tag padding */
+    --vn-space-sm: 0.25rem;    /* 4px - header subtitle margin */
+    --vn-space-md: 0.3rem;     /* 4.8px - icon gap */
+    --vn-space-lg: 0.4rem;     /* 6.4px - stat gap, tag gap */
+    --vn-space-xl: 0.5rem;     /* 8px - badge padding, card gap spacing */
+    --vn-space-2xl: 0.75rem;   /* 12px - card padding items, links gap */
+    --vn-space-3xl: 1rem;      /* 16px - stats margin, grid gap */
+    --vn-space-4xl: 1.25rem;   /* 20px - card padding */
+    --vn-space-5xl: 1.5rem;    /* 24px - main padding, stats gap, header padding */
+    --vn-space-6xl: 2rem;      /* 32px - footer padding, header padding top */
+    
+    /* ============================================
+       BORDER TOKENS
+       ============================================ */
+    
+    /* Border widths */
+    --vn-border-width: 1px;
+    
+    /* Border radius */
+    --vn-border-radius-sm: 8px;    /* cards */
+    --vn-border-radius-full: 12px; /* badges, tags */
+    --vn-border-radius-circle: 50%; /* dots */
+    
+    /* ============================================
+       LAYOUT TOKENS
+       ============================================ */
+    
+    /* Container widths */
+    --vn-container-max-width: 1200px;
+    
+    /* Grid */
+    --vn-grid-min-column-width: 340px;
+    
+    /* ============================================
+       EFFECT TOKENS
+       ============================================ */
+    
+    /* Transitions */
+    --vn-transition-fast: 0.15s;
+    
+    /* Opacity */
+    --vn-opacity-disabled: 0.6;
+    --vn-opacity-muted: 0.7;
+    
+    /* Size tokens */
+    --vn-icon-size: 14px;
+    --vn-dot-size: 8px;
+    
+    /* ============================================
+       BREAKPOINTS (for reference in media queries)
+       ============================================ */
+    
+    /* 
+     * Note: CSS custom properties cannot be used in media queries.
+     * These are documented here for reference.
+     * Use: @media (max-width: 600px) { ... }
+     */
+    
+    /* --vn-breakpoint-mobile: 600px; */
+}
+
+/* ============================================
+   LEGACY COMPATIBILITY TOKENS
+   ============================================
+   
+   These map old variable names to new tokens for backward compatibility.
+   Use the --vn-* prefixed tokens in new code.
+*/
+
+:root {
+    --bg: var(--vn-color-bg);
+    --surface: var(--vn-color-surface);
+    --border: var(--vn-color-border);
+    --text: var(--vn-color-text);
+    --text-muted: var(--vn-color-text-muted);
+    --accent: var(--vn-color-accent);
+    --accent-hover: var(--vn-color-accent-hover);
+    --accent-alpha: var(--vn-color-accent-alpha);
+    --green: var(--vn-color-green);
+    --yellow: var(--vn-color-yellow);
+    --red: var(--vn-color-red);
+    --purple: var(--vn-color-purple);
+}

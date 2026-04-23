@@ -1,0 +1,65 @@
+/**
+ * Vientonorte Design System - Stat Component
+ * Version: 1.0.0
+ * 
+ * Statistical indicator component for dashboard metrics.
+ */
+
+/* ============================================
+   STATS CONTAINER
+   ============================================ */
+
+.stats {
+    display: flex;
+    gap: var(--vn-space-5xl);
+    margin-top: var(--vn-space-3xl);
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   STAT BASE
+   ============================================ */
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: var(--vn-space-lg);
+    font-size: var(--vn-font-size-base);
+    color: var(--vn-color-text-muted);
+}
+
+.stat strong {
+    color: var(--vn-color-text);
+    font-size: var(--vn-font-size-xl);
+}
+
+/* ============================================
+   DOT INDICATOR
+   ============================================ */
+
+.dot {
+    width: var(--vn-dot-size);
+    height: var(--vn-dot-size);
+    border-radius: var(--vn-border-radius-circle);
+    display: inline-block;
+}
+
+.dot--live {
+    background: var(--vn-color-green);
+}
+
+.dot--private {
+    background: var(--vn-color-yellow);
+}
+
+.dot--off {
+    background: var(--vn-color-text-muted);
+}
+
+.dot--deprecated {
+    background: var(--vn-color-red);
+}
+
+.dot--sprint {
+    background: var(--vn-color-accent);
+}

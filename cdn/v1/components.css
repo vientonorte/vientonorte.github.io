@@ -1,0 +1,348 @@
+/* Vientonorte Design System v1.0.0 - Components Only */
+/**
+ * Vientonorte Design System - Layout Components
+ * Version: 1.0.0
+ * 
+ * Header, main, footer, and grid layout components.
+ */
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+header {
+    border-bottom: var(--vn-border-width) solid var(--vn-color-border);
+    padding: var(--vn-space-6xl) var(--vn-space-5xl) var(--vn-space-5xl);
+    max-width: var(--vn-container-max-width);
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: var(--vn-font-size-3xl);
+    font-weight: var(--vn-font-weight-semibold);
+    letter-spacing: var(--vn-letter-spacing-tight);
+}
+
+header h1 span {
+    color: var(--vn-color-accent);
+}
+
+header p {
+    color: var(--vn-color-text-muted);
+    margin-top: var(--vn-space-sm);
+    font-size: var(--vn-font-size-lg);
+}
+
+/* ============================================
+   MAIN
+   ============================================ */
+
+main {
+    max-width: var(--vn-container-max-width);
+    margin: 0 auto;
+    padding: var(--vn-space-5xl);
+}
+
+/* ============================================
+   GRID
+   ============================================ */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--vn-grid-min-column-width), 1fr));
+    gap: var(--vn-space-3xl);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer {
+    text-align: center;
+    padding: var(--vn-space-6xl);
+    color: var(--vn-color-text-muted);
+    font-size: var(--vn-font-size-sm);
+    border-top: var(--vn-border-width) solid var(--vn-color-border);
+    margin-top: var(--vn-space-6xl);
+}
+
+footer a {
+    color: var(--vn-color-accent);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    header h1 {
+        font-size: var(--vn-font-size-2xl);
+    }
+}
+
+/**
+ * Vientonorte Design System - Card Component
+ * Version: 1.0.0
+ * 
+ * Project card component with variants for different states.
+ */
+
+/* ============================================
+   CARD BASE
+   ============================================ */
+
+.card {
+    background: var(--vn-color-surface);
+    border: var(--vn-border-width) solid var(--vn-color-border);
+    border-radius: var(--vn-border-radius-sm);
+    padding: var(--vn-space-4xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--vn-space-2xl);
+    transition: border-color var(--vn-transition-fast);
+}
+
+.card:hover {
+    border-color: var(--vn-color-accent);
+}
+
+/* ============================================
+   CARD VARIANTS
+   ============================================ */
+
+.card--deprecated {
+    opacity: var(--vn-opacity-disabled);
+}
+
+/* ============================================
+   CARD HEADER
+   ============================================ */
+
+.card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--vn-space-xl);
+}
+
+.card__title {
+    font-size: var(--vn-font-size-xl);
+    font-weight: var(--vn-font-weight-semibold);
+}
+
+.card__title a {
+    color: var(--vn-color-accent);
+    text-decoration: none;
+}
+
+.card__title a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   CARD CONTENT
+   ============================================ */
+
+.card__desc {
+    color: var(--vn-color-text-muted);
+    font-size: var(--vn-font-size-md);
+    flex: 1;
+}
+
+/* ============================================
+   CARD FOOTER
+   ============================================ */
+
+.card__links {
+    display: flex;
+    gap: var(--vn-space-2xl);
+    font-size: var(--vn-font-size-sm);
+    padding-top: var(--vn-space-xl);
+    border-top: var(--vn-border-width) solid var(--vn-color-border);
+}
+
+.card__links a {
+    color: var(--vn-color-text-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: var(--vn-space-md);
+}
+
+.card__links .link-disabled {
+    color: var(--vn-color-text-muted);
+    opacity: var(--vn-opacity-muted);
+    display: flex;
+    align-items: center;
+    gap: var(--vn-space-md);
+    cursor: not-allowed;
+}
+
+.card__links a:hover {
+    color: var(--vn-color-accent);
+}
+
+/**
+ * Vientonorte Design System - Badge Component
+ * Version: 1.0.0
+ * 
+ * Status badge component for indicating project states.
+ */
+
+/* ============================================
+   BADGE BASE
+   ============================================ */
+
+.card__badge {
+    font-size: var(--vn-font-size-xs);
+    padding: var(--vn-space-xs) var(--vn-space-xl);
+    border-radius: var(--vn-border-radius-full);
+    border: var(--vn-border-width) solid;
+    white-space: nowrap;
+    font-weight: var(--vn-font-weight-medium);
+}
+
+/* ============================================
+   BADGE VARIANTS
+   ============================================ */
+
+.card__badge--live {
+    color: var(--vn-color-green);
+    border-color: var(--vn-color-green);
+}
+
+.card__badge--private {
+    color: var(--vn-color-yellow);
+    border-color: var(--vn-color-yellow);
+}
+
+.card__badge--repo {
+    color: var(--vn-color-purple);
+    border-color: var(--vn-color-purple);
+}
+
+.card__badge--deprecated {
+    color: var(--vn-color-red);
+    border-color: var(--vn-color-red);
+}
+
+/**
+ * Vientonorte Design System - Tag Component
+ * Version: 1.0.0
+ * 
+ * Technology/category tag component.
+ */
+
+/* ============================================
+   TAG CONTAINER
+   ============================================ */
+
+.card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--vn-space-lg);
+}
+
+/* ============================================
+   TAG BASE
+   ============================================ */
+
+.tag {
+    font-size: var(--vn-font-size-xs);
+    background: var(--vn-color-accent-alpha);
+    color: var(--vn-color-accent);
+    padding: var(--vn-space-xs) var(--vn-space-xl);
+    border-radius: var(--vn-border-radius-full);
+}
+
+/**
+ * Vientonorte Design System - Stat Component
+ * Version: 1.0.0
+ * 
+ * Statistical indicator component for dashboard metrics.
+ */
+
+/* ============================================
+   STATS CONTAINER
+   ============================================ */
+
+.stats {
+    display: flex;
+    gap: var(--vn-space-5xl);
+    margin-top: var(--vn-space-3xl);
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   STAT BASE
+   ============================================ */
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: var(--vn-space-lg);
+    font-size: var(--vn-font-size-base);
+    color: var(--vn-color-text-muted);
+}
+
+.stat strong {
+    color: var(--vn-color-text);
+    font-size: var(--vn-font-size-xl);
+}
+
+/* ============================================
+   DOT INDICATOR
+   ============================================ */
+
+.dot {
+    width: var(--vn-dot-size);
+    height: var(--vn-dot-size);
+    border-radius: var(--vn-border-radius-circle);
+    display: inline-block;
+}
+
+.dot--live {
+    background: var(--vn-color-green);
+}
+
+.dot--private {
+    background: var(--vn-color-yellow);
+}
+
+.dot--off {
+    background: var(--vn-color-text-muted);
+}
+
+.dot--deprecated {
+    background: var(--vn-color-red);
+}
+
+.dot--sprint {
+    background: var(--vn-color-accent);
+}
+
+/**
+ * Vientonorte Design System - Icon Component
+ * Version: 1.0.0
+ * 
+ * SVG icon system using sprite pattern.
+ */
+
+/* ============================================
+   ICON BASE
+   ============================================ */
+
+.icon {
+    width: var(--vn-icon-size);
+    height: var(--vn-icon-size);
+    fill: currentColor;
+}

@@ -1,0 +1,16 @@
+/**
+ * Vientonorte Design System - Icon Component
+ * Version: 1.0.0
+ * 
+ * SVG icon system using sprite pattern.
+ */
+
+/* ============================================
+   ICON BASE
+   ============================================ */
+
+.icon {
+    width: var(--vn-icon-size);
+    height: var(--vn-icon-size);
+    fill: currentColor;
+}

@@ -1,0 +1,43 @@
+/**
+ * Vientonorte Design System - Badge Component
+ * Version: 1.0.0
+ * 
+ * Status badge component for indicating project states.
+ */
+
+/* ============================================
+   BADGE BASE
+   ============================================ */
+
+.card__badge {
+    font-size: var(--vn-font-size-xs);
+    padding: var(--vn-space-xs) var(--vn-space-xl);
+    border-radius: var(--vn-border-radius-full);
+    border: var(--vn-border-width) solid;
+    white-space: nowrap;
+    font-weight: var(--vn-font-weight-medium);
+}
+
+/* ============================================
+   BADGE VARIANTS
+   ============================================ */
+
+.card__badge--live {
+    color: var(--vn-color-green);
+    border-color: var(--vn-color-green);
+}
+
+.card__badge--private {
+    color: var(--vn-color-yellow);
+    border-color: var(--vn-color-yellow);
+}
+
+.card__badge--repo {
+    color: var(--vn-color-purple);
+    border-color: var(--vn-color-purple);
+}
+
+.card__badge--deprecated {
+    color: var(--vn-color-red);
+    border-color: var(--vn-color-red);
+}

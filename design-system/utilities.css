@@ -1,0 +1,43 @@
+/**
+ * Vientonorte Design System - Utility Classes
+ * Version: 1.0.0
+ * 
+ * Helper utility classes for common patterns.
+ */
+
+/* ============================================
+   DISPLAY UTILITIES
+   ============================================ */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ============================================
+   TEXT UTILITIES
+   ============================================ */
+
+.text-muted {
+    color: var(--vn-color-text-muted);
+}
+
+.text-accent {
+    color: var(--vn-color-accent);
+}
+
+/* ============================================
+   SPACING UTILITIES
+   ============================================ */
+
+.mt-1 { margin-top: var(--vn-space-3xl); }
+.mb-1 { margin-bottom: var(--vn-space-3xl); }
+.mt-2 { margin-top: var(--vn-space-6xl); }
+.mb-2 { margin-bottom: var(--vn-space-6xl); }

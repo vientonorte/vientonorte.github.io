@@ -1,0 +1,50 @@
+/**
+ * Vientonorte Design System - Reset & Base Styles
+ * Version: 1.0.0
+ * 
+ * Minimal CSS reset and base styles for consistent rendering.
+ */
+
+/* ============================================
+   CSS RESET
+   ============================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+body {
+    font-family: var(--vn-font-family-base);
+    background: var(--vn-color-bg);
+    color: var(--vn-color-text);
+    line-height: var(--vn-line-height-base);
+    min-height: 100vh;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: var(--vn-color-accent);
+    color: #000;
+    padding: var(--vn-space-2xl) var(--vn-space-3xl);
+    font-size: var(--vn-font-size-md);
+    z-index: 9999;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 0;
+}

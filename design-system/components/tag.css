@@ -1,0 +1,28 @@
+/**
+ * Vientonorte Design System - Tag Component
+ * Version: 1.0.0
+ * 
+ * Technology/category tag component.
+ */
+
+/* ============================================
+   TAG CONTAINER
+   ============================================ */
+
+.card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--vn-space-lg);
+}
+
+/* ============================================
+   TAG BASE
+   ============================================ */
+
+.tag {
+    font-size: var(--vn-font-size-xs);
+    background: var(--vn-color-accent-alpha);
+    color: var(--vn-color-accent);
+    padding: var(--vn-space-xs) var(--vn-space-xl);
+    border-radius: var(--vn-border-radius-full);
+}

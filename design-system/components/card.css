@@ -1,0 +1,101 @@
+/**
+ * Vientonorte Design System - Card Component
+ * Version: 1.0.0
+ * 
+ * Project card component with variants for different states.
+ */
+
+/* ============================================
+   CARD BASE
+   ============================================ */
+
+.card {
+    background: var(--vn-color-surface);
+    border: var(--vn-border-width) solid var(--vn-color-border);
+    border-radius: var(--vn-border-radius-sm);
+    padding: var(--vn-space-4xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--vn-space-2xl);
+    transition: border-color var(--vn-transition-fast);
+}
+
+.card:hover {
+    border-color: var(--vn-color-accent);
+}
+
+/* ============================================
+   CARD VARIANTS
+   ============================================ */
+
+.card--deprecated {
+    opacity: var(--vn-opacity-disabled);
+}
+
+/* ============================================
+   CARD HEADER
+   ============================================ */
+
+.card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--vn-space-xl);
+}
+
+.card__title {
+    font-size: var(--vn-font-size-xl);
+    font-weight: var(--vn-font-weight-semibold);
+}
+
+.card__title a {
+    color: var(--vn-color-accent);
+    text-decoration: none;
+}
+
+.card__title a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   CARD CONTENT
+   ============================================ */
+
+.card__desc {
+    color: var(--vn-color-text-muted);
+    font-size: var(--vn-font-size-md);
+    flex: 1;
+}
+
+/* ============================================
+   CARD FOOTER
+   ============================================ */
+
+.card__links {
+    display: flex;
+    gap: var(--vn-space-2xl);
+    font-size: var(--vn-font-size-sm);
+    padding-top: var(--vn-space-xl);
+    border-top: var(--vn-border-width) solid var(--vn-color-border);
+}
+
+.card__links a {
+    color: var(--vn-color-text-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: var(--vn-space-md);
+}
+
+.card__links .link-disabled {
+    color: var(--vn-color-text-muted);
+    opacity: var(--vn-opacity-muted);
+    display: flex;
+    align-items: center;
+    gap: var(--vn-space-md);
+    cursor: not-allowed;
+}
+
+.card__links a:hover {
+    color: var(--vn-color-accent);
+}
