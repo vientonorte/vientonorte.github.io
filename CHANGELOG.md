@@ -11,7 +11,36 @@ Formato:
 
 ## 2026-04-23
 
-### feat
+### feat: Design System & CDN Infrastructure
+- **Sistema de diseño unificado**: Extracción completa de design tokens, componentes y estilos a `/design-system/`
+  - Tokens CSS documentados: colores, tipografía, espaciado, bordes
+  - Componentes modulares: card, badge, tag, stat, layout, icon
+  - Reset CSS y utilities para base consistente
+  - Build script para concatenar y minificar CSS
+  
+- **Infraestructura CDN**: Assets versionados disponibles en `/cdn/v1/`
+  - `vientonorte.css` (15KB): Sistema completo
+  - `vientonorte.min.css` (7KB): Versión minificada
+  - `tokens.css`, `components.css`: Importación modular
+  - `icons.svg`: Sprite SVG reutilizable
+  - `.nojekyll`: Configuración para GitHub Pages
+  
+- **Dashboard data-driven**: Migración a arquitectura dinámica
+  - `/data/projects.json`: Metadata centralizada de 9 proyectos
+  - `/data/projects-schema.json`: Validación JSON Schema
+  - JavaScript vanilla para renderizado dinámico
+  - Auto-cálculo de KPIs desde data (elimina drift manual)
+  - Reducción de `index.html` de 565 a 263 líneas (53% menos código)
+  
+- **Documentación completa**:
+  - `/design-system/docs/index.html`: Documentación interactiva del design system
+  - `MIGRATION.md`: Guía de integración para proyectos
+  - `/cdn/README.md`: Documentación de CDN y assets
+  
+- **Zero-dependency**: Toda la arquitectura mantiene cero dependencias externas
+- **Backward compatible**: Tokens legacy mapeados para compatibilidad gradual
+
+### feat (previous)
 - Actualización de tarjeta `mi-portafolio` en `index.html` para reflejar foco en Design Sprint y Design Thinking.
 - Se incorpora referencia explícita a líneas `Evolve` y `Syncronzy` en descripción y tags de la tarjeta.
 - Se mantiene estructura de enlaces y estado `LIVE` sin alterar KPIs globales del header.

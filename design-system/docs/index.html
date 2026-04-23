@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vientonorte Design System v1.0.0</title>
+    <link rel="stylesheet" href="/cdn/v1/vientonorte.css">
+    <style>
+        /* Documentation-specific styles */
+        .docs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--vn-space-6xl) var(--vn-space-5xl);
+        }
+        
+        .docs-hero {
+            text-align: center;
+            padding: var(--vn-space-6xl) 0;
+            border-bottom: 1px solid var(--vn-color-border);
+            margin-bottom: var(--vn-space-6xl);
+        }
+        
+        .docs-hero h1 {
+            font-size: 3rem;
+            font-weight: var(--vn-font-weight-semibold);
+            letter-spacing: var(--vn-letter-spacing-tight);
+            margin-bottom: var(--vn-space-3xl);
+        }
+        
+        .docs-hero .version {
+            display: inline-block;
+            background: var(--vn-color-accent-alpha);
+            color: var(--vn-color-accent);
+            padding: var(--vn-space-xs) var(--vn-space-3xl);
+            border-radius: var(--vn-border-radius-full);
+            font-size: var(--vn-font-size-sm);
+            margin-bottom: var(--vn-space-3xl);
+        }
+        
+        .docs-section {
+            margin-bottom: var(--vn-space-6xl);
+        }
+        
+        .docs-section h2 {
+            font-size: 2rem;
+            font-weight: var(--vn-font-weight-semibold);
+            margin-bottom: var(--vn-space-3xl);
+            color: var(--vn-color-accent);
+        }
+        
+        .docs-section h3 {
+            font-size: 1.5rem;
+            font-weight: var(--vn-font-weight-semibold);
+            margin: var(--vn-space-6xl) 0 var(--vn-space-3xl) 0;
+        }
+        
+        .code-block {
+            background: var(--vn-color-surface);
+            border: 1px solid var(--vn-color-border);
+            border-radius: var(--vn-border-radius-sm);
+            padding: var(--vn-space-4xl);
+            overflow-x: auto;
+            margin: var(--vn-space-3xl) 0;
+        }
+        
+        .code-block code {
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: var(--vn-color-text);
+        }
+        
+        .token-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--vn-space-3xl) 0;
+        }
+        
+        .token-table th,
+        .token-table td {
+            text-align: left;
+            padding: var(--vn-space-3xl);
+            border-bottom: 1px solid var(--vn-color-border);
+        }
+        
+        .token-table th {
+            font-weight: var(--vn-font-weight-semibold);
+            color: var(--vn-color-accent);
+        }
+        
+        .token-table code {
+            background: var(--vn-color-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.85rem;
+        }
+        
+        .component-preview {
+            background: var(--vn-color-bg);
+            border: 1px solid var(--vn-color-border);
+            border-radius: var(--vn-border-radius-sm);
+            padding: var(--vn-space-4xl);
+            margin: var(--vn-space-3xl) 0;
+        }
+        
+        .cdn-urls {
+            background: var(--vn-color-surface);
+            border-left: 3px solid var(--vn-color-accent);
+            padding: var(--vn-space-4xl);
+            margin: var(--vn-space-3xl) 0;
+        }
+        
+        .cdn-urls code {
+            color: var(--vn-color-accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="docs-container">
+        <div class="docs-hero">
+            <h1><span style="color: var(--vn-color-accent);">Vientonorte</span> Design System</h1>
+            <div class="version">v1.0.0</div>
+            <p class="text-muted">Sistema de diseño unificado para todos los proyectos vientonorte</p>
+        </div>
+
+        <!-- Getting Started -->
+        <section class="docs-section">
+            <h2>🚀 Getting Started</h2>
+            <p>El Vientonorte Design System proporciona tokens de diseño, componentes y estilos reutilizables para mantener consistencia visual en todos los proyectos.</p>
+            
+            <h3>Instalación vía CDN</h3>
+            <p>Simplemente incluye el CSS en tu HTML:</p>
+            <div class="code-block">
+                <code>&lt;link rel="stylesheet" href="https://vientonorte.github.io/cdn/v1/vientonorte.css"&gt;</code>
+            </div>
+            
+            <div class="cdn-urls">
+                <h4>URLs disponibles:</h4>
+                <ul>
+                    <li><code>https://vientonorte.github.io/cdn/v1/vientonorte.css</code> - Sistema completo</li>
+                    <li><code>https://vientonorte.github.io/cdn/v1/vientonorte.min.css</code> - Versión minificada</li>
+                    <li><code>https://vientonorte.github.io/cdn/v1/tokens.css</code> - Solo tokens</li>
+                    <li><code>https://vientonorte.github.io/cdn/v1/components.css</code> - Solo componentes</li>
+                    <li><code>https://vientonorte.github.io/cdn/v1/icons.svg</code> - Sprite de iconos</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Design Tokens -->
+        <section class="docs-section">
+            <h2>🎨 Design Tokens</h2>
+            <p>Variables CSS que definen colores, tipografía, espaciado y más.</p>
+            
+            <h3>Colores</h3>
+            <table class="token-table">
+                <thead>
+                    <tr>
+                        <th>Token</th>
+                        <th>Valor</th>
+                        <th>Uso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>--vn-color-bg</code></td>
+                        <td>#0d1117</td>
+                        <td>Fondo principal</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-color-surface</code></td>
+                        <td>#161b22</td>
+                        <td>Superficie de tarjetas</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-color-border</code></td>
+                        <td>#30363d</td>
+                        <td>Bordes</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-color-text</code></td>
+                        <td>#e6edf3</td>
+                        <td>Texto principal</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-color-text-muted</code></td>
+                        <td>#8b949e</td>
+                        <td>Texto secundario</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-color-accent</code></td>
+                        <td>#58a6ff</td>
+                        <td>Color de acento</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-color-green</code></td>
+                        <td>#3fb950</td>
+                        <td>Estado live/éxito</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-color-yellow</code></td>
+                        <td>#d29922</td>
+                        <td>Estado privado/advertencia</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-color-red</code></td>
+                        <td>#f85149</td>
+                        <td>Estado deprecado/error</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-color-purple</code></td>
+                        <td>#bc8cff</td>
+                        <td>Estado repo</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Espaciado</h3>
+            <table class="token-table">
+                <thead>
+                    <tr>
+                        <th>Token</th>
+                        <th>Valor</th>
+                        <th>Uso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>--vn-space-xs</code></td>
+                        <td>0.15rem (2.4px)</td>
+                        <td>Padding pequeño</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-space-sm</code></td>
+                        <td>0.25rem (4px)</td>
+                        <td>Margen pequeño</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-space-3xl</code></td>
+                        <td>1rem (16px)</td>
+                        <td>Separación estándar</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-space-6xl</code></td>
+                        <td>2rem (32px)</td>
+                        <td>Separación grande</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Tipografía</h3>
+            <table class="token-table">
+                <thead>
+                    <tr>
+                        <th>Token</th>
+                        <th>Valor</th>
+                        <th>Uso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>--vn-font-size-xs</code></td>
+                        <td>0.7rem</td>
+                        <td>Tags, badges</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-font-size-md</code></td>
+                        <td>0.875rem</td>
+                        <td>Descripción de cards</td>
+                    </tr>
+                    <tr>
+                        <td><code>--vn-font-size-3xl</code></td>
+                        <td>1.75rem</td>
+                        <td>Headers principales</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Components -->
+        <section class="docs-section">
+            <h2>🧩 Componentes</h2>
+            
+            <h3>Card Component</h3>
+            <div class="component-preview">
+                <article class="card">
+                    <div class="card__header">
+                        <div class="card__title"><a href="#">Proyecto Ejemplo</a></div>
+                        <span class="card__badge card__badge--live">LIVE</span>
+                    </div>
+                    <div class="card__desc">
+                        Descripción del proyecto con detalles sobre tecnologías y funcionalidades implementadas.
+                    </div>
+                    <div class="card__tags">
+                        <span class="tag">React</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Vite</span>
+                    </div>
+                    <div class="card__links">
+                        <a href="#">
+                            <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
+                            Ver sitio
+                        </a>
+                        <a href="#">
+                            <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+                            Código
+                        </a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="code-block">
+                <code>&lt;article class="card"&gt;
+  &lt;div class="card__header"&gt;
+    &lt;div class="card__title"&gt;&lt;a href="#"&gt;Título&lt;/a&gt;&lt;/div&gt;
+    &lt;span class="card__badge card__badge--live"&gt;LIVE&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="card__desc"&gt;Descripción...&lt;/div&gt;
+  &lt;div class="card__tags"&gt;
+    &lt;span class="tag"&gt;Tag&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="card__links"&gt;...&lt;/div&gt;
+&lt;/article&gt;</code>
+            </div>
+
+            <h3>Badge Variants</h3>
+            <div class="component-preview">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <span class="card__badge card__badge--live">LIVE</span>
+                    <span class="card__badge card__badge--private">PRIVADO</span>
+                    <span class="card__badge card__badge--repo">REPO</span>
+                    <span class="card__badge card__badge--deprecated">DEPRECATED</span>
+                </div>
+            </div>
+
+            <h3>Stats Component</h3>
+            <div class="component-preview">
+                <div class="stats">
+                    <div class="stat">
+                        <span class="dot dot--live" aria-label="En producción"></span>
+                        <strong>5</strong> en producción
+                    </div>
+                    <div class="stat">
+                        <span class="dot dot--sprint" aria-label="Sprint"></span>
+                        <strong>2026</strong> sprint activo
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture -->
+        <section class="docs-section">
+            <h2>📁 Arquitectura</h2>
+            <div class="code-block">
+                <code>/design-system/
+  ├── tokens.css          # Design tokens
+  ├── reset.css           # CSS reset
+  ├── utilities.css       # Utility classes
+  ├── components/
+  │   ├── card.css
+  │   ├── badge.css
+  │   ├── tag.css
+  │   ├── stat.css
+  │   ├── layout.css
+  │   ├── icon.css
+  │   └── icons.svg
+  ├── build.sh           # Build script
+  └── docs/              # Documentation
+
+/cdn/v1/                 # CDN distribution
+  ├── vientonorte.css    # Combined CSS
+  ├── vientonorte.min.css
+  ├── components.css
+  ├── tokens.css
+  └── icons.svg
+
+/data/
+  ├── projects.json      # Project metadata
+  └── projects-schema.json</code>
+            </div>
+        </section>
+
+        <!-- Versioning -->
+        <section class="docs-section">
+            <h2>📦 Versionado</h2>
+            <p>El design system sigue <strong>Semantic Versioning</strong>:</p>
+            <ul>
+                <li><strong>MAJOR</strong> (v2.0.0): Cambios que rompen compatibilidad</li>
+                <li><strong>MINOR</strong> (v1.1.0): Nuevas características compatibles</li>
+                <li><strong>PATCH</strong> (v1.0.1): Correcciones de bugs</li>
+            </ul>
+            
+            <p style="margin-top: 1rem;">Los archivos publicados en <code>/cdn/v1/</code> nunca se modifican. Las nuevas versiones se publican en <code>/cdn/v2/</code>, etc.</p>
+        </section>
+
+        <!-- Contributing -->
+        <section class="docs-section">
+            <h2>🤝 Contribuir</h2>
+            <ol>
+                <li>Proponer cambios mediante issue en GitHub</li>
+                <li>Actualizar componentes en <code>/design-system/</code></li>
+                <li>Ejecutar <code>./design-system/build.sh</code></li>
+                <li>Validar con <code>projects.json</code> schema</li>
+                <li>Actualizar <code>CHANGELOG.md</code></li>
+                <li>Crear PR con descripción detallada</li>
+            </ol>
+        </section>
+    </div>
+
+    <!-- SVG Icons -->
+    <svg style="display:none" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="icon-site" viewBox="0 0 16 16">
+                <path d="M4.5 8a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5h-7Z"/>
+                <path d="M1 1.75C1 .784 1.784 0 2.75 0h10.5c.966 0 1.75.784 1.75 1.75v12.5A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25V1.75Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Z"/>
+            </symbol>
+            <symbol id="icon-github" viewBox="0 0 16 16">
+                <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/>
+            </symbol>
+        </defs>
+    </svg>
+</body>
+</html>
