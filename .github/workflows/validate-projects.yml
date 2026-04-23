@@ -1,0 +1,69 @@
+name: Validate Projects JSON
+
+on:
+  pull_request:
+    paths:
+      - 'data/projects.json'
+      - 'data/projects-schema.json'
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/projects.json'
+      - 'data/projects-schema.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Validate JSON syntax
+        run: |
+          echo "Validating JSON syntax..."
+          python3 -m json.tool data/projects.json > /dev/null
+          echo "✓ JSON syntax valid"
+          
+      - name: Check required fields
+        run: |
+          echo "Checking required fields..."
+          for field in "version" "updated" "projects"; do
+            if grep -q "\"$field\"" data/projects.json; then
+              echo "✓ Field '$field' exists"
+            else
+              echo "✗ Field '$field' missing"
+              exit 1
+            fi
+          done
+          
+      - name: Validate project statuses
+        run: |
+          echo "Validating project statuses..."
+          VALID_STATUSES=("live" "deprecated" "private" "repo")
+          INVALID_STATUS=false
+          
+          while IFS= read -r status; do
+            status=$(echo "$status" | tr -d ' ",')
+            if [[ ! " ${VALID_STATUSES[@]} " =~ " ${status} " ]]; then
+              echo "✗ Invalid status: $status"
+              INVALID_STATUS=true
+            fi
+          done < <(grep '"status":' data/projects.json | cut -d':' -f2)
+          
+          if [ "$INVALID_STATUS" = true ]; then
+            exit 1
+          fi
+          echo "✓ All statuses valid"
+          
+      - name: Count projects
+        run: |
+          PROJECT_COUNT=$(grep -o '"id":' data/projects.json | wc -l)
+          echo "✓ Found $PROJECT_COUNT projects"
+          
+      - name: Summary
+        run: |
+          echo "---"
+          echo "✓ Validation passed!"
+          echo "projects.json is valid and ready for deployment"
