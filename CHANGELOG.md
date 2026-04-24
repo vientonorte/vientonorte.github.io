@@ -9,6 +9,15 @@ Formato:
 
 ---
 
+## 2026-04-24
+
+### fix
+- `fix(a11y)`: dots de estado en header — eliminado `aria-label` redundante (el texto visible del `.stat` ya provee el nombre accesible); reemplazado por `aria-hidden="true"`. Screen readers ya no anuncian el color dos veces.
+- `fix(meta)`: favicon SVG inline agregado al `<head>` — ícono "vn" sobre fondo `#0d1117` con accent `#58a6ff`; visible en pestañas del navegador y marcadores.
+- `fix(meta)`: `<meta name="author" content="Rodrigo Gaete Gaona">` agregado.
+
+---
+
 ## 2026-04-23
 
 ### feat
