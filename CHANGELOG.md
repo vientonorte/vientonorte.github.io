@@ -9,6 +9,13 @@ Formato:
 
 ---
 
+## 2026-04-24
+
+### fix
+- `fix(a11y)`: `a:focus-visible` — regla global con `outline: 2px solid var(--accent)` y `outline-offset: 2px`. Cubre `.card__title a`, `.card__links a` y `footer a`. Cumple WCAG 2.4.7 (Focus Visible) con indicador coherente al sistema de diseño.
+
+---
+
 ## 2026-04-23
 
 ### feat
