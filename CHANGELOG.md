@@ -9,6 +9,20 @@ Formato:
 
 ---
 
+## 2026-04-25
+
+### fix
+- `fix(a11y)`: dots de estado en header — `aria-label` redundante reemplazado por `aria-hidden="true"` en los 5 indicadores. El texto visible del `.stat` ya provee el nombre accesible; los screen readers ya no anuncian el color dos veces.
+- `fix(a11y)`: `a:focus-visible` — regla global con `outline: 2px solid var(--accent)` y `outline-offset: 2px`. Cubre `.card__title a`, `.card__links a` y `footer a`. Cumple WCAG 2.4.7 (Focus Visible) con indicador coherente al design system; no afecta interacción por mouse/touch.
+- `fix(meta)`: `<meta name="author" content="Rodrigo Gaete Gaona">` agregado al `<head>`.
+- `fix(meta)`: favicon SVG inline agregado — ícono "vn" sobre fondo `#0d1117` con accent `#58a6ff`; visible en pestañas del navegador y marcadores.
+
+### ops
+- QA de PRs pendientes: PR #7 y PR #8 consolidados en esta sesión. PR #9 (refactorización arquitectural Copilot) permanece en revisión — ver análisis en descripción del PR.
+- Ramas huérfanas identificadas sin commits adelante de `main`: `claude/hopeful-cerf-SsdOA`, `gcTUF`, `mjXuD`, `oApzO`, `oQXdL` — candidatas a eliminación.
+
+---
+
 ## 2026-04-23
 
 ### feat
