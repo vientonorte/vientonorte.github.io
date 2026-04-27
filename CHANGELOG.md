@@ -9,6 +9,22 @@ Formato:
 
 ---
 
+## 2026-04-27
+
+### fix
+- `fix(a11y)`: `.card--deprecated { opacity: 0.6 }` reemplazado por selectores específicos en `.card__desc` y `.card__tags`. Los links dentro de la card deprecada recuperan contraste completo — WCAG 1.4.3 (Contraste Mínimo).
+- `fix(a11y)`: `.card:focus-within` agregado junto a `.card:hover` — bordes de foco visibles al navegar por teclado dentro de cualquier card.
+- `fix(a11y)`: `aria-disabled="true"` en el span `.link-disabled` de SURA Investments — tecnologías de asistencia ahora anuncian correctamente el estado deshabilitado.
+- `fix(semántica)`: `.stats` convertido de `<div>/<div>` a `<ul>/<li>` — lista de estadísticas con estructura semántica correcta. CSS actualizado con `list-style: none`.
+- `fix(semántica)`: `.card__tags` convertido de `<div>/<span>` a `<ul>/<li>` en las 9 cards — tags como lista semántica. CSS actualizado con `list-style: none`.
+- `fix(seo)`: Agregados `og:site_name`, `og:locale`, `og:image:alt` y `meta robots` al `<head>` — completitud del graph OpenGraph y declaración explícita de crawlability.
+
+### ops
+- QA transversal ejecutada: 26 issues auditados en A11Y, semántica HTML, CSS, SEO, performance y seguridad. Issues HIGH y MEDIUM aplicados. Issues LOW documentados como deuda técnica.
+- Ramas huérfanas candidatas a eliminación aún presentes: `claude/hopeful-cerf-SsdOA`, `gcTUF`, `mjXuD`, `oApzO`, `oQXdL` — requieren acción manual.
+
+---
+
 ## 2026-04-25
 
 ### fix
