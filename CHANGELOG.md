@@ -9,6 +9,24 @@ Formato:
 
 ---
 
+## 2026-05-01
+
+### fix
+- `fix(a11y)`: `.card--deprecated { opacity: 0.6 }` reemplazado por `.card--deprecated .card__desc, .card--deprecated .card__tags` — links de la card deprecada recuperan contraste completo (WCAG 1.4.3).
+- `fix(a11y)`: `.card:focus-within` agregado junto a `.card:hover` — borde visible al navegar por teclado dentro de cualquier card (WCAG 2.4.7).
+- `fix(a11y)`: `aria-disabled="true"` en `span.link-disabled` de SURA Investments — tecnologías asistivas anuncian correctamente el estado deshabilitado.
+- `fix(semántica)`: `.stats` convertido de `div/div` a `ul/li` con `role="list"` — lista semántica correcta; `role="list"` preserva semántica en Safari VoiceOver con `list-style: none`.
+- `fix(semántica)`: `.card__tags` convertido de `div/span` a `ul/li` con `role="list"` en las 9 cards.
+- `fix(css)`: `list-style: none` en `.stats` y `.card__tags` — elimina bullets por defecto.
+- `fix(seo)`: `og:site_name`, `og:locale`, `og:image:alt`, `twitter:image:alt` y `meta robots` agregados — grafo OpenGraph completo y crawlability explícita.
+- `fix(footer)`: fecha actualizada a "Mayo 2026".
+
+### ops
+- QA transversal de pendientes: aplica y consolida los cambios de PR #13 y PR #14 (ambos drafts sobre `main`). Supersede ambos PRs.
+- Deuda técnica LOW pendiente: ramas huérfanas `claude/hopeful-cerf-SsdOA`, `gcTUF`, `mjXuD`, `oApzO`, `oQXdL`, `bSKiS`, `EIgKA`, `XpCbJ`, `hCGLU` — candidatas a eliminación manual.
+
+---
+
 ## 2026-04-25
 
 ### fix
