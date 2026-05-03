@@ -14,6 +14,11 @@
     <meta name="twitter:title" content="vientonorte — Proyectos">
     <meta name="twitter:description" content="UX Lead · Investigador doctoral en Antropología · Proyectos en producción">
     <meta name="twitter:image" content="https://vientonorte.github.io/antropologia-corrupcion/img/an-lisis-ux-ui-mapeo-de-vulnerabilidades-de-expe.jpg">
+    <meta name="twitter:image:alt" content="Dashboard de proyectos vientonorte — UX Lead e Investigador doctoral en Antropología">
+    <meta property="og:site_name" content="vientonorte">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:image:alt" content="Dashboard de proyectos vientonorte — UX Lead e Investigador doctoral en Antropología">
+    <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d1117">
     <meta name="author" content="Rodrigo Gaete Gaona">
     <link rel="canonical" href="https://vientonorte.github.io">
@@ -91,6 +96,7 @@
         }
 
         .stats {
+            list-style: none;
             display: flex;
             gap: 1.5rem;
             margin-top: 1rem;
@@ -160,7 +166,8 @@
             transition: border-color 0.15s;
         }
 
-        .card:hover {
+        .card:hover,
+        .card:focus-within {
             border-color: var(--accent);
         }
 
@@ -216,7 +223,8 @@
             border-color: var(--red);
         }
 
-        .card--deprecated {
+        .card--deprecated .card__desc,
+        .card--deprecated .card__tags {
             opacity: 0.6;
         }
 
@@ -227,6 +235,7 @@
         }
 
         .card__tags {
+            list-style: none;
             display: flex;
             flex-wrap: wrap;
             gap: 0.4rem;
@@ -303,6 +312,14 @@
             color: var(--accent-hover);
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            .card,
+            .card__links a,
+            footer a {
+                transition: none;
+            }
+        }
+
         @media (max-width: 768px) {
             .grid {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -339,13 +356,13 @@
     <header>
         <h1><span>vientonorte</span> — proyectos</h1>
         <p>Rodrigo Gaete Gaona · UX Lead · Investigador doctoral en Antropología</p>
-        <div class="stats">
-            <div class="stat"><span class="dot dot--live" aria-hidden="true"></span> <strong>5</strong> en producción</div>
-            <div class="stat"><span class="dot dot--private" aria-hidden="true"></span> <strong>1</strong> privado</div>
-            <div class="stat"><span class="dot dot--off" aria-hidden="true"></span> <strong>2</strong> sin deploy</div>
-            <div class="stat"><span class="dot dot--deprecated" aria-hidden="true"></span> <strong>1</strong> deprecado</div>
-            <div class="stat"><span class="dot dot--sprint" aria-hidden="true"></span> <strong>2026</strong> sprint activo</div>
-        </div>
+        <ul class="stats" role="list">
+            <li class="stat"><span class="dot dot--live" aria-hidden="true"></span> <strong>5</strong> en producción</li>
+            <li class="stat"><span class="dot dot--private" aria-hidden="true"></span> <strong>1</strong> privado</li>
+            <li class="stat"><span class="dot dot--off" aria-hidden="true"></span> <strong>2</strong> sin deploy</li>
+            <li class="stat"><span class="dot dot--deprecated" aria-hidden="true"></span> <strong>1</strong> deprecado</li>
+            <li class="stat"><span class="dot dot--sprint" aria-hidden="true"></span> <strong>2026</strong> sprint activo</li>
+        </ul>
     </header>
 
     <main id="proyectos">
@@ -360,13 +377,13 @@
                 <div class="card__desc">
                     Instrumento cualitativo de análisis multi-situado — Tesis doctoral en Antropología y Corrupción. Grafo SVG force-directed, campo Coulomb, simulación termodinámica, buscador de fricción epistemológica.
                 </div>
-                <div class="card__tags">
-                    <span class="tag">etnografía</span>
-                    <span class="tag">vanilla JS</span>
-                    <span class="tag">SVG</span>
-                    <span class="tag">Canvas2D</span>
-                    <span class="tag">zero deps</span>
-                </div>
+                <ul class="card__tags" role="list">
+                    <li class="tag">etnografía</li>
+                    <li class="tag">vanilla JS</li>
+                    <li class="tag">SVG</li>
+                    <li class="tag">Canvas2D</li>
+                    <li class="tag">zero deps</li>
+                </ul>
                 <div class="card__links">
                     <a href="https://vientonorte.github.io/antropologia-corrupcion/">
                         <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
@@ -388,13 +405,13 @@
                 <div class="card__desc">
                     Planificador semanal con sync Google Calendar, PWA, análisis BuJo con IA y CRUD completo de eventos. Bullet journal digital con edición, cancelación, notas y borrado desde menú contextual.
                 </div>
-                <div class="card__tags">
-                    <span class="tag">productividad</span>
-                    <span class="tag">IA multimodal</span>
-                    <span class="tag">vanilla JS</span>
-                    <span class="tag">PWA</span>
-                    <span class="tag">CRUD</span>
-                </div>
+                <ul class="card__tags" role="list">
+                    <li class="tag">productividad</li>
+                    <li class="tag">IA multimodal</li>
+                    <li class="tag">vanilla JS</li>
+                    <li class="tag">PWA</li>
+                    <li class="tag">CRUD</li>
+                </ul>
                 <div class="card__links">
                     <a href="https://vientonorte.github.io/table-ro/">
                         <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
@@ -416,13 +433,13 @@
                 <div class="card__desc">
                     CFO Dashboard — React + TypeScript + Tailwind. Import CSV, roles RBAC, AI insights y persistencia híbrida localStorage + Supabase.
                 </div>
-                <div class="card__tags">
-                    <span class="tag">React</span>
-                    <span class="tag">TypeScript</span>
-                    <span class="tag">dashboard</span>
-                    <span class="tag">Tailwind</span>
-                    <span class="tag">Supabase</span>
-                </div>
+                <ul class="card__tags" role="list">
+                    <li class="tag">React</li>
+                    <li class="tag">TypeScript</li>
+                    <li class="tag">dashboard</li>
+                    <li class="tag">Tailwind</li>
+                    <li class="tag">Supabase</li>
+                </ul>
                 <div class="card__links">
                     <a href="https://vientonorte.github.io/dashfin/">
                         <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
@@ -444,13 +461,13 @@
                 <div class="card__desc">
                     Portafolio UX Lead con enfoque Design Sprint + Design Thinking. Evolución de casos y metodología aplicada en líneas Evolve y Syncronzy sobre stack React 19, Tailwind v4 y Vite 6.
                 </div>
-                <div class="card__tags">
-                    <span class="tag">React 19</span>
-                    <span class="tag">TypeScript</span>
-                    <span class="tag">Design Sprint</span>
-                    <span class="tag">Evolve</span>
-                    <span class="tag">Syncronzy</span>
-                </div>
+                <ul class="card__tags" role="list">
+                    <li class="tag">React 19</li>
+                    <li class="tag">TypeScript</li>
+                    <li class="tag">Design Sprint</li>
+                    <li class="tag">Evolve</li>
+                    <li class="tag">Syncronzy</li>
+                </ul>
                 <div class="card__links">
                     <a href="https://vientonorte.github.io/mi-portafolio/">
                         <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
@@ -471,13 +488,13 @@
                 <div class="card__desc">
                     UX Auto-Doc Engine — Generador de documentación técnica UX: flujos de interacción, criterios de aceptación, tablas de integridad y assets para Figma. Identidad SURA Investments.
                 </div>
-                <div class="card__tags">
-                    <span class="tag">UX Tools</span>
-                    <span class="tag">Vanilla JS</span>
-                    <span class="tag">localStorage</span>
-                    <span class="tag">SURA</span>
-                    <span class="tag">Figma export</span>
-                </div>
+                <ul class="card__tags" role="list">
+                    <li class="tag">UX Tools</li>
+                    <li class="tag">Vanilla JS</li>
+                    <li class="tag">localStorage</li>
+                    <li class="tag">SURA</li>
+                    <li class="tag">Figma export</li>
+                </ul>
                 <div class="card__links">
                     <a href="https://vientonorte.github.io/uxtools/">
                         <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
@@ -499,11 +516,11 @@
                 <div class="card__desc">
                     Poemario digital "Beta" — poesía y experimentación web. Navegación por secciones con diseño editorial.
                 </div>
-                <div class="card__tags">
-                    <span class="tag">poesía</span>
-                    <span class="tag">editorial</span>
-                    <span class="tag">HTML</span>
-                </div>
+                <ul class="card__tags" role="list">
+                    <li class="tag">poesía</li>
+                    <li class="tag">editorial</li>
+                    <li class="tag">HTML</li>
+                </ul>
                 <div class="card__links">
                     <a href="https://vientonorte.github.io/29092020/">
                         <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
@@ -525,13 +542,13 @@
                 <div class="card__desc">
                     UX Lead Dashboard — Estado del Arte, análisis DEI, CMA, entregables y seguimiento Q1 2026. Estrategia digital y gobernanza de datos.
                 </div>
-                <div class="card__tags">
-                    <span class="tag">UX Lead</span>
-                    <span class="tag">fintech</span>
-                    <span class="tag">gobernanza</span>
-                </div>
+                <ul class="card__tags" role="list">
+                    <li class="tag">UX Lead</li>
+                    <li class="tag">fintech</li>
+                    <li class="tag">gobernanza</li>
+                </ul>
                 <div class="card__links">
-                    <span class="link-disabled" aria-label="Código no disponible — repositorio privado">
+                    <span class="link-disabled" aria-label="Código no disponible — repositorio privado" aria-disabled="true">
                         <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
                         Acceso restringido
                     </span>
@@ -547,9 +564,9 @@
                 <div class="card__desc">
                     Proyecto experimental de diseño e interacción.
                 </div>
-                <div class="card__tags">
-                    <span class="tag">experimental</span>
-                </div>
+                <ul class="card__tags" role="list">
+                    <li class="tag">experimental</li>
+                </ul>
                 <div class="card__links">
                     <a href="https://github.com/vientonorte/dihe">
                         <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
@@ -567,9 +584,9 @@
                 <div class="card__desc">
                     Proyecto legacy — archivo de código temprano.
                 </div>
-                <div class="card__tags">
-                    <span class="tag">archivo</span>
-                </div>
+                <ul class="card__tags" role="list">
+                    <li class="tag">archivo</li>
+                </ul>
                 <div class="card__links">
                     <a href="https://github.com/vientonorte/khuro">
                         <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
@@ -582,7 +599,7 @@
     </main>
 
     <footer>
-        <p>vientonorte · <a href="https://github.com/vientonorte">github.com/vientonorte</a> · Abril 2026</p>
+        <p>vientonorte · <a href="https://github.com/vientonorte">github.com/vientonorte</a> · Mayo 2026</p>
     </footer>
 
 </body>
