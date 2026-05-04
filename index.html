@@ -396,6 +396,34 @@
         @media (prefers-reduced-motion: reduce) {
             .card--skeleton { animation: none; }
         }
+
+        /* error and toast messages */
+        .load-error {
+            color: var(--text-muted);
+            padding: 1rem;
+        }
+
+        .passkey-toast {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--red);
+            color: var(--text);
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.2s, transform 0.2s;
+            pointer-events: none;
+        }
+
+        .passkey-toast--visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
@@ -443,6 +471,8 @@
         <p>vientonorte · <a href="https://github.com/vientonorte">github.com/vientonorte</a> · Mayo 2026</p>
     </footer>
 
+    <div id="passkey-toast" class="passkey-toast" role="alert" aria-live="assertive"></div>
+
     <script>
     /* ── Passkey helpers ────────────────────────────────────────────── */
     const CREDENTIAL_KEY = 'vn_passkey_id';
@@ -464,8 +494,10 @@
     }
 
     function rpId() {
-        const h = location.hostname;
-        return h === '' ? 'localhost' : h;
+        /* WebAuthn requires a non-empty rpId matching the effective domain.
+           file:// has an empty hostname; WebAuthn won't work there anyway,
+           but we guard with supportsPasskey() before ever calling this. */
+        return location.hostname || 'localhost';
     }
 
     async function registerPasskey() {
@@ -605,6 +637,16 @@
             </li>`).join('');
     }
 
+    /* ── Toast helper ────────────────────────────────────────────────── */
+    let _toastTimer;
+    function showToast(msg) {
+        const toast = document.getElementById('passkey-toast');
+        toast.textContent = msg;
+        toast.classList.add('passkey-toast--visible');
+        clearTimeout(_toastTimer);
+        _toastTimer = setTimeout(() => toast.classList.remove('passkey-toast--visible'), 4000);
+    }
+
     /* ── Bootstrap ──────────────────────────────────────────────────── */
     (async () => {
         const grid   = document.getElementById('cards-grid');
@@ -617,10 +659,12 @@
             const res = await fetch('./data/projects.json');
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             data = await res.json();
+            if (!Array.isArray(data?.projects) || !data?.meta?.stats) {
+                throw new Error('Unexpected JSON structure');
+            }
         } catch (err) {
             console.error('Failed to load projects:', err);
-            grid.innerHTML = `<p style="color:var(--text-muted);padding:1rem">
-                Error al cargar proyectos. Recarga la página.</p>`;
+            grid.innerHTML = `<p class="load-error">Error al cargar proyectos. Recarga la página.</p>`;
             return;
         }
 
@@ -653,9 +697,10 @@
                     renderAll();
                     updatePasskeyButton(btn);
                 } catch (err) {
-                    /* NotAllowedError = user cancelled — no action needed */
+                    /* NotAllowedError = user cancelled the dialog — no feedback needed */
                     if (err.name !== 'NotAllowedError') {
                         console.error('Passkey error:', err);
+                        showToast('Error de autenticación. Intenta de nuevo.');
                     }
                 }
             });
