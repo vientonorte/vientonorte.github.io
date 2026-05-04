@@ -458,7 +458,7 @@
                 <h1><span>vientonorte</span> — proyectos</h1>
                 <p>Rodrigo Gaete Gaona · UX Lead · Investigador doctoral en Antropología</p>
             </div>
-            <button id="btn-passkey" class="btn-passkey" aria-live="polite" hidden>
+            <button id="btn-passkey" class="btn-passkey" type="button" aria-live="polite" hidden>
                 <!-- icon and label injected by JS -->
             </button>
         </div>
@@ -587,6 +587,16 @@
         }
     }
 
+    /* ── Security helpers ──────────────────────────────────────────── */
+    function sanitizeHref(url) {
+        try {
+            const { protocol } = new URL(url);
+            return (protocol === 'https:' || protocol === 'http:') ? url : '#';
+        } catch {
+            return '#';
+        }
+    }
+
     /* ── Card renderer ──────────────────────────────────────────────── */
     const BADGE_MAP = {
         live:       ['LIVE',       'card__badge--live'],
@@ -610,7 +620,8 @@
                     </span>`;
         }
         const icon = link.icon ? ICONS_CARD[link.icon] ?? '' : '';
-        return `<a href="${link.href}"${link.requiresAuth ? ' rel="noopener"' : ''}>${icon}${link.label}</a>`;
+        const safe = sanitizeHref(link.href);
+        return `<a href="${safe}" rel="noopener noreferrer">${icon}${link.label}</a>`;
     }
 
     function renderCard(project, authenticated) {
@@ -620,8 +631,10 @@
             project.deprecated ? 'card--deprecated' : '',
             locked ? 'card--locked' : ''
         ].filter(Boolean).join(' ');
-        const titleEl = !locked && project.links?.[0]?.href && !project.links[0].requiresAuth
-            ? `<a href="${project.links[0].href}">${project.title}</a>`
+        const titleHref = !locked && project.links?.[0]?.href && !project.links[0].requiresAuth
+            ? sanitizeHref(project.links[0].href) : null;
+        const titleEl = titleHref
+            ? `<a href="${titleHref}" rel="noopener noreferrer">${project.title}</a>`
             : project.title;
         const desc = locked
             ? `<div class="card__desc card__desc--locked">Contenido privado — desbloquea para ver los detalles.</div>`

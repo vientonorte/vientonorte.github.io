@@ -30,20 +30,21 @@ jobs:
       - name: Install ajv-cli
         run: npm install -g ajv-cli@5
 
-      - name: Validate nodes.json against node.schema.json
+      - name: Validate nodes.json against nodes-collection.schema.json
         run: |
           ajv validate \
-            -s data/schema/node.schema.json \
+            -s data/schema/nodes-collection.schema.json \
+            -r data/schema/node.schema.json \
             -d "data/graph/nodes.json" \
             --all-errors \
             --spec=draft7 \
             --json-pointers
-        # nodes.json is an array; ajv-cli validates each item when schema type is object
-        # For collection-level schema:
-      - name: Validate edges.json against edge.schema.json
+
+      - name: Validate edges.json against edges-collection.schema.json
         run: |
           ajv validate \
-            -s data/schema/edge.schema.json \
+            -s data/schema/edges-collection.schema.json \
+            -r data/schema/edge.schema.json \
             -d "data/graph/edges.json" \
             --all-errors \
             --spec=draft7 \
