@@ -312,6 +312,14 @@
             color: var(--accent-hover);
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            .card,
+            .card__links a,
+            footer a {
+                transition: none;
+            }
+        }
+
         @media (max-width: 768px) {
             .grid {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
