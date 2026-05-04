@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "name": "Rodrigo Gaete Gaona",
+    "role": "UX Lead · Investigador doctoral en Antropología",
+    "stats": [
+      { "dot": "live",       "value": "5",    "label": "en producción" },
+      { "dot": "private",    "value": "1",    "label": "privado" },
+      { "dot": "off",        "value": "2",    "label": "sin deploy" },
+      { "dot": "deprecated", "value": "1",    "label": "deprecado" },
+      { "dot": "sprint",     "value": "2026", "label": "sprint activo" }
+    ]
+  },
+  "projects": [
+    {
+      "id": "antropologia-corrupcion",
+      "title": "Contra-Archivo",
+      "badge": "live",
+      "desc": "Instrumento cualitativo de análisis multi-situado — Tesis doctoral en Antropología y Corrupción. Grafo SVG force-directed, campo Coulomb, simulación termodinámica, buscador de fricción epistemológica.",
+      "tags": ["etnografía", "vanilla JS", "SVG", "Canvas2D", "zero deps"],
+      "links": [
+        { "label": "Ver sitio", "href": "https://vientonorte.github.io/antropologia-corrupcion/", "icon": "site" },
+        { "label": "Landing",   "href": "https://vientonorte.github.io/antropologia-corrupcion/landing.html", "icon": "site" },
+        { "label": "Espacio privado →", "href": "https://vientonorte.github.io/antropologia-corrupcion/login.html" }
+      ]
+    },
+    {
+      "id": "table-ro",
+      "title": "table-ro",
+      "badge": "live",
+      "desc": "Planificador semanal con sync Google Calendar, PWA, análisis BuJo con IA y CRUD completo de eventos. Bullet journal digital con edición, cancelación, notas y borrado desde menú contextual.",
+      "tags": ["productividad", "IA multimodal", "vanilla JS", "PWA", "CRUD"],
+      "links": [
+        { "label": "Ver sitio", "href": "https://vientonorte.github.io/table-ro/", "icon": "site" },
+        { "label": "Código", "href": "https://github.com/vientonorte/table-ro", "icon": "github" }
+      ]
+    },
+    {
+      "id": "dashfin",
+      "title": "dashfin",
+      "badge": "live",
+      "desc": "CFO Dashboard — React + TypeScript + Tailwind. Import CSV, roles RBAC, AI insights y persistencia híbrida localStorage + Supabase.",
+      "tags": ["React", "TypeScript", "dashboard", "Tailwind", "Supabase"],
+      "links": [
+        { "label": "Ver sitio", "href": "https://vientonorte.github.io/dashfin/", "icon": "site" },
+        { "label": "Código", "href": "https://github.com/vientonorte/dashfin", "icon": "github" }
+      ]
+    },
+    {
+      "id": "mi-portafolio",
+      "title": "mi-portafolio · Design Sprint",
+      "badge": "live",
+      "desc": "Portafolio UX Lead con enfoque Design Sprint + Design Thinking. Evolución de casos y metodología aplicada en líneas Evolve y Syncronzy sobre stack React 19, Tailwind v4 y Vite 6.",
+      "tags": ["React 19", "TypeScript", "Design Sprint", "Evolve", "Syncronzy"],
+      "links": [
+        { "label": "Ver sitio", "href": "https://vientonorte.github.io/mi-portafolio/", "icon": "site" },
+        { "label": "Código", "href": "https://github.com/vientonorte/mi-portafolio", "icon": "github" }
+      ]
+    },
+    {
+      "id": "uxtools",
+      "title": "uxtools",
+      "badge": "live",
+      "desc": "UX Auto-Doc Engine — Generador de documentación técnica UX: flujos de interacción, criterios de aceptación, tablas de integridad y assets para Figma. Identidad SURA Investments.",
+      "tags": ["UX Tools", "Vanilla JS", "localStorage", "SURA", "Figma export"],
+      "links": [
+        { "label": "Ver sitio", "href": "https://vientonorte.github.io/uxtools/", "icon": "site" },
+        { "label": "Código", "href": "https://github.com/vientonorte/UXFLOW", "icon": "github" }
+      ]
+    },
+    {
+      "id": "29092020",
+      "title": "Poemario Beta",
+      "badge": "deprecated",
+      "deprecated": true,
+      "desc": "Poemario digital \"Beta\" — poesía y experimentación web. Navegación por secciones con diseño editorial.",
+      "tags": ["poesía", "editorial", "HTML"],
+      "links": [
+        { "label": "Ver sitio", "href": "https://vientonorte.github.io/29092020/", "icon": "site" },
+        { "label": "Código", "href": "https://github.com/vientonorte/29092020", "icon": "github" }
+      ]
+    },
+    {
+      "id": "sura-investments",
+      "title": "SURA Investments",
+      "badge": "private",
+      "desc": "UX Lead Dashboard — Estado del Arte, análisis DEI, CMA, entregables y seguimiento Q1 2026. Estrategia digital y gobernanza de datos.",
+      "tags": ["UX Lead", "fintech", "gobernanza"],
+      "links": [
+        {
+          "label": "Código",
+          "href": "https://github.com/vientonorte/sura-investments",
+          "icon": "github",
+          "requiresAuth": true
+        }
+      ]
+    },
+    {
+      "id": "dihe",
+      "title": "dihe",
+      "badge": "repo",
+      "desc": "Proyecto experimental de diseño e interacción.",
+      "tags": ["experimental"],
+      "links": [
+        { "label": "Código", "href": "https://github.com/vientonorte/dihe", "icon": "github" }
+      ]
+    },
+    {
+      "id": "khuro",
+      "title": "khuro",
+      "badge": "repo",
+      "desc": "Proyecto legacy — archivo de código temprano.",
+      "tags": ["archivo"],
+      "links": [
+        { "label": "Código", "href": "https://github.com/vientonorte/khuro", "icon": "github" }
+      ]
+    }
+  ]
+}

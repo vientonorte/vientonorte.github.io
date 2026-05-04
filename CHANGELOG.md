@@ -12,6 +12,10 @@ Formato:
 ## 2026-05-04
 
 ### feat
+- `feat(dynamic)`: contenido del dashboard extraído a `data/projects.json` — cards, stats y links se renderizan desde JavaScript; elimina drift entre HTML y datos.
+- `feat(passkey)`: botón "Desbloquear" en header — WebAuthn (Passkey) para autenticar acceso a repos privados. Estados: sin registrar / registrado / autenticado (sesión).
+- `feat(recruiter-view)`: vista pública por defecto oculta links que requieren autenticación (`requiresAuth: true`), mostrando "Acceso restringido" — vista limpia para reclutadores.
+- `feat(skeleton)`: placeholders animados (shimmer) mientras carga `projects.json`.
 - `feat(data)`: arquitectura de datos para grafo de fricción institucional —
   capa 1 (`data/raw/`), capa 2 (`data/graph/`), capa 3 (visualización existente).
 - `feat(schema)`: JSON Schema Draft-07 para 8 tipos de nodo:
