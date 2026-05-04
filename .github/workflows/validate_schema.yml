@@ -16,6 +16,8 @@ jobs:
   validate-schema:
     name: JSON Schema (Draft-07)
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -50,6 +52,8 @@ jobs:
   validate-pipeline:
     name: Pipeline SCA (Python 3.x)
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
