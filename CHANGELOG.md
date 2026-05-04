@@ -9,6 +9,16 @@ Formato:
 
 ---
 
+## 2026-05-04
+
+### feat
+- `feat(dynamic)`: contenido del dashboard extraído a `data/projects.json` — cards, stats y links se renderizan desde JavaScript; elimina drift entre HTML y datos.
+- `feat(passkey)`: botón "Desbloquear" en header — WebAuthn (Passkey) para autenticar acceso a repos privados. Estados: sin registrar / registrado / autenticado (sesión).
+- `feat(recruiter-view)`: vista pública por defecto oculta links que requieren autenticación (`requiresAuth: true`), mostrando "Acceso restringido" — vista limpia para reclutadores.
+- `feat(skeleton)`: placeholders animados (shimmer) mientras carga `projects.json`.
+
+---
+
 ## 2026-05-03
 
 ### fix

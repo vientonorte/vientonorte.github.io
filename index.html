@@ -334,6 +334,68 @@
                 font-size: 1.3rem;
             }
         }
+
+        /* ── Passkey button ── */
+        .header__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .btn-passkey {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: border-color 0.15s, color 0.15s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .btn-passkey:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-passkey--active {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .btn-passkey:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* skeleton loader while JSON loads */
+        .card--skeleton {
+            min-height: 180px;
+            background: linear-gradient(
+                90deg,
+                var(--surface) 25%,
+                var(--border) 50%,
+                var(--surface) 75%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 1.4s infinite;
+        }
+
+        @keyframes shimmer {
+            0%   { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .card--skeleton { animation: none; }
+        }
     </style>
 </head>
 
@@ -354,256 +416,252 @@
     <a class="skip-link" href="#proyectos">Saltar al contenido</a>
 
     <header>
-        <h1><span>vientonorte</span> — proyectos</h1>
-        <p>Rodrigo Gaete Gaona · UX Lead · Investigador doctoral en Antropología</p>
-        <ul class="stats" role="list">
-            <li class="stat"><span class="dot dot--live" aria-hidden="true"></span> <strong>5</strong> en producción</li>
-            <li class="stat"><span class="dot dot--private" aria-hidden="true"></span> <strong>1</strong> privado</li>
-            <li class="stat"><span class="dot dot--off" aria-hidden="true"></span> <strong>2</strong> sin deploy</li>
-            <li class="stat"><span class="dot dot--deprecated" aria-hidden="true"></span> <strong>1</strong> deprecado</li>
-            <li class="stat"><span class="dot dot--sprint" aria-hidden="true"></span> <strong>2026</strong> sprint activo</li>
+        <div class="header__top">
+            <div>
+                <h1><span>vientonorte</span> — proyectos</h1>
+                <p>Rodrigo Gaete Gaona · UX Lead · Investigador doctoral en Antropología</p>
+            </div>
+            <button id="btn-passkey" class="btn-passkey" aria-live="polite" hidden>
+                <!-- icon and label injected by JS -->
+            </button>
+        </div>
+        <ul class="stats" role="list" id="stats-list" aria-label="Estadísticas de proyectos">
+            <!-- rendered by JS -->
         </ul>
     </header>
 
     <main id="proyectos">
-        <div class="grid">
-
-            <!-- ANTROPOLOGÍA CORRUPCIÓN -->
-            <article class="card" aria-label="Contra-Archivo">
-                <div class="card__header">
-                    <h2 class="card__title"><a href="https://vientonorte.github.io/antropologia-corrupcion/">Contra-Archivo</a></h2>
-                    <span class="card__badge card__badge--live">LIVE</span>
-                </div>
-                <div class="card__desc">
-                    Instrumento cualitativo de análisis multi-situado — Tesis doctoral en Antropología y Corrupción. Grafo SVG force-directed, campo Coulomb, simulación termodinámica, buscador de fricción epistemológica.
-                </div>
-                <ul class="card__tags" role="list">
-                    <li class="tag">etnografía</li>
-                    <li class="tag">vanilla JS</li>
-                    <li class="tag">SVG</li>
-                    <li class="tag">Canvas2D</li>
-                    <li class="tag">zero deps</li>
-                </ul>
-                <div class="card__links">
-                    <a href="https://vientonorte.github.io/antropologia-corrupcion/">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
-                        Ver sitio
-                    </a>
-                    <a href="https://vientonorte.github.io/antropologia-corrupcion/landing.html">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
-                        Landing
-                    </a>
-                    <a href="https://vientonorte.github.io/antropologia-corrupcion/login.html">
-                        Espacio privado →
-                    </a>
-                </div>
-            </article>
-
-            <!-- TABLE-RO -->
-            <article class="card" aria-label="table-ro">
-                <div class="card__header">
-                    <h2 class="card__title"><a href="https://vientonorte.github.io/table-ro/">table-ro</a></h2>
-                    <span class="card__badge card__badge--live">LIVE</span>
-                </div>
-                <div class="card__desc">
-                    Planificador semanal con sync Google Calendar, PWA, análisis BuJo con IA y CRUD completo de eventos. Bullet journal digital con edición, cancelación, notas y borrado desde menú contextual.
-                </div>
-                <ul class="card__tags" role="list">
-                    <li class="tag">productividad</li>
-                    <li class="tag">IA multimodal</li>
-                    <li class="tag">vanilla JS</li>
-                    <li class="tag">PWA</li>
-                    <li class="tag">CRUD</li>
-                </ul>
-                <div class="card__links">
-                    <a href="https://vientonorte.github.io/table-ro/">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
-                        Ver sitio
-                    </a>
-                    <a href="https://github.com/vientonorte/table-ro">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
-                        Código
-                    </a>
-                </div>
-            </article>
-
-            <!-- DASHFIN -->
-            <article class="card" aria-label="dashfin">
-                <div class="card__header">
-                    <h2 class="card__title"><a href="https://vientonorte.github.io/dashfin/">dashfin</a></h2>
-                    <span class="card__badge card__badge--live">LIVE</span>
-                </div>
-                <div class="card__desc">
-                    CFO Dashboard — React + TypeScript + Tailwind. Import CSV, roles RBAC, AI insights y persistencia híbrida localStorage + Supabase.
-                </div>
-                <ul class="card__tags" role="list">
-                    <li class="tag">React</li>
-                    <li class="tag">TypeScript</li>
-                    <li class="tag">dashboard</li>
-                    <li class="tag">Tailwind</li>
-                    <li class="tag">Supabase</li>
-                </ul>
-                <div class="card__links">
-                    <a href="https://vientonorte.github.io/dashfin/">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
-                        Ver sitio
-                    </a>
-                    <a href="https://github.com/vientonorte/dashfin">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
-                        Código
-                    </a>
-                </div>
-            </article>
-
-            <!-- MI-PORTAFOLIO -->
-            <article class="card" aria-label="mi-portafolio">
-                <div class="card__header">
-                    <h2 class="card__title"><a href="https://vientonorte.github.io/mi-portafolio/">mi-portafolio · Design Sprint</a></h2>
-                    <span class="card__badge card__badge--live">LIVE</span>
-                </div>
-                <div class="card__desc">
-                    Portafolio UX Lead con enfoque Design Sprint + Design Thinking. Evolución de casos y metodología aplicada en líneas Evolve y Syncronzy sobre stack React 19, Tailwind v4 y Vite 6.
-                </div>
-                <ul class="card__tags" role="list">
-                    <li class="tag">React 19</li>
-                    <li class="tag">TypeScript</li>
-                    <li class="tag">Design Sprint</li>
-                    <li class="tag">Evolve</li>
-                    <li class="tag">Syncronzy</li>
-                </ul>
-                <div class="card__links">
-                    <a href="https://vientonorte.github.io/mi-portafolio/">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
-                        Ver sitio
-                    </a>
-                    <a href="https://github.com/vientonorte/mi-portafolio">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
-                        Código
-                    </a>
-                </div>
-            </article>
-
-            <article class="card" aria-label="uxtools">
-                <div class="card__header">
-                    <h2 class="card__title"><a href="https://vientonorte.github.io/uxtools/">uxtools</a></h2>
-                    <span class="card__badge card__badge--live">LIVE</span>
-                </div>
-                <div class="card__desc">
-                    UX Auto-Doc Engine — Generador de documentación técnica UX: flujos de interacción, criterios de aceptación, tablas de integridad y assets para Figma. Identidad SURA Investments.
-                </div>
-                <ul class="card__tags" role="list">
-                    <li class="tag">UX Tools</li>
-                    <li class="tag">Vanilla JS</li>
-                    <li class="tag">localStorage</li>
-                    <li class="tag">SURA</li>
-                    <li class="tag">Figma export</li>
-                </ul>
-                <div class="card__links">
-                    <a href="https://vientonorte.github.io/uxtools/">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
-                        Ver sitio
-                    </a>
-                    <a href="https://github.com/vientonorte/UXFLOW">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
-                        Código
-                    </a>
-                </div>
-            </article>
-
-            <!-- 29092020 — DEPRECATED -->
-            <article class="card card--deprecated" aria-label="Poemario Beta (deprecado)">
-                <div class="card__header">
-                    <h2 class="card__title"><a href="https://vientonorte.github.io/29092020/">Poemario Beta</a></h2>
-                    <span class="card__badge card__badge--deprecated">DEPRECATED</span>
-                </div>
-                <div class="card__desc">
-                    Poemario digital "Beta" — poesía y experimentación web. Navegación por secciones con diseño editorial.
-                </div>
-                <ul class="card__tags" role="list">
-                    <li class="tag">poesía</li>
-                    <li class="tag">editorial</li>
-                    <li class="tag">HTML</li>
-                </ul>
-                <div class="card__links">
-                    <a href="https://vientonorte.github.io/29092020/">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>
-                        Ver sitio
-                    </a>
-                    <a href="https://github.com/vientonorte/29092020">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
-                        Código
-                    </a>
-                </div>
-            </article>
-
-            <!-- SURA INVESTMENTS -->
-            <article class="card" aria-label="SURA Investments">
-                <div class="card__header">
-                    <h2 class="card__title">SURA Investments</h2>
-                    <span class="card__badge card__badge--private">PRIVADO</span>
-                </div>
-                <div class="card__desc">
-                    UX Lead Dashboard — Estado del Arte, análisis DEI, CMA, entregables y seguimiento Q1 2026. Estrategia digital y gobernanza de datos.
-                </div>
-                <ul class="card__tags" role="list">
-                    <li class="tag">UX Lead</li>
-                    <li class="tag">fintech</li>
-                    <li class="tag">gobernanza</li>
-                </ul>
-                <div class="card__links">
-                    <span class="link-disabled" aria-label="Código no disponible — repositorio privado" aria-disabled="true">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
-                        Acceso restringido
-                    </span>
-                </div>
-            </article>
-
-            <!-- DIHE -->
-            <article class="card" aria-label="dihe">
-                <div class="card__header">
-                    <h2 class="card__title"><a href="https://github.com/vientonorte/dihe">dihe</a></h2>
-                    <span class="card__badge card__badge--repo">REPO</span>
-                </div>
-                <div class="card__desc">
-                    Proyecto experimental de diseño e interacción.
-                </div>
-                <ul class="card__tags" role="list">
-                    <li class="tag">experimental</li>
-                </ul>
-                <div class="card__links">
-                    <a href="https://github.com/vientonorte/dihe">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
-                        Código
-                    </a>
-                </div>
-            </article>
-
-            <!-- KHURO -->
-            <article class="card" aria-label="khuro">
-                <div class="card__header">
-                    <h2 class="card__title"><a href="https://github.com/vientonorte/khuro">khuro</a></h2>
-                    <span class="card__badge card__badge--repo">REPO</span>
-                </div>
-                <div class="card__desc">
-                    Proyecto legacy — archivo de código temprano.
-                </div>
-                <ul class="card__tags" role="list">
-                    <li class="tag">archivo</li>
-                </ul>
-                <div class="card__links">
-                    <a href="https://github.com/vientonorte/khuro">
-                        <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
-                        Código
-                    </a>
-                </div>
-            </article>
-
+        <div class="grid" id="cards-grid" aria-label="Proyectos">
+            <!-- skeleton placeholders while JSON loads -->
+            <div class="card card--skeleton" aria-hidden="true"></div>
+            <div class="card card--skeleton" aria-hidden="true"></div>
+            <div class="card card--skeleton" aria-hidden="true"></div>
         </div>
     </main>
 
     <footer>
         <p>vientonorte · <a href="https://github.com/vientonorte">github.com/vientonorte</a> · Mayo 2026</p>
     </footer>
+
+    <script>
+    /* ── Passkey helpers ────────────────────────────────────────────── */
+    const CREDENTIAL_KEY = 'vn_passkey_id';
+    const AUTH_SESSION_KEY = 'vn_auth';
+    const supportsPasskey = () =>
+        window.PublicKeyCredential !== undefined &&
+        typeof navigator.credentials?.create === 'function';
+
+    const isAuthenticated = () =>
+        sessionStorage.getItem(AUTH_SESSION_KEY) === '1';
+
+    const hasRegisteredPasskey = () =>
+        !!localStorage.getItem(CREDENTIAL_KEY);
+
+    function passkeyState() {
+        if (isAuthenticated())       return 'authenticated';
+        if (hasRegisteredPasskey())  return 'registered';
+        return 'none';
+    }
+
+    function rpId() {
+        const h = location.hostname;
+        return h === '' ? 'localhost' : h;
+    }
+
+    async function registerPasskey() {
+        const challenge = crypto.getRandomValues(new Uint8Array(32));
+        const credential = await navigator.credentials.create({
+            publicKey: {
+                challenge,
+                rp: { name: 'vientonorte', id: rpId() },
+                user: {
+                    id: new TextEncoder().encode('vientonorte-owner'),
+                    name: 'vientonorte',
+                    displayName: 'Rodrigo Gaete'
+                },
+                pubKeyCredParams: [
+                    { type: 'public-key', alg: -7 },
+                    { type: 'public-key', alg: -257 }
+                ],
+                authenticatorSelection: {
+                    userVerification: 'required',
+                    residentKey: 'preferred'
+                },
+                timeout: 60000
+            }
+        });
+        const idBase64 = btoa(String.fromCharCode(
+            ...new Uint8Array(credential.rawId)
+        ));
+        localStorage.setItem(CREDENTIAL_KEY, idBase64);
+        sessionStorage.setItem(AUTH_SESSION_KEY, '1');
+    }
+
+    async function authenticatePasskey() {
+        const stored = localStorage.getItem(CREDENTIAL_KEY);
+        if (!stored) throw new Error('No passkey registered');
+        const credentialId = Uint8Array.from(atob(stored), c => c.charCodeAt(0));
+        const challenge = crypto.getRandomValues(new Uint8Array(32));
+        const assertion = await navigator.credentials.get({
+            publicKey: {
+                challenge,
+                rpId: rpId(),
+                allowCredentials: [{ type: 'public-key', id: credentialId }],
+                userVerification: 'required',
+                timeout: 60000
+            }
+        });
+        if (assertion) {
+            sessionStorage.setItem(AUTH_SESSION_KEY, '1');
+            return true;
+        }
+        return false;
+    }
+
+    /* ── Passkey button UI ──────────────────────────────────────────── */
+    const ICONS = {
+        lock:   `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 7V5a4 4 0 0 1 8 0v2h.5A1.5 1.5 0 0 1 14 8.5v5A1.5 1.5 0 0 1 12.5 15h-9A1.5 1.5 0 0 1 2 13.5v-5A1.5 1.5 0 0 1 3.5 7H4Zm1.5 0h5V5a2.5 2.5 0 0 0-5 0v2Z"/></svg>`,
+        unlock: `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11 1a4 4 0 0 0-4 4v2H3.5A1.5 1.5 0 0 0 2 8.5v5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 12.5 7H8.5V5a2.5 2.5 0 0 1 5 0 .75.75 0 0 0 1.5 0A4 4 0 0 0 11 1Z"/></svg>`,
+        key:    `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M10.5 0a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 1.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM3.982 9.074l-3.75 3.75a.75.75 0 0 0 1.06 1.06l.19-.189V15a.75.75 0 0 0 1.5 0v-1.5h1.5a.75.75 0 0 0 0-1.5H4.5l2.5-2.5a5.465 5.465 0 0 1-3.018-1.426Z"/></svg>`
+    };
+
+    function updatePasskeyButton(btn) {
+        const state = passkeyState();
+        btn.removeAttribute('hidden');
+        if (state === 'authenticated') {
+            btn.innerHTML = `${ICONS.unlock} Acceso activo`;
+            btn.className = 'btn-passkey btn-passkey--active';
+            btn.setAttribute('aria-label', 'Acceso activo — clic para cerrar sesión');
+            btn.title = 'Clic para cerrar sesión privada';
+        } else if (state === 'registered') {
+            btn.innerHTML = `${ICONS.lock} Desbloquear`;
+            btn.className = 'btn-passkey';
+            btn.setAttribute('aria-label', 'Desbloquear acceso privado con passkey');
+            btn.title = 'Autenticar con passkey para ver repos privados';
+        } else {
+            btn.innerHTML = `${ICONS.key} Configurar passkey`;
+            btn.className = 'btn-passkey';
+            btn.setAttribute('aria-label', 'Configurar passkey de acceso privado');
+            btn.title = 'Registrar passkey para acceder a repos privados';
+        }
+    }
+
+    /* ── Card renderer ──────────────────────────────────────────────── */
+    const BADGE_MAP = {
+        live:       ['LIVE',       'card__badge--live'],
+        private:    ['PRIVADO',    'card__badge--private'],
+        repo:       ['REPO',       'card__badge--repo'],
+        deprecated: ['DEPRECATED', 'card__badge--deprecated']
+    };
+
+    const ICONS_CARD = {
+        site:   `<svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>`,
+        github: `<svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>`
+    };
+
+    function renderLink(link, authenticated) {
+        if (link.requiresAuth && !authenticated) {
+            return `<span class="link-disabled"
+                         aria-label="Código no disponible — repositorio privado"
+                         aria-disabled="true">
+                        ${ICONS_CARD.github}
+                        Acceso restringido
+                    </span>`;
+        }
+        const icon = link.icon ? ICONS_CARD[link.icon] ?? '' : '';
+        return `<a href="${link.href}"${link.requiresAuth ? ' rel="noopener"' : ''}>${icon}${link.label}</a>`;
+    }
+
+    function renderCard(project, authenticated) {
+        const [badgeText, badgeClass] = BADGE_MAP[project.badge] ?? ['', ''];
+        const cardClass = project.deprecated ? 'card card--deprecated' : 'card';
+        const titleEl = project.links?.[0]?.href && !project.links[0].requiresAuth
+            ? `<a href="${project.links[0].href}">${project.title}</a>`
+            : project.title;
+        const tags = (project.tags ?? [])
+            .map(t => `<li class="tag">${t}</li>`)
+            .join('');
+        const links = (project.links ?? [])
+            .map(l => renderLink(l, authenticated))
+            .join('');
+
+        return `
+        <article class="${cardClass}" aria-label="${project.title}">
+            <div class="card__header">
+                <h2 class="card__title">${titleEl}</h2>
+                ${badgeText ? `<span class="card__badge ${badgeClass}">${badgeText}</span>` : ''}
+            </div>
+            <div class="card__desc">${project.desc ?? ''}</div>
+            <ul class="card__tags" role="list">${tags}</ul>
+            <div class="card__links">${links}</div>
+        </article>`;
+    }
+
+    function renderStats(stats) {
+        return stats.map(s => `
+            <li class="stat">
+                <span class="dot dot--${s.dot}" aria-hidden="true"></span>
+                <strong>${s.value}</strong> ${s.label}
+            </li>`).join('');
+    }
+
+    /* ── Bootstrap ──────────────────────────────────────────────────── */
+    (async () => {
+        const grid   = document.getElementById('cards-grid');
+        const stats  = document.getElementById('stats-list');
+        const btn    = document.getElementById('btn-passkey');
+
+        /* Fetch project data first */
+        let data;
+        try {
+            const res = await fetch('./data/projects.json');
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            data = await res.json();
+        } catch (err) {
+            console.error('Failed to load projects:', err);
+            grid.innerHTML = `<p style="color:var(--text-muted);padding:1rem">
+                Error al cargar proyectos. Recarga la página.</p>`;
+            return;
+        }
+
+        function renderAll() {
+            const auth = isAuthenticated();
+            stats.innerHTML = renderStats(data.meta.stats);
+            grid.innerHTML  = data.projects.map(p => renderCard(p, auth)).join('');
+        }
+
+        renderAll();
+
+        /* Wire passkey button — only after data is loaded so renderAll is in scope */
+        if (supportsPasskey()) {
+            updatePasskeyButton(btn);
+
+            btn.addEventListener('click', async () => {
+                const state = passkeyState();
+                if (state === 'authenticated') {
+                    sessionStorage.removeItem(AUTH_SESSION_KEY);
+                    renderAll();
+                    updatePasskeyButton(btn);
+                    return;
+                }
+                try {
+                    if (state === 'none') {
+                        await registerPasskey();
+                    } else {
+                        await authenticatePasskey();
+                    }
+                    renderAll();
+                    updatePasskeyButton(btn);
+                } catch (err) {
+                    /* NotAllowedError = user cancelled — no action needed */
+                    if (err.name !== 'NotAllowedError') {
+                        console.error('Passkey error:', err);
+                    }
+                }
+            });
+        }
+    })();
+    </script>
 
 </body>
 
