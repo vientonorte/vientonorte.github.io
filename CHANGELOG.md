@@ -9,6 +9,30 @@ Formato:
 
 ---
 
+## 2026-05-04
+
+### feat
+- `feat(data)`: arquitectura de datos para grafo de fricción institucional —
+  capa 1 (`data/raw/`), capa 2 (`data/graph/`), capa 3 (visualización existente).
+- `feat(schema)`: JSON Schema Draft-07 para 8 tipos de nodo:
+  `agente`, `flujo`, `territorio`, `friccion`, `puerta_giratoria`,
+  `captura_regulatoria`, `zona_gris`, `vacio_institucional`.
+- `feat(schema)`: `data/schema/node.schema.json` — esquema base con campos
+  obligatorios: `id`, `type`, `friction_score`, `evidence_refs`, `updated_at`, `energy`.
+- `feat(schema)`: `data/schema/edge.schema.json` — aristas con `source`, `target`,
+  `weight`, `flow_type`, `currency`, `timestamp`, `sca_score`, `friction_type`.
+- `feat(data)`: `data/graph/nodes.json` — 8 nodos de ejemplo/plantilla (uno por tipo).
+- `feat(data)`: `data/graph/edges.json` — 7 aristas de ejemplo con validación SCA.
+- `feat(pipeline)`: `pipeline/validate_flow.py` — función `validate_flow()` con
+  lógica SCA analógica (3 factores: KNOW/HAVE/BE); CLI con `--edges`, `--edge-id`,
+  `--output`, `--fail-on-high`; función `compute_node_energy()`.
+- `feat(ci)`: `.github/workflows/validate_schema.yml` — GitHub Actions que valida
+  `nodes.json` y `edges.json` contra schemas Draft-07 (ajv-cli@5) y ejecuta
+  el pipeline SCA en cada push/PR que modifique `data/` o `pipeline/`.
+  Sube reporte SCA como artefacto con retención de 90 días.
+
+---
+
 ## 2026-05-03
 
 ### fix

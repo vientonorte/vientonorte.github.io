@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/schema/nodes/vacio-institucional.schema.json",
+  "title": "Nodo Vacío Institucional",
+  "description": "Ausencia medible de fiscalización en un territorio o período: fricción por omisión.",
+  "allOf": [
+    { "$ref": "../node.schema.json" },
+    {
+      "properties": {
+        "type": { "const": "vacio_institucional" },
+        "attributes": {
+          "type": "object",
+          "required": ["territorio_id", "cobertura_auditoria_pct", "meses_sin_control", "cgr_observaciones_pendientes"],
+          "properties": {
+            "territorio_id": {
+              "type": "string",
+              "description": "ID del nodo Territorio donde se registra el vacío"
+            },
+            "cobertura_auditoria_pct": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Porcentaje del presupuesto del territorio cubierto por auditorías en el período"
+            },
+            "meses_sin_control": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Meses consecutivos sin auditoría formal o seguimiento de observaciones"
+            },
+            "cgr_observaciones_pendientes": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Número de observaciones CGR (o equivalente) pendientes de resolución"
+            },
+            "cgr_monto_observado": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Monto total en CLP observado por CGR pendiente de regularización"
+            },
+            "ultimo_informe_auditoria": {
+              "type": ["string", "null"],
+              "format": "date",
+              "description": "Fecha del último informe de auditoría formal; null si no existe registro"
+            },
+            "organismo_fiscalizador": {
+              "type": "string",
+              "description": "Nombre del organismo fiscalizador responsable (CGR, SII, CMF, etc.)"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

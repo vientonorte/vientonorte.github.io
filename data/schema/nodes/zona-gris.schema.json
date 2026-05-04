@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/schema/nodes/zona-gris.schema.json",
+  "title": "Nodo Zona Gris",
+  "description": "Transacciones formalmente legales con indicadores de riesgo elevados según estándares GAFI/FATF.",
+  "allOf": [
+    { "$ref": "../node.schema.json" },
+    {
+      "properties": {
+        "type": { "const": "zona_gris" },
+        "attributes": {
+          "type": "object",
+          "required": ["indicadores_gafi", "percentil_monto_mercado", "concentracion_proveedor_hhi"],
+          "properties": {
+            "indicadores_gafi": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "estructura_inusual",
+                  "fragmentacion_contratos",
+                  "proveedor_unico_recurrente",
+                  "urgencia_no_justificada",
+                  "precio_sobre_mercado",
+                  "precio_bajo_mercado",
+                  "beneficiario_final_opaco",
+                  "jurisdiccion_offshore",
+                  "actividad_inusual_volumen",
+                  "otro"
+                ],
+                "description": "Indicador de riesgo según recomendaciones GAFI/FATF"
+              },
+              "description": "Lista de indicadores GAFI presentes en la transacción"
+            },
+            "percentil_monto_mercado": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Percentil del monto de la transacción respecto al mercado comparable (0–100)"
+            },
+            "concentracion_proveedor_hhi": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10000,
+              "description": "Índice Herfindahl-Hirschman de concentración del proveedor en el período analizado"
+            },
+            "flujo_id": {
+              "type": "string",
+              "description": "ID del nodo Flujo asociado a esta zona gris"
+            },
+            "nivel_riesgo": {
+              "type": "string",
+              "enum": ["bajo", "medio", "alto", "critico"],
+              "description": "Nivel de riesgo consolidado post-análisis"
+            },
+            "recomendacion": {
+              "type": "string",
+              "enum": ["monitoreo", "revision_profunda", "auditoria_inmediata", "denuncia"],
+              "description": "Acción recomendada según nivel de riesgo"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}
