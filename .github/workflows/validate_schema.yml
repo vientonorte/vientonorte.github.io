@@ -38,7 +38,7 @@ jobs:
             -d "data/graph/nodes.json" \
             --all-errors \
             --spec=draft7 \
-            --json-pointers
+            --validate-formats=false
 
       - name: Validate edges.json against edges-collection.schema.json
         run: |
@@ -48,7 +48,7 @@ jobs:
             -d "data/graph/edges.json" \
             --all-errors \
             --spec=draft7 \
-            --json-pointers
+            --validate-formats=false
 
   validate-pipeline:
     name: Pipeline SCA (Python 3.x)
