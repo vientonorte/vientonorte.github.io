@@ -1,0 +1,93 @@
+[
+  {
+    "id": "edge-001",
+    "source": "agente-001",
+    "target": "flujo-001",
+    "weight": 185000000,
+    "flow_type": "financiero",
+    "currency": "CLP",
+    "timestamp": "2021-08-15T00:00:00Z",
+    "sca_validated": false,
+    "sca_score": 33,
+    "friction_type": "captura",
+    "evidence_refs": ["https://www.chilecompra.cl/licitacion/7890-12-TE21"]
+  },
+  {
+    "id": "edge-002",
+    "source": "flujo-001",
+    "target": "territorio-001",
+    "weight": 185000000,
+    "flow_type": "financiero",
+    "currency": "CLP",
+    "timestamp": "2021-08-15T00:00:00Z",
+    "sca_validated": true,
+    "sca_score": 100,
+    "friction_type": "limpio",
+    "evidence_refs": ["https://www.chilecompra.cl/licitacion/7890-12-TE21"]
+  },
+  {
+    "id": "edge-003",
+    "source": "agente-001",
+    "target": "puerta-giratoria-001",
+    "weight": 1,
+    "flow_type": "personal",
+    "currency": "N/A",
+    "timestamp": "2023-02-01T00:00:00Z",
+    "sca_validated": false,
+    "sca_score": 0,
+    "friction_type": "captura",
+    "evidence_refs": ["https://www.registrocivil.cl/contrato/99876543-2"]
+  },
+  {
+    "id": "edge-004",
+    "source": "puerta-giratoria-001",
+    "target": "captura-regulatoria-001",
+    "weight": 4800000000,
+    "flow_type": "normativo",
+    "currency": "CLP",
+    "timestamp": "2023-09-15T00:00:00Z",
+    "sca_validated": false,
+    "sca_score": 33,
+    "friction_type": "captura",
+    "evidence_refs": ["https://www.diariooficial.cl/decreto/2023-0847"]
+  },
+  {
+    "id": "edge-005",
+    "source": "flujo-001",
+    "target": "zona-gris-001",
+    "weight": 785000000,
+    "flow_type": "financiero",
+    "currency": "CLP",
+    "timestamp": "2022-06-01T00:00:00Z",
+    "sca_validated": false,
+    "sca_score": 33,
+    "friction_type": "procesal",
+    "evidence_refs": ["https://www.chilecompra.cl/proveedor/99876543-2/contratos"]
+  },
+  {
+    "id": "edge-006",
+    "source": "vacio-institucional-001",
+    "target": "friccion-001",
+    "weight": 1950000000,
+    "flow_type": "normativo",
+    "currency": "CLP",
+    "timestamp": "2023-01-01T00:00:00Z",
+    "sca_validated": false,
+    "sca_score": 0,
+    "friction_type": "regulatorio",
+    "evidence_refs": ["https://www.contraloria.cl/informe/2023-056"]
+  },
+  {
+    "id": "edge-007",
+    "source": "territorio-001",
+    "target": "friccion-001",
+    "weight": 2250000000,
+    "flow_type": "financiero",
+    "currency": "CLP",
+    "timestamp": "2023-07-31T00:00:00Z",
+    "sca_validated": false,
+    "sca_score": 66,
+    "friction_type": "procesal",
+    "evidence_refs": ["https://www.contraloria.cl/informe/2023-056", "https://www.dipres.gob.cl/presupuesto/2023/partida25"]
+  }
+]
