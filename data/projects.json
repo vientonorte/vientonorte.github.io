@@ -83,6 +83,7 @@
       "id": "sura-investments",
       "title": "SURA Investments",
       "badge": "private",
+      "requiresAuth": true,
       "desc": "UX Lead Dashboard — Estado del Arte, análisis DEI, CMA, entregables y seguimiento Q1 2026. Estrategia digital y gobernanza de datos.",
       "tags": ["UX Lead", "fintech", "gobernanza"],
       "links": [
