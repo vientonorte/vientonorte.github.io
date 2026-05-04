@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/schema/nodes/territorio.schema.json",
+  "title": "Nodo Territorio",
+  "description": "Institución o unidad presupuestaria delimitada como campo de fricción.",
+  "allOf": [
+    { "$ref": "../node.schema.json" },
+    {
+      "properties": {
+        "type": { "const": "territorio" },
+        "attributes": {
+          "type": "object",
+          "required": ["codigo_presupuestario", "clasificacion_cofog", "presupuesto_asignado", "presupuesto_ejecutado"],
+          "properties": {
+            "codigo_presupuestario": {
+              "type": "string",
+              "description": "Código oficial de la partida presupuestaria (Ley de Presupuestos)"
+            },
+            "clasificacion_cofog": {
+              "type": "string",
+              "description": "Clasificación COFOG (Classification of the Functions of Government) de 2 dígitos mínimo"
+            },
+            "nombre_institucion": {
+              "type": "string",
+              "description": "Nombre oficial de la institución o unidad"
+            },
+            "pais": {
+              "type": "string",
+              "pattern": "^[A-Z]{2}$",
+              "description": "Código ISO 3166-1 alpha-2 del país"
+            },
+            "presupuesto_asignado": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Presupuesto asignado en CLP para el período fiscal"
+            },
+            "presupuesto_ejecutado": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Presupuesto efectivamente ejecutado en CLP"
+            },
+            "tasa_ejecucion": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 200,
+              "description": "Porcentaje ejecutado sobre asignado (ejecutado/asignado × 100)"
+            },
+            "anio_fiscal": {
+              "type": "integer",
+              "minimum": 2000,
+              "description": "Año fiscal de referencia"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

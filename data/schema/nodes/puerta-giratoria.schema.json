@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/schema/nodes/puerta-giratoria.schema.json",
+  "title": "Nodo Puerta Giratoria",
+  "description": "Captura el tránsito de agentes entre sector público y privado, revelando conflictos de interés potenciales.",
+  "allOf": [
+    { "$ref": "../node.schema.json" },
+    {
+      "properties": {
+        "type": { "const": "puerta_giratoria" },
+        "attributes": {
+          "type": "object",
+          "required": ["agente_id", "fecha_salida_publico", "fecha_entrada_privado", "empresa_destino"],
+          "properties": {
+            "agente_id": {
+              "type": "string",
+              "description": "ID del nodo Agente involucrado en la transición"
+            },
+            "fecha_salida_publico": {
+              "type": "string",
+              "format": "date",
+              "description": "Fecha de cese en cargo público (YYYY-MM-DD)"
+            },
+            "fecha_entrada_privado": {
+              "type": "string",
+              "format": "date",
+              "description": "Fecha de inicio en cargo privado (YYYY-MM-DD)"
+            },
+            "empresa_destino": {
+              "type": "string",
+              "description": "Nombre o RUT de la empresa privada de destino"
+            },
+            "dias_ventana": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Días entre salida del sector público e incorporación al privado"
+            },
+            "contratos_previos_relacionados": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "ID de contratos o licitaciones previas vinculadas al agente y a la empresa destino"
+              },
+              "description": "Contratos adjudicados a la empresa destino mientras el agente tenía poder de decisión"
+            },
+            "monto_contratos_previos": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Suma de montos de contratos previos relacionados en CLP"
+            },
+            "restriccion_legal_aplicable": {
+              "type": "boolean",
+              "description": "true si existe impedimento legal formal para el tránsito (Ley 20.880 u otra)"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

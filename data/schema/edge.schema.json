@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/schema/edge.schema.json",
+  "title": "Arista (Vector) del Grafo de Fricción Institucional",
+  "description": "Arista dirigida que representa el flujo de poder, recursos o influencia entre nodos.",
+  "type": "object",
+  "required": ["id", "source", "target", "weight", "flow_type", "currency", "timestamp"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identificador único de la arista"
+    },
+    "source": {
+      "type": "string",
+      "description": "ID del nodo origen"
+    },
+    "target": {
+      "type": "string",
+      "description": "ID del nodo destino"
+    },
+    "weight": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Peso de la arista: monto monetario o frecuencia de ocurrencia según flow_type"
+    },
+    "flow_type": {
+      "type": "string",
+      "enum": ["financiero", "normativo", "personal", "informacional"],
+      "description": "Tipo de flujo que representa la arista"
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$|^N/A$",
+      "description": "Código ISO 4217 de la moneda (CLP, USD, etc.) o 'N/A' para flujos no monetarios"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp ISO 8601 de cuando ocurrió el flujo"
+    },
+    "sca_validated": {
+      "type": "boolean",
+      "description": "true si el flujo superó la validación SCA analógica (3 factores)"
+    },
+    "sca_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Score SCA: 100 = supera los 3 factores; 0 = ningún factor validado"
+    },
+    "friction_type": {
+      "type": "string",
+      "enum": ["limpio", "regulatorio", "procesal", "captura"],
+      "description": "Clasificación del flujo post-validación SCA"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Referencias a documentos que sustentan esta arista"
+    }
+  },
+  "additionalProperties": false
+}

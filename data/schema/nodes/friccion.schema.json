@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/schema/nodes/friccion.schema.json",
+  "title": "Nodo Fricción",
+  "description": "Nodo central que representa un evento de resistencia o distorsión institucional medible.",
+  "allOf": [
+    { "$ref": "../node.schema.json" },
+    {
+      "properties": {
+        "type": { "const": "friccion" },
+        "attributes": {
+          "type": "object",
+          "required": ["tipo_friccion", "intensidad", "duracion_dias", "costo_estimado"],
+          "properties": {
+            "tipo_friccion": {
+              "type": "string",
+              "enum": ["regulatoria", "procesal", "captura"],
+              "description": "Categoría principal de la fricción"
+            },
+            "intensidad": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10,
+              "description": "Intensidad de la fricción en escala 0–10"
+            },
+            "duracion_dias": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Duración del evento de fricción en días calendario"
+            },
+            "costo_estimado": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Costo estimado de la fricción en CLP (incluye costo de oportunidad)"
+            },
+            "descripcion_tecnica": {
+              "type": "string",
+              "description": "Descripción técnica concisa del evento de fricción"
+            },
+            "periodo_inicio": {
+              "type": "string",
+              "format": "date",
+              "description": "Fecha de inicio del período de fricción"
+            },
+            "periodo_fin": {
+              "type": ["string", "null"],
+              "format": "date",
+              "description": "Fecha de cierre; null si persiste"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

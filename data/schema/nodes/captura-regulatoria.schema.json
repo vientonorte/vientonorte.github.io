@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/schema/nodes/captura-regulatoria.schema.json",
+  "title": "Nodo Captura Regulatoria",
+  "description": "Evento en que el regulado controla al regulador: la fricción invierte su dirección de contención a facilitación.",
+  "allOf": [
+    { "$ref": "../node.schema.json" },
+    {
+      "properties": {
+        "type": { "const": "captura_regulatoria" },
+        "attributes": {
+          "type": "object",
+          "required": ["entidad_reguladora", "entidad_regulada", "delta_normativo"],
+          "properties": {
+            "entidad_reguladora": {
+              "type": "string",
+              "description": "Nombre o código de la entidad reguladora afectada"
+            },
+            "entidad_regulada": {
+              "type": "string",
+              "description": "Nombre o RUT de la empresa/sector que ejerce la captura"
+            },
+            "delta_normativo": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["instrumento", "fecha", "beneficio_estimado"],
+                "properties": {
+                  "instrumento": {
+                    "type": "string",
+                    "description": "Número o nombre del decreto, resolución o norma modificada"
+                  },
+                  "fecha": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Fecha de publicación del cambio normativo"
+                  },
+                  "beneficio_estimado": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Beneficio económico estimado para el regulado en CLP"
+                  },
+                  "descripcion": {
+                    "type": "string",
+                    "description": "Descripción técnica del cambio normativo y su dirección"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "description": "Cambios normativos favorables post-captura con estimación de beneficio"
+            },
+            "mecanismo_captura": {
+              "type": "string",
+              "enum": [
+                "puerta_giratoria",
+                "financiamiento_politico",
+                "lobby_formal",
+                "control_informacional",
+                "otro"
+              ],
+              "description": "Mecanismo identificado de captura"
+            },
+            "periodo_captura_inicio": {
+              "type": "string",
+              "format": "date",
+              "description": "Inicio estimado del período de captura"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

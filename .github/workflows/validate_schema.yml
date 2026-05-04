@@ -1,0 +1,82 @@
+name: Validate Graph Schema
+
+on:
+  push:
+    paths:
+      - 'data/graph/**'
+      - 'data/schema/**'
+      - 'pipeline/**'
+  pull_request:
+    paths:
+      - 'data/graph/**'
+      - 'data/schema/**'
+      - 'pipeline/**'
+
+jobs:
+  validate-schema:
+    name: JSON Schema (Draft-07)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install ajv-cli
+        run: npm install -g ajv-cli@5
+
+      - name: Validate nodes.json against node.schema.json
+        run: |
+          ajv validate \
+            -s data/schema/node.schema.json \
+            -d "data/graph/nodes.json" \
+            --all-errors \
+            --spec=draft7 \
+            --json-pointers
+        # nodes.json is an array; ajv-cli validates each item when schema type is object
+        # For collection-level schema:
+      - name: Validate edges.json against edge.schema.json
+        run: |
+          ajv validate \
+            -s data/schema/edge.schema.json \
+            -d "data/graph/edges.json" \
+            --all-errors \
+            --spec=draft7 \
+            --json-pointers
+
+  validate-pipeline:
+    name: Pipeline SCA (Python 3.x)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run validate_flow.py on sample data
+        run: |
+          python pipeline/validate_flow.py \
+            --edges data/graph/edges.json \
+            --output /tmp/sca-report.json
+
+      - name: Check for CRITICAL risk flows
+        run: |
+          python pipeline/validate_flow.py \
+            --edges data/graph/edges.json \
+            --fail-on-high
+        continue-on-error: true
+        # continue-on-error: el pipeline no bloquea el merge, pero deja evidencia
+
+      - name: Upload SCA report artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sca-report
+          path: /tmp/sca-report.json
+          retention-days: 90

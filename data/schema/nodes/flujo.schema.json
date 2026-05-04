@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/schema/nodes/flujo.schema.json",
+  "title": "Nodo Flujo",
+  "description": "Transacción o contrato público con trazabilidad en ChileCompra/SECOP u otro sistema oficial.",
+  "allOf": [
+    { "$ref": "../node.schema.json" },
+    {
+      "properties": {
+        "type": { "const": "flujo" },
+        "attributes": {
+          "type": "object",
+          "required": ["id_licitacion", "monto", "fecha", "tipo_contrato"],
+          "properties": {
+            "id_licitacion": {
+              "type": "string",
+              "description": "ID de licitación en ChileCompra (ej: 1234-56-LE20) o SECOP"
+            },
+            "monto": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Monto adjudicado en la moneda base del contrato"
+            },
+            "moneda": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$",
+              "default": "CLP",
+              "description": "Código ISO 4217 de la moneda"
+            },
+            "fecha": {
+              "type": "string",
+              "format": "date",
+              "description": "Fecha de adjudicación o firma del contrato"
+            },
+            "tipo_contrato": {
+              "type": "string",
+              "enum": [
+                "licitacion_publica",
+                "licitacion_privada",
+                "trato_directo",
+                "convenio_marco",
+                "compra_agil",
+                "otro"
+              ],
+              "description": "Modalidad de contratación"
+            },
+            "proveedor_rut": {
+              "type": "string",
+              "description": "RUT del proveedor adjudicado"
+            },
+            "entidad_compradora": {
+              "type": "string",
+              "description": "Código de la entidad compradora (RUPE o similar)"
+            },
+            "fuente": {
+              "type": "string",
+              "enum": ["ChileCompra", "SECOP", "SIGE", "otro"],
+              "description": "Sistema de origen del registro"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

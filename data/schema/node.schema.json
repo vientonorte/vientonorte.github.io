@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/schema/node.schema.json",
+  "title": "Nodo del Grafo de Fricción Institucional",
+  "description": "Esquema base para todos los nodos del grafo. Campos obligatorios compartidos por todos los tipos.",
+  "type": "object",
+  "required": ["id", "type", "friction_score", "evidence_refs", "updated_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identificador único del nodo (UUID v4 o código de fuente primaria)"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "agente",
+        "flujo",
+        "territorio",
+        "friccion",
+        "puerta_giratoria",
+        "captura_regulatoria",
+        "zona_gris",
+        "vacio_institucional"
+      ],
+      "description": "Tipo de nodo según la taxonomía de fricción institucional"
+    },
+    "friction_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Score de fricción en escala 0 (sin fricción) → 100 (captura total)"
+    },
+    "energy": {
+      "type": "number",
+      "minimum": 0,
+      "description": "E_nodo = (monto_involucrado × frecuencia_ocurrencia) / transparencia_index"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "Referencia a fuente primaria (URL, ID de expediente, hash de documento)"
+      },
+      "minItems": 1,
+      "description": "Referencias a evidencia primaria obligatorias para trazabilidad"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp ISO 8601 de última actualización del nodo"
+    },
+    "label": {
+      "type": "string",
+      "description": "Etiqueta legible para visualización en el grafo"
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Atributos específicos del tipo de nodo (ver schemas de nodo extendidos)"
+    }
+  },
+  "additionalProperties": false
+}
