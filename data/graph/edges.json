@@ -23,7 +23,9 @@
     "sca_validated": true,
     "sca_score": 100,
     "friction_type": "limpio",
-    "evidence_refs": ["https://www.chilecompra.cl/licitacion/7890-12-TE21"]
+    "evidence_refs": ["https://www.chilecompra.cl/licitacion/7890-12-TE21"],
+    "instrumento_legal": "Resolución de Adjudicación 7890-12-TE21",
+    "competencia_validada": true
   },
   {
     "id": "edge-003",

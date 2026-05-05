@@ -59,6 +59,14 @@
         "type": "string"
       },
       "description": "Referencias a documentos que sustentan esta arista"
+    },
+    "instrumento_legal": {
+      "type": "string",
+      "description": "Factor SCA-2 (HAVE): decreto, resolución o ley habilitante del flujo"
+    },
+    "competencia_validada": {
+      "type": "boolean",
+      "description": "Factor SCA-3 (BE): true si la competencia territorial y jerárquica está validada"
     }
   },
   "additionalProperties": false

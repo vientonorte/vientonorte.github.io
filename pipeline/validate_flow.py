@@ -12,7 +12,7 @@ análisis de corrupción institucional:
 Un flujo que no supera los 3 factores recibe friction_type = "captura" y risk_level = ALTO.
 
 Uso:
-  python validate_flow.py --nodes data/graph/nodes.json --edges data/graph/edges.json
+  python validate_flow.py --edges data/graph/edges.json --output /tmp/report.json
   python validate_flow.py --edge-id edge-001 --edges data/graph/edges.json
 
 Compatibilidad: Python 3.9+, sin dependencias externas.
