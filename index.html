@@ -501,11 +501,11 @@
                 <h1><span>vientonorte</span> <span id="header-title">— proyectos</span></h1>
                 <p id="header-subtitle">Rodrigo Gaete Gaona · UX Lead · Investigador doctoral en Antropología</p>
                 <div class="contact-links">
-                    <a href="https://github.com/vientonorte" rel="noopener noreferrer" target="_blank" aria-label="Perfil de GitHub">
+                    <a href="https://github.com/vientonorte" rel="noopener noreferrer" target="_blank" aria-label="Perfil de GitHub" data-i18n="githubProfile">
                         <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
                         GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/rodrigo-gaete-gaona" rel="noopener noreferrer" target="_blank" aria-label="Perfil de LinkedIn">
+                    <a href="https://www.linkedin.com/in/rodrigo-gaete-gaona" rel="noopener noreferrer" target="_blank" aria-label="Perfil de LinkedIn" data-i18n="linkedinProfile">
                         <svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>
                         LinkedIn
                     </a>
@@ -828,11 +828,13 @@
         document.getElementById('cards-grid').setAttribute('aria-label', t('ariaProjects'));
         document.getElementById('stats-list').setAttribute('aria-label', t('ariaStats'));
         
-        // Update contact links aria-labels
-        const githubLink = document.querySelector('a[href="https://github.com/vientonorte"]');
-        const linkedinLink = document.querySelector('a[href="https://www.linkedin.com/in/rodrigo-gaete-gaona"]');
-        if (githubLink) githubLink.setAttribute('aria-label', t('githubProfile'));
-        if (linkedinLink) linkedinLink.setAttribute('aria-label', t('linkedinProfile'));
+        // Update contact links aria-labels using data-i18n attributes
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (key && TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) {
+                el.setAttribute('aria-label', t(key));
+            }
+        });
         
         document.documentElement.lang = lang;
     }
