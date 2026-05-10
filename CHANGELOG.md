@@ -9,6 +9,27 @@ Formato:
 
 ---
 
+## 2026-05-10
+
+### feat
+- `feat(i18n)`: soporte bilingüe completo ES/EN — switch de idioma persistente en header con botón 🌐, idioma almacenado en `localStorage`.
+- `feat(i18n)`: estructura de datos bilingüe en `data/projects.json` — todos los campos de texto (descripciones, títulos, labels, stats) soportan objetos `{ es: "...", en: "..." }`.
+- `feat(i18n)`: traducción de UI completa — 16 strings de interfaz traducidas (passkey, toast, skip-link, footer, aria-labels) con función `t()` centralizada.
+- `feat(i18n)`: meta tags multilingües — `og:locale:alternate`, título y descripción bilingües, keywords SEO actualizados.
+- `feat(recruiter)`: enlaces de contacto en header — LinkedIn y GitHub visibles para reclutadores con iconos SVG y hover states.
+- `feat(recruiter)`: sección "Para reclutadores" en README — stack, formación, enlaces directos, proyectos en producción.
+- `feat(content)`: proyecto `aruma` agregado — SPA Next.js + Tailwind con A11y WCAG 2.1 AA y Security by Design (badge: `repo`, sin deploy).
+- `feat(content)`: actualización de contador de stats — "sin deploy" de 2 → 3 proyectos (refleja suma correcta con `aruma`).
+
+### fix
+- `fix(link)`: enlace roto de `uxtools` corregido — `https://github.com/vientonorte/UXFLOW` (404) → `https://github.com/vientonorte/uxtools`.
+
+### docs
+- `docs(readme)`: README expandido con features (bilingüe, passkey, a11y, responsive), estructura de datos bilingüe, guía para reclutadores y QA de switch de idiomas.
+- `docs(readme)`: tabla de proyectos actualizada — incluye `uxtools` y `aruma`, estados correctos (deprecated para Poemario Beta).
+
+---
+
 ## 2026-05-04
 
 ### feat
