@@ -501,18 +501,18 @@
                 <h1><span>vientonorte</span> <span id="header-title">— proyectos</span></h1>
                 <p id="header-subtitle">Rodrigo Gaete Gaona · UX Lead · Investigador doctoral en Antropología</p>
                 <div class="contact-links">
-                    <a href="https://github.com/vientonorte" rel="noopener noreferrer" target="_blank" aria-label="GitHub profile">
+                    <a href="https://github.com/vientonorte" rel="noopener noreferrer" target="_blank" aria-label="Perfil de GitHub" data-i18n="githubProfile">
                         <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
                         GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/rodrigo-gaete-gaona" rel="noopener noreferrer" target="_blank" aria-label="LinkedIn profile">
+                    <a href="https://www.linkedin.com/in/rodrigo-gaete-gaona" rel="noopener noreferrer" target="_blank" aria-label="Perfil de LinkedIn" data-i18n="linkedinProfile">
                         <svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>
                         LinkedIn
                     </a>
                 </div>
             </div>
             <div class="header__controls">
-                <button id="btn-lang" class="btn-lang" type="button" aria-label="Switch language">
+                <button id="btn-lang" class="btn-lang" type="button" aria-label="Cambiar idioma">
                     🌐 <span id="lang-label">EN</span>
                 </button>
                 <button id="btn-passkey" class="btn-passkey" type="button" aria-live="polite" hidden>
@@ -565,7 +565,10 @@
             passkeyError: 'Error de autenticación. Intenta de nuevo.',
             loadError: 'Error al cargar proyectos. Recarga la página.',
             ariaProjects: 'Proyectos',
-            ariaStats: 'Estadísticas de proyectos'
+            ariaStats: 'Estadísticas de proyectos',
+            switchLanguage: 'Cambiar idioma',
+            githubProfile: 'Perfil de GitHub',
+            linkedinProfile: 'Perfil de LinkedIn'
         },
         en: {
             pageTitle: 'vientonorte — Projects',
@@ -586,7 +589,10 @@
             passkeyError: 'Authentication error. Try again.',
             loadError: 'Error loading projects. Reload the page.',
             ariaProjects: 'Projects',
-            ariaStats: 'Project statistics'
+            ariaStats: 'Project statistics',
+            switchLanguage: 'Switch language',
+            githubProfile: 'GitHub profile',
+            linkedinProfile: 'LinkedIn profile'
         }
     };
 
@@ -818,8 +824,18 @@
         document.getElementById('skip-link').href = '#proyectos';
         document.getElementById('footer-text').innerHTML = t('footerText');
         document.getElementById('lang-label').textContent = lang === 'es' ? 'EN' : 'ES';
+        document.getElementById('btn-lang').setAttribute('aria-label', t('switchLanguage'));
         document.getElementById('cards-grid').setAttribute('aria-label', t('ariaProjects'));
         document.getElementById('stats-list').setAttribute('aria-label', t('ariaStats'));
+        
+        // Update contact links aria-labels using data-i18n attributes
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (key && TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) {
+                el.setAttribute('aria-label', t(key));
+            }
+        });
+        
         document.documentElement.lang = lang;
     }
 
