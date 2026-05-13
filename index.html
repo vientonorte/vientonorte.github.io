@@ -736,7 +736,7 @@
     /* ── Card renderer ──────────────────────────────────────────────── */
     const BADGE_MAP = {
         live:       ['LIVE',       'card__badge--live'],
-        private:    ['PRIVADO',    'card__badge--private'],
+        private:    ['PRIVATE',    'card__badge--private'],
         repo:       ['REPO',       'card__badge--repo'],
         deprecated: ['DEPRECATED', 'card__badge--deprecated']
     };
@@ -758,7 +758,7 @@
         const icon = link.icon ? ICONS_CARD[link.icon] ?? '' : '';
         const safe = sanitizeHref(link.href);
         const label = getLangValue(link.label);
-        return `<a href="${safe}" rel="noopener noreferrer">${icon}${label}</a>`;
+        return `<a href="${safe}" rel="noopener noreferrer" target="_blank">${icon}${label}</a>`;
     }
 
     function renderCard(project, authenticated) {
@@ -778,7 +778,7 @@
             ? `<div class="card__desc card__desc--locked">${t('lockedDesc')}</div>`
             : `<div class="card__desc">${getLangValue(project.desc) ?? ''}</div>`;
         const tags = locked ? '' : `<ul class="card__tags" role="list">${
-            (project.tags ?? []).map(t => `<li class="tag">${t}</li>`).join('')
+            (project.tags ?? []).map(tag => `<li class="tag">${tag}</li>`).join('')
         }</ul>`;
         const links = locked
             ? `<div class="card__links"><span class="link-disabled">${ICONS_CARD.github}${t('lockedLink')}</span></div>`
