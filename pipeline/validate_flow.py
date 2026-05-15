@@ -103,8 +103,10 @@ def validate_flow(flow_id: str, flow_data: dict[str, Any]) -> SCAResult:
       - competencia_validada (bool)     — Factor 3 (BE): competencia territorial/jerárquica
 
     Alternativamente acepta el esquema edge.schema.json con:
-      - evidence_refs       → Factor 1 proxy
-      - sca_score           → si ya computado, lo respeta y solo recalcula risk
+      - evidence_refs       → Factor 1 proxy (si actas_oficios no está presente)
+
+    Nota: los campos sca_score/friction_type almacenados en el objeto NO se respetan;
+    la validación siempre se recalcula desde cero a partir de los factores SCA.
     """
     missing_factors: list[dict[str, str]] = []
     sca_score = 0
