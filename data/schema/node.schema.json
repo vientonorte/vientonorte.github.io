@@ -4,7 +4,7 @@
   "title": "Nodo del Grafo de Fricción Institucional",
   "description": "Esquema base para todos los nodos del grafo. Campos obligatorios compartidos por todos los tipos.",
   "type": "object",
-  "required": ["id", "type", "friction_score", "evidence_refs", "updated_at"],
+  "required": ["id", "type", "label", "friction_score", "evidence_refs", "updated_at"],
   "properties": {
     "id": {
       "type": "string",

@@ -535,7 +535,7 @@
     </main>
 
     <footer>
-        <p id="footer-text">vientonorte · <a href="https://github.com/vientonorte">github.com/vientonorte</a> · Mayo 2026</p>
+        <p id="footer-text">vientonorte · <a href="https://github.com/vientonorte" rel="noopener noreferrer" target="_blank">github.com/vientonorte</a> · Mayo 2026</p>
     </footer>
 
     <div id="passkey-toast" class="passkey-toast" role="alert" aria-live="assertive"></div>
@@ -550,7 +550,7 @@
             pageTitle: 'vientonorte — Proyectos',
             headerTitle: '— proyectos',
             skipLink: 'Saltar al contenido',
-            footerText: 'vientonorte · <a href="https://github.com/vientonorte">github.com/vientonorte</a> · Mayo 2026',
+            footerText: 'vientonorte · <a href="https://github.com/vientonorte" rel="noopener noreferrer" target="_blank">github.com/vientonorte</a> · Mayo 2026',
             lockedDesc: 'Contenido privado — desbloquea para ver los detalles.',
             lockedLink: 'Acceso restringido',
             passkeyActive: 'Acceso activo',
@@ -574,7 +574,7 @@
             pageTitle: 'vientonorte — Projects',
             headerTitle: '— projects',
             skipLink: 'Skip to content',
-            footerText: 'vientonorte · <a href="https://github.com/vientonorte">github.com/vientonorte</a> · May 2026',
+            footerText: 'vientonorte · <a href="https://github.com/vientonorte" rel="noopener noreferrer" target="_blank">github.com/vientonorte</a> · May 2026',
             lockedDesc: 'Private content — unlock to view details.',
             lockedLink: 'Restricted access',
             passkeyActive: 'Active access',
@@ -736,7 +736,7 @@
     /* ── Card renderer ──────────────────────────────────────────────── */
     const BADGE_MAP = {
         live:       ['LIVE',       'card__badge--live'],
-        private:    ['PRIVADO',    'card__badge--private'],
+        private:    ['PRIVATE',    'card__badge--private'],
         repo:       ['REPO',       'card__badge--repo'],
         deprecated: ['DEPRECATED', 'card__badge--deprecated']
     };
@@ -758,7 +758,7 @@
         const icon = link.icon ? ICONS_CARD[link.icon] ?? '' : '';
         const safe = sanitizeHref(link.href);
         const label = getLangValue(link.label);
-        return `<a href="${safe}" rel="noopener noreferrer">${icon}${label}</a>`;
+        return `<a href="${safe}" rel="noopener noreferrer" target="_blank">${icon}${label}</a>`;
     }
 
     function renderCard(project, authenticated) {
@@ -772,13 +772,13 @@
         const titleHref = !locked && project.links?.[0]?.href && !project.links[0].requiresAuth
             ? sanitizeHref(project.links[0].href) : null;
         const titleEl = titleHref
-            ? `<a href="${titleHref}" rel="noopener noreferrer">${title}</a>`
+            ? `<a href="${titleHref}" rel="noopener noreferrer" target="_blank">${title}</a>`
             : title;
         const desc = locked
             ? `<div class="card__desc card__desc--locked">${t('lockedDesc')}</div>`
             : `<div class="card__desc">${getLangValue(project.desc) ?? ''}</div>`;
         const tags = locked ? '' : `<ul class="card__tags" role="list">${
-            (project.tags ?? []).map(t => `<li class="tag">${t}</li>`).join('')
+            (project.tags ?? []).map(tag => `<li class="tag">${tag}</li>`).join('')
         }</ul>`;
         const links = locked
             ? `<div class="card__links"><span class="link-disabled">${ICONS_CARD.github}${t('lockedLink')}</span></div>`
@@ -847,7 +847,7 @@
         const btnLang = document.getElementById('btn-lang');
 
         /* Initialize language */
-        setCurrentLang(getCurrentLang());
+        document.documentElement.lang = getCurrentLang();
 
         /* Fetch project data first */
         let data;
