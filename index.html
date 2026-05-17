@@ -550,7 +550,7 @@
             pageTitle: 'vientonorte — Proyectos',
             headerTitle: '— proyectos',
             skipLink: 'Saltar al contenido',
-            footerText: 'vientonorte · <a href="https://github.com/vientonorte">github.com/vientonorte</a> · Mayo 2026',
+            footerMonth: 'Mayo',
             lockedDesc: 'Contenido privado — desbloquea para ver los detalles.',
             lockedLink: 'Acceso restringido',
             passkeyActive: 'Acceso activo',
@@ -574,7 +574,7 @@
             pageTitle: 'vientonorte — Projects',
             headerTitle: '— projects',
             skipLink: 'Skip to content',
-            footerText: 'vientonorte · <a href="https://github.com/vientonorte">github.com/vientonorte</a> · May 2026',
+            footerMonth: 'May',
             lockedDesc: 'Private content — unlock to view details.',
             lockedLink: 'Restricted access',
             passkeyActive: 'Active access',
@@ -822,7 +822,13 @@
         document.getElementById('header-subtitle').textContent = getLangValue(window._projectData?.meta?.role) || '';
         document.getElementById('skip-link').textContent = t('skipLink');
         document.getElementById('skip-link').href = '#proyectos';
-        document.getElementById('footer-text').innerHTML = t('footerText');
+        const footerEl = document.getElementById('footer-text');
+        footerEl.textContent = '';
+        const ghLink = document.createElement('a');
+        ghLink.href = 'https://github.com/vientonorte';
+        ghLink.textContent = 'github.com/vientonorte';
+        ghLink.rel = 'noopener noreferrer';
+        footerEl.append('vientonorte · ', ghLink, ` · ${t('footerMonth')} 2026`);
         document.getElementById('lang-label').textContent = lang === 'es' ? 'EN' : 'ES';
         document.getElementById('btn-lang').setAttribute('aria-label', t('switchLanguage'));
         document.getElementById('cards-grid').setAttribute('aria-label', t('ariaProjects'));
@@ -859,8 +865,7 @@
                 throw new Error('Unexpected JSON structure');
             }
             window._projectData = data; // Store for language updates
-        } catch (err) {
-            console.error('Failed to load projects:', err);
+        } catch {
             grid.innerHTML = `<p class="load-error">${t('loadError')}</p>`;
             return;
         }
@@ -908,7 +913,6 @@
                 } catch (err) {
                     /* NotAllowedError = user cancelled the dialog — no feedback needed */
                     if (err.name !== 'NotAllowedError') {
-                        console.error('Passkey error:', err);
                         showToast(t('passkeyError'));
                     }
                 }
