@@ -67,6 +67,11 @@
     "competencia_validada": {
       "type": "boolean",
       "description": "Factor SCA-3 (BE): true si la competencia territorial y jerárquica está validada"
+    },
+    "actas_oficios": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Factor SCA-1 (KNOW): actas y oficios que documentan conocimiento de la norma"
     }
   },
   "additionalProperties": false
