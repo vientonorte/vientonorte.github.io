@@ -104,7 +104,6 @@ def validate_flow(flow_id: str, flow_data: dict[str, Any]) -> SCAResult:
 
     Alternativamente acepta el esquema edge.schema.json con:
       - evidence_refs       → Factor 1 proxy
-      - sca_score           → si ya computado, lo respeta y solo recalcula risk
     """
     missing_factors: list[dict[str, str]] = []
     sca_score = 0
