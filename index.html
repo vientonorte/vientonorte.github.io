@@ -667,6 +667,7 @@
                 timeout: 60000
             }
         });
+        if (!credential) throw new Error('Passkey registration failed');
         const idBase64 = btoa(String.fromCharCode(
             ...new Uint8Array(credential.rawId)
         ));
