@@ -76,7 +76,7 @@
     "timestamp": "2023-01-01T00:00:00Z",
     "sca_validated": false,
     "sca_score": 0,
-    "friction_type": "regulatorio",
+    "friction_type": "captura",
     "evidence_refs": ["https://www.contraloria.cl/informe/2023-056"]
   },
   {
