@@ -36,7 +36,7 @@
     "currency": "N/A",
     "timestamp": "2023-02-01T00:00:00Z",
     "sca_validated": false,
-    "sca_score": 0,
+    "sca_score": 33,
     "friction_type": "captura",
     "evidence_refs": ["https://www.registrocivil.cl/contrato/99876543-2"]
   },
@@ -75,8 +75,8 @@
     "currency": "CLP",
     "timestamp": "2023-01-01T00:00:00Z",
     "sca_validated": false,
-    "sca_score": 0,
-    "friction_type": "regulatorio",
+    "sca_score": 33,
+    "friction_type": "captura",
     "evidence_refs": ["https://www.contraloria.cl/informe/2023-056"]
   },
   {
@@ -88,8 +88,8 @@
     "currency": "CLP",
     "timestamp": "2023-07-31T00:00:00Z",
     "sca_validated": false,
-    "sca_score": 66,
-    "friction_type": "procesal",
+    "sca_score": 33,
+    "friction_type": "captura",
     "evidence_refs": ["https://www.contraloria.cl/informe/2023-056", "https://www.dipres.gob.cl/presupuesto/2023/partida25"]
   }
 ]
