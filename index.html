@@ -619,6 +619,14 @@
         return '';
     }
 
+    function esc(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
     /* ── Passkey helpers ────────────────────────────────────────────── */
     const CREDENTIAL_KEY = 'vn_passkey_id';
     const AUTH_SESSION_KEY = 'vn_auth';
@@ -748,16 +756,17 @@
 
     function renderLink(link, authenticated) {
         if (link.requiresAuth && !authenticated) {
+            const lockedLabel = esc(t('lockedLink'));
             return `<span class="link-disabled"
-                         aria-label="${t('lockedLink')}"
+                         aria-label="${lockedLabel}"
                          aria-disabled="true">
                         ${ICONS_CARD.github}
-                        ${t('lockedLink')}
+                        ${lockedLabel}
                     </span>`;
         }
         const icon = link.icon ? ICONS_CARD[link.icon] ?? '' : '';
-        const safe = sanitizeHref(link.href);
-        const label = getLangValue(link.label);
+        const safe = esc(sanitizeHref(link.href));
+        const label = esc(getLangValue(link.label));
         return `<a href="${safe}" rel="noopener noreferrer" target="_blank">${icon}${label}</a>`;
     }
 
@@ -768,27 +777,27 @@
             project.deprecated ? 'card--deprecated' : '',
             locked ? 'card--locked' : ''
         ].filter(Boolean).join(' ');
-        const title = getLangValue(project.title);
+        const title = esc(getLangValue(project.title));
         const titleHref = !locked && project.links?.[0]?.href && !project.links[0].requiresAuth
             ? sanitizeHref(project.links[0].href) : null;
         const titleEl = titleHref
-            ? `<a href="${titleHref}" rel="noopener noreferrer" target="_blank">${title}</a>`
+            ? `<a href="${esc(titleHref)}" rel="noopener noreferrer" target="_blank">${title}</a>`
             : title;
         const desc = locked
-            ? `<div class="card__desc card__desc--locked">${t('lockedDesc')}</div>`
-            : `<div class="card__desc">${getLangValue(project.desc) ?? ''}</div>`;
+            ? `<div class="card__desc card__desc--locked">${esc(t('lockedDesc'))}</div>`
+            : `<div class="card__desc">${esc(getLangValue(project.desc) ?? '')}</div>`;
         const tags = locked ? '' : `<ul class="card__tags" role="list">${
-            (project.tags ?? []).map(tag => `<li class="tag">${tag}</li>`).join('')
+            (project.tags ?? []).map(tag => `<li class="tag">${esc(tag)}</li>`).join('')
         }</ul>`;
         const links = locked
-            ? `<div class="card__links"><span class="link-disabled">${ICONS_CARD.github}${t('lockedLink')}</span></div>`
+            ? `<div class="card__links"><span class="link-disabled">${ICONS_CARD.github}${esc(t('lockedLink'))}</span></div>`
             : `<div class="card__links">${(project.links ?? []).map(l => renderLink(l, authenticated)).join('')}</div>`;
 
         return `
         <article class="${cardClass}" aria-label="${title}">
             <div class="card__header">
                 <h2 class="card__title">${titleEl}</h2>
-                ${badgeText ? `<span class="card__badge ${badgeClass}">${badgeText}</span>` : ''}
+                ${badgeText ? `<span class="card__badge ${badgeClass}">${esc(badgeText)}</span>` : ''}
             </div>
             ${desc}
             ${tags}
@@ -799,8 +808,8 @@
     function renderStats(stats) {
         return stats.map(s => `
             <li class="stat">
-                <span class="dot dot--${s.dot}" aria-hidden="true"></span>
-                <strong>${s.value}</strong> ${getLangValue(s.label)}
+                <span class="dot dot--${esc(s.dot)}" aria-hidden="true"></span>
+                <strong>${esc(s.value)}</strong> ${esc(getLangValue(s.label))}
             </li>`).join('');
     }
 
@@ -831,7 +840,10 @@
         const lang = getCurrentLang();
         document.getElementById('page-title').textContent = t('pageTitle');
         document.getElementById('header-title').textContent = t('headerTitle');
-        document.getElementById('header-subtitle').textContent = getLangValue(window._projectData?.meta?.role) || '';
+        const _name = window._projectData?.meta?.name || '';
+        const _role = getLangValue(window._projectData?.meta?.role) || '';
+        document.getElementById('header-subtitle').textContent =
+            _name && _role ? `${_name} · ${_role}` : (_name || _role);
         document.getElementById('skip-link').textContent = t('skipLink');
         document.getElementById('skip-link').href = '#proyectos';
         buildFooter();
@@ -872,7 +884,7 @@
             }
             window._projectData = data; // Store for language updates
         } catch {
-            grid.innerHTML = `<p class="load-error">${t('loadError')}</p>`;
+            grid.innerHTML = `<p class="load-error">${esc(t('loadError'))}</p>`;
             return;
         }
 
