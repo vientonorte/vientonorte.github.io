@@ -8,8 +8,6 @@
     "currency": "CLP",
     "timestamp": "2021-08-15T00:00:00Z",
     "sca_validated": false,
-    "sca_score": 33,
-    "friction_type": "captura",
     "evidence_refs": ["https://www.chilecompra.cl/licitacion/7890-12-TE21"]
   },
   {
@@ -36,8 +34,6 @@
     "currency": "N/A",
     "timestamp": "2023-02-01T00:00:00Z",
     "sca_validated": false,
-    "sca_score": 33,
-    "friction_type": "captura",
     "evidence_refs": ["https://www.registrocivil.cl/contrato/99876543-2"]
   },
   {
@@ -49,8 +45,6 @@
     "currency": "CLP",
     "timestamp": "2023-09-15T00:00:00Z",
     "sca_validated": false,
-    "sca_score": 33,
-    "friction_type": "captura",
     "evidence_refs": ["https://www.diariooficial.cl/decreto/2023-0847"]
   },
   {
@@ -62,8 +56,6 @@
     "currency": "CLP",
     "timestamp": "2022-06-01T00:00:00Z",
     "sca_validated": false,
-    "sca_score": 33,
-    "friction_type": "captura",
     "evidence_refs": ["https://www.chilecompra.cl/proveedor/99876543-2/contratos"]
   },
   {
@@ -75,8 +67,6 @@
     "currency": "CLP",
     "timestamp": "2023-01-01T00:00:00Z",
     "sca_validated": false,
-    "sca_score": 33,
-    "friction_type": "captura",
     "evidence_refs": ["https://www.contraloria.cl/informe/2023-056"]
   },
   {
@@ -88,8 +78,6 @@
     "currency": "CLP",
     "timestamp": "2023-07-31T00:00:00Z",
     "sca_validated": false,
-    "sca_score": 33,
-    "friction_type": "captura",
     "evidence_refs": ["https://www.contraloria.cl/informe/2023-056", "https://www.dipres.gob.cl/presupuesto/2023/partida25"]
   }
 ]

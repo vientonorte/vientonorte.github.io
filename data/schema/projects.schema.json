@@ -1,0 +1,145 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/schema/projects.schema.json",
+  "title": "Dashboard Projects Data",
+  "description": "Esquema de data/projects.json — metadatos del dashboard unificado.",
+  "type": "object",
+  "required": ["meta", "projects"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["name", "role", "contact", "stats"],
+      "properties": {
+        "name": { "type": "string" },
+        "role": {
+          "oneOf": [
+            { "type": "string" },
+            {
+              "type": "object",
+              "required": ["es", "en"],
+              "properties": {
+                "es": { "type": "string" },
+                "en": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "github": { "type": "string", "format": "uri" },
+            "linkedin": { "type": "string", "format": "uri" }
+          },
+          "additionalProperties": false
+        },
+        "stats": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["dot", "value", "label"],
+            "properties": {
+              "dot": {
+                "type": "string",
+                "enum": ["live", "private", "off", "deprecated", "sprint"]
+              },
+              "value": { "type": "string" },
+              "label": {
+                "oneOf": [
+                  { "type": "string" },
+                  {
+                    "type": "object",
+                    "required": ["es", "en"],
+                    "properties": {
+                      "es": { "type": "string" },
+                      "en": { "type": "string" }
+                    },
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "badge"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": {
+            "oneOf": [
+              { "type": "string" },
+              {
+                "type": "object",
+                "required": ["es", "en"],
+                "properties": {
+                  "es": { "type": "string" },
+                  "en": { "type": "string" }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "badge": {
+            "type": "string",
+            "enum": ["live", "private", "repo", "deprecated", "sprint"]
+          },
+          "desc": {
+            "oneOf": [
+              { "type": "string" },
+              {
+                "type": "object",
+                "required": ["es", "en"],
+                "properties": {
+                  "es": { "type": "string" },
+                  "en": { "type": "string" }
+                },
+                "additionalProperties": false
+              }
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["label"],
+              "properties": {
+                "label": {
+                  "oneOf": [
+                    { "type": "string" },
+                    {
+                      "type": "object",
+                      "required": ["es", "en"],
+                      "properties": {
+                        "es": { "type": "string" },
+                        "en": { "type": "string" }
+                      },
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "href": { "type": "string", "format": "uri" },
+                "icon": { "type": "string", "enum": ["site", "github"] }
+              },
+              "additionalProperties": false
+            }
+          },
+          "requiresAuth": { "type": "boolean" },
+          "deprecated": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

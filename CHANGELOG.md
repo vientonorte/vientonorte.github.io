@@ -9,6 +9,29 @@ Formato:
 
 ---
 
+## 2026-05-26
+
+### fix
+- `fix(fetch)`: `AbortController` con timeout de 5 segundos en `fetch('./data/projects.json')` — evita que la página quede cargando indefinidamente ante un servidor sin respuesta.
+- `fix(fetch)`: `catch` sin variable reemplazado por `catch (err)` + `console.error()` — depuración explícita de errores de red, timeout y JSON malformado.
+- `fix(passkey)`: `btn.disabled = true/false` con bloque `finally` en el click handler del botón — elimina posibilidad de disparar múltiples diálogos WebAuthn por clicks rápidos.
+- `fix(i18n)`: `document.documentElement.lang = lang` redundante eliminado de `updateUILanguage()` — ya lo establece `setCurrentLang()` (inicio de sesión) y la línea de bootstrap (carga inicial).
+- `fix(data)`: `sca_score` y `friction_type` removidos de edges con `sca_validated: false` — esos valores son computados por `validate_flow.py`, no deben almacenarse como autoritativos en datos no validados.
+- `fix(docs)`: fila `contra-archivo` eliminada de tabla README — duplicaba la entrada `Contra-Archivo` (live) con ID de proyecto inexistente en `data/projects.json`.
+
+### feat
+- `feat(schema)`: `data/schema/projects.schema.json` — esquema Draft-07 formal para `data/projects.json`; valida estructura bilingüe, badges, links y campos opcionales (`requiresAuth`, `deprecated`).
+- `feat(schema)`: schemas de nodos renombrados de guión a guión_bajo (`captura_regulatoria`, `puerta_giratoria`, `vacio_institucional`, `zona_gris`) para consistencia con el campo `type` en `nodes.json`.
+
+### ops
+- `ops(ci)`: acciones de GitHub Actions pinadas a versiones específicas (`checkout@v4.2.2`, `setup-node@v4.2.0`, `setup-python@v5.4.0`, `upload-artifact@v4.6.2`) — CI/CD reproducible.
+- `ops(docs)`: HANDOFF.md actualizado — fecha, estado, historial de iteraciones y riesgos abiertos al cierre de esta sesión.
+- `ops(python)`: docstrings PEP 257 agregados a `load_json()`, `print_report()`, `build_parser()`, `main()` en `validate_flow.py`.
+- `ops(git)`: `.gitignore` extendido con `__pycache__/`, `*.pyc`, `*.pyo`.
+- `ops(schema)`: `$comment` Draft-07 en campos SCA del `edge.schema.json` — documenta que `instrumento_legal`, `competencia_validada`, `actas_oficios` son campos de entrada del pipeline; `sca_score`/`friction_type` son salidas computadas.
+
+---
+
 ## 2026-05-10
 
 ### feat

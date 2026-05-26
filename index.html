@@ -851,7 +851,7 @@
         document.getElementById('btn-lang').setAttribute('aria-label', t('switchLanguage'));
         document.getElementById('cards-grid').setAttribute('aria-label', t('ariaProjects'));
         document.getElementById('stats-list').setAttribute('aria-label', t('ariaStats'));
-        
+
         // Update contact links aria-labels using data-i18n attributes
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
@@ -859,8 +859,6 @@
                 el.setAttribute('aria-label', t(key));
             }
         });
-        
-        document.documentElement.lang = lang;
     }
 
     /* ── Bootstrap ──────────────────────────────────────────────────── */
@@ -876,14 +874,18 @@
         /* Fetch project data first */
         let data;
         try {
-            const res = await fetch('./data/projects.json');
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000);
+            const res = await fetch('./data/projects.json', { signal: controller.signal });
+            clearTimeout(timeoutId);
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             data = await res.json();
             if (!Array.isArray(data?.projects) || !data?.meta?.stats) {
                 throw new Error('Unexpected JSON structure');
             }
             window._projectData = data; // Store for language updates
-        } catch {
+        } catch (err) {
+            console.error('Failed to load projects.json:', err);
             grid.innerHTML = `<p class="load-error">${esc(t('loadError'))}</p>`;
             return;
         }
@@ -920,6 +922,7 @@
                     updatePasskeyButton(btn);
                     return;
                 }
+                btn.disabled = true;
                 try {
                     if (state === 'none') {
                         await registerPasskey();
@@ -933,6 +936,8 @@
                     if (err.name !== 'NotAllowedError') {
                         showToast(t('passkeyError'));
                     }
+                } finally {
+                    btn.disabled = false;
                 }
             });
         }

@@ -188,6 +188,7 @@ def validate_flow(flow_id: str, flow_data: dict[str, Any]) -> SCAResult:
 # ---------------------------------------------------------------------------
 
 def load_json(path: Path) -> Any:
+    """Load and return parsed JSON from the given file path."""
     with path.open(encoding="utf-8") as fh:
         return json.load(fh)
 
@@ -207,6 +208,7 @@ def validate_edges_file(edges_path: Path, target_id: str | None = None) -> list[
 
 
 def print_report(results: list[SCAResult]) -> None:
+    """Print a formatted SCA validation report to stdout."""
     print(f"\n{'='*60}")
     print(f"  REPORTE SCA — Validación de Flujos de Fricción Institucional")
     print(f"  Generado: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
@@ -242,6 +244,7 @@ def print_report(results: list[SCAResult]) -> None:
 # ---------------------------------------------------------------------------
 
 def build_parser() -> argparse.ArgumentParser:
+    """Build and return the CLI argument parser."""
     parser = argparse.ArgumentParser(
         description="Validación SCA analógica de flujos del grafo de fricción institucional.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -275,6 +278,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Entry point: parse args, run validation, write report, return exit code."""
     parser = build_parser()
     args = parser.parse_args(argv)
 

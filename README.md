@@ -32,7 +32,6 @@ Runbook de deploy y QA: ver `DEPLOY.md`.
 | uxtools | 🟢 Live | [uxtools](https://vientonorte.github.io/uxtools/) |
 | aruma | 🟣 Repo | [GitHub](https://github.com/vientonorte/aruma) |
 | SURA Investments | 🟡 Privado | Acceso restringido |
-| contra-archivo | 🟣 Repo | [GitHub](https://github.com/vientonorte/contra-archivo) |
 | Poemario Beta | 🔴 Deprecated | [29092020](https://vientonorte.github.io/29092020/) |
 | dihe | 🟣 Repo | [GitHub](https://github.com/vientonorte/dihe) |
 | khuro | 🟣 Repo | [GitHub](https://github.com/vientonorte/khuro) |

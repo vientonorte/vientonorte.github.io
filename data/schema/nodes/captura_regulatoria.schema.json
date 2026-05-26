@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://vientonorte.github.io/schema/nodes/captura-regulatoria.schema.json",
+  "$id": "https://vientonorte.github.io/schema/nodes/captura_regulatoria.schema.json",
   "title": "Nodo Captura Regulatoria",
   "description": "Evento en que el regulado controla al regulador: la fricción invierte su dirección de contención a facilitación.",
   "allOf": [
