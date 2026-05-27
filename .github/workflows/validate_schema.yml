@@ -3,13 +3,11 @@ name: Validate Graph Schema
 on:
   push:
     paths:
-      - 'data/graph/**'
-      - 'data/schema/**'
+      - 'data/**'
       - 'pipeline/**'
   pull_request:
     paths:
-      - 'data/graph/**'
-      - 'data/schema/**'
+      - 'data/**'
       - 'pipeline/**'
 
 jobs:
@@ -20,10 +18,10 @@ jobs:
       contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.2.0
         with:
           node-version: '20'
 
@@ -50,6 +48,15 @@ jobs:
             --spec=draft7 \
             --validate-formats=false
 
+      - name: Validate projects.json against projects.schema.json
+        run: |
+          ajv validate \
+            -s data/schema/projects.schema.json \
+            -d "data/projects.json" \
+            --all-errors \
+            --spec=draft7 \
+            --validate-formats=false
+
   validate-pipeline:
     name: Pipeline SCA (Python 3.x)
     runs-on: ubuntu-latest
@@ -57,10 +64,10 @@ jobs:
       contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5.4.0
         with:
           python-version: '3.11'
 
@@ -79,7 +86,7 @@ jobs:
         # continue-on-error: el pipeline no bloquea el merge, pero deja evidencia
 
       - name: Upload SCA report artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.2
         if: always()
         with:
           name: sca-report

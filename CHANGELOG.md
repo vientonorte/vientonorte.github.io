@@ -9,6 +9,35 @@ Formato:
 
 ---
 
+## 2026-05-27
+
+### fix
+- `fix(fetch)`: `AbortController` con timeout de 5 s en `fetch('./data/projects.json')` — evita carga infinita ante servidor sin respuesta.
+- `fix(fetch)`: `catch` sin variable reemplazado por `catch (err)` + `console.error()` — depuración explícita de errores de red, timeout y JSON malformado.
+- `fix(passkey)`: `btn.disabled = true/false` con bloque `finally` en el click handler — elimina posibilidad de disparar múltiples diálogos WebAuthn por clicks rápidos.
+- `fix(i18n)`: `document.documentElement.lang = lang` redundante eliminado de `updateUILanguage()` — ya lo establece `setCurrentLang()` y la línea de bootstrap.
+- `fix(data)`: `sca_score` y `friction_type` removidos de 6 edges con `sca_validated: false` — son valores computados por `validate_flow.py`, no deben almacenarse como autoritativos en datos no validados.
+- `fix(docs)`: fila `contra-archivo` eliminada de tabla README — duplicaba la entrada `Contra-Archivo` (live) con ID de proyecto inexistente en `data/projects.json`.
+- `fix(pipeline)`: `load_json()` protegido con `try/except json.JSONDecodeError` — error claro en CI en lugar de traceback.
+- `fix(pipeline)`: truncación de descripciones corregida — `desc[:80]...` (siempre truncaba) → condicional correcto (`desc[:77]+'...' if len(desc) > 80 else desc`).
+
+### feat
+- `feat(schema)`: `data/schema/projects.schema.json` — esquema Draft-07 formal para `data/projects.json`; valida estructura bilingüe, badges, links y campos opcionales (`requiresAuth`, `deprecated`); incluye `requiresAuth` en items de links.
+- `feat(schema)`: schemas de nodos renombrados de guión a guión_bajo (`captura_regulatoria`, `puerta_giratoria`, `vacio_institucional`, `zona_gris`) — consistencia con el campo `type` en `nodes.json`.
+
+### ops
+- `ops(ci)`: acciones de GitHub Actions pinadas a versiones específicas (`checkout@v4.2.2`, `setup-node@v4.2.0`, `setup-python@v5.4.0`, `upload-artifact@v4.6.2`) — CI/CD reproducible.
+- `ops(ci)`: trigger extendido de `data/schema/**` a `data/**` — cubre cambios en `projects.json`.
+- `ops(ci)`: step agregado para validar `data/projects.json` contra `data/schema/projects.schema.json`.
+- `ops(docs)`: HANDOFF.md actualizado — fecha, historial de iteraciones y riesgos abiertos al cierre.
+- `ops(docs)`: README — sección `## Estructura` actualizada con árbol completo; referencias a docs convertidas a markdown links.
+- `ops(docs)`: DEPLOY.md — checklist QA actualizado; comandos extraen URLs desde `data/projects.json`.
+- `ops(python)`: docstrings PEP 257 agregados a `load_json()`, `print_report()`, `build_parser()`, `main()`.
+- `ops(schema)`: `$comment` Draft-07 en campos SCA del `edge.schema.json` — documenta semántica input/output del pipeline.
+- `ops(git)`: `.gitignore` extendido con `__pycache__/`, `*.pyc`, `*.pyo`.
+
+---
+
 ## 2026-05-10
 
 ### feat

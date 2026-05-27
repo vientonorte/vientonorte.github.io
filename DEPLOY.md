@@ -22,16 +22,44 @@
 git status --short --branch
 ```
 
-### 2) Enlaces presentes
+### 2) Validar sintaxis JSON
 
 ```sh
-grep -oE 'href="[^"]+"' index.html | sed 's/href="//;s/"//' | sort -u
+python3 -c "import json; json.load(open('data/projects.json'))" && echo "projects.json OK"
+python3 -c "import json; json.load(open('data/graph/nodes.json'))" && echo "nodes.json OK"
+python3 -c "import json; json.load(open('data/graph/edges.json'))" && echo "edges.json OK"
 ```
 
-### 3) HTTP status de enlaces externos
+### 3) Ejecutar pipeline SCA
 
 ```sh
-grep -oE 'href="https://[^"]+"' index.html | sed 's/href="//;s/"//' | sort -u | while read -r url; do code=$(curl -L -s -o /dev/null -w "%{http_code}" "$url"); echo "$code $url"; done
+python pipeline/validate_flow.py --edges data/graph/edges.json
+```
+
+### 4) Links actuales (extraídos de projects.json)
+
+```sh
+python3 -c "
+import json
+data = json.load(open('data/projects.json'))
+for p in data['projects']:
+    for l in p.get('links', []):
+        if href := l.get('href'):
+            print(href)
+" | sort -u
+```
+
+### 5) HTTP status de enlaces externos
+
+```sh
+python3 -c "
+import json
+data = json.load(open('data/projects.json'))
+for p in data['projects']:
+    for l in p.get('links', []):
+        if href := l.get('href'):
+            print(href)
+" | sort -u | while read -r url; do code=$(curl -L -s -o /dev/null -w "%{http_code}" "$url"); echo "$code $url"; done
 ```
 
 ## Política para repos privados

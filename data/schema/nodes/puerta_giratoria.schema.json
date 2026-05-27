@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://vientonorte.github.io/schema/nodes/puerta-giratoria.schema.json",
+  "$id": "https://vientonorte.github.io/schema/nodes/puerta_giratoria.schema.json",
   "title": "Nodo Puerta Giratoria",
   "description": "Captura el tránsito de agentes entre sector público y privado, revelando conflictos de interés potenciales.",
   "allOf": [

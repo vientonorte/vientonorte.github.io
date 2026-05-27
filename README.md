@@ -4,9 +4,9 @@ Dashboard unificado de proyectos de [@vientonorte](https://github.com/vientonort
 
 **Live:** https://vientonorte.github.io
 
-Log operativo: ver `CHANGELOG.md`.
-Handoff operativo: ver `HANDOFF.md`.
-Runbook de deploy y QA: ver `DEPLOY.md`.
+Log operativo: ver [`CHANGELOG.md`](./CHANGELOG.md).
+Handoff operativo: ver [`HANDOFF.md`](./HANDOFF.md).
+Runbook de deploy y QA: ver [`DEPLOY.md`](./DEPLOY.md).
 
 ---
 
@@ -32,7 +32,6 @@ Runbook de deploy y QA: ver `DEPLOY.md`.
 | uxtools | 🟢 Live | [uxtools](https://vientonorte.github.io/uxtools/) |
 | aruma | 🟣 Repo | [GitHub](https://github.com/vientonorte/aruma) |
 | SURA Investments | 🟡 Privado | Acceso restringido |
-| contra-archivo | 🟣 Repo | [GitHub](https://github.com/vientonorte/contra-archivo) |
 | Poemario Beta | 🔴 Deprecated | [29092020](https://vientonorte.github.io/29092020/) |
 | dihe | 🟣 Repo | [GitHub](https://github.com/vientonorte/dihe) |
 | khuro | 🟣 Repo | [GitHub](https://github.com/vientonorte/khuro) |
@@ -48,9 +47,23 @@ Runbook de deploy y QA: ver `DEPLOY.md`.
 
 ```
 vientonorte.github.io/
-├── index.html           ← Dashboard único con soporte bilingüe
-└── data/
-    └── projects.json    ← Metadatos de proyectos (ES/EN)
+├── index.html                     ← Dashboard único con soporte bilingüe
+├── data/
+│   ├── projects.json              ← Metadatos de proyectos (ES/EN)
+│   ├── graph/
+│   │   ├── nodes.json             ← Nodos del grafo de fricción institucional
+│   │   └── edges.json             ← Aristas (vectores de flujo) con validación SCA
+│   └── schema/
+│       ├── projects.schema.json   ← Esquema Draft-07 para projects.json
+│       ├── node.schema.json       ← Esquema base para nodos
+│       ├── edge.schema.json       ← Esquema para aristas con campos SCA
+│       ├── nodes-collection.schema.json
+│       ├── edges-collection.schema.json
+│       └── nodes/                 ← Schemas extendidos por tipo de nodo
+├── pipeline/
+│   └── validate_flow.py           ← Pipeline SCA analógico (CLI Python 3.9+)
+└── .github/workflows/
+    └── validate_schema.yml        ← CI: ajv-cli + validate_flow.py en cada PR
 ```
 
 ## Desarrollo local
