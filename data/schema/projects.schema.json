@@ -1,147 +1,117 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://vientonorte.github.io/schema/projects.schema.json",
-  "title": "Dashboard de Proyectos",
-  "description": "Esquema Draft-07 para data/projects.json — metadatos bilingües del dashboard.",
+  "title": "Dashboard Projects Manifest",
+  "description": "Esquema Draft-07 para data/projects.json — metadatos bilingües del dashboard vientonorte.",
   "type": "object",
   "required": ["meta", "projects"],
+  "additionalProperties": false,
+  "definitions": {
+    "bilingualString": {
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "required": ["es", "en"],
+          "properties": {
+            "es": { "type": "string" },
+            "en": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "statDot": {
+      "type": "string",
+      "enum": ["live", "private", "off", "deprecated", "sprint"]
+    },
+    "badgeType": {
+      "type": "string",
+      "enum": ["live", "private", "repo", "deprecated"]
+    },
+    "linkIcon": {
+      "type": "string",
+      "enum": ["site", "github"]
+    },
+    "link": {
+      "type": "object",
+      "required": ["label", "href"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "$ref": "#/definitions/bilingualString" },
+        "href": {
+          "type": "string",
+          "pattern": "^https?://"
+        },
+        "icon": { "$ref": "#/definitions/linkIcon" },
+        "requiresAuth": { "type": "boolean" }
+      }
+    },
+    "stat": {
+      "type": "object",
+      "required": ["dot", "value", "label"],
+      "additionalProperties": false,
+      "properties": {
+        "dot": { "$ref": "#/definitions/statDot" },
+        "value": { "type": "string" },
+        "label": { "$ref": "#/definitions/bilingualString" }
+      }
+    },
+    "project": {
+      "type": "object",
+      "required": ["id", "title", "badge", "desc", "tags", "links"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$"
+        },
+        "title": { "$ref": "#/definitions/bilingualString" },
+        "badge": { "$ref": "#/definitions/badgeType" },
+        "desc": { "$ref": "#/definitions/bilingualString" },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "links": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/link" },
+          "minItems": 1
+        },
+        "requiresAuth": { "type": "boolean" },
+        "deprecated": { "type": "boolean" }
+      }
+    }
+  },
   "properties": {
     "meta": {
       "type": "object",
       "required": ["name", "role", "contact", "stats"],
+      "additionalProperties": false,
       "properties": {
         "name": { "type": "string" },
-        "role": {
-          "oneOf": [
-            { "type": "string" },
-            {
-              "type": "object",
-              "required": ["es", "en"],
-              "properties": {
-                "es": { "type": "string" },
-                "en": { "type": "string" }
-              },
-              "additionalProperties": false
-            }
-          ]
-        },
+        "role": { "$ref": "#/definitions/bilingualString" },
         "contact": {
           "type": "object",
+          "required": ["github", "linkedin"],
+          "additionalProperties": false,
           "properties": {
-            "github": { "type": "string" },
-            "linkedin": { "type": "string" }
-          },
-          "additionalProperties": false
+            "github": { "type": "string", "pattern": "^https?://" },
+            "linkedin": { "type": "string", "pattern": "^https?://" }
+          }
         },
         "stats": {
           "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["dot", "value", "label"],
-            "properties": {
-              "dot": {
-                "type": "string",
-                "enum": ["live", "private", "off", "deprecated", "sprint"]
-              },
-              "value": { "type": "string" },
-              "label": {
-                "oneOf": [
-                  { "type": "string" },
-                  {
-                    "type": "object",
-                    "required": ["es", "en"],
-                    "properties": {
-                      "es": { "type": "string" },
-                      "en": { "type": "string" }
-                    },
-                    "additionalProperties": false
-                  }
-                ]
-              }
-            },
-            "additionalProperties": false
-          }
+          "items": { "$ref": "#/definitions/stat" },
+          "minItems": 1
         }
-      },
-      "additionalProperties": false
+      }
     },
     "projects": {
       "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "required": ["id", "title", "badge", "desc", "tags", "links"],
-        "properties": {
-          "id": { "type": "string" },
-          "title": {
-            "oneOf": [
-              { "type": "string" },
-              {
-                "type": "object",
-                "required": ["es", "en"],
-                "properties": {
-                  "es": { "type": "string" },
-                  "en": { "type": "string" }
-                },
-                "additionalProperties": false
-              }
-            ]
-          },
-          "badge": {
-            "type": "string",
-            "enum": ["live", "private", "repo", "deprecated"]
-          },
-          "requiresAuth": { "type": "boolean" },
-          "deprecated": { "type": "boolean" },
-          "desc": {
-            "oneOf": [
-              { "type": "string" },
-              {
-                "type": "object",
-                "required": ["es", "en"],
-                "properties": {
-                  "es": { "type": "string" },
-                  "en": { "type": "string" }
-                },
-                "additionalProperties": false
-              }
-            ]
-          },
-          "tags": {
-            "type": "array",
-            "items": { "type": "string" }
-          },
-          "links": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": ["label", "href"],
-              "properties": {
-                "label": {
-                  "oneOf": [
-                    { "type": "string" },
-                    {
-                      "type": "object",
-                      "required": ["es", "en"],
-                      "properties": {
-                        "es": { "type": "string" },
-                        "en": { "type": "string" }
-                      },
-                      "additionalProperties": false
-                    }
-                  ]
-                },
-                "href": { "type": "string" },
-                "icon": { "type": "string" },
-                "requiresAuth": { "type": "boolean" }
-              },
-              "additionalProperties": false
-            }
-          }
-        },
-        "additionalProperties": false
-      }
+      "items": { "$ref": "#/definitions/project" },
+      "minItems": 1
     }
-  },
-  "additionalProperties": false
+  }
 }

@@ -875,9 +875,13 @@
         let data;
         try {
             const ctrl = new AbortController();
-            const timeoutId = setTimeout(() => ctrl.abort(), 5000);
-            const res = await fetch('./data/projects.json', { signal: ctrl.signal });
-            clearTimeout(timeoutId);
+            const fetchTimeout = setTimeout(() => ctrl.abort(), 5000);
+            let res;
+            try {
+                res = await fetch('./data/projects.json', { signal: ctrl.signal });
+            } finally {
+                clearTimeout(fetchTimeout);
+            }
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             data = await res.json();
             if (!Array.isArray(data?.projects) || !data?.meta?.stats) {

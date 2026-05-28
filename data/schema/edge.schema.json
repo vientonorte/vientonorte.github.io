@@ -47,13 +47,15 @@
       "type": "integer",
       "minimum": 0,
       "maximum": 100,
-      "description": "Score SCA: 100 = supera los 3 factores; 0 = ningún factor validado"
+      "description": "Score SCA: 100 = supera los 3 factores; 0 = ningún factor validado",
+      "$comment": "OUTPUT de validate_flow.py. Solo presente cuando sca_validated=true; no almacenar en edges no validados."
     },
     "friction_type": {
       "$comment": "OUTPUT: campo calculado por validate_flow.py; solo presente en edges sca_validated:true",
       "type": "string",
       "enum": ["limpio", "regulatorio", "procesal", "captura"],
-      "description": "Clasificación del flujo post-validación SCA"
+      "description": "Clasificación del flujo post-validación SCA",
+      "$comment": "OUTPUT de validate_flow.py. Solo presente cuando sca_validated=true; no almacenar en edges no validados."
     },
     "evidence_refs": {
       "type": "array",
@@ -65,18 +67,21 @@
     "instrumento_legal": {
       "$comment": "INPUT SCA-2 (HAVE): decreto, resolución o ley habilitante del flujo",
       "type": "string",
-      "description": "Factor SCA-2 (HAVE): decreto, resolución o ley habilitante del flujo"
+      "description": "Factor SCA-2 (HAVE): decreto, resolución o ley habilitante del flujo",
+      "$comment": "INPUT del pipeline. Ausencia implica que el Factor 2 no está superado."
     },
     "competencia_validada": {
       "$comment": "INPUT SCA-3 (BE): competencia territorial y jerárquica",
       "type": "boolean",
-      "description": "Factor SCA-3 (BE): true si la competencia territorial y jerárquica está validada"
+      "description": "Factor SCA-3 (BE): true si la competencia territorial y jerárquica está validada",
+      "$comment": "INPUT del pipeline. Ausencia o false implica que el Factor 3 no está superado."
     },
     "actas_oficios": {
       "$comment": "INPUT SCA-1 (KNOW): evidencia documental del conocimiento de la norma",
       "type": "array",
       "items": { "type": "string" },
-      "description": "Factor SCA-1 (KNOW): actas, oficios o minutas que documentan el conocimiento de la norma"
+      "description": "Factor SCA-1 (KNOW): actas, oficios o minutas que documentan el conocimiento de la norma",
+      "$comment": "INPUT del pipeline. Ausencia implica que el Factor 1 no está superado (salvo evidence_refs)."
     }
   },
   "additionalProperties": false
