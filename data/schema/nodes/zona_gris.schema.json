@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://vientonorte.github.io/schema/nodes/zona-gris.schema.json",
+  "$id": "https://vientonorte.github.io/schema/nodes/zona_gris.schema.json",
   "title": "Nodo Zona Gris",
   "description": "Transacciones formalmente legales con indicadores de riesgo elevados según estándares GAFI/FATF.",
   "allOf": [
