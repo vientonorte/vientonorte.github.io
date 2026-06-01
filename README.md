@@ -4,9 +4,9 @@ Dashboard unificado de proyectos de [@vientonorte](https://github.com/vientonort
 
 **Live:** https://vientonorte.github.io
 
-Log operativo: ver [`CHANGELOG.md`](./CHANGELOG.md).
-Handoff operativo: ver [`HANDOFF.md`](./HANDOFF.md).
-Runbook de deploy y QA: ver [`DEPLOY.md`](./DEPLOY.md).
+Log operativo: ver `CHANGELOG.md`.
+Handoff operativo: ver `HANDOFF.md`.
+Runbook de deploy y QA: ver `DEPLOY.md`.
 
 ---
 
@@ -47,29 +47,25 @@ Runbook de deploy y QA: ver [`DEPLOY.md`](./DEPLOY.md).
 
 ```
 vientonorte.github.io/
-├── index.html                        ← Dashboard único con soporte bilingüe
-├── CHANGELOG.md
-├── DEPLOY.md
-├── HANDOFF.md
-├── .gitignore
+├── index.html                       ← Dashboard único con soporte bilingüe
 ├── .github/
 │   └── workflows/
-│       └── validate_schema.yml       ← CI: valida JSON schemas + pipeline SCA
+│       └── validate_schema.yml      ← CI: validación JSON Schema + pipeline SCA
 ├── data/
-│   ├── projects.json                 ← Metadatos de proyectos (ES/EN)
+│   ├── projects.json                ← Metadatos de proyectos (ES/EN)
 │   ├── graph/
-│   │   ├── nodes.json                ← Nodos del grafo de fricción institucional
-│   │   └── edges.json                ← Aristas con factores SCA
-│   ├── schema/
-│   │   ├── projects.schema.json
-│   │   ├── node.schema.json
-│   │   ├── nodes-collection.schema.json
-│   │   ├── edge.schema.json
-│   │   ├── edges-collection.schema.json
-│   │   └── nodes/                    ← Schemas extendidos por tipo de nodo
-│   └── raw/                          ← Fuentes primarias (README de uso)
+│   │   ├── nodes.json               ← Nodos del grafo de fricción institucional
+│   │   └── edges.json               ← Aristas (flujos entre nodos)
+│   ├── raw/                         ← Datos fuente sin procesar
+│   └── schema/
+│       ├── projects.schema.json     ← Schema Draft-07 para projects.json
+│       ├── node.schema.json         ← Schema base de nodo
+│       ├── edge.schema.json         ← Schema de arista con campos SCA
+│       ├── nodes-collection.schema.json
+│       ├── edges-collection.schema.json
+│       └── nodes/                   ← Schemas especializados por tipo de nodo
 └── pipeline/
-    └── validate_flow.py              ← Pipeline SCA analógico (Python 3.9+)
+    └── validate_flow.py             ← Pipeline SCA analógica (CLI Python 3.9+)
 ```
 
 ## Desarrollo local
