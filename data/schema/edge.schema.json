@@ -43,19 +43,17 @@
       "description": "true si el flujo superó la validación SCA analógica (3 factores)"
     },
     "sca_score": {
-      "$comment": "OUTPUT: campo calculado por validate_flow.py; solo presente en edges sca_validated:true",
+      "$comment": "OUTPUT de validate_flow.py. Campo calculado; solo presente cuando sca_validated=true. No almacenar en edges no validados.",
       "type": "integer",
       "minimum": 0,
       "maximum": 100,
-      "description": "Score SCA: 100 = supera los 3 factores; 0 = ningún factor validado",
-      "$comment": "OUTPUT de validate_flow.py. Solo presente cuando sca_validated=true; no almacenar en edges no validados."
+      "description": "Score SCA: 100 = supera los 3 factores; 0 = ningún factor validado"
     },
     "friction_type": {
-      "$comment": "OUTPUT: campo calculado por validate_flow.py; solo presente en edges sca_validated:true",
+      "$comment": "OUTPUT de validate_flow.py. Campo calculado; solo presente cuando sca_validated=true. No almacenar en edges no validados.",
       "type": "string",
       "enum": ["limpio", "regulatorio", "procesal", "captura"],
-      "description": "Clasificación del flujo post-validación SCA",
-      "$comment": "OUTPUT de validate_flow.py. Solo presente cuando sca_validated=true; no almacenar en edges no validados."
+      "description": "Clasificación del flujo post-validación SCA"
     },
     "evidence_refs": {
       "type": "array",
@@ -65,23 +63,20 @@
       "description": "Referencias a documentos que sustentan esta arista"
     },
     "instrumento_legal": {
-      "$comment": "INPUT SCA-2 (HAVE): decreto, resolución o ley habilitante del flujo",
+      "$comment": "INPUT SCA-2 (HAVE): decreto, resolución o ley habilitante del flujo. Ausencia implica que el Factor 2 no está superado.",
       "type": "string",
-      "description": "Factor SCA-2 (HAVE): decreto, resolución o ley habilitante del flujo",
-      "$comment": "INPUT del pipeline. Ausencia implica que el Factor 2 no está superado."
+      "description": "Factor SCA-2 (HAVE): decreto, resolución o ley habilitante del flujo"
     },
     "competencia_validada": {
-      "$comment": "INPUT SCA-3 (BE): competencia territorial y jerárquica",
+      "$comment": "INPUT SCA-3 (BE): competencia territorial y jerárquica. Ausencia o false implica que el Factor 3 no está superado.",
       "type": "boolean",
-      "description": "Factor SCA-3 (BE): true si la competencia territorial y jerárquica está validada",
-      "$comment": "INPUT del pipeline. Ausencia o false implica que el Factor 3 no está superado."
+      "description": "Factor SCA-3 (BE): true si la competencia territorial y jerárquica está validada"
     },
     "actas_oficios": {
-      "$comment": "INPUT SCA-1 (KNOW): evidencia documental del conocimiento de la norma",
+      "$comment": "INPUT SCA-1 (KNOW): evidencia documental del conocimiento de la norma. Ausencia implica que el Factor 1 no está superado (salvo evidence_refs).",
       "type": "array",
       "items": { "type": "string" },
-      "description": "Factor SCA-1 (KNOW): actas, oficios o minutas que documentan el conocimiento de la norma",
-      "$comment": "INPUT del pipeline. Ausencia implica que el Factor 1 no está superado (salvo evidence_refs)."
+      "description": "Factor SCA-1 (KNOW): actas, oficios o minutas que documentan el conocimiento de la norma"
     }
   },
   "additionalProperties": false
