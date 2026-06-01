@@ -3,13 +3,11 @@ name: Validate Graph Schema
 on:
   push:
     paths:
-      - 'data/graph/**'
-      - 'data/schema/**'
+      - 'data/**'
       - 'pipeline/**'
   pull_request:
     paths:
-      - 'data/graph/**'
-      - 'data/schema/**'
+      - 'data/**'
       - 'pipeline/**'
 
 jobs:
@@ -46,6 +44,15 @@ jobs:
             -s data/schema/edges-collection.schema.json \
             -r data/schema/edge.schema.json \
             -d "data/graph/edges.json" \
+            --all-errors \
+            --spec=draft7 \
+            --validate-formats=false
+
+      - name: Validate projects.json against projects.schema.json
+        run: |
+          ajv validate \
+            -s data/schema/projects.schema.json \
+            -d "data/projects.json" \
             --all-errors \
             --spec=draft7 \
             --validate-formats=false

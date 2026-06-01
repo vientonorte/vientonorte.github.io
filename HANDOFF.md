@@ -1,49 +1,64 @@
 # Handoff Operativo — vientonorte.github.io
 
-Fecha: 2026-05-26
+Fecha: 2026-05-31
 Rama: main
 Estado al cierre: limpio y sincronizado con origin/main
 
 ## Objetivo del repositorio
 
-Dashboard unificado de proyectos de Vientonorte para visibilidad pública de estado y enlaces.
+Dashboard unificado de proyectos de Vientonorte para visibilidad pública de estado y enlaces, con soporte bilingüe ES/EN, autenticación passkey y pipeline SCA analógico.
 
 ## Historial de iteraciones relevantes
 
-### 2026-04-06 (inicial)
-- QA de enlaces públicos del dashboard.
-- Debug de enlace roto asociado a proyecto privado SURA (404 en GitHub público).
-- Ajuste UI/UX para representar acceso privado sin generar error de navegación.
+| Fecha      | PR  | Alcance |
+|------------|-----|---------|
+| 2026-04-06 | —   | QA inicial; SURA 404 → link-disabled |
+| 2026-04-16 | —   | Stat "deprecado" para Poemario Beta |
+| 2026-05-26 | #21 | CI: fix flags ajv-cli@5, XSS hrefs, rel, type=button, SCA data |
+| 2026-05-26 | #22 | Fix CI schema bug |
+| 2026-05-27 | #23 | A11y: aria-label, skip-link, focus-visible |
+| 2026-05-27 | #24 | i18n: data-i18n attributes, bilingüe completo |
+| 2026-05-27 | #25–27 | QA: badge PRIVATE, shadowing, target=_blank, footer rel, schema, pipeline |
+| 2026-05-28 | #35 | QA: XSS footer DOM API, console.error, sca_score/friction_type |
+| 2026-05-28 | #36 | QA: esc() helper, innerHTML XSS, subtitle meta.name |
+| 2026-05-31 | —   | QA: fetch timeout, passkey rate-limit, load_json error, CI pins, projects schema, schema renames, docs |
 
-### 2026-04-16 – 2026-05-10 (acumulado)
-- Soporte bilingüe ES/EN completo (switch persistente, meta tags multilingües).
-- Autenticación con Passkey (WebAuthn) para acceso a repos privados.
-- Contenido del dashboard extraído a `data/projects.json`; skeleton de carga.
-- Grafo de fricción institucional: schemas Draft-07, pipeline SCA, CI con ajv-cli.
-- QA transversal: a11y WCAG AA, XSS defense (`esc()`), SEO OpenGraph, responsive.
+## Qué se cerró en esta iteración (2026-05-31)
 
-### 2026-05-26 (sesión actual)
-- QA exhaustivo: 17 issues corregidos (2 HIGH / 6 MEDIUM / 9 LOW).
-- Fetch con timeout (AbortController 5s) y catch con log de error.
-- Rate limiting en botón passkey (`btn.disabled` durante auth).
-- Docstrings PEP 257 en funciones públicas de `validate_flow.py`.
-- SCA: `sca_score`/`friction_type` removidos de edges no validados (valores computados por pipeline, no almacenados).
-- GitHub Actions: acciones pinadas a versiones específicas.
-- Schemas de nodos: archivos renombrados de guión a guión_bajo para consistencia con datos.
-- README: eliminada fila duplicada `contra-archivo` (proyecto ya representado como Contra-Archivo live).
-- `.gitignore`: `__pycache__` y bytecode Python excluidos.
+- **HIGH**: `AbortController` 5s timeout en fetch de projects.json — evita carga infinita
+- **HIGH**: `catch (err)` + `console.error` en fetch — errores ya no se swallean silenciosamente
+- **HIGH**: `load_json()` protegido con `try/except json.JSONDecodeError` — CI muestra error legible
+- **MEDIUM**: `btn.disabled = true` + `finally` en passkey — previene múltiples diálogos WebAuthn
+- **MEDIUM**: `sca_score`/`friction_type` eliminados de 6 edges `sca_validated: false` — pipeline recalcula; no almacenar outputs pre-computados
+- **MEDIUM**: GitHub Actions pinados a versiones exactas (no floating `@v4`/`@v5`)
+- **LOW**: Redundante `document.documentElement.lang` en `updateUILanguage()` eliminado
+- **LOW**: Truncación condicional corregida en `validate_flow.py`
+- **LOW**: Docstrings PEP 257 en 4 funciones de `validate_flow.py`
+- **LOW**: `data/schema/projects.schema.json` creado; CI valida `data/projects.json`
+- **LOW**: CI trigger extendido de `data/schema/**`+`data/graph/**` → `data/**`
+- **LOW**: 4 schemas de nodo renombrados a guión_bajo (`captura_regulatoria`, etc.) con `$id` actualizado
+- **LOW**: `$comment` Draft-07 en campos SCA de `edge.schema.json`
+- **LOW**: `contra-archivo` (ID inexistente) eliminado de tabla README
+- **LOW**: `README.md` sección Estructura actualizada con árbol completo
+- **LOW**: `.gitignore` con `__pycache__/`, `*.pyc`, `*.pyo`
+- **LOW**: `DEPLOY.md` — comandos QA extraen URLs desde `data/projects.json`
 
 ## Checklist de continuidad
 
-1. Editar dashboard en `index.html` y/o metadatos en `data/projects.json`.
-2. Validar enlaces HTTP 200 para destinos públicos antes de publicar.
-3. No exponer rutas de repos privados como enlaces públicos clickeables.
-4. Registrar cambios en `CHANGELOG.md`.
-5. Confirmar estado git limpio al cierre (`git status --short`).
-6. Para cambios en `data/graph/` o `pipeline/`: verificar que CI pase en GitHub Actions.
+1. Fuente de verdad de proyectos: `data/projects.json` (no `index.html`)
+2. Validar links HTTP con comandos de `DEPLOY.md` antes de push
+3. No exponer rutas de repos privados como enlaces públicos clickeables
+4. Registrar cambios en `CHANGELOG.md`
+5. Confirmar estado git limpio al cierre
 
-## Riesgos abiertos
+## Riesgos abiertos (aceptables)
 
-- Conteo de KPIs (`stats` en `data/projects.json`) es manual; puede desalinearse si se agregan/remueven tarjetas sin actualizar `meta.stats`.
-- `data/schema/projects.schema.json` creado como esquema formal para validar `projects.json` en CI (pendiente de integrar al workflow de GitHub Actions).
-- Schemas de nodos extendidos en `data/schema/nodes/` no están referenciados por el workflow CI actual — son documentación; considerar integrarlos si se agrega validación por tipo.
+- **Contraste `--text-muted`** (~4.8:1): cumple WCAG AA, ajuste a AAA queda para sprint de diseño
+- **`continue-on-error: true` en SCA check**: intencional — el pipeline no bloquea el merge; activar `false` cuando los datos de producción tengan edges validados
+- **Credential ID en localStorage**: intencional — persistencia cross-session requerida para WebAuthn; sessionStorage rompería el estado "registrado"
+- **Schemas de nodo en CI**: `nodes-collection.schema.json` valida solo el schema base; los schemas extendidos por tipo (`data/schema/nodes/`) no se validan en CI aún
+
+## Próximo paso recomendado
+
+- Extender CI para validar nodes.json contra los schemas de tipo específico
+- Activar `--fail-on-high` sin `continue-on-error` cuando los edges tengan datos reales validados

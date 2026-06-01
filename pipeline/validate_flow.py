@@ -188,9 +188,13 @@ def validate_flow(flow_id: str, flow_data: dict[str, Any]) -> SCAResult:
 # ---------------------------------------------------------------------------
 
 def load_json(path: Path) -> Any:
-    """Load and return parsed JSON from the given file path."""
-    with path.open(encoding="utf-8") as fh:
-        return json.load(fh)
+    """Load and parse a JSON file; exits with a readable message on parse failure."""
+    try:
+        with path.open(encoding="utf-8") as fh:
+            return json.load(fh)
+    except json.JSONDecodeError as exc:
+        print(f"Error: JSON inválido en {path} — {exc}", file=sys.stderr)
+        sys.exit(2)
 
 
 def validate_edges_file(edges_path: Path, target_id: str | None = None) -> list[SCAResult]:
@@ -228,7 +232,8 @@ def print_report(results: list[SCAResult]) -> None:
         if r.missing_factors:
             print(f"     Factores faltantes:")
             for mf in r.missing_factors:
-                print(f"       · [{mf['factor'].upper()}] {mf['description'][:80]}...")
+                desc = mf['description']
+                print(f"       · [{mf['factor'].upper()}] {desc[:77] + '...' if len(desc) > 80 else desc}")
         print()
 
     print(f"{'─'*60}")
@@ -278,7 +283,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
-    """Entry point: parse args, run validation, write report, return exit code."""
+    """Entry point: parse args, run validation, write optional JSON output, return exit code."""
     parser = build_parser()
     args = parser.parse_args(argv)
 

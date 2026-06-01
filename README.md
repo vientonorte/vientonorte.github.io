@@ -47,9 +47,29 @@ Runbook de deploy y QA: ver `DEPLOY.md`.
 
 ```
 vientonorte.github.io/
-├── index.html           ← Dashboard único con soporte bilingüe
-└── data/
-    └── projects.json    ← Metadatos de proyectos (ES/EN)
+├── index.html                        ← Dashboard único con soporte bilingüe
+├── CHANGELOG.md
+├── DEPLOY.md
+├── HANDOFF.md
+├── .gitignore
+├── .github/
+│   └── workflows/
+│       └── validate_schema.yml       ← CI: valida JSON schemas + pipeline SCA
+├── data/
+│   ├── projects.json                 ← Metadatos de proyectos (ES/EN)
+│   ├── graph/
+│   │   ├── nodes.json                ← Nodos del grafo de fricción institucional
+│   │   └── edges.json                ← Aristas con factores SCA
+│   ├── schema/
+│   │   ├── projects.schema.json
+│   │   ├── node.schema.json
+│   │   ├── nodes-collection.schema.json
+│   │   ├── edge.schema.json
+│   │   ├── edges-collection.schema.json
+│   │   └── nodes/                    ← Schemas extendidos por tipo de nodo
+│   └── raw/                          ← Fuentes primarias (README de uso)
+└── pipeline/
+    └── validate_flow.py              ← Pipeline SCA analógico (Python 3.9+)
 ```
 
 ## Desarrollo local
