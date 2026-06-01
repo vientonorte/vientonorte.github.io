@@ -1,0 +1,20 @@
+# Dependencias de desarrollo para vientonorte.github.io
+#
+# Instalación:
+#   pip install -r requirements-dev.txt
+#
+# Uso:
+#   pytest tests/                    # ejecutar tests
+#   pytest --cov=pipeline tests/     # tests con cobertura
+#   ruff check .                     # linter Python
+#   ruff format .                    # formateo Python
+
+# Testing
+pytest>=8.0.0
+pytest-cov>=4.1.0
+
+# Linting y formateo Python
+ruff>=0.6.0
+
+# Type checking
+mypy>=1.8.0

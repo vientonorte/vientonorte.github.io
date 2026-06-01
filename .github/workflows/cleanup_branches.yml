@@ -1,0 +1,58 @@
+name: Cleanup Merged Branches
+
+on:
+  pull_request:
+    types: [closed]
+  workflow_dispatch: # Permite ejecución manual
+  schedule:
+    - cron: '0 0 * * 0' # Ejecuta cada domingo a medianoche UTC
+
+permissions:
+  contents: write # Necesario para eliminar ramas
+
+jobs:
+  cleanup:
+    name: Delete merged branches
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0 # Necesario para ver todas las ramas
+
+      - name: Delete branch after PR merge
+        if: github.event.pull_request.merged == true
+        run: |
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          echo "Deleting merged branch: $BRANCH_NAME"
+          git push origin --delete "$BRANCH_NAME" || echo "Branch already deleted"
+
+      - name: Clean up stale merged branches (manual/scheduled)
+        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+        run: |
+          echo "Fetching all branches..."
+          git fetch --all --prune
+          
+          echo "Finding merged branches..."
+          # Lista ramas remotas mergeadas (excluyendo main y ramas activas)
+          MERGED_BRANCHES=$(git branch -r --merged origin/main | \
+            grep -v "HEAD\|main\|master" | \
+            sed 's|origin/||' | \
+            grep -E "^(claude|copilot)/" || true)
+          
+          if [ -z "$MERGED_BRANCHES" ]; then
+            echo "No stale merged branches found."
+            exit 0
+          fi
+          
+          echo "Merged branches to delete:"
+          echo "$MERGED_BRANCHES"
+          
+          # Eliminar ramas mergeadas
+          for branch in $MERGED_BRANCHES; do
+            echo "Deleting merged branch: $branch"
+            git push origin --delete "$branch" || echo "Failed to delete $branch (may be already deleted)"
+          done
+          
+          echo "Cleanup complete."

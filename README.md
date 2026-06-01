@@ -1,12 +1,19 @@
 # vientonorte.github.io
 
+![CI Status](https://github.com/vientonorte/vientonorte.github.io/workflows/Validate%20Graph%20Schema/badge.svg)
+[![License](https://img.shields.io/badge/license-Unlicensed-blue.svg)](LICENSE)
+
 Dashboard unificado de proyectos de [@vientonorte](https://github.com/vientonorte). Tema oscuro, responsive, zero dependencias, **soporte bilingüe ES/EN**.
 
 **Live:** https://vientonorte.github.io
 
-Log operativo: ver `CHANGELOG.md`.
-Handoff operativo: ver `HANDOFF.md`.
-Runbook de deploy y QA: ver `DEPLOY.md`.
+📖 **Docs**:
+- [CHANGELOG.md](CHANGELOG.md) — Log operativo
+- [HANDOFF.md](HANDOFF.md) — Handoff operativo
+- [DEPLOY.md](DEPLOY.md) — Runbook de deploy y QA
+- [CONTRIBUTING.md](CONTRIBUTING.md) — Guía de contribución
+- [SECURITY.md](SECURITY.md) — Política de seguridad
+- [docs/adr/](docs/adr/) — Architecture Decision Records
 
 ---
 
@@ -119,6 +126,52 @@ El dashboard soporta **Español** e **Inglés** con cambio de idioma persistente
 - 📊 **Proyectos en producción**: 5 aplicaciones live
 - 🎓 **Formación**: PhD en Antropología + UX Lead
 - 🛠 **Stack**: React, TypeScript, Next.js, Tailwind, Node.js, Python
+
+## Desarrollo
+
+### Setup Local
+
+```bash
+# Clonar repositorio
+git clone https://github.com/vientonorte/vientonorte.github.io.git
+cd vientonorte.github.io
+
+# Instalar dependencias de desarrollo (opcional)
+pip install -r requirements-dev.txt  # Python testing
+npm install                          # JavaScript linting
+
+# Pre-commit hooks (opcional)
+pip install pre-commit
+pre-commit install
+
+# Servidor local
+npx serve .
+# o simplemente abrir index.html en navegador
+```
+
+### Testing
+
+```bash
+# Python tests
+pytest tests/
+pytest --cov=pipeline tests/  # con cobertura
+
+# Linters
+npm run lint        # JavaScript + HTML
+ruff check .        # Python
+ruff format --check # Python formatter
+```
+
+### CI/CD
+
+El repositorio usa GitHub Actions para:
+- ✅ Validación de JSON Schemas (Draft-07)
+- ✅ Tests unitarios Python con pytest
+- ✅ Linting Python (ruff) y JavaScript (ESLint)
+- ✅ Pipeline SCA de validación de flujos
+- ✅ Limpieza automática de ramas mergeadas
+
+Ver [.github/workflows/](.github/workflows/) para detalles.
 
 ## QA y Debug rápido
 

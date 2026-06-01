@@ -4,12 +4,40 @@ Registro operativo del dashboard unificado y su mantenimiento cross-repo.
 
 Formato:
 - Fecha: YYYY-MM-DD
-- Tipo: `feat`, `fix`, `docs`, `ops`
+- Tipo: `feat`, `fix`, `docs`, `ops`, `test`
 - Alcance: qué cambió y por qué
 
 ---
 
 ## 2026-06-01
+
+### feat — HIGH
+- `feat(testing)`: Tests unitarios completos para `validate_flow.py` con pytest — 100% cobertura de funciones críticas (validate_flow, compute_node_energy, load_json, CLI).
+- `feat(ops)`: Workflow de limpieza automática de ramas mergeadas (`cleanup_branches.yml`) — ejecuta post-PR merge, manual, y semanalmente.
+- `feat(ci)`: Validación de schemas de nodos tipo-específicos agregada a CI — cierra gap identificado en HANDOFF.md.
+- `feat(ci)`: Jobs de linting Python (ruff) y JavaScript (ESLint) en CI — calidad de código automatizada.
+- `feat(ci)`: Job de tests Python con cobertura — reporte de coverage subido como artefacto.
+
+### feat — MEDIUM
+- `feat(dev)`: Pre-commit hooks configurados (`.pre-commit-config.yaml`) — ruff, mypy, JSON validation, detect-secrets.
+- `feat(dev)`: Dependabot configurado para GitHub Actions, npm, y pip — actualizaciones semanales automatizadas.
+
+### docs — HIGH
+- `docs(contributing)`: `CONTRIBUTING.md` creado — estándares de código, testing, flujo Git, convenciones de commit.
+- `docs(security)`: `SECURITY.md` creado — política de reporte, scope, mitigaciones implementadas, modelo de amenazas.
+- `docs(adr)`: ADR-001 Zero Dependencias — documenta decisión arquitectónica de vanilla JS sin frameworks.
+- `docs(adr)`: ADR-002 WebAuthn localStorage — documenta decisión de seguridad con mitigaciones XSS.
+
+### docs — MEDIUM
+- `docs(templates)`: Templates de issue (bug_report, feature_request) y PR creados en `.github/`.
+- `docs(readme)`: README actualizado con badges de CI, secciones de desarrollo, testing, y links a nueva documentación.
+
+### ops
+- `ops(config)`: `pyproject.toml` creado — configuración de ruff, pytest, mypy, coverage.
+- `ops(config)`: `.eslintrc.json` creado — configuración de ESLint para JavaScript/HTML.
+- `ops(config)`: `package.json` creado — scripts de linting, dev dependencies (eslint, htmlhint).
+- `ops(config)`: `requirements-dev.txt` creado — pytest, ruff, mypy para desarrollo Python.
+- `ops(ci)`: Triggers de CI extendidos a `tests/**`, `*.html`, `*.json` — validación completa.
 
 ### fix
 - `fix(i18n)`: `footerMonth` actualizado a "Junio 2026" / "June 2026" en TRANSLATIONS y HTML estático.
