@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://vientonorte.github.io/schema/projects.schema.json",
-  "title": "Dashboard Projects Data",
-  "description": "Esquema de data/projects.json — metadatos del dashboard unificado.",
+  "title": "Dashboard de Proyectos",
+  "description": "Esquema Draft-07 para data/projects.json — metadatos bilingües del dashboard.",
   "type": "object",
   "required": ["meta", "projects"],
   "properties": {
@@ -28,8 +28,8 @@
         "contact": {
           "type": "object",
           "properties": {
-            "github": { "type": "string", "format": "uri" },
-            "linkedin": { "type": "string", "format": "uri" }
+            "github": { "type": "string" },
+            "linkedin": { "type": "string" }
           },
           "additionalProperties": false
         },
@@ -67,9 +67,10 @@
     },
     "projects": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "badge"],
+        "required": ["id", "title", "badge", "desc", "tags", "links"],
         "properties": {
           "id": { "type": "string" },
           "title": {
@@ -88,8 +89,10 @@
           },
           "badge": {
             "type": "string",
-            "enum": ["live", "private", "repo", "deprecated", "sprint"]
+            "enum": ["live", "private", "repo", "deprecated"]
           },
+          "requiresAuth": { "type": "boolean" },
+          "deprecated": { "type": "boolean" },
           "desc": {
             "oneOf": [
               { "type": "string" },
@@ -112,7 +115,7 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["label"],
+              "required": ["label", "href"],
               "properties": {
                 "label": {
                   "oneOf": [
@@ -128,21 +131,13 @@
                     }
                   ]
                 },
-                "href": { "type": "string", "format": "uri" },
-                "icon": { "type": "string", "enum": ["site", "github"] },
-                "requiresAuth": {
-                  "$comment": "true si el enlace requiere autenticación Passkey para ser visible.",
-                  "type": "boolean"
-                }
+                "href": { "type": "string" },
+                "icon": { "type": "string" },
+                "requiresAuth": { "type": "boolean" }
               },
               "additionalProperties": false
             }
-          },
-          "requiresAuth": {
-            "$comment": "true si la tarjeta completa requiere autenticación Passkey.",
-            "type": "boolean"
-          },
-          "deprecated": { "type": "boolean" }
+          }
         },
         "additionalProperties": false
       }

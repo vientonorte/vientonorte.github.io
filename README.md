@@ -47,23 +47,29 @@ Runbook de deploy y QA: ver [`DEPLOY.md`](./DEPLOY.md).
 
 ```
 vientonorte.github.io/
-├── index.html                     ← Dashboard único con soporte bilingüe
+├── index.html                        ← Dashboard único con soporte bilingüe
+├── CHANGELOG.md
+├── DEPLOY.md
+├── HANDOFF.md
+├── .gitignore
+├── .github/
+│   └── workflows/
+│       └── validate_schema.yml       ← CI: valida JSON schemas + pipeline SCA
 ├── data/
-│   ├── projects.json              ← Metadatos de proyectos (ES/EN)
+│   ├── projects.json                 ← Metadatos de proyectos (ES/EN)
 │   ├── graph/
-│   │   ├── nodes.json             ← Nodos del grafo de fricción institucional
-│   │   └── edges.json             ← Aristas (vectores de flujo) con validación SCA
-│   └── schema/
-│       ├── projects.schema.json   ← Esquema Draft-07 para projects.json
-│       ├── node.schema.json       ← Esquema base para nodos
-│       ├── edge.schema.json       ← Esquema para aristas con campos SCA
-│       ├── nodes-collection.schema.json
-│       ├── edges-collection.schema.json
-│       └── nodes/                 ← Schemas extendidos por tipo de nodo
-├── pipeline/
-│   └── validate_flow.py           ← Pipeline SCA analógico (CLI Python 3.9+)
-└── .github/workflows/
-    └── validate_schema.yml        ← CI: ajv-cli + validate_flow.py en cada PR
+│   │   ├── nodes.json                ← Nodos del grafo de fricción institucional
+│   │   └── edges.json                ← Aristas con factores SCA
+│   ├── schema/
+│   │   ├── projects.schema.json
+│   │   ├── node.schema.json
+│   │   ├── nodes-collection.schema.json
+│   │   ├── edge.schema.json
+│   │   ├── edges-collection.schema.json
+│   │   └── nodes/                    ← Schemas extendidos por tipo de nodo
+│   └── raw/                          ← Fuentes primarias (README de uso)
+└── pipeline/
+    └── validate_flow.py              ← Pipeline SCA analógico (Python 3.9+)
 ```
 
 ## Desarrollo local

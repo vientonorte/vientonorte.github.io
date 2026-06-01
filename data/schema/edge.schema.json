@@ -43,12 +43,14 @@
       "description": "true si el flujo superó la validación SCA analógica (3 factores)"
     },
     "sca_score": {
+      "$comment": "OUTPUT: campo calculado por validate_flow.py; solo presente en edges sca_validated:true",
       "type": "integer",
       "minimum": 0,
       "maximum": 100,
       "description": "Score SCA: 100 = supera los 3 factores; 0 = ningún factor validado"
     },
     "friction_type": {
+      "$comment": "OUTPUT: campo calculado por validate_flow.py; solo presente en edges sca_validated:true",
       "type": "string",
       "enum": ["limpio", "regulatorio", "procesal", "captura"],
       "description": "Clasificación del flujo post-validación SCA"
@@ -61,17 +63,17 @@
       "description": "Referencias a documentos que sustentan esta arista"
     },
     "instrumento_legal": {
-      "$comment": "Factor SCA-2 (HAVE). Opcional en el JSON almacenado; validate_flow.py recalcula sca_score/friction_type desde cero a partir de estos campos.",
+      "$comment": "INPUT SCA-2 (HAVE): decreto, resolución o ley habilitante del flujo",
       "type": "string",
       "description": "Factor SCA-2 (HAVE): decreto, resolución o ley habilitante del flujo"
     },
     "competencia_validada": {
-      "$comment": "Factor SCA-3 (BE). Opcional en el JSON almacenado; validate_flow.py recalcula sca_score/friction_type desde cero a partir de estos campos.",
+      "$comment": "INPUT SCA-3 (BE): competencia territorial y jerárquica",
       "type": "boolean",
       "description": "Factor SCA-3 (BE): true si la competencia territorial y jerárquica está validada"
     },
     "actas_oficios": {
-      "$comment": "Factor SCA-1 (KNOW). Opcional en el JSON almacenado; validate_flow.py recalcula sca_score/friction_type desde cero a partir de estos campos.",
+      "$comment": "INPUT SCA-1 (KNOW): evidencia documental del conocimiento de la norma",
       "type": "array",
       "items": { "type": "string" },
       "description": "Factor SCA-1 (KNOW): actas, oficios o minutas que documentan el conocimiento de la norma"

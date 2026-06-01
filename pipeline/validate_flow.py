@@ -188,16 +188,12 @@ def validate_flow(flow_id: str, flow_data: dict[str, Any]) -> SCAResult:
 # ---------------------------------------------------------------------------
 
 def load_json(path: Path) -> Any:
-    """Load and return parsed JSON from *path*.
-
-    Exits with code 2 and a human-readable message if the file is missing
-    or contains invalid JSON (avoids raw Python tracebacks in CI output).
-    """
+    """Load and parse a JSON file; exits with a readable message on parse failure."""
     try:
         with path.open(encoding="utf-8") as fh:
             return json.load(fh)
     except json.JSONDecodeError as exc:
-        print(f"Error: JSON malformado en {path} — {exc}", file=sys.stderr)
+        print(f"Error: JSON inválido en {path} — {exc}", file=sys.stderr)
         sys.exit(2)
 
 
@@ -237,8 +233,7 @@ def print_report(results: list[SCAResult]) -> None:
             print(f"     Factores faltantes:")
             for mf in r.missing_factors:
                 desc = mf['description']
-                truncated = desc[:77] + '...' if len(desc) > 80 else desc
-                print(f"       · [{mf['factor'].upper()}] {truncated}")
+                print(f"       · [{mf['factor'].upper()}] {desc[:77] + '...' if len(desc) > 80 else desc}")
         print()
 
     print(f"{'─'*60}")
@@ -288,7 +283,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
-    """Entry point: parse args, run validation, write report, return exit code."""
+    """Entry point: parse args, run validation, write optional JSON output, return exit code."""
     parser = build_parser()
     args = parser.parse_args(argv)
 
