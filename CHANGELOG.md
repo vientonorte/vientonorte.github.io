@@ -9,6 +9,36 @@ Formato:
 
 ---
 
+## 2026-05-31
+
+### fix
+- `fix(fetch)`: `AbortController` con timeout 5s en `fetch('./data/projects.json')` — evita carga infinita ante servidor sin respuesta.
+- `fix(fetch)`: `catch` sin variable → `catch (err)` + `console.error('[vn] fetch projects.json:', err)` — errores de red/timeout/JSON ya no se swallean silenciosamente.
+- `fix(pipeline)`: `load_json()` protegido con `try/except json.JSONDecodeError` — CI muestra error legible en lugar de traceback de Python.
+- `fix(passkey)`: `btn.disabled = true` + bloque `finally { btn.disabled = false }` en click handler — previene múltiples diálogos WebAuthn por clicks rápidos.
+- `fix(pipeline)`: truncación condicional corregida — `desc[:77]+'...' if len(desc) > 80 else desc` (antes siempre truncaba con `...`).
+- `fix(data)`: `sca_score`/`friction_type` eliminados de 6 edges con `sca_validated: false` — `validate_flow.py` recalcula estos valores; almacenarlos pre-computados era semánticamente incorrecto.
+
+### ops
+- `ops(ci)`: GitHub Actions pinados a versiones exactas (`checkout@v4.2.2`, `setup-node@v4.2.0`, `setup-python@v5.4.0`, `upload-artifact@v4.6.2`) — CI reproducible sin regresiones silenciosas por actualizaciones de actions.
+- `ops(ci)`: trigger extendido de `data/schema/**`+`data/graph/**` → `data/**`; step agregado para validar `projects.json` contra `projects.schema.json`.
+- `ops(schema)`: `data/schema/projects.schema.json` creado — esquema Draft-07 formal para `data/projects.json`.
+- `ops(schema)`: 4 schemas de nodo renombrados de guión a guión_bajo (`captura_regulatoria`, `puerta_giratoria`, `vacio_institucional`, `zona_gris`) — consistencia con campo `type` en `nodes.json`; `$id` actualizado en cada schema.
+- `ops(schema)`: `$comment` Draft-07 en campos SCA de `edge.schema.json` — documenta semántica INPUT/OUTPUT del pipeline.
+- `ops(git)`: `.gitignore` extendido con `__pycache__/`, `*.pyc`, `*.pyo`.
+
+### docs
+- `docs(pipeline)`: docstrings PEP 257 en `load_json()`, `print_report()`, `build_parser()`, `main()`.
+- `docs(readme)`: fila `contra-archivo` eliminada de la tabla — ID inexistente en `data/projects.json`.
+- `docs(readme)`: sección `## Estructura` actualizada con árbol completo del repositorio.
+- `docs(deploy)`: comandos QA extraen URLs desde `data/projects.json` en lugar de `index.html`; pasos 4 y 5 para validación JSON y pipeline SCA.
+- `docs(handoff)`: historial completo de iteraciones, issues resueltos y riesgos abiertos al cierre, actualizado a 2026-05-31.
+
+### refactor
+- `refactor(i18n)`: `document.documentElement.lang = lang` redundante eliminado de `updateUILanguage()` — ya lo establece `setCurrentLang()` y la línea de bootstrap.
+
+---
+
 ## 2026-05-10
 
 ### feat

@@ -188,8 +188,13 @@ def validate_flow(flow_id: str, flow_data: dict[str, Any]) -> SCAResult:
 # ---------------------------------------------------------------------------
 
 def load_json(path: Path) -> Any:
-    with path.open(encoding="utf-8") as fh:
-        return json.load(fh)
+    """Load and parse a JSON file; exits with a readable message on parse failure."""
+    try:
+        with path.open(encoding="utf-8") as fh:
+            return json.load(fh)
+    except json.JSONDecodeError as exc:
+        print(f"Error: JSON inválido en {path} — {exc}", file=sys.stderr)
+        sys.exit(2)
 
 
 def validate_edges_file(edges_path: Path, target_id: str | None = None) -> list[SCAResult]:
@@ -207,6 +212,7 @@ def validate_edges_file(edges_path: Path, target_id: str | None = None) -> list[
 
 
 def print_report(results: list[SCAResult]) -> None:
+    """Print a formatted SCA validation report to stdout."""
     print(f"\n{'='*60}")
     print(f"  REPORTE SCA — Validación de Flujos de Fricción Institucional")
     print(f"  Generado: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
@@ -226,7 +232,8 @@ def print_report(results: list[SCAResult]) -> None:
         if r.missing_factors:
             print(f"     Factores faltantes:")
             for mf in r.missing_factors:
-                print(f"       · [{mf['factor'].upper()}] {mf['description'][:80]}...")
+                desc = mf['description']
+                print(f"       · [{mf['factor'].upper()}] {desc[:77] + '...' if len(desc) > 80 else desc}")
         print()
 
     print(f"{'─'*60}")
@@ -242,6 +249,7 @@ def print_report(results: list[SCAResult]) -> None:
 # ---------------------------------------------------------------------------
 
 def build_parser() -> argparse.ArgumentParser:
+    """Build and return the CLI argument parser."""
     parser = argparse.ArgumentParser(
         description="Validación SCA analógica de flujos del grafo de fricción institucional.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -275,6 +283,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Entry point: parse args, run validation, write optional JSON output, return exit code."""
     parser = build_parser()
     args = parser.parse_args(argv)
 
