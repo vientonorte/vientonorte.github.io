@@ -4,9 +4,9 @@ Dashboard unificado de proyectos de [@vientonorte](https://github.com/vientonort
 
 **Live:** https://vientonorte.github.io
 
-Log operativo: ver `CHANGELOG.md`.
-Handoff operativo: ver `HANDOFF.md`.
-Runbook de deploy y QA: ver `DEPLOY.md`.
+Log operativo: ver [`CHANGELOG.md`](./CHANGELOG.md).
+Handoff operativo: ver [`HANDOFF.md`](./HANDOFF.md).
+Runbook de deploy y QA: ver [`DEPLOY.md`](./DEPLOY.md).
 
 ---
 

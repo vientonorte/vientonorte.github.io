@@ -34,7 +34,7 @@ for u in sorted(set(urls)): print(u)
 "
 ```
 
-### 3) HTTP status de enlaces externos
+### 3) Ejecutar pipeline SCA
 
 ```sh
 python3 -c "
