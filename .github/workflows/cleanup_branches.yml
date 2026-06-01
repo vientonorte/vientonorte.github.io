@@ -17,7 +17,7 @@ jobs:
     if: github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v6.0.2
         with:
           fetch-depth: 0 # Necesario para ver todas las ramas
 
