@@ -102,7 +102,7 @@ jobs:
         # continue-on-error: el pipeline no bloquea el merge, pero deja evidencia
 
       - name: Upload SCA report artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7.0.1
         if: always()
         with:
           name: sca-report
@@ -140,7 +140,7 @@ jobs:
           pytest tests/ -v --cov=pipeline --cov-report=term --cov-report=xml
 
       - name: Upload coverage to artifacts
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v7.0.1
         if: always()
         with:
           name: coverage-report
