@@ -5,10 +5,18 @@ on:
     paths:
       - 'data/**'
       - 'pipeline/**'
+      - 'tests/**'
+      - '*.html'
+      - '*.json'
+      - '.github/workflows/**'
   pull_request:
     paths:
       - 'data/**'
       - 'pipeline/**'
+      - 'tests/**'
+      - '*.html'
+      - '*.json'
+      - '.github/workflows/**'
 
 jobs:
   validate-schema:
@@ -57,6 +65,14 @@ jobs:
             --spec=draft7 \
             --validate-formats=false
 
+      - name: Validate node-specific schemas
+        run: |
+          # Validar que los schemas de nodos tipo-específicos existan y sean válidos JSON
+          for schema in data/schema/nodes/*.schema.json; do
+            echo "Validating schema: $schema"
+            python3 -c "import json; json.load(open('$schema'))" || exit 1
+          done
+
   validate-pipeline:
     name: Pipeline SCA (Python 3.x)
     runs-on: ubuntu-latest
@@ -92,3 +108,67 @@ jobs:
           name: sca-report
           path: /tmp/sca-report.json
           retention-days: 90
+
+  test-python:
+    name: Python Tests & Linting
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Setup Python
+        uses: actions/setup-python@v5.4.0
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements-dev.txt
+
+      - name: Run ruff linter
+        run: |
+          ruff check pipeline/ tests/
+
+      - name: Run ruff formatter check
+        run: |
+          ruff format --check pipeline/ tests/
+
+      - name: Run pytest
+        run: |
+          pytest tests/ -v --cov=pipeline --cov-report=term --cov-report=xml
+
+      - name: Upload coverage to artifacts
+        uses: actions/upload-artifact@v4.6.2
+        if: always()
+        with:
+          name: coverage-report
+          path: coverage.xml
+          retention-days: 30
+
+  lint-frontend:
+    name: Frontend Linting
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.2.0
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Run ESLint
+        run: |
+          npm run lint:js
+
+      - name: Run HTMLHint
+        run: |
+          npm run lint:html

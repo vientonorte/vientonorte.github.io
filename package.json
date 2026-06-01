@@ -1,0 +1,24 @@
+{
+  "name": "vientonorte-github-io",
+  "version": "1.0.0",
+  "description": "Dashboard unificado de proyectos de @vientonorte",
+  "private": true,
+  "scripts": {
+    "lint:js": "eslint index.html --ext .html",
+    "lint:html": "htmlhint index.html",
+    "lint:css": "stylelint '**/*.html'",
+    "lint": "npm run lint:js && npm run lint:html",
+    "test": "echo 'No JavaScript unit tests yet'",
+    "serve": "npx serve ."
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-html": "^8.1.1",
+    "htmlhint": "^1.1.4",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
