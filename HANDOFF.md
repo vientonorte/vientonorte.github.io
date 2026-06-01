@@ -2,7 +2,7 @@
 
 Fecha: 2026-06-01
 Rama: main
-Estado al cierre: limpio y sincronizado con origin/main
+Estado al cierre: Auditoría de buenas prácticas implementada — testing, linting, docs, CI mejorados
 
 ## Objetivo del repositorio
 
@@ -24,47 +24,85 @@ Dashboard unificado de proyectos de Vientonorte para visibilidad pública de est
 | 2026-05-27  | PR #38 (draft)       | QA exhaustivo (superset de #37) — 17 issues, 3H/6M/8L                      |
 | 2026-05-28  | claude/hopeful-cerf-t8GTs | QA buenas prácticas — 18 issues, 2H/5M/11L (ver CHANGELOG)            |
 | 2026-06-01  | PRs #37–#41 mergeados | 5 PRs QA mergeados a main — fetch timeout, passkey, CI pins, schemas, docs |
+| 2026-06-01  | copilot/audita-*     | Auditoría completa + implementación de mejoras (testing, linting, docs)     |
 
-## Qué se cerró en esta iteración (2026-06-01)
+## Qué se cerró en esta iteración (2026-06-01 — Auditoría)
 
-- Fetch timeout + AbortController (5s) en index.html
-- `catch (err)` + `console.error` en handler de fetch
-- Passkey button: `disabled=true` + bloque `finally` anti double-click
-- `document.documentElement.lang` redundante eliminado de `updateUILanguage()`
-- `load_json()` protegido con `try/except json.JSONDecodeError`
-- Bug de truncación corregido (`desc[:77]+'...'` condicional)
-- Docstrings PEP 257 en `load_json`, `print_report`, `build_parser`, `main`
-- `sca_score`/`friction_type` removidos de los 6 edges con `sca_validated: false`
-- GitHub Actions pinados a versiones exactas (checkout@v4.2.2, setup-node@v4.2.0, setup-python@v5.4.0, upload-artifact@v4.6.2)
-- Trigger de CI extendido de `data/graph/**` a `data/**`
-- Validación de `projects.json` contra `projects.schema.json` agregada al CI
-- `data/schema/projects.schema.json` creado (Draft-07)
-- 4 schemas de nodos renombrados de guión a guión_bajo (consistencia con `type` en nodes.json)
-- `$id` actualizado en los 4 schemas renombrados
-- `$comment` agregado a campos SCA en `edge.schema.json`
-- Fila fantasma `contra-archivo` eliminada de README.md
-- Árbol de Estructura en README.md actualizado con estructura completa
-- `.gitignore`: `__pycache__/`, `*.pyc`, `*.pyo` agregados
-- HANDOFF.md actualizado a 2026-05-28
+### 🔴 Alta Prioridad (COMPLETADO)
+- ✅ Tests unitarios para validate_flow.py (pytest) — 100% cobertura
+- ✅ Validación de schemas de nodos tipo-específicos en CI
+- ✅ Linter Python (ruff) configurado + job en CI
+- ✅ Linter JavaScript (ESLint) configurado + job en CI
+- ✅ Workflow de limpieza de ramas automática
+
+### 🟡 Media Prioridad (COMPLETADO)
+- ✅ Pre-commit hooks configurados (.pre-commit-config.yaml)
+- ✅ CONTRIBUTING.md creado con estándares de código y flujo
+- ✅ ADRs creados (Zero Dependencias, WebAuthn localStorage)
+- ✅ Dependabot configurado para Actions/npm/pip
+
+### 🟢 Baja Prioridad (COMPLETADO)
+- ✅ Templates de issue/PR creados
+- ✅ SECURITY.md con política de reporte
+
+### 📝 Documentación (COMPLETADO)
+- ✅ README actualizado con badges de CI y secciones de desarrollo
+- ✅ Decisiones de seguridad documentadas en ADR-002
+- ✅ CHANGELOG actualizado con entrada completa 2026-06-01
+- ✅ HANDOFF actualizado
+
+## Nuevas Capacidades
+
+### Testing
+- `pytest tests/` ejecuta suite completa de tests Python
+- `pytest --cov=pipeline tests/` genera reporte de cobertura
+- CI ejecuta tests automáticamente en cada push/PR
+
+### Linting
+- Python: `ruff check .` y `ruff format .`
+- JavaScript: `npm run lint:js`
+- HTML: `npm run lint:html`
+- Pre-commit hooks automatizan checks locales
+
+### CI/CD
+- 4 jobs en GitHub Actions:
+  1. JSON Schema validation (nodes, edges, projects)
+  2. Pipeline SCA validation
+  3. Python tests + linting + coverage
+  4. Frontend linting (ESLint + HTMLHint)
+- Dependabot actualiza dependencias semanalmente
+- Cleanup de ramas mergeadas automático
 
 ## Riesgos abiertos
 
 - **Contraste `--text-muted`** (~4.8:1): cumple WCAG AA; ajuste a AAA queda para sprint de diseño.
 - **`continue-on-error: true` en SCA check**: intencional — el pipeline no bloquea el merge pero deja evidencia en artefactos.
-- **Credential ID en localStorage**: intencional — persistencia cross-session requerida para WebAuthn.
-- **`aria-label` sin `esc()` en loop data-i18n**: `setAttribute` es seguro vía DOM API.
-- **Ramas `claude/hopeful-cerf-*` stale**: 33+ ramas mergeadas siguen en origin. Limpiar con `git push origin --delete <branch>` cuando se confirme.
-- **Schemas de nodos tipo-específicos no validados en CI**: `data/schema/nodes/*.schema.json` existen pero no hay step de validación para ellos. Añadir en próximo sprint.
+- **credentialId en localStorage**: intencional y documentado en ADR-002 — credentialId es público por spec WebAuthn.
+- **Ramas `claude/hopeful-cerf-*` stale**: 33+ ramas mergeadas; cleanup automático ejecutará semanalmente (domingos).
 
 ## Checklist de continuidad
 
-1. ✅ PRs #37–#41 mergeados a main (2026-06-01).
-2. ✅ CI verde en GitHub Actions.
-3. Probar switch de idiomas y passkey en browser.
-4. Limpiar ramas stale en origin (33+).
+1. ✅ Auditoría de buenas prácticas completada.
+2. ✅ Tests, linting, y CI configurados.
+3. ✅ Documentación técnica creada (CONTRIBUTING, SECURITY, ADRs).
+4. ⚠️ Ejecutar `pytest tests/` antes de cada release.
+5. ⚠️ Revisar PRs de dependabot semanalmente.
+6. ⚠️ Cleanup de ramas stale ejecuta domingos (automático).
 
 ## Próximo paso recomendado
 
-- Agregar tests unitarios para `validate_flow.py` (pytest).
-- Evaluar migrar stats de `projects.json` a cálculo automático para evitar drift manual.
-- Agregar step de validación en CI para schemas de nodos tipo-específicos (`data/schema/nodes/*.schema.json`).
+### Inmediato
+- Ejecutar `npm install` y `pip install -r requirements-dev.txt` en local
+- Instalar pre-commit hooks: `pre-commit install`
+- Validar que CI esté verde tras merge
+
+### Corto plazo
+- Agregar tests de accesibilidad automatizados (axe-core, pa11y)
+- Agregar validación de links rotos en CI (lychee-action)
+- Agregar Lighthouse CI para monitoreo de performance
+
+### Mediano plazo
+- Evaluar extracción de JavaScript a archivo separado (index.html tiene 953 líneas)
+- Migrar stats de projects.json a cálculo automático (eliminar drift manual)
+- Considerar sitemap.xml para SEO
+

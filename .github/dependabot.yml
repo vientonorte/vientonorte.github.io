@@ -1,0 +1,50 @@
+version: 2
+updates:
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "ops"
+    commit-message:
+      prefix: "ops(deps)"
+      include: "scope"
+
+  # npm (dev dependencies)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "ops"
+    commit-message:
+      prefix: "ops(deps)"
+      include: "scope"
+    ignore:
+      # Ignore major version bumps (manual review required)
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # pip (Python dev dependencies)
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "ops"
+    commit-message:
+      prefix: "ops(deps)"
+      include: "scope"
