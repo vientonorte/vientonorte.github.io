@@ -1,6 +1,6 @@
 # Handoff Operativo — vientonorte.github.io
 
-Fecha: 2026-05-28
+Fecha: 2026-06-01
 Rama: main
 Estado al cierre: limpio y sincronizado con origin/main
 
@@ -23,8 +23,9 @@ Dashboard unificado de proyectos de Vientonorte para visibilidad pública de est
 | 2026-05-27  | PR #37 (draft)       | QA: fetch timeout, passkey rate-limit, SCA data, CI pins, schema renames    |
 | 2026-05-27  | PR #38 (draft)       | QA exhaustivo (superset de #37) — 17 issues, 3H/6M/8L                      |
 | 2026-05-28  | claude/hopeful-cerf-t8GTs | QA buenas prácticas — 18 issues, 2H/5M/11L (ver CHANGELOG)            |
+| 2026-06-01  | PRs #37–#41 mergeados | 5 PRs QA mergeados a main — fetch timeout, passkey, CI pins, schemas, docs |
 
-## Qué se cerró en esta iteración (2026-05-28)
+## Qué se cerró en esta iteración (2026-06-01)
 
 - Fetch timeout + AbortController (5s) en index.html
 - `catch (err)` + `console.error` en handler de fetch
@@ -48,21 +49,22 @@ Dashboard unificado de proyectos de Vientonorte para visibilidad pública de est
 
 ## Riesgos abiertos
 
-- **PRs #37 y #38 abiertos**: son draft PRs con un subset de estos mismos fixes. Recomiendo cerrarlos y mergear este PR en su lugar.
 - **Contraste `--text-muted`** (~4.8:1): cumple WCAG AA; ajuste a AAA queda para sprint de diseño.
 - **`continue-on-error: true` en SCA check**: intencional — el pipeline no bloquea el merge pero deja evidencia en artefactos.
 - **Credential ID en localStorage**: intencional — persistencia cross-session requerida para WebAuthn.
 - **`aria-label` sin `esc()` en loop data-i18n**: `setAttribute` es seguro vía DOM API.
+- **Ramas `claude/hopeful-cerf-*` stale**: 33+ ramas mergeadas siguen en origin. Limpiar con `git push origin --delete <branch>` cuando se confirme.
+- **Schemas de nodos tipo-específicos no validados en CI**: `data/schema/nodes/*.schema.json` existen pero no hay step de validación para ellos. Añadir en próximo sprint.
 
 ## Checklist de continuidad
 
-1. Revisar y cerrar PRs #37 y #38 (supersedidos por este PR).
-2. Mergear este PR a main.
-3. Verificar CI verde en GitHub Actions.
-4. Probar switch de idiomas y passkey en browser.
-5. Registrar cambios en `CHANGELOG.md` al cierre.
+1. ✅ PRs #37–#41 mergeados a main (2026-06-01).
+2. ✅ CI verde en GitHub Actions.
+3. Probar switch de idiomas y passkey en browser.
+4. Limpiar ramas stale en origin (33+).
 
 ## Próximo paso recomendado
 
 - Agregar tests unitarios para `validate_flow.py` (pytest).
 - Evaluar migrar stats de `projects.json` a cálculo automático para evitar drift manual.
+- Agregar step de validación en CI para schemas de nodos tipo-específicos (`data/schema/nodes/*.schema.json`).
