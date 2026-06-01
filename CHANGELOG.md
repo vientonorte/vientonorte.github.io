@@ -9,6 +9,17 @@ Formato:
 
 ---
 
+## 2026-06-01
+
+### fix
+- `fix(i18n)`: `footerMonth` actualizado a "Junio 2026" / "June 2026" en TRANSLATIONS y HTML estático.
+
+### ops
+- `ops(docs)`: HANDOFF.md — fecha actualizada a 2026-06-01; historial completo de PRs #37–#41; riesgos y checklist al día.
+- `ops(docs)`: CHANGELOG.md — entrada 2026-06-01 con fixes y estado post-merge.
+
+---
+
 ## 2026-05-28
 
 ### fix — HIGH
