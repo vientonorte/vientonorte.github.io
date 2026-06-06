@@ -3,3 +3,7 @@
 __pycache__/
 *.pyc
 *.pyo
+node_modules/
+.coverage
+coverage.xml
+.secrets.baseline
