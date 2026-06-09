@@ -611,7 +611,9 @@
     }
 
     function getLangValue(value) {
-        if (typeof value === 'string') return value;
+        if (typeof value === 'string') {
+            return value;
+        }
         if (typeof value === 'object' && value !== null) {
             const lang = getCurrentLang();
             return value[lang] || value[DEFAULT_LANG] || '';
@@ -641,8 +643,12 @@
         !!localStorage.getItem(CREDENTIAL_KEY);
 
     function passkeyState() {
-        if (isAuthenticated())       return 'authenticated';
-        if (hasRegisteredPasskey())  return 'registered';
+        if (isAuthenticated())       {
+            return 'authenticated';
+        }
+        if (hasRegisteredPasskey())  {
+            return 'registered';
+        }
         return 'none';
     }
 
@@ -684,7 +690,9 @@
 
     async function authenticatePasskey() {
         const stored = localStorage.getItem(CREDENTIAL_KEY);
-        if (!stored) throw new Error('No passkey registered');
+        if (!stored) {
+            throw new Error('No passkey registered');
+        }
         const credentialId = Uint8Array.from(atob(stored), c => c.charCodeAt(0));
         const challenge = crypto.getRandomValues(new Uint8Array(32));
         const assertion = await navigator.credentials.get({
@@ -705,9 +713,9 @@
 
     /* ── Passkey button UI ──────────────────────────────────────────── */
     const ICONS = {
-        lock:   `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 7V5a4 4 0 0 1 8 0v2h.5A1.5 1.5 0 0 1 14 8.5v5A1.5 1.5 0 0 1 12.5 15h-9A1.5 1.5 0 0 1 2 13.5v-5A1.5 1.5 0 0 1 3.5 7H4Zm1.5 0h5V5a2.5 2.5 0 0 0-5 0v2Z"/></svg>`,
-        unlock: `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11 1a4 4 0 0 0-4 4v2H3.5A1.5 1.5 0 0 0 2 8.5v5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 12.5 7H8.5V5a2.5 2.5 0 0 1 5 0 .75.75 0 0 0 1.5 0A4 4 0 0 0 11 1Z"/></svg>`,
-        key:    `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M10.5 0a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 1.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM3.982 9.074l-3.75 3.75a.75.75 0 0 0 1.06 1.06l.19-.189V15a.75.75 0 0 0 1.5 0v-1.5h1.5a.75.75 0 0 0 0-1.5H4.5l2.5-2.5a5.465 5.465 0 0 1-3.018-1.426Z"/></svg>`
+        lock:   '<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 7V5a4 4 0 0 1 8 0v2h.5A1.5 1.5 0 0 1 14 8.5v5A1.5 1.5 0 0 1 12.5 15h-9A1.5 1.5 0 0 1 2 13.5v-5A1.5 1.5 0 0 1 3.5 7H4Zm1.5 0h5V5a2.5 2.5 0 0 0-5 0v2Z"/></svg>',
+        unlock: '<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11 1a4 4 0 0 0-4 4v2H3.5A1.5 1.5 0 0 0 2 8.5v5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 12.5 7H8.5V5a2.5 2.5 0 0 1 5 0 .75.75 0 0 0 1.5 0A4 4 0 0 0 11 1Z"/></svg>',
+        key:    '<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M10.5 0a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Zm0 1.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM3.982 9.074l-3.75 3.75a.75.75 0 0 0 1.06 1.06l.19-.189V15a.75.75 0 0 0 1.5 0v-1.5h1.5a.75.75 0 0 0 0-1.5H4.5l2.5-2.5a5.465 5.465 0 0 1-3.018-1.426Z"/></svg>'
     };
 
     function updatePasskeyButton(btn) {
@@ -750,8 +758,8 @@
     };
 
     const ICONS_CARD = {
-        site:   `<svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>`,
-        github: `<svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>`
+        site:   '<svg class="icon" aria-hidden="true"><use href="#icon-site"></use></svg>',
+        github: '<svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>'
     };
 
     function renderLink(link, authenticated) {
@@ -882,7 +890,9 @@
             } finally {
                 clearTimeout(fetchTimeout);
             }
-            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            if (!res.ok) {
+                throw new Error(`HTTP ${res.status}`);
+            }
             data = await res.json();
             if (!Array.isArray(data?.projects) || !data?.meta?.stats) {
                 throw new Error('Unexpected JSON structure');
