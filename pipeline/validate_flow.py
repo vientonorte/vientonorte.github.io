@@ -214,7 +214,7 @@ def validate_edges_file(edges_path: Path, target_id: str | None = None) -> list[
 def print_report(results: list[SCAResult]) -> None:
     """Imprime el reporte SCA de resultados en stdout con formato legible."""
     print(f"\n{'='*60}")
-    print(f"  REPORTE SCA — Validación de Flujos de Fricción Institucional")
+    print("  REPORTE SCA — Validación de Flujos de Fricción Institucional")
     print(f"  Generado: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print(f"{'='*60}\n")
 
@@ -230,7 +230,7 @@ def print_report(results: list[SCAResult]) -> None:
         print(f"     Fricción:    {r.friction_type}")
         print(f"     Acción:      {r.recommended_action}")
         if r.missing_factors:
-            print(f"     Factores faltantes:")
+            print("     Factores faltantes:")
             for mf in r.missing_factors:
                 desc = mf['description']
                 print(f"       · [{mf['factor'].upper()}] {desc[:77] + '...' if len(desc) > 80 else desc}")
