@@ -11,14 +11,10 @@ Cobertura:
 """
 
 import json
-import sys
 from pathlib import Path
 from typing import Any
 
 import pytest
-
-# Add parent directory to path para importar validate_flow
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from pipeline.validate_flow import (
     ACTION_APPROVE,
@@ -38,7 +34,6 @@ from pipeline.validate_flow import (
     main,
     validate_flow,
 )
-
 
 # ─────────────────────────────────────────────────────────────────────────
 # Fixtures
