@@ -10,11 +10,11 @@
 #   ruff format .                    # formateo Python
 
 # Testing
-pytest>=8.0.0
-pytest-cov>=4.1.0
+pytest>=9.0.3
+pytest-cov>=7.1.0
 
 # Linting y formateo Python
-ruff>=0.6.0
+ruff>=0.15.16
 
 # Type checking
-mypy>=1.8.0
+mypy>=2.1.0

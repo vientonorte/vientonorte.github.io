@@ -9,6 +9,54 @@ Formato:
 
 ---
 
+## 2026-06-10
+
+### ops — Consolidación de QA pendiente
+- `ops(qa)`: PRs draft #52, #53 y #56 consolidados en una sola rama — los tres
+  abordaban en buena medida el mismo conjunto de hallazgos (lint, package-lock,
+  shell injection en CI) con distintos grados de cobertura. Se incorpora el
+  contenido de #56 (el más completo: fixes ESLint `curly`/`quotes` en
+  `index.html`, `ruff format` en `pipeline/validate_flow.py` y
+  `tests/test_validate_flow.py`, `tests/conftest.py`, `package-lock.json`,
+  `.secrets.baseline`, docs de `detect-secrets` en `CONTRIBUTING.md`) y se
+  agregan los 2 fixes que solo estaban en #53.
+
+### fix — CRÍTICO (de #53)
+- `fix(ci)`: `cleanup_branches.yml` — corregida inyección de shell (CWE-78):
+  `${{ github.event.pull_request.head.ref }}` se movió a `env:` antes de
+  usarse en `run:`, evitando ejecución de comandos arbitrarios si el nombre
+  de rama contiene caracteres especiales.
+
+### fix — MEDIO (de #53)
+- `fix(deps)`: `dependabot.yml` — agregada regla `ignore` de major bumps al
+  ecosistema `github-actions` (ya existía para `npm`/`pip`); evita PRs de
+  saltos de versión mayor que requieren revisión manual (causa de #44-46, #55).
+
+### fix — NUEVO hallazgo
+- `fix(mypy)`: `pyproject.toml` — `[tool.mypy] python_version` actualizado de
+  `"3.9"` a `"3.10"`. mypy 2.x (ya resuelto por `mypy>=1.8.0` en instalaciones
+  nuevas) rechaza `python_version < "3.10"` y emitía una advertencia de
+  configuración en cada corrida.
+
+### ops — Dependencias dev
+- `ops(deps)`: `requirements-dev.txt` — mínimos actualizados a
+  `pytest>=9.0.3`, `pytest-cov>=7.1.0`, `ruff>=0.15.16`, `mypy>=2.1.0`
+  (igual a lo propuesto por los PRs dependabot #48, #49, #50, #54 — verificado
+  con las versiones ya instaladas; cierra esos PRs como redundantes).
+
+### Verificación
+- `pytest tests/` — 22/22 passed
+- `ruff check .` / `ruff format --check .` — limpio
+- `mypy --ignore-missing-imports pipeline/` — sin issues ni advertencias
+- `npm run lint` (ESLint + HTMLHint) — sin errores
+- `ajv validate` — `nodes.json`, `edges.json`, `projects.json` válidos contra sus schemas
+
+### Recomendación de cierre
+- Cerrar #52 (subconjunto de #53), #53 y #56 (superset, contenido incorporado
+  aquí) y #48/#49/#50/#54 (dependabot, ya reflejados en `requirements-dev.txt`).
+
+---
+
 ## 2026-06-01
 
 ### feat — HIGH
