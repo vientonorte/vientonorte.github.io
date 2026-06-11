@@ -11,14 +11,10 @@ Cobertura:
 """
 
 import json
-import sys
 from pathlib import Path
 from typing import Any
 
 import pytest
-
-# Add parent directory to path para importar validate_flow
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from pipeline.validate_flow import (
     ACTION_APPROVE,
@@ -39,10 +35,10 @@ from pipeline.validate_flow import (
     validate_flow,
 )
 
-
 # ─────────────────────────────────────────────────────────────────────────
 # Fixtures
 # ─────────────────────────────────────────────────────────────────────────
+
 
 @pytest.fixture
 def flow_limpio() -> dict[str, Any]:
@@ -108,6 +104,7 @@ def temp_invalid_json(tmp_path: Path) -> Path:
 # Tests: compute_node_energy()
 # ─────────────────────────────────────────────────────────────────────────
 
+
 def test_compute_node_energy_normal():
     """Caso normal: monto 1M, frecuencia 5, transparencia 10."""
     energy = compute_node_energy(1_000_000, 5, 10)
@@ -142,6 +139,7 @@ def test_compute_node_energy_negative_transparency():
 # ─────────────────────────────────────────────────────────────────────────
 # Tests: validate_flow()
 # ─────────────────────────────────────────────────────────────────────────
+
 
 def test_validate_flow_limpio(flow_limpio):
     """Flujo limpio: todos los factores presentes → SCA 100, riesgo BAJO."""
@@ -193,7 +191,12 @@ def test_validate_flow_captura_critica(flow_captura_critica):
 
 def test_validate_flow_evidence_refs_proxy():
     """evidence_refs puede actuar como proxy de actas_oficios."""
-    flow = {"id": "e1", "evidence_refs": ["ref1"], "instrumento_legal": "D1", "competencia_validada": True}
+    flow = {
+        "id": "e1",
+        "evidence_refs": ["ref1"],
+        "instrumento_legal": "D1",
+        "competencia_validada": True,
+    }
     result = validate_flow("e1", flow)
     assert result.sca_score == 100
     assert FACTOR_KNOW not in [m["factor"] for m in result.missing_factors]
@@ -227,6 +230,7 @@ def test_sca_result_to_dict(flow_limpio):
 # Tests: load_json()
 # ─────────────────────────────────────────────────────────────────────────
 
+
 def test_load_json_valid(temp_json_file):
     """Archivo JSON válido se carga correctamente."""
     data = load_json(temp_json_file)
@@ -252,6 +256,7 @@ def test_load_json_nonexistent():
 # Tests: CLI main()
 # ─────────────────────────────────────────────────────────────────────────
 
+
 def test_main_edges_file_not_found():
     """CLI retorna código 2 si el archivo edges no existe."""
     code = main(["--edges", "/nonexistent.json"])
@@ -262,14 +267,16 @@ def test_main_valid_edges_success(tmp_path):
     """CLI retorna 0 con archivo edges válido sin riesgos altos."""
     edges_file = tmp_path / "edges.json"
     edges_file.write_text(
-        json.dumps([
-            {
-                "id": "e1",
-                "actas_oficios": ["a1"],
-                "instrumento_legal": "D1",
-                "competencia_validada": True,
-            }
-        ]),
+        json.dumps(
+            [
+                {
+                    "id": "e1",
+                    "actas_oficios": ["a1"],
+                    "instrumento_legal": "D1",
+                    "competencia_validada": True,
+                }
+            ]
+        ),
         encoding="utf-8",
     )
     code = main(["--edges", str(edges_file)])
@@ -280,12 +287,14 @@ def test_main_fail_on_high_with_high_risk(tmp_path):
     """CLI retorna 1 con --fail-on-high si hay riesgos altos."""
     edges_file = tmp_path / "edges.json"
     edges_file.write_text(
-        json.dumps([
-            {
-                "id": "e1",
-                # sin factores SCA → riesgo CRITICO
-            }
-        ]),
+        json.dumps(
+            [
+                {
+                    "id": "e1",
+                    # sin factores SCA → riesgo CRITICO
+                }
+            ]
+        ),
         encoding="utf-8",
     )
     code = main(["--edges", str(edges_file), "--fail-on-high"])
@@ -296,7 +305,16 @@ def test_main_output_json(tmp_path):
     """CLI escribe reporte JSON con --output."""
     edges_file = tmp_path / "edges.json"
     edges_file.write_text(
-        json.dumps([{"id": "e1", "actas_oficios": ["a1"], "instrumento_legal": "D1", "competencia_validada": True}]),
+        json.dumps(
+            [
+                {
+                    "id": "e1",
+                    "actas_oficios": ["a1"],
+                    "instrumento_legal": "D1",
+                    "competencia_validada": True,
+                }
+            ]
+        ),
         encoding="utf-8",
     )
     output_file = tmp_path / "report.json"
@@ -313,10 +331,12 @@ def test_main_edge_id_filter(tmp_path):
     """CLI filtra por --edge-id."""
     edges_file = tmp_path / "edges.json"
     edges_file.write_text(
-        json.dumps([
-            {"id": "e1", "actas_oficios": ["a1"]},
-            {"id": "e2", "actas_oficios": ["a2"]},
-        ]),
+        json.dumps(
+            [
+                {"id": "e1", "actas_oficios": ["a1"]},
+                {"id": "e2", "actas_oficios": ["a2"]},
+            ]
+        ),
         encoding="utf-8",
     )
     output_file = tmp_path / "report.json"

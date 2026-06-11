@@ -51,6 +51,7 @@ ACTION_REPORT = "DENUNCIA"
 # Cálculo de energía de nodo
 # ---------------------------------------------------------------------------
 
+
 def compute_node_energy(
     monto_involucrado: float,
     frecuencia_ocurrencia: int,
@@ -71,13 +72,14 @@ def compute_node_energy(
 # Validación SCA analógica
 # ---------------------------------------------------------------------------
 
+
 @dataclass
 class SCAResult:
     flow_id: str
-    sca_score: int                          # 0 | 33 | 66 | 100
-    missing_factors: list[dict[str, str]]   # [{factor, description}]
-    friction_type: str                      # "limpio" | "regulatorio" | "procesal" | "captura"
-    risk_level: str                         # BAJO | MEDIO | ALTO | CRITICO
+    sca_score: int  # 0 | 33 | 66 | 100
+    missing_factors: list[dict[str, str]]  # [{factor, description}]
+    friction_type: str  # "limpio" | "regulatorio" | "procesal" | "captura"
+    risk_level: str  # BAJO | MEDIO | ALTO | CRITICO
     recommended_action: str
     validated_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
@@ -112,31 +114,32 @@ def validate_flow(flow_id: str, flow_data: dict[str, Any]) -> SCAResult:
     sca_score = 0
 
     # --- Factor 1: Something you KNOW ---
-    knows = (
-        bool(flow_data.get("actas_oficios"))
-        or bool(flow_data.get("evidence_refs"))
-    )
+    knows = bool(flow_data.get("actas_oficios")) or bool(flow_data.get("evidence_refs"))
     if not knows:
-        missing_factors.append({
-            "factor": FACTOR_KNOW,
-            "description": (
-                "Sin evidencia de conocimiento documentado de la norma "
-                "(actas, oficios, minutas). Campo 'actas_oficios' o 'evidence_refs' vacío."
-            ),
-        })
+        missing_factors.append(
+            {
+                "factor": FACTOR_KNOW,
+                "description": (
+                    "Sin evidencia de conocimiento documentado de la norma "
+                    "(actas, oficios, minutas). Campo 'actas_oficios' o 'evidence_refs' vacío."
+                ),
+            }
+        )
     else:
         sca_score += 33
 
     # --- Factor 2: Something you HAVE ---
     has_instrument = bool(flow_data.get("instrumento_legal"))
     if not has_instrument:
-        missing_factors.append({
-            "factor": FACTOR_HAVE,
-            "description": (
-                "Sin instrumento legal habilitante (decreto, resolución, ley). "
-                "Campo 'instrumento_legal' ausente o vacío."
-            ),
-        })
+        missing_factors.append(
+            {
+                "factor": FACTOR_HAVE,
+                "description": (
+                    "Sin instrumento legal habilitante (decreto, resolución, ley). "
+                    "Campo 'instrumento_legal' ausente o vacío."
+                ),
+            }
+        )
     else:
         sca_score += 33
 
@@ -144,13 +147,15 @@ def validate_flow(flow_id: str, flow_data: dict[str, Any]) -> SCAResult:
     competencia = flow_data.get("competencia_validada")
     is_competent = competencia is True
     if not is_competent:
-        missing_factors.append({
-            "factor": FACTOR_BE,
-            "description": (
-                "Sin competencia territorial y jerárquica validada. "
-                "Campo 'competencia_validada' ausente o false."
-            ),
-        })
+        missing_factors.append(
+            {
+                "factor": FACTOR_BE,
+                "description": (
+                    "Sin competencia territorial y jerárquica validada. "
+                    "Campo 'competencia_validada' ausente o false."
+                ),
+            }
+        )
     else:
         sca_score += 34  # 33+33+34 = 100 para el caso limpio
 
@@ -187,6 +192,7 @@ def validate_flow(flow_id: str, flow_data: dict[str, Any]) -> SCAResult:
 # Utilidades de I/O
 # ---------------------------------------------------------------------------
 
+
 def load_json(path: Path) -> Any:
     """Lee y parsea un archivo JSON; lanza SystemExit con mensaje legible si está malformado."""
     try:
@@ -213,40 +219,43 @@ def validate_edges_file(edges_path: Path, target_id: str | None = None) -> list[
 
 def print_report(results: list[SCAResult]) -> None:
     """Imprime el reporte SCA de resultados en stdout con formato legible."""
-    print(f"\n{'='*60}")
-    print(f"  REPORTE SCA — Validación de Flujos de Fricción Institucional")
+    print(f"\n{'=' * 60}")
+    print("  REPORTE SCA — Validación de Flujos de Fricción Institucional")
     print(f"  Generado: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
-    print(f"{'='*60}\n")
+    print(f"{'=' * 60}\n")
 
     summary = {RISK_LOW: 0, RISK_MEDIUM: 0, RISK_HIGH: 0, RISK_CRITICAL: 0}
 
     for r in results:
         summary[r.risk_level] = summary.get(r.risk_level, 0) + 1
-        status_icon = "✅" if r.risk_level == RISK_LOW else (
-            "⚠️" if r.risk_level == RISK_MEDIUM else "🚨"
+        status_icon = (
+            "✅" if r.risk_level == RISK_LOW else ("⚠️" if r.risk_level == RISK_MEDIUM else "🚨")
         )
         print(f"  {status_icon} [{r.risk_level:8s}] {r.flow_id}")
         print(f"     SCA Score:   {r.sca_score}/100")
         print(f"     Fricción:    {r.friction_type}")
         print(f"     Acción:      {r.recommended_action}")
         if r.missing_factors:
-            print(f"     Factores faltantes:")
+            print("     Factores faltantes:")
             for mf in r.missing_factors:
-                desc = mf['description']
-                print(f"       · [{mf['factor'].upper()}] {desc[:77] + '...' if len(desc) > 80 else desc}")
+                desc = mf["description"]
+                print(
+                    f"       · [{mf['factor'].upper()}] {desc[:77] + '...' if len(desc) > 80 else desc}"
+                )
         print()
 
-    print(f"{'─'*60}")
+    print(f"{'─' * 60}")
     print(f"  RESUMEN: {len(results)} flujo(s) analizados")
     for level, count in summary.items():
         if count:
             print(f"  · {level}: {count}")
-    print(f"{'='*60}\n")
+    print(f"{'=' * 60}\n")
 
 
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
+
 
 def build_parser() -> argparse.ArgumentParser:
     """Construye y retorna el parser de argumentos CLI."""
@@ -294,7 +303,11 @@ def main(argv: list[str] | None = None) -> int:
     results = validate_edges_file(args.edges, target_id=args.edge_id)
 
     if not results:
-        msg = f"No se encontró edge con id='{args.edge_id}'" if args.edge_id else "El archivo no contiene edges."
+        msg = (
+            f"No se encontró edge con id='{args.edge_id}'"
+            if args.edge_id
+            else "El archivo no contiene edges."
+        )
         print(f"Advertencia: {msg}", file=sys.stderr)
         return 0
 

@@ -14,6 +14,10 @@ updates:
     commit-message:
       prefix: "ops(deps)"
       include: "scope"
+    ignore:
+      # Ignore major version bumps (manual review required)
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
 
   # npm (dev dependencies)
   - package-ecosystem: "npm"

@@ -239,7 +239,16 @@ npm install
 # Pre-commit hooks (opcional pero recomendado)
 pip install pre-commit
 pre-commit install
+
+# Inicializar baseline de detect-secrets (requerido para pre-commit)
+# Actualiza .secrets.baseline con el estado actual del repo
+pip install detect-secrets
+detect-secrets scan --exclude-files package-lock\.json > .secrets.baseline
 ```
+
+> **Nota**: `.secrets.baseline` debe mantenerse actualizado. Si `pre-commit` detecta una nueva
+> entrada que no es un secreto real, ejecuta `detect-secrets scan --update .secrets.baseline`
+> para agregarla como falso positivo conocido.
 
 ### Desarrollo
 
@@ -264,4 +273,4 @@ pytest tests/
 
 ---
 
-**Última actualización**: 2026-06-01
+**Última actualización**: 2026-06-09
