@@ -18,17 +18,17 @@
           "en": "in production"
         }
       },
-      { 
-        "dot": "private", 
-        "value": "1", 
+      {
+        "dot": "private",
+        "value": "5",
         "label": {
           "es": "privado",
           "en": "private"
         }
       },
-      { 
-        "dot": "off", 
-        "value": "3", 
+      {
+        "dot": "off",
+        "value": "7",
         "label": {
           "es": "sin deploy",
           "en": "no deploy"
@@ -307,13 +307,187 @@
       },
       "tags": ["archive"],
       "links": [
-        { 
+        {
           "label": {
             "es": "Código",
             "en": "Code"
-          }, 
-          "href": "https://github.com/vientonorte/khuro", 
-          "icon": "github" 
+          },
+          "href": "https://github.com/vientonorte/khuro",
+          "icon": "github"
+        }
+      ]
+    },
+    {
+      "id": "vientonorte-core",
+      "title": "vientonorte-core",
+      "badge": "repo",
+      "desc": {
+        "es": "Infraestructura compartida del colectivo vientonorte — design tokens, componentes UI y utilidades de accesibilidad.",
+        "en": "Shared infrastructure for the vientonorte collective — design tokens, UI components and accessibility utilities."
+      },
+      "tags": ["TypeScript", "design tokens", "a11y", "shared"],
+      "links": [
+        {
+          "label": {
+            "es": "Código",
+            "en": "Code"
+          },
+          "href": "https://github.com/vientonorte/vientonorte-core",
+          "icon": "github"
+        }
+      ]
+    },
+    {
+      "id": "portafolio",
+      "title": "portafolio",
+      "badge": "repo",
+      "desc": {
+        "es": "Portfolio web personal — Dashboard y proyectos.",
+        "en": "Personal web portfolio — Dashboard and projects."
+      },
+      "tags": ["portfolio", "dashboard", "HTML"],
+      "links": [
+        {
+          "label": {
+            "es": "Código",
+            "en": "Code"
+          },
+          "href": "https://github.com/vientonorte/portafolio",
+          "icon": "github"
+        }
+      ]
+    },
+    {
+      "id": "dall-e",
+      "title": "dall-e",
+      "badge": "repo",
+      "desc": {
+        "es": "Visor generativo DALL-E con html2canvas.",
+        "en": "Generative DALL-E viewer with html2canvas."
+      },
+      "tags": ["generative AI", "html2canvas", "JavaScript"],
+      "links": [
+        {
+          "label": {
+            "es": "Código",
+            "en": "Code"
+          },
+          "href": "https://github.com/vientonorte/dall-e",
+          "icon": "github"
+        }
+      ]
+    },
+    {
+      "id": "poemario-beta",
+      "title": {
+        "es": "Poemario Beta (2026)",
+        "en": "Poetry Beta (2026)"
+      },
+      "badge": "repo",
+      "desc": {
+        "es": "Poemario digital \"Beta\" — poesía digital experimental, nueva versión.",
+        "en": "Digital poetry collection \"Beta\" — experimental digital poetry, new version."
+      },
+      "tags": ["poetry", "experimental", "HTML"],
+      "links": [
+        {
+          "label": {
+            "es": "Código",
+            "en": "Code"
+          },
+          "href": "https://github.com/vientonorte/poemario-beta",
+          "icon": "github"
+        }
+      ]
+    },
+    {
+      "id": "cfodashboard",
+      "title": "cfodashboard",
+      "badge": "private",
+      "requiresAuth": true,
+      "desc": {
+        "es": "Dashboard CFO — KPIs, métricas y arquitectura triple línea.",
+        "en": "CFO Dashboard — KPIs, metrics and triple-line architecture."
+      },
+      "tags": ["TypeScript", "dashboard", "finance", "KPIs"],
+      "links": [
+        {
+          "label": {
+            "es": "Código",
+            "en": "Code"
+          },
+          "href": "https://github.com/vientonorte/cfodashboard",
+          "icon": "github",
+          "requiresAuth": true
+        }
+      ]
+    },
+    {
+      "id": "tablero-ro",
+      "title": "tablero-ro",
+      "badge": "private",
+      "requiresAuth": true,
+      "desc": {
+        "es": "Tablero de gestión — en desarrollo.",
+        "en": "Management board — work in progress."
+      },
+      "tags": ["WIP", "HTML"],
+      "links": [
+        {
+          "label": {
+            "es": "Código",
+            "en": "Code"
+          },
+          "href": "https://github.com/vientonorte/tablero-ro",
+          "icon": "github",
+          "requiresAuth": true
+        }
+      ]
+    },
+    {
+      "id": "idt",
+      "title": "idt",
+      "badge": "private",
+      "requiresAuth": true,
+      "desc": {
+        "es": "Evidencia IDT — acceso restringido.",
+        "en": "IDT evidence — restricted access."
+      },
+      "tags": ["restricted", "evidence"],
+      "links": [
+        {
+          "label": {
+            "es": "Código",
+            "en": "Code"
+          },
+          "href": "https://github.com/vientonorte/idt",
+          "icon": "github",
+          "requiresAuth": true
+        }
+      ]
+    },
+    {
+      "id": "archivo-privado",
+      "title": {
+        "es": "Archivo Privado",
+        "en": "Private Archive"
+      },
+      "badge": "private",
+      "requiresAuth": true,
+      "desc": {
+        "es": "Archivo personal privado — documentos clínicos, financieros y de trabajo.",
+        "en": "Private personal archive — clinical, financial and work documents."
+      },
+      "tags": ["Python", "private", "personal"],
+      "links": [
+        {
+          "label": {
+            "es": "Código",
+            "en": "Code"
+          },
+          "href": "https://github.com/vientonorte/archivo-privado",
+          "icon": "github",
+          "requiresAuth": true
         }
       ]
     }
