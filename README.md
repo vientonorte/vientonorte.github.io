@@ -42,6 +42,14 @@ Dashboard unificado de proyectos de [@vientonorte](https://github.com/vientonort
 | Poemario Beta | 🔴 Deprecated | [29092020](https://vientonorte.github.io/29092020/) |
 | dihe | 🟣 Repo | [GitHub](https://github.com/vientonorte/dihe) |
 | khuro | 🟣 Repo | [GitHub](https://github.com/vientonorte/khuro) |
+| vientonorte-core | 🟣 Repo | [GitHub](https://github.com/vientonorte/vientonorte-core) |
+| portafolio | 🟣 Repo | [GitHub](https://github.com/vientonorte/portafolio) |
+| dall-e | 🟣 Repo | [GitHub](https://github.com/vientonorte/dall-e) |
+| Poemario Beta (2026) | 🟣 Repo | [GitHub](https://github.com/vientonorte/poemario-beta) |
+| cfodashboard | 🟡 Privado | Acceso restringido |
+| tablero-ro | 🟡 Privado | Acceso restringido |
+| idt | 🟡 Privado | Acceso restringido |
+| Archivo Privado | 🟡 Privado | Acceso restringido |
 
 ## Stack
 
