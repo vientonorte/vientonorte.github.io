@@ -9,6 +9,23 @@ Formato:
 
 ---
 
+## 2026-06-12
+
+### ops — QA de pendientes
+- `ops(qa)`: PR #62 (docs QA 2026-06-11) marcado ready for review y mergeado
+  (squash) — único pendiente abierto del repo, sin riesgo (solo
+  `CHANGELOG.md`/`HANDOFF.md`).
+
+### Verificación
+- `pytest tests/` — 22/22 passed
+- `ruff check .` / `ruff format --check .` — limpio
+- `mypy --ignore-missing-imports pipeline/` — sin issues
+- `npm install` + `npm run lint` (ESLint + HTMLHint) — sin errores
+- `ajv validate` — `nodes.json`, `edges.json`, `projects.json` válidos contra sus schemas (draft7)
+- Sin issues ni PRs abiertos al cierre de esta iteración
+
+---
+
 ## 2026-06-11
 
 ### ops — QA de pendientes (CI Actions)
