@@ -1,8 +1,8 @@
 # Handoff Operativo — vientonorte.github.io
 
-Fecha: 2026-06-10
+Fecha: 2026-06-11
 Rama: main
-Estado al cierre: QA de pendientes — consolidación de PRs draft #52/#53/#56, fix mypy/python_version, dependencias dev al día
+Estado al cierre: QA de pendientes — PRs dependabot de Actions (#59/#60/#61) revisados y mergeados, suite completa verificada en verde
 
 ## Objetivo del repositorio
 
@@ -26,6 +26,7 @@ Dashboard unificado de proyectos de Vientonorte para visibilidad pública de est
 | 2026-06-01  | PRs #37–#41 mergeados | 5 PRs QA mergeados a main — fetch timeout, passkey, CI pins, schemas, docs |
 | 2026-06-01  | copilot/audita-*     | Auditoría completa + implementación de mejoras (testing, linting, docs)     |
 | 2026-06-10  | claude/hopeful-cerf-6tfqo4 | QA de pendientes: consolida #52/#53/#56 (shell injection CWE-78, package-lock, secrets baseline, lint), fix mypy python_version, deps dev al día |
+| 2026-06-11  | claude/hopeful-cerf-mu9vs2 | QA de pendientes: revisión y merge de PRs dependabot de Actions #59/#60/#61 (checkout, setup-python, setup-node — bumps menores, CI verde); re-verificación completa de tests/lint/schemas |
 
 ## Qué se cerró en esta iteración (2026-06-01 — Auditoría)
 
@@ -80,7 +81,6 @@ Dashboard unificado de proyectos de Vientonorte para visibilidad pública de est
 - **`continue-on-error: true` en SCA check**: intencional — el pipeline no bloquea el merge pero deja evidencia en artefactos.
 - **credentialId en localStorage**: intencional y documentado en ADR-002 — credentialId es público por spec WebAuthn.
 - **Ramas `claude/hopeful-cerf-*` y `copilot/*` stale**: ~39 ramas, la mayoría ya mergeadas; cleanup automático ejecuta domingos o vía `workflow_dispatch`.
-- **PRs dependabot de major bumps pendientes** (#44 setup-node v4→v6, #45 upload-artifact v4→v7, #46 setup-python v5→v6, #55 checkout v4→v6): requieren revisión manual de breaking changes antes de mergear; la nueva regla `ignore` en `dependabot.yml` evita que se generen más PRs de este tipo a futuro pero no afecta los ya abiertos.
 
 ## Checklist de continuidad
 
@@ -88,24 +88,21 @@ Dashboard unificado de proyectos de Vientonorte para visibilidad pública de est
 2. ✅ Tests, linting, y CI configurados.
 3. ✅ Documentación técnica creada (CONTRIBUTING, SECURITY, ADRs).
 4. ✅ PRs draft #52/#53/#56 consolidados (ver CHANGELOG 2026-06-10).
-5. ⚠️ Ejecutar `pytest tests/` antes de cada release.
-6. ⚠️ Cerrar manualmente #52, #53, #56 y dependabot #48/#49/#50/#54 (superados por esta rama).
-7. ⚠️ Revisar PRs dependabot de major bumps (#44, #45, #46, #55) antes de mergear.
-8. ⚠️ Cleanup de ramas stale ejecuta domingos (automático).
+5. ✅ `pytest tests/` — 22/22 passed (re-verificado 2026-06-11).
+6. ✅ PRs #52, #53, #56 y dependabot #48/#49/#50/#54 ya cerrados.
+7. ✅ PRs dependabot de major bumps (#44, #45, #46, #55) auto-cerrados por la regla `ignore` de `dependabot.yml`.
+8. ✅ PRs dependabot de minor bumps (#59, #60, #61) revisados (CI verde) y mergeados.
+9. ⚠️ Cleanup de ramas stale ejecuta domingos (automático).
 
 ## Próximo paso recomendado
 
 ### Inmediato
-- Ejecutar `npm install` y `pip install -r requirements-dev.txt` en local
-- Instalar pre-commit hooks: `pre-commit install`
-- Validar que CI esté verde tras merge
-- Cerrar PRs draft superados (#52, #53, #56) y dependabot redundantes (#48-50, #54)
+- Sin PRs ni issues abiertos pendientes al cierre de esta iteración.
 
 ### Corto plazo
 - Agregar tests de accesibilidad automatizados (axe-core, pa11y)
 - Agregar validación de links rotos en CI (lychee-action)
 - Agregar Lighthouse CI para monitoreo de performance
-- Revisar y mergear PRs dependabot de major bumps de Actions (#44, #45, #46, #55)
 
 ### Mediano plazo
 - Evaluar extracción de JavaScript a archivo separado (index.html tiene ~960 líneas)

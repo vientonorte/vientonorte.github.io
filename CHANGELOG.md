@@ -9,6 +9,25 @@ Formato:
 
 ---
 
+## 2026-06-11
+
+### ops — QA de pendientes (CI Actions)
+- `ops(deps)`: mergeados los 3 PRs dependabot pendientes de `github-actions`
+  (bumps menores, sin breaking changes, CI verde en los tres):
+  - #59 `actions/checkout` 4.2.2 → 4.3.1
+  - #60 `actions/setup-python` 5.4.0 → 5.6.0
+  - #61 `actions/setup-node` 4.2.0 → 4.4.0
+
+### Verificación
+- `pytest tests/` — 22/22 passed
+- `ruff check .` / `ruff format --check .` — limpio
+- `mypy --ignore-missing-imports pipeline/` — sin issues
+- `npm install` + `npm run lint` (ESLint 8.57.1 + HTMLHint) — sin errores
+- `ajv validate` — `nodes.json`, `edges.json`, `projects.json` válidos contra sus schemas
+- Sin issues ni PRs abiertos pendientes al cierre de esta iteración
+
+---
+
 ## 2026-06-10
 
 ### ops — Consolidación de QA pendiente
