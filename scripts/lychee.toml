@@ -10,7 +10,11 @@ exclude = [
     "https://github.com/vientonorte/tablero-ro",
     "https://github.com/vientonorte/idt",
     "https://github.com/vientonorte/archivo-privado",
+    # LinkedIn blocks bots with HTTP 999 — link is valid for humans
+    "https://www.linkedin.com/in/rodrigo-gaete-gaona",
 ]
+
+accept = ["200..=299", "999"]
 
 max_retries = 2
 timeout = 20
