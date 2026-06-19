@@ -208,5 +208,8 @@ jobs:
       - name: Serve site and run pa11y
         run: |
           npx serve . -l 3456 &
-          sleep 2
-          npx pa11y-ci http://127.0.0.1:3456/index.html --config .pa11yci.json
+          for i in 1 2 3 4 5; do
+            curl -sf http://127.0.0.1:3456/index.html > /dev/null && break
+            sleep 2
+          done
+          npx pa11y-ci --config .pa11yci.json
