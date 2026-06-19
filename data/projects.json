@@ -9,46 +9,19 @@
       "github": "https://github.com/vientonorte",
       "linkedin": "https://www.linkedin.com/in/rodrigo-gaete-gaona"
     },
-    "stats": [
-      { 
-        "dot": "live", 
-        "value": "5", 
-        "label": {
-          "es": "en producción",
-          "en": "in production"
-        }
+    "sprintYear": "2026",
+    "highlights": [
+      {
+        "es": "UX Lead en productos digitales de inversión — suite uxtools, benchmark y documentación automatizada.",
+        "en": "UX Lead on digital investment products — uxtools suite, benchmark and automated UX documentation."
       },
       {
-        "dot": "private",
-        "value": "5",
-        "label": {
-          "es": "privado",
-          "en": "private"
-        }
+        "es": "Investigación doctoral: Contra-Archivo — grafo de fricción epistemológica en corrupción y captura regulatoria.",
+        "en": "PhD research: Contra-Archivo — epistemological friction graph on corruption and regulatory capture."
       },
       {
-        "dot": "off",
-        "value": "7",
-        "label": {
-          "es": "sin deploy",
-          "en": "no deploy"
-        }
-      },
-      { 
-        "dot": "deprecated", 
-        "value": "1", 
-        "label": {
-          "es": "deprecado",
-          "en": "deprecated"
-        }
-      },
-      { 
-        "dot": "sprint", 
-        "value": "2026", 
-        "label": {
-          "es": "sprint activo",
-          "en": "active sprint"
-        }
+        "es": "Productos live con zero-deps, passkey WebAuthn y despliegue verificado en GitHub Pages.",
+        "en": "Live products with zero-deps, WebAuthn passkey and verified GitHub Pages deployment."
       }
     ]
   },
@@ -180,10 +153,10 @@
       "title": "uxtools",
       "badge": "live",
       "desc": {
-        "es": "UX Auto-Doc Engine — Generador de documentación técnica UX: flujos de interacción, criterios de aceptación, tablas de integridad y assets para Figma. Identidad SURA Investments.",
-        "en": "UX Auto-Doc Engine — Technical UX documentation generator: interaction flows, acceptance criteria, integrity tables and Figma assets. SURA Investments identity."
+        "es": "Suite UX SURA — hub React, Benchmark con historial, UXFLOW unificado (estático + editor), Eisenhower y más. Desplegado y verificado en GitHub Pages.",
+        "en": "SURA UX suite — React hub, Benchmark with session history, unified UXFLOW (static + editor), Eisenhower and more. Deployed and verified on GitHub Pages."
       },
-      "tags": ["UX Tools", "Vanilla JS", "localStorage", "SURA", "Figma export"],
+      "tags": ["React", "UX Tools", "Benchmark", "UXFLOW", "SURA"],
       "links": [
         { 
           "label": {
@@ -205,14 +178,22 @@
     },
     {
       "id": "aruma",
-      "title": "aruma",
-      "badge": "repo",
+      "title": "ĀRŪḾA",
+      "badge": "live",
       "desc": {
-        "es": "SPA de reservas premium — Next.js + Tailwind con enfoque Mobile First, A11y WCAG 2.1 AA y Security by Design. Integra Google Calendar API, validación Zod, sanitización anti-XSS.",
-        "en": "Premium booking SPA — Next.js + Tailwind with Mobile First approach, WCAG 2.1 AA A11y and Security by Design. Integrates Google Calendar API, Zod validation, anti-XSS sanitization."
+        "es": "SPA de reservas premium v2.0 — Next.js + Tailwind, Mobile First, WCAG 2.1 AA, Google Maps, SEO/JSON-LD y editor de marca para booking.",
+        "en": "Premium booking SPA v2.0 — Next.js + Tailwind, Mobile First, WCAG 2.1 AA, Google Maps, SEO/JSON-LD and brand editor for booking."
       },
-      "tags": ["Next.js", "TypeScript", "Tailwind", "A11y WCAG 2.1", "booking"],
+      "tags": ["Next.js", "TypeScript", "booking", "Google Maps", "A11y"],
       "links": [
+        {
+          "label": {
+            "es": "Ver sitio",
+            "en": "View site"
+          },
+          "href": "https://vientonorte.github.io/aruma/",
+          "icon": "site"
+        },
         { 
           "label": {
             "es": "Código",

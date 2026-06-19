@@ -8,7 +8,8 @@
     "lint:html": "htmlhint index.html",
     "lint:css": "stylelint '**/*.html'",
     "lint": "npm run lint:js && npm run lint:html",
-    "test": "echo 'No JavaScript unit tests yet'",
+    "test": "echo 'Run pytest tests/ for manifest and pipeline tests'",
+    "test:a11y": "npx serve . -l 3456 & sleep 2 && npx pa11y-ci http://127.0.0.1:3456/index.html --config .pa11yci.json",
     "serve": "npx serve ."
   },
   "devDependencies": {
@@ -16,7 +17,9 @@
     "eslint-plugin-html": "^8.1.1",
     "htmlhint": "^1.1.4",
     "stylelint": "^16.2.1",
-    "stylelint-config-standard": "^36.0.0"
+    "stylelint-config-standard": "^36.0.0",
+    "pa11y-ci": "^3.1.0",
+    "serve": "^14.2.4"
   },
   "engines": {
     "node": ">=18.0.0"

@@ -1,8 +1,8 @@
 # Handoff Operativo — vientonorte.github.io
 
-Fecha: 2026-06-12
+Fecha: 2026-06-19
 Rama: main
-Estado al cierre: QA de pendientes — PR #62 (docs QA 2026-06-11) mergeado, suite completa verificada en verde, sin issues ni PRs abiertos
+Estado al cierre: Sprint hub Jun 2026 — KPIs auto, filtros, grafo mini, ĀRŪḾA live, CI lychee+pa11y, OG image fix
 
 ## Objetivo del repositorio
 
@@ -28,6 +28,7 @@ Dashboard unificado de proyectos de Vientonorte para visibilidad pública de est
 | 2026-06-10  | claude/hopeful-cerf-6tfqo4 | QA de pendientes: consolida #52/#53/#56 (shell injection CWE-78, package-lock, secrets baseline, lint), fix mypy python_version, deps dev al día |
 | 2026-06-11  | claude/hopeful-cerf-mu9vs2 | QA de pendientes: revisión y merge de PRs dependabot de Actions #59/#60/#61 (checkout, setup-python, setup-node — bumps menores, CI verde); re-verificación completa de tests/lint/schemas |
 | 2026-06-12  | claude/hopeful-cerf-ro3e72 | QA de pendientes: PR #62 (docs QA 2026-06-11) marcado ready y mergeado; re-verificación completa de tests/lint/schemas; repo sin issues ni PRs abiertos |
+| 2026-06-19  | main (sprint hub)          | KPIs auto, filtros, grafo mini, ĀRŪḾA live, OG fix, lychee+pa11y CI, health badges, docs |
 
 ## Qué se cerró en esta iteración (2026-06-01 — Auditoría)
 
@@ -102,11 +103,10 @@ Dashboard unificado de proyectos de Vientonorte para visibilidad pública de est
 - Sin PRs ni issues abiertos pendientes al cierre de esta iteración.
 
 ### Corto plazo
-- Agregar tests de accesibilidad automatizados (axe-core, pa11y)
-- Agregar validación de links rotos en CI (lychee-action)
-- Agregar Lighthouse CI para monitoreo de performance
+- Agregar Lighthouse CI para monitoreo de performance (baseline post-sprint)
+- OG raster PNG además de SVG para previews en todas las redes
 
 ### Mediano plazo
-- Evaluar extracción de JavaScript a archivo separado (index.html tiene ~960 líneas)
-- Migrar stats de projects.json a cálculo automático (eliminar drift manual)
+- Evaluar extracción de JavaScript a archivo separado (`index.html` > 1000 líneas)
+- Health check con endpoint verificable (no solo `no-cors` opaque)
 

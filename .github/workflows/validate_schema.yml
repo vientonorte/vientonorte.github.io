@@ -172,3 +172,41 @@ jobs:
       - name: Run HTMLHint
         run: |
           npm run lint:html
+
+  link-check:
+    name: Link Checker (lychee)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.3.1
+
+      - name: Lychee link check
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config scripts/lychee.toml --no-progress index.html data/projects.json sitemap.xml img/og-hub.svg
+          fail: true
+
+  accessibility:
+    name: Accessibility (pa11y)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.3.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4.4.0
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Serve site and run pa11y
+        run: |
+          npx serve . -l 3456 &
+          sleep 2
+          npx pa11y-ci http://127.0.0.1:3456/index.html --config .pa11yci.json

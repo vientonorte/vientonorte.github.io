@@ -9,6 +9,31 @@ Formato:
 
 ---
 
+## 2026-06-19
+
+### feat — Sprint hub alto valor (Jun 2026)
+
+- `feat(hub)`: KPIs auto-calculados desde badges en `projects.json` — elimina drift de `meta.stats`
+- `feat(hub)`: hero con highlights bilingües + CTA LinkedIn para recruiters
+- `feat(hub)`: filtros Live / Research / Tools / Private
+- `feat(hub)`: mini-vista SVG del grafo Contra-Archivo (`data/graph/`)
+- `feat(hub)`: health badges en proyectos live (HEAD + cache 24h en sessionStorage)
+- `fix(seo)`: `og:image` y `twitter:image` apuntan a `/img/og-hub.svg` (antes 404)
+- `fix(data)`: ĀRŪḾA reclasificado a `live` con link `/aruma/`; uxtools copy actualizado
+- `fix(seo)`: `sitemap.xml` incluye aruma y fechas 2026-06-19
+- `feat(ci)`: job lychee (link checker) + pa11y (WCAG2AA) en GitHub Actions
+- `test`: `tests/test_projects_manifest.py` — contrato manifest + aruma live
+- `docs`: README, HANDOFF, DEPLOY actualizados
+
+### Verificación
+
+- `pytest tests/` — manifest + pipeline
+- `npm run lint` — ESLint + HTMLHint
+- `ajv validate` — `projects.json` contra schema actualizado
+- lychee + pa11y en CI post-push
+
+---
+
 ## 2026-06-12
 
 ### ops — QA de pendientes

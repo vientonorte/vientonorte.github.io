@@ -87,7 +87,7 @@
   "properties": {
     "meta": {
       "type": "object",
-      "required": ["name", "role", "contact", "stats"],
+      "required": ["name", "role", "contact"],
       "additionalProperties": false,
       "properties": {
         "name": { "type": "string" },
@@ -100,6 +100,13 @@
             "github": { "type": "string", "pattern": "^https?://" },
             "linkedin": { "type": "string", "pattern": "^https?://" }
           }
+        },
+        "sprintYear": { "type": "string", "pattern": "^[0-9]{4}$" },
+        "highlights": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/bilingualString" },
+          "minItems": 1,
+          "maxItems": 5
         },
         "stats": {
           "type": "array",

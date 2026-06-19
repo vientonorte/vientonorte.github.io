@@ -48,6 +48,40 @@ python3 -c "import json; json.load(open('data/graph/edges.json'))" && echo "edge
 python pipeline/validate_flow.py --edges data/graph/edges.json
 ```
 
+### 6) Tests Python (manifest + pipeline)
+
+```sh
+pip install -r requirements-dev.txt
+pytest tests/ -v
+```
+
+### 7) Lint frontend
+
+```sh
+npm ci
+npm run lint
+```
+
+### 8) Link checker local (opcional)
+
+```sh
+npx lychee --config scripts/lychee.toml index.html data/projects.json sitemap.xml img/og-hub.svg
+```
+
+### 9) Accesibilidad local (opcional)
+
+```sh
+npm run test:a11y
+```
+
+### 10) OG image
+
+Verificar que responde 200:
+
+```sh
+curl -sI https://vientonorte.github.io/img/og-hub.svg | head -1
+```
+
 ## Política para repos privados
 
 - No usar enlaces públicos clickeables que devuelvan 404.

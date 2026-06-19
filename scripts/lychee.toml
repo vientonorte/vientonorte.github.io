@@ -1,0 +1,17 @@
+# Link checker config — sprint Jun 2026
+# Used by lychee-action in CI
+
+exclude_path = [".git", "node_modules", ".github"]
+
+# Private GitHub repos return 404 without auth — expected
+exclude = [
+    "https://github.com/vientonorte/sura-investments",
+    "https://github.com/vientonorte/cfodashboard",
+    "https://github.com/vientonorte/tablero-ro",
+    "https://github.com/vientonorte/idt",
+    "https://github.com/vientonorte/archivo-privado",
+]
+
+max_retries = 2
+timeout = 20
+scheme = ["https"]

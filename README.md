@@ -25,6 +25,9 @@ Dashboard unificado de proyectos de [@vientonorte](https://github.com/vientonort
 - 📱 **Responsive** — Mobile-first, adaptable a todos los dispositivos
 - ♿ **Accesible** — WCAG 2.1 AA, navegación por teclado, ARIA labels
 - 🚀 **Zero dependencias** — Vanilla JS, sin frameworks, sin build step
+- 📊 **KPIs auto-calculados** — stats derivados de `projects.json` (sin drift manual)
+- 🧭 **Filtros y grafo** — chips Live/Research/Tools/Private + mini-mapa Contra-Archivo
+- 🔗 **CI de links y a11y** — lychee + pa11y en GitHub Actions
 
 ---
 
@@ -37,7 +40,7 @@ Dashboard unificado de proyectos de [@vientonorte](https://github.com/vientonort
 | dashfin | 🟢 Live | [dashfin](https://vientonorte.github.io/dashfin/) |
 | mi-portafolio | 🟢 Live | [mi-portafolio](https://vientonorte.github.io/mi-portafolio/) |
 | uxtools | 🟢 Live | [uxtools](https://vientonorte.github.io/uxtools/) |
-| aruma | 🟣 Repo | [GitHub](https://github.com/vientonorte/aruma) |
+| ĀRŪḾA | 🟢 Live | [aruma](https://vientonorte.github.io/aruma/) |
 | SURA Investments | 🟡 Privado | Acceso restringido |
 | Poemario Beta | 🔴 Deprecated | [29092020](https://vientonorte.github.io/29092020/) |
 | dihe | 🟣 Repo | [GitHub](https://github.com/vientonorte/dihe) |

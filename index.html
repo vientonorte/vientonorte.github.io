@@ -9,11 +9,13 @@
     <meta property="og:description" content="UX Lead · PhD Researcher in Anthropology · Production Projects | UX Lead · Investigador doctoral en Antropología · Proyectos en producción">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vientonorte.github.io">
-    <meta property="og:image" content="https://vientonorte.github.io/antropologia-corrupcion/img/an-lisis-ux-ui-mapeo-de-vulnerabilidades-de-expe.jpg">
+    <meta property="og:image" content="https://vientonorte.github.io/img/og-hub.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="vientonorte — Projects | Proyectos">
     <meta name="twitter:description" content="UX Lead · PhD Researcher in Anthropology · Production Projects">
-    <meta name="twitter:image" content="https://vientonorte.github.io/antropologia-corrupcion/img/an-lisis-ux-ui-mapeo-de-vulnerabilidades-de-expe.jpg">
+    <meta name="twitter:image" content="https://vientonorte.github.io/img/og-hub.svg">
     <meta name="twitter:image:alt" content="vientonorte projects dashboard — UX Lead and PhD Researcher in Anthropology">
     <meta property="og:site_name" content="vientonorte">
     <meta property="og:locale" content="es_CL">
@@ -473,6 +475,155 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .hero-panel {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem 1rem;
+        }
+
+        .hero-highlights {
+            list-style: none;
+            display: grid;
+            gap: 0.65rem;
+            margin: 0;
+            padding: 1rem 1.1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .hero-highlights li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .hero-highlights li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            margin-top: 0.75rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .hero-cta:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        .graph-panel {
+            max-width: 1200px;
+            margin: 0 auto 1rem;
+            padding: 0 1.5rem;
+        }
+
+        .graph-panel__inner {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem 1.1rem 0.75rem;
+        }
+
+        .graph-panel__head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .graph-panel__title {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .graph-panel__sub {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .graph-panel__link {
+            color: var(--accent);
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+
+        .graph-panel__link:hover { text-decoration: underline; }
+
+        #graph-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            background: rgba(13, 17, 23, 0.6);
+        }
+
+        .filter-bar {
+            max-width: 1200px;
+            margin: 0 auto 1rem;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .filter-pill {
+            font-size: 0.78rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .filter-pill:hover,
+        .filter-pill.is-active {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .filter-pill.is-active { font-weight: 600; }
+
+        .health-badge {
+            font-size: 0.65rem;
+            color: var(--green);
+            border: 1px solid rgba(63, 185, 80, 0.35);
+            border-radius: 10px;
+            padding: 0.1rem 0.45rem;
+            margin-left: 0.35rem;
+            white-space: nowrap;
+        }
+
+        .health-badge--down {
+            color: var(--red);
+            border-color: rgba(248, 81, 73, 0.35);
+        }
     </style>
 </head>
 
@@ -525,6 +676,37 @@
         </ul>
     </header>
 
+    <section class="hero-panel" aria-labelledby="hero-panel-heading">
+        <h2 id="hero-panel-heading" class="sr-only">Perfil profesional</h2>
+        <ul class="hero-highlights" id="hero-highlights" role="list"></ul>
+        <a class="hero-cta" id="hero-cta" href="https://www.linkedin.com/in/rodrigo-gaete-gaona" rel="noopener noreferrer" target="_blank">
+            LinkedIn →
+        </a>
+    </section>
+
+    <section class="graph-panel" id="graph-panel" aria-labelledby="graph-panel-heading" hidden>
+        <div class="graph-panel__inner">
+            <div class="graph-panel__head">
+                <div>
+                    <h2 id="graph-panel-heading" class="graph-panel__title">Contra-Archivo · mapa de fricción</h2>
+                    <p class="graph-panel__sub" id="graph-panel-sub">Vista resumida del grafo epistemológico</p>
+                </div>
+                <a class="graph-panel__link" id="graph-panel-link" href="https://vientonorte.github.io/antropologia-corrupcion/" rel="noopener noreferrer" target="_blank">
+                    Abrir instrumento →
+                </a>
+            </div>
+            <svg id="graph-svg" viewBox="0 0 720 220" role="img" aria-label="Grafo de nodos del Contra-Archivo"></svg>
+        </div>
+    </section>
+
+    <nav class="filter-bar" id="filter-bar" aria-label="Filtrar proyectos">
+        <button type="button" class="filter-pill is-active" data-filter="all">Todos</button>
+        <button type="button" class="filter-pill" data-filter="live">Live</button>
+        <button type="button" class="filter-pill" data-filter="research">Research</button>
+        <button type="button" class="filter-pill" data-filter="tools">Tools</button>
+        <button type="button" class="filter-pill" data-filter="private">Private</button>
+    </nav>
+
     <main id="proyectos">
         <div class="grid" id="cards-grid" aria-label="Proyectos">
             <!-- skeleton placeholders while JSON loads -->
@@ -563,7 +745,21 @@
             passkeyUnlockTitle: 'Autenticar con passkey para ver repos privados',
             passkeySetupTitle: 'Registrar passkey para acceder a repos privados',
             passkeyError: 'Error de autenticación. Intenta de nuevo.',
+            passkeyUnsupported: 'Tu navegador no soporta passkeys. Usa Chrome, Safari o Edge actualizado.',
+            passkeyTimeout: 'La autenticación expiró. Intenta de nuevo.',
+            passkeySuccess: 'Acceso privado desbloqueado.',
             loadError: 'Error al cargar proyectos. Recarga la página.',
+            filterAll: 'Todos',
+            filterLive: 'Live',
+            filterResearch: 'Research',
+            filterTools: 'Tools',
+            filterPrivate: 'Private',
+            graphTitle: 'Contra-Archivo · mapa de fricción',
+            graphSub: 'Vista resumida del grafo epistemológico',
+            graphLink: 'Abrir instrumento →',
+            heroCta: 'LinkedIn →',
+            healthOk: 'online',
+            healthDown: 'offline',
             ariaProjects: 'Proyectos',
             ariaStats: 'Estadísticas de proyectos',
             switchLanguage: 'Cambiar idioma',
@@ -587,7 +783,21 @@
             passkeyUnlockTitle: 'Authenticate with passkey to view private repos',
             passkeySetupTitle: 'Register passkey to access private repos',
             passkeyError: 'Authentication error. Try again.',
+            passkeyUnsupported: 'Your browser does not support passkeys. Use an updated Chrome, Safari or Edge.',
+            passkeyTimeout: 'Authentication timed out. Try again.',
+            passkeySuccess: 'Private access unlocked.',
             loadError: 'Error loading projects. Reload the page.',
+            filterAll: 'All',
+            filterLive: 'Live',
+            filterResearch: 'Research',
+            filterTools: 'Tools',
+            filterPrivate: 'Private',
+            graphTitle: 'Contra-Archivo · friction map',
+            graphSub: 'Summary view of the epistemological graph',
+            graphLink: 'Open instrument →',
+            heroCta: 'LinkedIn →',
+            healthOk: 'online',
+            healthDown: 'offline',
             ariaProjects: 'Projects',
             ariaStats: 'Project statistics',
             switchLanguage: 'Switch language',
@@ -801,10 +1011,17 @@
             ? `<div class="card__links"><span class="link-disabled">${ICONS_CARD.github}${esc(t('lockedLink'))}</span></div>`
             : `<div class="card__links">${(project.links ?? []).map(l => renderLink(l, authenticated)).join('')}</div>`;
 
+        const health = project.badge === 'live' ? healthState[project.id] : null;
+        const healthBadge = health === true
+            ? `<span class="health-badge" title="${esc(t('healthOk'))}">● ${esc(t('healthOk'))}</span>`
+            : health === false
+                ? `<span class="health-badge health-badge--down" title="${esc(t('healthDown'))}">● ${esc(t('healthDown'))}</span>`
+                : '';
+
         return `
-        <article class="${cardClass}" aria-label="${title}">
+        <article class="${cardClass}" aria-label="${title}" data-category="${esc(projectCategory(project))}">
             <div class="card__header">
-                <h2 class="card__title">${titleEl}</h2>
+                <h2 class="card__title">${titleEl}${healthBadge}</h2>
                 ${badgeText ? `<span class="card__badge ${badgeClass}">${esc(badgeText)}</span>` : ''}
             </div>
             ${desc}
@@ -813,12 +1030,173 @@
         </article>`;
     }
 
+    function computeStats(projects, sprintYear) {
+        const counts = { live: 0, private: 0, repo: 0, deprecated: 0 };
+        projects.forEach((project) => {
+            if (counts[project.badge] !== undefined) {
+                counts[project.badge] += 1;
+            }
+        });
+        return [
+            { dot: 'live', value: String(counts.live), label: { es: 'en producción', en: 'in production' } },
+            { dot: 'private', value: String(counts.private), label: { es: 'privado', en: 'private' } },
+            { dot: 'off', value: String(counts.repo), label: { es: 'sin deploy', en: 'no deploy' } },
+            { dot: 'deprecated', value: String(counts.deprecated), label: { es: 'deprecado', en: 'deprecated' } },
+            { dot: 'sprint', value: sprintYear || '2026', label: { es: 'sprint activo', en: 'active sprint' } }
+        ];
+    }
+
     function renderStats(stats) {
         return stats.map(s => `
             <li class="stat">
                 <span class="dot dot--${esc(s.dot)}" aria-hidden="true"></span>
                 <strong>${esc(s.value)}</strong> ${esc(getLangValue(s.label))}
             </li>`).join('');
+    }
+
+    function projectCategory(project) {
+        if (project.id === 'antropologia-corrupcion') {
+            return 'research';
+        }
+        if (['uxtools', 'table-ro', 'dashfin', 'aruma', 'mi-portafolio'].includes(project.id)) {
+            return 'tools';
+        }
+        if (project.badge === 'private') {
+            return 'private';
+        }
+        if (project.badge === 'live') {
+            return 'live';
+        }
+        return 'other';
+    }
+
+    function renderHighlights(items) {
+        const list = document.getElementById('hero-highlights');
+        if (!list) {
+            return;
+        }
+        list.innerHTML = (items || []).map((item) => `<li>${esc(getLangValue(item))}</li>`).join('');
+    }
+
+    function updateFilterLabels() {
+        const map = {
+            all: 'filterAll',
+            live: 'filterLive',
+            research: 'filterResearch',
+            tools: 'filterTools',
+            private: 'filterPrivate'
+        };
+        document.querySelectorAll('.filter-pill').forEach((btn) => {
+            const key = map[btn.dataset.filter];
+            if (key) {
+                btn.textContent = t(key);
+            }
+        });
+    }
+
+    function updateGraphPanelLabels() {
+        const title = document.getElementById('graph-panel-heading');
+        const sub = document.getElementById('graph-panel-sub');
+        const link = document.getElementById('graph-panel-link');
+        const cta = document.getElementById('hero-cta');
+        if (title) {
+            title.textContent = t('graphTitle');
+        }
+        if (sub) {
+            sub.textContent = t('graphSub');
+        }
+        if (link) {
+            link.textContent = t('graphLink');
+        }
+        if (cta) {
+            cta.textContent = t('heroCta');
+        }
+    }
+
+    function renderMiniGraph(nodes, edges) {
+        const panel = document.getElementById('graph-panel');
+        const svg = document.getElementById('graph-svg');
+        if (!panel || !svg || !Array.isArray(nodes) || !nodes.length) {
+            return;
+        }
+        const width = 720;
+        const height = 220;
+        const cx = width / 2;
+        const cy = height / 2;
+        const radius = Math.min(width, height) * 0.34;
+        const positions = nodes.map((node, index) => {
+            const angle = (index / nodes.length) * Math.PI * 2 - Math.PI / 2;
+            return {
+                id: node.id,
+                label: node.label || node.id,
+                x: cx + Math.cos(angle) * radius,
+                y: cy + Math.sin(angle) * radius,
+                score: Number(node.friction_score) || 0
+            };
+        });
+        const byId = Object.fromEntries(positions.map((p) => [p.id, p]));
+        const edgeLines = (edges || []).map((edge) => {
+            const from = byId[edge.source];
+            const to = byId[edge.target];
+            if (!from || !to) {
+                return '';
+            }
+            return `<line x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}" stroke="#30363d" stroke-width="1.5"/>`;
+        }).join('');
+        const nodeDots = positions.map((p) => {
+            const r = 5 + Math.min(p.score / 12, 8);
+            return `<g><circle cx="${p.x}" cy="${p.y}" r="${r}" fill="#58a6ff" fill-opacity="0.85"/><title>${esc(p.label)}</title></g>`;
+        }).join('');
+        svg.innerHTML = `${edgeLines}${nodeDots}`;
+        panel.hidden = false;
+    }
+
+    const HEALTH_CACHE_KEY = 'vn_health_cache';
+    const healthState = {};
+
+    function readHealthCache() {
+        try {
+            const raw = sessionStorage.getItem(HEALTH_CACHE_KEY);
+            return raw ? JSON.parse(raw) : {};
+        } catch {
+            return {};
+        }
+    }
+
+    function writeHealthCache(cache) {
+        try {
+            sessionStorage.setItem(HEALTH_CACHE_KEY, JSON.stringify(cache));
+        } catch {
+            // ignore quota
+        }
+    }
+
+    async function probeLiveSites(projects) {
+        const cache = readHealthCache();
+        const now = Date.now();
+        const liveProjects = projects.filter((p) => p.badge === 'live');
+        await Promise.all(liveProjects.map(async (project) => {
+            const siteLink = (project.links || []).find((l) => l.icon === 'site');
+            if (!siteLink?.href) {
+                return;
+            }
+            const cached = cache[project.id];
+            if (cached && now - cached.ts < 86400000) {
+                healthState[project.id] = cached.ok;
+                return;
+            }
+            try {
+                const ctrl = new AbortController();
+                const timer = setTimeout(() => ctrl.abort(), 4000);
+                const res = await fetch(siteLink.href, { method: 'HEAD', mode: 'no-cors', signal: ctrl.signal });
+                clearTimeout(timer);
+                healthState[project.id] = res.type === 'opaque' || res.ok;
+            } catch {
+                healthState[project.id] = false;
+            }
+            cache[project.id] = { ok: healthState[project.id], ts: now };
+        }));
+        writeHealthCache(cache);
     }
 
     /* ── Toast helper ────────────────────────────────────────────────── */
@@ -859,6 +1237,9 @@
         document.getElementById('btn-lang').setAttribute('aria-label', t('switchLanguage'));
         document.getElementById('cards-grid').setAttribute('aria-label', t('ariaProjects'));
         document.getElementById('stats-list').setAttribute('aria-label', t('ariaStats'));
+        updateFilterLabels();
+        updateGraphPanelLabels();
+        renderHighlights(window._projectData?.meta?.highlights || []);
 
         // Update contact links aria-labels using data-i18n attributes
         document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -875,6 +1256,7 @@
         const stats  = document.getElementById('stats-list');
         const btn    = document.getElementById('btn-passkey');
         const btnLang = document.getElementById('btn-lang');
+        let activeFilter = 'all';
 
         /* Initialize language — sync html[lang] without re-persisting to localStorage */
         document.documentElement.lang = getCurrentLang();
@@ -894,7 +1276,7 @@
                 throw new Error(`HTTP ${res.status}`);
             }
             data = await res.json();
-            if (!Array.isArray(data?.projects) || !data?.meta?.stats) {
+            if (!Array.isArray(data?.projects)) {
                 throw new Error('Unexpected JSON structure');
             }
             window._projectData = data; // Store for language updates
@@ -904,14 +1286,48 @@
             return;
         }
 
+        function filteredProjects() {
+            if (activeFilter === 'all') {
+                return data.projects;
+            }
+            return data.projects.filter((project) => projectCategory(project) === activeFilter);
+        }
+
         function renderAll() {
             const auth = isAuthenticated();
-            stats.innerHTML = renderStats(data.meta.stats);
-            grid.innerHTML  = data.projects.map(p => renderCard(p, auth)).join('');
+            const computedStats = computeStats(data.projects, data.meta?.sprintYear);
+            stats.innerHTML = renderStats(computedStats);
+            grid.innerHTML  = filteredProjects().map(p => renderCard(p, auth)).join('');
             updateUILanguage();
         }
 
         renderAll();
+
+        try {
+            const [nodesRes, edgesRes] = await Promise.all([
+                fetch('./data/graph/nodes.json'),
+                fetch('./data/graph/edges.json')
+            ]);
+            if (nodesRes.ok && edgesRes.ok) {
+                const nodes = await nodesRes.json();
+                const edges = await edgesRes.json();
+                renderMiniGraph(nodes.slice(0, 12), edges.slice(0, 24));
+            }
+        } catch (err) {
+            console.error('[vn] graph preview:', err);
+        }
+
+        probeLiveSites(data.projects).then(() => renderAll());
+
+        document.querySelectorAll('.filter-pill').forEach((pill) => {
+            pill.addEventListener('click', () => {
+                activeFilter = pill.dataset.filter || 'all';
+                document.querySelectorAll('.filter-pill').forEach((el) => {
+                    el.classList.toggle('is-active', el === pill);
+                });
+                renderAll();
+            });
+        });
 
         /* Wire language switcher */
         btnLang.addEventListener('click', () => {
@@ -943,13 +1359,22 @@
                     } else {
                         await authenticatePasskey();
                     }
+                    showToast(t('passkeySuccess'));
                     renderAll();
                     updatePasskeyButton(btn);
                 } catch (err) {
-                    /* NotAllowedError = user cancelled the dialog — no feedback needed */
-                    if (err.name !== 'NotAllowedError') {
-                        showToast(t('passkeyError'));
+                    if (err.name === 'NotAllowedError') {
+                        return;
                     }
+                    if (err.name === 'TimeoutError' || err.name === 'AbortError') {
+                        showToast(t('passkeyTimeout'));
+                        return;
+                    }
+                    if (!supportsPasskey()) {
+                        showToast(t('passkeyUnsupported'));
+                        return;
+                    }
+                    showToast(t('passkeyError'));
                 } finally {
                     btn.disabled = false;
                 }
