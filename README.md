@@ -132,7 +132,7 @@ El dashboard soporta **Español** e **Inglés** con cambio de idioma persistente
 
 ## Para reclutadores
 
-- 🔗 **LinkedIn**: [linkedin.com/in/rodrigo-gaete-gaona](https://www.linkedin.com/in/rodrigo-gaete-gaona)
+- 🔗 **LinkedIn**: [linkedin.com/in/rodrigo-gaete-ux](https://www.linkedin.com/in/rodrigo-gaete-ux/)
 - 💼 **GitHub**: [github.com/vientonorte](https://github.com/vientonorte)
 - 📊 **Proyectos en producción**: 5 aplicaciones live
 - 🎓 **Formación**: PhD en Antropología + UX Lead

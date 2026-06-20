@@ -703,7 +703,7 @@
                         <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
                         GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/rodrigo-gaete-gaona" rel="noopener noreferrer" target="_blank" aria-label="Perfil de LinkedIn" data-i18n="linkedinProfile">
+                    <a id="contact-linkedin" href="https://www.linkedin.com/in/rodrigo-gaete-ux/" rel="noopener noreferrer" target="_blank" aria-label="Perfil de LinkedIn" data-i18n="linkedinProfile">
                         <svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>
                         LinkedIn
                     </a>
@@ -726,7 +726,7 @@
     <section class="hero-panel" aria-labelledby="hero-panel-heading">
         <h2 id="hero-panel-heading" class="sr-only">Perfil profesional</h2>
         <ul class="hero-highlights" id="hero-highlights" role="list"></ul>
-        <a class="hero-cta" id="hero-cta" href="https://www.linkedin.com/in/rodrigo-gaete-gaona" rel="noopener noreferrer" target="_blank">
+        <a class="hero-cta" id="hero-cta" href="https://www.linkedin.com/in/rodrigo-gaete-ux/" rel="noopener noreferrer" target="_blank">
             LinkedIn →
         </a>
     </section>
@@ -1271,6 +1271,21 @@
         p.append('vientonorte · ', a, ' · ', t('footerMonth'));
     }
 
+    /* ── Contact links from projects.json meta (single source of truth) ─ */
+    function applyContactLinks() {
+        const contact = window._projectData?.meta?.contact;
+        if (!contact) return;
+        if (contact.linkedin) {
+            const linkedin = contact.linkedin;
+            document.getElementById('contact-linkedin')?.setAttribute('href', linkedin);
+            document.getElementById('hero-cta')?.setAttribute('href', linkedin);
+        }
+        if (contact.github) {
+            const githubLink = document.querySelector('.contact-links a[href*="github.com"]');
+            githubLink?.setAttribute('href', contact.github);
+        }
+    }
+
     /* ── UI update helpers ────────────────────────────────────────────── */
     function updateUILanguage() {
         const lang = getCurrentLang();
@@ -1290,6 +1305,7 @@
         updateFilterLabels();
         updateGraphPanelLabels();
         renderHighlights(window._projectData?.meta?.highlights || []);
+        applyContactLinks();
 
         // Update contact links aria-labels using data-i18n attributes
         document.querySelectorAll('[data-i18n]').forEach(el => {
