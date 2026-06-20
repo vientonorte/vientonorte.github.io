@@ -612,12 +612,19 @@
 
         #graph-svg {
             width: 100%;
-            min-height: 120px;
+            min-height: 140px;
             height: auto;
-            aspect-ratio: 720 / 220;
+            aspect-ratio: 720 / 260;
             display: block;
             border-radius: 6px;
             background: rgba(13, 17, 23, 0.6);
+        }
+
+        .graph-node-label {
+            font-size: 9px;
+            fill: var(--text-muted);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            pointer-events: none;
         }
 
         .filter-bar {
@@ -742,7 +749,7 @@
                     Abrir instrumento →
                 </a>
             </div>
-            <svg id="graph-svg" viewBox="0 0 720 220" role="img" aria-label="Grafo de nodos del Contra-Archivo"></svg>
+            <svg id="graph-svg" viewBox="0 0 720 260" role="img" aria-label="Grafo de nodos del Contra-Archivo"></svg>
         </div>
     </section>
 
@@ -1163,6 +1170,14 @@
         }
     }
 
+    function shortGraphLabel(label, maxLen = 18) {
+        const text = String(label || '').trim();
+        if (text.length <= maxLen) {
+            return text;
+        }
+        return `${text.slice(0, maxLen - 1)}…`;
+    }
+
     function renderMiniGraph(nodes, edges) {
         const panel = document.getElementById('graph-panel');
         const svg = document.getElementById('graph-svg');
@@ -1170,10 +1185,10 @@
             return;
         }
         const width = 720;
-        const height = 220;
+        const height = 260;
         const cx = width / 2;
-        const cy = height / 2;
-        const radius = Math.min(width, height) * 0.34;
+        const cy = height / 2 - 8;
+        const radius = Math.min(width, height) * 0.3;
         const positions = nodes.map((node, index) => {
             const angle = (index / nodes.length) * Math.PI * 2 - Math.PI / 2;
             return {
@@ -1193,11 +1208,21 @@
             }
             return `<line x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}" stroke="#30363d" stroke-width="1.5"/>`;
         }).join('');
-        const nodeDots = positions.map((p) => {
+        const nodeGroups = positions.map((p) => {
             const r = 5 + Math.min(p.score / 12, 8);
-            return `<g><circle cx="${p.x}" cy="${p.y}" r="${r}" fill="#58a6ff" fill-opacity="0.85"/><title>${esc(p.label)}</title></g>`;
+            const short = shortGraphLabel(p.label);
+            const labelY = p.y + r + 12;
+            return `<g role="graphics-symbol" aria-label="${esc(p.label)}">
+                <circle cx="${p.x}" cy="${p.y}" r="${r}" fill="#58a6ff" fill-opacity="0.85"/>
+                <text x="${p.x}" y="${labelY}" text-anchor="middle" class="graph-node-label">${esc(short)}</text>
+                <title>${esc(p.label)}</title>
+            </g>`;
         }).join('');
-        svg.innerHTML = `${edgeLines}${nodeDots}`;
+        svg.innerHTML = `${edgeLines}${nodeGroups}`;
+        svg.setAttribute(
+            'aria-label',
+            `Grafo de fricción: ${positions.map((p) => p.label).join(', ')}`
+        );
         panel.hidden = false;
     }
 
