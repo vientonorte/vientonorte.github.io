@@ -17,4 +17,4 @@ pytest-cov>=7.1.0
 ruff>=0.15.16
 
 # Type checking
-mypy>=2.1.0
+mypy>=2.2.0
