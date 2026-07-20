@@ -14,7 +14,7 @@ pytest>=9.0.3
 pytest-cov>=7.1.0
 
 # Linting y formateo Python
-ruff>=0.15.16
+ruff>=0.15.22
 
 # Type checking
 mypy>=2.1.0
