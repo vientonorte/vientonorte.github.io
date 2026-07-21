@@ -1,16 +1,13 @@
-# Vientonorte Ops Canvas (public UI)
+# Vientonorte Ops Canvas
 
-**Source of truth (intent + writes):** Obsidian vault / private repo  
-https://github.com/vientonorte/Vientonorte  
+**Live:** https://vientonorte.github.io/ops/
 
-**This folder:** read-only UI + snapshot of `canvas-state.json` for the team.
+| | |
+|--|--|
+| UI | this folder |
+| Source of truth | private vault https://github.com/vientonorte/Vientonorte `40-ops/canvas-state.json` |
+| Sync | Button **☁ Sync → GitHub + mail** → Worker `vientonorte-ops-sync` |
+| Notify | GitHub issue + email `gaete.gaona@gmail.com` (Action + Gmail secrets) |
+| Sprint | Local Mac: `canvas-sprint start` / `vn-daily` |
 
-## Use
-1. Open https://vientonorte.github.io/ops/
-2. Edit board → Export JSON
-3. Commit JSON to vault `40-ops/canvas-state.json`
-4. Run locally: `canvas-sprint start`
-
-## Google (measurement / Ads / Search Console)
-Account: `gaete.gaona@gmail.com` — see vault `20-sistema/google-cuenta.md`  
-IDs (GA/GTM) live in GitHub Secrets, not in this file.
+See vault: `20-sistema/ops-sync-multidevice.md`

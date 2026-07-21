@@ -94,7 +94,7 @@
     <p class="sub">
       Lo que mueves aquí define el sprint. Grok desarrolla en GitHub. QA manual centrado en personas,
       <strong>zero data loss</strong>, solo cambios con nivel <strong>atomic design</strong>.
-      Estado: <code>ops/canvas-state.json</code> (snapshot) · SoT: vault Vientonorte · Google: <code>gaete.gaona@gmail.com</code> · <code>canvas-sprint start</code> (local)
+      Estado: <code>canvas-state.json</code> · Google: <code>gaete.gaona@gmail.com</code> · <code>canvas-sprint start</code> · público: <a href="https://vientonorte.github.io/ops/" style="color:#79c0ff">/ops</a>
     </p>
     <div class="principles">
       <span class="pill on">People-centered QA</span>
@@ -103,6 +103,7 @@
       <span class="pill on">GitHub ↔ Obsidian</span>
     </div>
     <div class="toolbar">
+      <button type="button" class="primary" id="btnSync">☁ Sync → GitHub + mail</button>
       <button type="button" class="primary" id="btnStart">▶ Iniciar sprint desde AHORA</button>
       <button type="button" id="btnExport">⬇ Exportar canvas-state.json</button>
       <label class="btn">⬆ Importar JSON<input type="file" id="fileIn" accept="application/json,.json" hidden /></label>
@@ -118,7 +119,7 @@
   <footer>
     <strong>Loop:</strong> Canvas (AHORA) → <code>canvas-sprint start</code> → issues GitHub → Grok build →
     QA personas + zero data loss + atomic → <code>canvas-sprint release</code> → deploy → MONITOREAR.<br />
-    Guardar estado: Exportar JSON y reemplazar <code>Vientonorte/40-ops/canvas-state.json</code>, luego commit vault a GitHub.
+    Multi-device: <strong>☁ Sync → GitHub + mail</strong> escribe el vault y dispara issue + mail a <code>gaete.gaona@gmail.com</code>. Token una vez: <code>localStorage.ops_sync_token</code>. Mac: <code>canvas-sprint start</code> / <code>vn-daily</code>.
   </footer>
 
   <script>
@@ -411,7 +412,66 @@
       setStatus("Checklist release descargado", "ok");
     };
 
+
+    const OPS_SYNC_URL = localStorage.getItem('ops_sync_url') || 'https://vientonorte-ops-sync.vientonorte.workers.dev';
+
+    function getOpsToken() {
+      let t = localStorage.getItem('ops_sync_token') || '';
+      if (!t) {
+        t = prompt('OPS_SYNC_TOKEN (mismo secret que en Cloudflare Worker). Se guarda solo en este dispositivo.') || '';
+        if (t) localStorage.setItem('ops_sync_token', t);
+      }
+      return t;
+    }
+
+    async function syncToGitHub() {
+      const token = getOpsToken();
+      if (!token) {
+        setStatus('Sync cancelado: falta OPS_SYNC_TOKEN', 'err');
+        return;
+      }
+      setStatus('Sincronizando state → vault GitHub…', '');
+      state.updated = new Date().toISOString().slice(0, 10);
+      const openNow = (state.quadrants?.now?.items || []).filter((i) => i.status !== 'done' && i.status !== 'wontfix');
+      const summary = `AHORA (${openNow.length}): ` + openNow.map((i) => i.title).join(' · ');
+      try {
+        const res = await fetch(OPS_SYNC_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Ops-Token': token,
+          },
+          body: JSON.stringify({ state, summary }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          setStatus('Sync falló: ' + (data.error || res.status) + (data.hint ? ' — ' + data.hint : ''), 'err');
+          console.error(data);
+          return;
+        }
+        persistLocal();
+        let msg = 'Sync OK · commit ' + (data.commit || '').slice(0, 7);
+        if (data.issue_url) msg += ' · issue creado';
+        msg += ' · mail a gaete.gaona@gmail.com si Action+secrets OK';
+        setStatus(msg, 'ok');
+        if (data.issue_url) {
+          const a = document.createElement('a');
+          a.href = data.issue_url;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = ' Ver issue';
+          a.style.color = '#79c0ff';
+          const st = document.getElementById('status');
+          st.appendChild(a);
+        }
+      } catch (e) {
+        setStatus('Sync error de red: ' + e.message, 'err');
+      }
+    }
+
+    $("#btnSync").onclick = () => syncToGitHub();
     $("#btnPrint").onclick = () => window.print();
+
 
     async function tryLoadHostedState() {
       try {
@@ -420,8 +480,8 @@
         if (!res.ok) return;
         state = await res.json();
         render();
-        setStatus('State desde /ops/canvas-state.json (snapshot público). Writes: Export → vault 40-ops/.', 'ok');
-      } catch (e) { /* ignore */ }
+        setStatus('State desde /ops/canvas-state.json (snapshot). Usa Sync para escribir vault.', 'ok');
+      } catch (e) {}
     }
 
     loadLocal();
