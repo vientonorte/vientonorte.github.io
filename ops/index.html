@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vientonorte · Canvas → Sprint → Release</title>
+  <style>
+    :root {
+      --bg: #0d1117; --card: #161b22; --border: #30363d; --text: #e6edf3;
+      --muted: #8b949e; --now: #f85149; --delegate: #d29922; --plan: #58a6ff;
+      --monitor: #3fb950; --ok: #3fb950; --warn: #d29922;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: var(--bg); color: var(--text); padding: 20px; line-height: 1.4;
+    }
+    header { max-width: 1200px; margin: 0 auto 16px; }
+    h1 { font-size: 1.25rem; margin: 0 0 6px; }
+    .sub { color: var(--muted); font-size: 0.88rem; max-width: 70ch; }
+    .principles {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;
+    }
+    .pill {
+      font-size: 0.75rem; padding: 4px 10px; border-radius: 999px;
+      border: 1px solid var(--border); color: var(--muted);
+    }
+    .pill.on { border-color: var(--ok); color: var(--ok); }
+    .toolbar {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 16px;
+    }
+    button, .btn {
+      background: #21262d; color: var(--text); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px; font-size: 0.85rem; cursor: pointer;
+    }
+    button.primary { background: #238636; border-color: #2ea043; font-weight: 600; }
+    button.danger { background: #21262d; border-color: var(--now); color: #ffa198; }
+    button:hover { filter: brightness(1.1); }
+    .grid {
+      max-width: 1200px; margin: 0 auto; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .q {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 14px; min-height: 260px; border-left: 4px solid var(--border);
+    }
+    .q.now { border-left-color: var(--now); }
+    .q.delegate { border-left-color: var(--delegate); }
+    .q.plan { border-left-color: var(--plan); }
+    .q.monitor { border-left-color: var(--monitor); }
+    .q h2 { margin: 0 0 4px; font-size: 0.95rem; }
+    .who { color: var(--muted); font-size: 0.78rem; margin-bottom: 10px; }
+    .item {
+      background: #0d1117; border: 1px solid var(--border); border-radius: 8px;
+      padding: 8px 10px; margin: 6px 0; font-size: 0.86rem;
+    }
+    .item .meta { color: var(--muted); font-size: 0.75rem; margin-top: 4px; }
+    .item input[type="checkbox"] { margin-right: 6px; }
+    .item.done { opacity: 0.55; text-decoration: line-through; }
+    .item textarea, .add-row input, .add-row select {
+      width: 100%; background: #21262d; border: 1px solid var(--border);
+      color: var(--text); border-radius: 6px; padding: 6px; font-size: 0.82rem;
+      margin-top: 4px;
+    }
+    .add-row { display: grid; gap: 6px; margin-top: 8px; }
+    footer {
+      max-width: 1200px; margin: 16px auto 0; padding: 12px 14px;
+      border: 1px dashed var(--border); border-radius: 10px; color: var(--muted);
+      font-size: 0.82rem;
+    }
+    #status { font-size: 0.8rem; color: var(--muted); min-height: 1.2em; }
+    #status.ok { color: var(--ok); }
+    #status.err { color: var(--now); }
+    .sprint-banner {
+      max-width: 1200px; margin: 0 auto 12px; padding: 10px 14px;
+      background: #1c2128; border: 1px solid var(--border); border-radius: 8px;
+      font-size: 0.85rem; display: none;
+    }
+    .sprint-banner.show { display: block; }
+    code { color: #79c0ff; font-size: 0.85em; }
+    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+    @media print {
+      body { background: #fff; color: #111; }
+      .toolbar, .add-row { display: none; }
+      .q { break-inside: avoid; background: #fff; border-color: #ccc; }
+      .item { background: #f6f8fa; }
+      .sub, .who, .meta, footer, #status { color: #444; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Vientonorte · Canvas → Sprint → Release</h1>
+    <p class="sub">
+      Lo que mueves aquí define el sprint. Grok desarrolla en GitHub. QA manual centrado en personas,
+      <strong>zero data loss</strong>, solo cambios con nivel <strong>atomic design</strong>.
+      Estado: <code>ops/canvas-state.json</code> (snapshot) · SoT: vault Vientonorte · Google: <code>gaete.gaona@gmail.com</code> · <code>canvas-sprint start</code> (local)
+    </p>
+    <div class="principles">
+      <span class="pill on">People-centered QA</span>
+      <span class="pill on">Zero data loss</span>
+      <span class="pill on">Atomic design only</span>
+      <span class="pill on">GitHub ↔ Obsidian</span>
+    </div>
+    <div class="toolbar">
+      <button type="button" class="primary" id="btnStart">▶ Iniciar sprint desde AHORA</button>
+      <button type="button" id="btnExport">⬇ Exportar canvas-state.json</button>
+      <label class="btn">⬆ Importar JSON<input type="file" id="fileIn" accept="application/json,.json" hidden /></label>
+      <button type="button" id="btnRelease">☑ Checklist release</button>
+      <button type="button" id="btnPrint">🖨 Print / PDF</button>
+    </div>
+    <div id="status"></div>
+    <div class="sprint-banner" id="sprintBanner"></div>
+  </header>
+
+  <div class="grid" id="board"></div>
+
+  <footer>
+    <strong>Loop:</strong> Canvas (AHORA) → <code>canvas-sprint start</code> → issues GitHub → Grok build →
+    QA personas + zero data loss + atomic → <code>canvas-sprint release</code> → deploy → MONITOREAR.<br />
+    Guardar estado: Exportar JSON y reemplazar <code>Vientonorte/40-ops/canvas-state.json</code>, luego commit vault a GitHub.
+  </footer>
+
+  <script>
+    const DEFAULT_STATE = {
+      version: 1,
+      updated: new Date().toISOString().slice(0, 10),
+      objective: "Landing leads/GTM/Ads/Search + apps locales",
+      principles: { people_centered_qa: true, zero_data_loss: true, atomic_design_only: true },
+      github: {
+        owner: "vientonorte",
+        vault_repo: "Vientonorte",
+        default_product_repo: "vientonorte.github.io",
+        product_repos: ["vientonorte.github.io","mi-portafolio","table-ro","uxtools","aruma","vientonorte-core"]
+      },
+      active_sprint: null,
+      quadrants: {
+        now: {
+          label: "Hacer ahora", owner: "Rö + Grok", max_items: 3,
+          items: [
+            { id: "now-1", title: "Baseline landing (audit hub + portafolio)", repo: "vientonorte.github.io", atomic_level: "template", people_job: "Entender oferta en <10s", data_loss_risk: "none", status: "todo" },
+            { id: "now-2", title: "Lead path v0 + generate_lead", repo: "mi-portafolio", atomic_level: "organism", people_job: "Enviar contacto sin perder el mensaje", data_loss_risk: "form_draft", status: "todo" },
+            { id: "now-3", title: "SEO hub + Search Console", repo: "vientonorte.github.io", atomic_level: "template", people_job: "Encontrar oferta desde búsqueda", data_loss_risk: "none", status: "todo" }
+          ]
+        },
+        delegate: {
+          label: "Delegar / automatizar", owner: "Grok · CI · scripts",
+          items: [
+            { id: "del-1", title: "CI / PRs / fix builds", assignee: "grok", status: "active" },
+            { id: "del-2", title: "gen-docs --all", assignee: "script", status: "active" },
+            { id: "del-3", title: "Deploy Pages", assignee: "github-actions", status: "active" },
+            { id: "del-4", title: "Sync bóveda git", assignee: "obsidian-git", status: "active" }
+          ]
+        },
+        plan: {
+          label: "Planificar", owner: "Rö",
+          items: [
+            { id: "plan-1", title: "Consent / privacidad Ads", repo: "mi-portafolio", atomic_level: "molecule", status: "backlog" },
+            { id: "plan-2", title: "GTM unificado hub+portafolio", repo: "vientonorte.github.io", atomic_level: "atom", status: "backlog" },
+            { id: "plan-3", title: "Cards apps + cta_id en hub", repo: "vientonorte.github.io", atomic_level: "molecule", status: "backlog" },
+            { id: "plan-5", title: "table-ro smoke UI + hub", repo: "table-ro", atomic_level: "organism", people_job: "Crear tarea y recuperarla tras reload", data_loss_risk: "high", status: "backlog" }
+          ]
+        },
+        monitor: {
+          label: "Monitorear", owner: "Rö + Grok",
+          signals: [
+            { id: "mon-ci", title: "CI P0 verde", source: "github-actions", cadence: "session" },
+            { id: "mon-cta", title: "cta_click / generate_lead", source: "gtm-ga4", cadence: "weekly" },
+            { id: "mon-gsc", title: "Indexación hub", source: "search-console", cadence: "weekly" },
+            { id: "mon-qa", title: "QA personas + zero data loss", source: "vault-logs", cadence: "release" }
+          ]
+        }
+      },
+      gates: {
+        release_requires: ["people_qa_pass","zero_data_loss_pass","atomic_review_pass","ci_green"]
+      }
+    };
+
+    let state = structuredClone(DEFAULT_STATE);
+
+    const $ = (s) => document.querySelector(s);
+    function setStatus(msg, cls) {
+      const el = $("#status");
+      el.textContent = msg;
+      el.className = cls || "";
+    }
+
+    function persistLocal() {
+      try {
+        localStorage.setItem("vientonorte-canvas-state", JSON.stringify(state));
+      } catch (_) {}
+    }
+
+    function loadLocal() {
+      try {
+        const raw = localStorage.getItem("vientonorte-canvas-state");
+        if (raw) state = JSON.parse(raw);
+      } catch (_) {}
+    }
+
+    function download(filename, text) {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([text], { type: "application/json" }));
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    function renderItem(qKey, item, idx) {
+      const done = item.status === "done" || item.status === "wontfix";
+      const people = item.people_job ? `<div class="meta">👤 ${item.people_job}</div>` : "";
+      const atomic = item.atomic_level ? `<div class="meta">⚛ ${item.atomic_level}${item.repo ? " · " + item.repo : ""}</div>` : "";
+      const risk = item.data_loss_risk && item.data_loss_risk !== "none"
+        ? `<div class="meta">🛡 data-loss: ${item.data_loss_risk}</div>` : "";
+      const assignee = item.assignee ? `<div class="meta">→ ${item.assignee}</div>` : "";
+      return `<div class="item ${done ? "done" : ""}" data-q="${qKey}" data-id="${item.id}">
+        <label>
+          <input type="checkbox" data-action="toggle" ${done ? "checked" : ""} />
+          <strong>${item.title}</strong>
+        </label>
+        ${people}${atomic}${risk}${assignee}
+      </div>`;
+    }
+
+    function render() {
+      const board = $("#board");
+      const q = state.quadrants;
+      const nowItems = (q.now.items || []).map((it, i) => renderItem("now", it, i)).join("");
+      const delItems = (q.delegate.items || []).map((it, i) => renderItem("delegate", it, i)).join("");
+      const planItems = (q.plan.items || []).map((it, i) => renderItem("plan", it, i)).join("");
+      const monItems = (q.monitor.signals || []).map((s) =>
+        `<div class="item"><strong>${s.title}</strong><div class="meta">${s.source} · ${s.cadence}</div></div>`
+      ).join("");
+
+      board.innerHTML = `
+        <section class="q now">
+          <h2>🔴 HACER AHORA</h2>
+          <p class="who">${q.now.owner} · máx ${q.now.max_items || 3} · alimenta el sprint</p>
+          ${nowItems}
+          <div class="add-row">
+            <input id="addNowTitle" placeholder="Nueva tarea AHORA…" />
+            <select id="addNowRepo">${(state.github.product_repos||[]).map(r=>`<option value="${r}">${r}</option>`).join("")}</select>
+            <select id="addNowAtomic">
+              <option value="atom">atom</option><option value="molecule">molecule</option>
+              <option value="organism" selected>organism</option>
+              <option value="template">template</option><option value="page">page</option>
+            </select>
+            <button type="button" data-add="now">+ Añadir a AHORA</button>
+          </div>
+        </section>
+        <section class="q delegate">
+          <h2>🟡 DELEGAR</h2>
+          <p class="who">${q.delegate.owner}</p>
+          ${delItems}
+        </section>
+        <section class="q plan">
+          <h2>🔵 PLANIFICAR</h2>
+          <p class="who">${q.plan.owner}</p>
+          ${planItems}
+          <div class="add-row">
+            <input id="addPlanTitle" placeholder="Nueva tarea PLAN…" />
+            <button type="button" data-add="plan">+ Añadir a PLAN</button>
+          </div>
+        </section>
+        <section class="q monitor">
+          <h2>🟢 MONITOREAR</h2>
+          <p class="who">${q.monitor.owner}</p>
+          ${monItems}
+        </section>`;
+
+      if (state.active_sprint) {
+        const b = $("#sprintBanner");
+        b.classList.add("show");
+        b.innerHTML = `<strong>Sprint activo:</strong> ${state.active_sprint.id}
+          · repo foco: <code>${state.active_sprint.focus_repo || "—"}</code>
+          · issues: ${(state.active_sprint.issue_urls || []).length}
+          · <span style="color:var(--muted)">corre <code>canvas-sprint start</code> tras exportar JSON</span>`;
+      }
+
+      persistLocal();
+    }
+
+    document.addEventListener("click", (e) => {
+      const t = e.target;
+      if (t.dataset && t.dataset.action === "toggle") {
+        const itemEl = t.closest(".item");
+        const qKey = itemEl.dataset.q;
+        const id = itemEl.dataset.id;
+        const list = state.quadrants[qKey].items;
+        const it = list.find((x) => x.id === id);
+        if (it) {
+          it.status = t.checked ? "done" : "todo";
+          state.updated = new Date().toISOString().slice(0, 10);
+          render();
+          setStatus("Estado actualizado (exporta JSON para persistir en vault)", "ok");
+        }
+      }
+      if (t.dataset && t.dataset.add === "now") {
+        const title = $("#addNowTitle").value.trim();
+        if (!title) return;
+        const items = state.quadrants.now.items;
+        if (items.filter((i) => i.status !== "done").length >= (state.quadrants.now.max_items || 3)) {
+          setStatus("AHORA admite máx. 3 ítems abiertos — mueve algo a PLAN o márcalo done", "err");
+          return;
+        }
+        items.push({
+          id: "now-" + Date.now(),
+          title,
+          repo: $("#addNowRepo").value,
+          atomic_level: $("#addNowAtomic").value,
+          people_job: "",
+          data_loss_risk: "review",
+          status: "todo"
+        });
+        state.updated = new Date().toISOString().slice(0, 10);
+        render();
+        setStatus("Añadido a AHORA — exporta JSON", "ok");
+      }
+      if (t.dataset && t.dataset.add === "plan") {
+        const title = $("#addPlanTitle").value.trim();
+        if (!title) return;
+        state.quadrants.plan.items.push({
+          id: "plan-" + Date.now(),
+          title,
+          repo: state.github.default_product_repo,
+          atomic_level: "organism",
+          status: "backlog"
+        });
+        state.updated = new Date().toISOString().slice(0, 10);
+        render();
+        setStatus("Añadido a PLAN — exporta JSON", "ok");
+      }
+    });
+
+    $("#btnExport").onclick = () => {
+      state.updated = new Date().toISOString().slice(0, 10);
+      download("canvas-state.json", JSON.stringify(state, null, 2));
+      setStatus("Descargado canvas-state.json → reemplaza Vientonorte/40-ops/canvas-state.json y haz commit", "ok");
+    };
+
+    $("#fileIn").onchange = async (e) => {
+      const f = e.target.files && e.target.files[0];
+      if (!f) return;
+      try {
+        state = JSON.parse(await f.text());
+        render();
+        setStatus("JSON importado", "ok");
+      } catch (err) {
+        setStatus("JSON inválido: " + err.message, "err");
+      }
+    };
+
+    $("#btnStart").onclick = () => {
+      const openNow = (state.quadrants.now.items || []).filter((i) => i.status !== "done" && i.status !== "wontfix");
+      if (!openNow.length) {
+        setStatus("No hay ítems abiertos en AHORA", "err");
+        return;
+      }
+      const id = "sprint-" + new Date().toISOString().slice(0, 10);
+      const focus = openNow[0].repo || state.github.default_product_repo;
+      state.active_sprint = {
+        id,
+        started: new Date().toISOString(),
+        focus_repo: focus,
+        item_ids: openNow.map((i) => i.id),
+        principles: state.principles,
+        issue_urls: []
+      };
+      state.updated = new Date().toISOString().slice(0, 10);
+
+      const pack = {
+        sprint_id: id,
+        objective: state.objective,
+        principles: state.principles,
+        focus_repo: focus,
+        now: openNow,
+        delegate: state.quadrants.delegate.items,
+        plan: state.quadrants.plan.items,
+        monitor: state.quadrants.monitor.signals,
+        gates: state.gates,
+        github: state.github,
+        instructions: [
+          "1. Guarda este archivo y canvas-state.json en 40-ops/",
+          "2. Corre: canvas-sprint start",
+          "3. Pega 30-prompts/grok-session.md a Grok con el sprint_id",
+          "4. QA: 40-ops/qa-people-atomic-zdl.md antes de release",
+          "5. canvas-sprint release cuando gates PASS"
+        ]
+      };
+
+      download("sprint-pack-" + id + ".json", JSON.stringify(pack, null, 2));
+      download("canvas-state.json", JSON.stringify(state, null, 2));
+      render();
+      setStatus("Sprint " + id + " iniciado en estado local. Exporta a vault y corre canvas-sprint start", "ok");
+    };
+
+    $("#btnRelease").onclick = () => {
+      const lines = [
+        "# Checklist release (gates)",
+        "",
+        "- [ ] People-centered QA PASS (jobs reales, no solo UI)",
+        "- [ ] Zero data loss PASS (reload / draft / no wipe accidental)",
+        "- [ ] Atomic design review PASS (nivel declarado en cada ítem)",
+        "- [ ] CI green en repos del sprint",
+        "- [ ] Ítems AHORA done o wontfix documentado",
+        "- [ ] Landing/métricas: sin regresión de CTA/lead si aplica",
+        "",
+        "Luego: `canvas-sprint release` + deploy + log en 40-ops/qa/"
+      ].join("\n");
+      download("release-checklist.md", lines);
+      setStatus("Checklist release descargado", "ok");
+    };
+
+    $("#btnPrint").onclick = () => window.print();
+
+    async function tryLoadHostedState() {
+      try {
+        if (location.protocol === 'file:') return;
+        const res = await fetch('./canvas-state.json', { cache: 'no-store' });
+        if (!res.ok) return;
+        state = await res.json();
+        render();
+        setStatus('State desde /ops/canvas-state.json (snapshot público). Writes: Export → vault 40-ops/.', 'ok');
+      } catch (e) { /* ignore */ }
+    }
+
+    loadLocal();
+    render();
+    tryLoadHostedState();
+    setStatus("Listo. Importa canvas-state.json del vault si quieres el estado en disco.", "");
+  </script>
+</body>
+</html>
