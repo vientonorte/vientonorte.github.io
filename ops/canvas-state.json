@@ -64,6 +64,30 @@
           "people_job": "Agente asume stack real",
           "data_loss_risk": "none",
           "status": "done"
+        },
+        {
+          "id": "done-oauth-client",
+          "title": "table-ro OAuth Client ID live + SW cache fix + brand/logo prep (v1.7.8–1.7.9)",
+          "repo": "table-ro",
+          "status": "done",
+          "atomic_level": "organism",
+          "people_job": "Conexión Calendar lista en código; falta solo config consent Testing",
+          "data_loss_risk": "low"
+        },
+        {
+          "id": "done-gees-demo",
+          "title": "mi-portafolio: GEES Figma Sites demo en #consultoria-demo",
+          "repo": "mi-portafolio",
+          "atomic_level": "organism",
+          "people_job": "Abrir propuesta GEES (cotización/KPIs) desde consultoría sin fricción",
+          "data_loss_risk": "none",
+          "status": "done",
+          "notes": "PR #116 · https://duct-juice-51509104.figma.site · table-ro/?view=ops refleja canvas /ops",
+          "links": [
+            "https://github.com/vientonorte/mi-portafolio/pull/116",
+            "https://duct-juice-51509104.figma.site",
+            "https://vientonorte.github.io/mi-portafolio/#/consultoria"
+          ]
         }
       ]
     },
@@ -76,6 +100,30 @@
       "label": "Planificar",
       "owner": "Rö",
       "items": [
+        {
+          "id": "plan-gees-mvp",
+          "title": "GEES: decidir MVP N2N (A) vs piloto (B) — PRD 1 página",
+          "repo": "mi-portafolio",
+          "status": "backlog",
+          "atomic_level": "page",
+          "people_job": "Stakeholder entiende alcance funcional GEES según visión VN",
+          "data_loss_risk": "none",
+          "notes": "Capacidad: SÍ MVP decisión; NO SaaS real-time sin partner eng"
+        },
+        {
+          "id": "plan-oauth-verify",
+          "title": "OAuth Calendar: Ruta A Testing+test user (o Ruta B GSC+logo si Publish)",
+          "repo": "table-ro",
+          "status": "backlog",
+          "atomic_level": "page",
+          "people_job": "Rö conecta GCal personal sin fricción; solo él (y test users) autorizan",
+          "data_loss_risk": "none — OAuth token en memoria/sesión; secret fuera de git",
+          "notes": "Docs: 20-sistema/oauth-verificacion-reanudar.md · brand.html · logo-oauth.svg · Client 913158816697… · NO Publish salvo necesario",
+          "links": [
+            "https://vientonorte.github.io/table-ro/brand.html",
+            "https://github.com/vientonorte/table-ro/blob/main/docs/GOOGLE-OAUTH.md"
+          ]
+        },
         {
           "id": "plan-mail",
           "title": "Gmail App Password secrets (mail canvas)",
@@ -118,9 +166,9 @@
   },
   "updated": "2026-07-21",
   "last_sync": {
-    "at": "2026-07-21T01:31:45.711Z",
-    "via": "ops-sync-worker",
-    "from": "https://vientonorte.github.io"
+    "at": "2026-07-21T15:42:01.000Z",
+    "via": "grok-session-publish-ops",
+    "from": "vault-code-clone"
   },
   "sprint_history": [
     {
@@ -139,10 +187,21 @@
   ],
   "active_sprint": null,
   "last_close": {
-    "at": "2026-07-21T01:30:50.599151+00:00",
-    "via": "grok-session-close",
-    "ops_url": "https://vientonorte.github.io/ops/",
-    "table_ro": "https://vientonorte.github.io/table-ro/",
-    "decision": "GO cierre sprint; /ops canónico; table-ro link a /ops"
+    "date": "2026-07-21",
+    "session": "sesion-gees-ops-pipeline",
+    "status": "open-release",
+    "table_ro": "1.7.9",
+    "next": [
+      "ci-green-pr-116",
+      "merge-deploy-gees",
+      "oauth-ruta-a-test-user",
+      "landing-fase-0"
+    ],
+    "docs": [
+      "40-ops/qa/2026-07-21-mi-portafolio-gees.md",
+      "40-ops/trabajo/2026-07-21-gees-release-ops.md",
+      "20-sistema/pipeline-release-ops-table-ro.md"
+    ],
+    "mi_portafolio": "PR #116 GEES"
   }
 }
