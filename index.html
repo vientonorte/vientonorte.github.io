@@ -1155,7 +1155,9 @@
     /* ── Contact links from projects.json meta (single source of truth) ─ */
     function applyContactLinks() {
         const contact = window._projectData?.meta?.contact;
-        if (!contact) return;
+        if (!contact) {
+            return;
+        }
         if (contact.linkedin) {
             const linkedin = contact.linkedin;
             document.getElementById('contact-linkedin')?.setAttribute('href', linkedin);
