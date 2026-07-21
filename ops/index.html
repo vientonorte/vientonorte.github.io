@@ -472,6 +472,7 @@
     $("#btnSync").onclick = () => syncToGitHub();
     $("#btnPrint").onclick = () => window.print();
 
+
     async function tryLoadHostedState() {
       try {
         if (location.protocol === 'file:') return;
@@ -479,13 +480,13 @@
         if (!res.ok) return;
         state = await res.json();
         render();
-        setStatus('State desde /ops/canvas-state.json (snapshot). Sync escribe el vault.', 'ok');
+        setStatus('State desde /ops/canvas-state.json (snapshot). Usa Sync para escribir vault.', 'ok');
       } catch (e) {}
     }
 
-
     loadLocal();
     render();
+    tryLoadHostedState();
     setStatus("Listo. Importa canvas-state.json del vault si quieres el estado en disco.", "");
   </script>
 </body>
