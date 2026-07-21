@@ -88,6 +88,15 @@
             "https://duct-juice-51509104.figma.site",
             "https://vientonorte.github.io/mi-portafolio/#/consultoria"
           ]
+        },
+        {
+          "id": "done-sprint-workflow",
+          "title": "Formalizar workflow sprint + canvas-sprint close automation",
+          "repo": "Vientonorte",
+          "atomic_level": "template",
+          "people_job": "Sprints trazables sin pasos manuales olvidados",
+          "data_loss_risk": "none",
+          "status": "done"
         }
       ]
     },
@@ -100,6 +109,38 @@
       "label": "Planificar",
       "owner": "Rö",
       "items": [
+        {
+          "id": "plan-sprint-close-automation",
+          "title": "Automatizar canvas-sprint close (docs + publish-ops + daily stamp)",
+          "repo": "Vientonorte",
+          "status": "done",
+          "atomic_level": "template",
+          "people_job": "Cerrar sprint sin fricción y con trazabilidad en vault/ops",
+          "data_loss_risk": "none"
+        },
+        {
+          "id": "plan-demo-mockup-mode",
+          "title": "Modo demo: preview estático + lightbox mockups (sin iframe interactivo)",
+          "repo": "mi-portafolio",
+          "status": "backlog",
+          "atomic_level": "organism",
+          "people_job": "Ver pantallas de producto como mockups al pedir demo, sin sandbox confuso",
+          "data_loss_risk": "none"
+        },
+        {
+          "id": "plan-consultoria-redesign",
+          "title": "Rediseño /#/consultoria · journey seed + demos mock (Apple-style) + leads config",
+          "repo": "mi-portafolio",
+          "status": "backlog",
+          "atomic_level": "page",
+          "people_job": "Segmento seed entiende oferta y pide demo mockup sin fricción; deja lead",
+          "data_loss_risk": "form_draft_must_persist_or_confirm",
+          "notes": "Esperar handoff journey de Rö · demos visibles no interactivas · mockups al solicitar demo · BD assets en prod",
+          "links": [
+            "https://vientonorte.github.io/mi-portafolio/#/consultoria",
+            "vault:10-productos/mi-portafolio/estrategia-consultoria-leads-journeys.md"
+          ]
+        },
         {
           "id": "plan-gees-mvp",
           "title": "GEES: decidir MVP N2N (A) vs piloto (B) — PRD 1 página",
@@ -166,9 +207,9 @@
   },
   "updated": "2026-07-21",
   "last_sync": {
-    "at": "2026-07-21T15:42:01.000Z",
-    "via": "grok-session-publish-ops",
-    "from": "vault-code-clone"
+    "at": "2026-07-21T15:52:39.000Z",
+    "via": "grok-workflow-formalization",
+    "from": "vault-obsidian"
   },
   "sprint_history": [
     {
@@ -188,20 +229,29 @@
   "active_sprint": null,
   "last_close": {
     "date": "2026-07-21",
-    "session": "sesion-gees-ops-pipeline",
-    "status": "open-release",
-    "table_ro": "1.7.9",
-    "next": [
-      "ci-green-pr-116",
-      "merge-deploy-gees",
-      "oauth-ruta-a-test-user",
-      "landing-fase-0"
-    ],
+    "session": "cierre-sesion-2026-07-21",
+    "status": "closed-auto",
+    "focus": "mi-portafolio",
+    "sprint_id": "sprint-2026-07-21",
+    "at": "2026-07-21T15:55:19Z",
     "docs": [
-      "40-ops/qa/2026-07-21-mi-portafolio-gees.md",
-      "40-ops/trabajo/2026-07-21-gees-release-ops.md",
-      "20-sistema/pipeline-release-ops-table-ro.md"
-    ],
-    "mi_portafolio": "PR #116 GEES"
-  }
+      "40-ops/sprints/cierre-sesion-2026-07-21.md",
+      "40-ops/trabajo/2026-07-21-sprint-close.md",
+      "90-daily/2026-07-21.md"
+    ]
+  },
+  "github": {
+    "owner": "vientonorte",
+    "vault_repo": "Vientonorte",
+    "default_product_repo": "mi-portafolio",
+    "product_repos": [
+      "vientonorte.github.io",
+      "mi-portafolio",
+      "table-ro",
+      "uxtools",
+      "aruma",
+      "vientonorte-core"
+    ]
+  },
+  "objective": "Landing consultoría lead-gen configurable · demos mock no-interactivas · journeys por segmento · pipeline sprint automatizado"
 }
