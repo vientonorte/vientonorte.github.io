@@ -1,3 +1,7 @@
+## Unreleased
+
+- `fix(hub)`: remove mini-graph Contra-Archivo panel from landing (noise for leads/GTM path; instrument remains at antropologia-corrupcion)
+
 # Changelog — vientonorte.github.io
 
 Registro operativo del dashboard unificado y su mantenimiento cross-repo.
