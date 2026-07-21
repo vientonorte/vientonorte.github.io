@@ -570,62 +570,6 @@
 
         .hero-cta:hover { color: var(--accent-hover); text-decoration: underline; }
 
-        .graph-panel {
-            max-width: 1200px;
-            margin: 0 auto 1rem;
-            padding: 0 1.5rem;
-        }
-
-        .graph-panel__inner {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1rem 1.1rem 0.75rem;
-        }
-
-        .graph-panel__head {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .graph-panel__title {
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        .graph-panel__sub {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        .graph-panel__link {
-            color: var(--accent);
-            font-size: 0.8rem;
-            text-decoration: none;
-        }
-
-        .graph-panel__link:hover { text-decoration: underline; }
-
-        #graph-svg {
-            width: 100%;
-            min-height: 140px;
-            height: auto;
-            aspect-ratio: 720 / 260;
-            display: block;
-            border-radius: 6px;
-            background: rgba(13, 17, 23, 0.6);
-        }
-
-        .graph-node-label {
-            font-size: 9px;
-            fill: var(--text-muted);
-            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-            pointer-events: none;
-        }
 
         .filter-bar {
             max-width: 1200px;
@@ -738,20 +682,6 @@
         </a>
     </section>
 
-    <section class="graph-panel" id="graph-panel" aria-labelledby="graph-panel-heading" hidden>
-        <div class="graph-panel__inner">
-            <div class="graph-panel__head">
-                <div>
-                    <h2 id="graph-panel-heading" class="graph-panel__title">Contra-Archivo · mapa de fricción</h2>
-                    <p class="graph-panel__sub" id="graph-panel-sub">Vista resumida del grafo epistemológico</p>
-                </div>
-                <a class="graph-panel__link" id="graph-panel-link" href="https://vientonorte.github.io/antropologia-corrupcion/" rel="noopener noreferrer" target="_blank">
-                    Abrir instrumento →
-                </a>
-            </div>
-            <svg id="graph-svg" viewBox="0 0 720 260" role="img" aria-label="Grafo de nodos del Contra-Archivo"></svg>
-        </div>
-    </section>
 
     <nav class="filter-bar" id="filter-bar" aria-label="Filtrar proyectos">
         <button type="button" class="filter-pill is-active" data-filter="all">Todos</button>
@@ -808,9 +738,6 @@
             filterResearch: 'Research',
             filterTools: 'Tools',
             filterPrivate: 'Private',
-            graphTitle: 'Contra-Archivo · mapa de fricción',
-            graphSub: 'Vista resumida del grafo epistemológico',
-            graphLink: 'Abrir instrumento →',
             heroCta: 'LinkedIn →',
             healthOk: 'online',
             healthDown: 'offline',
@@ -846,9 +773,6 @@
             filterResearch: 'Research',
             filterTools: 'Tools',
             filterPrivate: 'Private',
-            graphTitle: 'Contra-Archivo · friction map',
-            graphSub: 'Summary view of the epistemological graph',
-            graphLink: 'Open instrument →',
             heroCta: 'LinkedIn →',
             healthOk: 'online',
             healthDown: 'offline',
@@ -1151,79 +1075,11 @@
         });
     }
 
-    function updateGraphPanelLabels() {
-        const title = document.getElementById('graph-panel-heading');
-        const sub = document.getElementById('graph-panel-sub');
-        const link = document.getElementById('graph-panel-link');
+    function updateHeroCtaLabel() {
         const cta = document.getElementById('hero-cta');
-        if (title) {
-            title.textContent = t('graphTitle');
-        }
-        if (sub) {
-            sub.textContent = t('graphSub');
-        }
-        if (link) {
-            link.textContent = t('graphLink');
-        }
         if (cta) {
             cta.textContent = t('heroCta');
         }
-    }
-
-    function shortGraphLabel(label, maxLen = 18) {
-        const text = String(label || '').trim();
-        if (text.length <= maxLen) {
-            return text;
-        }
-        return `${text.slice(0, maxLen - 1)}…`;
-    }
-
-    function renderMiniGraph(nodes, edges) {
-        const panel = document.getElementById('graph-panel');
-        const svg = document.getElementById('graph-svg');
-        if (!panel || !svg || !Array.isArray(nodes) || !nodes.length) {
-            return;
-        }
-        const width = 720;
-        const height = 260;
-        const cx = width / 2;
-        const cy = height / 2 - 8;
-        const radius = Math.min(width, height) * 0.3;
-        const positions = nodes.map((node, index) => {
-            const angle = (index / nodes.length) * Math.PI * 2 - Math.PI / 2;
-            return {
-                id: node.id,
-                label: node.label || node.id,
-                x: cx + Math.cos(angle) * radius,
-                y: cy + Math.sin(angle) * radius,
-                score: Number(node.friction_score) || 0
-            };
-        });
-        const byId = Object.fromEntries(positions.map((p) => [p.id, p]));
-        const edgeLines = (edges || []).map((edge) => {
-            const from = byId[edge.source];
-            const to = byId[edge.target];
-            if (!from || !to) {
-                return '';
-            }
-            return `<line x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}" stroke="#30363d" stroke-width="1.5"/>`;
-        }).join('');
-        const nodeGroups = positions.map((p) => {
-            const r = 5 + Math.min(p.score / 12, 8);
-            const short = shortGraphLabel(p.label);
-            const labelY = p.y + r + 12;
-            return `<g role="graphics-symbol" aria-label="${esc(p.label)}">
-                <circle cx="${p.x}" cy="${p.y}" r="${r}" fill="#58a6ff" fill-opacity="0.85"/>
-                <text x="${p.x}" y="${labelY}" text-anchor="middle" class="graph-node-label">${esc(short)}</text>
-                <title>${esc(p.label)}</title>
-            </g>`;
-        }).join('');
-        svg.innerHTML = `${edgeLines}${nodeGroups}`;
-        svg.setAttribute(
-            'aria-label',
-            `Grafo de fricción: ${positions.map((p) => p.label).join(', ')}`
-        );
-        panel.hidden = false;
     }
 
     const HEALTH_CACHE_KEY = 'vn_health_cache';
@@ -1328,7 +1184,7 @@
         document.getElementById('cards-grid').setAttribute('aria-label', t('ariaProjects'));
         document.getElementById('stats-list').setAttribute('aria-label', t('ariaStats'));
         updateFilterLabels();
-        updateGraphPanelLabels();
+        updateHeroCtaLabel();
         renderHighlights(window._projectData?.meta?.highlights || []);
         applyContactLinks();
 
@@ -1394,19 +1250,6 @@
 
         renderAll();
 
-        try {
-            const [nodesRes, edgesRes] = await Promise.all([
-                fetch('./data/graph/nodes.json'),
-                fetch('./data/graph/edges.json')
-            ]);
-            if (nodesRes.ok && edgesRes.ok) {
-                const nodes = await nodesRes.json();
-                const edges = await edgesRes.json();
-                renderMiniGraph(nodes.slice(0, 12), edges.slice(0, 24));
-            }
-        } catch (err) {
-            console.error('[vn] graph preview:', err);
-        }
 
         probeLiveSites(data.projects).then(() => renderAll());
 

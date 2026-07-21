@@ -26,7 +26,7 @@ Dashboard unificado de proyectos de [@vientonorte](https://github.com/vientonort
 - ♿ **Accesible** — WCAG 2.1 AA, navegación por teclado, ARIA labels
 - 🚀 **Zero dependencias** — Vanilla JS, sin frameworks, sin build step
 - 📊 **KPIs auto-calculados** — stats derivados de `projects.json` (sin drift manual)
-- 🧭 **Filtros y grafo** — chips Live/Research/Tools/Private + mini-mapa Contra-Archivo
+- 🧭 **Filtros** — chips Live/Research/Tools/Private
 - 🔗 **CI de links y a11y** — lychee + pa11y en GitHub Actions
 
 ---
