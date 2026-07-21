@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "updated": "2026-07-21",
+  "objective": "Landing leads/GTM/Ads/Search + apps locales",
+  "principles": {
+    "people_centered_qa": true,
+    "zero_data_loss": true,
+    "atomic_design_only": true
+  },
+  "github": {
+    "owner": "vientonorte",
+    "vault_repo": "Vientonorte",
+    "default_product_repo": "vientonorte.github.io",
+    "product_repos": [
+      "vientonorte.github.io",
+      "mi-portafolio",
+      "table-ro",
+      "uxtools",
+      "aruma",
+      "vientonorte-core"
+    ]
+  },
+  "active_sprint": null,
+  "quadrants": {
+    "now": {
+      "label": "Hacer ahora",
+      "owner": "Rö + Grok",
+      "max_items": 3,
+      "items": [
+        {
+          "id": "now-1",
+          "title": "Baseline landing (audit hub + portafolio)",
+          "repo": "vientonorte.github.io",
+          "atomic_level": "template",
+          "people_job": "Entender oferta y siguiente paso en <10s",
+          "data_loss_risk": "none",
+          "status": "todo"
+        },
+        {
+          "id": "now-2",
+          "title": "Lead path v0 + evento generate_lead",
+          "repo": "mi-portafolio",
+          "atomic_level": "organism",
+          "people_job": "Enviar contacto sin fricción ni miedo a perder el mensaje",
+          "data_loss_risk": "form_draft_must_persist_or_confirm",
+          "status": "todo"
+        },
+        {
+          "id": "now-3",
+          "title": "SEO hub: title/description/oferta + Search Console",
+          "repo": "vientonorte.github.io",
+          "atomic_level": "template",
+          "people_job": "Encontrar Viento Norte desde búsqueda con promesa clara",
+          "data_loss_risk": "none",
+          "status": "todo"
+        }
+      ]
+    },
+    "delegate": {
+      "label": "Delegar / automatizar",
+      "owner": "Grok · CI · scripts",
+      "items": [
+        {
+          "id": "del-1",
+          "title": "CI / PRs / fix builds",
+          "assignee": "grok",
+          "status": "active"
+        },
+        {
+          "id": "del-2",
+          "title": "gen-docs --all",
+          "assignee": "script",
+          "status": "active"
+        },
+        {
+          "id": "del-3",
+          "title": "Deploy Pages",
+          "assignee": "github-actions",
+          "status": "active"
+        },
+        {
+          "id": "del-4",
+          "title": "Sync bóveda (git pull/push)",
+          "assignee": "obsidian-git + human",
+          "status": "active"
+        }
+      ]
+    },
+    "plan": {
+      "label": "Planificar",
+      "owner": "Rö",
+      "items": [
+        {
+          "id": "plan-1",
+          "title": "Consent / privacidad si Ads",
+          "repo": "mi-portafolio",
+          "atomic_level": "molecule",
+          "status": "backlog"
+        },
+        {
+          "id": "plan-2",
+          "title": "GTM unificado hub + portafolio",
+          "repo": "vientonorte.github.io",
+          "atomic_level": "atom",
+          "status": "backlog"
+        },
+        {
+          "id": "plan-3",
+          "title": "Cards apps locales en hub + cta_id",
+          "repo": "vientonorte.github.io",
+          "atomic_level": "molecule",
+          "status": "backlog"
+        },
+        {
+          "id": "plan-4",
+          "title": "Micro-campaña Ads 7d (solo DoD GO)",
+          "repo": "vientonorte.github.io",
+          "atomic_level": "page",
+          "status": "backlog"
+        },
+        {
+          "id": "plan-5",
+          "title": "table-ro smoke UI humano + mención hub",
+          "repo": "table-ro",
+          "atomic_level": "organism",
+          "people_job": "Crear tarea y recuperarla tras reload (zero data loss)",
+          "data_loss_risk": "high",
+          "status": "backlog"
+        }
+      ]
+    },
+    "monitor": {
+      "label": "Monitorear",
+      "owner": "Rö + Grok report",
+      "signals": [
+        { "id": "mon-ci", "title": "CI P0 verde", "source": "github-actions", "cadence": "session" },
+        { "id": "mon-cta", "title": "cta_click / generate_lead", "source": "gtm-ga4", "cadence": "weekly" },
+        { "id": "mon-gsc", "title": "Indexación hub", "source": "search-console", "cadence": "weekly" },
+        { "id": "mon-dod", "title": "DoD landing P0", "source": "vault", "cadence": "weekly" },
+        { "id": "mon-qa", "title": "QA personas + zero data loss", "source": "vault-logs", "cadence": "release" }
+      ]
+    }
+  },
+  "gates": {
+    "atomic_design": ["atom", "molecule", "organism", "template", "page"],
+    "people_qa_required": true,
+    "zero_data_loss_required": true,
+    "release_requires": [
+      "now_items_done_or_wontfix",
+      "people_qa_pass",
+      "zero_data_loss_pass",
+      "atomic_review_pass",
+      "ci_green"
+    ]
+  }
+}

@@ -1,5 +1,10 @@
 ## Unreleased
 
+- `feat(ops)`: public canvas board at `/ops/` (UI + state snapshot; sprint execution remains local/vault)
+- Google ops owner documented as gaete.gaona@gmail.com in vault (not secrets)
+
+## Unreleased
+
 - `fix(hub)`: remove mini-graph Contra-Archivo panel from landing (noise for leads/GTM path; instrument remains at antropologia-corrupcion)
 
 # Changelog — vientonorte.github.io
