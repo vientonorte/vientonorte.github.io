@@ -79,6 +79,10 @@
     .sprint-banner.show { display: block; }
     code { color: #79c0ff; font-size: 0.85em; }
     @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+    body.embed header .sub { display: none; }
+    body.embed .principles { display: none; }
+    body.embed footer { display: none; }
+    body.embed { padding: 10px; }
     @media print {
       body { background: #fff; color: #111; }
       .toolbar, .add-row { display: none; }
@@ -484,6 +488,9 @@
       } catch (e) {}
     }
 
+    if (new URLSearchParams(location.search).get('embed') === '1') {
+      document.body.classList.add('embed');
+    }
     loadLocal();
     render();
     tryLoadHostedState();
