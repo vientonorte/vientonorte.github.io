@@ -10,11 +10,11 @@
           "atomic_level": "organism",
           "people_job": "Lead freemium entra a un sistema (mail, carpeta, slot) sin pasos manuales",
           "data_loss_risk": "form_draft_must_persist_or_confirm",
-          "status": "todo",
-          "notes": "PDF: ops/VN-Automaciones-M5-Google-2026-07-26.pdf · P2 comercial · conectores ya en Grok",
+          "status": "done",
+          "notes": "Labels VN/Lead-A11y + Followup-48h · Drive VN-Entregables/A11y-Gratis · draft plantilla Gmail · skill /lead-a11y-vn",
           "links": [
-            "https://vientonorte.github.io/mi-portafolio/#/consultoria",
-            "https://vientonorte.github.io/ops/VN-Automaciones-M5-Google-2026-07-26.pdf"
+            "https://drive.google.com/drive/folders/1Qq8w5yu7Nn7kGhaBsEF6-Gbkcn6PkmiS",
+            "https://drive.google.com/drive/folders/1ulb6hU00owaniyGUJ-MGZrS6Enifyc8a"
           ]
         },
         {
@@ -25,7 +25,7 @@
           "people_job": "Saber qué paquetes @vientonorte viven en GH y si publican limpio",
           "data_loss_risk": "none",
           "status": "todo",
-          "notes": "gh auth refresh -s read:packages,delete:packages,write:packages · publish falló 403 jun-2026",
+          "notes": "gh auth refresh -s read:packages,delete:packages,write:packages · publish falló 403 jun-2026 · runbook docs/publish-packages.md en core; falta gh auth refresh interactivo del usuario",
           "links": [
             "https://github.com/vientonorte?tab=packages",
             "https://github.com/vientonorte/vientonorte-core/actions/workflows/publish.yml"
@@ -38,8 +38,11 @@
           "atomic_level": "template",
           "people_job": "CI predecible; menos PRs Dependabot rotos",
           "data_loss_risk": "none",
-          "status": "todo",
-          "notes": "mi-portafolio, core, uxtools, aruma, dashfin · no reabrir terraza hasta QA verde"
+          "status": "done",
+          "notes": "Node 22 + nvmrc + Dependabot groups en uxtools/aruma/dashfin/core/table-ro/github.io · mi-portafolio PR #121 (branch protection)",
+          "links": [
+            "https://github.com/vientonorte/mi-portafolio/pull/121"
+          ]
         },
         {
           "id": "now-1",
@@ -176,29 +179,31 @@
           "id": "del-org-hygiene-workflow",
           "title": "Workflow Rhai org-hygiene (PRs rojos, ramas stale, protect check)",
           "repo": "Vientonorte",
-          "status": "todo",
+          "status": "done",
           "atomic_level": "template",
           "people_job": "Higiene org sin sesión manual",
-          "data_loss_risk": "none"
+          "data_loss_risk": "none",
+          "notes": "~/.grok/workflows/org-hygiene.rhai smoke OK + scheduler 7d"
         },
         {
           "id": "del-local-smoke",
           "title": "Smoke local M5: seo-vn 111 + ads scenarios pre-push / cron",
           "repo": "mi-portafolio",
-          "status": "todo",
+          "status": "done",
           "atomic_level": "template",
           "people_job": "Gate local fail-fast antes de CI cloud",
           "data_loss_risk": "none",
-          "notes": "Apple M5 16 GB · no pelear con Ollama gemma4 al mismo tiempo"
+          "notes": "cierre-smoke.sh + npm run smoke:cierre + workflow cierre-smoke + task viernes 17:00"
         },
         {
           "id": "del-dependabot-policy",
           "title": "Dependabot.yml unificado: weekly, groups, open-PR limit",
           "repo": "mi-portafolio",
-          "status": "todo",
+          "status": "done",
           "atomic_level": "atom",
           "people_job": "Menos ruido de bumps rotos",
-          "data_loss_risk": "none"
+          "data_loss_risk": "none",
+          "notes": "Dependabot weekly groups limit 3 ignore majors en vivos; portafolio PR #121"
         }
       ]
     },
@@ -214,7 +219,7 @@
           "atomic_level": "template",
           "people_job": "Design system versionado sin copiar tokens a mano",
           "data_loss_risk": "none",
-          "notes": "Publicables: ui 0.3.2 · tokens 0.2.0 · a11y/security 0.1.1 · private: analytics/cli"
+          "notes": "Runbook publicado docs/publish-packages.md · engines node>=22 · falta PAT VN_PACKAGES_TOKEN + link packages al repo"
         },
         {
           "id": "plan-terraza-ci",
@@ -354,9 +359,9 @@
   },
   "updated": "2026-07-26",
   "last_sync": {
-    "at": "2026-07-26T23:22:00.000Z",
-    "via": "grok-org-hygiene-automations-pdf",
-    "from": "session-hazlo-ops"
+    "at": "2026-07-26T23:39:43Z",
+    "via": "pdf-automaciones-apply-point-by-point",
+    "from": "session"
   },
   "sprint_history": [
     {
@@ -369,7 +374,12 @@
         "Archive khuro + dihe",
         "Dependabot triage (merge tooling github.io; close broken)",
         "Consultoria embudo + free a11y + skills SEO/Ads",
-        "PDF VN-Automaciones-M5-Google-2026-07-26"
+        "PDF VN-Automaciones-M5-Google-2026-07-26",
+        "Node 22 + Dependabot policy multi-repo",
+        "cierre-smoke + org-hygiene workflows",
+        "Google Lead-A11y labels + Drive VN-Entregables",
+        "publish-packages runbook",
+        "Ollama default light 1.5b"
       ],
       "open_carried": [
         "Pipeline free a11y → Google",
@@ -394,9 +404,9 @@
   ],
   "active_sprint": {
     "id": "sprint-2026-07-26-open",
-    "name": "Automaciones P0: packages + CI Node + lead Google",
+    "name": "Automaciones aplicadas · pendiente packages auth + merge PR #121",
     "started": "2026-07-26",
-    "focus": "ops + mi-portafolio + vientonorte-core"
+    "focus": "packages scopes + PR #121 CI"
   },
   "last_close": {
     "date": "2026-07-26",
@@ -443,5 +453,5 @@
       "ux-writing-vn"
     ]
   },
-  "objective": "Automaciones P0 (packages/CI) + pipeline freemium Google · consultoría lead-gen · gate local M5 · design system publicable"
+  "objective": "PR #121 merge · gh packages scopes · publish @vientonorte · terraza CI · private Pro"
 }
