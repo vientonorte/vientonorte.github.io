@@ -25,10 +25,11 @@
           "people_job": "Saber qué paquetes @vientonorte viven en GH y si publican limpio",
           "data_loss_risk": "none",
           "status": "todo",
-          "notes": "gh auth refresh -s read:packages,delete:packages,write:packages · publish falló 403 jun-2026 · runbook docs/publish-packages.md en core; falta gh auth refresh interactivo del usuario",
+          "notes": "DS Figma Sites https://dot-wool-76997229.figma.site · runbook actualizado · a11y/security access public · falta gh auth refresh interactivo + VN_PACKAGES_TOKEN",
           "links": [
-            "https://github.com/vientonorte?tab=packages",
-            "https://github.com/vientonorte/vientonorte-core/actions/workflows/publish.yml"
+            "https://dot-wool-76997229.figma.site",
+            "https://github.com/vientonorte/vientonorte-core/blob/main/docs/publish-packages.md",
+            "https://github.com/vientonorte?tab=packages"
           ]
         },
         {
@@ -219,7 +220,11 @@
           "atomic_level": "template",
           "people_job": "Design system versionado sin copiar tokens a mano",
           "data_loss_risk": "none",
-          "notes": "Runbook publicado docs/publish-packages.md · engines node>=22 · falta PAT VN_PACKAGES_TOKEN + link packages al repo"
+          "notes": "Figma DS = marca. Código en packages/*. Tras scopes + secret: workflow Publish. Consume en portafolio solo post-verde.",
+          "links": [
+            "https://dot-wool-76997229.figma.site",
+            "https://github.com/vientonorte/vientonorte-core/blob/main/docs/publish-packages.md"
+          ]
         },
         {
           "id": "plan-terraza-ci",
@@ -359,8 +364,8 @@
   },
   "updated": "2026-07-26",
   "last_sync": {
-    "at": "2026-07-26T23:39:43Z",
-    "via": "pdf-automaciones-apply-point-by-point",
+    "at": "2026-07-26T23:45:21Z",
+    "via": "ds-figma-site-packages-runbook",
     "from": "session"
   },
   "sprint_history": [
@@ -453,5 +458,10 @@
       "ux-writing-vn"
     ]
   },
-  "objective": "PR #121 merge · gh packages scopes · publish @vientonorte · terraza CI · private Pro"
+  "objective": "PR #121 merge · gh packages scopes · publish @vientonorte · terraza CI · private Pro",
+  "design_system": {
+    "figma_sites": "https://dot-wool-76997229.figma.site",
+    "code_repo": "vientonorte/vientonorte-core",
+    "packages_scope": "@vientonorte"
+  }
 }
