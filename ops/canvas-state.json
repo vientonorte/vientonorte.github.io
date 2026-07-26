@@ -24,8 +24,8 @@
           "atomic_level": "template",
           "people_job": "Saber qué paquetes @vientonorte viven en GH y si publican limpio",
           "data_loss_risk": "none",
-          "status": "todo",
-          "notes": "DS Figma Sites https://dot-wool-76997229.figma.site · runbook actualizado · a11y/security access public · falta gh auth refresh interactivo + VN_PACKAGES_TOKEN",
+          "status": "done",
+          "notes": "Published + wired PR #124 · secret VN_PACKAGES_TOKEN · DS Figma Sites linked",
           "links": [
             "https://dot-wool-76997229.figma.site",
             "https://github.com/vientonorte/vientonorte-core/blob/main/docs/publish-packages.md",
@@ -364,9 +364,9 @@
   },
   "updated": "2026-07-26",
   "last_sync": {
-    "at": "2026-07-26T23:45:21Z",
-    "via": "ds-figma-site-packages-runbook",
-    "from": "session"
+    "at": "2026-07-26T23:59:47Z",
+    "via": "obsidian-bedtime-roadmap-worker",
+    "from": "night-session"
   },
   "sprint_history": [
     {
@@ -463,5 +463,12 @@
     "figma_sites": "https://dot-wool-76997229.figma.site",
     "code_repo": "vientonorte/vientonorte-core",
     "packages_scope": "@vientonorte"
+  },
+  "bedtime": {
+    "roadmap_obsidian": "Viento Norte/Sprints/2026-07-26 ROADMAP PDF Automaciones.md",
+    "log_obsidian": "Viento Norte/Sprints/2026-07-26 LOG nocturno automaciones.md",
+    "cama": "Viento Norte/Sprints/2026-07-26 CAMA - leer esto.md",
+    "pdf": "/Users/ro/Desktop/VN-Automaciones-M5-Google-2026-07-26.pdf",
+    "worker_until": "2026-07-26T22:45:00-04:00"
   }
 }
