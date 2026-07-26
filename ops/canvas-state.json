@@ -1,7 +1,46 @@
 {
   "quadrants": {
     "now": {
+      "max_items": 5,
       "items": [
+        {
+          "id": "now-lead-google",
+          "title": "Pipeline free a11y → Gmail + Drive + Calendar + Tasks",
+          "repo": "mi-portafolio",
+          "atomic_level": "organism",
+          "people_job": "Lead freemium entra a un sistema (mail, carpeta, slot) sin pasos manuales",
+          "data_loss_risk": "form_draft_must_persist_or_confirm",
+          "status": "todo",
+          "notes": "PDF: ops/VN-Automaciones-M5-Google-2026-07-26.pdf · P2 comercial · conectores ya en Grok",
+          "links": [
+            "https://vientonorte.github.io/mi-portafolio/#/consultoria",
+            "https://vientonorte.github.io/ops/VN-Automaciones-M5-Google-2026-07-26.pdf"
+          ]
+        },
+        {
+          "id": "now-packages-scopes",
+          "title": "gh scopes packages + inventariar/purgar Packages tab",
+          "repo": "vientonorte-core",
+          "atomic_level": "template",
+          "people_job": "Saber qué paquetes @vientonorte viven en GH y si publican limpio",
+          "data_loss_risk": "none",
+          "status": "todo",
+          "notes": "gh auth refresh -s read:packages,delete:packages,write:packages · publish falló 403 jun-2026",
+          "links": [
+            "https://github.com/vientonorte?tab=packages",
+            "https://github.com/vientonorte/vientonorte-core/actions/workflows/publish.yml"
+          ]
+        },
+        {
+          "id": "now-ci-node",
+          "title": "Homologar Node CI (22/24) + Dependabot groups en repos vivos",
+          "repo": "mi-portafolio",
+          "atomic_level": "template",
+          "people_job": "CI predecible; menos PRs Dependabot rotos",
+          "data_loss_risk": "none",
+          "status": "todo",
+          "notes": "mi-portafolio, core, uxtools, aruma, dashfin · no reabrir terraza hasta QA verde"
+        },
         {
           "id": "now-1",
           "title": "Baseline landing (audit hub + portafolio)",
@@ -21,13 +60,43 @@
           "status": "todo"
         },
         {
-          "id": "now-3",
-          "title": "SEO hub: title/description/oferta + Search Console",
+          "id": "done-org-hygiene-2026-07-26",
+          "title": "Org hygiene: protect main públicos, mass delete ramas, archive khuro/dihe, Dependabot triage",
+          "repo": "vientonorte",
+          "atomic_level": "template",
+          "people_job": "Repos limpios y main protegido; 0 PRs abiertos en vivos",
+          "data_loss_risk": "none",
+          "status": "done",
+          "notes": "#108/#106 merged · #109/#112/#120 closed · antropologia #208–213 closed · github.io #67/#71/#72 merged · vault: Sprints/2026-07-26 Auditoria org",
+          "links": [
+            "https://github.com/vientonorte",
+            "https://vientonorte.github.io/ops/"
+          ]
+        },
+        {
+          "id": "done-consultoria-funnel-2026-07-26",
+          "title": "Consultoria embudo + free a11y + skills SEO/Ads + PDFs entregables",
+          "repo": "mi-portafolio",
+          "atomic_level": "page",
+          "people_job": "Pyme elige alcance, pide revisión gratis de accesibilidad o habla",
+          "data_loss_risk": "none",
+          "status": "done",
+          "notes": "Live /#/consultoria · matrix local 111/111 · Desktop VN-SEO-Ads + formato a11y Transvip",
+          "links": [
+            "https://vientonorte.github.io/mi-portafolio/#/consultoria"
+          ]
+        },
+        {
+          "id": "done-auto-pdf-2026-07-26",
+          "title": "PDF mapa automaciones M5 + Google + backlog P0–P3",
           "repo": "vientonorte.github.io",
           "atomic_level": "template",
-          "people_job": "Encontrar Viento Norte desde búsqueda con promesa clara",
+          "people_job": "Priorizar upgrades de agente/CI/negocio con un solo entregable",
           "data_loss_risk": "none",
-          "status": "todo"
+          "status": "done",
+          "links": [
+            "https://vientonorte.github.io/ops/VN-Automaciones-M5-Google-2026-07-26.pdf"
+          ]
         },
         {
           "id": "done-hub-graph",
@@ -43,7 +112,7 @@
           "title": "Publicar canvas /ops/ + Sync GitHub + mail pipeline",
           "repo": "vientonorte.github.io",
           "atomic_level": "page",
-          "people_job": "Priorizar sprint desde iPhone/iPad/M1",
+          "people_job": "Priorizar sprint desde iPhone/iPad/M5",
           "data_loss_risk": "none",
           "status": "done"
         },
@@ -82,10 +151,9 @@
           "people_job": "Abrir propuesta GEES (cotización/KPIs) desde consultoría sin fricción",
           "data_loss_risk": "none",
           "status": "done",
-          "notes": "PR #116 · https://duct-juice-51509104.figma.site · table-ro/?view=ops refleja canvas /ops",
+          "notes": "PR #116 · https://duct-juice-51509104.figma.site",
           "links": [
             "https://github.com/vientonorte/mi-portafolio/pull/116",
-            "https://duct-juice-51509104.figma.site",
             "https://vientonorte.github.io/mi-portafolio/#/consultoria"
           ]
         },
@@ -102,13 +170,70 @@
     },
     "delegate": {
       "label": "Delegar",
-      "owner": "Grok · CI",
-      "items": []
+      "owner": "Grok · CI · M5 local",
+      "items": [
+        {
+          "id": "del-org-hygiene-workflow",
+          "title": "Workflow Rhai org-hygiene (PRs rojos, ramas stale, protect check)",
+          "repo": "Vientonorte",
+          "status": "todo",
+          "atomic_level": "template",
+          "people_job": "Higiene org sin sesión manual",
+          "data_loss_risk": "none"
+        },
+        {
+          "id": "del-local-smoke",
+          "title": "Smoke local M5: seo-vn 111 + ads scenarios pre-push / cron",
+          "repo": "mi-portafolio",
+          "status": "todo",
+          "atomic_level": "template",
+          "people_job": "Gate local fail-fast antes de CI cloud",
+          "data_loss_risk": "none",
+          "notes": "Apple M5 16 GB · no pelear con Ollama gemma4 al mismo tiempo"
+        },
+        {
+          "id": "del-dependabot-policy",
+          "title": "Dependabot.yml unificado: weekly, groups, open-PR limit",
+          "repo": "mi-portafolio",
+          "status": "todo",
+          "atomic_level": "atom",
+          "people_job": "Menos ruido de bumps rotos",
+          "data_loss_risk": "none"
+        }
+      ]
     },
     "plan": {
       "label": "Planificar",
       "owner": "Rö",
       "items": [
+        {
+          "id": "plan-publish-core",
+          "title": "Fix publish @vientonorte/* (PAT write:packages) + consumir DS en portafolio",
+          "repo": "vientonorte-core",
+          "status": "backlog",
+          "atomic_level": "template",
+          "people_job": "Design system versionado sin copiar tokens a mano",
+          "data_loss_risk": "none",
+          "notes": "Publicables: ui 0.3.2 · tokens 0.2.0 · a11y/security 0.1.1 · private: analytics/cli"
+        },
+        {
+          "id": "plan-terraza-ci",
+          "title": "Arreglar CI terraza (antropologia) antes de reabrir Dependabot",
+          "repo": "antropologia-corrupcion",
+          "status": "backlog",
+          "atomic_level": "template",
+          "people_job": "QA Gate verde en main",
+          "data_loss_risk": "none"
+        },
+        {
+          "id": "plan-github-pro-private-protect",
+          "title": "GitHub Pro (o públicos) para protect main en privados",
+          "repo": "Vientonorte",
+          "status": "backlog",
+          "atomic_level": "template",
+          "people_job": "archivo-privado / sura / idt sin force-push accidental",
+          "data_loss_risk": "none"
+        },
         {
           "id": "plan-sprint-close-automation",
           "title": "Automatizar canvas-sprint close (docs + publish-ops + daily stamp)",
@@ -131,14 +256,13 @@
           "id": "plan-consultoria-redesign",
           "title": "Rediseño /#/consultoria · journey seed + demos mock (Apple-style) + leads config",
           "repo": "mi-portafolio",
-          "status": "backlog",
+          "status": "done",
           "atomic_level": "page",
-          "people_job": "Segmento seed entiende oferta y pide demo mockup sin fricción; deja lead",
+          "people_job": "Segmento seed entiende oferta y pide free a11y o hablemos",
           "data_loss_risk": "form_draft_must_persist_or_confirm",
-          "notes": "Esperar handoff journey de Rö · demos visibles no interactivas · mockups al solicitar demo · BD assets en prod",
+          "notes": "Ship 2026-07-26 · embudo dock · free a11y · atmósferas · residual Radar home opcional",
           "links": [
-            "https://vientonorte.github.io/mi-portafolio/#/consultoria",
-            "vault:10-productos/mi-portafolio/estrategia-consultoria-leads-journeys.md"
+            "https://vientonorte.github.io/mi-portafolio/#/consultoria"
           ]
         },
         {
@@ -159,7 +283,7 @@
           "atomic_level": "page",
           "people_job": "Rö conecta GCal personal sin fricción; solo él (y test users) autorizan",
           "data_loss_risk": "none — OAuth token en memoria/sesión; secret fuera de git",
-          "notes": "Docs: 20-sistema/oauth-verificacion-reanudar.md · brand.html · logo-oauth.svg · Client 913158816697… · NO Publish salvo necesario",
+          "notes": "Docs: 20-sistema/oauth-verificacion-reanudar.md · brand.html · logo-oauth.svg · NO Publish salvo necesario",
           "links": [
             "https://vientonorte.github.io/table-ro/brand.html",
             "https://github.com/vientonorte/table-ro/blob/main/docs/GOOGLE-OAUTH.md"
@@ -167,9 +291,10 @@
         },
         {
           "id": "plan-mail",
-          "title": "Gmail App Password secrets (mail canvas)",
+          "title": "Gmail App Password secrets (mail canvas) + orquestación MCP lead a11y",
           "repo": "Vientonorte",
-          "status": "backlog"
+          "status": "backlog",
+          "notes": "Conectores Grok ya existen; falta pipeline y secrets ops-sync"
         },
         {
           "id": "plan-gtm",
@@ -177,6 +302,16 @@
           "repo": "mi-portafolio",
           "atomic_level": "atom",
           "status": "backlog"
+        },
+        {
+          "id": "plan-seo-hub",
+          "title": "SEO hub: title/description/oferta + Search Console",
+          "repo": "vientonorte.github.io",
+          "atomic_level": "template",
+          "people_job": "Encontrar Viento Norte desde búsqueda con promesa clara",
+          "data_loss_risk": "none",
+          "status": "backlog",
+          "notes": "Movido desde NOW 2026-07-26 · skills seo-vn listos en portafolio"
         }
       ]
     },
@@ -186,32 +321,63 @@
       "signals": [
         {
           "id": "mon-ops",
-          "title": "/ops/ Sync + issues",
+          "title": "/ops/ Sync + canvas-state",
           "source": "github",
           "cadence": "session"
         },
         {
           "id": "mon-ci",
-          "title": "CI P0",
+          "title": "CI P0 repos vivos",
           "source": "github-actions",
           "cadence": "session"
         },
         {
+          "id": "mon-packages",
+          "title": "Packages @vientonorte + publish workflow",
+          "source": "github-packages",
+          "cadence": "weekly"
+        },
+        {
           "id": "mon-lead",
-          "title": "generate_lead",
+          "title": "generate_lead + free a11y",
           "source": "gtm-ga4",
           "cadence": "weekly"
+        },
+        {
+          "id": "mon-m5-smoke",
+          "title": "Smoke local M5 (seo/ads) antes de ship",
+          "source": "local-m5",
+          "cadence": "session"
         }
       ]
     }
   },
-  "updated": "2026-07-21",
+  "updated": "2026-07-26",
   "last_sync": {
-    "at": "2026-07-21T15:52:39.000Z",
-    "via": "grok-workflow-formalization",
-    "from": "vault-obsidian"
+    "at": "2026-07-26T23:22:00.000Z",
+    "via": "grok-org-hygiene-automations-pdf",
+    "from": "session-hazlo-ops"
   },
   "sprint_history": [
+    {
+      "id": "sprint-2026-07-26-hygiene-automations",
+      "closed": "2026-07-26T23:22:00.000Z",
+      "name": "Org hygiene + consultoria funnel + mapa automaciones M5/Google",
+      "shipped": [
+        "Protect main en repos públicos vivos",
+        "Mass delete ramas stale; 0 PRs abiertos en vivos",
+        "Archive khuro + dihe",
+        "Dependabot triage (merge tooling github.io; close broken)",
+        "Consultoria embudo + free a11y + skills SEO/Ads",
+        "PDF VN-Automaciones-M5-Google-2026-07-26"
+      ],
+      "open_carried": [
+        "Pipeline free a11y → Google",
+        "Packages scopes + publish core",
+        "Homologar Node CI + Dependabot policy"
+      ],
+      "prev": "sprint-2026-07-21-ops"
+    },
     {
       "id": "sprint-2026-07-21-ops",
       "closed": "2026-07-21T01:30:50.599032+00:00",
@@ -226,18 +392,23 @@
       "prev": null
     }
   ],
-  "active_sprint": null,
+  "active_sprint": {
+    "id": "sprint-2026-07-26-open",
+    "name": "Automaciones P0: packages + CI Node + lead Google",
+    "started": "2026-07-26",
+    "focus": "ops + mi-portafolio + vientonorte-core"
+  },
   "last_close": {
-    "date": "2026-07-21",
-    "session": "cierre-sesion-2026-07-21",
-    "status": "closed-auto",
-    "focus": "mi-portafolio",
-    "sprint_id": "sprint-2026-07-21",
-    "at": "2026-07-21T15:55:19Z",
+    "date": "2026-07-26",
+    "session": "cierre-higiene-automaciones-2026-07-26",
+    "status": "partial-open",
+    "focus": "org-hygiene + ops canvas + PDF automaciones",
+    "sprint_id": "sprint-2026-07-26-hygiene-automations",
+    "at": "2026-07-26T23:22:00Z",
     "docs": [
-      "40-ops/sprints/cierre-sesion-2026-07-21.md",
-      "40-ops/trabajo/2026-07-21-sprint-close.md",
-      "90-daily/2026-07-21.md"
+      "vault:Viento Norte/Sprints/2026-07-26 Auditoria org vientonorte.md",
+      "vault:Viento Norte/Sprints/2026-07-26 CIERRE DIA completo.md",
+      "ops/VN-Automaciones-M5-Google-2026-07-26.pdf"
     ]
   },
   "github": {
@@ -250,8 +421,27 @@
       "table-ro",
       "uxtools",
       "aruma",
-      "vientonorte-core"
+      "vientonorte-core",
+      "antropologia-corrupcion"
     ]
   },
-  "objective": "Landing consultoría lead-gen configurable · demos mock no-interactivas · journeys por segmento · pipeline sprint automatizado"
+  "stack": {
+    "machine": "Apple M5 16GB arm64 macOS 27",
+    "agent": "Grok + Ollama local (prefer ≤8B)",
+    "mcp": [
+      "github",
+      "gmail",
+      "google_calendar",
+      "google_drive",
+      "tasks",
+      "cloudflare*"
+    ],
+    "skills_vn": [
+      "docs-vn",
+      "seo-vn",
+      "google-ads-vn",
+      "ux-writing-vn"
+    ]
+  },
+  "objective": "Automaciones P0 (packages/CI) + pipeline freemium Google · consultoría lead-gen · gate local M5 · design system publicable"
 }
