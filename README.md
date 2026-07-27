@@ -5,7 +5,7 @@
 
 Dashboard unificado de proyectos de [@vientonorte](https://github.com/vientonorte). Tema oscuro, responsive, zero dependencias, **soporte bilingüe ES/EN**.
 
-**Live:** https://vientonorte.github.io
+**Live:** https://vientonorte.io
 
 📖 **Docs**:
 - [CHANGELOG.md](CHANGELOG.md) — Log operativo
