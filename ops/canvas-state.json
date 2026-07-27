@@ -468,16 +468,13 @@
     "focus": "ops page loops · multi-device canon · residual lead/terraza"
   },
   "last_close": {
-    "date": "2026-07-26",
-    "session": "cierre-higiene-automaciones-2026-07-26",
-    "status": "partial-open",
-    "focus": "org-hygiene + ops canvas + PDF automaciones",
-    "sprint_id": "sprint-2026-07-26-hygiene-automations",
-    "at": "2026-07-26T23:22:00Z",
+    "date": "2026-07-27",
+    "session": "vn-cierre-sesion",
+    "status": "closed",
+    "title": "Ops roadmap dashboard + Sessions + CI verde + packages core",
+    "at": "2026-07-27T05:06:07Z",
     "docs": [
-      "vault:Viento Norte/Sprints/2026-07-26 Auditoria org vientonorte.md",
-      "vault:Viento Norte/Sprints/2026-07-26 CIERRE DIA completo.md",
-      "ops/VN-Automaciones-M5-Google-2026-07-26.pdf"
+      "vault:Viento Norte/Sessions/2026-07-27.md"
     ]
   },
   "github": {
