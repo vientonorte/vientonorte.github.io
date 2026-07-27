@@ -4,6 +4,35 @@
       "max_items": 5,
       "items": [
         {
+          "id": "done-packages-core-wired",
+          "title": "Packages tab = core multi-repo; portafolio pins + cli@0.1.1",
+          "repo": "vientonorte-core",
+          "status": "done",
+          "atomic_level": "template",
+          "people_job": "Un design system versionado entre apps",
+          "data_loss_risk": "none",
+          "links": [
+            "https://github.com/vientonorte?tab=packages",
+            "https://github.com/vientonorte/vientonorte-core/blob/main/docs/PACKAGES-CORE.md",
+            "https://github.com/vientonorte/mi-portafolio/pull/125"
+          ]
+        },
+        {
+          "id": "done-ci-tests-qa-2026-07-27",
+          "title": "CI main: Tests + QA Playwright verdes (#126 #127) + Dependabot #122",
+          "repo": "mi-portafolio",
+          "atomic_level": "template",
+          "people_job": "CI confiable; deps no bloquean packages",
+          "data_loss_risk": "none",
+          "status": "done",
+          "notes": "qa-routes embudo actual · demos Ver pantalla/Conversar · VN_PACKAGES_TOKEN en Dependabot secrets · #123 closed conflict",
+          "links": [
+            "https://github.com/vientonorte/mi-portafolio/pull/126",
+            "https://github.com/vientonorte/mi-portafolio/pull/127",
+            "https://github.com/vientonorte/mi-portafolio/pull/122"
+          ]
+        },
+        {
           "id": "now-lead-google",
           "title": "Pipeline free a11y → Gmail + Drive + Calendar + Tasks",
           "repo": "mi-portafolio",
@@ -358,17 +387,42 @@
           "title": "Smoke local M5 (seo/ads) antes de ship",
           "source": "local-m5",
           "cadence": "session"
+        },
+        {
+          "id": "mon-multidevice",
+          "title": "iCloud GitHub root + git pull en cada device",
+          "source": "icloud-github",
+          "cadence": "session"
         }
       ]
     }
   },
-  "updated": "2026-07-26",
+  "updated": "2026-07-27",
   "last_sync": {
-    "at": "2026-07-26T23:59:47Z",
-    "via": "obsidian-bedtime-roadmap-worker",
-    "from": "night-session"
+    "at": "2026-07-27T04:35:47Z",
+    "via": "ops-loops-block",
+    "from": "session"
   },
   "sprint_history": [
+    {
+      "id": "sprint-2026-07-27-ops-loops",
+      "closed": "2026-07-27T04:35:47Z",
+      "name": "Ops loops + CI Tests/QA + Dependabot #122",
+      "shipped": [
+        "ops: bloque Loops sprint/packages/multi-device en index.html",
+        "canvas-state loops + workdirs",
+        "mi-portafolio #126 #127 CI Tests+Playwright",
+        "Dependabot #122 merged; #123 closed conflict",
+        "Packages core multi-repo documentado"
+      ],
+      "open_carried": [
+        "Baseline landing hub",
+        "generate_lead event",
+        "Lead a11y e2e",
+        "terraza antropologia"
+      ],
+      "prev": "sprint-2026-07-26-hygiene-automations"
+    },
     {
       "id": "sprint-2026-07-26-hygiene-automations",
       "closed": "2026-07-26T23:22:00.000Z",
@@ -408,10 +462,10 @@
     }
   ],
   "active_sprint": {
-    "id": "sprint-2026-07-26-open",
-    "name": "Automaciones aplicadas · pendiente packages auth + merge PR #121",
-    "started": "2026-07-26",
-    "focus": "packages scopes + PR #121 CI"
+    "id": "sprint-2026-07-27-ops-loops",
+    "name": "Ops loops explícitos + CI verde + packages core",
+    "started": "2026-07-27",
+    "focus": "ops page loops · multi-device canon · residual lead/terraza"
   },
   "last_close": {
     "date": "2026-07-26",
@@ -458,7 +512,7 @@
       "ux-writing-vn"
     ]
   },
-  "objective": "PR #121 merge · gh packages scopes · publish @vientonorte · terraza CI · private Pro",
+  "objective": "Loops ops (sprint · packages · multi-device) · CI main verde · packages core multi-repo · pendiente: generate_lead · baseline hub · terraza · lead a11y e2e",
   "design_system": {
     "figma_sites": "https://dot-wool-76997229.figma.site",
     "code_repo": "vientonorte/vientonorte-core",
@@ -468,7 +522,85 @@
     "roadmap_obsidian": "Viento Norte/Sprints/2026-07-26 ROADMAP PDF Automaciones.md",
     "log_obsidian": "Viento Norte/Sprints/2026-07-26 LOG nocturno automaciones.md",
     "cama": "Viento Norte/Sprints/2026-07-26 CAMA - leer esto.md",
-    "pdf": "/Users/ro/Desktop/VN-Automaciones-M5-Google-2026-07-26.pdf",
-    "worker_until": "2026-07-26T22:45:00-04:00"
+    "multi_device": "Viento Norte/Resources/GitHub iCloud multi-dispositivo.md",
+    "packages_core": "Viento Norte/Resources/GitHub Packages Core.md",
+    "pdf": "Documents/Viento Norte/entregables-pdf/2026-07-26/VN-Automaciones-M5-Google-2026-07-26.pdf"
+  },
+  "loops": {
+    "sprint": {
+      "id": "loop-sprint",
+      "title": "Loop sprint",
+      "flow": [
+        "canvas AHORA",
+        "canvas-sprint start",
+        "issues GitHub",
+        "Grok build",
+        "QA personas + zero data loss + atomic",
+        "canvas-sprint release",
+        "deploy Pages",
+        "MONITOREAR"
+      ],
+      "gates": [
+        "Build",
+        "TypeScript",
+        "Accesibilidad WCAG AA",
+        "Tests",
+        "QA rutas"
+      ],
+      "tools": [
+        "canvas-sprint",
+        "vn-daily",
+        "npm run smoke:cierre"
+      ]
+    },
+    "packages": {
+      "id": "loop-packages",
+      "title": "Loop packages (core)",
+      "flow": [
+        "Documents/GitHub/vientonorte-core",
+        "bump packages/*",
+        "Actions Publish",
+        "github.com/vientonorte?tab=packages",
+        "apps npm ci + VN_PACKAGES_TOKEN",
+        "PR pins · CI · deploy"
+      ],
+      "registry": "https://npm.pkg.github.com",
+      "scope": "@vientonorte",
+      "latest": {
+        "tokens": "0.2.0",
+        "ui": "0.3.2",
+        "a11y": "0.1.1",
+        "security": "0.1.1",
+        "cli": "0.1.1",
+        "analytics": "0.1.0"
+      },
+      "docs": [
+        "https://github.com/vientonorte/vientonorte-core/blob/main/docs/PACKAGES-CORE.md",
+        "https://dot-wool-76997229.figma.site"
+      ]
+    },
+    "multidevice": {
+      "id": "loop-multidevice",
+      "title": "Loop multi-device",
+      "flow": [
+        "edit in iCloud Drive/Documents/GitHub/<repo>",
+        "git push",
+        "other device: wait iCloud + git pull --ff-only",
+        "optional: ops Sync vault + mail"
+      ],
+      "root": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub",
+      "finder": "iCloud Drive → Documents → GitHub",
+      "pdf_out": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/Viento Norte/entregables-pdf",
+      "anti": "Do not use /Users/ro/code alone (parallel clone)",
+      "obsidian": "Viento Norte/Resources/GitHub iCloud multi-dispositivo.md"
+    }
+  },
+  "workdirs": {
+    "github_root": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub",
+    "core": "vientonorte-core",
+    "portfolio": "mi-portafolio",
+    "ops_site": "vientonorte.github.io",
+    "pdf_entregables": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/Viento Norte/entregables-pdf",
+    "obsidian_vn": "~/Documents/Obsidian Vault/Viento Norte"
   }
 }

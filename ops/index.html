@@ -78,17 +78,40 @@
     }
     .sprint-banner.show { display: block; }
     code { color: #79c0ff; font-size: 0.85em; }
+    /* Loops: sprint · packages · multi-device */
+    .loops {
+      max-width: 1200px; margin: 16px auto 0;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;
+    }
+    .loop {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 12px 14px; font-size: 0.82rem;
+    }
+    .loop h2 {
+      margin: 0 0 6px; font-size: 0.9rem; font-weight: 600;
+    }
+    .loop .flow {
+      color: var(--text); line-height: 1.45; margin: 0 0 8px;
+    }
+    .loop .meta { color: var(--muted); font-size: 0.75rem; margin: 0; }
+    .loop a { color: #79c0ff; }
+    .loop.sprint { border-top: 3px solid var(--now); }
+    .loop.packages { border-top: 3px solid var(--plan); }
+    .loop.multidevice { border-top: 3px solid var(--monitor); }
+    @media (max-width: 900px) { .loops { grid-template-columns: 1fr; } }
     @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
     body.embed header .sub { display: none; }
     body.embed .principles { display: none; }
     body.embed footer { display: none; }
+    body.embed .loops { display: none; }
     body.embed { padding: 10px; }
     @media print {
       body { background: #fff; color: #111; }
       .toolbar, .add-row { display: none; }
       .q { break-inside: avoid; background: #fff; border-color: #ccc; }
       .item { background: #f6f8fa; }
-      .sub, .who, .meta, footer, #status { color: #444; }
+      .sub, .who, .meta, footer, #status, .loop .meta { color: #444; }
+      .loop { background: #fff; border-color: #ccc; break-inside: avoid; }
     }
   </style>
 </head>
@@ -99,12 +122,15 @@
       Lo que mueves aquí define el sprint. Grok desarrolla en GitHub. QA manual centrado en personas,
       <strong>zero data loss</strong>, solo cambios con nivel <strong>atomic design</strong>.
       Estado: <code>canvas-state.json</code> · Google: <code>gaete.gaona@gmail.com</code> · <code>canvas-sprint start</code> · público: <a href="https://vientonorte.github.io/ops/" style="color:#79c0ff">/ops</a>
+      · workdir multi-device: <code>iCloud Drive/Documents/GitHub/</code>
     </p>
     <div class="principles">
       <span class="pill on">People-centered QA</span>
       <span class="pill on">Zero data loss</span>
       <span class="pill on">Atomic design only</span>
       <span class="pill on">GitHub ↔ Obsidian</span>
+      <span class="pill on">iCloud GitHub multi-device</span>
+      <span class="pill on">@vientonorte Packages core</span>
     </div>
     <div class="toolbar">
       <button type="button" class="primary" id="btnSync">☁ Sync → GitHub + mail</button>
@@ -120,11 +146,63 @@
 
   <div class="grid" id="board"></div>
 
+  <section class="loops" id="loops" aria-label="Loops operativos">
+    <article class="loop sprint">
+      <h2>① Loop sprint</h2>
+      <p class="flow">
+        Canvas <strong>AHORA</strong>
+        → <code>canvas-sprint start</code>
+        → issues GitHub
+        → Grok build
+        → QA personas + zero data loss + atomic
+        → <code>canvas-sprint release</code>
+        → deploy Pages
+        → <strong>MONITOREAR</strong>
+      </p>
+      <p class="meta">
+        Gates: Build · TypeScript · a11y · (Tests/QA rutas en main).
+        PDF roadmap: <a href="./VN-Automaciones-M5-Google-2026-07-26.pdf">Automaciones M5/Google</a>
+      </p>
+    </article>
+    <article class="loop packages">
+      <h2>② Loop packages (core)</h2>
+      <p class="flow">
+        <code>Documents/GitHub/vientonorte-core</code>
+        → bump <code>packages/*</code>
+        → Actions <strong>Publish</strong>
+        → <a href="https://github.com/vientonorte?tab=packages">@vientonorte/*</a>
+        → apps <code>npm ci</code> (secret <code>VN_PACKAGES_TOKEN</code>)
+        → PR pins · CI · deploy
+      </p>
+      <p class="meta">
+        Latest: tokens 0.2.0 · ui 0.3.2 · a11y/security/cli 0.1.1.
+        DS visual: <a href="https://dot-wool-76997229.figma.site">Figma Sites</a>
+        · doc: <a href="https://github.com/vientonorte/vientonorte-core/blob/main/docs/PACKAGES-CORE.md">PACKAGES-CORE.md</a>
+      </p>
+    </article>
+    <article class="loop multidevice">
+      <h2>③ Loop multi-device</h2>
+      <p class="flow">
+        Device A: editar en <code>iCloud Drive/Documents/GitHub/&lt;repo&gt;</code>
+        → <code>git push</code>
+        → Device B: esperar iCloud + <code>git pull --ff-only</code>
+        → ☁ Sync ops (vault + mail) si cambia canvas
+      </p>
+      <p class="meta">
+        ROOT: <code>~/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/</code>
+        · PDFs: <code>Documents/Viento Norte/entregables-pdf/</code>
+        · No usar solo <code>/Users/ro/code</code> (clone paralelo).
+      </p>
+    </article>
+  </section>
+
   <footer>
-    <strong>Loop:</strong> Canvas (AHORA) → <code>canvas-sprint start</code> → issues GitHub → Grok build →
-    QA personas + zero data loss + atomic → <code>canvas-sprint release</code> → deploy → MONITOREAR.<br />
-    Multi-device: <strong>☁ Sync → GitHub + mail</strong> escribe el vault y dispara issue + mail a <code>gaete.gaona@gmail.com</code>. Token una vez: <code>localStorage.ops_sync_token</code>. Mac <strong>M5</strong>: <code>canvas-sprint start</code> / <code>vn-daily</code>.
-    Mapa automaciones: <a href="./VN-Automaciones-M5-Google-2026-07-26.pdf" style="color:#79c0ff">PDF M5 · Google · CI</a> (2026-07-26).
+    <strong>Loops</strong> (arriba): sprint · packages core · multi-device iCloud.
+    Sync: <strong>☁ Sync → GitHub + mail</strong> → vault + issue + <code>gaete.gaona@gmail.com</code>
+    · token <code>localStorage.ops_sync_token</code>.
+    Mac M5: <code>canvas-sprint start</code> / <code>vn-daily</code> / <code>npm run smoke:cierre</code>.
+    Live: <a href="https://vientonorte.github.io/ops/" style="color:#79c0ff">/ops</a>
+    · portafolio: <a href="https://vientonorte.github.io/mi-portafolio/#/consultoria" style="color:#79c0ff">consultoria</a>.
   </footer>
 
   <script>
