@@ -1,16 +1,12 @@
-# robots.txt para vientonorte.github.io
+# robots.txt — vientonorte.io (GitHub Pages + custom domain)
 
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://vientonorte.github.io/sitemap.xml
+Sitemap: https://vientonorte.io/sitemap.xml
 
-# Crawl-delay para ser amigable con bots
-Crawl-delay: 1
-
-# Excluir directorios técnicos (si existieran)
 Disallow: /.git/
 Disallow: /.github/
 Disallow: /node_modules/
 Disallow: /__pycache__/
+Disallow: /ops/

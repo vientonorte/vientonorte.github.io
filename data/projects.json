@@ -20,8 +20,8 @@
         "en": "PhD research: Contra-Archivo — epistemological friction graph on corruption and regulatory capture."
       },
       {
-        "es": "Productos live con zero-deps, passkey WebAuthn y despliegue verificado en GitHub Pages.",
-        "en": "Live products with zero-deps, WebAuthn passkey and verified GitHub Pages deployment."
+        "es": "Productos live en vientonorte.io — zero-deps, passkey WebAuthn y despliegue verificado.",
+        "en": "Live products on vientonorte.io — zero-deps, WebAuthn passkey and verified deployment."
       }
     ]
   },
@@ -41,7 +41,7 @@
             "es": "Ver sitio",
             "en": "View site"
           }, 
-          "href": "https://vientonorte.github.io/antropologia-corrupcion/", 
+          "href": "https://vientonorte.io/antropologia-corrupcion/", 
           "icon": "site" 
         },
         { 
@@ -49,7 +49,7 @@
             "es": "Landing",
             "en": "Landing"
           },
-          "href": "https://vientonorte.github.io/antropologia-corrupcion/", 
+          "href": "https://vientonorte.io/antropologia-corrupcion/", 
           "icon": "site" 
         },
         { 
@@ -57,7 +57,7 @@
             "es": "Espacio privado →",
             "en": "Private space →"
           }, 
-          "href": "https://vientonorte.github.io/antropologia-corrupcion/login.html" 
+          "href": "https://vientonorte.io/antropologia-corrupcion/login.html" 
         }
       ]
     },
@@ -76,7 +76,7 @@
             "es": "Ver sitio",
             "en": "View site"
           }, 
-          "href": "https://vientonorte.github.io/table-ro/", 
+          "href": "https://vientonorte.io/table-ro/", 
           "icon": "site" 
         },
         { 
@@ -104,7 +104,7 @@
             "es": "Ver sitio",
             "en": "View site"
           }, 
-          "href": "https://vientonorte.github.io/dashfin/", 
+          "href": "https://vientonorte.io/dashfin/", 
           "icon": "site" 
         },
         { 
@@ -135,7 +135,7 @@
             "es": "Ver sitio",
             "en": "View site"
           }, 
-          "href": "https://vientonorte.github.io/mi-portafolio/", 
+          "href": "https://vientonorte.io/mi-portafolio/", 
           "icon": "site" 
         },
         { 
@@ -163,7 +163,7 @@
             "es": "Ver sitio",
             "en": "View site"
           }, 
-          "href": "https://vientonorte.github.io/uxtools/", 
+          "href": "https://vientonorte.io/uxtools/", 
           "icon": "site" 
         },
         { 
@@ -191,7 +191,7 @@
             "es": "Ver sitio",
             "en": "View site"
           },
-          "href": "https://vientonorte.github.io/aruma/",
+          "href": "https://vientonorte.io/aruma/",
           "icon": "site"
         },
         { 
@@ -223,7 +223,7 @@
             "es": "Ver sitio",
             "en": "View site"
           }, 
-          "href": "https://vientonorte.github.io/29092020/", 
+          "href": "https://vientonorte.io/29092020/", 
           "icon": "site" 
         },
         { 

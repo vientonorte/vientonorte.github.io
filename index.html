@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Proyectos de Rodrigo Gaete Gaona — UX Lead e Investigador doctoral en Antropología. Dashboard de repositorios en producción. | Projects by Rodrigo Gaete Gaona — UX Lead and PhD Researcher in Anthropology. Production repository dashboard.">
-    <meta property="og:title" content="vientonorte — Projects | Proyectos">
-    <meta property="og:description" content="UX Lead · PhD Researcher in Anthropology · Production Projects | UX Lead · Investigador doctoral en Antropología · Proyectos en producción">
+    <meta name="description" content="Viento Norte — UX Lead y consultoría: portafolio de casos, productos live y diagnóstico gratis de accesibilidad. Rodrigo Gaete Gaona.">
+    <meta property="og:title" content="Viento Norte · UX Lead, productos y consultoría">
+    <meta property="og:description" content="Portafolio UX, productos live y consultoría. Casos en fintech y mobility. Diagnóstico gratis de accesibilidad de un flujo.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vientonorte.io">
     <meta property="og:image" content="https://vientonorte.io/img/og-hub.svg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="vientonorte — Projects | Proyectos">
-    <meta name="twitter:description" content="UX Lead · PhD Researcher in Anthropology · Production Projects">
+    <meta name="twitter:title" content="Viento Norte · UX Lead, productos y consultoría">
+    <meta name="twitter:description" content="Portafolio UX, productos live y consultoría. Diagnóstico gratis de accesibilidad.">
     <meta name="twitter:image" content="https://vientonorte.io/img/og-hub.svg">
     <meta name="twitter:image:alt" content="vientonorte projects dashboard — UX Lead and PhD Researcher in Anthropology">
     <meta property="og:site_name" content="vientonorte">
@@ -24,10 +24,13 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0d1117">
     <meta name="author" content="Rodrigo Gaete Gaona">
-    <meta name="keywords" content="UX Lead, PhD Researcher, Anthropology, portfolio, proyectos, design sprint, React, TypeScript">
-    <link rel="canonical" href="https://vientonorte.io">
+    <meta name="keywords" content="UX Lead, consultoría UX, accesibilidad WCAG, fintech, mobility, Viento Norte, Rodrigo Gaete, portafolio UX Chile">
+    <link rel="canonical" href="https://vientonorte.io/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://vientonorte.io/sitemap.xml">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230d1117'/><text x='16' y='23' text-anchor='middle' font-family='monospace' font-size='16' font-weight='bold' fill='%2358a6ff'>vn</text></svg>">
-    <title id="page-title">vientonorte — Proyectos</title>
+    <title id="page-title">Viento Norte · UX Lead, productos y consultoría</title>
+    <!-- Analytics unificado: mismo GTM que mi-portafolio si defines window.__VN_GTM_ID antes de este script, o meta vn-gtm -->
+    <meta name="vn-gtm" content="" id="vn-gtm-meta">
     <style>
         :root {
             --bg: #0d1117;
@@ -462,6 +465,61 @@
             text-decoration: underline;
         }
 
+        /* Path CTAs — hierarchy: portafolio → consultoría → free a11y → proyectos */
+        .path-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.25rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1.5rem;
+        }
+
+        .path-nav a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            color: var(--text);
+            background: var(--surface);
+            transition: border-color 0.15s, background 0.15s, color 0.15s;
+        }
+
+        .path-nav a:hover {
+            border-color: var(--accent);
+            color: var(--accent-hover);
+        }
+
+        .path-nav a.path-nav__primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #0d1117;
+        }
+
+        .path-nav a.path-nav__primary:hover {
+            background: var(--accent-hover);
+            color: #0d1117;
+        }
+
+        .path-nav a.path-nav__secondary {
+            border-color: rgba(63, 185, 80, 0.45);
+            color: var(--green);
+        }
+
+        .hero-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.75rem;
+        }
+
         /* skeleton loader while JSON loads */
         .card--skeleton {
             min-height: 180px;
@@ -647,9 +705,12 @@
     <header>
         <div class="header__top">
             <div>
-                <h1><span>vientonorte</span> <span id="header-title">— proyectos</span></h1>
-                <p id="header-subtitle">Rodrigo Gaete Gaona · UX Lead · Investigador doctoral en Antropología</p>
+                <h1><span>Viento Norte</span> <span id="header-title">— UX Lead &amp; productos</span></h1>
+                <p id="header-subtitle">Rodrigo Gaete Gaona · UX Lead · Consultoría y productos live · Antropología (doctorado)</p>
                 <div class="contact-links">
+                    <a href="mailto:contacto@vientonorte.io" aria-label="Correo contacto@vientonorte.io">
+                        contacto@vientonorte.io
+                    </a>
                     <a href="https://github.com/vientonorte" rel="noopener noreferrer" target="_blank" aria-label="Perfil de GitHub" data-i18n="githubProfile">
                         <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
                         GitHub
@@ -674,12 +735,24 @@
         </ul>
     </header>
 
+    <nav class="path-nav" aria-label="Rutas principales">
+        <a class="path-nav__primary" id="path-portfolio" href="https://vientonorte.io/mi-portafolio/">Portafolio UX</a>
+        <a id="path-consultoria" href="https://vientonorte.io/mi-portafolio/#/consultoria">Consultoría</a>
+        <a class="path-nav__secondary" id="path-a11y" href="https://vientonorte.io/mi-portafolio/#/consultoria">Gratis · accesibilidad</a>
+        <a id="path-projects" href="#proyectos">Proyectos live</a>
+    </nav>
+
     <section class="hero-panel" aria-labelledby="hero-panel-heading">
         <h2 id="hero-panel-heading" class="sr-only">Perfil profesional</h2>
         <ul class="hero-highlights" id="hero-highlights" role="list"></ul>
-        <a class="hero-cta" id="hero-cta" href="https://www.linkedin.com/in/rodrigo-gaete-ux/" rel="noopener noreferrer" target="_blank">
-            LinkedIn →
-        </a>
+        <div class="hero-cta-row">
+            <a class="hero-cta" id="hero-cta" href="https://vientonorte.io/mi-portafolio/">
+                Ver portafolio →
+            </a>
+            <a class="hero-cta" id="hero-cta-linkedin" href="https://www.linkedin.com/in/rodrigo-gaete-ux/" rel="noopener noreferrer" target="_blank">
+                LinkedIn →
+            </a>
+        </div>
     </section>
 
 
@@ -713,10 +786,10 @@
     
     const TRANSLATIONS = {
         es: {
-            pageTitle: 'vientonorte — Proyectos',
-            headerTitle: '— proyectos',
+            pageTitle: 'Viento Norte · UX Lead, productos y consultoría',
+            headerTitle: '— UX Lead & productos',
             skipLink: 'Saltar al contenido',
-            footerMonth: 'Junio 2026',
+            footerMonth: 'Julio 2026',
             lockedDesc: 'Contenido privado — desbloquea para ver los detalles.',
             lockedLink: 'Acceso restringido',
             passkeyActive: 'Acceso activo',
@@ -738,7 +811,12 @@
             filterResearch: 'Research',
             filterTools: 'Tools',
             filterPrivate: 'Private',
-            heroCta: 'LinkedIn →',
+            heroCta: 'Ver portafolio →',
+            heroCtaLinkedin: 'LinkedIn →',
+            pathPortfolio: 'Portafolio UX',
+            pathConsultoria: 'Consultoría',
+            pathA11y: 'Gratis · accesibilidad',
+            pathProjects: 'Proyectos live',
             healthOk: 'online',
             healthDown: 'offline',
             ariaProjects: 'Proyectos',
@@ -748,10 +826,10 @@
             linkedinProfile: 'Perfil de LinkedIn'
         },
         en: {
-            pageTitle: 'vientonorte — Projects',
-            headerTitle: '— projects',
+            pageTitle: 'Viento Norte · UX Lead, products & consulting',
+            headerTitle: '— UX Lead & products',
             skipLink: 'Skip to content',
-            footerMonth: 'June 2026',
+            footerMonth: 'July 2026',
             lockedDesc: 'Private content — unlock to view details.',
             lockedLink: 'Restricted access',
             passkeyActive: 'Active access',
@@ -773,7 +851,12 @@
             filterResearch: 'Research',
             filterTools: 'Tools',
             filterPrivate: 'Private',
-            heroCta: 'LinkedIn →',
+            heroCta: 'View portfolio →',
+            heroCtaLinkedin: 'LinkedIn →',
+            pathPortfolio: 'UX Portfolio',
+            pathConsultoria: 'Consulting',
+            pathA11y: 'Free · accessibility',
+            pathProjects: 'Live projects',
             healthOk: 'online',
             healthDown: 'offline',
             ariaProjects: 'Projects',
@@ -1077,9 +1160,19 @@
 
     function updateHeroCtaLabel() {
         const cta = document.getElementById('hero-cta');
-        if (cta) {
-            cta.textContent = t('heroCta');
-        }
+        if (cta) cta.textContent = t('heroCta');
+        const li = document.getElementById('hero-cta-linkedin');
+        if (li) li.textContent = t('heroCtaLinkedin');
+        const map = {
+            'path-portfolio': 'pathPortfolio',
+            'path-consultoria': 'pathConsultoria',
+            'path-a11y': 'pathA11y',
+            'path-projects': 'pathProjects',
+        };
+        Object.entries(map).forEach(([id, key]) => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = t(key);
+        });
     }
 
     const HEALTH_CACHE_KEY = 'vn_health_cache';
@@ -1316,6 +1409,20 @@
                 }
             });
         }
+    })();
+    </script>
+
+    <script>
+    /* GTM unificado hub+portafolio: set window.__VN_GTM_ID = 'GTM-XXXX' o meta#vn-gtm content */
+    (function () {
+        var id = (window.__VN_GTM_ID || document.getElementById('vn-gtm-meta')?.content || '').trim();
+        if (!id || !/^GTM-[A-Z0-9]+$/i.test(id)) return;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js', vn_surface: 'hub' });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(id);
+        document.head.appendChild(s);
     })();
     </script>
 

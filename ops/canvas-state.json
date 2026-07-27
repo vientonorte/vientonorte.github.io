@@ -4,6 +4,11 @@
       "max_items": 5,
       "items": [
         {
+          "id": "done-domain-io-2026-07-27",
+          "title": "Custom domain vientonorte.io + HTTPS + mail + SEO base URLs",
+          "status": "done"
+        },
+        {
           "id": "done-packages-core-wired",
           "title": "Packages tab = core multi-repo; portafolio pins + cli@0.1.1",
           "repo": "vientonorte-core",
@@ -82,7 +87,7 @@
           "atomic_level": "template",
           "people_job": "Entender oferta y siguiente paso en <10s",
           "data_loss_risk": "none",
-          "status": "todo"
+          "status": "in_progress"
         },
         {
           "id": "now-2",
@@ -341,7 +346,7 @@
           "title": "GTM unificado hub + portafolio",
           "repo": "mi-portafolio",
           "atomic_level": "atom",
-          "status": "backlog"
+          "status": "in_progress"
         },
         {
           "id": "plan-seo-hub",
@@ -350,7 +355,7 @@
           "atomic_level": "template",
           "people_job": "Encontrar Viento Norte desde búsqueda con promesa clara",
           "data_loss_risk": "none",
-          "status": "backlog",
+          "status": "in_progress",
           "notes": "Movido desde NOW 2026-07-26 · skills seo-vn listos en portafolio"
         }
       ]
@@ -398,12 +403,8 @@
       ]
     }
   },
-  "updated": "2026-07-27",
-  "last_sync": {
-    "at": "2026-07-27T05:03:23Z",
-    "via": "roadmap-dashboard",
-    "from": "session"
-  },
+  "updated": "2026-07-27T23:49:22Z",
+  "last_sync": "2026-07-27T23:49:22Z",
   "sprint_history": [
     {
       "id": "sprint-2026-07-27-ops-loops",
@@ -471,11 +472,11 @@
   "last_close": {
     "date": "2026-07-27",
     "session": "vn-cierre-sesion",
-    "status": "closed",
-    "title": "Ops roadmap dashboard + Sessions + CI verde + packages core",
-    "at": "2026-07-27T05:06:07Z",
+    "status": "closed-auto",
+    "title": "FO Calendar visible #129 · POC módulos X|CMS · Map board + jornada FO",
+    "at": "2026-07-27T19:52:07Z",
     "docs": [
-      "vault:Viento Norte/Sessions/2026-07-27.md"
+      "vault:Viento Norte/Sprints/2026-07-27 LOG sesion.md"
     ]
   },
   "github": {
@@ -737,7 +738,7 @@
           {
             "id": "p3-hub",
             "title": "Baseline landing hub SEO",
-            "status": "open"
+            "status": "in_progress"
           },
           {
             "id": "p3-pro",
