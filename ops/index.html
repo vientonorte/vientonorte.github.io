@@ -98,12 +98,72 @@
     .loop.sprint { border-top: 3px solid var(--now); }
     .loop.packages { border-top: 3px solid var(--plan); }
     .loop.multidevice { border-top: 3px solid var(--monitor); }
-    @media (max-width: 900px) { .loops { grid-template-columns: 1fr; } }
-    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+    /* Roadmap dashboard */
+    .roadmap {
+      max-width: 1200px; margin: 0 auto 16px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .roadmap-head {
+      display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+      gap: 8px; margin-bottom: 10px;
+    }
+    .roadmap-head h2 { margin: 0; font-size: 1rem; }
+    .roadmap-head .obj { color: var(--muted); font-size: 0.82rem; max-width: 55ch; }
+    .roadmap-progress {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+    }
+    .roadmap-bar {
+      flex: 1; height: 10px; background: #0d1117; border-radius: 999px; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .roadmap-bar > i {
+      display: block; height: 100%; background: linear-gradient(90deg, #238636, #3fb950);
+      border-radius: 999px; transition: width 0.3s ease;
+    }
+    .roadmap-pct { font-size: 0.85rem; font-weight: 600; color: var(--ok); min-width: 3.5rem; }
+    .roadmap-cols {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    }
+    .rm-col {
+      background: #0d1117; border: 1px solid var(--border); border-radius: 10px;
+      padding: 10px;
+    }
+    .rm-col h3 {
+      margin: 0 0 8px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--muted); display: flex; justify-content: space-between; align-items: center;
+    }
+    .rm-col h3 span { color: var(--text); font-weight: 600; }
+    .rm-item {
+      font-size: 0.78rem; padding: 5px 0; border-top: 1px solid #21262d;
+      display: flex; gap: 6px; align-items: flex-start; line-height: 1.35;
+    }
+    .rm-item:first-of-type { border-top: none; }
+    .rm-item .dot {
+      flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%; margin-top: 4px;
+    }
+    .rm-item.done .dot { background: var(--ok); }
+    .rm-item.partial .dot { background: var(--warn); }
+    .rm-item.open .dot { background: var(--now); }
+    .rm-item.done { color: var(--muted); }
+    .rm-links {
+      margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px 14px;
+      font-size: 0.78rem; color: var(--muted);
+    }
+    .rm-links a { color: #79c0ff; }
+    @media (max-width: 900px) {
+      .loops { grid-template-columns: 1fr; }
+      .roadmap-cols { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; }
+      .roadmap-cols { grid-template-columns: 1fr; }
+    }
     body.embed header .sub { display: none; }
     body.embed .principles { display: none; }
     body.embed footer { display: none; }
     body.embed .loops { display: none; }
+    body.embed .roadmap { margin-bottom: 10px; padding: 10px; }
     body.embed { padding: 10px; }
     @media print {
       body { background: #fff; color: #111; }
@@ -111,7 +171,7 @@
       .q { break-inside: avoid; background: #fff; border-color: #ccc; }
       .item { background: #f6f8fa; }
       .sub, .who, .meta, footer, #status, .loop .meta { color: #444; }
-      .loop { background: #fff; border-color: #ccc; break-inside: avoid; }
+      .loop, .roadmap, .rm-col { background: #fff; border-color: #ccc; break-inside: avoid; }
     }
   </style>
 </head>
@@ -143,6 +203,8 @@
     <div id="status"></div>
     <div class="sprint-banner" id="sprintBanner"></div>
   </header>
+
+  <section class="roadmap" id="roadmap" aria-label="Dashboard roadmap automaciones"></section>
 
   <div class="grid" id="board"></div>
 
@@ -306,7 +368,67 @@
       </div>`;
     }
 
+    function roadmapStats(rm) {
+      if (!rm || !rm.priorities) return { done: 0, total: 0, pct: 0 };
+      let done = 0, total = 0;
+      for (const p of Object.values(rm.priorities)) {
+        for (const it of p.items || []) {
+          total += 1;
+          if (it.status === "done") done += 1;
+          else if (it.status === "partial") done += 0.5;
+        }
+      }
+      const pct = total ? Math.round((done / total) * 100) : 0;
+      return { done, total, pct };
+    }
+
+    function renderRoadmap() {
+      const el = document.getElementById("roadmap");
+      if (!el) return;
+      const rm = state.roadmap;
+      if (!rm || !rm.priorities) {
+        el.innerHTML = `<div class="roadmap-head"><h2>📍 Roadmap automaciones</h2>
+          <p class="obj">Sin bloque <code>roadmap</code> en canvas-state — reimporta snapshot.</p></div>`;
+        return;
+      }
+      const st = roadmapStats(rm);
+      const order = ["P0", "P1", "P2", "P3"];
+      const cols = order.map((key) => {
+        const col = rm.priorities[key] || { title: key, items: [] };
+        const items = (col.items || []).map((it) => {
+          const cls = it.status === "done" ? "done" : it.status === "partial" ? "partial" : "open";
+          return `<div class="rm-item ${cls}"><span class="dot" aria-hidden="true"></span><span>${it.title}</span></div>`;
+        }).join("");
+        const nDone = (col.items || []).filter((i) => i.status === "done").length;
+        const nTot = (col.items || []).length;
+        return `<div class="rm-col">
+          <h3>${key} · ${col.title || ""} <span>${nDone}/${nTot}</span></h3>
+          ${items || '<div class="rm-item open"><span class="dot"></span><span>—</span></div>'}
+        </div>`;
+      }).join("");
+      const links = (rm.links || [])
+        .map((l) => `<a href="${l.href}" ${l.href.startsWith("http") ? 'target="_blank" rel="noopener"' : ""}>${l.label}</a>`)
+        .join(" · ");
+      el.innerHTML = `
+        <div class="roadmap-head">
+          <h2>📍 ${rm.title || "Roadmap automaciones"}</h2>
+          <p class="obj">${rm.objective || state.objective || ""}</p>
+        </div>
+        <div class="roadmap-progress" aria-label="Progreso roadmap ${st.pct} por ciento">
+          <div class="roadmap-bar"><i style="width:${st.pct}%"></i></div>
+          <span class="roadmap-pct">${st.pct}%</span>
+        </div>
+        <div class="roadmap-cols">${cols}</div>
+        <div class="rm-links">
+          <span>Actualizado: <code>${rm.updated || state.updated || "—"}</code></span>
+          ${links ? " · " + links : ""}
+          · <a href="./VN-Automaciones-M5-Google-2026-07-26.pdf">PDF roadmap</a>
+          · <a href="./packages-status.md">Packages status</a>
+        </div>`;
+    }
+
     function render() {
+      renderRoadmap();
       const board = $("#board");
       const q = state.quadrants;
       const nowItems = (q.now.items || []).map((it, i) => renderItem("now", it, i)).join("");
