@@ -40,10 +40,11 @@
           "people_job": "Lead freemium entra a un sistema (mail, carpeta, slot) sin pasos manuales",
           "data_loss_risk": "form_draft_must_persist_or_confirm",
           "status": "done",
-          "notes": "Labels VN/Lead-A11y + Followup-48h · Drive VN-Entregables/A11y-Gratis · draft plantilla Gmail · skill /lead-a11y-vn",
+          "notes": "Scaffold + e2e smoke 2026-07-27 OK · Labels · Drive folder cliente · Calendar hold · Grok Task follow-up · skill /lead-a11y-vn · draft NO send",
           "links": [
             "https://drive.google.com/drive/folders/1Qq8w5yu7Nn7kGhaBsEF6-Gbkcn6PkmiS",
-            "https://drive.google.com/drive/folders/1ulb6hU00owaniyGUJ-MGZrS6Enifyc8a"
+            "https://drive.google.com/drive/folders/1ulb6hU00owaniyGUJ-MGZrS6Enifyc8a",
+            "https://drive.google.com/drive/folders/1JShuYLpJdgVj2pkJ2-SW1hN7UgRcBv06"
           ]
         },
         {
@@ -509,7 +510,7 @@
       "ux-writing-vn"
     ]
   },
-  "objective": "Core @vientonorte multi-repo · CI verde · loops ops · pendiente lead e2e + hub baseline + terraza",
+  "objective": "PDF Automaciones M5 ~90% · residual terraza · generate_lead · hub baseline · gh packages local",
   "design_system": {
     "figma_sites": "https://dot-wool-76997229.figma.site",
     "code_repo": "vientonorte/vientonorte-core",
@@ -605,8 +606,8 @@
     "title": "Roadmap · Automaciones M5 / Google / Packages",
     "source_pdf": "ops/VN-Automaciones-M5-Google-2026-07-26.pdf",
     "updated": "2026-07-27",
-    "objective": "Core @vientonorte multi-repo · CI verde · loops ops · pendiente lead e2e + hub baseline + terraza",
-    "progress_note": "~75% del PDF original; packages+CI cerrados",
+    "objective": "PDF Automaciones M5 casi cerrado · residual: terraza CI · generate_lead · hub baseline · gh packages local",
+    "progress_note": "~90% del PDF original; lead e2e smoke 2026-07-27 OK; packages+CI+Google scaffold+e2e",
     "priorities": {
       "P0": {
         "title": "Desbloqueantes",
@@ -699,7 +700,8 @@
           {
             "id": "p2-lead-e2e",
             "title": "Lead free a11y e2e (Calendar+Task)",
-            "status": "open"
+            "status": "done",
+            "notes": "Smoke 2026-07-27: Drive 2026-07-27-Smoke-Pipeline-VN · Gmail draft [SMOKE] · Calendar 28-jul 10:00 CLT · Task follow-up 2026-08-01 · labels VN/Lead-A11y + Followup-48h"
           },
           {
             "id": "p2-generate-lead",
@@ -729,7 +731,8 @@
           {
             "id": "p3-terraza",
             "title": "CI terraza antropologia",
-            "status": "open"
+            "status": "open",
+            "notes": "qa-live: journeys_fail 2/11 — circuito «sin JSON en copy» (detail falta:undefined) + J09 passkey page pass:false. Unit tests 578 pass. No reabrir Dependabot terraza hasta verde."
           },
           {
             "id": "p3-hub",
