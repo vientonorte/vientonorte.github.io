@@ -4,6 +4,33 @@
       "max_items": 5,
       "items": [
         {
+          "id": "now-fo-t1t5-human",
+          "title": "T1–T5 smoke humano en vientonorte.io consultoría",
+          "repo": "mi-portafolio",
+          "status": "in_progress",
+          "people_job": "Validar embudo con clicks reales (PM Rö)",
+          "notes": "Auto: T4 cableado · T6 43/43 · falta QA manual"
+        },
+        {
+          "id": "now-fo-poc-130",
+          "title": "POC tour módulos VN · decide merge/park PR #130",
+          "repo": "mi-portafolio",
+          "status": "in_progress",
+          "people_job": "Oferta módulos-producto navegable (dueño del dato)",
+          "notes": "feat/poc-apple-product-onboarding · no en main · mockups/realism pending before merge",
+          "links": [
+            "https://github.com/vientonorte/mi-portafolio/pull/130"
+          ]
+        },
+        {
+          "id": "now-fo-calendar-ui",
+          "title": "Calendar free a11y CTA visible en contacto/funnel (#129)",
+          "repo": "mi-portafolio",
+          "status": "done",
+          "people_job": "Lead freemium ve y abre agenda Google en prod",
+          "notes": "URL NvXgp + FreeA11yScheduleCta · smoke auto T4 pass 2026-07-28"
+        },
+        {
           "id": "done-domain-io-2026-07-27",
           "title": "Custom domain vientonorte.io + HTTPS + mail + SEO base URLs",
           "status": "done"
@@ -91,12 +118,13 @@
         },
         {
           "id": "now-2",
-          "title": "Lead path v0 + evento generate_lead",
+          "title": "Lead path v0 + generate_lead dataLayer (#134)",
           "repo": "mi-portafolio",
           "atomic_level": "organism",
           "people_job": "Enviar contacto sin fricción ni miedo a perder el mensaje",
           "data_loss_risk": "form_draft_must_persist_or_confirm",
-          "status": "in_progress"
+          "status": "done",
+          "notes": " · #134 merged 2026-07-28 dataLayer dual-write"
         },
         {
           "id": "done-org-hygiene-2026-07-26",
@@ -346,7 +374,8 @@
           "title": "GTM unificado hub + portafolio",
           "repo": "mi-portafolio",
           "atomic_level": "atom",
-          "status": "in_progress"
+          "status": "in_progress",
+          "notes": "Docs/notes #133 · falta GTM-XXXX live wire + events demo_*"
         },
         {
           "id": "plan-seo-hub",
@@ -356,7 +385,7 @@
           "people_job": "Encontrar Viento Norte desde búsqueda con promesa clara",
           "data_loss_risk": "none",
           "status": "in_progress",
-          "notes": "Movido desde NOW 2026-07-26 · skills seo-vn listos en portafolio"
+          "notes": "sitemaps/robots #133 · Search Console verification manual"
         }
       ]
     },
@@ -403,8 +432,12 @@
       ]
     }
   },
-  "updated": "2026-07-27",
-  "last_sync": "2026-07-28T02:56Z",
+  "updated": "2026-07-28",
+  "last_sync": {
+    "at": "2026-07-28T15:37:37Z",
+    "source": "planning-audit-grok",
+    "note": "Backlog aligned: generate_lead done; focus path oferta + POC decide"
+  },
   "sprint_history": [
     {
       "id": "sprint-2026-07-27-ops-loops",
@@ -480,31 +513,13 @@
   },
   "last_close": {
     "date": "2026-07-27",
-    "session": "sync-prod-ops-sprint-next",
-    "status": "synced",
-    "title": "Prod OK #128-134 · #130 hold · DS-2026-08-03 planned",
-    "at": "2026-07-28T02:56Z",
+    "session": "vn-cierre-sesion",
+    "status": "closed-auto",
+    "title": "CierreVNHOY 2026-07-27 22:59 · prod sync + DS ago",
+    "at": "2026-07-28T02:59:47Z",
     "docs": [
-      "vault:Viento Norte/Sprints/DS-2026-08-03 path-oferta-analytics.md",
-      "vault:Viento Norte/Sessions/2026-07-27.md"
-    ],
-    "prod": {
-      "live_200": [
-        "https://vientonorte.io/",
-        "https://vientonorte.io/mi-portafolio/",
-        "https://vientonorte.io/ops/"
-      ],
-      "merged": [
-        "#128",
-        "#129",
-        "#132",
-        "#133",
-        "#134"
-      ],
-      "hold": [
-        "#130 mockups gate"
-      ]
-    }
+      "vault:Viento Norte/Sprints/2026-07-27 LOG sesion.md"
+    ]
   },
   "github": {
     "owner": "vientonorte",
@@ -538,7 +553,7 @@
       "ux-writing-vn"
     ]
   },
-  "objective": "PDF Automaciones M5 ~90% · residual terraza · generate_lead · hub baseline · gh packages local",
+  "objective": "Path oferta FO · usabilidad→craft→ship 28–31 · POC #130 decide · park GA/API/terraza",
   "design_system": {
     "figma_sites": "https://dot-wool-76997229.figma.site",
     "code_repo": "vientonorte/vientonorte-core",
@@ -628,7 +643,9 @@
     "portfolio": "mi-portafolio",
     "ops_site": "vientonorte.github.io",
     "pdf_entregables": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/Viento Norte/entregables-pdf",
-    "obsidian_vn": "~/Documents/Obsidian Vault/Viento Norte"
+    "obsidian_vn": "~/Documents/Obsidian Vault/Viento Norte",
+    "canon": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub",
+    "zero_dependency_note": "Small FO: no new SaaS · Calendar/Gmail already · park terraza/OAuth Publish until DoD"
   },
   "roadmap": {
     "title": "Roadmap · Automaciones M5 / Google / Packages",
