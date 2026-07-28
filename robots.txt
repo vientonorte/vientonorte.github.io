@@ -1,12 +1,10 @@
-# robots.txt — vientonorte.io (GitHub Pages + custom domain)
-
+# Viento Norte · vientonorte.io (canon sin /mi-portafolio/)
 User-agent: *
 Allow: /
 
 Sitemap: https://vientonorte.io/sitemap.xml
 
-Disallow: /.git/
-Disallow: /.github/
-Disallow: /node_modules/
-Disallow: /__pycache__/
+# Superficies no indexables
+Disallow: /#/admin
+Disallow: /#/grafo
 Disallow: /ops/
