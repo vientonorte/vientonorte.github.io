@@ -4,6 +4,23 @@
       "max_items": 3,
       "items": [
         {
+          "id": "now-brand-core",
+          "title": "Branding Viento Norte: publish tokens 0.2.1 + pin multi-repo",
+          "repo": "vientonorte-core",
+          "status": "in_progress",
+          "people_job": "Misma marca VN en todos los repos del org vía core",
+          "links": [
+            "https://github.com/vientonorte/vientonorte-core/blob/main/docs/BRANDING-VN.md"
+          ]
+        },
+        {
+          "id": "now-fo-ship-30",
+          "title": "Jue 30 micro-smoke .io post-Pages deploy oferta+embudo",
+          "repo": "mi-portafolio",
+          "status": "todo",
+          "people_job": "Validar prod path canónico"
+        },
+        {
           "id": "now-fo-t1t5-human",
           "title": "T1–T5 humano: embudo .io + oferta local /consultoria",
           "repo": "mi-portafolio",
@@ -12,22 +29,22 @@
           "notes": "DS-2026-07-28 · humanos post-14"
         },
         {
-          "id": "now-fo-poc-130",
-          "title": "Decide+merge PR #130 (oferta=/consultoria) · CI módulos fix",
-          "repo": "mi-portafolio",
-          "status": "in_progress",
-          "people_job": "Decider Rö: merge ship path oferta canónico",
-          "links": [
-            "https://github.com/vientonorte/mi-portafolio/pull/130"
-          ],
-          "notes": "c6fe2cc cutover · QA rutas 1 fail modulos → fix testid"
-        },
-        {
           "id": "now-fo-ship-30",
           "title": "Jue 30 ship 10:30–12:30 + micro-smoke · Radar 13–17 FO paused",
           "repo": "mi-portafolio",
           "status": "todo",
           "people_job": "Ship estable .io sin solape Radar"
+        },
+        {
+          "id": "now-fo-poc-130",
+          "title": "PR #130 MERGED · oferta=/consultoria en main",
+          "repo": "mi-portafolio",
+          "status": "done",
+          "people_job": "Decider Rö: merge ship path oferta canónico",
+          "links": [
+            "https://github.com/vientonorte/mi-portafolio/pull/130"
+          ],
+          "notes": "merge 2bdc6f5 2026-07-28"
         },
         {
           "id": "now-fo-calendar-ui",
@@ -41,50 +58,6 @@
           "id": "done-domain-io-2026-07-27",
           "title": "Custom domain vientonorte.io + HTTPS + mail + SEO base URLs",
           "status": "done"
-        },
-        {
-          "id": "done-packages-core-wired",
-          "title": "Packages tab = core multi-repo; portafolio pins + cli@0.1.1",
-          "repo": "vientonorte-core",
-          "status": "done",
-          "atomic_level": "template",
-          "people_job": "Un design system versionado entre apps",
-          "data_loss_risk": "none",
-          "links": [
-            "https://github.com/vientonorte?tab=packages",
-            "https://github.com/vientonorte/vientonorte-core/blob/main/docs/PACKAGES-CORE.md",
-            "https://github.com/vientonorte/mi-portafolio/pull/125"
-          ]
-        },
-        {
-          "id": "done-ci-tests-qa-2026-07-27",
-          "title": "CI main: Tests + QA Playwright verdes (#126 #127) + Dependabot #122",
-          "repo": "mi-portafolio",
-          "atomic_level": "template",
-          "people_job": "CI confiable; deps no bloquean packages",
-          "data_loss_risk": "none",
-          "status": "done",
-          "notes": "qa-routes embudo actual · demos Ver pantalla/Conversar · VN_PACKAGES_TOKEN en Dependabot secrets · #123 closed conflict",
-          "links": [
-            "https://github.com/vientonorte/mi-portafolio/pull/126",
-            "https://github.com/vientonorte/mi-portafolio/pull/127",
-            "https://github.com/vientonorte/mi-portafolio/pull/122"
-          ]
-        },
-        {
-          "id": "now-lead-google",
-          "title": "Pipeline free a11y → Gmail + Drive + Calendar + Tasks",
-          "repo": "mi-portafolio",
-          "atomic_level": "organism",
-          "people_job": "Lead freemium entra a un sistema (mail, carpeta, slot) sin pasos manuales",
-          "data_loss_risk": "form_draft_must_persist_or_confirm",
-          "status": "done",
-          "notes": "Scaffold + e2e smoke 2026-07-27 OK · Labels · Drive folder cliente · Calendar hold · Grok Task follow-up · skill /lead-a11y-vn · draft NO send",
-          "links": [
-            "https://drive.google.com/drive/folders/1Qq8w5yu7Nn7kGhaBsEF6-Gbkcn6PkmiS",
-            "https://drive.google.com/drive/folders/1ulb6hU00owaniyGUJ-MGZrS6Enifyc8a",
-            "https://drive.google.com/drive/folders/1JShuYLpJdgVj2pkJ2-SW1hN7UgRcBv06"
-          ]
         }
       ],
       "owner": "Rö + Grok"
@@ -407,7 +380,7 @@
       "ux-writing-vn"
     ]
   },
-  "objective": "DS path-oferta: Test+Decide #130 → ship jue 30 · no analytics · humanos post-14",
+  "objective": "Ship #130 MERGED · branding multi-repo via @vientonorte/tokens · no GA",
   "design_system": {
     "figma_sites": "https://dot-wool-76997229.figma.site",
     "code_repo": "vientonorte/vientonorte-core",
