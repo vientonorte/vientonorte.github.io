@@ -1,26 +1,33 @@
 {
   "quadrants": {
     "now": {
-      "max_items": 5,
+      "max_items": 3,
       "items": [
         {
           "id": "now-fo-t1t5-human",
-          "title": "T1–T5 smoke humano en vientonorte.io consultoría",
+          "title": "T1–T5 humano: embudo .io + oferta local /consultoria",
           "repo": "mi-portafolio",
           "status": "in_progress",
-          "people_job": "Validar embudo con clicks reales (PM Rö)",
-          "notes": "Auto: T4 cableado · T6 43/43 · falta QA manual"
+          "people_job": "Validar path oferta→embudo→Calendar post-14",
+          "notes": "DS-2026-07-28 · humanos post-14"
         },
         {
           "id": "now-fo-poc-130",
-          "title": "POC tour módulos VN · decide merge/park PR #130",
+          "title": "Decide+merge PR #130 (oferta=/consultoria) · CI módulos fix",
           "repo": "mi-portafolio",
           "status": "in_progress",
-          "people_job": "Oferta módulos-producto navegable (dueño del dato)",
-          "notes": "feat/poc-apple-product-onboarding · no en main · mockups/realism pending before merge",
+          "people_job": "Decider Rö: merge ship path oferta canónico",
           "links": [
             "https://github.com/vientonorte/mi-portafolio/pull/130"
-          ]
+          ],
+          "notes": "c6fe2cc cutover · QA rutas 1 fail modulos → fix testid"
+        },
+        {
+          "id": "now-fo-ship-30",
+          "title": "Jue 30 ship 10:30–12:30 + micro-smoke · Radar 13–17 FO paused",
+          "repo": "mi-portafolio",
+          "status": "todo",
+          "people_job": "Ship estable .io sin solape Radar"
         },
         {
           "id": "now-fo-calendar-ui",
@@ -78,160 +85,6 @@
             "https://drive.google.com/drive/folders/1ulb6hU00owaniyGUJ-MGZrS6Enifyc8a",
             "https://drive.google.com/drive/folders/1JShuYLpJdgVj2pkJ2-SW1hN7UgRcBv06"
           ]
-        },
-        {
-          "id": "now-packages-scopes",
-          "title": "gh scopes packages + inventariar/purgar Packages tab",
-          "repo": "vientonorte-core",
-          "atomic_level": "template",
-          "people_job": "Saber qué paquetes @vientonorte viven en GH y si publican limpio",
-          "data_loss_risk": "none",
-          "status": "done",
-          "notes": "Published + wired PR #124 · secret VN_PACKAGES_TOKEN · DS Figma Sites linked",
-          "links": [
-            "https://dot-wool-76997229.figma.site",
-            "https://github.com/vientonorte/vientonorte-core/blob/main/docs/publish-packages.md",
-            "https://github.com/vientonorte?tab=packages"
-          ]
-        },
-        {
-          "id": "now-ci-node",
-          "title": "Homologar Node CI (22/24) + Dependabot groups en repos vivos",
-          "repo": "mi-portafolio",
-          "atomic_level": "template",
-          "people_job": "CI predecible; menos PRs Dependabot rotos",
-          "data_loss_risk": "none",
-          "status": "done",
-          "notes": "Node 22 + nvmrc + Dependabot groups en uxtools/aruma/dashfin/core/table-ro/github.io · mi-portafolio PR #121 (branch protection)",
-          "links": [
-            "https://github.com/vientonorte/mi-portafolio/pull/121"
-          ]
-        },
-        {
-          "id": "now-1",
-          "title": "Baseline landing hub+portafolio (DoD smoke .io PASS 2026-07-28)",
-          "repo": "vientonorte.github.io",
-          "atomic_level": "template",
-          "people_job": "Entender oferta y siguiente paso en <10s",
-          "data_loss_risk": "none",
-          "status": "done"
-        },
-        {
-          "id": "now-2",
-          "title": "Lead path v0 + generate_lead dataLayer (#134)",
-          "repo": "mi-portafolio",
-          "atomic_level": "organism",
-          "people_job": "Enviar contacto sin fricción ni miedo a perder el mensaje",
-          "data_loss_risk": "form_draft_must_persist_or_confirm",
-          "status": "done",
-          "notes": " · #134 merged 2026-07-28 dataLayer dual-write"
-        },
-        {
-          "id": "done-org-hygiene-2026-07-26",
-          "title": "Org hygiene: protect main públicos, mass delete ramas, archive khuro/dihe, Dependabot triage",
-          "repo": "vientonorte",
-          "atomic_level": "template",
-          "people_job": "Repos limpios y main protegido; 0 PRs abiertos en vivos",
-          "data_loss_risk": "none",
-          "status": "done",
-          "notes": "#108/#106 merged · #109/#112/#120 closed · antropologia #208–213 closed · github.io #67/#71/#72 merged · vault: Sprints/2026-07-26 Auditoria org",
-          "links": [
-            "https://github.com/vientonorte",
-            "https://vientonorte.github.io/ops/"
-          ]
-        },
-        {
-          "id": "done-consultoria-funnel-2026-07-26",
-          "title": "Consultoria embudo + free a11y + skills SEO/Ads + PDFs entregables",
-          "repo": "mi-portafolio",
-          "atomic_level": "page",
-          "people_job": "Pyme elige alcance, pide revisión gratis de accesibilidad o habla",
-          "data_loss_risk": "none",
-          "status": "done",
-          "notes": "Live /#/consultoria · matrix local 111/111 · Desktop VN-SEO-Ads + formato a11y Transvip",
-          "links": [
-            "https://vientonorte.github.io/mi-portafolio/#/consultoria"
-          ]
-        },
-        {
-          "id": "done-auto-pdf-2026-07-26",
-          "title": "PDF mapa automaciones M5 + Google + backlog P0–P3",
-          "repo": "vientonorte.github.io",
-          "atomic_level": "template",
-          "people_job": "Priorizar upgrades de agente/CI/negocio con un solo entregable",
-          "data_loss_risk": "none",
-          "status": "done",
-          "links": [
-            "https://vientonorte.github.io/ops/VN-Automaciones-M5-Google-2026-07-26.pdf"
-          ]
-        },
-        {
-          "id": "done-hub-graph",
-          "title": "Hub: quitar graph-panel Contra-Archivo",
-          "repo": "vientonorte.github.io",
-          "atomic_level": "template",
-          "people_job": "Landing sin ruido de investigación",
-          "data_loss_risk": "none",
-          "status": "done"
-        },
-        {
-          "id": "done-ops-canvas",
-          "title": "Publicar canvas /ops/ + Sync GitHub + mail pipeline",
-          "repo": "vientonorte.github.io",
-          "atomic_level": "page",
-          "people_job": "Priorizar sprint desde iPhone/iPad/M5",
-          "data_loss_risk": "none",
-          "status": "done"
-        },
-        {
-          "id": "done-table-ro",
-          "title": "table-ro v1.6.3 Personal vs Laboral + gaete.gaona",
-          "repo": "table-ro",
-          "atomic_level": "organism",
-          "people_job": "Separar inputs personales y laborales",
-          "data_loss_risk": "low",
-          "status": "done"
-        },
-        {
-          "id": "done-stack",
-          "title": "Docs stack: Workspace, GH Pro, Grok Pro, Obsidian, iCloud 2TB",
-          "repo": "Vientonorte",
-          "atomic_level": "template",
-          "people_job": "Agente asume stack real",
-          "data_loss_risk": "none",
-          "status": "done"
-        },
-        {
-          "id": "done-oauth-client",
-          "title": "table-ro OAuth Client ID live + SW cache fix + brand/logo prep (v1.7.8–1.7.9)",
-          "repo": "table-ro",
-          "status": "done",
-          "atomic_level": "organism",
-          "people_job": "Conexión Calendar lista en código; falta solo config consent Testing",
-          "data_loss_risk": "low"
-        },
-        {
-          "id": "done-gees-demo",
-          "title": "mi-portafolio: GEES Figma Sites demo en #consultoria-demo",
-          "repo": "mi-portafolio",
-          "atomic_level": "organism",
-          "people_job": "Abrir propuesta GEES (cotización/KPIs) desde consultoría sin fricción",
-          "data_loss_risk": "none",
-          "status": "done",
-          "notes": "PR #116 · https://duct-juice-51509104.figma.site",
-          "links": [
-            "https://github.com/vientonorte/mi-portafolio/pull/116",
-            "https://vientonorte.github.io/mi-portafolio/#/consultoria"
-          ]
-        },
-        {
-          "id": "done-sprint-workflow",
-          "title": "Formalizar workflow sprint + canvas-sprint close automation",
-          "repo": "Vientonorte",
-          "atomic_level": "template",
-          "people_job": "Sprints trazables sin pasos manuales olvidados",
-          "data_loss_risk": "none",
-          "status": "done"
         }
       ],
       "owner": "Rö + Grok"
@@ -554,7 +407,7 @@
       "ux-writing-vn"
     ]
   },
-  "objective": "FO: usabilidad + ship path oferta · no analytics · humanos post-14",
+  "objective": "DS path-oferta: Test+Decide #130 → ship jue 30 · no analytics · humanos post-14",
   "design_system": {
     "figma_sites": "https://dot-wool-76997229.figma.site",
     "code_repo": "vientonorte/vientonorte-core",
