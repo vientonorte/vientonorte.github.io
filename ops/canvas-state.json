@@ -403,8 +403,8 @@
       ]
     }
   },
-  "updated": "2026-07-28T00:02:27Z",
-  "last_sync": "2026-07-27T23:49:22Z",
+  "updated": "2026-07-27",
+  "last_sync": "2026-07-28T02:56Z",
   "sprint_history": [
     {
       "id": "sprint-2026-07-27-ops-loops",
@@ -461,24 +461,50 @@
       ],
       "open_carried": [],
       "prev": null
+    },
+    {
+      "id": "ds-2026-08-03-path-oferta-analytics",
+      "name": "Path oferta + analytics propia",
+      "planned": "2026-08-03",
+      "ends": "2026-08-07",
+      "status": "planned",
+      "note": "Post retro 31; Map→Test; no ads scale"
     }
   ],
   "active_sprint": {
-    "id": "sprint-2026-07-27-ops-loops",
-    "name": "Ops loops explícitos + CI verde + packages core",
-    "started": "2026-07-27",
-    "focus": "ops page loops · multi-device canon · residual lead/terraza"
+    "id": "sprint-2026-07-28-path-oferta",
+    "name": "Semana 28–31 path oferta · prep DS ago",
+    "started": "2026-07-28",
+    "focus": "usabilidad→craft→ship→retro31 · next DS-2026-08-03 planned",
+    "next_ds": "DS-2026-08-03 path-oferta-analytics"
   },
   "last_close": {
     "date": "2026-07-27",
-    "session": "vn-cierre-sesion",
-    "status": "closed-auto",
-    "title": "FO Calendar visible #129 · POC módulos X|CMS · Map board + jornada FO",
-    "at": "2026-07-27T19:52:07Z",
+    "session": "sync-prod-ops-sprint-next",
+    "status": "synced",
+    "title": "Prod OK #128-134 · #130 hold · DS-2026-08-03 planned",
+    "at": "2026-07-28T02:56Z",
     "docs": [
-      "vault:Viento Norte/Sprints/2026-07-27 LOG sesion.md"
+      "vault:Viento Norte/Sprints/DS-2026-08-03 path-oferta-analytics.md",
+      "vault:Viento Norte/Sessions/2026-07-27.md"
     ],
-    "now1_smoke": "2026-07-28T00:01Z PASS hub+pf+sitemap+redirects"
+    "prod": {
+      "live_200": [
+        "https://vientonorte.io/",
+        "https://vientonorte.io/mi-portafolio/",
+        "https://vientonorte.io/ops/"
+      ],
+      "merged": [
+        "#128",
+        "#129",
+        "#132",
+        "#133",
+        "#134"
+      ],
+      "hold": [
+        "#130 mockups gate"
+      ]
+    }
   },
   "github": {
     "owner": "vientonorte",
@@ -609,7 +635,7 @@
     "source_pdf": "ops/VN-Automaciones-M5-Google-2026-07-26.pdf",
     "updated": "2026-07-27",
     "objective": "PDF Automaciones M5 casi cerrado · residual: terraza CI · generate_lead · hub baseline · gh packages local",
-    "progress_note": "~90% del PDF original; lead e2e smoke 2026-07-27 OK; packages+CI+Google scaffold+e2e",
+    "progress_note": "~90% PDF M5 · HITO .io prod (#128-134) · lead e2e OK · semana 28-31 path oferta · DS ago analytics planned · #130 hold",
     "priorities": {
       "P0": {
         "title": "Desbloqueantes",
