@@ -13,3 +13,9 @@
 | Sprint | Local Mac M5: `canvas-sprint start` / `vn-daily` |
 
 See vault: `20-sistema/ops-sync-multidevice.md` · `Viento Norte/Sprints/2026-07-26 Auditoria org vientonorte.md`
+
+| Doc | |
+|-----|--|
+| Passkeys GitHub | [PASSKEYS-GITHUB-VIENTONORTE.md](./PASSKEYS-GITHUB-VIENTONORTE.md) |
+| Embed en Obsidian | `?embed=1` → vault `Resources/Ops canvas embebido.md` |
+| Live embed | https://vientonorte.io/ops/?embed=1 |
