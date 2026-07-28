@@ -4,59 +4,82 @@
       "max_items": 3,
       "items": [
         {
-          "id": "now-brand-core",
-          "title": "Branding Viento Norte: publish tokens 0.2.1 + pin multi-repo",
-          "repo": "vientonorte-core",
-          "status": "in_progress",
-          "people_job": "Misma marca VN en todos los repos del org vía core",
+          "id": "now-human-prod-smoke",
+          "title": "HUMANO: micro-smoke prod post-Pages #135",
+          "repo": "vientonorte-fo",
+          "repo_git": "mi-portafolio",
+          "product": "vientonorte.io",
+          "status": "todo",
+          "owner": "Rö",
+          "people_job": "Validar en prod (no solo local) el path FO empresa",
+          "checklist": [
+            "H1 https://vientonorte.io/ = embudo (hero pymes + packs + kickoff)",
+            "H2 sin breadcrumb Inicio›Inicio",
+            "H3 header primary = Proceso · Contacto (Negocios en Más)",
+            "H4 dock Empezar → #consultoria-onboarding",
+            "H5 Calendar free a11y abre <30 s",
+            "S1 https://vientonorte.io/#/consultoria = tour SEM fullscreen sin dock",
+            "S2 SEM Empezar → / (home embudo)",
+            "L1 /#/consultoria/embudo → /"
+          ],
           "links": [
-            "https://github.com/vientonorte/vientonorte-core/blob/main/docs/BRANDING-VN.md"
+            "https://vientonorte.io/",
+            "https://vientonorte.io/#/consultoria",
+            "https://vientonorte.io/#/consultoria/embudo"
+          ],
+          "notes": "Post-merge #135 · esperar Deploy Pages verde · hard refresh / unregister SW si stale"
+        },
+        {
+          "id": "now-human-ship-window",
+          "title": "HUMANO Jue 30: ventana ship 10:30–12:30 · Radar 13–17 FO paused",
+          "repo": "vientonorte-fo",
+          "product": "vientonorte.io",
+          "status": "todo",
+          "owner": "Rö",
+          "people_job": "No solapar Radar; si Pages ya deployó hoy, smoke cuenta; si no, re-check Jue AM",
+          "notes": "Calendario FO · no GA · no SEM spend",
+          "links": [
+            "https://vientonorte.io/ops/"
           ]
         },
         {
-          "id": "now-fo-ship-30",
-          "title": "Jue 30 micro-smoke .io post-Pages deploy oferta+embudo",
-          "repo": "mi-portafolio",
+          "id": "now-human-retro-31",
+          "title": "HUMANO Vie 31: retro ≤14:00 + seed DS-08-03",
+          "repo": "Vientonorte",
+          "product": "ops",
           "status": "todo",
-          "people_job": "Validar prod path canónico"
-        },
+          "owner": "Rö",
+          "people_job": "Escribir retro; Decide next: analytics propia + lab OB-RIA B (admin) o no",
+          "notes": "Vault DS-2026-08-03 path-oferta-analytics · parking GA full / rename git",
+          "links": [
+            "https://vientonorte.io/ops/"
+          ]
+        }
+      ],
+      "done_archive": [
         {
-          "id": "now-fo-t1t5-human",
-          "title": "T1–T5 humano: embudo .io + oferta local /consultoria",
-          "repo": "mi-portafolio",
-          "status": "in_progress",
-          "people_job": "Validar path oferta→embudo→Calendar post-14",
-          "notes": "DS-2026-07-28 · humanos post-14"
-        },
-        {
-          "id": "now-fo-ship-30",
-          "title": "Jue 30 ship 10:30–12:30 + micro-smoke · Radar 13–17 FO paused",
-          "repo": "mi-portafolio",
-          "status": "todo",
-          "people_job": "Ship estable .io sin solape Radar"
+          "id": "now-fo-pr-135",
+          "title": "PR #135 MERGED · home=embudo + SEM /#/consultoria · CI verde",
+          "status": "done",
+          "notes": "merge c31685d 2026-07-28 · CI Build/TS/Tests/QA/a11y/Lighthouse pass",
+          "links": [
+            "https://github.com/vientonorte/mi-portafolio/pull/135"
+          ]
         },
         {
           "id": "now-fo-poc-130",
           "title": "PR #130 MERGED · oferta=/consultoria en main",
-          "repo": "mi-portafolio",
           "status": "done",
-          "people_job": "Decider Rö: merge ship path oferta canónico",
-          "links": [
-            "https://github.com/vientonorte/mi-portafolio/pull/130"
-          ],
           "notes": "merge 2bdc6f5 2026-07-28"
         },
         {
           "id": "now-fo-calendar-ui",
-          "title": "Calendar free a11y CTA visible en contacto/funnel (#129)",
-          "repo": "mi-portafolio",
-          "status": "done",
-          "people_job": "Lead freemium ve y abre agenda Google en prod",
-          "notes": "URL NvXgp + FreeA11yScheduleCta · smoke auto T4 pass 2026-07-28"
+          "title": "Calendar free a11y CTA en contacto/funnel (#129)",
+          "status": "done"
         },
         {
           "id": "done-domain-io-2026-07-27",
-          "title": "Custom domain vientonorte.io + HTTPS + mail + SEO base URLs",
+          "title": "Custom domain vientonorte.io + HTTPS + SEO base URLs",
           "status": "done"
         }
       ],
@@ -78,23 +101,24 @@
         },
         {
           "id": "del-local-smoke",
-          "title": "Smoke local M5: seo-vn 111 + ads scenarios pre-push / cron",
-          "repo": "mi-portafolio",
+          "title": "Smoke local M5: seo-vn + ads scenarios pre-push / cron",
+          "repo": "vientonorte-fo",
+          "repo_git": "mi-portafolio",
           "status": "done",
           "atomic_level": "template",
           "people_job": "Gate local fail-fast antes de CI cloud",
           "data_loss_risk": "none",
-          "notes": "cierre-smoke.sh + npm run smoke:cierre + workflow cierre-smoke + task viernes 17:00"
+          "notes": "cierre-smoke.sh + npm run smoke:cierre + workflow cierre-smoke"
         },
         {
           "id": "del-dependabot-policy",
           "title": "Dependabot.yml unificado: weekly, groups, open-PR limit",
-          "repo": "mi-portafolio",
+          "repo": "vientonorte-fo",
+          "repo_git": "mi-portafolio",
           "status": "done",
           "atomic_level": "atom",
           "people_job": "Menos ruido de bumps rotos",
-          "data_loss_risk": "none",
-          "notes": "Dependabot weekly groups limit 3 ignore majors en vivos; portafolio PR #121"
+          "data_loss_risk": "none"
         }
       ]
     },
@@ -103,14 +127,37 @@
       "owner": "Rö",
       "items": [
         {
+          "id": "plan-brand-core-021",
+          "title": "Branding VN: publish tokens 0.2.1 + pin multi-repo",
+          "repo": "vientonorte-core",
+          "status": "in_progress",
+          "people_job": "Misma marca VN multi-repo (no bloquea smoke FO humano)",
+          "notes": "Sacado de AHORA para dejar solo humanos post-#135"
+        },
+        {
+          "id": "plan-ds-0803-surfaces",
+          "title": "DS-08-03 Map: superficies FO público vs admin lab (OB-RIA park)",
+          "repo": "vientonorte-fo",
+          "repo_git": "mi-portafolio",
+          "product": "vientonorte.io",
+          "status": "backlog",
+          "atomic_level": "page",
+          "people_job": "Rö nombra en <15s qué es público FO vs admin vs case",
+          "data_loss_risk": "none",
+          "notes": "Vault: DS-2026-08-03 path-oferta-analytics · default B lab admin · C root gated descartado",
+          "links": [
+            "https://vientonorte.io/#/proceso"
+          ]
+        },
+        {
           "id": "plan-publish-core",
-          "title": "Fix publish @vientonorte/* (PAT write:packages) + consumir DS en portafolio",
+          "title": "Fix publish @vientonorte/* (PAT write:packages) + consumir DS en FO web",
           "repo": "vientonorte-core",
           "status": "backlog",
           "atomic_level": "template",
           "people_job": "Design system versionado sin copiar tokens a mano",
           "data_loss_risk": "none",
-          "notes": "Figma DS = marca. Código en packages/*. Tras scopes + secret: workflow Publish. Consume en portafolio solo post-verde.",
+          "notes": "Figma DS = marca. Consumir en vientonorte.io solo post-verde.",
           "links": [
             "https://dot-wool-76997229.figma.site",
             "https://github.com/vientonorte/vientonorte-core/blob/main/docs/publish-packages.md"
@@ -146,7 +193,8 @@
         {
           "id": "plan-demo-mockup-mode",
           "title": "Modo demo: preview estático + lightbox mockups (sin iframe interactivo)",
-          "repo": "mi-portafolio",
+          "repo": "vientonorte-fo",
+          "repo_git": "mi-portafolio",
           "status": "backlog",
           "atomic_level": "organism",
           "people_job": "Ver pantallas de producto como mockups al pedir demo, sin sandbox confuso",
@@ -154,21 +202,23 @@
         },
         {
           "id": "plan-consultoria-redesign",
-          "title": "Rediseño /#/consultoria · journey seed + demos mock (Apple-style) + leads config",
-          "repo": "mi-portafolio",
+          "title": "Path consultoría FO · journey seed + demos mock + leads",
+          "repo": "vientonorte-fo",
+          "repo_git": "mi-portafolio",
           "status": "done",
           "atomic_level": "page",
           "people_job": "Segmento seed entiende oferta y pide free a11y o hablemos",
           "data_loss_risk": "form_draft_must_persist_or_confirm",
-          "notes": "Ship 2026-07-26 · embudo dock · free a11y · atmósferas · residual Radar home opcional",
+          "notes": "Ship embudo + free a11y · oferta tour #130",
           "links": [
-            "https://vientonorte.github.io/mi-portafolio/#/consultoria"
+            "https://vientonorte.io/#/consultoria"
           ]
         },
         {
           "id": "plan-gees-mvp",
           "title": "GEES: decidir MVP N2N (A) vs piloto (B) — PRD 1 página",
-          "repo": "mi-portafolio",
+          "repo": "vientonorte-fo",
+          "repo_git": "mi-portafolio",
           "status": "backlog",
           "atomic_level": "page",
           "people_job": "Stakeholder entiende alcance funcional GEES según visión VN",
@@ -183,10 +233,9 @@
           "atomic_level": "page",
           "people_job": "Rö conecta GCal personal sin fricción; solo él (y test users) autorizan",
           "data_loss_risk": "none — OAuth token en memoria/sesión; secret fuera de git",
-          "notes": "Docs: 20-sistema/oauth-verificacion-reanudar.md · brand.html · logo-oauth.svg · NO Publish salvo necesario",
+          "notes": "NO Publish salvo necesario",
           "links": [
-            "https://vientonorte.github.io/table-ro/brand.html",
-            "https://github.com/vientonorte/table-ro/blob/main/docs/GOOGLE-OAUTH.md"
+            "https://vientonorte.github.io/table-ro/brand.html"
           ]
         },
         {
@@ -198,11 +247,12 @@
         },
         {
           "id": "plan-gtm",
-          "title": "GTM unificado hub + portafolio",
-          "repo": "mi-portafolio",
+          "title": "GTM unificado hub + FO web (post-Test path)",
+          "repo": "vientonorte-fo",
+          "repo_git": "mi-portafolio",
           "atomic_level": "atom",
-          "status": "in_progress",
-          "notes": "Docs/notes #133 · falta GTM-XXXX live wire + events demo_*"
+          "status": "parked",
+          "notes": "Park hasta Test usabilidad path · no wire live esta semana"
         },
         {
           "id": "plan-seo-hub",
@@ -212,7 +262,7 @@
           "people_job": "Encontrar Viento Norte desde búsqueda con promesa clara",
           "data_loss_risk": "none",
           "status": "in_progress",
-          "notes": "sitemaps/robots #133 · Search Console verification manual"
+          "notes": "sitemaps/robots · Search Console verification manual · URLs root .io"
         }
       ]
     },
@@ -255,15 +305,32 @@
           "title": "iCloud GitHub root + git pull en cada device",
           "source": "icloud-github",
           "cadence": "session"
+        },
+        {
+          "id": "mon-url-canon",
+          "title": "Sin /mi-portafolio/ en links públicos · root .io",
+          "source": "seo-manual",
+          "cadence": "session"
         }
       ]
     }
   },
   "updated": "2026-07-28",
   "last_sync": {
-    "at": "2026-07-28T15:37:37Z",
-    "source": "planning-audit-grok",
-    "note": "Backlog aligned: generate_lead done; focus path oferta + POC decide"
+    "at": "2026-07-28T21:46:33Z",
+    "source": "merge-135-human-tasks",
+    "note": "PR #135 merged; AHORA = solo tareas humanas Rö en /ops"
+  },
+  "identity": {
+    "org": "Viento Norte",
+    "type": "empresa",
+    "not": "portafolio personal",
+    "public_site": "https://vientonorte.io/",
+    "ops": "https://vientonorte.io/ops/",
+    "url_canon": "sin /mi-portafolio/ — SPA en root del hub",
+    "repo_git_legacy": "mi-portafolio",
+    "repo_product_alias": "vientonorte-fo",
+    "rename_git_note": "Alias de producto en canvas/ops; rename GitHub es Decide aparte (no este hygiene)"
   },
   "sprint_history": [
     {
@@ -273,7 +340,7 @@
       "shipped": [
         "ops: bloque Loops sprint/packages/multi-device en index.html",
         "canvas-state loops + workdirs",
-        "mi-portafolio #126 #127 CI Tests+Playwright",
+        "FO web #126 #127 CI Tests+Playwright",
         "Dependabot #122 merged; #123 closed conflict",
         "Packages core multi-repo documentado"
       ],
@@ -291,21 +358,15 @@
       "name": "Org hygiene + consultoria funnel + mapa automaciones M5/Google",
       "shipped": [
         "Protect main en repos públicos vivos",
-        "Mass delete ramas stale; 0 PRs abiertos en vivos",
-        "Archive khuro + dihe",
-        "Dependabot triage (merge tooling github.io; close broken)",
+        "Mass delete ramas stale",
         "Consultoria embudo + free a11y + skills SEO/Ads",
         "PDF VN-Automaciones-M5-Google-2026-07-26",
-        "Node 22 + Dependabot policy multi-repo",
         "cierre-smoke + org-hygiene workflows",
-        "Google Lead-A11y labels + Drive VN-Entregables",
-        "publish-packages runbook",
-        "Ollama default light 1.5b"
+        "Google Lead-A11y labels + Drive VN-Entregables"
       ],
       "open_carried": [
         "Pipeline free a11y → Google",
-        "Packages scopes + publish core",
-        "Homologar Node CI + Dependabot policy"
+        "Packages scopes + publish core"
       ],
       "prev": "sprint-2026-07-21-ops"
     },
@@ -316,26 +377,39 @@
       "shipped": [
         "Hub: quitar graph-panel Contra-Archivo",
         "Publicar canvas /ops/ + Sync GitHub + mail pipeline",
-        "table-ro v1.6.3 Personal vs Laboral + gaete.gaona",
-        "Docs stack: Workspace, GH Pro, Grok Pro, Obsidian, iCloud 2TB"
+        "table-ro v1.6.3 Personal vs Laboral"
       ],
       "open_carried": [],
       "prev": null
     },
     {
       "id": "ds-2026-08-03-path-oferta-analytics",
-      "name": "Path oferta + analytics propia",
+      "name": "Superficies FO + path medible + analytics propia",
       "planned": "2026-08-03",
       "ends": "2026-08-07",
       "status": "planned",
-      "note": "Post retro 31; Map→Test; no ads scale"
+      "note": "Post retro 31; Map→Test; superficies público/admin; no ads scale"
     }
   ],
   "active_sprint": {
     "id": "sprint-2026-07-28-path-oferta",
-    "name": "Semana 28–31 path oferta · prep DS ago",
+    "name": "Semana 28–31 path FO · home=embudo · SEM",
     "started": "2026-07-28",
-    "focus": "usabilidad→craft→ship→retro31 · next DS-2026-08-03 planned",
+    "focus": "humano smoke prod → ship window → retro 31 → DS-08-03",
+    "focus_repos": [
+      "vientonorte-fo",
+      "vientonorte-core"
+    ],
+    "item_ids": [
+      "now-human-prod-smoke",
+      "now-human-ship-window",
+      "now-human-retro-31"
+    ],
+    "merged": {
+      "pr": 135,
+      "sha": "c31685d3d375847def9571e5c47e8872e4e5384e",
+      "at": "2026-07-28T21:46:09Z"
+    },
     "next_ds": "DS-2026-08-03 path-oferta-analytics"
   },
   "last_close": {
@@ -352,6 +426,7 @@
     "owner": "vientonorte",
     "vault_repo": "Vientonorte",
     "default_product_repo": "mi-portafolio",
+    "default_product_alias": "vientonorte-fo",
     "product_repos": [
       "vientonorte.github.io",
       "mi-portafolio",
@@ -360,7 +435,20 @@
       "aruma",
       "vientonorte-core",
       "antropologia-corrupcion"
-    ]
+    ],
+    "product_map": {
+      "mi-portafolio": {
+        "alias": "vientonorte-fo",
+        "role": "front-office web empresa",
+        "public_urls": [
+          "https://vientonorte.io/",
+          "https://vientonorte.io/#/consultoria",
+          "https://vientonorte.io/#/consultoria/embudo",
+          "https://vientonorte.io/#/proceso"
+        ],
+        "legacy_path": "/mi-portafolio/ → redirect root"
+      }
+    }
   },
   "stack": {
     "machine": "Apple M5 16GB arm64 macOS 27",
@@ -377,10 +465,11 @@
       "docs-vn",
       "seo-vn",
       "google-ads-vn",
-      "ux-writing-vn"
+      "ux-writing-vn",
+      "design-sprint-vn"
     ]
   },
-  "objective": "Ship #130 MERGED · branding multi-repo via @vientonorte/tokens · no GA",
+  "objective": "PR #135 MERGED · HUMANO smoke prod home=embudo + SEM · Jue ship window / Vie retro · no GA",
   "design_system": {
     "figma_sites": "https://dot-wool-76997229.figma.site",
     "code_repo": "vientonorte/vientonorte-core",
@@ -393,6 +482,7 @@
     "multi_device": "Viento Norte/Resources/GitHub iCloud multi-dispositivo.md",
     "packages_core": "Viento Norte/Resources/GitHub Packages Core.md",
     "pdf": "Documents/Viento Norte/entregables-pdf/2026-07-26/VN-Automaciones-M5-Google-2026-07-26.pdf",
+    "qa_pdf": "Documents/Viento Norte/entregables-pdf/2026-07-28/VN-QA-manual-path-oferta-2026-07-28.pdf",
     "sessions": "Viento Norte/Sessions/YYYY-MM-DD.md"
   },
   "loops": {
@@ -406,7 +496,7 @@
         "Grok build",
         "QA personas + zero data loss + atomic",
         "canvas-sprint release",
-        "deploy Pages",
+        "deploy Pages root .io",
         "MONITOREAR"
       ],
       "gates": [
@@ -414,7 +504,8 @@
         "TypeScript",
         "Accesibilidad WCAG AA",
         "Tests",
-        "QA rutas"
+        "QA rutas",
+        "QA manual PDF (humano)"
       ],
       "tools": [
         "canvas-sprint",
@@ -436,7 +527,8 @@
       "registry": "https://npm.pkg.github.com",
       "scope": "@vientonorte",
       "latest": {
-        "tokens": "0.2.0",
+        "tokens": "0.2.1-target",
+        "tokens_published": "0.2.0",
         "ui": "0.3.2",
         "a11y": "0.1.1",
         "security": "0.1.1",
@@ -467,19 +559,20 @@
   "workdirs": {
     "github_root": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub",
     "core": "vientonorte-core",
-    "portfolio": "mi-portafolio",
+    "fo_web": "mi-portafolio",
+    "fo_web_alias": "vientonorte-fo",
     "ops_site": "vientonorte.github.io",
     "pdf_entregables": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/Viento Norte/entregables-pdf",
     "obsidian_vn": "~/Documents/Obsidian Vault/Viento Norte",
     "canon": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub",
-    "zero_dependency_note": "Small FO: no new SaaS · Calendar/Gmail already · park terraza/OAuth Publish until DoD"
+    "zero_dependency_note": "Small FO empresa: no new SaaS · Calendar/Gmail already · park terraza/OAuth Publish until DoD · no path /mi-portafolio/ en público"
   },
   "roadmap": {
-    "title": "Roadmap · Automaciones M5 / Google / Packages",
+    "title": "Roadmap · Automaciones M5 / Google / Packages · FO empresa",
     "source_pdf": "ops/VN-Automaciones-M5-Google-2026-07-26.pdf",
-    "updated": "2026-07-27",
-    "objective": "PDF Automaciones M5 casi cerrado · residual: terraza CI · generate_lead · hub baseline · gh packages local",
-    "progress_note": "~90% PDF M5 · HITO .io prod (#128-134) · lead e2e OK · semana 28-31 path oferta · DS ago analytics planned · #130 hold",
+    "updated": "2026-07-28",
+    "objective": "PDF Automaciones M5 casi cerrado · FO path oferta en .io root · residual: terraza · generate_lead wire · tokens 0.2.1",
+    "progress_note": "#135 MERGED home=embudo SEM · CI verde · humano smoke prod pendiente · Jue 30 ship window · Vie 31 retro · DS ago analytics",
     "priorities": {
       "P0": {
         "title": "Desbloqueantes",
@@ -501,7 +594,7 @@
           },
           {
             "id": "p0-wire",
-            "title": "Wire mi-portafolio + cli pins (#124 #125)",
+            "title": "Wire FO web + cli pins (#124 #125)",
             "status": "done"
           },
           {
@@ -513,6 +606,11 @@
             "id": "p0-hygiene",
             "title": "Org hygiene mains + protect públicos",
             "status": "done"
+          },
+          {
+            "id": "p0-url-root",
+            "title": "URLs públicas root .io (sin /mi-portafolio/)",
+            "status": "in_progress"
           },
           {
             "id": "p0-gh-auth-local",
@@ -573,12 +671,13 @@
             "id": "p2-lead-e2e",
             "title": "Lead free a11y e2e (Calendar+Task)",
             "status": "done",
-            "notes": "Smoke 2026-07-27: Drive 2026-07-27-Smoke-Pipeline-VN · Gmail draft [SMOKE] · Calendar 28-jul 10:00 CLT · Task follow-up 2026-08-01 · labels VN/Lead-A11y + Followup-48h"
+            "notes": "Smoke 2026-07-27 pipeline OK"
           },
           {
             "id": "p2-generate-lead",
             "title": "Evento generate_lead + path contacto",
-            "status": "in_progress"
+            "status": "in_progress",
+            "notes": "Post path Test · no GTM full esta semana"
           }
         ]
       },
@@ -604,7 +703,7 @@
             "id": "p3-terraza",
             "title": "CI terraza antropologia",
             "status": "open",
-            "notes": "qa-live: journeys_fail 2/11 — circuito «sin JSON en copy» (detail falta:undefined) + J09 passkey page pass:false. Unit tests 578 pass. No reabrir Dependabot terraza hasta verde."
+            "notes": "No reabrir Dependabot terraza hasta verde"
           },
           {
             "id": "p3-hub",
@@ -615,6 +714,12 @@
             "id": "p3-pro",
             "title": "Protect privados (GitHub Pro)",
             "status": "open"
+          },
+          {
+            "id": "p3-repo-rename",
+            "title": "Decide: rename git mi-portafolio → vientonorte-fo (post ship)",
+            "status": "parked",
+            "notes": "Solo alias en canvas ahora; rename GH es Decide Rö"
           }
         ]
       }
@@ -625,8 +730,16 @@
         "href": "https://github.com/vientonorte?tab=packages"
       },
       {
-        "label": "Consultoría live",
-        "href": "https://vientonorte.github.io/mi-portafolio/#/consultoria"
+        "label": "FO · Oferta",
+        "href": "https://vientonorte.io/#/consultoria"
+      },
+      {
+        "label": "FO · Embudo",
+        "href": "https://vientonorte.io/#/consultoria/embudo"
+      },
+      {
+        "label": "FO · Proceso",
+        "href": "https://vientonorte.io/#/proceso"
       },
       {
         "label": "PACKAGES-CORE",
@@ -635,10 +748,76 @@
       {
         "label": "Figma DS",
         "href": "https://dot-wool-76997229.figma.site"
+      },
+      {
+        "label": "Ops",
+        "href": "https://vientonorte.io/ops/"
       }
     ]
   },
   "notes": {
-    "ops_ui": "2026-07-28 progressive disclosure Hoy/Canvas/Roadmap/Guía"
+    "ops_ui": "2026-07-28 progressive disclosure Hoy/Canvas/Roadmap/Guía",
+    "hygiene_2026_07_28": "AHORA=3 · done_archive · identity empresa · product_map · QA PDF · Downloads/canvas-state-3.json referencia pre-higiene",
+    "reference_pre_hygiene": "~/Downloads/canvas-state-3.json"
+  },
+  "human_tasks": {
+    "updated": "2026-07-28",
+    "owner": "Rö",
+    "title": "Tareas humanas FO (post #135)",
+    "when": "post-14:00 preferido · smoke prod cuando Pages deploye",
+    "items": [
+      {
+        "id": "now-human-prod-smoke",
+        "title": "HUMANO: micro-smoke prod post-Pages #135",
+        "repo": "vientonorte-fo",
+        "repo_git": "mi-portafolio",
+        "product": "vientonorte.io",
+        "status": "todo",
+        "owner": "Rö",
+        "people_job": "Validar en prod (no solo local) el path FO empresa",
+        "checklist": [
+          "H1 https://vientonorte.io/ = embudo (hero pymes + packs + kickoff)",
+          "H2 sin breadcrumb Inicio›Inicio",
+          "H3 header primary = Proceso · Contacto (Negocios en Más)",
+          "H4 dock Empezar → #consultoria-onboarding",
+          "H5 Calendar free a11y abre <30 s",
+          "S1 https://vientonorte.io/#/consultoria = tour SEM fullscreen sin dock",
+          "S2 SEM Empezar → / (home embudo)",
+          "L1 /#/consultoria/embudo → /"
+        ],
+        "links": [
+          "https://vientonorte.io/",
+          "https://vientonorte.io/#/consultoria",
+          "https://vientonorte.io/#/consultoria/embudo"
+        ],
+        "notes": "Post-merge #135 · esperar Deploy Pages verde · hard refresh / unregister SW si stale"
+      },
+      {
+        "id": "now-human-ship-window",
+        "title": "HUMANO Jue 30: ventana ship 10:30–12:30 · Radar 13–17 FO paused",
+        "repo": "vientonorte-fo",
+        "product": "vientonorte.io",
+        "status": "todo",
+        "owner": "Rö",
+        "people_job": "No solapar Radar; si Pages ya deployó hoy, smoke cuenta; si no, re-check Jue AM",
+        "notes": "Calendario FO · no GA · no SEM spend",
+        "links": [
+          "https://vientonorte.io/ops/"
+        ]
+      },
+      {
+        "id": "now-human-retro-31",
+        "title": "HUMANO Vie 31: retro ≤14:00 + seed DS-08-03",
+        "repo": "Vientonorte",
+        "product": "ops",
+        "status": "todo",
+        "owner": "Rö",
+        "people_job": "Escribir retro; Decide next: analytics propia + lab OB-RIA B (admin) o no",
+        "notes": "Vault DS-2026-08-03 path-oferta-analytics · parking GA full / rename git",
+        "links": [
+          "https://vientonorte.io/ops/"
+        ]
+      }
+    ]
   }
 }
