@@ -1,21 +1,20 @@
-# Vientonorte Ops Canvas
+# /ops · Canvas operativo Viento Norte
 
-**Live:** https://vientonorte.github.io/ops/
+**Live:** https://vientonorte.io/ops/ · https://vientonorte.github.io/ops/
 
-| | |
-|--|--|
-| UI | this folder |
-| Source of truth | private vault https://github.com/vientonorte/Vientonorte `40-ops/canvas-state.json` |
-| Public snapshot | `ops/canvas-state.json` (updated 2026-07-26) |
-| Automations map | [VN-Automaciones-M5-Google-2026-07-26.pdf](./VN-Automaciones-M5-Google-2026-07-26.pdf) |
-| Sync | Button **☁ Sync → GitHub + mail** → Worker `vientonorte-ops-sync` |
-| Notify | GitHub issue + email `gaete.gaona@gmail.com` (Action + Gmail secrets) |
-| Sprint | Local Mac M5: `canvas-sprint start` / `vn-daily` |
+## Usabilidad (2026-07-28)
 
-See vault: `20-sistema/ops-sync-multidevice.md` · `Viento Norte/Sprints/2026-07-26 Auditoria org vientonorte.md`
+- **Hoy** — solo ítems abiertos de AHORA (baja carga cognitiva).
+- **Canvas** — Eisenhower completo; hechos ocultos por defecto.
+- **Roadmap** — P0–P3 secundario.
+- **Guía** — loops y rutas (no en la cara al abrir).
+- **Más** — export/import/release/print.
 
-| Doc | |
-|-----|--|
-| Passkeys GitHub | [PASSKEYS-GITHUB-VIENTONORTE.md](./PASSKEYS-GITHUB-VIENTONORTE.md) |
-| Embed en Obsidian | `?embed=1` → vault `Resources/Ops canvas embebido.md` |
-| Live embed | https://vientonorte.io/ops/?embed=1 |
+## State
+
+`canvas-state.json` en este directorio (snapshot público).  
+Sync escribe vault vía Worker + token `ops_sync_token`.
+
+## CLI
+
+`canvas-sprint start` · `vn-daily` · `vn-m5 status`

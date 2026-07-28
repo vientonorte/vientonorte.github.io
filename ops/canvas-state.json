@@ -233,7 +233,8 @@
           "data_loss_risk": "none",
           "status": "done"
         }
-      ]
+      ],
+      "owner": "Rö + Grok"
     },
     "delegate": {
       "label": "Delegar",
@@ -553,7 +554,7 @@
       "ux-writing-vn"
     ]
   },
-  "objective": "Path oferta FO · usabilidad→craft→ship 28–31 · POC #130 decide · park GA/API/terraza",
+  "objective": "FO: usabilidad + ship path oferta · no analytics · humanos post-14",
   "design_system": {
     "figma_sites": "https://dot-wool-76997229.figma.site",
     "code_repo": "vientonorte/vientonorte-core",
@@ -810,5 +811,8 @@
         "href": "https://dot-wool-76997229.figma.site"
       }
     ]
+  },
+  "notes": {
+    "ops_ui": "2026-07-28 progressive disclosure Hoy/Canvas/Roadmap/Guía"
   }
 }
