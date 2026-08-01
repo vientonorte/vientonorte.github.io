@@ -336,9 +336,21 @@
   },
   "updated": "2026-08-01",
   "last_sync": {
-    "at": "2026-08-01T16:34:08Z",
-    "source": "gmac-ops-best-practices",
-    "note": "hosted SoT · archive ventanas pasadas · close sprint 07-28 · Devices BP"
+    "at": "2026-08-01T18:15:13Z",
+    "local": "2026-08-01 14:15 -0400",
+    "agent": "GMac",
+    "kind": "multi-device",
+    "actions": [
+      "rsync Ro → Documents/Obsidian Vault",
+      "git pull ff-only vientonorte-core + vientonorte.github.io",
+      "sync_board md_count refresh"
+    ],
+    "md_count": 167,
+    "rsync": "2026-08-01 14:12 -0400",
+    "repos": {
+      "vientonorte-core": "9a65f6c",
+      "vientonorte.github.io": "e12814d"
+    }
   },
   "identity": {
     "org": "Viento Norte",
@@ -580,14 +592,17 @@
   },
   "workdirs": {
     "github_root": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub",
-    "core": "vientonorte-core",
+    "core": "Documents/GitHub/vientonorte-core",
     "fo_web": "mi-portafolio",
     "fo_web_alias": "vientonorte-fo",
     "ops_site": "vientonorte.github.io",
     "pdf_entregables": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/Viento Norte/entregables-pdf",
     "obsidian_vn": "~/Documents/Obsidian Vault/Viento Norte",
     "canon": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub",
-    "zero_dependency_note": "Small FO empresa: no new SaaS · Calendar/Gmail already · park terraza/OAuth Publish until DoD · no path /mi-portafolio/ en público"
+    "zero_dependency_note": "Small FO empresa: no new SaaS · Calendar/Gmail already · park terraza/OAuth Publish until DoD · no path /mi-portafolio/ en público",
+    "gh_root": "iCloud Drive/Documents/GitHub",
+    "ro": "iCloud/Obsidian/Ro",
+    "espejo_w11": "iCloud Drive/Documents/Obsidian Vault"
   },
   "roadmap": {
     "title": "Roadmap · Automaciones M5 / Google / Packages · FO empresa",
@@ -845,11 +860,11 @@
   "sync_board": {
     "id": "sync-board-multidevice",
     "title": "Tablero sync multi-device",
-    "updated": "2026-08-01T16:34:08Z",
-    "updated_local": "2026-08-01 · BP pass",
-    "source": "GMac measured + rsync",
+    "updated": "2026-08-01T18:15:13Z",
+    "updated_local": "2026-08-01 14:15 -0400 · GMac rsync+git pull",
+    "source": "GMac measured · rsync Ro→espejo + git pull multi-device repos",
     "global_status": "pending_documented",
-    "global_note": "Notas Ro = espejo W11 en M5; firmas I15/W11/humano pending en PIPELINE-QA",
+    "global_note": "Notas Ro = espejo W11 en M5 (167 md · diff empty); firmas I15/W11/humano pending en PIPELINE-QA",
     "artifact": {
       "id": "pipeline-qa-v1",
       "path_ro": "00-sistema/PIPELINE-QA.md",
@@ -869,8 +884,8 @@
           "I11"
         ],
         "status": "ok",
-        "md_count": 165,
-        "note": "Canónico. I15 activity workspace-mobile 07:50"
+        "md_count": 167,
+        "note": "Canónico · 167 md medidos 2026-08-01 14:15 -0400"
       },
       {
         "id": "espejo_w11",
@@ -881,8 +896,8 @@
           "GWin"
         ],
         "status": "ok",
-        "md_count": 165,
-        "note": "rsync --delete Ro→espejo 2026-08-01 12:17 · post-diff empty"
+        "md_count": 167,
+        "note": "rsync --delete Ro→espejo 2026-08-01 14:12 -0400 · post-diff empty · md=167"
       },
       {
         "id": "micro1",
@@ -904,7 +919,7 @@
         "opens": "Obsidian Ro",
         "content_sync": "ok",
         "firma": "pending",
-        "measured": "rsync + hashes PIPELINE-QA/DATA-HEALTH OK"
+        "measured": "rsync 2026-08-01 14:12 -0400 · 167 md · post-diff empty"
       },
       {
         "nick": "GMac",
@@ -912,7 +927,7 @@
         "opens": "Obsidian Ro + ops repo",
         "content_sync": "ok",
         "firma": "pass",
-        "measured": "PIPELINE-QA firmado 2026-08-01"
+        "measured": "PIPELINE-QA firmado 2026-08-01 · sync 2026-08-01 14:15 -0400"
       },
       {
         "nick": "I15",

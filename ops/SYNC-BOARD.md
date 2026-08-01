@@ -21,9 +21,9 @@
 | Campo | Valor |
 |-------|--------|
 | Global | **pending_documented** |
-| Notas Ro ↔ espejo W11 (en M5) | **OK** · 165 md · post-rsync empty diff |
+| Notas Ro ↔ espejo W11 (en M5) | **OK** · 167 md · post-rsync empty diff |
 | Firmas I15 / W11 / humano | **pending** |
-| Último rsync Ro → espejo | 2026-08-01 12:17 -04 |
+| Último rsync Ro → espejo | 2026-08-01 14:12 -0400 |
 
 ---
 
@@ -86,4 +86,4 @@ rsync -a --delete --exclude '.DS_Store' "$RO/" "$ES/"
 - Loop multi-device en pestaña Guía
 - Obsidian: `00-sistema/DATA-HEALTH.md` · `00-sistema/PIPELINE-QA.md`
 
-— GMac · 2026-08-01
+— GMac · 2026-08-01 · rsync 14:12 -0400 · 167 md
