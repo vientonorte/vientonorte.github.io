@@ -302,9 +302,10 @@
         },
         {
           "id": "mon-multidevice",
-          "title": "iCloud GitHub root + git pull en cada device",
-          "source": "icloud-github",
-          "cadence": "session"
+          "title": "Sync multi-device: Ro ↔ espejo W11 + firmas PIPELINE-QA",
+          "source": "ops-sync-board + icloud",
+          "cadence": "session",
+          "board": "sync_board"
         },
         {
           "id": "mon-url-canon",
@@ -315,11 +316,11 @@
       ]
     }
   },
-  "updated": "2026-07-28",
+  "updated": "2026-08-01",
   "last_sync": {
-    "at": "2026-07-28T21:46:33Z",
-    "source": "merge-135-human-tasks",
-    "note": "PR #135 merged; AHORA = solo tareas humanas Rö en /ops"
+    "at": "2026-08-01T16:28:44Z",
+    "source": "gmac-sync-board-multidevice",
+    "note": "Tablero sync multi-device I15/M5/W11 en /ops + rsync Ro→espejo"
   },
   "identity": {
     "org": "Viento Norte",
@@ -544,16 +545,23 @@
       "id": "loop-multidevice",
       "title": "Loop multi-device",
       "flow": [
-        "edit in iCloud Drive/Documents/GitHub/<repo>",
-        "git push",
+        "edit notes in vault Ro (M5/I15/I11) or espejo W11",
+        "GMac: rsync Ro → Documents/Obsidian Vault when notes change",
+        "code: edit iCloud Drive/Documents/GitHub/<repo> → git push",
         "other device: wait iCloud + git pull --ff-only",
-        "optional: ops Sync vault + mail"
+        "firma same artifact: PIPELINE-QA § Firmas",
+        "ops Devices tab = tablero de sync (este canvas)"
       ],
       "root": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub",
-      "finder": "iCloud Drive → Documents → GitHub",
+      "finder": "iCloud Drive → Documents → GitHub | Obsidian Vault | MICRO 1",
       "pdf_out": "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/Viento Norte/entregables-pdf",
-      "anti": "Do not use /Users/ro/code alone (parallel clone)",
-      "obsidian": "Viento Norte/Resources/GitHub iCloud multi-dispositivo.md"
+      "anti": "Do not use /Users/ro/code alone; I15 must open vault Ro not Obsidian Vault stub",
+      "obsidian": "Viento Norte/Resources/GitHub iCloud multi-dispositivo.md",
+      "board": "sync_board",
+      "vault_ro": "iCloud Obsidian container → Ro (M5/M1/I15/I11)",
+      "vault_w11_mirror": "iCloud Drive/Documents/Obsidian Vault",
+      "micro1": "iCloud Drive/Documents/MICRO 1",
+      "pipeline_qa": "Ro/00-sistema/PIPELINE-QA.md"
     }
   },
   "workdirs": {
@@ -819,5 +827,153 @@
         ]
       }
     ]
+  },
+  "sync_board": {
+    "id": "sync-board-multidevice",
+    "title": "Tablero sync multi-device",
+    "updated": "2026-08-01T16:17:00Z",
+    "updated_local": "2026-08-01 12:17 -04",
+    "source": "GMac measured + rsync",
+    "global_status": "pending_documented",
+    "global_note": "Notas Ro = espejo W11 en M5; firmas I15/W11/humano pending en PIPELINE-QA",
+    "artifact": {
+      "id": "pipeline-qa-v1",
+      "path_ro": "00-sistema/PIPELINE-QA.md",
+      "path_w11": "Documents\\Obsidian Vault\\00-sistema\\PIPELINE-QA.md",
+      "ops": "https://vientonorte.io/ops/ (pestaña Devices)",
+      "data_health": "00-sistema/DATA-HEALTH.md"
+    },
+    "stores": [
+      {
+        "id": "ro",
+        "label": "Vault Ro (canónico Apple)",
+        "path": "iCloud/Obsidian/Ro",
+        "devices": [
+          "M5",
+          "M1",
+          "I15",
+          "I11"
+        ],
+        "status": "ok",
+        "md_count": 165,
+        "note": "Canónico. I15 activity workspace-mobile 07:50"
+      },
+      {
+        "id": "espejo_w11",
+        "label": "Espejo W11",
+        "path": "iCloud Drive/Documents/Obsidian Vault",
+        "devices": [
+          "W11",
+          "GWin"
+        ],
+        "status": "ok",
+        "md_count": 165,
+        "note": "rsync --delete Ro→espejo 2026-08-01 12:17 · post-diff empty"
+      },
+      {
+        "id": "micro1",
+        "label": "MICRO 1 Strike",
+        "path": "iCloud Drive/Documents/MICRO 1",
+        "devices": [
+          "M5",
+          "W11",
+          "GWin"
+        ],
+        "status": "ok",
+        "note": "Handoff + setup; no es vault Ro"
+      }
+    ],
+    "devices": [
+      {
+        "nick": "M5",
+        "role": "MacBook Pro M5 (humano + GMac)",
+        "opens": "Obsidian Ro",
+        "content_sync": "ok",
+        "firma": "pending",
+        "measured": "rsync + hashes PIPELINE-QA/DATA-HEALTH OK"
+      },
+      {
+        "nick": "GMac",
+        "role": "Agente en M5",
+        "opens": "Obsidian Ro + ops repo",
+        "content_sync": "ok",
+        "firma": "pass",
+        "measured": "PIPELINE-QA firmado 2026-08-01"
+      },
+      {
+        "nick": "I15",
+        "role": "iPhone 15",
+        "opens": "Obsidian Ro (no stub)",
+        "content_sync": "signal_only",
+        "firma": "pending",
+        "measured": "workspace-mobile.json 07:50; falta check humano en iPhone"
+      },
+      {
+        "nick": "W11",
+        "role": "Windows 11 PC",
+        "opens": "Documents\\Obsidian Vault + MICRO 1",
+        "content_sync": "mirror_ready_mac",
+        "firma": "pending",
+        "measured": "Espejo listo en Mac iCloud; NO DATO pull iCloud Windows"
+      },
+      {
+        "nick": "GWin",
+        "role": "Grok en W11",
+        "opens": "igual W11",
+        "content_sync": "no_dato",
+        "firma": "pending",
+        "measured": "Falta sesión en PC"
+      },
+      {
+        "nick": "I11",
+        "role": "iPad 11",
+        "opens": "Obsidian Ro",
+        "content_sync": "no_dato",
+        "firma": "pending",
+        "measured": "Misma vault Ro; sin check hoy"
+      },
+      {
+        "nick": "M1",
+        "role": "Mac M1",
+        "opens": "Obsidian Ro",
+        "content_sync": "no_dato",
+        "firma": "pending",
+        "measured": "Mismo Apple ID; sin check hoy"
+      }
+    ],
+    "actions": [
+      {
+        "id": "act-i15-firma",
+        "owner": "Rö · I15",
+        "title": "Abrir Ro → PIPELINE-QA → firmar I15 pass|fail",
+        "one_liner": "- I15 · 2026-08-01 · pass · Ro visible · PIPELINE-QA + CIERRE leídos"
+      },
+      {
+        "id": "act-w11-firma",
+        "owner": "Rö · W11 / GWin",
+        "title": "Abrir espejo + MICRO 1 handoff → firmar W11/GWin",
+        "one_liner": "- W11 · 2026-08-01 · pass · espejo = Ro · MICRO 1 handoff OK"
+      },
+      {
+        "id": "act-rsync",
+        "owner": "GMac",
+        "title": "Tras editar Ro: rsync Ro → Documents/Obsidian Vault",
+        "cmd": "rsync -a --delete --exclude '.DS_Store' \"$RO/\" \"$ES/\""
+      }
+    ],
+    "legend": {
+      "ok": "Medido igual / listo en este device",
+      "signal_only": "Señal de actividad, sin firma",
+      "mirror_ready_mac": "Espejo OK en Mac; falta confirmación en W11",
+      "no_dato": "Sin medición desde M5",
+      "pass": "Firma en PIPELINE-QA",
+      "pending": "Falta firma en same artifact"
+    }
+  },
+  "vault_paths": {
+    "pipeline_qa": "Ro/00-sistema/PIPELINE-QA.md",
+    "data_health": "Ro/00-sistema/DATA-HEALTH.md",
+    "sync_board_ops": "ops/canvas-state.json → sync_board",
+    "multi_device": "Viento Norte/Resources/GitHub iCloud multi-dispositivo.md"
   }
 }

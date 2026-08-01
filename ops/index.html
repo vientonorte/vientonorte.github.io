@@ -570,9 +570,83 @@
       gap: 8px 16px;
     }
 
+    /* ── Devices / sync board ── */
+    .sync-board { display: flex; flex-direction: column; gap: 14px; }
+    .sync-head {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+    .sync-head h2 { margin: 0 0 6px; font-size: 1.05rem; }
+    .sync-head .status-line { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    .sync-head .status-line strong { color: var(--text); }
+    .sync-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .sync-table th, .sync-table td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-soft);
+      vertical-align: top;
+    }
+    .sync-table th {
+      background: #0d131a;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .sync-table tr:last-child td { border-bottom: none; }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 650;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #0d1117;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .badge.ok, .badge.pass { color: #3fb950; border-color: #238636; }
+    .badge.pending, .badge.signal_only, .badge.mirror_ready_mac { color: #d29922; border-color: #9e6a03; }
+    .badge.no_dato { color: var(--faint); }
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .store-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+    }
+    .store-card h3 { margin: 0 0 6px; font-size: 0.92rem; }
+    .store-card p { margin: 0; color: var(--muted); font-size: 0.82rem; line-height: 1.4; }
+    .action-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .action-list li {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.86rem;
+    }
+    .action-list .owner { color: var(--muted); font-size: 0.78rem; }
+    .action-list code.one-liner { display: block; margin-top: 6px; white-space: pre-wrap; word-break: break-word; }
+
     @media (max-width: 860px) {
       .grid { grid-template-columns: 1fr; }
       .roadmap-cols { grid-template-columns: 1fr 1fr; }
+      .store-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 520px) {
       .roadmap-cols { grid-template-columns: 1fr; }
@@ -630,6 +704,9 @@
       <button type="button" role="tab" id="tab-roadmap" data-view="roadmap" aria-selected="false" aria-controls="view-roadmap">
         Roadmap<span class="count" id="count-rm"></span>
       </button>
+      <button type="button" role="tab" id="tab-devices" data-view="devices" aria-selected="false" aria-controls="view-devices">
+        Devices<span class="count" id="count-devices"></span>
+      </button>
       <button type="button" role="tab" id="tab-guide" data-view="guide" aria-selected="false" aria-controls="view-guide">
         Guía
       </button>
@@ -654,11 +731,17 @@
           <a href="https://vientonorte.io/#/demo/x-cms" target="_blank" rel="noopener">Demo X|CMS</a>
           <a href="http://127.0.0.1:5173/#/consultoria">FO local</a>
           <a href="./HUMAN-TASKS.md"><strong>Tareas humanas</strong></a>
+          <a href="./SYNC-BOARD.md"><strong>Sync multi-device</strong></a>
           <a href="./VN-QA-manual-path-oferta-2026-07-28.pdf">QA manual PDF</a>
           <a href="./SPRINT2-USABILIDAD-PREP.md">Prep usabilidad</a>
           <a href="./packages-status.md">Packages</a>
         </div>
       </div>
+    </section>
+
+    <!-- DEVICES: tablero sync multi-device -->
+    <section class="view" id="view-devices" role="tabpanel" aria-labelledby="tab-devices" hidden>
+      <div class="sync-board" id="syncBoard" aria-label="Tablero sync multi-device"></div>
     </section>
 
     <!-- CANVAS: full Eisenhower -->
@@ -716,14 +799,15 @@
         </article>
         <article class="guide-card">
           <h2>③ Loop multi-device</h2>
-          <p>Editar en <code>iCloud …/Documents/GitHub/&lt;repo&gt;</code> → push → otro device: iCloud + <code>git pull --ff-only</code>.</p>
+          <p><strong>Tablero vivo:</strong> pestaña <strong>Devices</strong> (state <code>sync_board</code>). Notas: vault <strong>Ro</strong> (M5/I15) ↔ rsync espejo W11. Código: <code>Documents/GitHub/&lt;repo&gt;</code> → push → otro device pull.</p>
           <details class="help">
-            <summary>Rutas</summary>
+            <summary>Rutas + firmas</summary>
             <div class="body">
-              ROOT: <code>~/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/</code>
-              · No usar solo <code>~/code</code> como fuente de verdad.
-              · Google: <code>gaete.gaona@gmail.com</code>
-              · Estado: <code>canvas-state.json</code>
+              Ro: contenedor Obsidian iCloud · Espejo W11: <code>Documents/Obsidian Vault</code>
+              · Strike: <code>Documents/MICRO 1</code>
+              · Código: <code>Documents/GitHub/</code> (no solo <code>~/code</code>)
+              · Same artifact firmas: <code>00-sistema/PIPELINE-QA.md</code>
+              · Markdown: <a href="./SYNC-BOARD.md">SYNC-BOARD.md</a>
             </div>
           </details>
         </article>
@@ -970,6 +1054,78 @@
          <span class="pill on">iCloud multi-device</span>`;
     }
 
+    function badgeClass(v) {
+      const s = String(v || "no_dato");
+      if (s === "ok" || s === "pass") return "ok";
+      if (s === "pending" || s === "signal_only" || s === "mirror_ready_mac" || s === "pending_documented") return "pending";
+      return "no_dato";
+    }
+
+    function renderSyncBoard() {
+      const el = $("#syncBoard");
+      if (!el) return;
+      const b = state.sync_board;
+      const countEl = $("#count-devices");
+      if (!b) {
+        el.innerHTML = `<div class="sync-head"><h2>Tablero sync multi-device</h2>
+          <p class="status-line">Sin <code>sync_board</code> en canvas-state. Ver <a href="./SYNC-BOARD.md">SYNC-BOARD.md</a>.</p></div>`;
+        if (countEl) countEl.textContent = "";
+        return;
+      }
+      const pending = (b.devices || []).filter((d) => d.firma !== "pass").length;
+      if (countEl) countEl.textContent = String(pending);
+
+      const stores = (b.stores || []).map((s) => `
+        <div class="store-card">
+          <h3>${escapeHtml(s.label || s.id)} <span class="badge ${badgeClass(s.status)}">${escapeHtml(s.status || "—")}</span></h3>
+          <p><code>${escapeHtml(s.path || "")}</code></p>
+          <p>${escapeHtml((s.devices || []).join(" · "))} · ${escapeHtml(s.note || "")}</p>
+        </div>`).join("");
+
+      const rows = (b.devices || []).map((d) => `
+        <tr>
+          <td><strong>${escapeHtml(d.nick)}</strong><div class="meta-line">${escapeHtml(d.role || "")}</div></td>
+          <td><code>${escapeHtml(d.opens || "")}</code></td>
+          <td><span class="badge ${badgeClass(d.content_sync)}">${escapeHtml(d.content_sync || "—")}</span></td>
+          <td><span class="badge ${badgeClass(d.firma)}">${escapeHtml(d.firma || "—")}</span></td>
+          <td class="meta-line">${escapeHtml(d.measured || "")}</td>
+        </tr>`).join("");
+
+      const actions = (b.actions || []).map((a) => `
+        <li>
+          <div class="owner">${escapeHtml(a.owner || "")}</div>
+          <strong>${escapeHtml(a.title || "")}</strong>
+          ${a.one_liner ? `<code class="one-liner">${escapeHtml(a.one_liner)}</code>` : ""}
+          ${a.cmd ? `<code class="one-liner">${escapeHtml(a.cmd)}</code>` : ""}
+        </li>`).join("");
+
+      const art = b.artifact || {};
+      el.innerHTML = `
+        <div class="sync-head">
+          <h2>${escapeHtml(b.title || "Tablero sync multi-device")}</h2>
+          <p class="status-line">Global: <strong><span class="badge ${badgeClass(b.global_status)}">${escapeHtml(b.global_status || "—")}</span></strong>
+            · actualizado <code>${escapeHtml(b.updated_local || b.updated || "—")}</code>
+            · ${escapeHtml(b.source || "")}</p>
+          <p class="status-line" style="margin-top:8px">${escapeHtml(b.global_note || "")}</p>
+          <p class="status-line" style="margin-top:8px">
+            Artifact: <code>${escapeHtml(art.id || "pipeline-qa")}</code>
+            · <a href="./SYNC-BOARD.md">SYNC-BOARD.md</a>
+            · firmas en vault <code>${escapeHtml(art.path_ro || "00-sistema/PIPELINE-QA.md")}</code>
+          </p>
+        </div>
+        <div class="store-grid">${stores}</div>
+        <table class="sync-table" aria-label="Devices">
+          <thead>
+            <tr><th>Device</th><th>Abre</th><th>Content</th><th>Firma</th><th>Medido</th></tr>
+          </thead>
+          <tbody>${rows || "<tr><td colspan=5>Sin devices</td></tr>"}</tbody>
+        </table>
+        <div>
+          <p class="eyebrow" style="margin:0 0 8px;color:var(--muted);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.04em">Acciones</p>
+          <ul class="action-list">${actions || "<li>Sin acciones</li>"}</ul>
+        </div>`;
+    }
+
     function renderBoard() {
       const board = $("#board");
       const q = state.quadrants || {};
@@ -1055,6 +1211,7 @@
       renderFocus();
       renderBoard();
       renderRoadmap();
+      renderSyncBoard();
       renderPrinciples();
       renderSprintBanner();
       persistLocal();
