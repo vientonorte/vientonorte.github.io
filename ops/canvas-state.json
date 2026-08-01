@@ -457,11 +457,13 @@
   "last_close": {
     "date": "2026-08-01",
     "session": "vn-cierre-sesion",
-    "status": "closed-auto",
-    "title": "Ops Devices multi-device · schema v2 · hosted SoT",
-    "at": "2026-08-01T17:35:12Z",
+    "status": "closed",
+    "title": "Multi-device sync + ops HUMANO QA · Dishonored 2 W11 cerrado",
+    "at": "2026-08-01T19:23:52Z",
     "docs": [
-      "vault:Viento Norte/Sprints/2026-08-01 LOG sesion.md"
+      "vault:Viento Norte/Sessions/2026-08-01.md",
+      "vault:Viento Norte/Sprints/2026-08-01 LOG sesion.md",
+      "MICRO1:05-sesiones/2026-08-01 Dishonored 2.md"
     ]
   },
   "github": {
