@@ -5,13 +5,13 @@
       "items": [
         {
           "id": "now-human-prod-smoke",
-          "title": "HUMANO: micro-smoke prod post-Pages #135",
+          "title": "HUMANO · QA manual prod post-#135 (no cuenta agente)",
           "repo": "vientonorte-fo",
           "repo_git": "mi-portafolio",
           "product": "vientonorte.io",
           "status": "todo",
           "owner": "Rö",
-          "people_job": "Validar en prod (no solo local) el path FO empresa",
+          "people_job": "DESTACADO HUMANO: checklist H1–L1 en browser real (Safari/Chrome). Hard refresh / unregister SW. GMac headless NO cierra este ítem.",
           "checklist": [
             "H1 https://vientonorte.io/ = embudo (hero pymes + packs + kickoff)",
             "H2 sin breadcrumb Inicio›Inicio",
@@ -25,23 +25,32 @@
           "links": [
             "https://vientonorte.io/",
             "https://vientonorte.io/#/consultoria",
-            "https://vientonorte.io/#/consultoria/embudo"
+            "https://vientonorte.io/#/consultoria/embudo",
+            "https://vientonorte.io/ops/HUMAN-TASKS.md"
           ],
-          "notes": "Post-merge #135 · esperar Deploy Pages verde · hard refresh / unregister SW si stale"
+          "notes": "QA MANUAL en /ops AHORA · humano destacado. PR #135 merged + Pages verde (2026-07-28). Proxy GMac headless 2026-08-01: señal PASS (no gate). Solo Rö marca done tras smoke manual en prod.",
+          "assignee": "Rö",
+          "human": true,
+          "kind": "qa_manual",
+          "priority": "P0",
+          "highlight": "human"
         },
         {
           "id": "now-multidevice-firmas",
-          "title": "Multi-device: firmar I15 + W11 en PIPELINE-QA (+ Devices)",
+          "title": "HUMANO · Multi-device: firmar I15 + W11 en PIPELINE-QA (+ Devices)",
           "repo": "Vientonorte",
           "product": "ops",
           "status": "todo",
           "owner": "Rö",
-          "people_job": "Same artifact: vault Ro o espejo W11 · UI: /ops Devices",
+          "people_job": "HUMANO: firmar I15 + W11 en PIPELINE-QA (same artifact). No inventar firmas. UI: /ops Devices.",
           "links": [
             "https://vientonorte.io/ops/",
             "https://vientonorte.io/ops/SYNC-BOARD.md"
           ],
-          "notes": "GMac pass ya · global pending_documented · no inventar firmas"
+          "notes": "GMac pass ya · global pending_documented · no inventar firmas",
+          "human": true,
+          "highlight": "human",
+          "assignee": "Rö"
         }
       ],
       "done_archive": [
@@ -101,7 +110,7 @@
           "status": "done"
         }
       ],
-      "owner": "Rö + Grok"
+      "owner": "Rö · tareas HUMANAS primero"
     },
     "delegate": {
       "label": "Delegar",
@@ -350,6 +359,12 @@
     "repos": {
       "vientonorte-core": "9a65f6c",
       "vientonorte.github.io": "e12814d"
+    },
+    "human_qa_manual_kept": {
+      "at": "2026-08-01T18:31:17Z",
+      "item": "now-human-prod-smoke",
+      "status": "todo",
+      "rule": "agent proxy never closes human QA"
     }
   },
   "identity": {
@@ -798,20 +813,25 @@
     "reference_pre_hygiene": "~/Downloads/canvas-state-3.json"
   },
   "human_tasks": {
-    "updated": "2026-07-28",
+    "updated": "2026-08-01",
     "owner": "Rö",
-    "title": "Tareas humanas FO (post #135)",
-    "when": "post-14:00 preferido · smoke prod cuando Pages deploye",
+    "title": "Tareas humanas FO · QA manual destacado",
+    "when": "Hoy / cuando estés en browser real — no lo cierra el agente",
+    "highlight": "human",
+    "note": "AHORA prioriza QA manual prod #135. Proxy GMac headless es señal, no Definition of Done humano.",
     "items": [
       {
         "id": "now-human-prod-smoke",
-        "title": "HUMANO: micro-smoke prod post-Pages #135",
+        "title": "HUMANO · QA manual prod post-#135 (no cuenta agente)",
         "repo": "vientonorte-fo",
         "repo_git": "mi-portafolio",
         "product": "vientonorte.io",
         "status": "todo",
         "owner": "Rö",
-        "people_job": "Validar en prod (no solo local) el path FO empresa",
+        "human": true,
+        "kind": "qa_manual",
+        "highlight": "human",
+        "people_job": "DESTACADO HUMANO: checklist H1–L1 en browser real (Safari/Chrome). Hard refresh / unregister SW. GMac headless NO cierra este ítem.",
         "checklist": [
           "H1 https://vientonorte.io/ = embudo (hero pymes + packs + kickoff)",
           "H2 sin breadcrumb Inicio›Inicio",
@@ -825,35 +845,25 @@
         "links": [
           "https://vientonorte.io/",
           "https://vientonorte.io/#/consultoria",
-          "https://vientonorte.io/#/consultoria/embudo"
+          "https://vientonorte.io/#/consultoria/embudo",
+          "https://vientonorte.io/ops/HUMAN-TASKS.md"
         ],
-        "notes": "Post-merge #135 · esperar Deploy Pages verde · hard refresh / unregister SW si stale"
+        "notes": "QA MANUAL en /ops AHORA · humano destacado. PR #135 merged + Pages verde (2026-07-28). Proxy GMac headless 2026-08-01: señal PASS (no gate). Solo Rö marca done tras smoke manual en prod."
       },
       {
-        "id": "now-human-ship-window",
-        "title": "HUMANO Jue 30: ventana ship 10:30–12:30 · Radar 13–17 FO paused",
-        "repo": "vientonorte-fo",
-        "product": "vientonorte.io",
-        "status": "todo",
-        "owner": "Rö",
-        "people_job": "No solapar Radar; si Pages ya deployó hoy, smoke cuenta; si no, re-check Jue AM",
-        "notes": "Calendario FO · no GA · no SEM spend",
-        "links": [
-          "https://vientonorte.io/ops/"
-        ]
-      },
-      {
-        "id": "now-human-retro-31",
-        "title": "HUMANO Vie 31: retro ≤14:00 + seed DS-08-03",
-        "repo": "Vientonorte",
+        "id": "now-multidevice-firmas",
+        "title": "HUMANO · Multi-device: firmar I15 + W11 en PIPELINE-QA (+ Devices)",
         "product": "ops",
         "status": "todo",
         "owner": "Rö",
-        "people_job": "Escribir retro; Decide next: analytics propia + lab OB-RIA B (admin) o no",
-        "notes": "Vault DS-2026-08-03 path-oferta-analytics · parking GA full / rename git",
+        "human": true,
+        "highlight": "human",
+        "people_job": "HUMANO: firmar I15 + W11 en PIPELINE-QA (same artifact). No inventar firmas. UI: /ops Devices.",
         "links": [
-          "https://vientonorte.io/ops/"
-        ]
+          "https://vientonorte.io/ops/",
+          "https://vientonorte.io/ops/SYNC-BOARD.md"
+        ],
+        "notes": "GMac pass ya · global pending_documented · no inventar firmas"
       }
     ]
   },

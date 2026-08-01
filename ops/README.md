@@ -20,6 +20,7 @@
 | **Fetch** | `cache: no-store` + query bust `?v=timestamp` |
 | **AHORA** | Máx. 3 abiertos; ventanas de fecha pasadas → archive |
 | **Devices** | Tablero multi-device (`sync_board`); firmas en PIPELINE-QA |
+| **HUMANO** | Ítems `HUMANO` / `qa_manual` en AHORA: solo Rö cierra; agente no | 
 | **No inventar** | pass/fail de device sin medición en tablero |
 
 Más → **Recargar hosted (SoT)** · **Limpiar draft local**

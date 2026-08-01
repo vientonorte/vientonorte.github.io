@@ -621,6 +621,34 @@
     .badge.ok, .badge.pass { color: #3fb950; border-color: #238636; }
     .badge.pending, .badge.signal_only, .badge.mirror_ready_mac { color: #d29922; border-color: #9e6a03; }
     .badge.no_dato { color: var(--faint); }
+
+    .badge.human, .tag.human {
+      color: #ff7b72;
+      border-color: #da3633;
+      background: rgba(218, 54, 51, 0.12);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .now-item.human-highlight, .item.human-highlight {
+      border-color: #da3633;
+      box-shadow: inset 3px 0 0 #da3633;
+      background: linear-gradient(90deg, rgba(218,54,51,0.08), transparent 40%);
+    }
+    .now-item.human-highlight .title,
+    .item.human-highlight .title-line {
+      font-weight: 700;
+    }
+    .human-banner {
+      margin: 0 0 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #da3633;
+      background: rgba(218, 54, 51, 0.1);
+      color: #ffb1ab;
+      font-size: 0.86rem;
+      line-height: 1.4;
+    }
+    .human-banner strong { color: #ff7b72; }
     .store-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -978,15 +1006,17 @@
     function renderItem(qKey, item) {
       const done = !isOpen(item);
       if (done && !showDone && qKey !== "monitor") return "";
+      const human = isHumanItem(item);
       const people = item.people_job
         ? `<div class="meta-line">${escapeHtml(item.people_job)}</div>`
         : "";
       const meta = metaOneLine(item);
       const metaHtml = meta ? `<div class="meta-line">${escapeHtml(meta)}</div>` : "";
-      return `<div class="item ${done ? "done" : ""}" data-q="${qKey}" data-id="${item.id}">
+      const humanBadge = human ? `<span class="badge human">HUMANO</span> ` : "";
+      return `<div class="item ${done ? "done" : ""}${human ? " human-highlight" : ""}" data-q="${qKey}" data-id="${item.id}"${human ? ' data-human="1"' : ""}>
         <label>
           <input type="checkbox" data-action="toggle" ${done ? "checked" : ""} />
-          <span class="title-line">${escapeHtml(item.title)}</span>
+          <span class="title-line">${humanBadge}${escapeHtml(item.title)}</span>
         </label>
         ${people}${metaHtml}
       </div>`;
@@ -1065,6 +1095,14 @@
         </div>`;
     }
 
+
+    function isHumanItem(item) {
+      if (!item) return false;
+      if (item.human === true || item.highlight === "human" || item.kind === "qa_manual") return true;
+      const t = String(item.title || "");
+      return /^\s*HUMANO\b/i.test(t);
+    }
+
     function renderFocus() {
       const open = openNowItems();
       const qNow = state.quadrants?.now || {};
@@ -1080,14 +1118,21 @@
         list.innerHTML = `<div class="now-item empty">Nada abierto en AHORA. Añade en Canvas o importa canvas-state.</div>`;
         return;
       }
-      list.innerHTML = open.map((item) => {
+      const humanOpen = open.filter(isHumanItem);
+      const banner = humanOpen.length
+        ? `<div class="human-banner" role="status"><strong>HUMANO destacado:</strong> ${humanOpen.length} tarea(s) solo Rö en browser/device real. El agente no cierra QA manual. <a href="./HUMAN-TASKS.md">Checklist →</a></div>`
+        : "";
+      list.innerHTML = banner + open.map((item) => {
         const tags = [];
+        const human = isHumanItem(item);
+        if (human) tags.push(`<span class="tag human">HUMANO</span>`);
+        if (item.kind === "qa_manual") tags.push(`<span class="tag human">QA manual</span>`);
         if (item.repo) tags.push(`<span class="tag repo">${escapeHtml(item.repo)}</span>`);
         if (item.status === "in_progress") tags.push(`<span class="tag">en curso</span>`);
         if (item.links && item.links[0]) {
           tags.push(`<a class="tag" href="${escapeHtml(item.links[0])}" target="_blank" rel="noopener">link</a>`);
         }
-        return `<div class="now-item" data-q="now" data-id="${escapeHtml(item.id)}">
+        return `<div class="now-item${human ? " human-highlight" : ""}" data-q="now" data-id="${escapeHtml(item.id)}"${human ? ' data-human="1"' : ""}>
           <label>
             <input type="checkbox" data-action="toggle" />
             <span>
