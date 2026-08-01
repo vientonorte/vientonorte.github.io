@@ -28,7 +28,7 @@
             "https://vientonorte.io/#/consultoria/embudo",
             "https://vientonorte.io/ops/HUMAN-TASKS.md"
           ],
-          "notes": "QA MANUAL en /ops AHORA · humano destacado. PR #135 merged + Pages verde (2026-07-28). Proxy GMac headless 2026-08-01: señal PASS (no gate). Solo Rö marca done tras smoke manual en prod.",
+          "notes": "QA MANUAL en /ops AHORA · humano destacado. PR #135 merged + Pages verde (2026-07-28). Proxy GMac headless 2026-08-01: señal PASS (no gate). Solo Rö marca done tras smoke manual en prod. Rö en W11 · Dishonored 2 (MICRO1 deck #1) · QA manual SIGUE abierto (no cerrar por agente) · stamp 2026-08-01T19:15:03Z.",
           "assignee": "Rö",
           "human": true,
           "kind": "qa_manual",
@@ -816,9 +816,9 @@
     "updated": "2026-08-01",
     "owner": "Rö",
     "title": "Tareas humanas FO · QA manual destacado",
-    "when": "Hoy / cuando estés en browser real — no lo cierra el agente",
+    "when": "Cuando Rö baje de captura/MICRO1 o tenga 10 min browser · no mientras Dishonored",
     "highlight": "human",
-    "note": "AHORA prioriza QA manual prod #135. Proxy GMac headless es señal, no Definition of Done humano.",
+    "note": "QA manual #135 permanece AHORA. Rö en W11 · Dishonored 2 (Strike/MICRO1). Agente no cierra.",
     "items": [
       {
         "id": "now-human-prod-smoke",
@@ -848,7 +848,7 @@
           "https://vientonorte.io/#/consultoria/embudo",
           "https://vientonorte.io/ops/HUMAN-TASKS.md"
         ],
-        "notes": "QA MANUAL en /ops AHORA · humano destacado. PR #135 merged + Pages verde (2026-07-28). Proxy GMac headless 2026-08-01: señal PASS (no gate). Solo Rö marca done tras smoke manual en prod."
+        "notes": "QA MANUAL en /ops AHORA · humano destacado. PR #135 merged + Pages verde (2026-07-28). Proxy GMac headless 2026-08-01: señal PASS (no gate). Solo Rö marca done tras smoke manual en prod. · Rö en Dishonored 2 W11 — no apurar cierre QA"
       },
       {
         "id": "now-multidevice-firmas",
