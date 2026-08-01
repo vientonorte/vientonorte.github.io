@@ -30,33 +30,51 @@
           "notes": "Post-merge #135 · esperar Deploy Pages verde · hard refresh / unregister SW si stale"
         },
         {
-          "id": "now-human-ship-window",
-          "title": "HUMANO Jue 30: ventana ship 10:30–12:30 · Radar 13–17 FO paused",
-          "repo": "vientonorte-fo",
-          "product": "vientonorte.io",
+          "id": "now-multidevice-firmas",
+          "title": "Multi-device: firmar I15 + W11 en PIPELINE-QA (+ Devices)",
+          "repo": "Vientonorte",
+          "product": "ops",
           "status": "todo",
           "owner": "Rö",
-          "people_job": "No solapar Radar; si Pages ya deployó hoy, smoke cuenta; si no, re-check Jue AM",
-          "notes": "Calendario FO · no GA · no SEM spend",
+          "people_job": "Same artifact: vault Ro o espejo W11 · UI: /ops Devices",
           "links": [
-            "https://vientonorte.io/ops/"
-          ]
-        },
+            "https://vientonorte.io/ops/",
+            "https://vientonorte.io/ops/SYNC-BOARD.md"
+          ],
+          "notes": "GMac pass ya · global pending_documented · no inventar firmas"
+        }
+      ],
+      "done_archive": [
         {
           "id": "now-human-retro-31",
           "title": "HUMANO Vie 31: retro ≤14:00 + seed DS-08-03",
           "repo": "Vientonorte",
           "product": "ops",
-          "status": "todo",
+          "status": "done",
           "owner": "Rö",
           "people_job": "Escribir retro; Decide next: analytics propia + lab OB-RIA B (admin) o no",
-          "notes": "Vault DS-2026-08-03 path-oferta-analytics · parking GA full / rename git",
+          "notes": "Vault DS-2026-08-03 path-oferta-analytics · parking GA full / rename git · archived BP 2026-08-01 (fecha de ventana pasada)",
           "links": [
             "https://vientonorte.io/ops/"
-          ]
-        }
-      ],
-      "done_archive": [
+          ],
+          "closed_reason": "window_elapsed",
+          "closed_at": "2026-08-01"
+        },
+        {
+          "id": "now-human-ship-window",
+          "title": "HUMANO Jue 30: ventana ship 10:30–12:30 · Radar 13–17 FO paused",
+          "repo": "vientonorte-fo",
+          "product": "vientonorte.io",
+          "status": "done",
+          "owner": "Rö",
+          "people_job": "No solapar Radar; si Pages ya deployó hoy, smoke cuenta; si no, re-check Jue AM",
+          "notes": "Calendario FO · no GA · no SEM spend · archived BP 2026-08-01 (fecha de ventana pasada)",
+          "links": [
+            "https://vientonorte.io/ops/"
+          ],
+          "closed_reason": "window_elapsed",
+          "closed_at": "2026-08-01"
+        },
         {
           "id": "now-fo-pr-135",
           "title": "PR #135 MERGED · home=embudo + SEM /#/consultoria · CI verde",
@@ -318,9 +336,9 @@
   },
   "updated": "2026-08-01",
   "last_sync": {
-    "at": "2026-08-01T16:28:44Z",
-    "source": "gmac-sync-board-multidevice",
-    "note": "Tablero sync multi-device I15/M5/W11 en /ops + rsync Ro→espejo"
+    "at": "2026-08-01T16:34:08Z",
+    "source": "gmac-ops-best-practices",
+    "note": "hosted SoT · archive ventanas pasadas · close sprint 07-28 · Devices BP"
   },
   "identity": {
     "org": "Viento Norte",
@@ -334,6 +352,22 @@
     "rename_git_note": "Alias de producto en canvas/ops; rename GitHub es Decide aparte (no este hygiene)"
   },
   "sprint_history": [
+    {
+      "id": "sprint-2026-07-28-path-oferta",
+      "closed": "2026-08-01T16:45:00Z",
+      "name": "Semana 28–31 path FO · home=embudo · SEM",
+      "shipped": [
+        "PR #135 merged home=embudo + SEM",
+        "ops Devices sync_board multi-device",
+        "HUMAN tasks window Jue/Vie archived (elapsed)"
+      ],
+      "open_carried": [
+        "HUMANO: micro-smoke prod post-Pages #135",
+        "Multi-device: firmar I15 + W11 en PIPELINE-QA (+ Devices)"
+      ],
+      "prev": "sprint-2026-07-27-ops-loops",
+      "closed_reason": "week_elapsed_bp_hygiene"
+    },
     {
       "id": "sprint-2026-07-27-ops-loops",
       "closed": "2026-07-27T04:35:47Z",
@@ -392,27 +426,7 @@
       "note": "Post retro 31; Map→Test; superficies público/admin; no ads scale"
     }
   ],
-  "active_sprint": {
-    "id": "sprint-2026-07-28-path-oferta",
-    "name": "Semana 28–31 path FO · home=embudo · SEM",
-    "started": "2026-07-28",
-    "focus": "humano smoke prod → ship window → retro 31 → DS-08-03",
-    "focus_repos": [
-      "vientonorte-fo",
-      "vientonorte-core"
-    ],
-    "item_ids": [
-      "now-human-prod-smoke",
-      "now-human-ship-window",
-      "now-human-retro-31"
-    ],
-    "merged": {
-      "pr": 135,
-      "sha": "c31685d3d375847def9571e5c47e8872e4e5384e",
-      "at": "2026-07-28T21:46:09Z"
-    },
-    "next_ds": "DS-2026-08-03 path-oferta-analytics"
-  },
+  "active_sprint": null,
   "last_close": {
     "date": "2026-07-27",
     "session": "vn-cierre-sesion",
@@ -470,7 +484,7 @@
       "design-sprint-vn"
     ]
   },
-  "objective": "PR #135 MERGED · HUMANO smoke prod home=embudo + SEM · Jue ship window / Vie retro · no GA",
+  "objective": "Ops multi-device verde · smoke prod #135 si falta · no GA",
   "design_system": {
     "figma_sites": "https://dot-wool-76997229.figma.site",
     "code_repo": "vientonorte/vientonorte-core",
@@ -831,8 +845,8 @@
   "sync_board": {
     "id": "sync-board-multidevice",
     "title": "Tablero sync multi-device",
-    "updated": "2026-08-01T16:17:00Z",
-    "updated_local": "2026-08-01 12:17 -04",
+    "updated": "2026-08-01T16:34:08Z",
+    "updated_local": "2026-08-01 · BP pass",
     "source": "GMac measured + rsync",
     "global_status": "pending_documented",
     "global_note": "Notas Ro = espejo W11 en M5; firmas I15/W11/humano pending en PIPELINE-QA",
@@ -968,12 +982,29 @@
       "no_dato": "Sin medición desde M5",
       "pass": "Firma en PIPELINE-QA",
       "pending": "Falta firma en same artifact"
-    }
+    },
+    "best_practices": [
+      "Hosted canvas-state.json is source of truth",
+      "localStorage = draft only until Sync",
+      "fetch cache: no-store + bust",
+      "AHORA max 3; archive elapsed windows",
+      "Firmas multi-device only in PIPELINE-QA same artifact",
+      "No inventar pass/fail de devices sin medición"
+    ]
   },
   "vault_paths": {
     "pipeline_qa": "Ro/00-sistema/PIPELINE-QA.md",
     "data_health": "Ro/00-sistema/DATA-HEALTH.md",
     "sync_board_ops": "ops/canvas-state.json → sync_board",
     "multi_device": "Viento Norte/Resources/GitHub iCloud multi-dispositivo.md"
+  },
+  "schema_version": 2,
+  "state_policy": {
+    "source_of_truth": "hosted_canvas_state_json",
+    "localStorage": "draft_only_until_sync",
+    "on_load": "prefer_hosted_if_fetch_ok",
+    "cache": "no-store + cache-bust query",
+    "firmas_multidevice": "Ro/00-sistema/PIPELINE-QA.md",
+    "sync_board": "ops Devices tab"
   }
 }

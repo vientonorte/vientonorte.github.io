@@ -11,10 +11,20 @@
 - **Guía** — loops y rutas (no en la cara al abrir).
 - **Más** — export/import/release/print.
 
-## State
+## State (buenas prácticas)
 
-`canvas-state.json` en este directorio (snapshot público).  
-Sync escribe vault vía Worker + token `ops_sync_token`.
+| Regla | |
+|-------|--|
+| **Source of truth** | `canvas-state.json` **hosted** (GitHub Pages) |
+| **localStorage** | Solo **draft** hasta Sync o «Recargar hosted» |
+| **Fetch** | `cache: no-store` + query bust `?v=timestamp` |
+| **AHORA** | Máx. 3 abiertos; ventanas de fecha pasadas → archive |
+| **Devices** | Tablero multi-device (`sync_board`); firmas en PIPELINE-QA |
+| **No inventar** | pass/fail de device sin medición en tablero |
+
+Más → **Recargar hosted (SoT)** · **Limpiar draft local**
+
+Sync escribe vault vía Worker + token `ops_sync_token` (solo en el browser; no en git).
 
 ## CLI
 

@@ -6,6 +6,14 @@
 
 > Este markdown es espejo legible. La fuente operativa del tablero es `sync_board` en el canvas.
 
+### Buenas prácticas (ops)
+
+1. **Hosted SoT** — al abrir /ops, gana `canvas-state.json` de Pages (no el draft viejo del browser).  
+2. **Draft local** — solo tras editar en Canvas; Sync publica; «Recargar hosted» descarta.  
+3. **Data-driven** — content/firma por device solo con medición (rsync, mtime, check humano).  
+4. **Same artifact** — firmas en `PIPELINE-QA`, no copiar tablas divergentes.  
+5. **AHORA** — máx 3; archivar ventanas de fecha vencidas.
+
 ---
 
 ## Estado global (2026-08-01 · GMac)

@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Viento Norte · Ops</title>
   <meta name="description" content="Canvas operativo: AHORA → sprint → release. Baja carga cognitiva." />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <style>
     :root {
       --bg: #0b0f14;
@@ -653,6 +655,18 @@
       .shell { padding: 14px 12px 36px; }
     }
 
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     body.embed .brand .lede,
     body.embed footer.site,
     body.embed #view-guide { display: none !important; }
@@ -684,6 +698,8 @@
           <div class="more-menu" id="moreMenu" role="menu">
             <button type="button" id="btnExport" role="menuitem">Exportar JSON</button>
             <label class="btn" role="menuitem">Importar JSON<input type="file" id="fileIn" accept="application/json,.json" hidden /></label>
+            <button type="button" id="btnReloadHosted" role="menuitem" title="Descarta draft local y recarga canvas-state.json">Recargar hosted (SoT)</button>
+            <button type="button" id="btnClearLocal" role="menuitem" title="Borra draft en localStorage">Limpiar draft local</button>
             <button type="button" id="btnRelease" role="menuitem">Checklist release</button>
             <button type="button" id="btnPrint" role="menuitem">Print / PDF</button>
           </div>
@@ -818,7 +834,7 @@
       <span>State: <code>canvas-state.json</code></span>
       <a href="https://vientonorte.io/ops/">vientonorte.io/ops</a>
       <a href="https://vientonorte.github.io/ops/">github.io/ops</a>
-      <span>Semana FO: usabilidad + ship · no analytics</span>
+      <span id="footerPolicy">SoT: hosted canvas-state · draft local hasta Sync</span>
     </footer>
   </div>
 
@@ -861,6 +877,9 @@
     let state = structuredClone(DEFAULT_STATE);
     let showDone = localStorage.getItem("ops_show_done") === "1";
     let activeView = localStorage.getItem("ops_view") || "hoy";
+    /** true only after user edit — avoids clobbering hosted SoT on first paint */
+    let dirty = false;
+    let stateSource = "default"; // default | local | hosted | import
 
     const $ = (s) => document.querySelector(s);
     const $$ = (s) => Array.from(document.querySelectorAll(s));
@@ -871,17 +890,60 @@
       el.className = cls || "";
     }
 
+    function markDirty() {
+      dirty = true;
+      persistLocal();
+    }
+
+    function lastSyncMs(st) {
+      const at = st && st.last_sync && st.last_sync.at;
+      if (!at) return 0;
+      const t = Date.parse(at);
+      return Number.isFinite(t) ? t : 0;
+    }
+
     function persistLocal() {
+      if (!dirty && stateSource === "hosted") return;
       try {
-        localStorage.setItem("vientonorte-canvas-state", JSON.stringify(state));
+        localStorage.setItem(
+          "vientonorte-canvas-state",
+          JSON.stringify({
+            _meta: {
+              dirty,
+              source: stateSource,
+              saved_at: new Date().toISOString(),
+            },
+            state,
+          })
+        );
       } catch (_) {}
     }
 
-    function loadLocal() {
+    function loadLocalDraft() {
       try {
         const raw = localStorage.getItem("vientonorte-canvas-state");
-        if (raw) state = JSON.parse(raw);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        // legacy: raw state object without envelope
+        if (parsed && parsed.quadrants) {
+          return { state: parsed, dirty: true, source: "local-legacy" };
+        }
+        if (parsed && parsed.state && parsed.state.quadrants) {
+          return {
+            state: parsed.state,
+            dirty: !!(parsed._meta && parsed._meta.dirty),
+            source: "local",
+          };
+        }
       } catch (_) {}
+      return null;
+    }
+
+    function clearLocalDraft() {
+      try {
+        localStorage.removeItem("vientonorte-canvas-state");
+      } catch (_) {}
+      dirty = false;
     }
 
     function download(filename, text) {
@@ -1084,7 +1146,7 @@
 
       const rows = (b.devices || []).map((d) => `
         <tr>
-          <td><strong>${escapeHtml(d.nick)}</strong><div class="meta-line">${escapeHtml(d.role || "")}</div></td>
+          <th scope="row"><strong>${escapeHtml(d.nick)}</strong><div class="meta-line">${escapeHtml(d.role || "")}</div></th>
           <td><code>${escapeHtml(d.opens || "")}</code></td>
           <td><span class="badge ${badgeClass(d.content_sync)}">${escapeHtml(d.content_sync || "—")}</span></td>
           <td><span class="badge ${badgeClass(d.firma)}">${escapeHtml(d.firma || "—")}</span></td>
@@ -1114,9 +1176,16 @@
           </p>
         </div>
         <div class="store-grid">${stores}</div>
-        <table class="sync-table" aria-label="Devices">
+        <table class="sync-table">
+          <caption class="visually-hidden">Estado sync por device</caption>
           <thead>
-            <tr><th>Device</th><th>Abre</th><th>Content</th><th>Firma</th><th>Medido</th></tr>
+            <tr>
+              <th scope="col">Device</th>
+              <th scope="col">Abre</th>
+              <th scope="col">Content</th>
+              <th scope="col">Firma</th>
+              <th scope="col">Medido</th>
+            </tr>
           </thead>
           <tbody>${rows || "<tr><td colspan=5>Sin devices</td></tr>"}</tbody>
         </table>
@@ -1214,7 +1283,17 @@
       renderSyncBoard();
       renderPrinciples();
       renderSprintBanner();
-      persistLocal();
+      const pol = $("#footerPolicy");
+      if (pol) {
+        const dirtyMark = dirty ? " · draft local dirty" : "";
+        pol.textContent =
+          "SoT: " +
+          (stateSource === "hosted" ? "hosted" : stateSource) +
+          dirtyMark +
+          " · schema " +
+          (state.schema_version || "—");
+      }
+      // no auto-persist on every paint — only markDirty / sync
     }
 
     /* Tabs */
@@ -1263,8 +1342,9 @@
           if (!t.checked && it.status === "done") it.status = "todo";
           if (t.checked) it.status = "done";
           state.updated = new Date().toISOString().slice(0, 10);
+          markDirty();
           render();
-          setStatus("Actualizado en este dispositivo. Sync o exporta para vault.", "ok");
+          setStatus("Draft local. Sync o «Recargar hosted» para descartar.", "ok");
         }
       }
       if (t.dataset && t.dataset.add === "now") {
@@ -1285,8 +1365,9 @@
           status: "todo"
         });
         state.updated = new Date().toISOString().slice(0, 10);
+        markDirty();
         render();
-        setStatus("Añadido a AHORA", "ok");
+        setStatus("Añadido a AHORA (draft local)", "ok");
       }
       if (t.dataset && t.dataset.add === "plan") {
         const title = $("#addPlanTitle")?.value.trim();
@@ -1300,8 +1381,9 @@
           status: "backlog"
         });
         state.updated = new Date().toISOString().slice(0, 10);
+        markDirty();
         render();
-        setStatus("Añadido a PLAN", "ok");
+        setStatus("Añadido a PLAN (draft local)", "ok");
       }
     });
 
@@ -1317,8 +1399,11 @@
       if (!f) return;
       try {
         state = JSON.parse(await f.text());
+        stateSource = "import";
+        dirty = true;
+        persistLocal();
         render();
-        setStatus("JSON importado", "ok");
+        setStatus("JSON importado (draft). Sync para publicar.", "ok");
       } catch (err) {
         setStatus("JSON inválido: " + err.message, "err");
       }
@@ -1364,8 +1449,9 @@
 
       download("sprint-pack-" + id + ".json", JSON.stringify(pack, null, 2));
       download("canvas-state.json", JSON.stringify(state, null, 2));
+      markDirty();
       render();
-      setStatus("Sprint " + id + " empaquetado. Sync o sube JSON al vault.", "ok");
+      setStatus("Sprint " + id + " empaquetado (draft). Sync o sube JSON al vault.", "ok");
     };
 
     $("#btnRelease").onclick = () => {
@@ -1420,7 +1506,9 @@
           setStatus("Sync falló: " + (data.error || res.status) + (data.hint ? " — " + data.hint : ""), "err");
           return;
         }
-        persistLocal();
+        dirty = false;
+        stateSource = "hosted";
+        clearLocalDraft();
         let msg = "Sync OK · " + (data.commit || "").slice(0, 7);
         if (data.issue_url) msg += " · issue";
         setStatus(msg, "ok");
@@ -1444,24 +1532,111 @@
       window.print();
     };
 
-    async function tryLoadHostedState() {
+    /**
+     * Hosted canvas-state.json is source of truth.
+     * localStorage holds dirty drafts only; never wins over newer hosted.
+     */
+    async function fetchHostedState() {
+      if (location.protocol === "file:") return null;
+      const bust = "v=" + Date.now();
+      const res = await fetch("./canvas-state.json?" + bust, {
+        cache: "no-store",
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    }
+
+    async function applyHostedState(opts) {
+      const force = !!(opts && opts.force);
+      setStatus("Cargando hosted…", "");
       try {
-        if (location.protocol === "file:") return;
-        const res = await fetch("./canvas-state.json", { cache: "no-store" });
-        if (!res.ok) return;
-        state = await res.json();
+        const hosted = await fetchHostedState();
+        if (!hosted || !hosted.quadrants) {
+          setStatus("Hosted state inválido", "err");
+          return false;
+        }
+        const draft = loadLocalDraft();
+
+        // Preserve dirty local edits unless force reload
+        if (!force && draft && draft.dirty) {
+          state = draft.state;
+          stateSource = "local";
+          dirty = true;
+          render();
+          const hostedNewer = lastSyncMs(hosted) > lastSyncMs(draft.state);
+          setStatus(
+            hostedNewer
+              ? "Draft local activo · hosted más nuevo disponible → «Recargar hosted» o Sync"
+              : "Draft local activo · Sync para publicar · «Recargar hosted» descarta",
+            hostedNewer ? "err" : "ok"
+          );
+          return true;
+        }
+
+        // Clean load: hosted is SoT
+        if (draft && !draft.dirty) clearLocalDraft();
+        state = hosted;
+        stateSource = "hosted";
+        dirty = false;
         render();
-        setStatus("State desde canvas-state.json. Sync escribe vault.", "ok");
-      } catch (e) {}
+        setStatus(
+          "State hosted (SoT)" +
+            (state.sync_board ? " · Devices OK" : "") +
+            " · updated " +
+            (state.updated || "—") +
+            ". Sync escribe vault.",
+          "ok"
+        );
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    async function bootState() {
+      const ok = await applyHostedState({ force: false });
+      if (ok) return;
+      const draft = loadLocalDraft();
+      if (draft && draft.state) {
+        state = draft.state;
+        stateSource = draft.source || "local";
+        dirty = !!draft.dirty;
+        render();
+        setStatus("Offline/fallback: draft local. Sin hosted.", "err");
+        return;
+      }
+      stateSource = "default";
+      render();
+      setStatus("Sin hosted ni draft — DEFAULT_STATE vacío.", "err");
+    }
+
+    const btnReload = $("#btnReloadHosted");
+    if (btnReload) {
+      btnReload.onclick = async () => {
+        moreMenu.classList.remove("open");
+        clearLocalDraft();
+        dirty = false;
+        const ok = await applyHostedState({ force: true });
+        if (!ok) setStatus("No se pudo recargar hosted", "err");
+      };
+    }
+    const btnClear = $("#btnClearLocal");
+    if (btnClear) {
+      btnClear.onclick = () => {
+        moreMenu.classList.remove("open");
+        clearLocalDraft();
+        dirty = false;
+        setStatus("Draft local borrado. Recarga hosted o F5.", "ok");
+      };
     }
 
     if (new URLSearchParams(location.search).get("embed") === "1") {
       document.body.classList.add("embed");
     }
-    loadLocal();
     setView(activeView);
-    render();
-    tryLoadHostedState();
+    render(); // skeleton
+    bootState();
   </script>
 </body>
 </html>
