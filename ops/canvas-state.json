@@ -428,13 +428,13 @@
   ],
   "active_sprint": null,
   "last_close": {
-    "date": "2026-07-27",
+    "date": "2026-08-01",
     "session": "vn-cierre-sesion",
     "status": "closed-auto",
-    "title": "CierreVNHOY 2026-07-27 22:59 · prod sync + DS ago",
-    "at": "2026-07-28T02:59:47Z",
+    "title": "Ops Devices multi-device · schema v2 · hosted SoT",
+    "at": "2026-08-01T17:35:12Z",
     "docs": [
-      "vault:Viento Norte/Sprints/2026-07-27 LOG sesion.md"
+      "vault:Viento Norte/Sprints/2026-08-01 LOG sesion.md"
     ]
   },
   "github": {
