@@ -4,92 +4,46 @@
 **State:** `canvas-state.json` → clave `sync_board`  
 **Same artifact firmas:** vault Ro `00-sistema/PIPELINE-QA.md`
 
-> Este markdown es espejo legible. La fuente operativa del tablero es `sync_board` en el canvas.
-
-### Buenas prácticas (ops)
-
-1. **Hosted SoT** — al abrir /ops, gana `canvas-state.json` de Pages (no el draft viejo del browser).  
-2. **Draft local** — solo tras editar en Canvas; Sync publica; «Recargar hosted» descarta.  
-3. **Data-driven** — content/firma por device solo con medición (rsync, mtime, check humano).  
-4. **Same artifact** — firmas en `PIPELINE-QA`, no copiar tablas divergentes.  
-5. **AHORA** — máx 3; archivar ventanas de fecha vencidas.
-
 ---
 
-## Estado global (2026-08-02 · GMac · post smoke #135/#136)
+## Estado global (2026-08-02 ~13:20 -0400)
 
 | Campo | Valor |
 |-------|--------|
 | Global | **pending_documented** |
-| Notas Ro ↔ espejo W11 (en M5) | **OK** · **181 md** · post-rsync empty diff |
-| Firmas I15 / W11 / I11 / GWin / M1 | **pending** (humano — no inventar) |
-| GMac firma sistema | **pass** (2026-08-02) |
-| Smoke prod #135 | **PASS agent** (SPA signals + SW v2) |
-| PR #136 | **MERGED** `7b197fd` · redirect script live en `/mi-portafolio/` |
-| Trello | ICS **PASS** · API Key/Token **pending browser** |
-| Último rsync Ro → espejo | **2026-08-02 ~12:30 -0400** |
-
----
-
-## Stores
-
-| Store | Path | Devices | Status |
-|-------|------|---------|--------|
-| **Ro** (canónico Apple) | iCloud Obsidian → `Ro` | M5 · M1 · I15 · I11 | ok · 181 md |
-| **Espejo W11** | `Documents/Obsidian Vault` | W11 · GWin | ok (mirror Mac) · 181 md |
-| **MICRO 1** | `Documents/MICRO 1` | M5 · W11 · GWin | ok · HOST + FINANZAS |
+| Ro ↔ espejo | **184 md** · in sync |
+| GMac | **pass** |
+| Firmas I15/W11/GWin/I11 | **pending** humano |
+| Smoke #135/#136 | **PASS** · PR #136 MERGED |
+| Selfradar 02 ago | **PASS** Clave A · export pipeline · Calendar AFC + Reforzar 4 ago |
+| Echo Dot | **sync** Google `gaete.gaona@gmail.com` |
+| Empleo SURA | **cerrado** · [[EMPLEO-STATUS]] en Obsidian |
+| Trello API | ICS PASS · Key/Token **pending** browser |
+| Mail Camila | Selfradar **enviado** (humano) |
 
 ---
 
 ## Devices
 
-| Nick | Abre | Content | Firma | Medido |
-|------|------|---------|-------|--------|
-| **M5** | Ro (humano + GMac) | ok | pending | rsync 181 md empty |
-| **GMac** | Ro + ops/table-ro + MICRO 1 | ok | **pass** | smoke #135 · PR #136 · rsync · ICS |
-| **I15** | Ro (no stub) | signal_only | pending | falta check humano iPhone |
-| **W11** | `Documents\Obsidian Vault` + MICRO 1 | mirror_ready_mac | pending | espejo Mac OK; falta pull Windows |
-| **GWin** | = W11 | no_dato | pending | falta sesión en PC |
-| **I11** | Ro | no_dato | pending | falta Obsidian check iPad |
-| **M1** | Ro | no_dato | pending | sin check hoy |
+| Nick | Firma | Nota |
+|------|-------|------|
+| GMac | **pass** | tarde 08-02 full stack |
+| M5 / I15 / W11 / GWin / I11 / M1 | pending | no inventar |
 
----
-
-## One-liners de firma (pegar en PIPELINE-QA)
+## One-liners firma
 
 ```text
 - I15 · 2026-08-02 · pass · Ro visible · PIPELINE-QA + Sessions 08-02 leídos
-- W11 · 2026-08-02 · pass · espejo = Ro 181 md · MICRO 1 HOST/FINANZAS OK
-- GWin · 2026-08-02 · pass · online · setup W11 OK · nick OK
-- I11 · 2026-08-02 · pass · Ro + Personal/MICRO1/FINANZAS ON
+- W11 · 2026-08-02 · pass · espejo = Ro 184 md · MICRO 1 OK
+- GWin · 2026-08-02 · pass · online · setup W11 OK
+- I11 · 2026-08-02 · pass · Ro + calendars ON
 ```
 
----
+## Links
 
-## ACCIONES
+- Selfradar: Obsidian `Sessions/2026-08-02 Selfradar Bullet`
+- Alexa: `MICRO 1/00-canon/ALEXA-GOOGLE-CALENDAR.md` · Resources/ALEXA-GOOGLE-CALENDAR
+- Empleo: Resources/EMPLEO-STATUS
+- Export: `Bullet-Ro-Pipeline/exports/2026-08-02-selfradar-bullet.json`
 
-1. **I15** — abrir Ro → firmar PIPELINE-QA  
-2. **W11/GWin** — iCloud pull espejo + MICRO 1 → firmar  
-3. **I11** — Obsidian Ro + 3 calendars ON → firmar  
-4. **GMac** — rsync tras editar Ro (último 181 md empty)  
-5. **Trello B** — table-ro Admin Key/Token (ICS ya OK)
-
-### rsync (GMac)
-
-```bash
-RO="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Ro"
-ES="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Documents/Obsidian Vault"
-rsync -a --delete --exclude '.DS_Store' "$RO/" "$ES/"
-```
-
----
-
-## Relacionado
-
-- [ops README](./README.md)
-- Loop multi-device en pestaña Guía
-- Obsidian: `00-sistema/DATA-HEALTH.md` · `00-sistema/PIPELINE-QA.md`
-- Sessions: `Viento Norte/Sessions/2026-08-02.md`
-- HUMAN-TASKS: [HUMAN-TASKS.md](./HUMAN-TASKS.md)
-
-— GMac · 2026-08-02 · rsync 181 md · smoke #135 · PR #136 merged
+— GMac · 2026-08-02 ~13:20 -0400

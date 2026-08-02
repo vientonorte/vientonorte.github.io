@@ -15,6 +15,20 @@
 
 **Shipped:** [PR #135](https://github.com/vientonorte/mi-portafolio/pull/135) · [PR #136](https://github.com/vientonorte/mi-portafolio/pull/136) MERGED `7b197fd`
 
+## Status tarde 2026-08-02 (ops sync)
+
+| Item | Estado |
+|------|--------|
+| Smoke #135 + PR #136 | **done** |
+| Selfradar → Calendar | **done** (AFC lun · Reforzar 4 ago · Selfradar desc) |
+| Echo Dot ↔ Google Calendar | **sync** |
+| Empleo SURA cerrado (Obsidian) | **done** |
+| Mail Selfradar → Camila | **enviado** (humano) |
+| Firmas multi-device | **pending** |
+| Trello Key/Token Admin | **pending** |
+
+
+
 ---
 
 ## 1 · Smoke prod post-#135 (agent 2026-08-02)

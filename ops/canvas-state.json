@@ -47,7 +47,7 @@
             "https://vientonorte.io/ops/",
             "https://vientonorte.io/ops/SYNC-BOARD.md"
           ],
-          "notes": "GMac pass 08-02 · rsync 181 · smoke #135/#136 done · firmas I15+W11+GWin+I11 siguen humano",
+          "notes": "GMac pass tarde 08-02 · Selfradar+Alexa en Obsidian · firmas device siguen humano",
           "human": true,
           "highlight": "human",
           "assignee": "Rö"
@@ -970,7 +970,7 @@
         "links": [
           "https://vientonorte.io/ops/"
         ],
-        "notes": "GMac pass 08-02 · rsync 181 · smoke #135/#136 done · firmas I15+W11+GWin+I11 siguen humano"
+        "notes": "GMac pass tarde 08-02 · Selfradar+Alexa en Obsidian · firmas device siguen humano"
       },
       {
         "id": "now-live-timebox-day",
@@ -987,11 +987,11 @@
   "sync_board": {
     "id": "sync-board-multidevice",
     "title": "Tablero sync multi-device",
-    "updated": "2026-08-02T16:26:08Z",
-    "updated_local": "2026-08-02 ~12:30 -0400 · GMac smoke #135 + PR #136 + rsync 181",
-    "source": "GMac measured 2026-08-02 · smoke SPA + merge #136 + rsync Ro→espejo 181 md",
+    "updated": "2026-08-02T17:29:01Z",
+    "updated_local": "2026-08-02 ~13:20 -0400 · Selfradar+Alexa+empleo+calendar",
+    "source": "GMac full afternoon sync · vault 184 · Echo Dot · Bullet Clave A",
     "global_status": "pending_documented",
-    "global_note": "Ro=espejo 181 md empty. GMac pass (smoke #135 agent, PR #136 merged 7b197fd, redirect live, Trello ICS 200). Firmas I15/W11/GWin/I11/M1 humano pending — no inventar.",
+    "global_note": "Ro=espejo 184 md. GMac pass: smoke#135/#136, Selfradar Bullet Clave A, Calendar AFC+Reforzar4ago, Echo Dot↔Google Calendar, empleo SURA cerrado, mail Camila Selfradar. Firmas I15/W11/GWin/I11 humano pending. Trello API Key/Token pending browser.",
     "artifact": {
       "id": "pipeline-qa-v1",
       "path_ro": "00-sistema/PIPELINE-QA.md",
@@ -1011,8 +1011,8 @@
           "I11"
         ],
         "status": "ok",
-        "md_count": 181,
-        "note": "Canónico · 181 md 2026-08-02 · PIPELINE-QA firmas GMac pass ciclo 08-02"
+        "md_count": 184,
+        "note": "184 md · 2026-08-02 post Selfradar/Alexa/empleo"
       },
       {
         "id": "espejo_w11",
@@ -1023,8 +1023,8 @@
           "GWin"
         ],
         "status": "ok",
-        "md_count": 181,
-        "note": "rsync --delete Ro→espejo 2026-08-02 · post-diff empty · md=181"
+        "md_count": 184,
+        "note": "184 md · 2026-08-02 post Selfradar/Alexa/empleo"
       },
       {
         "id": "micro1",
@@ -1054,7 +1054,7 @@
         "opens": "Obsidian Ro + ops/table-ro repos + MICRO 1",
         "content_sync": "ok",
         "firma": "pass",
-        "measured": "2026-08-02 · smoke #135 SPA PASS · PR #136 MERGED · rsync 181 · ICS Trello 200 · PIPELINE-QA GMac pass (no inventar I15/W11)"
+        "measured": "2026-08-02 ~13:20 -0400 · Selfradar export · Calendar ops · Echo Dot sync · EMPLEO-STATUS · PR136 · no inventar firmas device"
       },
       {
         "nick": "I15",
@@ -1184,6 +1184,19 @@
       "doc": "ops/SPRINT-CORE-ONBOARDING.md",
       "canvas_id": "plan-sprint-onboarding-envs",
       "depends_on": "sprint-core-well"
+    }
+  ],
+  "session_stamps": [
+    {
+      "at": "2026-08-02T17:29:01Z",
+      "title": "Selfradar+Bullet+Alexa+empleo",
+      "items": [
+        "Selfradar Clave A 5 fotos",
+        "Calendar AFC lun + Reforzar 4 ago",
+        "Echo Dot Google Calendar sync",
+        "EMPLEO-STATUS no SURA",
+        "Mail Selfradar a Camila (enviado humano)"
+      ]
     }
   ]
 }
