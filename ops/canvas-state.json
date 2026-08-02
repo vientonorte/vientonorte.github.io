@@ -395,9 +395,9 @@
   },
   "updated": "2026-08-02",
   "last_sync": {
-    "at": "2026-08-02T05:21:08Z",
-    "source": "gmac-trello-tablero-ics",
-    "note": "ICS snapshot RO cards + import JSON; full API sync = humano en table-ro Admin"
+    "at": "2026-08-02T05:22:30Z",
+    "source": "gmac-pre-cierre",
+    "note": "Sessions+LOG+FINANZAS+Trello ICS+ops stamp; email resumen"
   },
   "identity": {
     "org": "Viento Norte",
@@ -495,22 +495,21 @@
   },
   "last_close": {
     "date": "2026-08-02",
-    "session": "micro1-calendar-timeboxes",
-    "status": "closed-structure",
-    "title": "Calendar SSOT timeboxes TB45/60 · M5 café · ClassPass · W11 MICRO1 · almuerzo 2h · buen vivir",
-    "at": "2026-08-02T05:13:58Z",
+    "session": "pre-cierre-tb-finanzas-trello",
+    "status": "pre-close",
+    "title": "Pre-cierre · TB45/60 · FINANZAS · Trello→tablero · ops sync",
+    "at": "2026-08-02T05:22:30Z",
     "docs": [
-      "icloud:Documents/MICRO 1/00-canon/CALENDAR-HOST-MICRO1.md",
-      "icloud:Documents/MICRO 1/00-canon/PRACTICAS-SURA-APLICADAS.md",
-      "ops:canvas-state.json",
-      "table-ro:embed /ops/?embed=1"
+      "Sessions/2026-08-02.md",
+      "MICRO 1/00-canon/CALENDAR-HOST-MICRO1.md",
+      "MICRO 1/00-canon/CALENDAR-FINANZAS.md",
+      "MICRO 1/LOG.md",
+      "table-ro/data/tablero-import-trello-ro.json"
     ],
-    "calendar": {
-      "host": "MICRO 1",
-      "unit": "TB45=45m · TB60=45m+15m pausa activa",
-      "lunch": "13:00-15:00 2h buen vivir",
-      "am": "M5 café Post+VN · bici ClassPass",
-      "pm": "W11 MICRO1 A/B/C · CIERRE · noche libre"
+    "mail": "pre-cierre resumen → gaete.gaona@gmail.com",
+    "calendar_check": {
+      "hoy": "Masaje 17:00 · Discusión conflicto 19:00 · chill · Sync Trello 21:00",
+      "lun03": "Post 08:30 · Map FO 09:15–11 · ClassPass 11 · Almuerzo 13–15 · MICRO1 15–17:30 · CIERRE"
     }
   },
   "github": {
