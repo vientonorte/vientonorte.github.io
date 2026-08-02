@@ -395,9 +395,9 @@
   },
   "updated": "2026-08-02",
   "last_sync": {
-    "at": "2026-08-02T05:22:30Z",
-    "source": "gmac-pre-cierre",
-    "note": "Sessions+LOG+FINANZAS+Trello ICS+ops stamp; email resumen"
+    "at": "2026-08-02T05:31:13Z",
+    "source": "gmac-devices-rsync-2026-08-02",
+    "note": "Devices board refresh · rsync 180 md · GMac pass · others pending"
   },
   "identity": {
     "org": "Viento Norte",
@@ -922,11 +922,11 @@
   "sync_board": {
     "id": "sync-board-multidevice",
     "title": "Tablero sync multi-device",
-    "updated": "2026-08-01T18:15:13Z",
-    "updated_local": "2026-08-01 14:15 -0400 · GMac rsync+git pull",
-    "source": "GMac measured · rsync Ro→espejo + git pull multi-device repos",
+    "updated": "2026-08-02T05:31:13Z",
+    "updated_local": "2026-08-02 01:30 -0400 · GMac rsync Ro→espejo + pre-cierre TB/finanzas/trello",
+    "source": "GMac measured 2026-08-02 · rsync + Sessions stamp + MICRO1 canon + ops push",
     "global_status": "pending_documented",
-    "global_note": "Notas Ro = espejo W11 en M5 (167 md · diff empty); firmas I15/W11/humano pending en PIPELINE-QA",
+    "global_note": "Ro = espejo 180 md · post-rsync empty diff (2026-08-02 01:30 -0400). GMac pass hoy (sistema Calendar TB + FINANZAS + Trello snapshot + ops). Firmas humanas I15/W11/I11/M1/GWin siguen pending en PIPELINE-QA.",
     "artifact": {
       "id": "pipeline-qa-v1",
       "path_ro": "00-sistema/PIPELINE-QA.md",
@@ -946,8 +946,8 @@
           "I11"
         ],
         "status": "ok",
-        "md_count": 167,
-        "note": "Canónico · 167 md medidos 2026-08-01 14:15 -0400"
+        "md_count": 180,
+        "note": "Canónico · 180 md medidos 2026-08-02 01:30 -0400 · Sessions pre-cierre"
       },
       {
         "id": "espejo_w11",
@@ -958,8 +958,8 @@
           "GWin"
         ],
         "status": "ok",
-        "md_count": 167,
-        "note": "rsync --delete Ro→espejo 2026-08-01 14:12 -0400 · post-diff empty · md=167"
+        "md_count": 180,
+        "note": "rsync --delete Ro→espejo 2026-08-02 01:30 -0400 · post-diff empty · md=180"
       },
       {
         "id": "micro1",
@@ -971,25 +971,25 @@
           "GWin"
         ],
         "status": "ok",
-        "note": "Handoff + setup; no es vault Ro"
+        "note": "CALENDAR-HOST + CALENDAR-FINANZAS + LOG + dashboard intention TB-day · actualizado GMac 2026-08-02"
       }
     ],
     "devices": [
       {
         "nick": "M5",
         "role": "MacBook Pro M5 (humano + GMac)",
-        "opens": "Obsidian Ro",
+        "opens": "Obsidian Ro (humano + GMac)",
         "content_sync": "ok",
         "firma": "pending",
-        "measured": "rsync 2026-08-01 14:12 -0400 · 167 md · post-diff empty"
+        "measured": "rsync 2026-08-02 01:30 -0400 · 180 md · post-diff empty · Session.app + Calendar hoy (masaje/chill) · firma humana M5 opcional en PIPELINE-QA"
       },
       {
         "nick": "GMac",
         "role": "Agente en M5",
-        "opens": "Obsidian Ro + ops repo",
+        "opens": "Obsidian Ro + ops/table-ro repos + MICRO 1",
         "content_sync": "ok",
         "firma": "pass",
-        "measured": "PIPELINE-QA firmado 2026-08-01 · sync 2026-08-01 14:15 -0400"
+        "measured": "2026-08-02 01:30 -0400 · rsync 180 md empty · Sessions pre-cierre · Calendar TB+FINANZAS · Trello ICS snapshot · ops 2d0e0b1/c2c9c44 · PIPELINE-QA GMac pass (sistema; no inventar pass I15/W11)"
       },
       {
         "nick": "I15",
@@ -997,7 +997,7 @@
         "opens": "Obsidian Ro (no stub)",
         "content_sync": "signal_only",
         "firma": "pending",
-        "measured": "workspace-mobile.json 07:50; falta check humano en iPhone"
+        "measured": "Sin check 2026-08-02 · último signal workspace-mobile (hist.) · falta abrir Ro en iPhone y firmar"
       },
       {
         "nick": "W11",
@@ -1005,7 +1005,7 @@
         "opens": "Documents\\Obsidian Vault + MICRO 1",
         "content_sync": "mirror_ready_mac",
         "firma": "pending",
-        "measured": "Espejo listo en Mac iCloud; NO DATO pull iCloud Windows"
+        "measured": "Espejo 180 md listo en Mac iCloud 2026-08-02 · NO DATO: pull iCloud Windows + abrir Documents\\Obsidian Vault + MICRO 1 handoff"
       },
       {
         "nick": "GWin",
@@ -1013,7 +1013,7 @@
         "opens": "igual W11",
         "content_sync": "no_dato",
         "firma": "pending",
-        "measured": "Falta sesión en PC"
+        "measured": "Falta sesión Grok en PC · depende check W11 iCloud"
       },
       {
         "nick": "I11",
@@ -1021,7 +1021,7 @@
         "opens": "Obsidian Ro",
         "content_sync": "no_dato",
         "firma": "pending",
-        "measured": "Misma vault Ro; sin check hoy"
+        "measured": "Vault Ro misma · Calendar FIN+MICRO1+Personal revisados vía API GMac · sin check Obsidian humano en iPad hoy"
       },
       {
         "nick": "M1",
@@ -1029,7 +1029,7 @@
         "opens": "Obsidian Ro",
         "content_sync": "no_dato",
         "firma": "pending",
-        "measured": "Mismo Apple ID; sin check hoy"
+        "measured": "Mismo Apple ID · sin check 2026-08-02"
       }
     ],
     "actions": [
@@ -1037,19 +1037,32 @@
         "id": "act-i15-firma",
         "owner": "Rö · I15",
         "title": "Abrir Ro → PIPELINE-QA → firmar I15 pass|fail",
-        "one_liner": "- I15 · 2026-08-01 · pass · Ro visible · PIPELINE-QA + CIERRE leídos"
+        "one_liner": "- I15 · 2026-08-02 · pass · Ro visible · PIPELINE-QA + CIERRE + Sessions leídos"
       },
       {
         "id": "act-w11-firma",
         "owner": "Rö · W11 / GWin",
-        "title": "Abrir espejo + MICRO 1 handoff → firmar W11/GWin",
-        "one_liner": "- W11 · 2026-08-01 · pass · espejo = Ro · MICRO 1 handoff OK"
+        "title": "iCloud pull espejo + MICRO 1 · firmar W11/GWin",
+        "one_liner": "- W11 · 2026-08-02 · pass · espejo=Ro 180 md · MICRO 1 TB/FINANZAS OK"
+      },
+      {
+        "id": "act-i11-firma",
+        "owner": "Rö · I11",
+        "title": "Obsidian Ro en iPad + Calendar 3 capas ON · firmar I11",
+        "one_liner": "- I11 · 2026-08-02 · pass · Ro + Personal/MICRO1/FINANZAS visibles"
       },
       {
         "id": "act-rsync",
         "owner": "GMac",
         "title": "Tras editar Ro: rsync Ro → Documents/Obsidian Vault",
-        "cmd": "rsync -a --delete --exclude '.DS_Store' \"$RO/\" \"$ES/\""
+        "cmd": "rsync -a --delete --exclude '.DS_Store' \"$RO/\" \"$ES/\"",
+        "last_run": "2026-08-02 01:30 -0400"
+      },
+      {
+        "id": "act-trello-browser",
+        "owner": "Rö · M5/I11",
+        "title": "table-ro Admin → Sync Trello (Key/Token) post-import ICS",
+        "one_liner": "https://vientonorte.io/table-ro/ · filtro Camila"
       }
     ],
     "legend": {
