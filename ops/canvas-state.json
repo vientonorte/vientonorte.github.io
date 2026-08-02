@@ -532,21 +532,12 @@
   },
   "last_close": {
     "date": "2026-08-02",
-    "session": "cierre-finanzas-ops-session-optin-sprint-next",
-    "status": "closed",
-    "title": "Cierre · Finanzas en ops + Session no-auto + sprint core→onboard",
-    "at": "2026-08-02T05:45:38Z",
+    "session": "vn-cierre-sesion",
+    "status": "closed-auto",
+    "title": "Selfradar Bullet Clave A · Echo Dot · Breakmark QA · PR136 · ops sync · no SURA",
+    "at": "2026-08-02T17:52:07Z",
     "docs": [
-      "Sessions/2026-08-02.md",
-      "ops/finanzas/",
-      "ops/SPRINT-CORE-ONBOARDING.md",
-      "Sprints/2026-08-next core-onboarding-ambientes.md"
-    ],
-    "ship": [
-      "ops/finanzas live meta 1.6M",
-      "Session open opt-in only",
-      "next_sprints core → onboarding/envs",
-      "ad0d7b6"
+      "vault:Viento Norte/Sprints/2026-08-02 LOG sesion.md"
     ]
   },
   "github": {
