@@ -395,9 +395,9 @@
   },
   "updated": "2026-08-02",
   "last_sync": {
-    "at": "2026-08-02T05:31:13Z",
-    "source": "gmac-devices-rsync-2026-08-02",
-    "note": "Devices board refresh · rsync 180 md · GMac pass · others pending"
+    "at": "2026-08-02T05:36:09Z",
+    "source": "gmac-cierre-formal",
+    "note": "cierre sesión 2026-08-02 formal"
   },
   "identity": {
     "org": "Viento Norte",
@@ -495,22 +495,17 @@
   },
   "last_close": {
     "date": "2026-08-02",
-    "session": "pre-cierre-tb-finanzas-trello",
-    "status": "pre-close",
-    "title": "Pre-cierre · TB45/60 · FINANZAS · Trello→tablero · ops sync",
-    "at": "2026-08-02T05:22:30Z",
+    "session": "cierre-tb-finanzas-sueno-landing",
+    "status": "closed",
+    "title": "Cierre · TB day + FINANZAS 1.6M + sueño 22:00 + landing redirect + Devices",
+    "at": "2026-08-02T05:36:09Z",
     "docs": [
       "Sessions/2026-08-02.md",
       "MICRO 1/00-canon/CALENDAR-HOST-MICRO1.md",
       "MICRO 1/00-canon/CALENDAR-FINANZAS.md",
       "MICRO 1/LOG.md",
-      "table-ro/data/tablero-import-trello-ro.json"
-    ],
-    "mail": "pre-cierre resumen → gaete.gaona@gmail.com",
-    "calendar_check": {
-      "hoy": "Masaje 17:00 · Discusión conflicto 19:00 · chill · Sync Trello 21:00",
-      "lun03": "Post 08:30 · Map FO 09:15–11 · ClassPass 11 · Almuerzo 13–15 · MICRO1 15–17:30 · CIERRE"
-    }
+      "ops Devices bedad82+"
+    ]
   },
   "github": {
     "owner": "vientonorte",
