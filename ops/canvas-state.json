@@ -532,18 +532,21 @@
   },
   "last_close": {
     "date": "2026-08-02",
-    "session": "cierre-tb-finanzas-sueno-landing",
+    "session": "cierre-finanzas-ops-session-optin-sprint-next",
     "status": "closed",
-    "title": "Cierre · TB day + FINANZAS 1.6M + sueño 22:00 + landing redirect + Devices",
-    "at": "2026-08-02T05:36:09Z",
+    "title": "Cierre · Finanzas en ops + Session no-auto + sprint core→onboard",
+    "at": "2026-08-02T05:45:38Z",
     "docs": [
       "Sessions/2026-08-02.md",
-      "MICRO 1/00-canon/CALENDAR-HOST-MICRO1.md",
-      "MICRO 1/00-canon/CALENDAR-FINANZAS.md",
-      "MICRO 1/LOG.md",
-      "ops Devices bedad82+",
       "ops/finanzas/",
-      "ops/SPRINT-CORE-ONBOARDING.md"
+      "ops/SPRINT-CORE-ONBOARDING.md",
+      "Sprints/2026-08-next core-onboarding-ambientes.md"
+    ],
+    "ship": [
+      "ops/finanzas live meta 1.6M",
+      "Session open opt-in only",
+      "next_sprints core → onboarding/envs",
+      "ad0d7b6"
     ]
   },
   "github": {
