@@ -395,9 +395,9 @@
   },
   "updated": "2026-08-02",
   "last_sync": {
-    "at": "2026-08-02T05:13:58Z",
-    "source": "gmac-calendar-timeboxes-micro1",
-    "note": "Calendar TB45/TB60 · almuerzo 2h · M5 café VN · W11 MICRO1 · buen vivir · SSOT MICRO1 iCloud"
+    "at": "2026-08-02T05:21:08Z",
+    "source": "gmac-trello-tablero-ics",
+    "note": "ICS snapshot RO cards + import JSON; full API sync = humano en table-ro Admin"
   },
   "identity": {
     "org": "Viento Norte",
@@ -871,6 +871,16 @@
       "ssot": "iCloud Documents/MICRO 1/00-canon/CALENDAR-HOST-MICRO1.md",
       "table_ro": "https://vientonorte.io/table-ro/?view=ops",
       "ops": "https://vientonorte.io/ops/"
+    },
+    "trello_tablero_sync_2026_08_02": {
+      "summary": "Trello Espacio Seguro → table-ro snapshot ICS + script",
+      "mode": "ics",
+      "countRo": 2,
+      "import": "table-ro/data/tablero-import-trello-ro.json",
+      "script": "table-ro/scripts/sync-trello-ics-to-tablero.mjs",
+      "url": "https://vientonorte.io/table-ro/",
+      "board": "https://trello.com/b/69c558a7d79162569df9a98a",
+      "note": "API B+C requiere Key/Token en browser Admin → Sync Trello"
     }
   },
   "human_tasks": {
