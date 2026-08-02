@@ -1,25 +1,8 @@
-# Tareas humanas · QA manual destacado
+# Tareas humanas · post #135 + día TB
 
-**Dueño:** Rö · **Actualizado:** 2026-08-01  
-**Fuente:** `canvas-state.json` → AHORA + bloque `human_tasks`  
-**Ops:** https://vientonorte.io/ops/ → pestaña **Hoy**
-
-> **Regla:** el agente (GMac) puede medir proxy (headless / curl).  
-> **No cierra** ítems marcados `HUMANO` / `qa_manual`.  
-> Solo Rö marca done tras checklist en **browser real**.
-
----
-
-## 0 · Destacado ahora
-
-| Prioridad | Ítem | Estado |
-|-----------|------|--------|
-| **P0 HUMANO** | **QA manual prod post-#135** | **todo** · abierto en AHORA |
-| HUMANO | Firmas I15 + W11 en PIPELINE-QA | todo · multi-device |
-
-**No confundir:** proxy GMac headless 2026-08-01 = señal, **no** DoD.
-
----
+**Dueño:** Rö · **Actualizado:** 2026-08-02  
+**Fuente:** `canvas-state.json` → AHORA + `human_tasks`  
+**Ops:** https://vientonorte.io/ops/ · **table-ro:** https://vientonorte.io/table-ro/?view=ops
 
 ## Canon FO (empresa)
 
@@ -27,59 +10,53 @@
 |------------|-----|
 | Home = embudo | https://vientonorte.io/ |
 | SEM = oferta tour | https://vientonorte.io/#/consultoria |
-| Legacy embudo | https://vientonorte.io/#/consultoria/embudo → home |
+| Legacy embudo | https://vientonorte.io/#/consultoria/embudo → `/` |
 
-**Shipped código:** [PR #135](https://github.com/vientonorte/mi-portafolio/pull/135) merge · CI + Deploy Pages verde (2026-07-28).
+**Shipped:** [PR #135](https://github.com/vientonorte/mi-portafolio/pull/135) · Calendar **TB45/TB60** (M5 café · ClassPass · W11 MICRO1 · almuerzo 2h).
 
 ---
 
-## 1 · HUMANO · QA manual prod (post-Pages #135)
+## 1 · Ahora — micro-smoke prod (post-Pages)
 
-**Antes:** hard refresh (o unregister SW si ves UI stale).
-
-| # | Criterio | ☐ humano |
-|---|----------|----------|
+| # | Criterio | ☐ |
+|---|----------|---|
 | H1 | `/` = embudo (hero pymes + packs + kickoff) | |
 | H2 | Sin breadcrumb «Inicio › Inicio» | |
 | H3 | Header primary = **Proceso · Contacto** (Negocios en Más) | |
-| H4 | Dock / CTA **Empezar** → `#consultoria-onboarding` | |
+| H4 | Dock **Empezar** → onboarding / kickoff | |
 | H5 | Calendar free a11y abre **&lt;30 s** | |
 | S1 | `/#/consultoria` = tour SEM fullscreen **sin dock** | |
 | S2 | SEM «Empezar» → home `/` | |
-| L1 | `/#/consultoria/embudo` se ve como embudo home | |
-
-**Links**
-
-- https://vientonorte.io/
-- https://vientonorte.io/#/consultoria
-- https://vientonorte.io/#/consultoria/embudo
-- Tablero: https://vientonorte.io/ops/ (ítem AHORA con badge **HUMANO**)
-
-**Cuando pases:** marca el checkbox en /ops Hoy **o** pide a GMac archivar `now-human-prod-smoke` con nota “Rö smoke manual PASS”.
+| L1 | `/#/consultoria/embudo` redirige a `/` | |
 
 ---
 
-## 2 · HUMANO · Firmas multi-device
+## 2 · Multi-device firmas
 
-Same artifact: vault Ro `00-sistema/PIPELINE-QA.md` · UI Devices en /ops.
+Firmar **I15 + W11** en PIPELINE-QA (+ Devices en /ops). GMac ya pass.
 
-```text
-- I15 · 2026-08-01 · pass · Ro visible · PIPELINE-QA + CIERRE leídos
-- W11 · 2026-08-01 · pass · espejo = Ro · MICRO 1 handoff OK
-```
-
-GMac ya **pass**. No inventar firmas de devices no abiertos.
+- https://vientonorte.io/ops/
+- https://vientonorte.io/ops/SYNC-BOARD.md
 
 ---
 
-## Archivado (ventana pasada)
+## 3 · Vivir 1 día timebox (calendario)
 
-- Jue 30 ventana ship · Vie 31 retro → en `done_archive` del canvas (window_elapsed).
+| Box | Hora | ☐ |
+|-----|------|---|
+| TB45 Post M5 café | 08:30–09:15 | |
+| FO / VN M5 (TB45+TB60) | 09:15–11:00 | |
+| Bici · ClassPass | 11:00–12:00 | |
+| Almuerzo **2h** (sin captura) | 13:00–15:00 | |
+| MICRO1 A/B/C W11 | 15:00–17:30 | |
+| CIERRE LOG + dashboard | 17:30–18:15 | |
 
-## Parking (no humano urgente)
+SoT: `Documents/MICRO 1/00-canon/CALENDAR-HOST-MICRO1.md`
+
+---
+
+## Parking
 
 - Publish tokens 0.2.1 + pin multi-repo (core)
-- Wire `@vientonorte/a11y` package
-- GTM live
-
-— GMac · 2026-08-01 · QA manual dejado abierto · humano destacado
+- MICRO1: TB noche opcional si meta 180h/mes
+- GTM live / SEM spend — **no** sin Decide post-Test DS

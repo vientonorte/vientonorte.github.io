@@ -51,9 +51,46 @@
           "human": true,
           "highlight": "human",
           "assignee": "Rö"
+        },
+        {
+          "id": "now-live-timebox-day",
+          "title": "HUMANO: vivir 1 día completo TB (café M5 → ClassPass → W11 A/B/C)",
+          "repo": "Vientonorte",
+          "product": "ops + micro1",
+          "status": "todo",
+          "owner": "Rö",
+          "people_job": "Probar timeboxes reales; FO Map lun 03 en café; no robar almuerzo 2h",
+          "checklist": [
+            "TB45 Post 08:30 café M5",
+            "FO Map 09:15–11 M5",
+            "ClassPass/bici 11:00",
+            "Almuerzo 13–15 sin laptop captura",
+            "MICRO1 A/B/C W11 15:00–17:30",
+            "CIERRE LOG + dashboard 17:30"
+          ],
+          "links": [
+            "https://vientonorte.io/ops/",
+            "https://vientonorte.io/table-ro/?view=ops",
+            "https://realm.micro1.ai"
+          ],
+          "notes": "Si ClassPass se alarga: skip MICRO1 pre"
         }
       ],
       "done_archive": [
+        {
+          "id": "done-calendar-timeboxes-2026-08-02",
+          "title": "Calendar SSOT · TB45/TB60 · M5 café · ClassPass · W11 MICRO1 · almuerzo 2h",
+          "status": "done",
+          "owner": "Grok+GMac",
+          "closed_at": "2026-08-02",
+          "closed_reason": "shipped_structure",
+          "notes": "OUTCOME+PAUSA+LINKS en cada cita; Host MICRO1 + Personal overlay; sin multi-día ancla",
+          "links": [
+            "https://vientonorte.io/ops/",
+            "https://vientonorte.io/table-ro/?view=ops",
+            "https://realm.micro1.ai"
+          ]
+        },
         {
           "id": "now-human-retro-31",
           "title": "HUMANO Vie 31: retro ≤14:00 + seed DS-08-03",
@@ -153,6 +190,19 @@
       "label": "Planificar",
       "owner": "Rö",
       "items": [
+        {
+          "id": "plan-micro1-timebox-volume",
+          "title": "MICRO1: decidir si TB noche opcional para acercar 180h/mes",
+          "repo": "MICRO1",
+          "product": "trainer",
+          "status": "todo",
+          "owner": "Rö",
+          "people_job": "Día TB diurno ~14–17h/sem captura; noche/sáb solo si $ manda",
+          "notes": "No sacrificar buen vivir sin Decide",
+          "links": [
+            "https://realm.micro1.ai"
+          ]
+        },
         {
           "id": "plan-brand-core-021",
           "title": "Branding VN: publish tokens 0.2.1 + pin multi-repo",
@@ -343,29 +393,11 @@
       ]
     }
   },
-  "updated": "2026-08-01",
+  "updated": "2026-08-02",
   "last_sync": {
-    "at": "2026-08-01T18:15:13Z",
-    "local": "2026-08-01 14:15 -0400",
-    "agent": "GMac",
-    "kind": "multi-device",
-    "actions": [
-      "rsync Ro → Documents/Obsidian Vault",
-      "git pull ff-only vientonorte-core + vientonorte.github.io",
-      "sync_board md_count refresh"
-    ],
-    "md_count": 167,
-    "rsync": "2026-08-01 14:12 -0400",
-    "repos": {
-      "vientonorte-core": "9a65f6c",
-      "vientonorte.github.io": "e12814d"
-    },
-    "human_qa_manual_kept": {
-      "at": "2026-08-01T18:31:17Z",
-      "item": "now-human-prod-smoke",
-      "status": "todo",
-      "rule": "agent proxy never closes human QA"
-    }
+    "at": "2026-08-02T05:13:58Z",
+    "source": "gmac-calendar-timeboxes-micro1",
+    "note": "Calendar TB45/TB60 · almuerzo 2h · M5 café VN · W11 MICRO1 · buen vivir · SSOT MICRO1 iCloud"
   },
   "identity": {
     "org": "Viento Norte",
@@ -449,22 +481,37 @@
       "name": "Superficies FO + path medible + analytics propia",
       "planned": "2026-08-03",
       "ends": "2026-08-07",
-      "status": "planned",
-      "note": "Post retro 31; Map→Test; superficies público/admin; no ads scale"
+      "status": "active",
+      "note": "Calendar TB FO en M5 café · hard-stop ClassPass 11:00 · Test vie 09:15–10"
     }
   ],
-  "active_sprint": null,
+  "active_sprint": {
+    "id": "ds-2026-08-03-path-oferta-analytics",
+    "name": "DS path oferta + analytics · Map→Test en café M5 TB",
+    "starts": "2026-08-03",
+    "ends": "2026-08-07",
+    "status": "active",
+    "note": "FO Map→Test en TB45/TB60 M5 café 09:15–11 · no ads scale · MICRO1 W11 no se come FO"
+  },
   "last_close": {
-    "date": "2026-08-01",
-    "session": "vn-cierre-sesion",
-    "status": "closed",
-    "title": "Multi-device sync + ops HUMANO QA · Dishonored 2 W11 cerrado",
-    "at": "2026-08-01T19:23:52Z",
+    "date": "2026-08-02",
+    "session": "micro1-calendar-timeboxes",
+    "status": "closed-structure",
+    "title": "Calendar SSOT timeboxes TB45/60 · M5 café · ClassPass · W11 MICRO1 · almuerzo 2h · buen vivir",
+    "at": "2026-08-02T05:13:58Z",
     "docs": [
-      "vault:Viento Norte/Sessions/2026-08-01.md",
-      "vault:Viento Norte/Sprints/2026-08-01 LOG sesion.md",
-      "MICRO1:05-sesiones/2026-08-01 Dishonored 2.md"
-    ]
+      "icloud:Documents/MICRO 1/00-canon/CALENDAR-HOST-MICRO1.md",
+      "icloud:Documents/MICRO 1/00-canon/PRACTICAS-SURA-APLICADAS.md",
+      "ops:canvas-state.json",
+      "table-ro:embed /ops/?embed=1"
+    ],
+    "calendar": {
+      "host": "MICRO 1",
+      "unit": "TB45=45m · TB60=45m+15m pausa activa",
+      "lunch": "13:00-15:00 2h buen vivir",
+      "am": "M5 café Post+VN · bici ClassPass",
+      "pm": "W11 MICRO1 A/B/C · CIERRE · noche libre"
+    }
   },
   "github": {
     "owner": "vientonorte",
@@ -510,10 +557,13 @@
       "seo-vn",
       "google-ads-vn",
       "ux-writing-vn",
-      "design-sprint-vn"
+      "design-sprint-vn",
+      "micro1-pipeline",
+      "kpi-vn",
+      "cierre-sesion-vn"
     ]
   },
-  "objective": "Ops multi-device verde · smoke prod #135 si falta · no GA",
+  "objective": "DS-08-03 Map café M5 · MICRO1 TB W11 post-almuerzo · smoke prod #135 si falta · multi-device firmas · no GA",
   "design_system": {
     "figma_sites": "https://dot-wool-76997229.figma.site",
     "code_repo": "vientonorte/vientonorte-core",
@@ -624,9 +674,9 @@
   "roadmap": {
     "title": "Roadmap · Automaciones M5 / Google / Packages · FO empresa",
     "source_pdf": "ops/VN-Automaciones-M5-Google-2026-07-26.pdf",
-    "updated": "2026-07-28",
+    "updated": "2026-08-02",
     "objective": "PDF Automaciones M5 casi cerrado · FO path oferta en .io root · residual: terraza · generate_lead wire · tokens 0.2.1",
-    "progress_note": "#135 MERGED home=embudo SEM · CI verde · humano smoke prod pendiente · Jue 30 ship window · Vie 31 retro · DS ago analytics",
+    "progress_note": "2026-08-02: Calendar timeboxes TB45/TB60 live (Personal+HOST MICRO1). M5 café VN+Post · ClassPass · almuerzo 2h · W11 MICRO1 A/B/C. DS-08-03 FO en TB café. #135 smoke prod + firmas I15/W11 siguen humano. no GA.",
     "priorities": {
       "P0": {
         "title": "Desbloqueantes",
@@ -806,66 +856,57 @@
       {
         "label": "Ops",
         "href": "https://vientonorte.io/ops/"
-      }
+      },
+      "https://vientonorte.io/ops/",
+      "https://vientonorte.io/table-ro/?view=ops",
+      "https://realm.micro1.ai"
     ]
   },
   "notes": {
     "ops_ui": "2026-07-28 progressive disclosure Hoy/Canvas/Roadmap/Guía",
     "hygiene_2026_07_28": "AHORA=3 · done_archive · identity empresa · product_map · QA PDF · Downloads/canvas-state-3.json referencia pre-higiene",
-    "reference_pre_hygiene": "~/Downloads/canvas-state-3.json"
+    "reference_pre_hygiene": "~/Downloads/canvas-state-3.json",
+    "calendar_timeboxes_2026_08_02": {
+      "summary": "TB45/TB60 · M5 café VN · W11 MICRO1 · almuerzo 2h · buen vivir",
+      "ssot": "iCloud Documents/MICRO 1/00-canon/CALENDAR-HOST-MICRO1.md",
+      "table_ro": "https://vientonorte.io/table-ro/?view=ops",
+      "ops": "https://vientonorte.io/ops/"
+    }
   },
   "human_tasks": {
-    "updated": "2026-08-01",
+    "updated": "2026-08-02",
     "owner": "Rö",
-    "title": "Tareas humanas FO · QA manual destacado",
-    "when": "Cuando Rö baje de captura/MICRO1 o tenga 10 min browser · no mientras Dishonored",
-    "highlight": "human",
-    "note": "QA manual #135 permanece AHORA. Rö en W11 · Dishonored 2 (Strike/MICRO1). Agente no cierra.",
+    "title": "Tareas humanas · FO smoke + multi-device + 1 día TB live",
+    "when": "Lun 03+ en ritmo café M5 / W11 post-almuerzo",
     "items": [
       {
         "id": "now-human-prod-smoke",
-        "title": "HUMANO · QA manual prod post-#135 (no cuenta agente)",
-        "repo": "vientonorte-fo",
-        "repo_git": "mi-portafolio",
-        "product": "vientonorte.io",
+        "title": "HUMANO: micro-smoke prod post-Pages #135",
         "status": "todo",
         "owner": "Rö",
-        "human": true,
-        "kind": "qa_manual",
-        "highlight": "human",
-        "people_job": "DESTACADO HUMANO: checklist H1–L1 en browser real (Safari/Chrome). Hard refresh / unregister SW. GMac headless NO cierra este ítem.",
-        "checklist": [
-          "H1 https://vientonorte.io/ = embudo (hero pymes + packs + kickoff)",
-          "H2 sin breadcrumb Inicio›Inicio",
-          "H3 header primary = Proceso · Contacto (Negocios en Más)",
-          "H4 dock Empezar → #consultoria-onboarding",
-          "H5 Calendar free a11y abre <30 s",
-          "S1 https://vientonorte.io/#/consultoria = tour SEM fullscreen sin dock",
-          "S2 SEM Empezar → / (home embudo)",
-          "L1 /#/consultoria/embudo → /"
-        ],
         "links": [
           "https://vientonorte.io/",
-          "https://vientonorte.io/#/consultoria",
-          "https://vientonorte.io/#/consultoria/embudo",
-          "https://vientonorte.io/ops/HUMAN-TASKS.md"
-        ],
-        "notes": "QA MANUAL en /ops AHORA · humano destacado. PR #135 merged + Pages verde (2026-07-28). Proxy GMac headless 2026-08-01: señal PASS (no gate). Solo Rö marca done tras smoke manual en prod. · Rö en Dishonored 2 W11 — no apurar cierre QA"
+          "https://vientonorte.io/#/consultoria"
+        ]
       },
       {
         "id": "now-multidevice-firmas",
-        "title": "HUMANO · Multi-device: firmar I15 + W11 en PIPELINE-QA (+ Devices)",
-        "product": "ops",
+        "title": "Multi-device: firmar I15 + W11 en PIPELINE-QA (+ Devices)",
         "status": "todo",
         "owner": "Rö",
-        "human": true,
-        "highlight": "human",
-        "people_job": "HUMANO: firmar I15 + W11 en PIPELINE-QA (same artifact). No inventar firmas. UI: /ops Devices.",
+        "links": [
+          "https://vientonorte.io/ops/"
+        ]
+      },
+      {
+        "id": "now-live-timebox-day",
+        "title": "Vivir 1 día TB completo (calendario HOST+Personal)",
+        "status": "todo",
+        "owner": "Rö",
         "links": [
           "https://vientonorte.io/ops/",
-          "https://vientonorte.io/ops/SYNC-BOARD.md"
-        ],
-        "notes": "GMac pass ya · global pending_documented · no inventar firmas"
+          "https://vientonorte.io/table-ro/?view=ops"
+        ]
       }
     ]
   },
