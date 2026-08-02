@@ -16,15 +16,18 @@
 
 ---
 
-## Estado global (2026-08-02 · GMac)
+## Estado global (2026-08-02 · GMac · post smoke #135/#136)
 
 | Campo | Valor |
 |-------|--------|
 | Global | **pending_documented** |
-| Notas Ro ↔ espejo W11 (en M5) | **OK** · **180 md** · post-rsync empty diff |
-| Firmas I15 / W11 / I11 / GWin / M1 | **pending** |
+| Notas Ro ↔ espejo W11 (en M5) | **OK** · **181 md** · post-rsync empty diff |
+| Firmas I15 / W11 / I11 / GWin / M1 | **pending** (humano — no inventar) |
 | GMac firma sistema | **pass** (2026-08-02) |
-| Último rsync Ro → espejo | **2026-08-02 01:30 -0400** |
+| Smoke prod #135 | **PASS agent** (SPA signals + SW v2) |
+| PR #136 | **MERGED** `7b197fd` · redirect script live en `/mi-portafolio/` |
+| Trello | ICS **PASS** · API Key/Token **pending browser** |
+| Último rsync Ro → espejo | **2026-08-02 ~12:30 -0400** |
 
 ---
 
@@ -32,9 +35,9 @@
 
 | Store | Path | Devices | Status |
 |-------|------|---------|--------|
-| **Ro** (canónico Apple) | iCloud Obsidian → `Ro` | M5 · M1 · I15 · I11 | ok · 180 md |
-| **Espejo W11** | `Documents/Obsidian Vault` | W11 · GWin | ok (mirror en Mac) · 180 md |
-| **MICRO 1** | `Documents/MICRO 1` | M5 · W11 · GWin | ok · TB + FINANZAS canon |
+| **Ro** (canónico Apple) | iCloud Obsidian → `Ro` | M5 · M1 · I15 · I11 | ok · 181 md |
+| **Espejo W11** | `Documents/Obsidian Vault` | W11 · GWin | ok (mirror Mac) · 181 md |
+| **MICRO 1** | `Documents/MICRO 1` | M5 · W11 · GWin | ok · HOST + FINANZAS |
 
 ---
 
@@ -42,12 +45,12 @@
 
 | Nick | Abre | Content | Firma | Medido |
 |------|------|---------|-------|--------|
-| **M5** | Ro (humano + GMac) | ok | pending | rsync 2026-08-02 01:30 · 180 md empty |
-| **GMac** | Ro + ops/table-ro + MICRO 1 | ok | **pass** | pre-cierre TB/FINANZAS/Trello/ops · 01:30 |
-| **I15** | Ro (no stub) | signal_only | pending | falta check humano iPhone hoy |
+| **M5** | Ro (humano + GMac) | ok | pending | rsync 181 md empty |
+| **GMac** | Ro + ops/table-ro + MICRO 1 | ok | **pass** | smoke #135 · PR #136 · rsync · ICS |
+| **I15** | Ro (no stub) | signal_only | pending | falta check humano iPhone |
 | **W11** | `Documents\Obsidian Vault` + MICRO 1 | mirror_ready_mac | pending | espejo Mac OK; falta pull Windows |
 | **GWin** | = W11 | no_dato | pending | falta sesión en PC |
-| **I11** | Ro | no_dato | pending | Calendar API OK vía GMac; falta Obsidian check iPad |
+| **I11** | Ro | no_dato | pending | falta Obsidian check iPad |
 | **M1** | Ro | no_dato | pending | sin check hoy |
 
 ---
@@ -56,7 +59,7 @@
 
 ```text
 - I15 · 2026-08-02 · pass · Ro visible · PIPELINE-QA + Sessions 08-02 leídos
-- W11 · 2026-08-02 · pass · espejo = Ro 180 md · MICRO 1 TB/FINANZAS OK
+- W11 · 2026-08-02 · pass · espejo = Ro 181 md · MICRO 1 HOST/FINANZAS OK
 - GWin · 2026-08-02 · pass · online · setup W11 OK · nick OK
 - I11 · 2026-08-02 · pass · Ro + Personal/MICRO1/FINANZAS ON
 ```
@@ -68,8 +71,8 @@
 1. **I15** — abrir Ro → firmar PIPELINE-QA  
 2. **W11/GWin** — iCloud pull espejo + MICRO 1 → firmar  
 3. **I11** — Obsidian Ro + 3 calendars ON → firmar  
-4. **GMac** — tras editar Ro: rsync (último 01:30)  
-5. **Trello** — table-ro Admin Sync (Key/Token) si querés API completa  
+4. **GMac** — rsync tras editar Ro (último 181 md empty)  
+5. **Trello B** — table-ro Admin Key/Token (ICS ya OK)
 
 ### rsync (GMac)
 
@@ -87,5 +90,6 @@ rsync -a --delete --exclude '.DS_Store' "$RO/" "$ES/"
 - Loop multi-device en pestaña Guía
 - Obsidian: `00-sistema/DATA-HEALTH.md` · `00-sistema/PIPELINE-QA.md`
 - Sessions: `Viento Norte/Sessions/2026-08-02.md`
+- HUMAN-TASKS: [HUMAN-TASKS.md](./HUMAN-TASKS.md)
 
-— GMac · 2026-08-02 01:30 -0400 · rsync 180 md · empty diff
+— GMac · 2026-08-02 · rsync 181 md · smoke #135 · PR #136 merged

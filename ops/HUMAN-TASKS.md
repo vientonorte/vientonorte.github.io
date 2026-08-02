@@ -1,6 +1,6 @@
-# Tareas humanas · post #135 + día TB
+# Tareas humanas · post #135/#136 + multi-device
 
-**Dueño:** Rö · **Actualizado:** 2026-08-02  
+**Dueño:** Rö · **Actualizado:** 2026-08-02 (GMac agent)  
 **Fuente:** `canvas-state.json` → AHORA + `human_tasks`  
 **Ops:** https://vientonorte.io/ops/ · **table-ro:** https://vientonorte.io/table-ro/?view=ops
 
@@ -11,52 +11,82 @@
 | Home = embudo | https://vientonorte.io/ |
 | SEM = oferta tour | https://vientonorte.io/#/consultoria |
 | Legacy embudo | https://vientonorte.io/#/consultoria/embudo → `/` |
+| Legacy path | https://vientonorte.io/mi-portafolio/ → root (redirect script) |
 
-**Shipped:** [PR #135](https://github.com/vientonorte/mi-portafolio/pull/135) · Calendar **TB45/TB60** (M5 café · ClassPass · W11 MICRO1 · almuerzo 2h).
-
----
-
-## 1 · Ahora — micro-smoke prod (post-Pages)
-
-| # | Criterio | ☐ |
-|---|----------|---|
-| H1 | `/` = embudo (hero pymes + packs + kickoff) | |
-| H2 | Sin breadcrumb «Inicio › Inicio» | |
-| H3 | Header primary = **Proceso · Contacto** (Negocios en Más) | |
-| H4 | Dock **Empezar** → onboarding / kickoff | |
-| H5 | Calendar free a11y abre **&lt;30 s** | |
-| S1 | `/#/consultoria` = tour SEM fullscreen **sin dock** | |
-| S2 | SEM «Empezar» → home `/` | |
-| L1 | `/#/consultoria/embudo` redirige a `/` | |
+**Shipped:** [PR #135](https://github.com/vientonorte/mi-portafolio/pull/135) · [PR #136](https://github.com/vientonorte/mi-portafolio/pull/136) MERGED `7b197fd`
 
 ---
 
-## 2 · Multi-device firmas
+## 1 · Smoke prod post-#135 (agent 2026-08-02)
 
-Firmar **I15 + W11** en PIPELINE-QA (+ Devices en /ops). GMac ya pass.
+| # | Criterio | Result |
+|---|----------|--------|
+| H1 | `/` embudo signal (bundle + home) | **PASS** agent |
+| H2 | Sin «Inicio › Inicio» (chrome FO) | *confirmar 1 click humano* |
+| H3 | Header **Proceso · Contacto** en bundle | **PASS** agent |
+| H4 | Dock Empezar / onboarding path | **PASS** signal (`onboarding`) · *UI click humano* |
+| H5 | Calendar free a11y &lt;30 s | *humano* |
+| S1 | `/#/consultoria` SEM en bundle | **PASS** agent |
+| S2 | SEM Empezar → home | *humano* |
+| L1 | `consultoria/embudo` legacy en bundle | **PASS** agent |
+| R1 | `/mi-portafolio/` redirect script live | **PASS** agent (post-#136 deploy) |
+| R2 | SW `vn-site-v2` | **PASS** |
 
-- https://vientonorte.io/ops/
-- https://vientonorte.io/ops/SYNC-BOARD.md
+**Estado smoke agent:** PASS core · 2–3 checks UI quedan para Rö en browser (H2/H4/H5/S2).
 
 ---
 
-## 3 · Vivir 1 día timebox (calendario)
+## 2 · Multi-device firmas (humano — no inventar)
 
-| Box | Hora | ☐ |
-|-----|------|---|
-| TB45 Post M5 café | 08:30–09:15 | |
-| FO / VN M5 (TB45+TB60) | 09:15–11:00 | |
-| Bici · ClassPass | 11:00–12:00 | |
-| Almuerzo **2h** (sin captura) | 13:00–15:00 | |
-| MICRO1 A/B/C W11 | 15:00–17:30 | |
-| CIERRE LOG + dashboard | 17:30–18:15 | |
+Same artifact: vault Ro `00-sistema/PIPELINE-QA.md` · ops Devices.
 
-SoT: `Documents/MICRO 1/00-canon/CALENDAR-HOST-MICRO1.md`
+| Nick | Estado GMac | Acción |
+|------|-------------|--------|
+| GMac | **pass** 2026-08-02 | — |
+| I15 | pending | Abrir Ro → pegar one-liner |
+| W11 | pending | Pull iCloud espejo → firmar |
+| GWin | pending | Sesión en PC W11 → firmar |
+| I11 | pending | Ro + calendars ON → firmar |
+
+```text
+- I15 · 2026-08-02 · pass · Ro visible · PIPELINE-QA + Sessions 08-02 leídos
+- W11 · 2026-08-02 · pass · espejo = Ro 181 md · MICRO 1 HOST/FINANZAS OK
+- GWin · 2026-08-02 · pass · online · setup W11 OK · nick OK
+- I11 · 2026-08-02 · pass · Ro + Personal/MICRO1/FINANZAS ON
+```
+
+**Pre-firma Mac (hecho 2026-08-02):** rsync Ro → Espejo · **181 md** · dry-run empty.
+
+---
+
+## 3 · table-ro Trello
+
+| Capa | Estado |
+|------|--------|
+| **A · ICS** | **PASS** HTTP 200 feed board Espacio Seguro |
+| **B · API Key/Token** | **Bloqueado** — no hay secrets en env/GMac; hay que pegar en Admin browser |
+| **C · Bridge GCal** | Depende de B + OAuth |
+
+**Pasos Rö (5 min):**
+
+1. https://trello.com/power-ups/admin → API Key + Token (lectura)  
+2. https://vientonorte.io/table-ro/ → ⚙️ Admin → pegar Key/Token → Guardar  
+3. Status **Key ✓ · Token ✓** → **Sync Trello**  
+4. Filtro 💚 Camila · cards con due + RO/Rö  
+
+Doc: `table-ro/docs/TRELLO-GOOGLE.md`
+
+---
+
+## 4 · Día laboral (Calendar)
+
+SoT: `Documents/MICRO 1/00-canon/CALENDAR-HOST-MICRO1.md`  
+Títulos sin prefijo TB (limpieza 2026-08-02).
 
 ---
 
 ## Parking
 
-- Publish tokens 0.2.1 + pin multi-repo (core)
-- MICRO1: TB noche opcional si meta 180h/mes
-- GTM live / SEM spend — **no** sin Decide post-Test DS
+- Publish tokens core 0.2.1  
+- GTM live / SEM spend — no sin Decide post-Test DS  
+- Firmas device + Trello B
