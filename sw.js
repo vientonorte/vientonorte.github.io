@@ -1,8 +1,8 @@
 // Service Worker — Viento Norte (canon domain root)
 // Hashed assets: network-only. Never mix deploy generations.
 
-const CACHE_NAME = "vn-site-v1";
-const RUNTIME_CACHE = "vn-runtime-v1";
+const CACHE_NAME = "vn-site-v2";
+const RUNTIME_CACHE = "vn-runtime-v2";
 
 const PRECACHE_URLS = ["/manifest.json"];
 
@@ -48,6 +48,18 @@ self.addEventListener("activate", (event) => {
       .keys()
       .then((names) =>
         Promise.all(names.filter((n) => !keep.has(n)).map((n) => caches.delete(n)))
+      )
+      .then(() =>
+        // Drop any legacy /mi-portafolio shells stuck in runtime cache
+        caches.open(RUNTIME_CACHE).then((cache) =>
+          cache.keys().then((keys) =>
+            Promise.all(
+              keys
+                .filter((req) => /\/mi-portafolio(\/|$)/.test(new URL(req.url).pathname))
+                .map((req) => cache.delete(req))
+            )
+          )
+        )
       )
       .then(() => self.clients.claim())
   );
