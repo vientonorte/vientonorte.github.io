@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VN · Finanzas · Intención vs Realidad</title>
+<meta name="description" content="Dashboard financiero Viento Norte / Micro1 · meta 1.6M CLP · host en /ops/finanzas/" />
+<style>
+  :root {
+    --bg: #0b0f14; --panel: #121a22; --border: #1e2a36; --text: #e7eef5; --muted: #8aa0b5;
+    --green: #3dd68c; --yellow: #f5c542; --red: #ff6b6b; --accent: #5b9fd4; --purple: #a78bfa;
+    --intent: #5b9fd4; --real: #3dd68c;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.45; }
+  header { padding: 1.1rem 1.4rem; border-bottom: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; gap: .75rem; justify-content: space-between; align-items: baseline; }
+  header h1 { margin: 0; font-size: 1.1rem; font-weight: 650; }
+  .sub { color: var(--muted); font-size: .82rem; }
+  main { padding: 1.1rem 1.4rem 3rem; max-width: 1180px; margin: 0 auto; }
+  .grid { display: grid; gap: .85rem; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 1rem; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: .9rem 1rem; }
+  .label { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; }
+  .value { font-size: 1.35rem; font-weight: 700; margin-top: .2rem; font-variant-numeric: tabular-nums; }
+  .hint { color: var(--muted); font-size: .78rem; margin-top: .15rem; }
+  .ok { color: var(--green); } .warn { color: var(--yellow); } .bad { color: var(--red); }
+  h2 { font-size: .88rem; margin: 1.35rem 0 .65rem; color: var(--muted); font-weight: 600;
+    text-transform: uppercase; letter-spacing: .05em; }
+  label { display: block; font-size: .78rem; color: var(--muted); margin-bottom: .2rem; }
+  input, textarea, button {
+    font: inherit; border-radius: 8px; border: 1px solid var(--border); background: #0e151c; color: var(--text);
+    padding: .45rem .6rem; width: 100%;
+  }
+  textarea { min-height: 110px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .78rem; }
+  button { cursor: pointer; background: #1a3044; border-color: #2a4a66; width: auto; padding: .45rem .85rem; }
+  button.primary { background: #1e4d7a; border-color: var(--accent); }
+  button.danger { background: #3a1a1a; border-color: #6a3030; }
+  .row { display: flex; flex-wrap: wrap; gap: .65rem; align-items: end; margin-bottom: .65rem; }
+  .row > * { flex: 1 1 110px; }
+  .bar-wrap { height: 12px; background: #0e151c; border-radius: 99px; overflow: hidden; margin-top: .35rem; position: relative; }
+  .bar { height: 100%; border-radius: 99px; max-width: 100%; }
+  .bar.intent { background: var(--intent); opacity: .45; position: absolute; left: 0; top: 0; }
+  .bar.real { background: linear-gradient(90deg, var(--real), #2a9d6a); position: relative; }
+  .legend { display: flex; gap: 1rem; font-size: .75rem; color: var(--muted); margin-top: .4rem; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: .3rem; }
+  .legend .i { background: var(--intent); opacity: .7; }
+  .legend .r { background: var(--real); }
+  table { width: 100%; border-collapse: collapse; font-size: .8rem; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: .4rem .4rem; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; font-size: .7rem; }
+  .pill { display: inline-block; padding: .12rem .4rem; border-radius: 99px; font-size: .7rem; border: 1px solid var(--border); }
+  .pill.ok { border-color: #2a6a4a; color: var(--green); }
+  .pill.warn { border-color: #6a5a20; color: var(--yellow); }
+  .pill.bad { border-color: #6a3030; color: var(--red); }
+  .two { display: grid; gap: .85rem; grid-template-columns: 1fr 1fr; }
+  @media (max-width: 860px) { .two { grid-template-columns: 1fr; } }
+  .help { font-size: .78rem; color: var(--muted); margin: .4rem 0 .8rem; }
+  code { background: #0e151c; padding: .08rem .3rem; border-radius: 4px; font-size: .85em; }
+  footer { margin-top: 1.75rem; color: var(--muted); font-size: .72rem; }
+  .delta-pos { color: var(--green); } .delta-neg { color: var(--red); }
+  .ivr-head { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>VN · Finanzas · Intención vs Realidad</h1>
+    <div class="sub">Micro1 Trainer · $1.54/tarea · 5.6 t/h · meta mes <strong>1.6M CLP</strong> (~$1,552 Trainer) · max 3 claims</div>
+    <div class="sub" style="margin-top:.35rem">
+      <a href="../" style="color:var(--accent)">← Ops tablero</a>
+      · <a href="../SYNC-BOARD.md" style="color:var(--accent)">Devices</a>
+      · <a href="../packages-status.md" style="color:var(--accent)">Packages / core</a>
+      · live: <code>/ops/finanzas/</code>
+    </div>
+  </div>
+  <div class="sub" id="clock"></div>
+</header>
+<main>
+  <div class="grid" id="kpis"></div>
+
+  <h2>Intención vs realidad (mes en curso)</h2>
+  <div class="card" id="ivr"></div>
+
+  <h2>Progreso dual (barras)</h2>
+  <div class="card" id="bars"></div>
+
+  <div class="two" style="margin-top:1rem">
+    <div class="card">
+      <h2 style="margin-top:0">Realidad · agregar día</h2>
+      <p class="help">Hubstaff real + submits OK. La <strong>intención</strong> del día se calcula sola (Calendar WAVE).</p>
+      <div class="row">
+        <div><label>Fecha</label><input type="date" id="d_date" /></div>
+        <div><label>Hubstaff h (realidad)</label><input type="number" id="d_h" step="0.01" min="0" placeholder="6" /></div>
+        <div><label>Tasks OK</label><input type="number" id="d_tasks" step="1" min="0" placeholder="34" /></div>
+      </div>
+      <div class="row">
+        <div><label>Claims open</label><input type="number" id="d_claims" min="0" max="3" value="0" /></div>
+        <div><label>Olas de 3</label><input type="number" id="d_olas" min="0" value="0" /></div>
+        <div><label>Juego</label><input type="text" id="d_game" placeholder="Dishonored 2" /></div>
+      </div>
+      <div class="row">
+        <div><label>Nota</label><input type="text" id="d_note" placeholder="WAVE PM" /></div>
+        <div style="display:flex;gap:.4rem;flex-wrap:wrap;align-items:end">
+          <button class="primary" type="button" id="btn_add">Guardar realidad</button>
+          <button type="button" id="btn_seed">Cargar seed ago</button>
+          <button type="button" id="btn_export">Export JSON</button>
+          <button type="button" id="btn_import">Import</button>
+          <input type="file" id="file_import" accept=".json,application/json" hidden />
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h2 style="margin-top:0">Pegar footer DAY (LOG.md)</h2>
+      <textarea id="paste_day" placeholder="### DAY 2026-08-02
+hubstaff_h: 6.0
+tasks_ok: 34
+..."></textarea>
+      <div style="margin-top:.45rem;display:flex;gap:.4rem">
+        <button class="primary" type="button" id="btn_parse">Parsear → realidad</button>
+        <button type="button" id="btn_clear_paste">Limpiar</button>
+      </div>
+    </div>
+  </div>
+
+  <h2>Día a día · intención vs realidad</h2>
+  <div class="card" style="overflow-x:auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Intent h</th><th>Real h</th><th>Δ h</th>
+          <th>Intent tasks</th><th>Real tasks</th><th>Δ tasks</th>
+          <th>Real $</th><th>t/h</th><th>Pace</th><th>Nota</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div style="margin-top:.65rem">
+      <button class="danger" type="button" id="btn_wipe">Borrar realidad (localStorage)</button>
+    </div>
+  </div>
+
+  <h2>Checklist ola (anti-cuello 5.6)</h2>
+  <div class="card">
+    <ol style="margin:0;padding-left:1.15rem;color:var(--muted);font-size:.88rem">
+      <li>CAPTURE MODE + Hubstaff (workspace Trainer)</li>
+      <li>Claim pool 2–3 (max 3) · mismo juego READY</li>
+      <li>F7 → 10 min + mic → F7 ×3</li>
+      <li><code>m1-tick.ps1</code> → UPLOAD_LATEST → Submit 6 files</li>
+      <li>LOG línea + footer DAY → pegar aquí</li>
+    </ol>
+  </div>
+
+  <footer>
+    <strong>Hosted:</strong> <a href="./" style="color:var(--accent)">vientonorte.io/ops/finanzas/</a>
+    · espejo local: <code>Documents/MICRO 1/07-pagos/dashboard/</code><br />
+    Intención captura = HOST MICRO 1 (TB day) · meta mes 1.6M CLP · Trainer ~$1,552 · @ 5.6 t/h.<br />
+    Realidad = localStorage del browser / seed / footer LOG. Export → <code>ledger.json</code> (backup en esta carpeta + iCloud MICRO 1).<br />
+    Calendar: <strong>FINANZAS</strong> (TB15 ledger) + HOST MICRO1 · SSOT: <code>Documents/MICRO 1/</code>
+  </footer>
+</main>
+<script>
+(function () {
+  const META = {
+    rate: 1.54,
+    tph: 5.6,
+    hMonth: 180,
+    tasksMonth: 1008,
+    usdMonth: 1552.32,
+    fx: 947,
+    goalClp: 1600000,
+    maxClaims: 3,
+  };
+  const KEY = "micro1_ivr_ledger_v2";
+
+  // Intention: Mon-Fri 7h (4+3 WAVE), Sat 5, Sun 2.5
+  function intentHoursForDate(iso) {
+    // MICRO1 captura only (HOST): L-J 13:00-17:00 = 4h; V 11:30-13:00 = 1.5h; weekend 0
+    const d = new Date(iso + "T12:00:00");
+    const wd = d.getDay(); // 0 Sun
+    if (wd === 0 || wd === 6) return 0;
+    if (wd === 5) return 1.5; // Friday capture block
+    return 4; // Mon-Thu capture block
+  }
+  function intentTasks(h) { return h * META.tph; }
+  function intentUsd(h) { return intentTasks(h) * META.rate; }
+
+  function monthIso(d = new Date()) {
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0");
+  }
+  function daysInMonth(y, m) { // m 1-12
+    return new Date(y, m, 0).getDate();
+  }
+  function intentionMonth(ym) {
+    const [y, m] = ym.split("-").map(Number);
+    const dim = daysInMonth(y, m);
+    const out = [];
+    for (let day = 1; day <= dim; day++) {
+      const iso = ym + "-" + String(day).padStart(2, "0");
+      const h = intentHoursForDate(iso);
+      out.push({ date: iso, intent_h: h, intent_tasks: intentTasks(h), intent_usd: intentUsd(h) });
+    }
+    return out;
+  }
+
+  const $ = (id) => document.getElementById(id);
+  const fmt = (n, d = 2) => (Number.isFinite(+n) ? (+n).toFixed(d) : "—");
+  const money = (n) => "$" + fmt(n, 2);
+  const clp = (usd) => "$" + Math.round(usd * META.fx).toLocaleString("es-CL") + " CLP";
+
+  // Built-in seed (matches ledger.json)
+  const SEED = {
+    days: [
+      { date: "2026-08-01", hubstaff_h: 0, tasks_ok: 0, claims_open_eod: 0, olas_de_3: 0, game: "—",
+        note: "dry-run F7 ~7s x2 · NO submit · docs SSOT · Remnant instalando", source: "LOG seed" },
+      { date: "2026-08-02", hubstaff_h: 0.5, tasks_ok: 0, claims_open_eod: 1, olas_de_3: 0, game: "—",
+        note: "cierre+matriz+dashboard M5 · 1 claim Realm · 0 submit $ · ~30min docs", source: "Sessions seed" },
+    ],
+  };
+
+  function load() {
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (!raw) return { days: JSON.parse(JSON.stringify(SEED.days)) };
+      const j = JSON.parse(raw);
+      return { days: Array.isArray(j.days) ? j.days : [] };
+    } catch {
+      return { days: [] };
+    }
+  }
+  function save(state) {
+    localStorage.setItem(KEY, JSON.stringify({
+      meta: META,
+      days: state.days,
+      saved_at: new Date().toISOString(),
+    }));
+  }
+
+  function pacePill(tph) {
+    if (!Number.isFinite(tph) || tph <= 0) return '<span class="pill">—</span>';
+    if (tph >= META.tph) return '<span class="pill ok">OK</span>';
+    if (tph >= 4) return '<span class="pill warn">BAJO</span>';
+    return '<span class="pill bad">CRÍTICO</span>';
+  }
+  function deltaClass(v) {
+    if (!Number.isFinite(v) || Math.abs(v) < 0.01) return "";
+    return v >= 0 ? "delta-pos" : "delta-neg";
+  }
+  function deltaStr(v, d = 1) {
+    if (!Number.isFinite(v)) return "—";
+    const s = (v > 0 ? "+" : "") + fmt(v, d);
+    return s;
+  }
+
+  function render() {
+    $("clock").textContent = new Date().toLocaleString();
+    const state = load();
+    const ym = monthIso();
+    const intentAll = intentionMonth(ym);
+    const intentTotalH = intentAll.reduce((s, x) => s + x.intent_h, 0);
+    const intentTotalTasks = intentAll.reduce((s, x) => s + x.intent_tasks, 0);
+    const intentTotalUsd = intentTotalTasks * META.rate;
+
+    const today = new Date().toISOString().slice(0, 10);
+    const intentToDate = intentAll.filter((x) => x.date <= today);
+    const intentH_td = intentToDate.reduce((s, x) => s + x.intent_h, 0);
+    const intentT_td = intentToDate.reduce((s, x) => s + x.intent_tasks, 0);
+    const intentUsd_td = intentT_td * META.rate;
+
+    const realMonth = state.days.filter((d) => d.date.startsWith(ym));
+    const realH = realMonth.reduce((s, d) => s + (+d.hubstaff_h || 0), 0);
+    const realT = realMonth.reduce((s, d) => s + (+d.tasks_ok || 0), 0);
+    const realUsd = realT * META.rate;
+    const realTph = realH > 0 ? realT / realH : 0;
+
+    const dH = realH - intentH_td;
+    const dT = realT - intentT_td;
+    const dUsd = realUsd - intentUsd_td;
+    const fillH = intentH_td > 0 ? Math.min(100, (realH / intentH_td) * 100) : 0;
+    const fillT = intentT_td > 0 ? Math.min(100, (realT / intentT_td) * 100) : 0;
+
+    const hrsLeftPlan = Math.max(0, META.hMonth - realH);
+    const tasksLeft = Math.max(0, META.tasksMonth - realT);
+    const reqTph = hrsLeftPlan > 0 ? tasksLeft / hrsLeftPlan : 0;
+
+    $("kpis").innerHTML = `
+      <div class="card"><div class="label">USD realidad MTD</div><div class="value">${money(realUsd)}</div>
+        <div class="hint">intención a hoy ${money(intentUsd_td)} · Δ <span class="${deltaClass(dUsd)}">${deltaStr(dUsd,2)}</span></div></div>
+      <div class="card"><div class="label">CLP realidad</div><div class="value" style="font-size:1.05rem">${clp(realUsd)}</div>
+        <div class="hint">${fmt((realUsd*META.fx)/META.goalClp*100,1)}% de meta 1.6M total</div></div>
+      <div class="card"><div class="label">Tasks realidad</div><div class="value">${realT}</div>
+        <div class="hint">intención a hoy ${fmt(intentT_td,0)} · Δ <span class="${deltaClass(dT)}">${deltaStr(dT,0)}</span></div></div>
+      <div class="card"><div class="label">Horas realidad</div><div class="value">${fmt(realH)}</div>
+        <div class="hint">intención a hoy ${fmt(intentH_td,1)} · Δ <span class="${deltaClass(dH)}">${deltaStr(dH,1)}</span></div></div>
+      <div class="card"><div class="label">t/h realidad</div><div class="value ${realTph>=META.tph?"ok":realTph>=4?"warn":realH? "bad":""}">${fmt(realTph)}</div>
+        <div class="hint">baseline ${META.tph} · req resto ${fmt(reqTph)}</div></div>
+      <div class="card"><div class="label">Intención mes completo</div><div class="value" style="font-size:1.05rem">${fmt(intentTotalH,0)}h</div>
+        <div class="hint">${fmt(intentTotalTasks,0)} tasks · ${money(intentTotalUsd)} (Calendar WAVE)</div></div>
+    `;
+
+    $("ivr").innerHTML = `
+      <div class="ivr-head">
+        <div><strong>Mes ${ym}</strong> · hoy ${today}</div>
+        <div class="legend"><span><i class="i"></i>Intención (plan)</span><span><i class="r"></i>Realidad (LOG/Hubstaff)</span></div>
+      </div>
+      <p class="help" style="margin-top:.6rem">
+        Intención = HOST MICRO 1 laboral (L–J 8.5h 08:30–17:00 · V 4.5h 08:30–13:00 · fin de semana 0) × 5.6 t/h.<br />
+        Realidad = lo que cargaste / seed. <strong>Gap</strong> = realidad − intención a la fecha (negativo = atrasado).
+      </p>
+      <div class="grid" style="margin:0">
+        <div><div class="label">Gap horas</div><div class="value ${deltaClass(dH)}">${deltaStr(dH,1)} h</div></div>
+        <div><div class="label">Gap tasks</div><div class="value ${deltaClass(dT)}">${deltaStr(dT,0)}</div></div>
+        <div><div class="label">Gap USD</div><div class="value ${deltaClass(dUsd)}">${deltaStr(dUsd,2)}</div></div>
+        <div><div class="label">Cumplimiento intención (h)</div><div class="value">${fmt(fillH,0)}%</div></div>
+      </div>
+    `;
+
+    const pctIntentH = Math.min(100, (intentH_td / Math.max(intentTotalH,1)) * 100);
+    const pctRealH = Math.min(100, (realH / Math.max(intentTotalH,1)) * 100);
+    const pctIntentT = Math.min(100, (intentT_td / META.tasksMonth) * 100);
+    const pctRealT = Math.min(100, (realT / META.tasksMonth) * 100);
+
+    $("bars").innerHTML = `
+      <div class="label">Horas (escala = intención mes ${fmt(intentTotalH,0)} h)</div>
+      <div class="bar-wrap" style="height:14px">
+        <div class="bar intent" style="width:${pctIntentH}%"></div>
+        <div class="bar real" style="width:${pctRealH}%"></div>
+      </div>
+      <div class="hint">Intención a hoy ${fmt(intentH_td,1)}h · Realidad ${fmt(realH,1)}h · Meta plan mes ${fmt(intentTotalH,0)}h (cap soft 180)</div>
+      <div class="label" style="margin-top:.85rem">Tareas (escala = meta 1008)</div>
+      <div class="bar-wrap" style="height:14px">
+        <div class="bar intent" style="width:${pctIntentT}%"></div>
+        <div class="bar real" style="width:${pctRealT}%;background:linear-gradient(90deg,#3dd68c,#5b9fd4)"></div>
+      </div>
+      <div class="hint">Intención a hoy ${fmt(intentT_td,0)} · Realidad ${realT} · Meta ${META.tasksMonth}</div>
+      <div class="legend"><span><i class="i"></i>Intención acumulada</span><span><i class="r"></i>Realidad acumulada</span></div>
+    `;
+
+    // day table: show from month start to today + future intention rows without reality
+    const realMap = Object.fromEntries(state.days.map((d) => [d.date, d]));
+    const rows = intentAll.filter((x) => x.date <= today || realMap[x.date]);
+    // also include reality days outside? already filtered by month via intentAll
+    const extra = state.days.filter((d) => d.date.startsWith(ym) && !intentAll.find((i) => i.date === d.date));
+    const allDates = [...new Set([...rows.map((r) => r.date), ...extra.map((e) => e.date)])].sort().reverse();
+
+    const tb = $("tbody");
+    tb.innerHTML = "";
+    allDates.forEach((date) => {
+      const iH = intentHoursForDate(date);
+      const iT = intentTasks(iH);
+      const r = realMap[date];
+      const rH = r ? +r.hubstaff_h || 0 : null;
+      const rT = r ? +r.tasks_ok || 0 : null;
+      const tph = rH > 0 ? rT / rH : null;
+      const dhh = rH == null ? null : rH - iH;
+      const dtt = rT == null ? null : rT - iT;
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${date}</td>
+        <td>${fmt(iH,1)}</td>
+        <td>${rH == null ? "—" : fmt(rH,1)}</td>
+        <td class="${deltaClass(dhh)}">${dhh == null ? "—" : deltaStr(dhh,1)}</td>
+        <td>${fmt(iT,0)}</td>
+        <td>${rT == null ? "—" : rT}</td>
+        <td class="${deltaClass(dtt)}">${dtt == null ? "—" : deltaStr(dtt,0)}</td>
+        <td>${rT == null ? "—" : money(rT * META.rate)}</td>
+        <td>${tph == null ? "—" : fmt(tph)}</td>
+        <td>${tph == null ? "—" : pacePill(tph)}</td>
+        <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${(r && r.note) || ""}">${(r && r.note) || "—"}</td>
+        <td>${r ? `<button type="button" data-del="${date}">×</button>` : ""}</td>`;
+      tb.appendChild(tr);
+    });
+    tb.querySelectorAll("[data-del]").forEach((btn) => {
+      btn.onclick = () => {
+        const st = load();
+        st.days = st.days.filter((x) => x.date !== btn.getAttribute("data-del"));
+        save(st);
+        render();
+      };
+    });
+  }
+
+  function upsertDay(day) {
+    const st = load();
+    const i = st.days.findIndex((x) => x.date === day.date);
+    if (i >= 0) st.days[i] = { ...st.days[i], ...day };
+    else st.days.push(day);
+    save(st);
+  }
+
+  $("d_date").value = new Date().toISOString().slice(0, 10);
+
+  // first visit: seed if empty key never set
+  if (!localStorage.getItem(KEY)) {
+    save({ days: SEED.days });
+  }
+
+  $("btn_add").onclick = () => {
+    const date = $("d_date").value;
+    const hubstaff_h = Number($("d_h").value);
+    const tasks_ok = Number($("d_tasks").value);
+    if (!date || !Number.isFinite(hubstaff_h) || !Number.isFinite(tasks_ok)) {
+      alert("Fecha, horas y tasks requeridos");
+      return;
+    }
+    upsertDay({
+      date, hubstaff_h, tasks_ok,
+      claims_open_eod: Number($("d_claims").value) || 0,
+      olas_de_3: Number($("d_olas").value) || 0,
+      game: $("d_game").value || "",
+      note: $("d_note").value || "",
+      source: "manual",
+    });
+    render();
+  };
+
+  $("btn_seed").onclick = () => {
+    if (confirm("¿Recargar seed intención/realidad ago (sobrescribe días 01–02 seed)?")) {
+      const st = load();
+      const keep = st.days.filter((d) => d.date !== "2026-08-01" && d.date !== "2026-08-02");
+      save({ days: [...SEED.days, ...keep] });
+      render();
+    }
+  };
+
+  $("btn_parse").onclick = () => {
+    const text = $("paste_day").value || "";
+    const blocks = text.split(/###\s*DAY\s+/i).filter(Boolean);
+    let n = 0;
+    for (const b of blocks) {
+      const lines = b.trim().split(/\r?\n/);
+      const date = (lines[0] || "").trim().slice(0, 10);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) continue;
+      const get = (key) => {
+        const m = b.match(new RegExp("^\\s*" + key + "\\s*:\\s*(.+)$", "im"));
+        return m ? m[1].trim() : "";
+      };
+      const hubstaff_h = parseFloat(get("hubstaff_h"));
+      const tasks_ok = parseInt(get("tasks_ok"), 10);
+      if (!Number.isFinite(hubstaff_h) || !Number.isFinite(tasks_ok)) continue;
+      upsertDay({
+        date, hubstaff_h, tasks_ok,
+        claims_open_eod: parseInt(get("claims_open_eod"), 10) || 0,
+        olas_de_3: parseInt(get("olas_de_3"), 10) || 0,
+        note: "from LOG footer",
+        source: "LOG",
+      });
+      n++;
+    }
+    alert(n ? `Realidad: ${n} día(s)` : "No se encontró ### DAY válido");
+    render();
+  };
+
+  $("btn_clear_paste").onclick = () => { $("paste_day").value = ""; };
+
+  $("btn_export").onclick = () => {
+    const st = load();
+    const ym = monthIso();
+    const intention = intentionMonth(ym);
+    const blob = new Blob([JSON.stringify({
+      meta: { ...META, intention_month: ym, exported_at: new Date().toISOString() },
+      intention,
+      days: st.days,
+    }, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "ledger-micro1-intencion-realidad.json";
+    a.click();
+  };
+
+  $("btn_import").onclick = () => $("file_import").click();
+  $("file_import").onchange = (e) => {
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const j = JSON.parse(reader.result);
+        save({ days: Array.isArray(j.days) ? j.days : [] });
+        render();
+        alert("Import OK");
+      } catch { alert("JSON inválido"); }
+    };
+    reader.readAsText(f);
+  };
+
+  $("btn_wipe").onclick = () => {
+    if (confirm("¿Borrar toda la realidad local?")) {
+      save({ days: [] });
+      render();
+    }
+  };
+
+  render();
+})();
+</script>
+</body>
+</html>

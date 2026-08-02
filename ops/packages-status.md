@@ -2,6 +2,8 @@
 
 **Tab:** https://github.com/vientonorte?tab=packages  
 **Doc monorepo:** https://github.com/vientonorte/vientonorte-core/blob/main/docs/PACKAGES-CORE.md  
+**Siguiente sprint:** [SPRINT-CORE-ONBOARDING.md](./SPRINT-CORE-ONBOARDING.md) · *usar core bien* → luego onboarding + env pub/priv  
+**Finanzas $:** [finanzas/](./finanzas/) (ops, no embudo)
 
 Este registry es el **core compartido** entre todos los repos (design system + security + a11y + cli).
 

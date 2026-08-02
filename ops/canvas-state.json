@@ -191,6 +191,43 @@
       "owner": "Rö",
       "items": [
         {
+          "id": "plan-sprint-onboarding-envs",
+          "title": "Sprint · Onboarding + ambientes públicos/privados VN",
+          "repo": "vientonorte-fo",
+          "repo_git": "mi-portafolio",
+          "product": "vientonorte.io + ops",
+          "status": "backlog",
+          "priority": "P0",
+          "atomic_level": "page",
+          "people_job": "Lead/pyme entra sin fricción; claro qué es público vs privado (ops/lab)",
+          "data_loss_risk": "form_draft_must_persist_or_confirm",
+          "notes": "Después de core-well. DoD O1–O5. Finanzas se queda en /ops/finanzas (no embudo).",
+          "links": [
+            "https://vientonorte.io/ops/SPRINT-CORE-ONBOARDING.md",
+            "https://vientonorte.io/#/consultoria",
+            "https://vientonorte.io/ops/finanzas/"
+          ],
+          "depends_on": "plan-sprint-core-well"
+        },
+        {
+          "id": "plan-sprint-core-well",
+          "title": "Sprint · Usar vientonorte-core bien (pins, publish, FO sin CSS paralelo)",
+          "repo": "vientonorte-core",
+          "product": "packages + FO",
+          "status": "next",
+          "priority": "P0",
+          "atomic_level": "template",
+          "people_job": "Misma marca y DS versionado multi-repo; no copiar tokens a mano",
+          "data_loss_risk": "none",
+          "notes": "SIGUIENTE sprint VN. DoD C1–C6 en ops/SPRINT-CORE-ONBOARDING.md.",
+          "links": [
+            "https://vientonorte.io/ops/SPRINT-CORE-ONBOARDING.md",
+            "https://vientonorte.io/ops/packages-status.md",
+            "https://github.com/vientonorte/vientonorte-core/blob/main/docs/PACKAGES-CORE.md",
+            "https://github.com/vientonorte?tab=packages"
+          ]
+        },
+        {
           "id": "plan-micro1-timebox-volume",
           "title": "MICRO1: decidir si TB noche opcional para acercar 180h/mes",
           "repo": "MICRO1",
@@ -207,9 +244,9 @@
           "id": "plan-brand-core-021",
           "title": "Branding VN: publish tokens 0.2.1 + pin multi-repo",
           "repo": "vientonorte-core",
-          "status": "in_progress",
+          "status": "next",
           "people_job": "Misma marca VN multi-repo (no bloquea smoke FO humano)",
-          "notes": "Sacado de AHORA para dejar solo humanos post-#135"
+          "notes": "Sacado de AHORA para dejar solo humanos post-#135 · parte de plan-sprint-core-well"
         },
         {
           "id": "plan-ds-0803-surfaces",
@@ -230,11 +267,11 @@
           "id": "plan-publish-core",
           "title": "Fix publish @vientonorte/* (PAT write:packages) + consumir DS en FO web",
           "repo": "vientonorte-core",
-          "status": "backlog",
+          "status": "next",
           "atomic_level": "template",
           "people_job": "Design system versionado sin copiar tokens a mano",
           "data_loss_risk": "none",
-          "notes": "Figma DS = marca. Consumir en vientonorte.io solo post-verde.",
+          "notes": "Figma DS = marca. Consumir en vientonorte.io solo post-verde. · parte de plan-sprint-core-well",
           "links": [
             "https://dot-wool-76997229.figma.site",
             "https://github.com/vientonorte/vientonorte-core/blob/main/docs/publish-packages.md"
@@ -504,7 +541,9 @@
       "MICRO 1/00-canon/CALENDAR-HOST-MICRO1.md",
       "MICRO 1/00-canon/CALENDAR-FINANZAS.md",
       "MICRO 1/LOG.md",
-      "ops Devices bedad82+"
+      "ops Devices bedad82+",
+      "ops/finanzas/",
+      "ops/SPRINT-CORE-ONBOARDING.md"
     ]
   },
   "github": {
@@ -557,7 +596,7 @@
       "cierre-sesion-vn"
     ]
   },
-  "objective": "DS-08-03 Map café M5 · MICRO1 TB W11 post-almuerzo · smoke prod #135 si falta · multi-device firmas · no GA",
+  "objective": "Finanzas en ops · siguiente sprint core bien · luego onboarding + env pub/priv · smoke #135 humano si falta",
   "design_system": {
     "figma_sites": "https://dot-wool-76997229.figma.site",
     "code_repo": "vientonorte/vientonorte-core",
@@ -669,12 +708,36 @@
     "title": "Roadmap · Automaciones M5 / Google / Packages · FO empresa",
     "source_pdf": "ops/VN-Automaciones-M5-Google-2026-07-26.pdf",
     "updated": "2026-08-02",
-    "objective": "PDF Automaciones M5 casi cerrado · FO path oferta en .io root · residual: terraza · generate_lead wire · tokens 0.2.1",
-    "progress_note": "2026-08-02: Calendar timeboxes TB45/TB60 live (Personal+HOST MICRO1). M5 café VN+Post · ClassPass · almuerzo 2h · W11 MICRO1 A/B/C. DS-08-03 FO en TB café. #135 smoke prod + firmas I15/W11 siguen humano. no GA.",
+    "objective": "Ops multi-device + finanzas en tablero · siguiente: vientonorte-core bien · luego onboarding y ambientes públicos/privados",
+    "progress_note": "Finanzas $ en /ops/finanzas · siguiente sprint = core bien · después onboarding + ambientes pub/priv · #135 smoke humano sigue",
     "priorities": {
       "P0": {
         "title": "Desbloqueantes",
         "items": [
+          {
+            "id": "p0-onboarding-envs",
+            "title": "Onboarding + ambientes públicos/privados VN",
+            "status": "backlog",
+            "links": [
+              "https://vientonorte.io/ops/SPRINT-CORE-ONBOARDING.md"
+            ]
+          },
+          {
+            "id": "p0-core-well",
+            "title": "Usar vientonorte-core bien (pins + publish + FO consume)",
+            "status": "next",
+            "links": [
+              "https://vientonorte.io/ops/SPRINT-CORE-ONBOARDING.md"
+            ]
+          },
+          {
+            "id": "p0-finanzas-ops",
+            "title": "Dashboard financiero disponible en /ops/finanzas",
+            "status": "done",
+            "links": [
+              "https://vientonorte.io/ops/finanzas/"
+            ]
+          },
           {
             "id": "p0-node",
             "title": "Node 22 + CI homologado",
@@ -875,7 +938,10 @@
       "url": "https://vientonorte.io/table-ro/",
       "board": "https://trello.com/b/69c558a7d79162569df9a98a",
       "note": "API B+C requiere Key/Token en browser Admin → Sync Trello"
-    }
+    },
+    "finanzas": "https://vientonorte.io/ops/finanzas/",
+    "next_sprint": "plan-sprint-core-well · SPRINT-CORE-ONBOARDING.md",
+    "next_next_sprint": "plan-sprint-onboarding-envs · onboarding + ambientes pub/priv"
   },
   "human_tasks": {
     "updated": "2026-08-02",
@@ -1091,5 +1157,29 @@
     "cache": "no-store + cache-bust query",
     "firmas_multidevice": "Ro/00-sistema/PIPELINE-QA.md",
     "sync_board": "ops Devices tab"
-  }
+  },
+  "links": {
+    "finanzas": "https://vientonorte.io/ops/finanzas/",
+    "sprint_core_onboarding": "https://vientonorte.io/ops/SPRINT-CORE-ONBOARDING.md",
+    "packages": "https://vientonorte.io/ops/packages-status.md"
+  },
+  "next_sprints": [
+    {
+      "id": "sprint-core-well",
+      "order": 1,
+      "title": "Usar vientonorte-core bien",
+      "status": "next",
+      "doc": "ops/SPRINT-CORE-ONBOARDING.md",
+      "canvas_id": "plan-sprint-core-well"
+    },
+    {
+      "id": "sprint-onboarding-envs",
+      "order": 2,
+      "title": "Onboarding + ambientes públicos y privados",
+      "status": "backlog",
+      "doc": "ops/SPRINT-CORE-ONBOARDING.md",
+      "canvas_id": "plan-sprint-onboarding-envs",
+      "depends_on": "sprint-core-well"
+    }
+  ]
 }
