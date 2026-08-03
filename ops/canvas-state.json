@@ -4,6 +4,23 @@
       "max_items": 3,
       "items": [
         {
+          "id": "now-gsc-manual-followup",
+          "title": "HUMANO · GSC manual post-verify (cobertura sitemap · CWV · móvil)",
+          "status": "todo",
+          "priority": "P1",
+          "human": true,
+          "kind": "qa_manual",
+          "repo": "vientonorte-fo",
+          "people_job": "HECHO 03 ago: verify HTML + sitemap.xml enviado + inspección /. MANUAL luego: cobertura sitemap procesada, CWV field, usabilidad móvil GSC, opcional propiedad dominio DNS. SSOT: Obsidian Resources/SEM/2026-08-03 GSC Pruebas y Enlaces.",
+          "notes": "Creado 2026-08-03 · no bloquea SEM $ (gate Test DS aparte)",
+          "links": [
+            "https://search.google.com/search-console",
+            "https://vientonorte.io/sitemap.xml",
+            "https://vientonorte.io/",
+            "https://vientonorte.io/ops/"
+          ]
+        },
+        {
           "id": "now-postdeploy-seo-test-gate",
           "title": "P0 · Post-deploy SEO #139 + Test path gate (sin SEM $)",
           "status": "todo",
@@ -11,8 +28,8 @@
           "human": true,
           "kind": "qa_manual",
           "repo": "vientonorte-fo",
-          "people_job": "Tras Pages verde: view-source JSON-LD · canonical SEM · checklist HU-04. SEM spend $0 hasta Test embudo DS.",
-          "notes": "Creado 2026-08-03 · PR #139 · HUs 01-03 code merged · HU-04 gate Decider",
+          "people_job": "GSC base OK. Manual residual: favicon tab, H5 free visible, smoke H5/S2 notes, Test path DS. SEM spend $0.",
+          "notes": "Creado 2026-08-03 · PR #139 · HUs 01-03 code merged · HU-04 gate Decider · GSC 2026-08-03: verify+sitemap+inspección / HECHOS · falta smoke H2b favicon · H5 free · Test path · SEM $0",
           "links": [
             "https://vientonorte.io/",
             "https://vientonorte.io/#/consultoria",
@@ -22,13 +39,13 @@
         },
         {
           "id": "now-human-prod-smoke",
-          "title": "HUMANO P0 · Smoke FO H2/H4/H5/S2 post-deploy SEO #139",
+          "title": "HUMANO P0 · Smoke FO residual + favicon + H5 free visible",
           "repo": "vientonorte-fo",
           "repo_git": "mi-portafolio",
           "product": "vientonorte.io",
           "status": "todo",
           "owner": "Rö",
-          "people_job": "ALTA PRIORIDAD: hard refresh Safari/Chrome. H2 sin Inicio›Inicio · H4 Empezar→onboarding · H5 Calendar free <30s · S2 SEM Empezar en /#/consultoria. View-source JSON-LD + title VN.",
+          "people_job": "H2 PASS · H4 PASS (Empezar≠SEM). MANUAL: H5 free más visible, favicon ICO/tab Safari, S2 onboarding OK (CTA A). Code when M5 window; or note only.",
           "checklist": [
             "H1 https://vientonorte.io/ = embudo (hero pymes + packs + kickoff)",
             "H2 sin breadcrumb Inicio›Inicio",
@@ -44,7 +61,7 @@
             "https://vientonorte.io/#/consultoria",
             "https://github.com/vientonorte/mi-portafolio/pull/139"
           ],
-          "notes": "QA MANUAL en /ops AHORA · humano destacado. PR #135 merged + Pages verde (2026-07-28). Proxy GMac headless 2026-08-01: señal PASS (no gate). Solo Rö marca done tras smoke manual en prod. Rö en W11 · Dishonored 2 (MICRO1 deck #1) · QA manual SIGUE abierto (no cerrar por agente) · stamp 2026-08-01T19:15:03Z. · P0 2026-08-03 post PR #139 SEO HU-01..03 · mail QA enviado",
+          "notes": "QA MANUAL en /ops AHORA · humano destacado. PR #135 merged + Pages verde (2026-07-28). Proxy GMac headless 2026-08-01: señal PASS (no gate). Solo Rö marca done tras smoke manual en prod. Rö en W11 · Dishonored 2 (MICRO1 deck #1) · QA manual SIGUE abierto (no cerrar por agente) · stamp 2026-08-01T19:15:03Z. · P0 2026-08-03 post PR #139 SEO HU-01..03 · mail QA enviado · 2026-08-03 GSC verified; residual UI/SEO branding",
           "assignee": "Rö",
           "human": true,
           "kind": "qa_manual",
@@ -957,30 +974,30 @@
   "human_tasks": {
     "updated": "2026-08-03",
     "owner": "Rö",
-    "title": "P0 humano · smoke FO + firmas multi-device + gate SEM post-Test",
+    "title": "Manual P0/P1 · smoke residual · firmas · GSC follow-up · SEM $0",
     "when": "Lun 03+ en ritmo café M5 / W11 post-almuerzo",
     "items": [
       {
         "id": "now-human-prod-smoke",
-        "title": "Smoke FO H2/H4/H5/S2 post-deploy #139",
+        "title": "Smoke residual + favicon + H5 free",
         "status": "todo",
         "owner": "Rö",
         "links": [
           "https://vientonorte.io/",
           "https://vientonorte.io/#/consultoria"
         ],
-        "notes": "P0 browser 1× · hard refresh",
+        "notes": "H2/H4 PASS · H5 oculto · favicon FAIL · manual/code",
         "priority": "P0"
       },
       {
         "id": "now-multidevice-firmas",
-        "title": "Firmas multi-device PIPELINE-QA",
+        "title": "Firmas multi-device I15/W11/GWin/I11",
         "status": "todo",
         "owner": "Rö",
         "links": [
           "https://vientonorte.io/ops/"
         ],
-        "notes": "P0 I15 W11 GWin I11 · M5+GMac pass",
+        "notes": "GMac+M5 pass · PIPELINE-QA §6",
         "priority": "P0"
       },
       {
@@ -995,25 +1012,37 @@
       },
       {
         "id": "now-postdeploy-seo-test-gate",
-        "title": "Post-deploy SEO + Test path (no SEM $)",
+        "title": "Gate SEM $0 hasta Test path DS",
         "status": "todo",
         "owner": "Rö",
-        "notes": "HU-04 · Q5 · no gastar hasta Test",
+        "notes": "GSC base OK · no spend · Test embudo",
         "links": [
-          "https://github.com/vientonorte/mi-portafolio/pull/139"
+          "https://vientonorte.io/ops/"
         ],
         "priority": "P0"
+      },
+      {
+        "id": "now-gsc-manual-followup",
+        "title": "GSC: cobertura sitemap · CWV · móvil (post-verify)",
+        "status": "todo",
+        "owner": "Rö",
+        "notes": "Verify+sitemap+inspección / HECHOS 03 ago · follow-up field data",
+        "links": [
+          "https://search.google.com/search-console",
+          "https://vientonorte.io/sitemap.xml"
+        ],
+        "priority": "P1"
       }
     ]
   },
   "sync_board": {
     "id": "sync-board-multidevice",
     "title": "Tablero sync multi-device",
-    "updated": "2026-08-03T13:44:19Z",
-    "updated_local": "2026-08-03 ~09:50 -0400 · post-Map AM · SEO #139 · smoke · CTA go",
+    "updated": "2026-08-03T14:18:22Z",
+    "updated_local": "2026-08-03 · GSC checklist done · manual residuals in AHORA",
     "source": "GMac M5 · cierre AM Map + SEO #139 + SSOT smoke/CTA + SEM prompt contenedor",
     "global_status": "partial_ok",
-    "global_note": "2026-08-03 AM: Map seed sellado · SEO HU-01…03 live (#139) · CTA matrix firmada (Home A · SEM A default · Free B) · Roadmap SoT 66% hosted (si ves 70% = draft: Limpiar+Recargar hosted). Smoke: H2/H4 PASS · H5 free oculto · favicon ICO gap · S2 onboarding. M1 claim 9485 submit OK · pool 2/3. Firmas humanas: GMac+M5 pass · I15/W11/GWin/I11 pending. SEM $0 hasta Test. Prompt Gemini: Obsidian Resources/SEM + entregables-pdf/SEM.",
+    "global_note": "2026-08-03 AM: Map seed sellado · SEO HU-01…03 live (#139) · CTA matrix firmada (Home A · SEM A default · Free B) · Roadmap SoT 66% hosted (si ves 70% = draft: Limpiar+Recargar hosted). Smoke: H2/H4 P · GSC 2026-08-03: verify+sitemap+URL inspection DONE. Manual AHORA: smoke residual/favicon/H5 · firmas I15/W11 · GSC field CWV/móvil · SEM $0.",
     "artifact": {
       "id": "pipeline-qa-v1",
       "path_ro": "Obsidian Vault/00-sistema/PIPELINE-QA.md",
@@ -1211,5 +1240,5 @@
       ]
     }
   ],
-  "progress_note": "sync_board 2026-08-03 AM: Map+SEO#139+CTA go · roadmap SoT 66% · firmas I15/W11/GWin/I11 pending · M1 9485 OK"
+  "progress_note": "2026-08-03: GSC verified+sitemap+inspección / · ops manual: smoke residual/favicon/H5 · firmas devices · GSC CWV/móvil P1 · SEM $0"
 }

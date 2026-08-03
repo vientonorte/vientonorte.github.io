@@ -33,6 +33,21 @@
 
 ---
 
+
+## P0/P1 · Manual 2026-08-03 (GSC hecho · residual)
+
+| Prioridad | Tarea | Notas |
+|-----------|--------|------|
+| **Hecho** | GSC verify + sitemap + inspección `/` | HTML file live |
+| **P0** | Smoke residual · **favicon** · **H5 free visible** | H2/H4 PASS |
+| **P0** | Firmas multi-device I15/W11/GWin/I11 | PIPELINE-QA §6 |
+| **P0** | Gate SEM **$0** hasta Test path DS | no spend |
+| **P1** | GSC field: cobertura sitemap · CWV · usabilidad móvil | cuando haya datos |
+
+Ops live: https://vientonorte.io/ops/ → **Hoy** · Limpiar draft + Recargar hosted
+
+SSOT: Obsidian `Resources/SEM/2026-08-03 GSC Pruebas y Enlaces.md`
+
 ## P0 · 2026-08-03 · QA manual + HUs (checklist mail)
 
 ### HUs SEO/SEM (código en PR #139)
