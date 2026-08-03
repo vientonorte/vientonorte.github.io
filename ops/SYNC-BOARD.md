@@ -43,25 +43,32 @@ Solo desde el device que tiene el draft **bueno** y quieres **publicar** al vaul
 
 ---
 
-## Estado global (2026-08-03)
+## Estado global (2026-08-03 AM · live canvas)
 
 | Campo | Valor |
 |-------|--------|
 | Roadmap SoT | **66%** hosted |
-| Global firmas | **pending** I15/W11/GWin/I11 (GMac+M5 pass) |
-| AHORA P0 | post-deploy SEO #139 · smoke FO · firmas · gate SEM |
-| Ro ↔ espejo | rsync / iCloud vault (docs) ≠ ops canvas draft |
+| Global | **partial_ok** |
+| Firmas | GMac+**M5 pass** · I15/W11/GWin/I11 **pending** |
+| Ship AM | Map seed · SEO #139 · CTA go · smoke H2/H4 · M1 9485 |
+| AHORA P0 | smoke residual (H5/favicon) · firmas · gate SEM $0 |
+| Ro ↔ espejo | iCloud vault ≠ ops **draft** browser |
+
+Live UI lee `canvas-state.json` → clave **`sync_board`** (pestaña **Devices**).
 
 ---
 
-## Devices
+## Devices (sync_board)
 
-| Nick | Firma PIPELINE-QA | Ops canvas |
-|------|-------------------|------------|
-| GMac / M5 | pass | SoT hosted tras ritual |
-| I15 | pending firma | **mismo ritual** Limpiar+Recargar |
-| W11 / GWin | pending firma | **mismo ritual** |
-| I11 | pending firma | **mismo ritual** |
+| Nick | content_sync | Firma | Nota 03 ago |
+|------|--------------|-------|-------------|
+| M5 | ok | **pass** | Map · SEO · ClassPass Calendar |
+| GMac | ok | **pass** | #139 · ops · SSOT |
+| I15 | signal_only | pending | Abrir Ro + firmar |
+| W11 | mirror_ready_mac | pending | PM A/B/C · hotplug |
+| GWin | no_dato | pending | Sesión torre |
+| I11 | no_dato | pending | Check iPad |
+| M1 | no_dato | pending | sin check |
 
 ## One-liners firma
 
