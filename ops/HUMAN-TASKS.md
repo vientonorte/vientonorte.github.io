@@ -1,8 +1,9 @@
 # Tareas humanas · post #135/#136 + multi-device
 
-**Dueño:** Rö · **Actualizado:** 2026-08-02 (GMac agent)  
+**Dueño:** Rö · **Actualizado:** 2026-08-03 (GMac agent) · **P0 humano**  
 **Fuente:** `canvas-state.json` → AHORA + `human_tasks`  
-**Ops:** https://vientonorte.io/ops/ · **table-ro:** https://vientonorte.io/table-ro/?view=ops
+**Ops:** https://vientonorte.io/ops/ · **table-ro:** https://vientonorte.io/table-ro/?view=ops  
+**SEO ship:** [PR #139](https://github.com/vientonorte/mi-portafolio/pull/139) HU-01…03 (auto-merge CI)
 
 ## Canon FO (empresa)
 
@@ -24,8 +25,46 @@
 | Echo Dot ↔ Google Calendar | **sync** |
 | Empleo SURA cerrado (Obsidian) | **done** |
 | Mail Selfradar → Camila | **enviado** (humano) |
-| Firmas multi-device | **pending** |
-| Trello Key/Token Admin | **pending** |
+| **P0** Firmas multi-device | **pending** · GMac+M5 pass · **I15/W11/GWin/I11** firmar hoy en PIPELINE-QA |
+| **P0** Smoke FO H2/H4/H5/S2 | **abierto** · post-deploy #139 · 1× browser hard refresh |
+| **P0** Post-deploy + Test path | **gate** · view-source JSON-LD · canonical SEM · **SEM $0** hasta Test embudo |
+| Trello Key/Token Admin | pending (no P0 hoy) |
+| Pre-Decide DS Map | **B** firmado 03 ago |
+
+---
+
+## P0 · 2026-08-03 · QA manual + HUs (checklist mail)
+
+### HUs SEO/SEM (código en PR #139)
+
+| HU | Superficie | DoD humano post-deploy |
+|----|------------|------------------------|
+| HU-01 | `https://vientonorte.io/` | Title VN · JSON-LD en view-source · no “Rodrigo Gaete · UX Lead” |
+| HU-02 | `https://vientonorte.io/#/consultoria` | Canonical = `#/consultoria` · title “Elige tu alcance” |
+| HU-03 | sitemap/robots | live sitemap lastmod reciente |
+| HU-04 | gate Decider | **no SEM spend** hasta Test path |
+
+### Smoke FO (H2 · H4 · H5 · S2)
+
+| # | Check | URL | pass/fail |
+|---|--------|-----|-----------|
+| H2 | Sin «Inicio › Inicio» | https://vientonorte.io/ | |
+| H4 | Empezar → onboarding (misma página, no SEM) | home | |
+| H5 | Calendar free a11y &lt;30 s | free link | |
+| S2 | SEM Empezar en oferta | https://vientonorte.io/#/consultoria | |
+
+### Firmas multi-device (same artifact)
+
+Vault Ro `00-sistema/PIPELINE-QA.md` §6 · ops Devices.
+
+```text
+- I15 · 2026-08-03 · pass · …
+- W11 · 2026-08-03 · pass · …
+- GWin · 2026-08-03 · pass · …
+- I11 · 2026-08-03 · pass · …
+```
+
+GMac + M5 ya pass. No inventar firmas sin abrir device.
 
 
 

@@ -4,14 +4,31 @@
       "max_items": 3,
       "items": [
         {
+          "id": "now-postdeploy-seo-test-gate",
+          "title": "P0 · Post-deploy SEO #139 + Test path gate (sin SEM $)",
+          "status": "todo",
+          "priority": "P0",
+          "human": true,
+          "kind": "qa_manual",
+          "repo": "vientonorte-fo",
+          "people_job": "Tras Pages verde: view-source JSON-LD · canonical SEM · checklist HU-04. SEM spend $0 hasta Test embudo DS.",
+          "notes": "Creado 2026-08-03 · PR #139 · HUs 01-03 code merged · HU-04 gate Decider",
+          "links": [
+            "https://vientonorte.io/",
+            "https://vientonorte.io/#/consultoria",
+            "https://github.com/vientonorte/mi-portafolio/pull/139",
+            "https://vientonorte.io/ops/"
+          ]
+        },
+        {
           "id": "now-human-prod-smoke",
-          "title": "HUMANO · QA manual prod post-#135 (no cuenta agente)",
+          "title": "HUMANO P0 · Smoke FO H2/H4/H5/S2 post-deploy SEO #139",
           "repo": "vientonorte-fo",
           "repo_git": "mi-portafolio",
           "product": "vientonorte.io",
           "status": "todo",
           "owner": "Rö",
-          "people_job": "DESTACADO HUMANO: checklist H1–L1 en browser real (Safari/Chrome). Hard refresh / unregister SW. GMac headless NO cierra este ítem.",
+          "people_job": "ALTA PRIORIDAD: hard refresh Safari/Chrome. H2 sin Inicio›Inicio · H4 Empezar→onboarding · H5 Calendar free <30s · S2 SEM Empezar en /#/consultoria. View-source JSON-LD + title VN.",
           "checklist": [
             "H1 https://vientonorte.io/ = embudo (hero pymes + packs + kickoff)",
             "H2 sin breadcrumb Inicio›Inicio",
@@ -25,10 +42,9 @@
           "links": [
             "https://vientonorte.io/",
             "https://vientonorte.io/#/consultoria",
-            "https://vientonorte.io/#/consultoria/embudo",
-            "https://vientonorte.io/ops/HUMAN-TASKS.md"
+            "https://github.com/vientonorte/mi-portafolio/pull/139"
           ],
-          "notes": "QA MANUAL en /ops AHORA · humano destacado. PR #135 merged + Pages verde (2026-07-28). Proxy GMac headless 2026-08-01: señal PASS (no gate). Solo Rö marca done tras smoke manual en prod. Rö en W11 · Dishonored 2 (MICRO1 deck #1) · QA manual SIGUE abierto (no cerrar por agente) · stamp 2026-08-01T19:15:03Z.",
+          "notes": "QA MANUAL en /ops AHORA · humano destacado. PR #135 merged + Pages verde (2026-07-28). Proxy GMac headless 2026-08-01: señal PASS (no gate). Solo Rö marca done tras smoke manual en prod. Rö en W11 · Dishonored 2 (MICRO1 deck #1) · QA manual SIGUE abierto (no cerrar por agente) · stamp 2026-08-01T19:15:03Z. · P0 2026-08-03 post PR #139 SEO HU-01..03 · mail QA enviado",
           "assignee": "Rö",
           "human": true,
           "kind": "qa_manual",
@@ -37,20 +53,21 @@
         },
         {
           "id": "now-multidevice-firmas",
-          "title": "HUMANO · Multi-device: firmar I15 + W11 en PIPELINE-QA (+ Devices)",
+          "title": "HUMANO P0 · Firmas multi-device I15+W11+GWin+I11 (PIPELINE-QA)",
           "repo": "Vientonorte",
           "product": "ops",
           "status": "todo",
           "owner": "Rö",
-          "people_job": "HUMANO: firmar I15 + W11 en PIPELINE-QA (same artifact). No inventar firmas. UI: /ops Devices.",
+          "people_job": "ALTA PRIORIDAD: firmar en PIPELINE-QA §6 same artifact. GMac+M5 pass. No inventar. One-liners plantilla solo al abrir device.",
           "links": [
             "https://vientonorte.io/ops/",
             "https://vientonorte.io/ops/SYNC-BOARD.md"
           ],
-          "notes": "GMac pass tarde 08-02 · Selfradar+Alexa en Obsidian · firmas device siguen humano",
+          "notes": "GMac pass tarde 08-02 · Selfradar+Alexa en Obsidian · firmas device siguen humano · 2026-08-03 M5: NO done — PIPELINE-QA §6 sigue pending I15/W11/GWin/I11; one-liners=plantilla. Solo GMac pass. Anti-patrón no inventar. · P0 2026-08-03 · mail QA",
           "human": true,
           "highlight": "human",
-          "assignee": "Rö"
+          "assignee": "Rö",
+          "priority": "P0"
         },
         {
           "id": "now-live-timebox-day",
@@ -73,7 +90,7 @@
             "https://vientonorte.io/table-ro/?view=ops",
             "https://realm.micro1.ai"
           ],
-          "notes": "Si ClassPass se alarga: skip MICRO1 pre"
+          "notes": "Si ClassPass se alarga: skip MICRO1 pre · en curso 2026-08-03 Map+ClassPass+W11"
         }
       ],
       "done_archive": [
@@ -430,7 +447,7 @@
       ]
     }
   },
-  "updated": "2026-08-02",
+  "updated": "2026-08-03",
   "last_sync": {
     "at": "2026-08-02T05:36:09Z",
     "source": "gmac-cierre-formal",
@@ -534,8 +551,8 @@
     "date": "2026-08-02",
     "session": "vn-cierre-sesion",
     "status": "closed-auto",
-    "title": "Selfradar Bullet Clave A · Echo Dot · Breakmark QA · PR136 · ops sync · no SURA",
-    "at": "2026-08-02T17:52:07Z",
+    "title": "Cierre final noche · PRE W11 listo · Calendar manda",
+    "at": "2026-08-03T02:39:53Z",
     "docs": [
       "vault:Viento Norte/Sprints/2026-08-02 LOG sesion.md"
     ]
@@ -938,30 +955,33 @@
     "next_next_sprint": "plan-sprint-onboarding-envs · onboarding + ambientes pub/priv"
   },
   "human_tasks": {
-    "updated": "2026-08-02",
+    "updated": "2026-08-03",
     "owner": "Rö",
-    "title": "Tareas humanas · FO smoke + multi-device + 1 día TB live",
+    "title": "P0 humano · smoke FO + firmas multi-device + gate SEM post-Test",
     "when": "Lun 03+ en ritmo café M5 / W11 post-almuerzo",
     "items": [
       {
         "id": "now-human-prod-smoke",
-        "title": "HUMANO: micro-smoke prod post-Pages #135",
+        "title": "Smoke FO H2/H4/H5/S2 post-deploy #139",
         "status": "todo",
         "owner": "Rö",
         "links": [
           "https://vientonorte.io/",
           "https://vientonorte.io/#/consultoria"
-        ]
+        ],
+        "notes": "P0 browser 1× · hard refresh",
+        "priority": "P0"
       },
       {
         "id": "now-multidevice-firmas",
-        "title": "Multi-device: firmar I15 + W11 en PIPELINE-QA (+ Devices)",
+        "title": "Firmas multi-device PIPELINE-QA",
         "status": "todo",
         "owner": "Rö",
         "links": [
           "https://vientonorte.io/ops/"
         ],
-        "notes": "GMac pass tarde 08-02 · Selfradar+Alexa en Obsidian · firmas device siguen humano"
+        "notes": "P0 I15 W11 GWin I11 · M5+GMac pass",
+        "priority": "P0"
       },
       {
         "id": "now-live-timebox-day",
@@ -972,6 +992,17 @@
           "https://vientonorte.io/ops/",
           "https://vientonorte.io/table-ro/?view=ops"
         ]
+      },
+      {
+        "id": "now-postdeploy-seo-test-gate",
+        "title": "Post-deploy SEO + Test path (no SEM $)",
+        "status": "todo",
+        "owner": "Rö",
+        "notes": "HU-04 · Q5 · no gastar hasta Test",
+        "links": [
+          "https://github.com/vientonorte/mi-portafolio/pull/139"
+        ],
+        "priority": "P0"
       }
     ]
   },
@@ -1189,5 +1220,6 @@
         "Mail Selfradar a Camila (enviado humano)"
       ]
     }
-  ]
+  ],
+  "progress_note": "P0 2026-08-03: SEO HU-01..03 PR#139 · smoke FO · firmas multi-device · SEM gate post-Test path"
 }
