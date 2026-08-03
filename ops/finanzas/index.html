@@ -3,8 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>VN · Finanzas · Intención vs Realidad</title>
-<meta name="description" content="Dashboard financiero Viento Norte / Micro1 · meta 1.6M CLP · host en /ops/finanzas/" />
+<title>Micro1 · Intención vs Realidad · Dashboard $</title>
 <style>
   :root {
     --bg: #0b0f14; --panel: #121a22; --border: #1e2a36; --text: #e7eef5; --muted: #8aa0b5;
@@ -65,14 +64,8 @@
 <body>
 <header>
   <div>
-    <h1>VN · Finanzas · Intención vs Realidad</h1>
-    <div class="sub">Micro1 Trainer · $1.54/tarea · 5.6 t/h · meta mes <strong>1.6M CLP</strong> (~$1,552 Trainer) · max 3 claims</div>
-    <div class="sub" style="margin-top:.35rem">
-      <a href="../" style="color:var(--accent)">← Ops tablero</a>
-      · <a href="../SYNC-BOARD.md" style="color:var(--accent)">Devices</a>
-      · <a href="../packages-status.md" style="color:var(--accent)">Packages / core</a>
-      · live: <code>/ops/finanzas/</code>
-    </div>
+    <h1>Micro1 · Intención vs Realidad</h1>
+    <div class="sub">$1.54/tarea · 5.6 t/h · meta 180h / 1008 tasks / ~$1,552 · max 3 claims · local-only</div>
   </div>
   <div class="sub" id="clock"></div>
 </header>
@@ -103,11 +96,13 @@
         <div><label>Nota</label><input type="text" id="d_note" placeholder="WAVE PM" /></div>
         <div style="display:flex;gap:.4rem;flex-wrap:wrap;align-items:end">
           <button class="primary" type="button" id="btn_add">Guardar realidad</button>
+          <button class="primary" type="button" id="btn_pull">↻ ledger.json</button>
           <button type="button" id="btn_seed">Cargar seed ago</button>
           <button type="button" id="btn_export">Export JSON</button>
           <button type="button" id="btn_import">Import</button>
           <input type="file" id="file_import" accept=".json,application/json" hidden />
         </div>
+        <p class="help" id="sync_hint" style="margin:.35rem 0 0">Auto: <code>python3 m1-ledger-sync.py</code> tras cada submit OK.</p>
       </div>
     </div>
     <div class="card">
@@ -148,16 +143,16 @@ tasks_ok: 34
       <li>Claim pool 2–3 (max 3) · mismo juego READY</li>
       <li>F7 → 10 min + mic → F7 ×3</li>
       <li><code>m1-tick.ps1</code> → UPLOAD_LATEST → Submit 6 files</li>
-      <li>LOG línea + footer DAY → pegar aquí</li>
+      <li>LOG línea + footer DAY → pegar aquí <strong>o</strong> <code>m1-ledger-sync.py</code></li>
+      <li>Dashboard: botón <strong>↻ ledger.json</strong> / live <a href="https://vientonorte.io/ops/finanzas/" style="color:var(--accent)">ops/finanzas</a></li>
     </ol>
   </div>
 
   <footer>
-    <strong>Hosted:</strong> <a href="./" style="color:var(--accent)">vientonorte.io/ops/finanzas/</a>
-    · espejo local: <code>Documents/MICRO 1/07-pagos/dashboard/</code><br />
-    Intención captura = HOST MICRO 1 (TB day) · meta mes 1.6M CLP · Trainer ~$1,552 · @ 5.6 t/h.<br />
-    Realidad = localStorage del browser / seed / footer LOG. Export → <code>ledger.json</code> (backup en esta carpeta + iCloud MICRO 1).<br />
-    Calendar: <strong>FINANZAS</strong> (TB15 ledger) + HOST MICRO1 · SSOT: <code>Documents/MICRO 1/</code>
+    Intención captura = HOST MICRO 1: L–J 4h (13–17), V 1.5h (11:30–13) · Postulación/VN en Personal · @ 5.6 t/h.<br />
+    Realidad = <code>ledger.json</code> (auto vía <code>m1-ledger-sync.py</code> desde LOG) · localStorage · footer DAY.<br />
+    Tras submit: <code>python3 07-pagos/dashboard/m1-ledger-sync.py</code> · W11: <code>.\m1-ledger-sync.ps1</code><br />
+    Live: <a href="https://vientonorte.io/ops/finanzas/" style="color:var(--accent)">vientonorte.io/ops/finanzas</a> · SSOT: <code>Documents/MICRO 1/</code>
   </footer>
 </main>
 <script>
@@ -209,15 +204,20 @@ tasks_ok: 34
   const money = (n) => "$" + fmt(n, 2);
   const clp = (usd) => "$" + Math.round(usd * META.fx).toLocaleString("es-CL") + " CLP";
 
-  // Built-in seed (matches ledger.json)
+  // Built-in seed (matches ledger.json · keep in sync via m1-ledger-sync.py)
   const SEED = {
     days: [
       { date: "2026-08-01", hubstaff_h: 0, tasks_ok: 0, claims_open_eod: 0, olas_de_3: 0, game: "—",
         note: "dry-run F7 ~7s x2 · NO submit · docs SSOT · Remnant instalando", source: "LOG seed" },
       { date: "2026-08-02", hubstaff_h: 0.5, tasks_ok: 0, claims_open_eod: 1, olas_de_3: 0, game: "—",
         note: "cierre+matriz+dashboard M5 · 1 claim Realm · 0 submit $ · ~30min docs", source: "Sessions seed" },
+      { date: "2026-08-03", hubstaff_h: 0.33, tasks_ok: 2, claims_open_eod: 1, olas_de_3: 0, game: "Dishonored 2",
+        note: "2 submit OK · claims 9485, 9484 · pre+A", source: "LOG+m1-ledger-sync",
+        claims: ["9484", "9485"], usd: 3.08 },
     ],
   };
+
+  let ledgerFileMeta = null; // last fetch of ledger.json
 
   function load() {
     try {
@@ -234,7 +234,53 @@ tasks_ok: 34
       meta: META,
       days: state.days,
       saved_at: new Date().toISOString(),
+      ledger_file_updated: ledgerFileMeta && ledgerFileMeta.updated,
     }));
+  }
+
+  /** Merge days by date; prefer higher tasks_ok, then newer updated_at */
+  function mergeDays(base, incoming) {
+    const map = new Map();
+    for (const d of base || []) map.set(d.date, { ...d });
+    for (const d of incoming || []) {
+      if (!d || !d.date) continue;
+      const prev = map.get(d.date);
+      if (!prev) {
+        map.set(d.date, { ...d });
+        continue;
+      }
+      const pt = +prev.tasks_ok || 0;
+      const it = +d.tasks_ok || 0;
+      if (it > pt) map.set(d.date, { ...prev, ...d });
+      else if (it === pt) map.set(d.date, { ...prev, ...d, tasks_ok: pt });
+      else map.set(d.date, { ...d, ...prev, tasks_ok: pt });
+    }
+    return [...map.values()].sort((a, b) => (a.date < b.date ? -1 : 1));
+  }
+
+  async function pullLedgerJson(forceSave) {
+    try {
+      const res = await fetch("./ledger.json?t=" + Date.now(), { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const j = await res.json();
+      ledgerFileMeta = j.meta || {};
+      const fileDays = Array.isArray(j.days) ? j.days : [];
+      const st = load();
+      const merged = mergeDays(SEED.days, mergeDays(st.days, fileDays));
+      if (forceSave || !localStorage.getItem(KEY)) {
+        save({ days: merged });
+      } else {
+        // always absorb file if it has more MTD tasks
+        const fileT = fileDays.reduce((s, d) => s + (+d.tasks_ok || 0), 0);
+        const locT = st.days.reduce((s, d) => s + (+d.tasks_ok || 0), 0);
+        if (fileT >= locT) save({ days: merged });
+        else save({ days: mergeDays(fileDays, st.days) });
+      }
+      return j;
+    } catch (e) {
+      console.warn("ledger.json pull skipped (open via file:// or missing):", e.message || e);
+      return null;
+    }
   }
 
   function pacePill(tph) {
@@ -396,6 +442,16 @@ tasks_ok: 34
     save({ days: SEED.days });
   }
 
+  // Auto-pull ledger.json (works on http(s) ops host; file:// may block — use ↻)
+  pullLedgerJson(false).then((j) => {
+    if (j) {
+      const t = (j.days || []).reduce((s, d) => s + (+d.tasks_ok || 0), 0);
+      const el = $("sync_hint");
+      if (el) el.textContent = "ledger.json · " + t + " tasks · " + ((j.meta && j.meta.updated) || "");
+    }
+    render();
+  });
+
   $("btn_add").onclick = () => {
     const date = $("d_date").value;
     const hubstaff_h = Number($("d_h").value);
@@ -416,11 +472,21 @@ tasks_ok: 34
   };
 
   $("btn_seed").onclick = () => {
-    if (confirm("¿Recargar seed intención/realidad ago (sobrescribe días 01–02 seed)?")) {
+    if (confirm("¿Recargar seed realidad ago (merge 01–03 seed; no borra días nuevos)?")) {
       const st = load();
-      const keep = st.days.filter((d) => d.date !== "2026-08-01" && d.date !== "2026-08-02");
-      save({ days: [...SEED.days, ...keep] });
+      save({ days: mergeDays(st.days, SEED.days) });
       render();
+    }
+  };
+
+  $("btn_pull").onclick = async () => {
+    const j = await pullLedgerJson(true);
+    render();
+    if (j) {
+      const t = (j.days || []).reduce((s, d) => s + (+d.tasks_ok || 0), 0);
+      $("sync_hint").textContent = "ledger.json OK · " + t + " tasks MTD · updated " + ((j.meta && j.meta.updated) || "—");
+    } else {
+      $("sync_hint").textContent = "No se pudo leer ledger.json (serví la carpeta o Import manual). Corré: python3 m1-ledger-sync.py";
     }
   };
 

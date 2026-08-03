@@ -10,7 +10,7 @@
     "max_claims": 3,
     "intention_month": "2026-08",
     "intention_h_month": 184.5,
-    "updated": "2026-08-02T01:35:00-04:00",
+    "updated": "2026-08-03T12:29:21-04:00",
     "intention_note": "TB day: L-J ~3h, Vie ~2.25h capture; not WAVE 7h",
     "intent_usd_day_lj": 25.87,
     "intent_usd_day_fri": 19.4,
@@ -21,7 +21,9 @@
     "trainer_usd_target": 1552.32,
     "trainer_share_of_goal": 0.919,
     "sleep_hard_stop": "22:00",
-    "wind_down": "21:30"
+    "wind_down": "21:30",
+    "sync": "m1-ledger-sync",
+    "log_path": "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md"
   },
   "intention": [
     {
@@ -262,6 +264,22 @@
       "game": "—",
       "note": "cierre+matriz+dashboard setup M5 · 1 claim Realm · 0 submit $ · ~30min docs",
       "source": "Sessions seed"
+    },
+    {
+      "date": "2026-08-03",
+      "tasks_ok": 2,
+      "usd": 3.08,
+      "claims": [
+        "9484",
+        "9485"
+      ],
+      "game": "Dishonored 2",
+      "note": "2 submit OK · claims 9484, 9485",
+      "source": "LOG+m1-ledger-sync",
+      "updated_at": "2026-08-03T16:29:21Z",
+      "hubstaff_h": 0.5,
+      "claims_open_eod": 1,
+      "olas_de_3": 0
     }
   ]
 }
