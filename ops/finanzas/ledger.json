@@ -10,7 +10,7 @@
     "max_claims": 3,
     "intention_month": "2026-08",
     "intention_h_month": 184.5,
-    "updated": "2026-08-03T12:29:21-04:00",
+    "updated": "2026-08-03T13:13:08-04:00",
     "intention_note": "TB day: L-J ~3h, Vie ~2.25h capture; not WAVE 7h",
     "intent_usd_day_lj": 25.87,
     "intent_usd_day_fri": 19.4,
@@ -267,18 +267,19 @@
     },
     {
       "date": "2026-08-03",
-      "tasks_ok": 2,
-      "usd": 3.08,
+      "tasks_ok": 3,
+      "usd": 4.62,
       "claims": [
+        "9483",
         "9484",
         "9485"
       ],
       "game": "Dishonored 2",
-      "note": "2 submit OK · claims 9484, 9485",
+      "note": "3 submit OK · claims 9483, 9484, 9485",
       "source": "LOG+m1-ledger-sync",
-      "updated_at": "2026-08-03T16:29:21Z",
-      "hubstaff_h": 0.5,
-      "claims_open_eod": 1,
+      "updated_at": "2026-08-03T17:13:08Z",
+      "hubstaff_h": 0.75,
+      "claims_open_eod": 3,
       "olas_de_3": 0
     }
   ]
