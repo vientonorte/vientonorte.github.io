@@ -1009,11 +1009,11 @@
   "sync_board": {
     "id": "sync-board-multidevice",
     "title": "Tablero sync multi-device",
-    "updated": "2026-08-02T17:29:01Z",
-    "updated_local": "2026-08-02 ~13:20 -0400 · Selfradar+Alexa+empleo+calendar",
+    "updated": "2026-08-03T13:45:00Z",
+    "updated_local": "2026-08-03 · desync roadmap draft vs hosted",
     "source": "GMac full afternoon sync · vault 184 · Echo Dot · Bullet Clave A",
     "global_status": "pending_documented",
-    "global_note": "Ro=espejo 184 md. GMac pass: smoke#135/#136, Selfradar Bullet Clave A, Calendar AFC+Reforzar4ago, Echo Dot↔Google Calendar, empleo SURA cerrado, mail Camila Selfradar. Firmas I15/W11/GWin/I11 humano pending. Trello API Key/Token pending browser.",
+    "global_note": "SoT roadmap = 66% hosted (18.5/28). Si un device muestra 70% u otro %: draft localStorage. Ritual M5+I15+W11: ops → Más → Limpiar draft + Recargar hosted. No Sync desde draft basura. Firmas I15/W11/GWin/I11 pending. P0 smoke FO + SEO #139.",
     "artifact": {
       "id": "pipeline-qa-v1",
       "path_ro": "00-sistema/PIPELINE-QA.md",
@@ -1182,7 +1182,10 @@
     "on_load": "prefer_hosted_if_fetch_ok",
     "cache": "no-store + cache-bust query",
     "firmas_multidevice": "Ro/00-sistema/PIPELINE-QA.md",
-    "sync_board": "ops Devices tab"
+    "sync_board": "ops Devices tab",
+    "sot": "hosted canvas-state.json",
+    "draft": "localStorage only · never trust as multi-device truth",
+    "sync_ritual": "Clear draft + Reload hosted on every device"
   },
   "links": {
     "finanzas": "https://vientonorte.io/ops/finanzas/",
@@ -1221,5 +1224,5 @@
       ]
     }
   ],
-  "progress_note": "P0 2026-08-03: SEO HU-01..03 PR#139 · smoke FO · firmas multi-device · SEM gate post-Test path"
+  "progress_note": "SoT ops hosted roadmap 66%. Multi-device: Limpiar draft+Recargar hosted en M5/I15/W11. P0 smoke+firmas."
 }

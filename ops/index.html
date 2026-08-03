@@ -1613,12 +1613,22 @@
           dirty = true;
           render();
           const hostedNewer = lastSyncMs(hosted) > lastSyncMs(draft.state);
-          setStatus(
-            hostedNewer
-              ? "Draft local activo · hosted más nuevo disponible → «Recargar hosted» o Sync"
-              : "Draft local activo · Sync para publicar · «Recargar hosted» descarta",
-            hostedNewer ? "err" : "ok"
-          );
+          const dPct = roadmapStats(draft.state.roadmap || {}).pct;
+          const hPct = roadmapStats(hosted.roadmap || {}).pct;
+          const pctMismatch = dPct !== hPct;
+          // Multi-device: 70% en un device vs 66% hosted = draft local, no otro SoT
+          let msg = hostedNewer
+            ? "Draft local activo · hosted más nuevo → «Recargar hosted» (SoT) o Sync"
+            : "Draft local activo · Sync para publicar · «Recargar hosted» descarta";
+          if (pctMismatch) {
+            msg =
+              "DESYNC multi-device · Roadmap draft " +
+              dPct +
+              "% vs hosted " +
+              hPct +
+              "% → en M5/I15/W11: Más → Limpiar draft + Recargar hosted";
+          }
+          setStatus(msg, hostedNewer || pctMismatch ? "err" : "ok");
           return true;
         }
 
@@ -1628,12 +1638,16 @@
         stateSource = "hosted";
         dirty = false;
         render();
+        const hPct = roadmapStats((state.roadmap || {})).pct;
         setStatus(
           "State hosted (SoT)" +
-            (state.sync_board ? " · Devices OK" : "") +
+            (state.sync_board ? " · Devices" : "") +
+            " · Roadmap " +
+            hPct +
+            "%" +
             " · updated " +
             (state.updated || "—") +
-            ". Sync escribe vault.",
+            ". Mismo % en M5/I15/W11 solo con hosted (sin draft).",
           "ok"
         );
         return true;
