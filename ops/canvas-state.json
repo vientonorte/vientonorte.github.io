@@ -449,9 +449,9 @@
   },
   "updated": "2026-08-03",
   "last_sync": {
-    "at": "2026-08-02T05:36:09Z",
-    "source": "gmac-cierre-formal",
-    "note": "cierre sesión 2026-08-02 formal"
+    "at": "2026-08-03T13:44:19Z",
+    "source": "GMac sync_board refresh",
+    "note": "Devices tab · no full vault sync token required for board fields"
   },
   "identity": {
     "org": "Viento Norte",
@@ -1009,74 +1009,56 @@
   "sync_board": {
     "id": "sync-board-multidevice",
     "title": "Tablero sync multi-device",
-    "updated": "2026-08-03T13:45:00Z",
-    "updated_local": "2026-08-03 · desync roadmap draft vs hosted",
-    "source": "GMac full afternoon sync · vault 184 · Echo Dot · Bullet Clave A",
-    "global_status": "pending_documented",
-    "global_note": "SoT roadmap = 66% hosted (18.5/28). Si un device muestra 70% u otro %: draft localStorage. Ritual M5+I15+W11: ops → Más → Limpiar draft + Recargar hosted. No Sync desde draft basura. Firmas I15/W11/GWin/I11 pending. P0 smoke FO + SEO #139.",
+    "updated": "2026-08-03T13:44:19Z",
+    "updated_local": "2026-08-03 ~09:50 -0400 · post-Map AM · SEO #139 · smoke · CTA go",
+    "source": "GMac M5 · cierre AM Map + SEO #139 + SSOT smoke/CTA + SEM prompt contenedor",
+    "global_status": "partial_ok",
+    "global_note": "2026-08-03 AM: Map seed sellado · SEO HU-01…03 live (#139) · CTA matrix firmada (Home A · SEM A default · Free B) · Roadmap SoT 66% hosted (si ves 70% = draft: Limpiar+Recargar hosted). Smoke: H2/H4 PASS · H5 free oculto · favicon ICO gap · S2 onboarding. M1 claim 9485 submit OK · pool 2/3. Firmas humanas: GMac+M5 pass · I15/W11/GWin/I11 pending. SEM $0 hasta Test. Prompt Gemini: Obsidian Resources/SEM + entregables-pdf/SEM.",
     "artifact": {
       "id": "pipeline-qa-v1",
-      "path_ro": "00-sistema/PIPELINE-QA.md",
+      "path_ro": "Obsidian Vault/00-sistema/PIPELINE-QA.md",
       "path_w11": "Documents\\Obsidian Vault\\00-sistema\\PIPELINE-QA.md",
-      "ops": "https://vientonorte.io/ops/ (pestaña Devices)",
+      "ops": "https://vientonorte.io/ops/",
+      "ssot_smoke": "Viento Norte/Sprints/2026-08-03 SSOT smoke FO SEO-SEM.md",
+      "sem_prompt": "Viento Norte/Resources/SEM/PROMPT-GEMINI-SEM-workspace.md",
       "data_health": "00-sistema/DATA-HEALTH.md"
     },
     "stores": [
       {
         "id": "ro",
-        "label": "Vault Ro (canónico Apple)",
-        "path": "iCloud/Obsidian/Ro",
-        "devices": [
-          "M5",
-          "M1",
-          "I15",
-          "I11"
-        ],
-        "status": "ok",
-        "md_count": 184,
-        "note": "184 md · 2026-08-02 post Selfradar/Alexa/empleo"
+        "name": "Vault Ro",
+        "path": "iCloud Obsidian Ro",
+        "role": "SSOT docs + firmas"
       },
       {
-        "id": "espejo_w11",
-        "label": "Espejo W11",
-        "path": "iCloud Drive/Documents/Obsidian Vault",
-        "devices": [
-          "W11",
-          "GWin"
-        ],
-        "status": "ok",
-        "md_count": 184,
-        "note": "184 md · 2026-08-02 post Selfradar/Alexa/empleo"
+        "id": "ops-hosted",
+        "name": "Ops hosted",
+        "path": "vientonorte.io/ops/canvas-state.json",
+        "role": "SoT canvas + sync_board"
       },
       {
         "id": "micro1",
-        "label": "MICRO 1 Strike",
-        "path": "iCloud Drive/Documents/MICRO 1",
-        "devices": [
-          "M5",
-          "W11",
-          "GWin"
-        ],
-        "status": "ok",
-        "note": "CALENDAR-HOST + CALENDAR-FINANZAS + LOG + dashboard intention TB-day · actualizado GMac 2026-08-02"
+        "name": "MICRO 1",
+        "path": "Documents/MICRO 1",
+        "role": "Captura W11 + pipeline"
       }
     ],
     "devices": [
       {
         "nick": "M5",
         "role": "MacBook Pro M5 (humano + GMac)",
-        "opens": "Obsidian Ro (humano + GMac)",
+        "opens": "Obsidian Ro · ops · GitHub iCloud",
         "content_sync": "ok",
-        "firma": "pending",
-        "measured": "rsync 2026-08-02 · 181 md empty · firma humana M5 still pending"
+        "firma": "pass",
+        "measured": "2026-08-03 · firma humana M5 pass · Map café · SEO #139 · SSOT smoke · ClassPass tomado (Calendar SoT)"
       },
       {
         "nick": "GMac",
         "role": "Agente en M5",
-        "opens": "Obsidian Ro + ops/table-ro repos + MICRO 1",
+        "opens": "Obsidian Ro + ops/table-ro + MICRO 1 + mi-portafolio",
         "content_sync": "ok",
         "firma": "pass",
-        "measured": "2026-08-02 ~13:20 -0400 · Selfradar export · Calendar ops · Echo Dot sync · EMPLEO-STATUS · PR136 · no inventar firmas device"
+        "measured": "2026-08-03 · PR #139 merge+deploy · ops P0 · desync 66% ritual · CTA go · SEM prompt containers"
       },
       {
         "nick": "I15",
@@ -1084,7 +1066,7 @@
         "opens": "Obsidian Ro (no stub)",
         "content_sync": "signal_only",
         "firma": "pending",
-        "measured": "Sin check 2026-08-02 · último signal workspace-mobile (hist.) · falta abrir Ro en iPhone y firmar"
+        "measured": "Falta: abrir Ro + PIPELINE-QA + ops hosted 66% · firmar I15 · Limpiar draft ops si % raro"
       },
       {
         "nick": "W11",
@@ -1092,7 +1074,7 @@
         "opens": "Documents\\Obsidian Vault + MICRO 1",
         "content_sync": "mirror_ready_mac",
         "firma": "pending",
-        "measured": "Espejo 180 md listo en Mac iCloud 2026-08-02 · NO DATO: pull iCloud Windows + abrir Documents\\Obsidian Vault + MICRO 1 handoff"
+        "measured": "PM A/B/C · claims 9484·9483 · hotplug ritual teclado/mouse · firmar W11 en PIPELINE-QA"
       },
       {
         "nick": "GWin",
@@ -1100,15 +1082,15 @@
         "opens": "igual W11",
         "content_sync": "no_dato",
         "firma": "pending",
-        "measured": "Falta sesión Grok en PC · depende check W11 iCloud"
+        "measured": "Sesión GWin en torre cuando capture · nick + firma"
       },
       {
         "nick": "I11",
         "role": "iPad 11",
-        "opens": "Obsidian Ro",
+        "opens": "Obsidian Ro + Calendar 3 capas",
         "content_sync": "no_dato",
         "firma": "pending",
-        "measured": "Vault Ro misma · Calendar FIN+MICRO1+Personal revisados vía API GMac · sin check Obsidian humano en iPad hoy"
+        "measured": "Falta check humano iPad hoy · firmar I11"
       },
       {
         "nick": "M1",
@@ -1116,40 +1098,45 @@
         "opens": "Obsidian Ro",
         "content_sync": "no_dato",
         "firma": "pending",
-        "measured": "Mismo Apple ID · sin check 2026-08-02"
+        "measured": "Mismo Apple ID · sin check 2026-08-03"
       }
     ],
     "actions": [
       {
+        "id": "act-ops-reload-all",
+        "owner": "Rö · M5/I15/W11",
+        "title": "Ops: Limpiar draft + Recargar hosted (SoT 66%) en cada device",
+        "one_liner": "https://vientonorte.io/ops/ → Más → Limpiar draft → Recargar hosted"
+      },
+      {
         "id": "act-i15-firma",
         "owner": "Rö · I15",
-        "title": "Abrir Ro → PIPELINE-QA → firmar I15 pass|fail",
-        "one_liner": "- I15 · 2026-08-02 · pass · Ro visible · PIPELINE-QA + CIERRE + Sessions leídos"
+        "title": "Abrir Ro → PIPELINE-QA §6 → firmar I15",
+        "one_liner": "- I15 · 2026-08-03 · pass · Ro + ops hosted 66% · SSOT smoke leído"
       },
       {
         "id": "act-w11-firma",
         "owner": "Rö · W11 / GWin",
-        "title": "iCloud pull espejo + MICRO 1 · firmar W11/GWin",
-        "one_liner": "- W11 · 2026-08-02 · pass · espejo=Ro 181 md · MICRO 1 HOST/FINANZAS OK"
+        "title": "iCloud pull + MICRO1 A/B/C · firmar W11/GWin · hotplug 60s",
+        "one_liner": "- W11 · 2026-08-03 · pass · espejo + claims 9484/9483 · hotplug OK"
       },
       {
         "id": "act-i11-firma",
         "owner": "Rö · I11",
-        "title": "Obsidian Ro en iPad + Calendar 3 capas ON · firmar I11",
-        "one_liner": "- I11 · 2026-08-02 · pass · Ro + Personal/MICRO1/FINANZAS visibles"
+        "title": "Obsidian Ro + Calendar ON · firmar I11",
+        "one_liner": "- I11 · 2026-08-03 · pass · Ro + Personal/MICRO1/FINANZAS"
       },
       {
-        "id": "act-rsync",
-        "owner": "GMac",
-        "title": "Tras editar Ro: rsync Ro → Documents/Obsidian Vault",
-        "cmd": "rsync -a --delete --exclude '.DS_Store' \"$RO/\" \"$ES/\"",
-        "last_run": "2026-08-02 ~12:30 -0400 · 181 md empty"
+        "id": "act-smoke-favicon",
+        "owner": "Rö/GMac · M5",
+        "title": "P0: favicon ICO real + free Calendar más visible (H5) post-ok",
+        "one_liner": "SSOT smoke · H2b FAIL · H5 parcial"
       },
       {
-        "id": "act-trello-browser",
-        "owner": "Rö · M5/I11",
-        "title": "table-ro Admin → Sync Trello (Key/Token) post-import ICS",
-        "one_liner": "https://vientonorte.io/table-ro/ · filtro Camila"
+        "id": "act-sem-gemini",
+        "owner": "Rö · M5",
+        "title": "Gemini Workspace: prompt SEM (Resources/SEM) · sin spend",
+        "one_liner": "Obsidian Resources/SEM/PROMPT-GEMINI-SEM-workspace.md"
       }
     ],
     "legend": {
@@ -1161,12 +1148,12 @@
       "pending": "Falta firma en same artifact"
     },
     "best_practices": [
-      "Hosted canvas-state.json is source of truth",
-      "localStorage = draft only until Sync",
-      "fetch cache: no-store + bust",
-      "AHORA max 3; archive elapsed windows",
-      "Firmas multi-device only in PIPELINE-QA same artifact",
-      "No inventar pass/fail de devices sin medición"
+      "SoT canvas = hosted canvas-state.json · no draft local",
+      "Si Roadmap % distinto entre devices → Limpiar draft + Recargar hosted",
+      "No Sync desde draft basura",
+      "Firmas solo en PIPELINE-QA same artifact · no inventar desde GMac",
+      "ClassPass/Pilates = solo Calendar · no duplicar en ops",
+      "CTA: Home A · SEM A (A/B B si ad gratis) · Free B visible"
     ]
   },
   "vault_paths": {
@@ -1224,5 +1211,5 @@
       ]
     }
   ],
-  "progress_note": "SoT ops hosted roadmap 66%. Multi-device: Limpiar draft+Recargar hosted en M5/I15/W11. P0 smoke+firmas."
+  "progress_note": "sync_board 2026-08-03 AM: Map+SEO#139+CTA go · roadmap SoT 66% · firmas I15/W11/GWin/I11 pending · M1 9485 OK"
 }
