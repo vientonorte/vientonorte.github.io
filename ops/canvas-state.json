@@ -464,7 +464,7 @@
       ]
     }
   },
-  "updated": "2026-08-03",
+  "updated": "2026-08-04",
   "last_sync": {
     "at": "2026-08-03T13:44:19Z",
     "source": "GMac sync_board refresh",
@@ -565,13 +565,13 @@
     "note": "FO Map→Test en TB45/TB60 M5 café 09:15–11 · no ads scale · MICRO1 W11 no se come FO"
   },
   "last_close": {
-    "date": "2026-08-03",
+    "date": "2026-08-04",
     "session": "vn-cierre-sesion",
     "status": "closed-auto",
-    "title": "CIERRE final Map SEO GSC M1 Breakmark",
-    "at": "2026-08-03T23:04:43Z",
+    "title": "SPRINT ĀRŪḾA parked · cuenta tercera Google Citas · deploy esta semana",
+    "at": "2026-08-04T04:28:33Z",
     "docs": [
-      "vault:Viento Norte/Sprints/2026-08-03 LOG sesion.md"
+      "vault:Viento Norte/Sprints/2026-08-04 LOG sesion.md"
     ]
   },
   "github": {
