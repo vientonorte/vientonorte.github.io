@@ -287,8 +287,8 @@
     },
     {
       "date": "2026-08-06",
-      "hubstaff_h": 6.47,
-      "hubstaff_note": "calendar M1 used wall-clock · no min10×tasks",
+      "hubstaff_h": 5.89,
+      "hubstaff_note": "calendar M1 used wall-clock · plantilla 7.5",
       "tasks_ok": 3,
       "usd": 4.62,
       "claims": [
@@ -301,9 +301,9 @@
       "note": "3 RR · 8715·7952·7953 · cal M1 left live in UI · 3 Review Ready · Updated Realm · 8715 · 7952 · 7953 · UI MTD 12 (1 id pendiente)",
       "source": "Realm-table-Updated+calendar-blocks",
       "updated_at": "2026-08-06T20:08:11Z",
-      "calendar_m1_used_h": 6.47,
-      "calendar_m1_left_h": 1.53,
-      "calendar_m1_total_h": 8.0
+      "calendar_m1_used_h": 5.89,
+      "calendar_m1_left_h": 1.61,
+      "calendar_m1_total_h": 7.5
     }
   ],
   "meta": {
@@ -320,7 +320,7 @@
     "summary_mtd_usd": 16.94,
     "rate_usd": 1.54,
     "wind_down": "21:30",
-    "sync": "ops-4tph-2026-08-06",
+    "sync": "pulse-bar+cal-7.5-2026-08-06",
     "intent_usd_week_tb": 255.26,
     "goal_clp_month": 1600000,
     "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -332,7 +332,7 @@
     "intent_usd_day_fri": 30.8,
     "baseline_tph": 4.0,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-08-06T17:17:07-04:00",
+    "updated": "2026-08-06T17:23:28-04:00",
     "intention_h_month": 172.5,
     "target_hours_month": 180,
     "split_policy": "40m1_5vn_3post",
@@ -363,7 +363,7 @@
       "vn": 0.5,
       "post": 0.5
     },
-    "reality_note": "Realm RR n=11 · $16.94 · ops 4.0 t/h · intent L-J 30t · 40/5/3",
+    "reality_note": "ops 4 · intent 30 · cal 7.5h L-J · used~5.9 left~1.6 · pulse bar",
     "realm_review_ready": [
       "9568",
       "9567",
@@ -638,32 +638,27 @@
     "calendar_m1_blocks": {
       "date": "2026-08-06",
       "tz": "America/Santiago",
-      "source": "Google Calendar MICRO1 timed · 2026-08-06",
+      "source": "Calendar series rearm 7.5h L-J · 2026-08-06",
       "blocks": [
         {
-          "summary": "MICRO1 AM · W11",
-          "start": "2026-08-06T09:30:00-04:00",
+          "summary": "MICRO1 AM · 3.5h",
+          "start": "2026-08-06T09:00:00-04:00",
           "end": "2026-08-06T12:30:00-04:00"
         },
         {
-          "summary": "MICRO1 A · W11",
-          "start": "2026-08-06T12:30:00-04:00",
-          "end": "2026-08-06T13:45:00-04:00"
-        },
-        {
-          "summary": "MICRO1 B + pausa · W11",
+          "summary": "MICRO1 A · 2.0h",
           "start": "2026-08-06T15:00:00-04:00",
-          "end": "2026-08-06T16:15:00-04:00"
+          "end": "2026-08-06T17:00:00-04:00"
         },
         {
-          "summary": "MICRO1 C · W11",
-          "start": "2026-08-06T16:15:00-04:00",
-          "end": "2026-08-06T18:45:00-04:00"
+          "summary": "MICRO1 B · 2.0h",
+          "start": "2026-08-06T17:00:00-04:00",
+          "end": "2026-08-06T19:00:00-04:00"
         }
       ],
-      "total_h": 8.0,
-      "synced_at": "2026-08-06T17:13:05-04:00",
-      "note": "left/used se recalculan en UI con reloj local · no usar hubstaff_est 0.5 como left"
+      "total_h": 7.5,
+      "synced_at": "2026-08-06T17:23:28-04:00",
+      "note": "AM 3.5 + A 2.0 + B 2.0 = 7.5 · C deprecado"
     },
     "calendar_m1_plantilla_blocks": {
       "L-J": [
@@ -673,6 +668,10 @@
         },
         {
           "start": "15:00",
+          "end": "17:00"
+        },
+        {
+          "start": "17:00",
           "end": "19:00"
         }
       ],
