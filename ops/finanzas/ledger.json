@@ -229,7 +229,8 @@
                                 ],
                      "note":  "dry-run F7 · NO submit · docs SSOT",
                      "source":  "LOG",
-                     "game":  "—"
+                     "game":  "—",
+                     "tasks_tomadas":  0
                  },
                  {
                      "date":  "2026-08-02",
@@ -241,7 +242,8 @@
                                 ],
                      "note":  "setup M5/dashboard · 0 submit $",
                      "source":  "Sessions",
-                     "game":  "—"
+                     "game":  "—",
+                     "tasks_tomadas":  0
                  },
                  {
                      "date":  "2026-08-03",
@@ -253,7 +255,8 @@
                                 ],
                      "note":  "LOG 9483·9484·9485 fuera de cola RR",
                      "source":  "LOG-vs-Realm",
-                     "game":  "Dishonored 2"
+                     "game":  "Dishonored 2",
+                     "tasks_tomadas":  0
                  },
                  {
                      "date":  "2026-08-04",
@@ -269,7 +272,8 @@
                      "olas_de_3":  0,
                      "note":  "2 RR · Updated Realm · 9566 · 9568",
                      "source":  "Realm-table-Updated-RR",
-                     "updated_at":  "2026-08-06T23:30:53Z"
+                     "updated_at":  "2026-08-06T23:30:53Z",
+                     "tasks_tomadas":  2
                  },
                  {
                      "date":  "2026-08-05",
@@ -289,7 +293,8 @@
                      "olas_de_3":  2,
                      "note":  "6 RR · Updated Realm · 9567 · 8719 · 8718 · 8717 · 8716 · 8714",
                      "source":  "Realm-table-Updated-RR",
-                     "updated_at":  "2026-08-06T23:30:53Z"
+                     "updated_at":  "2026-08-06T23:30:53Z",
+                     "tasks_tomadas":  6
                  },
                  {
                      "date":  "2026-08-06",
@@ -340,7 +345,8 @@
                                         "note":  "Evening Updated · report Ro 17:49-18:47 (+5 verbal; Realm stamps 2 eve IDs + 4 earlier = 6 dia)"
                                     }
                                 ],
-                     "offline_buffer_takes":  1
+                     "offline_buffer_takes":  1,
+                     "tasks_tomadas":  7
                  }
              ],
     "meta":  {
