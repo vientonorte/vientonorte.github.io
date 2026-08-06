@@ -328,7 +328,7 @@
     "summary_mtd_usd": 15.4,
     "rate_usd": 1.54,
     "wind_down": "21:30",
-    "sync": "realm-table-+7952-2026-08-06",
+    "sync": "ops-tph-5.0+calendar-hours-2026-08-06",
     "intent_usd_week_tb": 255.26,
     "goal_clp_month": 1600000,
     "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -338,9 +338,9 @@
     "trainer_share_of_goal": 0.919,
     "max_claims": 3,
     "intent_usd_day_fri": 34.5,
-    "baseline_tph": 4.0,
+    "baseline_tph": 5.0,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-08-06T15:33:08-04:00",
+    "updated": "2026-08-06T15:42:29-04:00",
     "intention_h_month": 162.3,
     "target_hours_month": 180,
     "split_policy": "80_micro1_10_vn_10_post",
@@ -371,7 +371,7 @@
       "vn": 0.5,
       "post": 0.5
     },
-    "reality_note": "Realm RR n=10 · $15.40 · by Updated: 04→2, 05→6, 06→2 (8715+7952)",
+    "reality_note": "Realm RR n=10 · $15.4 · ops 5.0 t/h · cal L-J 6.4h / sem 29.6h / mes 124.8h",
     "realm_review_ready": [
       "9568",
       "9567",
@@ -385,29 +385,37 @@
       "7952"
     ],
     "realm_review_ready_n": 10,
-    "ops_tph": 4.0,
+    "ops_tph": 5.0,
     "plan_tph": 5.6,
     "baseline_tph_plan_ceiling": 5.6,
     "ops_stable_from": "2026-08-06",
     "ops_setup_until": "2026-08-05",
     "ops_model": "setup_no_debt_then_stable_4tph",
     "summary_intent_to_date_h_ops": 8.98,
-    "summary_intent_to_date_tasks_ops": 33.6,
-    "summary_intent_to_date_usd_ops": 51.74,
-    "summary_gap_usd_ops": -36.34,
-    "summary_gap_tasks_ops": -23.6,
+    "summary_intent_to_date_tasks_ops": 40.0,
+    "summary_intent_to_date_usd_ops": 61.6,
+    "summary_gap_usd_ops": -46.2,
+    "summary_gap_tasks_ops": -30.0,
     "projection": {
       "as_of": "2026-08-06",
-      "ops_tph": 4.0,
-      "m1_h_remaining_incl_today_left": 105.27,
-      "eom_tasks_at_4": 431.1,
-      "eom_usd_at_4": 663.86,
-      "eom_clp_at_4": 628678,
-      "week_runrate_tasks": 118.4,
-      "week_runrate_usd": 182.34,
-      "tasks_to_trainer_1552": 998.0,
-      "hours_to_trainer_at_4": 249.5,
-      "weeks_to_trainer_at_4": 8.4
+      "ops_tph": 5.0,
+      "plan_tph": 5.6,
+      "m1_h_remaining_plantilla": 105.27,
+      "eom_tasks_at_ops": 536.4,
+      "eom_usd_at_ops": 825.98,
+      "eom_clp_at_ops": 782202,
+      "eom_tasks_at_5_6": 599.5,
+      "eom_usd_at_5_6": 923.25,
+      "week_runrate_tasks": 148.0,
+      "week_runrate_usd": 227.92,
+      "day_lj_intent_tasks": 32.0,
+      "day_lj_intent_usd": 49.28,
+      "day_fri_intent_tasks": 20.0,
+      "tasks_to_trainer": 998.0,
+      "weeks_to_trainer_at_ops": 6.7,
+      "calendar_day_h_lj": 6.4,
+      "calendar_week_h_lv": 29.6,
+      "calendar_month_h_aug": 124.8
     },
     "ops_intent_days": [
       {
@@ -452,10 +460,10 @@
       },
       {
         "date": "2026-08-06",
-        "phase": "stable_4tph",
+        "phase": "stable_5tph",
         "intent_h": 6.4,
-        "intent_tasks": 25.6,
-        "intent_usd": 39.42,
+        "intent_tasks": 32.0,
+        "intent_usd": 49.28,
         "sched_m1_h": 6.4
       }
     ],
@@ -575,6 +583,17 @@
     ],
     "do_not_use": [
       "jsDelivr @commit pins"
-    ]
+    ],
+    "ops_tph_note": "2026-08-06 raised 4.0→5.0 (learning curve + Calendar capacity); plan techo 5.6",
+    "calendar_hours": {
+      "source": "Google Calendar MICRO 1 timed capture blocks 2026-08-06",
+      "plantilla_lj_h": 6.4,
+      "plantilla_fri_h": 4.0,
+      "plantilla_week_lv_h": 29.6,
+      "plantilla_month_aug_h": 124.8,
+      "live_day_2026_08_06_h": 8.0,
+      "live_week_03_09_h": 20.5,
+      "live_note": "06=8h (C hasta 18:45). Vie07=6.5h (sobre plantilla 4h). Sáb08/Dom09=3h WAVE. 10–13=6.4. Vie14=4.0"
+    }
   }
 }
