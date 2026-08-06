@@ -312,15 +312,15 @@
     "fx_clp_per_usd": 947,
     "summary_gap_usd": -265.42,
     "calendar_finanzas": "9616f51a807e24559b4df624c70d7fe1d81de62f9aa8baf44c1190db5887b12f@group.calendar.google.com",
-    "intention_note": "40h M1 + 5h VN + 3h Post/sem · Post=Computrabajo+entrevistas M1 (no LinkedIn) · ops 5.0 t/h · techo 5.6 · meta 1.6M CLP",
+    "intention_note": "40h M1 + 5h VN + 3h Post/sem · Post=Computrabajo+entrevistas M1 (no LinkedIn) · ops 4.0 t/h · techo 5.6 · meta 1.6M CLP",
     "intent_usd_month_tb_only": 1076.23,
     "goal_usd_equiv": 1689.55,
     "log_path": "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md",
-    "intent_usd_day_lj": 55.19,
+    "intent_usd_day_lj": 46.2,
     "summary_mtd_usd": 16.94,
     "rate_usd": 1.54,
     "wind_down": "21:30",
-    "sync": "cal-left-real-2026-08-06",
+    "sync": "ops-4tph-2026-08-06",
     "intent_usd_week_tb": 255.26,
     "goal_clp_month": 1600000,
     "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -329,10 +329,10 @@
     "target_usd_month": 1552.32,
     "trainer_share_of_goal": 0.919,
     "max_claims": 3,
-    "intent_usd_day_fri": 34.5,
-    "baseline_tph": 5.0,
+    "intent_usd_day_fri": 30.8,
+    "baseline_tph": 4.0,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-08-06T17:13:05-04:00",
+    "updated": "2026-08-06T17:17:07-04:00",
     "intention_h_month": 172.5,
     "target_hours_month": 180,
     "split_policy": "40m1_5vn_3post",
@@ -363,7 +363,7 @@
       "vn": 0.5,
       "post": 0.5
     },
-    "reality_note": "Realm RR n=11 · $16.94 · cal M1 used~6.5h left~1.5h (no plantilla residual) · 40/5/3",
+    "reality_note": "Realm RR n=11 · $16.94 · ops 4.0 t/h · intent L-J 30t · 40/5/3",
     "realm_review_ready": [
       "9568",
       "9567",
@@ -378,7 +378,7 @@
       "7953"
     ],
     "realm_review_ready_n": 11,
-    "ops_tph": 5.0,
+    "ops_tph": 4.0,
     "plan_tph": 5.6,
     "baseline_tph_plan_ceiling": 5.6,
     "ops_stable_from": "2026-08-06",
@@ -391,30 +391,31 @@
     "summary_gap_tasks_ops": -34.5,
     "projection": {
       "as_of": "2026-08-06",
-      "ops_tph": 5.0,
+      "ops_tph": 4.0,
       "plan_tph": 5.6,
       "m1_h_remaining_plantilla": 144.5,
-      "eom_tasks_at_ops": 733.5,
-      "eom_usd_at_ops": 1129.59,
-      "eom_clp_at_ops": 1069722,
+      "eom_tasks_at_ops": 589.0,
+      "eom_usd_at_ops": 907.06,
+      "eom_clp_at_ops": 858986,
       "eom_tasks_at_5_6": 820.2,
-      "week_runrate_tasks": 200.0,
-      "week_runrate_usd": 308.0,
+      "week_runrate_tasks": 160.0,
+      "week_runrate_usd": 246.4,
       "week_m1_h_full": 40.0,
       "work_week_h": 48.0,
-      "day_lj_intent_tasks": 37.5,
-      "day_lj_intent_usd": 57.75,
-      "day_fri_intent_tasks": 25.0,
-      "day_weekend_intent_tasks": 12.5,
+      "day_lj_intent_tasks": 30.0,
+      "day_lj_intent_usd": 46.2,
+      "day_fri_intent_tasks": 20.0,
+      "day_weekend_intent_tasks": 10.0,
       "tasks_to_trainer": 997.0,
-      "weeks_to_trainer_at_ops": 5.0,
+      "weeks_to_trainer_at_ops": 6.2,
       "calendar_day_h_lj": 7.5,
       "calendar_day_h_fri": 5.0,
       "calendar_day_h_weekend": 2.5,
       "calendar_week_h_m1": 40.0,
       "calendar_week_h_vn": 5.0,
       "calendar_week_h_post": 3.0,
-      "calendar_month_h_aug_m1": 172.5
+      "calendar_month_h_aug_m1": 172.5,
+      "day_fri_intent_usd": 30.8
     },
     "ops_intent_days": [
       {
@@ -461,8 +462,8 @@
         "date": "2026-08-06",
         "phase": "stable",
         "intent_h": 7.5,
-        "intent_tasks": 37.5,
-        "intent_usd": 57.75,
+        "intent_tasks": 30.0,
+        "intent_usd": 46.2,
         "sched_m1_h": 7.5
       }
     ],
@@ -581,7 +582,7 @@
     "do_not_use": [
       "jsDelivr @commit pins"
     ],
-    "ops_tph_note": "2026-08-06 raised 4.0→5.0 (learning curve + Calendar capacity); plan techo 5.6",
+    "ops_tph_note": "2026-08-06 Rö: ops = 4 t/h (no 5). Plan techo sigue 5.6",
     "calendar_hours": {
       "source": "SSOT 40 M1 + 5 VN + 3 Post · 2026-08-06",
       "plantilla_lj_h": 7.5,
@@ -610,7 +611,8 @@
           "post": 0.25
         }
       },
-      "post_note": "Computrabajo + entrevistas Micro1 pendientes · NO LinkedIn"
+      "post_note": "Computrabajo + entrevistas Micro1 pendientes · NO LinkedIn",
+      "ops_tph": 4.0
     },
     "hours_weekend": {
       "m1": 2.5,
