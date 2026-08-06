@@ -47,16 +47,16 @@
           "people_job": "Olas F7→tick→Submit. Review Ready ya: 9568…8714. No re-subir RR. LOG+m1-ledger-sync.",
           "links": [
             "https://realm.micro1.ai/",
-            "https://vientonorte.io/ops/finanzas/",
-            "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas/ledger.json",
+            "https://finanzas.vientonorte.io/",
+            "https://finanzas.vientonorte.io/",
             "https://vientonorte.io/ops/HUMAN-ACTIONS.md"
           ],
-          "notes": "MTD $18.48 / intent weekday ~$221 · gap cash se cierra con horas M1 no con features FO · 2026-08-06"
+          "notes": "MTD $13.86 / 9 RR · ops @4 t/h · 2026-08-06"
         },
         {
           "id": "now-hu-vn-pages-data",
-          "title": "P0 · HU-VN-03 Pages ops live = raw (ledger 80/10/10 · $18.48)",
-          "status": "todo",
+          "title": "P0 · HU-VN-03 Finanzas = finanzas.vientonorte.io (9·$13.86)",
+          "status": "done",
           "priority": "P0",
           "human": true,
           "kind": "ops_infra",
@@ -67,10 +67,10 @@
           "links": [
             "https://github.com/vientonorte/vientonorte.github.io/settings/pages",
             "https://github.com/vientonorte/vientonorte.github.io/actions",
-            "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas/ledger.json",
-            "https://cdn.jsdelivr.net/gh/vientonorte/vientonorte.github.io@main/ops/finanzas/ledger-ssot.json"
+            "https://finanzas.vientonorte.io/",
+            "https://finanzas.vientonorte.io/"
           ],
-          "notes": "Live still 80/20 $4.62 · root cause Pages errored · 2026-08-06"
+          "notes": "Canonical CF Worker · GH path deprecado · 2026-08-06"
         }
       ],
       "done_archive": [
@@ -158,7 +158,8 @@
           "atomic_level": "template",
           "people_job": "Higiene org sin sesión manual",
           "data_loss_risk": "none",
-          "notes": "~/.grok/workflows/org-hygiene.rhai smoke OK + scheduler 7d"
+          "notes": "~/.grok/workflows/org-hygiene.rhai smoke OK + scheduler 7d",
+          "links": []
         },
         {
           "id": "del-local-smoke",
@@ -169,7 +170,8 @@
           "atomic_level": "template",
           "people_job": "Gate local fail-fast antes de CI cloud",
           "data_loss_risk": "none",
-          "notes": "cierre-smoke.sh + npm run smoke:cierre + workflow cierre-smoke"
+          "notes": "cierre-smoke.sh + npm run smoke:cierre + workflow cierre-smoke",
+          "links": []
         },
         {
           "id": "del-dependabot-policy",
@@ -179,7 +181,8 @@
           "status": "done",
           "atomic_level": "atom",
           "people_job": "Menos ruido de bumps rotos",
-          "data_loss_risk": "none"
+          "data_loss_risk": "none",
+          "links": []
         }
       ]
     },
@@ -202,7 +205,7 @@
           "links": [
             "https://vientonorte.io/ops/SPRINT-CORE-ONBOARDING.md",
             "https://vientonorte.io/#/consultoria",
-            "https://vientonorte.io/ops/finanzas/"
+            "https://finanzas.vientonorte.io/"
           ],
           "depends_on": "plan-sprint-core-well"
         },
@@ -243,7 +246,8 @@
           "repo": "vientonorte-core",
           "status": "next",
           "people_job": "Misma marca VN multi-repo (no bloquea smoke FO humano)",
-          "notes": "Sacado de AHORA para dejar solo humanos post-#135 · parte de plan-sprint-core-well"
+          "notes": "Sacado de AHORA para dejar solo humanos post-#135 · parte de plan-sprint-core-well",
+          "links": []
         },
         {
           "id": "plan-ds-0803-surfaces",
@@ -281,7 +285,8 @@
           "status": "backlog",
           "atomic_level": "template",
           "people_job": "QA Gate verde en main",
-          "data_loss_risk": "none"
+          "data_loss_risk": "none",
+          "links": []
         },
         {
           "id": "plan-github-pro-private-protect",
@@ -290,7 +295,8 @@
           "status": "backlog",
           "atomic_level": "template",
           "people_job": "archivo-privado / sura / idt sin force-push accidental",
-          "data_loss_risk": "none"
+          "data_loss_risk": "none",
+          "links": []
         },
         {
           "id": "plan-sprint-close-automation",
@@ -299,7 +305,8 @@
           "status": "done",
           "atomic_level": "template",
           "people_job": "Cerrar sprint sin fricción y con trazabilidad en vault/ops",
-          "data_loss_risk": "none"
+          "data_loss_risk": "none",
+          "links": []
         },
         {
           "id": "plan-demo-mockup-mode",
@@ -309,7 +316,8 @@
           "status": "backlog",
           "atomic_level": "organism",
           "people_job": "Ver pantallas de producto como mockups al pedir demo, sin sandbox confuso",
-          "data_loss_risk": "none"
+          "data_loss_risk": "none",
+          "links": []
         },
         {
           "id": "plan-consultoria-redesign",
@@ -334,7 +342,8 @@
           "atomic_level": "page",
           "people_job": "Stakeholder entiende alcance funcional GEES según visión VN",
           "data_loss_risk": "none",
-          "notes": "Capacidad: SÍ MVP decisión; NO SaaS real-time sin partner eng"
+          "notes": "Capacidad: SÍ MVP decisión; NO SaaS real-time sin partner eng",
+          "links": []
         },
         {
           "id": "plan-oauth-verify",
@@ -354,7 +363,8 @@
           "title": "Gmail App Password secrets (mail canvas) + orquestación MCP lead a11y",
           "repo": "Vientonorte",
           "status": "backlog",
-          "notes": "Conectores Grok ya existen; falta pipeline y secrets ops-sync"
+          "notes": "Conectores Grok ya existen; falta pipeline y secrets ops-sync",
+          "links": []
         },
         {
           "id": "plan-gtm",
@@ -363,7 +373,8 @@
           "repo_git": "mi-portafolio",
           "atomic_level": "atom",
           "status": "parked",
-          "notes": "Park hasta Test usabilidad path · no wire live esta semana"
+          "notes": "Park hasta Test usabilidad path · no wire live esta semana",
+          "links": []
         },
         {
           "id": "plan-seo-hub",
@@ -373,7 +384,8 @@
           "people_job": "Encontrar Viento Norte desde búsqueda con promesa clara",
           "data_loss_risk": "none",
           "status": "in_progress",
-          "notes": "sitemaps/robots · Search Console verification manual · URLs root .io"
+          "notes": "sitemaps/robots · Search Console verification manual · URLs root .io",
+          "links": []
         }
       ]
     },
@@ -697,7 +709,7 @@
     "tokens": "80_m1_10_vn_10_post",
     "mtd_usd": 18.48,
     "mtd_tasks": 12,
-    "gap_note": "intent weekday ~$221 vs reality $18.48 — close via M1 hours not FO features"
+    "gap_note": "intent weekday ~$221 vs reality $13.86 — close via M1 hours not FO features"
   },
   "design_system": {
     "figma_sites": "https://dot-wool-76997229.figma.site",
@@ -837,7 +849,7 @@
             "title": "Dashboard financiero disponible en /ops/finanzas",
             "status": "done",
             "links": [
-              "https://vientonorte.io/ops/finanzas/"
+              "https://finanzas.vientonorte.io/"
             ]
           },
           {
@@ -1041,7 +1053,7 @@
       "board": "https://trello.com/b/69c558a7d79162569df9a98a",
       "note": "API B+C requiere Key/Token en browser Admin → Sync Trello"
     },
-    "finanzas": "https://vientonorte.io/ops/finanzas/",
+    "finanzas": "https://finanzas.vientonorte.io/",
     "next_sprint": "plan-sprint-core-well · SPRINT-CORE-ONBOARDING.md",
     "next_next_sprint": "plan-sprint-onboarding-envs · onboarding + ambientes pub/priv"
   },
@@ -1278,7 +1290,7 @@
     "sync_ritual": "Clear draft + Reload hosted on every device"
   },
   "links": {
-    "finanzas": "https://vientonorte.io/ops/finanzas/",
+    "finanzas": "https://finanzas.vientonorte.io/",
     "sprint_core_onboarding": "https://vientonorte.io/ops/SPRINT-CORE-ONBOARDING.md",
     "packages": "https://vientonorte.io/ops/packages-status.md"
   },
