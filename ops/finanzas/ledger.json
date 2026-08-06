@@ -320,7 +320,7 @@
     "fx_clp_per_usd": 947,
     "summary_gap_usd": -265.42,
     "calendar_finanzas": "9616f51a807e24559b4df624c70d7fe1d81de62f9aa8baf44c1190db5887b12f@group.calendar.google.com",
-    "intention_note": "Setup≤05 sin deuda. Desde 06: 6.4h×4 t/h. Realidad = Realm Review Ready por Updated (no auto-report 10).",
+    "intention_note": "Jornada 8h L-J · Vie 5h · sáb+dom WAVE 1h M1 c/u · 80/10/10 · ops 5.0 t/h · techo 5.6 · meta 1.6M",
     "intent_usd_month_tb_only": 1076.23,
     "goal_usd_equiv": 1689.55,
     "log_path": "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md",
@@ -328,7 +328,7 @@
     "summary_mtd_usd": 15.4,
     "rate_usd": 1.54,
     "wind_down": "21:30",
-    "sync": "ops-tph-5.0+calendar-hours-2026-08-06",
+    "sync": "weekend-1h+ops5-2026-08-06",
     "intent_usd_week_tb": 255.26,
     "goal_clp_month": 1600000,
     "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -340,8 +340,8 @@
     "intent_usd_day_fri": 34.5,
     "baseline_tph": 5.0,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-08-06T15:42:29-04:00",
-    "intention_h_month": 162.3,
+    "updated": "2026-08-06T15:59:30-04:00",
+    "intention_h_month": 134.8,
     "target_hours_month": 180,
     "split_policy": "80_micro1_10_vn_10_post",
     "intent_usd_week_80_20": 255.26,
@@ -371,7 +371,7 @@
       "vn": 0.5,
       "post": 0.5
     },
-    "reality_note": "Realm RR n=10 · $15.4 · ops 5.0 t/h · cal L-J 6.4h / sem 29.6h / mes 124.8h",
+    "reality_note": "RR 10·$15.4 · ops 5.0 t/h · week M1 31.6h (L-V 29.6 + sáb1 + dom1) · work week 39h",
     "realm_review_ready": [
       "9568",
       "9567",
@@ -400,22 +400,23 @@
       "as_of": "2026-08-06",
       "ops_tph": 5.0,
       "plan_tph": 5.6,
-      "m1_h_remaining_plantilla": 105.27,
-      "eom_tasks_at_ops": 536.4,
-      "eom_usd_at_ops": 825.98,
-      "eom_clp_at_ops": 782202,
-      "eom_tasks_at_5_6": 599.5,
-      "eom_usd_at_5_6": 923.25,
-      "week_runrate_tasks": 148.0,
-      "week_runrate_usd": 227.92,
+      "m1_h_remaining_plantilla": 113.27,
+      "eom_tasks_at_ops": 576.4,
+      "eom_usd_at_ops": 887.58,
+      "eom_clp_at_ops": 840537,
+      "eom_tasks_at_5_6": 644.3,
+      "week_runrate_tasks": 158.0,
+      "week_runrate_usd": 243.32,
+      "week_m1_h_full": 31.6,
+      "work_week_h": 39,
       "day_lj_intent_tasks": 32.0,
-      "day_lj_intent_usd": 49.28,
-      "day_fri_intent_tasks": 20.0,
+      "day_weekend_intent_tasks": 5.0,
       "tasks_to_trainer": 998.0,
-      "weeks_to_trainer_at_ops": 6.7,
+      "weeks_to_trainer_at_ops": 6.3,
       "calendar_day_h_lj": 6.4,
-      "calendar_week_h_lv": 29.6,
-      "calendar_month_h_aug": 124.8
+      "calendar_day_h_weekend": 1.0,
+      "calendar_week_h_full": 31.6,
+      "calendar_month_h_aug": 134.8
     },
     "ops_intent_days": [
       {
@@ -424,7 +425,7 @@
         "intent_h": 0.0,
         "intent_tasks": 0.0,
         "intent_usd": 0.0,
-        "sched_m1_h": 0.0
+        "sched_m1_h": 1.0
       },
       {
         "date": "2026-08-02",
@@ -432,7 +433,7 @@
         "intent_h": 0.5,
         "intent_tasks": 0.0,
         "intent_usd": 0.0,
-        "sched_m1_h": 0.0
+        "sched_m1_h": 1.0
       },
       {
         "date": "2026-08-03",
@@ -586,14 +587,22 @@
     ],
     "ops_tph_note": "2026-08-06 raised 4.0→5.0 (learning curve + Calendar capacity); plan techo 5.6",
     "calendar_hours": {
-      "source": "Google Calendar MICRO 1 timed capture blocks 2026-08-06",
+      "source": "SSOT 80/10/10 + WAVE sáb/dom 1h M1 each · 2026-08-06",
       "plantilla_lj_h": 6.4,
       "plantilla_fri_h": 4.0,
+      "plantilla_sat_h": 1.0,
+      "plantilla_sun_h": 1.0,
       "plantilla_week_lv_h": 29.6,
-      "plantilla_month_aug_h": 124.8,
-      "live_day_2026_08_06_h": 8.0,
-      "live_week_03_09_h": 20.5,
-      "live_note": "06=8h (C hasta 18:45). Vie07=6.5h (sobre plantilla 4h). Sáb08/Dom09=3h WAVE. 10–13=6.4. Vie14=4.0"
-    }
+      "plantilla_week_full_h": 31.6,
+      "plantilla_work_week_h": 39,
+      "plantilla_month_aug_h": 134.8,
+      "live_day_2026_08_06_h": 8.0
+    },
+    "hours_weekend": {
+      "m1": 1.0,
+      "vn": 0.0,
+      "post": 0.0
+    },
+    "workday_h_weekend": 1.0
   }
 }
