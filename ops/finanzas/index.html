@@ -1,707 +1,543 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Micro1 · Intención vs Realidad · Dashboard $</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="dark"/>
+<title>VN · Finanzas Micro1 OPS</title>
 <style>
   :root {
-    --bg: #0b0f14; --panel: #121a22; --border: #1e2a36; --text: #e7eef5; --muted: #8aa0b5;
-    --green: #3dd68c; --yellow: #f5c542; --red: #ff6b6b; --accent: #5b9fd4; --purple: #a78bfa;
-    --intent: #5b9fd4; --real: #3dd68c;
+    --bg: #0b0f14;
+    --panel: #121a22;
+    --panel2: #18222d;
+    --line: #243140;
+    --text: #e8eef4;
+    --muted: #8fa3b5;
+    --good: #3dd68c;
+    --warn: #f5c542;
+    --bad: #ff6b6b;
+    --accent: #5b9fd4;
+    --accent2: #7c6af5;
+    --radius: 14px;
+    --font: "SF Pro Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    background: var(--bg); color: var(--text); line-height: 1.45; }
-  header { padding: 1.1rem 1.4rem; border-bottom: 1px solid var(--border);
-    display: flex; flex-wrap: wrap; gap: .75rem; justify-content: space-between; align-items: baseline; }
-  header h1 { margin: 0; font-size: 1.1rem; font-weight: 650; }
-  .sub { color: var(--muted); font-size: .82rem; }
-  main { padding: 1.1rem 1.4rem 3rem; max-width: 1180px; margin: 0 auto; }
-  .grid { display: grid; gap: .85rem; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 1rem; }
-  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: .9rem 1rem; }
-  .label { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; }
-  .value { font-size: 1.35rem; font-weight: 700; margin-top: .2rem; font-variant-numeric: tabular-nums; }
-  .hint { color: var(--muted); font-size: .78rem; margin-top: .15rem; }
-  .ok { color: var(--green); } .warn { color: var(--yellow); } .bad { color: var(--red); }
-  h2 { font-size: .88rem; margin: 1.35rem 0 .65rem; color: var(--muted); font-weight: 600;
-    text-transform: uppercase; letter-spacing: .05em; }
-  label { display: block; font-size: .78rem; color: var(--muted); margin-bottom: .2rem; }
-  input, textarea, button {
-    font: inherit; border-radius: 8px; border: 1px solid var(--border); background: #0e151c; color: var(--text);
-    padding: .45rem .6rem; width: 100%;
+  body {
+    margin: 0; font-family: var(--font); background: var(--bg); color: var(--text);
+    line-height: 1.45; min-height: 100vh;
   }
-  textarea { min-height: 110px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .78rem; }
-  button { cursor: pointer; background: #1a3044; border-color: #2a4a66; width: auto; padding: .45rem .85rem; }
-  button.primary { background: #1e4d7a; border-color: var(--accent); }
-  button.danger { background: #3a1a1a; border-color: #6a3030; }
-  .row { display: flex; flex-wrap: wrap; gap: .65rem; align-items: end; margin-bottom: .65rem; }
-  .row > * { flex: 1 1 110px; }
-  .bar-wrap { height: 12px; background: #0e151c; border-radius: 99px; overflow: hidden; margin-top: .35rem; position: relative; }
-  .bar { height: 100%; border-radius: 99px; max-width: 100%; }
-  .bar.intent { background: var(--intent); opacity: .45; position: absolute; left: 0; top: 0; }
-  .bar.real { background: linear-gradient(90deg, var(--real), #2a9d6a); position: relative; }
-  .legend { display: flex; gap: 1rem; font-size: .75rem; color: var(--muted); margin-top: .4rem; }
-  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: .3rem; }
-  .legend .i { background: var(--intent); opacity: .7; }
-  .legend .r { background: var(--real); }
-  table { width: 100%; border-collapse: collapse; font-size: .8rem; font-variant-numeric: tabular-nums; }
-  th, td { text-align: left; padding: .4rem .4rem; border-bottom: 1px solid var(--border); }
-  th { color: var(--muted); font-weight: 600; font-size: .7rem; }
-  .pill { display: inline-block; padding: .12rem .4rem; border-radius: 99px; font-size: .7rem; border: 1px solid var(--border); }
-  .pill.ok { border-color: #2a6a4a; color: var(--green); }
-  .pill.warn { border-color: #6a5a20; color: var(--yellow); }
-  .pill.bad { border-color: #6a3030; color: var(--red); }
-  .two { display: grid; gap: .85rem; grid-template-columns: 1fr 1fr; }
-  @media (max-width: 860px) { .two { grid-template-columns: 1fr; } }
-  .help { font-size: .78rem; color: var(--muted); margin: .4rem 0 .8rem; }
-  code { background: #0e151c; padding: .08rem .3rem; border-radius: 4px; font-size: .85em; }
-  footer { margin-top: 1.75rem; color: var(--muted); font-size: .72rem; }
-  .delta-pos { color: var(--green); } .delta-neg { color: var(--red); }
-  .ivr-head { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; flex-wrap: wrap; }
+  a { color: var(--accent); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 16px 16px 48px; }
+  .topbar {
+    display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between;
+    padding: 12px 14px; background: linear-gradient(135deg, #143224, #0f1c2a);
+    border: 1px solid #1f4d38; border-radius: var(--radius); margin-bottom: 14px;
+  }
+  .topbar h1 { font-size: 1rem; margin: 0; font-weight: 650; letter-spacing: .02em; }
+  .topbar .sub { color: #b7d7c5; font-size: .82rem; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px;
+    background: #0d281c; border: 1px solid #2a6b4a; color: var(--good); font-size: .75rem; font-weight: 600;
+  }
+  .grid { display: grid; gap: 12px; }
+  .kpis { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px;
+  }
+  .card .label { font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .card .value { font-size: 1.55rem; font-weight: 700; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .card .hint { font-size: .8rem; color: var(--muted); margin-top: 6px; }
+  .delta-pos { color: var(--good); }
+  .delta-neg { color: var(--bad); }
+  .delta-zero { color: var(--muted); }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; margin-top: 12px; }
+  .panel h2 { margin: 0 0 10px; font-size: 1rem; }
+  .panel p.lead { margin: 0 0 12px; color: var(--muted); font-size: .9rem; }
+  .bars { display: grid; gap: 10px; }
+  .bar-row { display: grid; gap: 4px; }
+  .bar-meta { display: flex; justify-content: space-between; font-size: .8rem; color: var(--muted); }
+  .track { height: 10px; background: var(--panel2); border-radius: 999px; overflow: hidden; border: 1px solid var(--line); }
+  .fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--good)); }
+  .fill.warn { background: linear-gradient(90deg, var(--warn), #e39b2d); }
+  .fill.bad { background: linear-gradient(90deg, var(--bad), #c44); }
+  table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+  th, td { padding: 8px 6px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; }
+  tr:hover td { background: rgba(255,255,255,.02); }
+  .mono { font-family: var(--mono); font-size: .8rem; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: .72rem; font-weight: 650; border: 1px solid var(--line); }
+  .pill.ok { color: var(--good); border-color: #2a6b4a; background: #0d281c; }
+  .pill.warn { color: var(--warn); border-color: #6b5a1f; background: #2a230d; }
+  .pill.bad { color: var(--bad); border-color: #6b2a2a; background: #2a0d0d; }
+  .pill.muted { color: var(--muted); }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  button, .btn {
+    appearance: none; border: 1px solid var(--line); background: var(--panel2); color: var(--text);
+    border-radius: 10px; padding: 8px 12px; font: inherit; font-size: .85rem; cursor: pointer;
+  }
+  button.primary { background: #1a4d35; border-color: #2f7a55; color: #d7ffe9; }
+  button.danger { background: #3a1515; border-color: #6b2a2a; color: #ffd0d0; }
+  button:hover { filter: brightness(1.08); }
+  .sync { font-size: .8rem; color: var(--muted); margin-top: 8px; }
+  .two { display: grid; gap: 12px; grid-template-columns: 1.2fr .8fr; }
+  @media (max-width: 820px) { .two { grid-template-columns: 1fr; } .card .value { font-size: 1.3rem; } }
+  .list { margin: 0; padding-left: 1.1rem; color: var(--muted); font-size: .86rem; }
+  .list li { margin: 4px 0; }
+  .claim { font-family: var(--mono); color: #c9ddff; }
+  footer.note { margin-top: 18px; color: var(--muted); font-size: .78rem; }
+  .alert {
+    background: #2a1f0d; border: 1px solid #6b5a1f; color: #ffe6a8; padding: 10px 12px;
+    border-radius: 10px; font-size: .85rem; margin-bottom: 12px; display: none;
+  }
+  .alert.show { display: block; }
 </style>
-<meta name="ssot-deploy" content="2026-08-06T17:36Z" />
 </head>
 <body>
-<div id="ssot-banner" style="background:#064;color:#fff;padding:10px 14px;font:14px system-ui;position:sticky;top:0;z-index:9999">
-<strong>Realm RR</strong> · n=<b>9</b> · MTD <span id="ssot-mtd">9 · $13.86</span>
-· by Updated: 04→2 · 05→6 · 06→1 (8715)
-· 9483-85 LOG only (no RR)
-· intent ops Δ ~$-37.88
-· EOM@4 ~430.7t
-· <button type="button" id="btn_banner_pull" style="cursor:pointer">↻</button> · v7
-</div>
-<header>
-  <div>
-    <h1>Micro1 · Intención vs Realidad</h1>
-    <div class="sub">$1.54/tarea · 5.6 t/h · meta 180h / 1008 tasks / ~$1,552 · max 3 claims · local-only</div>
-  </div>
-  <div class="sub" id="clock"></div>
-</header>
-<main>
-  <div class="grid" id="kpis"></div>
-
-  <h2>Intención vs realidad (mes en curso)</h2>
-  <div class="card" id="ivr"></div>
-
-  <h2>Progreso dual (barras)</h2>
-  <div class="card" id="bars"></div>
-
-  <div class="two" style="margin-top:1rem">
-    <div class="card">
-      <h2 style="margin-top:0">Realidad · agregar día</h2>
-      <p class="help">Hubstaff real + submits OK. La <strong>intención</strong> del día se calcula sola (Calendar WAVE).</p>
-      <div class="row">
-        <div><label>Fecha</label><input type="date" id="d_date" /></div>
-        <div><label>Hubstaff h (realidad)</label><input type="number" id="d_h" step="0.01" min="0" placeholder="6" /></div>
-        <div><label>Tasks OK</label><input type="number" id="d_tasks" step="1" min="0" placeholder="34" /></div>
-      </div>
-      <div class="row">
-        <div><label>Claims open</label><input type="number" id="d_claims" min="0" max="3" value="0" /></div>
-        <div><label>Olas de 3</label><input type="number" id="d_olas" min="0" value="0" /></div>
-        <div><label>Juego</label><input type="text" id="d_game" placeholder="Dishonored 2" /></div>
-      </div>
-      <div class="row">
-        <div><label>Nota</label><input type="text" id="d_note" placeholder="WAVE PM" /></div>
-        <div style="display:flex;gap:.4rem;flex-wrap:wrap;align-items:end">
-          <button class="primary" type="button" id="btn_add">Guardar realidad</button>
-          <p id="ssot_banner" class="help" style="margin:0 0 .5rem;padding:.5rem .75rem;border:1px solid #3D9461;border-radius:8px;background:#0a1f12;color:#c8f0d4">
-  SoT 80/10/10 · si ves $4.62 o 3 tasks: pulsa <strong>↻ ledger.json</strong> (carga jsDelivr/raw) · key localStorage v7 · SSOT SEED=ledger
-</p>
-<button class="primary" type="button" id="btn_pull">↻ ledger.json</button>
-          <button type="button" id="btn_seed">Cargar seed ago</button>
-          <button type="button" id="btn_export">Export JSON</button>
-          <button type="button" id="btn_import">Import</button>
-          <input type="file" id="file_import" accept=".json,application/json" hidden />
-        </div>
-        <p class="help" id="sync_hint" style="margin:.35rem 0 0">Auto: <code>python3 m1-ledger-sync.py</code> tras cada submit OK.</p>
-      </div>
+<div class="wrap">
+  <div class="topbar">
+    <div>
+      <h1>Micro1 · OPS Finanzas</h1>
+      <div class="sub">Realidad = Realm <b>Review Ready</b> por columna <b>Updated</b> · Intent ops = setup sin deuda + estable @4 t/h</div>
     </div>
-    <div class="card">
-      <h2 style="margin-top:0">Pegar footer DAY (LOG.md)</h2>
-      <textarea id="paste_day" placeholder="### DAY 2026-08-02
-hubstaff_h: 6.0
-tasks_ok: 34
-..."></textarea>
-      <div style="margin-top:.45rem;display:flex;gap:.4rem">
-        <button class="primary" type="button" id="btn_parse">Parsear → realidad</button>
-        <button type="button" id="btn_clear_paste">Limpiar</button>
-      </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <span class="badge" id="badge-ssot">SSOT Realm</span>
+      <span class="badge" id="badge-split" style="background:#152033;border-color:#2a4a6b;color:#9ec5ff">80/10/10</span>
+      <span class="mono" id="clock" style="color:#9fb2c3;font-size:.78rem"></span>
     </div>
   </div>
 
-  <h2>Día a día · intención vs realidad</h2>
-  <div class="card" style="overflow-x:auto">
-    <table>
-      <thead>
-        <tr>
-          <th>Fecha</th>
-          <th>Intent h</th><th>Real h</th><th>Δ h</th>
-          <th>Intent tasks</th><th>Real tasks</th><th>Δ tasks</th>
-          <th>Real $</th><th>t/h</th><th>Pace</th><th>Nota</th><th></th>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
-    <div style="margin-top:.65rem">
-      <button class="danger" type="button" id="btn_wipe">Borrar realidad (localStorage)</button>
+  <div class="alert" id="stale-alert"></div>
+
+  <div class="grid kpis" id="kpis"></div>
+
+  <div class="two">
+    <div class="panel">
+      <h2>Intención ops vs realidad</h2>
+      <p class="lead" id="gap-lead"></p>
+      <div class="bars" id="bars"></div>
+      <div class="grid kpis" style="margin-top:12px" id="gap-cards"></div>
+    </div>
+    <div class="panel">
+      <h2>Proyección @4 t/h</h2>
+      <p class="lead">Flujo estable actual. Techo 5.6 solo como stretch, no KPI de castigo.</p>
+      <div id="proj"></div>
+      <ul class="list" style="margin-top:12px" id="proj-notes"></ul>
     </div>
   </div>
 
-  <h2>Checklist ola (anti-cuello 5.6)</h2>
-  <div class="card">
-    <ol style="margin:0;padding-left:1.15rem;color:var(--muted);font-size:.88rem">
-      <li>CAPTURE MODE + Hubstaff (workspace Trainer)</li>
-      <li>Claim pool 2–3 (max 3) · mismo juego READY</li>
-      <li>F7 → 10 min + mic → F7 ×3</li>
-      <li><code>m1-tick.ps1</code> → UPLOAD_LATEST → Submit 6 files</li>
-      <li>LOG línea + footer DAY → pegar aquí <strong>o</strong> <code>m1-ledger-sync.py</code></li>
-      <li>Dashboard: botón <strong>↻ ledger.json</strong> / live <a href="https://vientonorte.io/ops/finanzas/" style="color:var(--accent)">ops/finanzas</a></li>
-    </ol>
+  <div class="panel">
+    <h2>Cola Review Ready (acumulado)</h2>
+    <p class="lead">9 claims · Dishonored 2 · 10 min · Trainer Rodrigo · SoT = paste Realm</p>
+    <div id="realm-table" style="overflow:auto"></div>
+    <p class="sync" id="log-only"></p>
   </div>
 
-  <footer>
-    Intención captura = 80% M1 · L–J <strong>6.4 h</strong> · Vie <strong>4.0 h</strong> · 10% VN · 10% Post · @ 5.6 t/h · meta 1.6M CLP.<br />
-    Realidad = <code>ledger.json</code> (auto vía <code>m1-ledger-sync.py</code> desde LOG) · localStorage · footer DAY.<br />
-    Tras submit: <code>python3 07-pagos/dashboard/m1-ledger-sync.py</code> · W11: <code>.\m1-ledger-sync.ps1</code><br />
-    Live: <a href="https://vientonorte.io/ops/finanzas/" style="color:var(--accent)">vientonorte.io/ops/finanzas</a> · SSOT: <code>Documents/MICRO 1/</code>
+  <div class="panel">
+    <h2>Día a día</h2>
+    <div style="overflow:auto">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th><th>Fase</th><th>Intent h</th><th>Real h</th><th>Δ h</th>
+            <th>Intent t</th><th>Real t</th><th>Δ t</th><th>USD</th><th>t/h</th><th>Pace</th><th>Claims / nota</th>
+          </tr>
+        </thead>
+        <tbody id="day-body"></tbody>
+      </table>
+    </div>
+    <div class="actions">
+      <button class="primary" id="btn-pull">↻ Forzar ledger (jsDelivr/raw)</button>
+      <button id="btn-export">Export JSON</button>
+      <button class="danger" id="btn-clear">Borrar localStorage + recargar SSOT</button>
+    </div>
+    <div class="sync" id="sync-hint"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Checklist ola @4 t/h</h2>
+    <ul class="list">
+      <li>CAPTURE MODE + Hubstaff (Trainer)</li>
+      <li>Pool 2–3 claims max · mismo juego READY</li>
+      <li>F7 → 10 min + mic → F7 ×3 · submit 6 files</li>
+      <li>Updated en Realm = día de realidad (no verbal “10 hoy”)</li>
+      <li>LOG línea + este dashboard ↻</li>
+    </ul>
+  </div>
+
+  <footer class="note">
+    Live apex <code>vientonorte.io/ops/finanzas</code> puede estar frozen (GitHub Pages). Usar mirror jsDelivr o este build.
+    · rate $1.54 · ops 4 t/h · techo plan 5.6 · meta hogar 1.6M CLP = horizonte multi-semana @4.
+    · KEY <code id="key-name"></code>
   </footer>
-</main>
+</div>
+
 <script>
-(function () {
-  const META = {
-    rate: 1.54,
-    tph: 4.0,           // flujo estable actual (ops)
-    tphPlan: 5.6,       // techo plan / anti-cuello
-    hMonth: 180,
-    tasksMonth: 1008,   // techo teórico @5.6 — no KPI operativo ago
-    usdMonth: 1552.32,  // trainer path
-    fx: 947,
-    goalClp: 1600000,
-    maxClaims: 3,
-    opsStableFrom: "2026-08-06",
-    opsSetupUntil: "2026-08-05",
-    opsModel: "setup_no_debt_then_stable_4tph",
-  };
-  const KEY = "micro1_ivr_ledger_v7_realm";
-// SSOT seed 2026-08-06 — always current on load
-const SSOT_SEED = {"intention": [{"date": "2026-08-01", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "setup_no_debt", "ops": true}, {"date": "2026-08-02", "intent_h": 0.5, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "setup_no_debt", "ops": true}, {"date": "2026-08-03", "intent_h": 0.75, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "setup_no_debt", "ops": true}, {"date": "2026-08-04", "intent_h": 0.33, "intent_tasks": 2.0, "intent_usd": 3.08, "blocks": "setup_no_debt", "ops": true}, {"date": "2026-08-05", "intent_h": 1.0, "intent_tasks": 6.0, "intent_usd": 9.24, "blocks": "setup_no_debt", "ops": true}, {"date": "2026-08-06", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-07", "intent_h": 4.0, "intent_tasks": 16.0, "intent_usd": 24.64, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-08", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-09", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-10", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-11", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-12", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-13", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-14", "intent_h": 4.0, "intent_tasks": 16.0, "intent_usd": 24.64, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-15", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-16", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-17", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-18", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-19", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-20", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-21", "intent_h": 4.0, "intent_tasks": 16.0, "intent_usd": 24.64, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-22", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-23", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-24", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-25", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-26", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-27", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-28", "intent_h": 4.0, "intent_tasks": 16.0, "intent_usd": 24.64, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-29", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-30", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-31", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}], "reality": [{"date": "2026-08-01", "hubstaff_h": 0, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "—", "note": "dry-run F7 · NO submit · docs SSOT", "source": "LOG", "claims": [], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-02", "hubstaff_h": 0.5, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "—", "note": "setup M5/dashboard · 0 submit $", "source": "Sessions", "claims": [], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-03", "hubstaff_h": 0.75, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "Dishonored 2", "note": "LOG tuvo 9483·9484·9485 submit OK — NO aparecen en cola RR actual (pos. firmados/salieron). No suman MTD RR.", "source": "LOG-vs-Realm", "claims": [], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-04", "hubstaff_h": 0.33, "tasks_ok": 2, "usd": 3.08, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "2 Review Ready · Updated Realm · 9566 · 9568", "source": "Realm-table-Updated", "claims": ["9566", "9568"], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-05", "hubstaff_h": 1.0, "tasks_ok": 6, "usd": 9.24, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 2, "game": "Dishonored 2", "note": "6 Review Ready · Updated Realm · 9567 · 8719 · 8718 · 8717 · 8716 · 8714", "source": "Realm-table-Updated", "claims": ["9567", "8719", "8718", "8717", "8716", "8714"], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-06", "hubstaff_h": 0.17, "tasks_ok": 1, "usd": 1.54, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "1 Review Ready · Updated Realm · 8715", "source": "Realm-table-Updated", "claims": ["8715"], "updated_at": "2026-08-06T14:53:46-04:00"}], "days": [{"date": "2026-08-01", "hubstaff_h": 0, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "—", "note": "dry-run F7 · NO submit · docs SSOT", "source": "LOG", "claims": [], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-02", "hubstaff_h": 0.5, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "—", "note": "setup M5/dashboard · 0 submit $", "source": "Sessions", "claims": [], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-03", "hubstaff_h": 0.75, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "Dishonored 2", "note": "LOG tuvo 9483·9484·9485 submit OK — NO aparecen en cola RR actual (pos. firmados/salieron). No suman MTD RR.", "source": "LOG-vs-Realm", "claims": [], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-04", "hubstaff_h": 0.33, "tasks_ok": 2, "usd": 3.08, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "2 Review Ready · Updated Realm · 9566 · 9568", "source": "Realm-table-Updated", "claims": ["9566", "9568"], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-05", "hubstaff_h": 1.0, "tasks_ok": 6, "usd": 9.24, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 2, "game": "Dishonored 2", "note": "6 Review Ready · Updated Realm · 9567 · 8719 · 8718 · 8717 · 8716 · 8714", "source": "Realm-table-Updated", "claims": ["9567", "8719", "8718", "8717", "8716", "8714"], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-06", "hubstaff_h": 0.17, "tasks_ok": 1, "usd": 1.54, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "1 Review Ready · Updated Realm · 8715", "source": "Realm-table-Updated", "claims": ["8715"], "updated_at": "2026-08-06T14:53:46-04:00"}], "meta": {"target_tasks_month": 1008, "intention_month": "2026-08", "fx_clp_per_usd": 947, "summary_gap_usd": -265.42, "calendar_finanzas": "9616f51a807e24559b4df624c70d7fe1d81de62f9aa8baf44c1190db5887b12f@group.calendar.google.com", "intention_note": "Setup≤05 sin deuda. Desde 06: 6.4h×4 t/h. Realidad = Realm Review Ready por Updated (no auto-report 10).", "intent_usd_month_tb_only": 1076.23, "goal_usd_equiv": 1689.55, "log_path": "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md", "intent_usd_day_lj": 55.19, "summary_mtd_usd": 13.86, "rate_usd": 1.54, "wind_down": "21:30", "sync": "realm-table-updated-ssot-2026-08-06", "intent_usd_week_tb": 255.26, "goal_clp_month": 1600000, "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf", "summary_v2": "SUMMARY-v2-2026-08-06.md", "sleep_hard_stop": "22:00", "target_usd_month": 1552.32, "trainer_share_of_goal": 0.919, "max_claims": 3, "intent_usd_day_fri": 34.5, "baseline_tph": 4.0, "trainer_usd_target": 1552.32, "updated": "2026-08-06T14:53:46-04:00", "intention_h_month": 162.3, "target_hours_month": 180, "split_policy": "80_micro1_10_vn_10_post", "intent_usd_week_80_20": 255.26, "workday_h_lj": 8.0, "workday_h_fri": 5.0, "summary_mtd_tasks": 9, "summary_today_tasks": 1, "summary_today_rework_done": 0, "summary_today_usd": 1.54, "summary_intent_to_date_usd": 285.44, "calendar_micro1": "18dcb7f8940e2f1b368dd8d28a8c5c4f8923ad9fa1bb64585e970749a34b88d4@group.calendar.google.com", "intent_usd_month_with_wave": 1399.63, "intention_h_month_lv_only": 124.8, "split_pct": {"micro1": 80, "vn": 10, "postulaciones": 10}, "intent_usd_week_80_10_10": 255.26, "hours_lj": {"m1": 6.4, "vn": 0.8, "post": 0.8}, "hours_fri": {"m1": 4.0, "vn": 0.5, "post": 0.5}, "reality_note": "Realm RR n=9 · $13.86 · by Updated: 04→2, 05→6, 06→1 · 9483-85 LOG only (no RR)", "realm_review_ready": ["9568", "9567", "9566", "8719", "8718", "8717", "8716", "8715", "8714"], "realm_review_ready_n": 9, "ops_tph": 4.0, "plan_tph": 5.6, "baseline_tph_plan_ceiling": 5.6, "ops_stable_from": "2026-08-06", "ops_setup_until": "2026-08-05", "ops_model": "setup_no_debt_then_stable_4tph", "summary_intent_to_date_h_ops": 8.98, "summary_intent_to_date_tasks_ops": 33.6, "summary_intent_to_date_usd_ops": 51.74, "summary_gap_usd_ops": -37.88, "summary_gap_tasks_ops": -24.6, "projection": {"as_of": "2026-08-06", "ops_tph": 4.0, "m1_h_remaining_incl_today_left": 105.43, "eom_tasks_at_4": 430.7, "eom_usd_at_4": 663.31, "eom_clp_at_4": 628153, "eom_tasks_at_5_6": 599.4, "eom_usd_at_5_6": 923.09, "week_runrate_tasks": 118.4, "week_runrate_usd": 182.34, "week_runrate_clp": 172672, "tasks_to_trainer_1552": 999.0, "hours_to_trainer_at_4": 249.8, "weeks_to_trainer_at_4": 8.4, "pending_rr_usd": 13.86, "note": "MTD=cola Review Ready (9). 9483-85 no están en tabla RR."}, "ops_intent_days": [{"date": "2026-08-01", "phase": "setup_no_debt", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "sched_m1_h": 0.0}, {"date": "2026-08-02", "phase": "setup_no_debt", "intent_h": 0.5, "intent_tasks": 0.0, "intent_usd": 0.0, "sched_m1_h": 0.0}, {"date": "2026-08-03", "phase": "setup_no_debt", "intent_h": 0.75, "intent_tasks": 0.0, "intent_usd": 0.0, "sched_m1_h": 6.4}, {"date": "2026-08-04", "phase": "setup_no_debt", "intent_h": 0.33, "intent_tasks": 2.0, "intent_usd": 3.08, "sched_m1_h": 6.4}, {"date": "2026-08-05", "phase": "setup_no_debt", "intent_h": 1.0, "intent_tasks": 6.0, "intent_usd": 9.24, "sched_m1_h": 6.4}, {"date": "2026-08-06", "phase": "stable_4tph", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "sched_m1_h": 6.4}], "realm_review_ready_detail": [{"id": "9568", "updated": "2026-08-04", "updated_hm": "20:12", "created": "2026-07-31", "status": "Review Ready", "game": "Dishonored 2", "mins": 10}, {"id": "9567", "updated": "2026-08-05", "updated_hm": "14:10", "created": "2026-07-31", "status": "Review Ready", "game": "Dishonored 2", "mins": 10}, {"id": "9566", "updated": "2026-08-04", "updated_hm": "19:52", "created": "2026-07-31", "status": "Review Ready", "game": "Dishonored 2", "mins": 10}, {"id": "8719", "updated": "2026-08-05", "updated_hm": "14:14", "created": "2026-07-31", "status": "Review Ready", "game": "Dishonored 2", "mins": 10}, {"id": "8718", "updated": "2026-08-05", "updated_hm": "14:16", "created": "2026-07-31", "status": "Review Ready", "game": "Dishonored 2", "mins": 10}, {"id": "8717", "updated": "2026-08-05", "updated_hm": "14:57", "created": "2026-07-31", "status": "Review Ready", "game": "Dishonored 2", "mins": 10}, {"id": "8716", "updated": "2026-08-05", "updated_hm": "15:20", "created": "2026-07-31", "status": "Review Ready", "game": "Dishonored 2", "mins": 10}, {"id": "8715", "updated": "2026-08-06", "updated_hm": "13:40", "created": "2026-07-31", "status": "Review Ready", "game": "Dishonored 2", "mins": 10}, {"id": "8714", "updated": "2026-08-05", "updated_hm": "17:33", "created": "2026-07-31", "status": "Review Ready", "game": "Dishonored 2", "mins": 10}], "realm_ssot": "Updated date from Realm table paste Rö email/UI 2026-08-06", "log_only_exited_rr": [{"id": "9485", "date": "2026-08-03", "note": "LOG submit OK · NO en tabla RR actual"}, {"id": "9484", "date": "2026-08-03", "note": "LOG submit OK · NO en tabla RR actual"}, {"id": "9483", "date": "2026-08-03", "note": "LOG submit OK + rework · NO en tabla RR actual"}]}};
+const KEY = "micro1_ivr_ledger_v8_ui";
+const SSOT = {"meta": {"rate_usd": 1.54, "fx_clp_per_usd": 947.0, "ops_tph": 4.0, "plan_tph": 5.6, "goal_clp_month": 1600000, "trainer_usd_target": 1552.32, "ops_setup_until": "2026-08-05", "ops_stable_from": "2026-08-06", "split_policy": "80_micro1_10_vn_10_post", "summary_mtd_tasks": 9, "summary_mtd_usd": 13.86, "realm_review_ready": ["9568", "9567", "9566", "8719", "8718", "8717", "8716", "8715", "8714"], "realm_review_ready_n": 9, "updated": "2026-08-06T14:53:46-04:00", "sync": "realm-table-updated-ssot-2026-08-06", "reality_note": "Realm RR n=9 · $13.86 · by Updated: 04→2, 05→6, 06→1 · 9483-85 LOG only (no RR)", "projection": {"as_of": "2026-08-06", "ops_tph": 4.0, "m1_h_remaining_incl_today_left": 105.43, "eom_tasks_at_4": 430.7, "eom_usd_at_4": 663.31, "eom_clp_at_4": 628153, "eom_tasks_at_5_6": 599.4, "eom_usd_at_5_6": 923.09, "week_runrate_tasks": 118.4, "week_runrate_usd": 182.34, "week_runrate_clp": 172672, "tasks_to_trainer_1552": 999.0, "hours_to_trainer_at_4": 249.8, "weeks_to_trainer_at_4": 8.4, "pending_rr_usd": 13.86, "note": "MTD=cola Review Ready (9). 9483-85 no están en tabla RR."}, "log_only_exited_rr": [{"id": "9485", "date": "2026-08-03", "note": "LOG submit OK · NO en tabla RR actual"}, {"id": "9484", "date": "2026-08-03", "note": "LOG submit OK · NO en tabla RR actual"}, {"id": "9483", "date": "2026-08-03", "note": "LOG submit OK + rework · NO en tabla RR actual"}], "max_claims": 3, "hours_lj": {"m1": 6.4, "vn": 0.8, "post": 0.8}, "hours_fri": {"m1": 4.0, "vn": 0.5, "post": 0.5}}, "days": [{"date": "2026-08-01", "hubstaff_h": 0.0, "tasks_ok": 0, "usd": 0.0, "claims": [], "game": "—", "note": "dry-run F7 · NO submit · docs SSOT", "source": "LOG", "olas_de_3": 0, "claims_open_eod": null, "rework_done": 0}, {"date": "2026-08-02", "hubstaff_h": 0.5, "tasks_ok": 0, "usd": 0.0, "claims": [], "game": "—", "note": "setup M5/dashboard · 0 submit $", "source": "Sessions", "olas_de_3": 0, "claims_open_eod": null, "rework_done": 0}, {"date": "2026-08-03", "hubstaff_h": 0.75, "tasks_ok": 0, "usd": 0.0, "claims": [], "game": "Dishonored 2", "note": "LOG tuvo 9483·9484·9485 submit OK — NO aparecen en cola RR actual (pos. firmados/salieron). No suman MTD RR.", "source": "LOG-vs-Realm", "olas_de_3": 0, "claims_open_eod": null, "rework_done": 0}, {"date": "2026-08-04", "hubstaff_h": 0.33, "tasks_ok": 2, "usd": 3.08, "claims": ["9566", "9568"], "game": "Dishonored 2", "note": "2 Review Ready · Updated Realm · 9566 · 9568", "source": "Realm-table-Updated", "olas_de_3": 0, "claims_open_eod": 3, "rework_done": 0}, {"date": "2026-08-05", "hubstaff_h": 1.0, "tasks_ok": 6, "usd": 9.24, "claims": ["9567", "8719", "8718", "8717", "8716", "8714"], "game": "Dishonored 2", "note": "6 Review Ready · Updated Realm · 9567 · 8719 · 8718 · 8717 · 8716 · 8714", "source": "Realm-table-Updated", "olas_de_3": 2, "claims_open_eod": 3, "rework_done": 0}, {"date": "2026-08-06", "hubstaff_h": 0.17, "tasks_ok": 1, "usd": 1.54, "claims": ["8715"], "game": "Dishonored 2", "note": "1 Review Ready · Updated Realm · 8715", "source": "Realm-table-Updated", "olas_de_3": 0, "claims_open_eod": 3, "rework_done": 0}]};
 
+const META = {
+  rate: SSOT.meta.rate_usd,
+  fx: SSOT.meta.fx_clp_per_usd,
+  opsTph: SSOT.meta.ops_tph,
+  planTph: SSOT.meta.plan_tph,
+  goalClp: SSOT.meta.goal_clp_month,
+  trainerUsd: SSOT.meta.trainer_usd_target,
+  setupUntil: SSOT.meta.ops_setup_until,
+  stableFrom: SSOT.meta.ops_stable_from,
+  maxClaims: SSOT.meta.max_claims || 3,
+};
 
-  // Intention: Mon-Fri 7h (4+3 WAVE), Sat 5, Sun 2.5
-  function intentHoursForDate(iso) {
-    // OPS: setup ≤ opsSetupUntil → 0 deuda captura; estable → M1 6.4 L-J / 4.0 Vie; fin de semana 0
-    const d = new Date(iso + "T12:00:00");
-    const wd = d.getDay();
-    if (iso <= META.opsSetupUntil) return 0; // setup/rework/settings: sin intención captura
-    if (wd === 0 || wd === 6) return 0;
-    if (wd === 5) return 4.0;
-    return 6.4;
-  }
-  function intentTasks(h, iso) {
-    if (iso && iso <= META.opsSetupUntil) return 0;
-    return h * META.tph; // 4 t/h ops
-  }
-  function intentUsd(h, iso) { return intentTasks(h, iso) * META.rate; }
-  function intentTasksPlan(h) { return h * META.tphPlan; }
+const SOURCES = [
+  "https://cdn.jsdelivr.net/gh/vientonorte/vientonorte.github.io@main/ops/finanzas/ledger-ssot.json",
+  "https://cdn.jsdelivr.net/gh/vientonorte/vientonorte.github.io@main/ops/finanzas/ledger.json",
+  "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas/ledger.json",
+  "./ledger-ssot.json?t=" + Date.now(),
+  "./ledger.json?t=" + Date.now(),
+];
 
-  function monthIso(d = new Date()) {
-    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0");
+function money(n) {
+  const x = +n;
+  if (!Number.isFinite(x)) return "—";
+  return "$" + x.toFixed(2);
+}
+function clp(usd) {
+  const x = Math.round((+usd || 0) * META.fx);
+  return "$" + x.toLocaleString("es-CL") + " CLP";
+}
+function fmt(n, d=1) {
+  const x = +n;
+  if (!Number.isFinite(x)) return "—";
+  return x.toFixed(d);
+}
+function deltaClass(v) {
+  if (!Number.isFinite(v) || Math.abs(v) < 0.005) return "delta-zero";
+  return v >= 0 ? "delta-pos" : "delta-neg";
+}
+function deltaStr(v, d=1) {
+  if (!Number.isFinite(v)) return "—";
+  const s = (v > 0 ? "+" : "") + (+v).toFixed(d);
+  return s;
+}
+function m1Hours(iso) {
+  const wd = new Date(iso + "T12:00:00").getDay(); // 0 Sun
+  if (wd === 0 || wd === 6) return 0;
+  if (wd === 5) return 4.0;
+  return 6.4;
+}
+function phaseFor(iso) {
+  if (iso <= META.setupUntil) return "setup";
+  if (m1Hours(iso) <= 0) return "off";
+  return "stable";
+}
+function intentForDay(iso, realTasks, realH) {
+  const phase = phaseFor(iso);
+  if (phase === "setup") {
+    // sin deuda: intent = realidad del día
+    return { phase, intent_h: +realH || 0, intent_tasks: +realTasks || 0 };
   }
-  function daysInMonth(y, m) { // m 1-12
-    return new Date(y, m, 0).getDate();
-  }
-  function intentionMonth(ym) {
-    if (Array.isArray(window.__INTENTION_PLAN) && window.__INTENTION_PLAN.length) {
-      const filtered = window.__INTENTION_PLAN.filter((r) => String(r.date || "").startsWith(ym));
-      if (filtered.length) return filtered.map((r) => ({
-        date: r.date,
-        intent_h: +r.intent_h || 0,
-        intent_tasks: +r.intent_tasks || intentTasks(+r.intent_h || 0, r.date),
-        intent_usd: +r.intent_usd || intentUsd(+r.intent_h || 0, r.date),
-        blocks: r.blocks || "",
-      }));
+  if (phase === "off") return { phase, intent_h: 0, intent_tasks: 0 };
+  const h = m1Hours(iso);
+  return { phase, intent_h: h, intent_tasks: h * META.opsTph };
+}
+function pacePill(tph) {
+  if (!Number.isFinite(tph) || tph <= 0) return '<span class="pill muted">—</span>';
+  if (tph >= META.opsTph) return '<span class="pill ok">OK @4+</span>';
+  if (tph >= 3) return '<span class="pill warn">BAJO</span>';
+  return '<span class="pill bad">CRÍTICO</span>';
+}
+
+function normalizeDays(rawDays) {
+  return (rawDays || []).map(d => ({
+    date: d.date,
+    hubstaff_h: +d.hubstaff_h || 0,
+    tasks_ok: +d.tasks_ok || 0,
+    usd: d.usd != null ? +d.usd : (+d.tasks_ok || 0) * META.rate,
+    claims: Array.isArray(d.claims) ? d.claims : [],
+    game: d.game || "—",
+    note: d.note || "",
+    source: d.source || "",
+    olas_de_3: +d.olas_de_3 || 0,
+    claims_open_eod: d.claims_open_eod,
+    rework_done: +d.rework_done || 0,
+  })).sort((a,b) => a.date < b.date ? 1 : -1);
+}
+
+function mtdTasks(days) {
+  return days.reduce((s,d) => s + (+d.tasks_ok || 0), 0);
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    const seedDays = normalizeDays(SSOT.days);
+    if (!raw) return { days: seedDays, meta: SSOT.meta, from: "seed" };
+    const j = JSON.parse(raw);
+    const loc = normalizeDays(j.days);
+    // Prefer higher-confidence / higher MTD only if same order of magnitude AND not below seed Realm n
+    const seedT = mtdTasks(seedDays);
+    const locT = mtdTasks(loc);
+    // Always prefer seed if local is empty or local MTD differs from seed and seed has realm_ssot
+    if (!loc.length || (seedT > 0 && locT !== seedT && seedT === (SSOT.meta.realm_review_ready_n || seedT))) {
+      return { days: seedDays, meta: SSOT.meta, from: "seed-override" };
     }
-    const [y, m] = ym.split("-").map(Number);
-    const dim = daysInMonth(y, m);
-    const out = [];
-    for (let day = 1; day <= dim; day++) {
-      const iso = ym + "-" + String(day).padStart(2, "0");
-      const h = intentHoursForDate(iso);
-      out.push({ date: iso, intent_h: h, intent_tasks: intentTasks(h, iso), intent_usd: intentUsd(h, iso), blocks: iso <= META.opsSetupUntil ? "setup_no_debt" : "stable_4tph" });
-    }
-    return out;
+    return { days: loc, meta: Object.assign({}, SSOT.meta, j.meta || {}), from: "local" };
+  } catch (e) {
+    return { days: normalizeDays(SSOT.days), meta: SSOT.meta, from: "seed-error" };
   }
+}
 
-  const $ = (id) => document.getElementById(id);
-  const fmt = (n, d = 2) => (Number.isFinite(+n) ? (+n).toFixed(d) : "—");
-  const money = (n) => "$" + fmt(n, 2);
-  const clp = (usd) => "$" + Math.round(usd * META.fx).toLocaleString("es-CL") + " CLP";
+function saveState(state) {
+  localStorage.setItem(KEY, JSON.stringify({
+    days: state.days,
+    meta: state.meta,
+    saved_at: new Date().toISOString(),
+  }));
+}
 
-  // Built-in seed (matches ledger.json · keep in sync via m1-ledger-sync.py)
-  const SEED = {
-    days: [{"date": "2026-08-01", "hubstaff_h": 0, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "—", "note": "dry-run F7 · NO submit · docs SSOT", "source": "LOG", "claims": [], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-02", "hubstaff_h": 0.5, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "—", "note": "setup M5/dashboard · 0 submit $", "source": "Sessions", "claims": [], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-03", "hubstaff_h": 0.75, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "Dishonored 2", "note": "LOG tuvo 9483·9484·9485 submit OK — NO aparecen en cola RR actual (pos. firmados/salieron). No suman MTD RR.", "source": "LOG-vs-Realm", "claims": [], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-04", "hubstaff_h": 0.33, "tasks_ok": 2, "usd": 3.08, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "2 Review Ready · Updated Realm · 9566 · 9568", "source": "Realm-table-Updated", "claims": ["9566", "9568"], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-05", "hubstaff_h": 1.0, "tasks_ok": 6, "usd": 9.24, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 2, "game": "Dishonored 2", "note": "6 Review Ready · Updated Realm · 9567 · 8719 · 8718 · 8717 · 8716 · 8714", "source": "Realm-table-Updated", "claims": ["9567", "8719", "8718", "8717", "8716", "8714"], "updated_at": "2026-08-06T14:53:46-04:00"}, {"date": "2026-08-06", "hubstaff_h": 0.17, "tasks_ok": 1, "usd": 1.54, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "1 Review Ready · Updated Realm · 8715", "source": "Realm-table-Updated", "claims": ["8715"], "updated_at": "2026-08-06T14:53:46-04:00"}],
-  };
-
-  let ledgerFileMeta = null; // last fetch of ledger.json
-
-  function seedDays() {
-    if (typeof SSOT_SEED !== "undefined") {
-      if (Array.isArray(SSOT_SEED.days) && SSOT_SEED.days.length)
-        return JSON.parse(JSON.stringify(SSOT_SEED.days));
-      if (Array.isArray(SSOT_SEED.reality) && SSOT_SEED.reality.length)
-        return JSON.parse(JSON.stringify(SSOT_SEED.reality));
-    }
-    return JSON.parse(JSON.stringify((SEED && SEED.days) || []));
-  }
-  function mtdTasks(days) {
-    return (days || []).reduce((s, d) => s + (+d.tasks_ok || 0), 0);
-  }
-  function load() {
+async function pullLedger(force) {
+  let lastErr = null;
+  for (const url of SOURCES) {
     try {
-      const raw = localStorage.getItem(KEY);
-      const seeded = seedDays();
-      if (!raw) return { days: seeded };
-      const j = JSON.parse(raw);
-      const days = Array.isArray(j.days) ? j.days : [];
-      // Prefer higher task MTD (SSOT file/seed wins over stale localStorage)
-      if (mtdTasks(seeded) > mtdTasks(days)) return { days: mergeDays(days, seeded) };
-      return { days: days.length ? days : seeded };
-    } catch {
-      return { days: seedDays() };
-    }
-  }
-  function save(state) {
-    localStorage.setItem(KEY, JSON.stringify({
-      meta: META,
-      days: state.days,
-      saved_at: new Date().toISOString(),
-      ledger_file_updated: ledgerFileMeta && ledgerFileMeta.updated,
-    }));
-  }
-
-  /** Merge days by date; prefer higher tasks_ok, then newer updated_at */
-  function mergeDays(base, incoming) {
-    const map = new Map();
-    for (const d of base || []) map.set(d.date, { ...d });
-    for (const d of incoming || []) {
-      if (!d || !d.date) continue;
-      const prev = map.get(d.date);
-      if (!prev) {
-        map.set(d.date, { ...d });
-        continue;
-      }
-      const pt = +prev.tasks_ok || 0;
-      const it = +d.tasks_ok || 0;
-      if (it > pt) map.set(d.date, { ...prev, ...d });
-      else if (it === pt) map.set(d.date, { ...prev, ...d, tasks_ok: pt });
-      else map.set(d.date, { ...d, ...prev, tasks_ok: pt });
-    }
-    return [...map.values()].sort((a, b) => (a.date < b.date ? -1 : 1));
-  }
-
-  async function pullLedgerJson(forceSave) {
-    try {
-      const sources = [
-      "https://cdn.jsdelivr.net/gh/vientonorte/vientonorte.github.io@main/ops/finanzas/ledger-ssot.json",
-      "https://cdn.jsdelivr.net/gh/vientonorte/vientonorte.github.io@main/ops/finanzas/ledger.json",
-      "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas/ledger.json",
-      "./ledger-ssot.json?t=" + Date.now(),
-      "./ledger.json?t=" + Date.now()
-    ];
-    let res = null, lastErr = null;
-    for (const url of sources) {
-      try {
-        res = await fetch(url, { cache: "no-store" });
-        if (res.ok) break;
-        lastErr = new Error("HTTP " + res.status + " " + url);
-        res = null;
-      } catch (e) { lastErr = e; res = null; }
-    }
-    if (!res) throw lastErr || new Error("no ledger source");
+      const res = await fetch(url, { cache: "no-store" });
       if (!res.ok) throw new Error("HTTP " + res.status);
       const j = await res.json();
-      ledgerFileMeta = j.meta || {};
-      if (Array.isArray(j.intention) && j.intention.length) {
-        window.__INTENTION_PLAN = j.intention;
+      const days = normalizeDays(j.days || []);
+      const fileT = mtdTasks(days);
+      const seedT = mtdTasks(normalizeDays(SSOT.days));
+      // Prefer file if it matches Realm n or has explicit realm fields; else keep seed if better
+      const realmN = (j.meta && j.meta.realm_review_ready_n) || 0;
+      let useDays = days;
+      let meta = Object.assign({}, SSOT.meta, j.meta || {});
+      if (realmN && fileT !== realmN) {
+        // inconsistent file — fall back seed
+        useDays = normalizeDays(SSOT.days);
+        meta = SSOT.meta;
+      } else if (!days.length && seedT) {
+        useDays = normalizeDays(SSOT.days);
       }
-      if (j.meta) {
-        Object.assign(META, {
-          rate: j.meta.rate_usd || META.rate,
-          tph: j.meta.baseline_tph || META.tph,
-          split: j.meta.split_policy || META.split,
-        });
-      }
-      const fileDays = Array.isArray(j.days) ? j.days : [];
-      const st = load();
-      const merged = mergeDays(seedDays(), mergeDays(st.days, fileDays));
-      if (forceSave || !localStorage.getItem(KEY)) {
-        save({ days: merged });
-      } else {
-        // always absorb file if it has more MTD tasks
-        const fileT = fileDays.reduce((s, d) => s + (+d.tasks_ok || 0), 0);
-        const locT = st.days.reduce((s, d) => s + (+d.tasks_ok || 0), 0);
-        if (fileT >= locT) save({ days: merged });
-        else save({ days: mergeDays(fileDays, st.days) });
-      }
-      return j;
-    } catch (e) {
-      console.warn("ledger.json pull skipped:", e.message || e);
-    if (typeof SSOT_SEED !== "undefined") {
-      ledgerFileMeta = SSOT_SEED.meta || {};
-      // apply seed into same path as successful fetch
-      try {
-        const j = SSOT_SEED;
-        if (j.intention) intention = j.intention;
-        if (j.days) days = j.days;
-        if (j.meta) Object.assign(meta || (meta={}), j.meta);
-        if (forceSave && typeof save === 'function') save();
-        if (typeof render === 'function') render();
-      } catch (err) { console.warn(err); }
-      return SSOT_SEED;
-    }
-      return null;
-    }
+      const state = { days: useDays, meta, from: url };
+      saveState(state);
+      return state;
+    } catch (e) { lastErr = e; }
   }
+  console.warn("pull failed", lastErr);
+  const state = loadState();
+  return state;
+}
 
-  function pacePill(tph) {
-    if (!Number.isFinite(tph) || tph <= 0) return '<span class="pill">—</span>';
-    if (tph >= META.tph) return '<span class="pill ok">OK</span>';
-    if (tph >= 4) return '<span class="pill warn">BAJO</span>';
-    return '<span class="pill bad">CRÍTICO</span>';
-  }
-  function deltaClass(v) {
-    if (!Number.isFinite(v) || Math.abs(v) < 0.01) return "";
-    return v >= 0 ? "delta-pos" : "delta-neg";
-  }
-  function deltaStr(v, d = 1) {
-    if (!Number.isFinite(v)) return "—";
-    const s = (v > 0 ? "+" : "") + fmt(v, d);
-    return s;
-  }
+function compute(state) {
+  const today = new Date().toISOString().slice(0, 10);
+  const ym = today.slice(0, 7);
+  const days = state.days.filter(d => String(d.date).startsWith(ym));
+  const realT = days.reduce((s,d) => s + d.tasks_ok, 0);
+  const realH = days.reduce((s,d) => s + d.hubstaff_h, 0);
+  const realUsd = days.reduce((s,d) => s + (Number.isFinite(d.usd) ? d.usd : d.tasks_ok * META.rate), 0);
+  const realTph = realH > 0 ? realT / realH : 0;
 
-  function render() {
-    $("clock").textContent = new Date().toLocaleString();
-    const state = load();
-    const ym = monthIso();
-    const intentAll = intentionMonth(ym);
-    const intentTotalH = intentAll.reduce((s, x) => s + x.intent_h, 0);
-    const intentTotalTasks = intentAll.reduce((s, x) => s + x.intent_tasks, 0);
-    const intentTotalUsd = intentTotalTasks * META.rate;
-
-    const today = new Date().toISOString().slice(0, 10);
-    const intentToDate = intentAll.filter((x) => x.date <= today);
-    // OPS intention: prefer plan rows; setup days already 0h in intentHoursForDate
-    // Overlay SSOT_SEED intention if present (includes setup_no_debt actuals)
-    let intentH_td = intentToDate.reduce((s, x) => s + x.intent_h, 0);
-    let intentT_td = intentToDate.reduce((s, x) => s + x.intent_tasks, 0);
-    let intentUsd_td = intentT_td * META.rate;
-    if (typeof SSOT_SEED !== "undefined" && Array.isArray(SSOT_SEED.intention)) {
-      const op = SSOT_SEED.intention.filter((x) => x.date <= today && String(x.date).startsWith(ym));
-      if (op.length) {
-        intentH_td = op.reduce((s, x) => s + (+x.intent_h || 0), 0);
-        intentT_td = op.reduce((s, x) => s + (+x.intent_tasks || 0), 0);
-        intentUsd_td = op.reduce((s, x) => s + (+x.intent_usd || ((+x.intent_tasks || 0) * META.rate)), 0);
-      }
-    }
-
-    const realMonth = state.days.filter((d) => d.date.startsWith(ym));
-    const realH = realMonth.reduce((s, d) => s + (+d.hubstaff_h || 0), 0);
-    const realT = realMonth.reduce((s, d) => s + (+d.tasks_ok || 0), 0);
-    const realUsd = realMonth.reduce((s, d) => {
-      const t = +d.tasks_ok || 0;
-      const u = d.usd != null ? +d.usd : t * META.rate;
-      return s + (Number.isFinite(u) ? u : t * META.rate);
-    }, 0);
-    const realTph = realH > 0 ? realT / realH : 0;
-
-    const dH = realH - intentH_td;
-    const dT = realT - intentT_td;
-    const dUsd = realUsd - intentUsd_td;
-    const fillH = intentH_td > 0 ? Math.min(100, (realH / intentH_td) * 100) : (realH > 0 ? 100 : 0);
-    const fillT = intentT_td > 0 ? Math.min(100, (realT / intentT_td) * 100) : (realT > 0 ? 100 : 0);
-
-    // Projections @ ops 4 t/h
-    const y = +ym.slice(0,4), mo = +ym.slice(5,7);
-    const dim = daysInMonth(y, mo);
-    let remH = 0;
-    for (let day = 1; day <= dim; day++) {
-      const iso = ym + "-" + String(day).padStart(2, "0");
-      if (iso <= today) continue;
-      remH += intentHoursForDate(iso);
-    }
-    const todayRow = realMonth.find((d) => d.date === today);
-    const todayDoneH = todayRow ? +todayRow.hubstaff_h || 0 : 0;
-    const todayLeftH = Math.max(0, intentHoursForDate(today) - todayDoneH);
-    const projH = remH + todayLeftH;
-    const eomT4 = realT + projH * META.tph;
-    const eomU4 = eomT4 * META.rate;
-    const eomT56 = realT + projH * META.tphPlan;
-    const eomU56 = eomT56 * META.rate;
-    const weekT = (6.4 * 4 + 4.0) * META.tph;
-    const weekU = weekT * META.rate;
-    const gapTrainerT = Math.max(0, META.usdMonth / META.rate - realT);
-    const hToTrainer = gapTrainerT / META.tph;
-    const weeksToTrainer = hToTrainer / (6.4 * 4 + 4.0);
-    const reqTphTrainerEom = projH > 0 ? gapTrainerT / projH : 0;
-    const hrsLeftPlan = Math.max(0, META.hMonth - realH);
-    const tasksLeft = Math.max(0, META.tasksMonth - realT);
-    const reqTph = hrsLeftPlan > 0 ? tasksLeft / hrsLeftPlan : 0;
-
-    $("kpis").innerHTML = `
-      <div class="card"><div class="label">USD realidad MTD</div><div class="value">${money(realUsd)}</div>
-        <div class="hint">intent <b>ops</b> a hoy ${money(intentUsd_td)} · Δ <span class="${deltaClass(dUsd)}">${deltaStr(dUsd,2)}</span>
-        <br><span style="opacity:.75">techo plan 5.6 no se usa en este Δ</span></div></div>
-      <div class="card"><div class="label">CLP realidad</div><div class="value" style="font-size:1.05rem">${clp(realUsd)}</div>
-        <div class="hint">${fmt((realUsd*META.fx)/META.goalClp*100,1)}% de meta 1.6M · EOM@4 ~${Math.round(eomU4*META.fx).toLocaleString("es-CL")} CLP</div></div>
-      <div class="card"><div class="label">Tasks realidad</div><div class="value">${realT}</div>
-        <div class="hint">intent ops a hoy ${fmt(intentT_td,0)} · Δ <span class="${deltaClass(dT)}">${deltaStr(dT,0)}</span>
-        <br>EOM@4 ~${fmt(eomT4,0)} t · @5.6 techo ~${fmt(eomT56,0)} t</div></div>
-      <div class="card"><div class="label">Horas realidad</div><div class="value">${fmt(realH,2)}</div>
-        <div class="hint">intent ops a hoy ${fmt(intentH_td,1)} · Δ <span class="${deltaClass(dH)}">${deltaStr(dH,1)}</span></div></div>
-      <div class="card"><div class="label">t/h realidad</div><div class="value">${fmt(realTph,2)}</div>
-        <div class="hint">ops estable <b>${META.tph}</b> · techo plan ${META.tphPlan} · req EOM→trainer ${fmt(reqTphTrainerEom,2)}</div></div>
-      <div class="card"><div class="label">Proyección @4 t/h</div><div class="value" style="font-size:1.05rem">${money(eomU4)}</div>
-        <div class="hint">EOM ~${fmt(eomT4,0)} tasks · semana run-rate ${fmt(weekT,0)}t / ${money(weekU)}
-        <br>→ trainer $1.55k: ~${fmt(weeksToTrainer,1)} sem @4 · ${fmt(hToTrainer,0)}h M1
-        <br>req t/h si quisieras cerrar trainer en ago: ${fmt(reqTphTrainerEom,2)} (hoy ops 4)</div></div>
-    `;
-
-    $("ivr").innerHTML = `
-      <div class="ivr-head">
-        <div><strong>Mes ${ym}</strong> · hoy ${today}</div>
-        <div class="legend"><span><i class="i"></i>Intención (plan)</span><span><i class="r"></i>Realidad (LOG/Hubstaff)</span></div>
-      </div>
-      <p class="help" style="margin-top:.6rem">
-        Intención <b>ops</b> = setup≤05 sin deuda captura · desde 06: M1 6.4/4.0h × <b>4 t/h</b> flujo estable. Techo 5.6 solo proyección. Ledger SoT vía jsDelivr/raw.<br />
-        Realidad = lo que cargaste / seed. <strong>Gap</strong> = realidad − intención a la fecha (negativo = atrasado).
-      </p>
-      <div class="grid" style="margin:0">
-        <div><div class="label">Gap horas</div><div class="value ${deltaClass(dH)}">${deltaStr(dH,1)} h</div></div>
-        <div><div class="label">Gap tasks</div><div class="value ${deltaClass(dT)}">${deltaStr(dT,0)}</div></div>
-        <div><div class="label">Gap USD</div><div class="value ${deltaClass(dUsd)}">${deltaStr(dUsd,2)}</div></div>
-        <div><div class="label">Cumplimiento intención (h)</div><div class="value">${fmt(fillH,0)}%</div></div>
-      </div>
-    `;
-
-    const pctIntentH = Math.min(100, (intentH_td / Math.max(intentTotalH,1)) * 100);
-    const pctRealH = Math.min(100, (realH / Math.max(intentTotalH,1)) * 100);
-    const pctIntentT = Math.min(100, (intentT_td / META.tasksMonth) * 100);
-    const pctRealT = Math.min(100, (realT / META.tasksMonth) * 100);
-
-    $("bars").innerHTML = `
-      <div class="label">Horas (escala = intención mes ${fmt(intentTotalH,0)} h)</div>
-      <div class="bar-wrap" style="height:14px">
-        <div class="bar intent" style="width:${pctIntentH}%"></div>
-        <div class="bar real" style="width:${pctRealH}%"></div>
-      </div>
-      <div class="hint">Intención a hoy ${fmt(intentH_td,1)}h · Realidad ${fmt(realH,1)}h · Meta plan mes ${fmt(intentTotalH,0)}h (cap soft 180)</div>
-      <div class="label" style="margin-top:.85rem">Tareas (escala = meta 1008)</div>
-      <div class="bar-wrap" style="height:14px">
-        <div class="bar intent" style="width:${pctIntentT}%"></div>
-        <div class="bar real" style="width:${pctRealT}%;background:linear-gradient(90deg,#3dd68c,#5b9fd4)"></div>
-      </div>
-      <div class="hint">Intención a hoy ${fmt(intentT_td,0)} · Realidad ${realT} · Meta ${META.tasksMonth}</div>
-      <div class="legend"><span><i class="i"></i>Intención acumulada</span><span><i class="r"></i>Realidad acumulada</span></div>
-    `;
-
-    // day table: show from month start to today + future intention rows without reality
-    const realMap = Object.fromEntries(state.days.map((d) => [d.date, d]));
-    const rows = intentAll.filter((x) => x.date <= today || realMap[x.date]);
-    // also include reality days outside? already filtered by month via intentAll
-    const extra = state.days.filter((d) => d.date.startsWith(ym) && !intentAll.find((i) => i.date === d.date));
-    const allDates = [...new Set([...rows.map((r) => r.date), ...extra.map((e) => e.date)])].sort().reverse();
-
-    const tb = $("tbody");
-    tb.innerHTML = "";
-    allDates.forEach((date) => {
-      const iH = intentHoursForDate(date);
-      const iT = intentTasks(iH);
-      const r = realMap[date];
-      const rH = r ? +r.hubstaff_h || 0 : null;
-      const rT = r ? +r.tasks_ok || 0 : null;
-      const tph = rH > 0 ? rT / rH : null;
-      const dhh = rH == null ? null : rH - iH;
-      const dtt = rT == null ? null : rT - iT;
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${date}</td>
-        <td>${fmt(iH,1)}</td>
-        <td>${rH == null ? "—" : fmt(rH,1)}</td>
-        <td class="${deltaClass(dhh)}">${dhh == null ? "—" : deltaStr(dhh,1)}</td>
-        <td>${fmt(iT,0)}</td>
-        <td>${rT == null ? "—" : rT}</td>
-        <td class="${deltaClass(dtt)}">${dtt == null ? "—" : deltaStr(dtt,0)}</td>
-        <td>${rT == null ? "—" : money(rT * META.rate)}</td>
-        <td>${tph == null ? "—" : fmt(tph)}</td>
-        <td>${tph == null ? "—" : pacePill(tph)}</td>
-        <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${(r && r.note) || ""}">${(r && r.note) || "—"}</td>
-        <td>${r ? `<button type="button" data-del="${date}">×</button>` : ""}</td>`;
-      tb.appendChild(tr);
-    });
-    tb.querySelectorAll("[data-del]").forEach((btn) => {
-      btn.onclick = () => {
-        const st = load();
-        st.days = st.days.filter((x) => x.date !== btn.getAttribute("data-del"));
-        save(st);
-        render();
-      };
+  let intentH = 0, intentT = 0;
+  const rows = [];
+  // include all known days + ensure today
+  const map = new Map(days.map(d => [d.date, d]));
+  // also generate intent rows for month days up to today for missing
+  const [y,m] = ym.split("-").map(Number);
+  const dim = new Date(y, m, 0).getDate();
+  for (let day = 1; day <= dim; day++) {
+    const iso = ym + "-" + String(day).padStart(2, "0");
+    if (iso > today) continue;
+    const real = map.get(iso) || { date: iso, hubstaff_h: 0, tasks_ok: 0, usd: 0, claims: [], note: "", game: "—" };
+    const intent = intentForDay(iso, real.tasks_ok, real.hubstaff_h);
+    intentH += intent.intent_h;
+    intentT += intent.intent_tasks;
+    const tph = real.hubstaff_h > 0 ? real.tasks_ok / real.hubstaff_h : null;
+    rows.push({
+      ...real,
+      phase: intent.phase,
+      intent_h: intent.intent_h,
+      intent_tasks: intent.intent_tasks,
+      d_h: real.hubstaff_h - intent.intent_h,
+      d_t: real.tasks_ok - intent.intent_tasks,
+      tph,
+      usd: Number.isFinite(real.usd) ? real.usd : real.tasks_ok * META.rate,
     });
   }
+  rows.sort((a,b) => a.date < b.date ? 1 : -1);
 
-  function upsertDay(day) {
-    const st = load();
-    const i = st.days.findIndex((x) => x.date === day.date);
-    if (i >= 0) st.days[i] = { ...st.days[i], ...day };
-    else st.days.push(day);
-    save(st);
+  const intentUsd = intentT * META.rate;
+  const dH = realH - intentH;
+  const dT = realT - intentT;
+  const dUsd = realUsd - intentUsd;
+
+  // remaining M1 hours after today
+  let remH = 0;
+  for (let day = 1; day <= dim; day++) {
+    const iso = ym + "-" + String(day).padStart(2, "0");
+    if (iso <= today) continue;
+    remH += m1Hours(iso);
+  }
+  const todayReal = map.get(today);
+  const todayLeft = Math.max(0, m1Hours(today) - (todayReal ? todayReal.hubstaff_h : 0));
+  const projH = remH + todayLeft;
+  const eomT4 = realT + projH * META.opsTph;
+  const eomU4 = eomT4 * META.rate;
+  const eomT56 = realT + projH * META.planTph;
+  const eomU56 = eomT56 * META.rate;
+  const weekT = (6.4 * 4 + 4) * META.opsTph;
+  const weekU = weekT * META.rate;
+  const gapTrainerT = Math.max(0, META.trainerUsd / META.rate - realT);
+  const hToTrainer = gapTrainerT / META.opsTph;
+  const weeksToTrainer = hToTrainer / (6.4 * 4 + 4);
+  const reqTphEom = projH > 0 ? gapTrainerT / projH : null;
+
+  return {
+    today, ym, rows, realT, realH, realUsd, realTph,
+    intentH, intentT, intentUsd, dH, dT, dUsd,
+    projH, eomT4, eomU4, eomT56, eomU56, weekT, weekU,
+    gapTrainerT, hToTrainer, weeksToTrainer, reqTphEom, todayLeft, remH,
+  };
+}
+
+function render() {
+  document.getElementById("clock").textContent = new Date().toLocaleString();
+  document.getElementById("key-name").textContent = KEY;
+  const state = loadState();
+  const c = compute(state);
+  const realmN = state.meta.realm_review_ready_n || SSOT.meta.realm_review_ready_n || 0;
+  const realmIds = state.meta.realm_review_ready || SSOT.meta.realm_review_ready || [];
+
+  // stale alert
+  const alert = document.getElementById("stale-alert");
+  if (c.realT !== realmN && realmN > 0) {
+    alert.className = "alert show";
+    alert.textContent = `⚠️ MTD UI (${c.realT}) ≠ Realm RR n=${realmN}. Pulsa “Borrar localStorage + recargar SSOT”.`;
+  } else {
+    alert.className = "alert";
+    alert.textContent = "";
   }
 
-  $("d_date").value = new Date().toISOString().slice(0, 10);
+  document.getElementById("badge-ssot").textContent = `SSOT · ${c.realT}t · ${money(c.realUsd)}`;
 
-  // first visit: seed if empty key never set
-  if (!localStorage.getItem(KEY)) {
-    save({ days: SEED.days });
+  document.getElementById("kpis").innerHTML = `
+    <div class="card"><div class="label">USD realidad MTD</div><div class="value">${money(c.realUsd)}</div>
+      <div class="hint">intent ops ${money(c.intentUsd)} · Δ <span class="${deltaClass(c.dUsd)}">${deltaStr(c.dUsd,2)}</span></div></div>
+    <div class="card"><div class="label">CLP realidad</div><div class="value" style="font-size:1.15rem">${clp(c.realUsd)}</div>
+      <div class="hint">${fmt((c.realUsd*META.fx)/META.goalClp*100,2)}% de 1.6M · EOM@4 ~${clp(c.eomU4)}</div></div>
+    <div class="card"><div class="label">Tasks realidad</div><div class="value">${c.realT}</div>
+      <div class="hint">Realm RR n=${realmN} · intent ops ${fmt(c.intentT,0)} · Δ <span class="${deltaClass(c.dT)}">${deltaStr(c.dT,0)}</span></div></div>
+    <div class="card"><div class="label">Horas realidad</div><div class="value">${fmt(c.realH,2)}</div>
+      <div class="hint">intent ops ${fmt(c.intentH,1)}h · Δ <span class="${deltaClass(c.dH)}">${deltaStr(c.dH,1)}</span></div></div>
+    <div class="card"><div class="label">t/h realidad</div><div class="value">${fmt(c.realTph,2)}</div>
+      <div class="hint">ops estable <b>${META.opsTph}</b> · techo ${META.planTph} · est min10×n</div></div>
+    <div class="card"><div class="label">EOM @4 t/h</div><div class="value" style="font-size:1.15rem">${money(c.eomU4)}</div>
+      <div class="hint">~${fmt(c.eomT4,0)} tasks · stretch @5.6 ~${fmt(c.eomT56,0)}t / ${money(c.eomU56)}</div></div>
+  `;
+
+  const fillT = c.intentT > 0 ? Math.min(100, (c.realT / c.intentT) * 100) : (c.realT ? 100 : 0);
+  const fillH = c.intentH > 0 ? Math.min(100, (c.realH / c.intentH) * 100) : (c.realH ? 100 : 0);
+  document.getElementById("gap-lead").innerHTML =
+    `Setup ≤ <b>${META.setupUntil}</b> sin deuda (intent=realidad). Desde <b>${META.stableFrom}</b>: M1 6.4/4.0h × <b>${META.opsTph} t/h</b>. Gap solo mide el tramo estable.`;
+  document.getElementById("bars").innerHTML = `
+    <div class="bar-row"><div class="bar-meta"><span>Tasks (escala intent ops a hoy ${fmt(c.intentT,0)})</span><span>${c.realT} / ${fmt(c.intentT,0)}</span></div>
+      <div class="track"><div class="fill ${fillT<50?"bad":fillT<85?"warn":""}" style="width:${fillT}%"></div></div></div>
+    <div class="bar-row"><div class="bar-meta"><span>Horas (escala intent ops a hoy ${fmt(c.intentH,1)}h)</span><span>${fmt(c.realH,1)} / ${fmt(c.intentH,1)}</span></div>
+      <div class="track"><div class="fill ${fillH<50?"bad":fillH<85?"warn":""}" style="width:${fillH}%"></div></div></div>
+  `;
+  document.getElementById("gap-cards").innerHTML = `
+    <div class="card"><div class="label">Gap tasks</div><div class="value" style="font-size:1.2rem"><span class="${deltaClass(c.dT)}">${deltaStr(c.dT,0)}</span></div></div>
+    <div class="card"><div class="label">Gap USD</div><div class="value" style="font-size:1.2rem"><span class="${deltaClass(c.dUsd)}">${deltaStr(c.dUsd,2)}</span></div></div>
+    <div class="card"><div class="label">Cumpl. tasks</div><div class="value" style="font-size:1.2rem">${c.intentT>0?fmt(100*c.realT/c.intentT,0):"—"}%</div></div>
+  `;
+
+  document.getElementById("proj").innerHTML = `
+    <div class="grid kpis">
+      <div class="card"><div class="label">Run-rate semana</div><div class="value" style="font-size:1.15rem">${fmt(c.weekT,0)} t</div>
+        <div class="hint">${money(c.weekU)} · ${clp(c.weekU)}</div></div>
+      <div class="card"><div class="label">H M1 resto mes</div><div class="value" style="font-size:1.15rem">${fmt(c.projH,1)}</div>
+        <div class="hint">hoy left ${fmt(c.todayLeft,1)}h + resto laborable</div></div>
+      <div class="card"><div class="label">→ trainer $1.55k</div><div class="value" style="font-size:1.15rem">${fmt(c.weeksToTrainer,1)} sem</div>
+        <div class="hint">${fmt(c.hToTrainer,0)}h @4 · ${fmt(c.gapTrainerT,0)} tasks</div></div>
+      <div class="card"><div class="label">Req t/h EOM trainer</div><div class="value" style="font-size:1.15rem">${c.reqTphEom==null?"—":fmt(c.reqTphEom,2)}</div>
+        <div class="hint">vs ops 4 · techo 5.6 · no forzar 9+</div></div>
+    </div>
+  `;
+  document.getElementById("proj-notes").innerHTML = `
+    <li>EOM @4 ≈ <b>${fmt(c.eomT4,0)} tasks · ${money(c.eomU4)} · ${clp(c.eomU4)}</b></li>
+    <li>EOM @5.6 stretch ≈ ${fmt(c.eomT56,0)} t · ${money(c.eomU56)}</li>
+    <li>1.6M CLP no es meta de este mes solo M1; horizonte multi-semana @4.</li>
+    <li>9483–85 están en LOG pero <b>no</b> en cola RR actual → no inflan MTD.</li>
+  `;
+
+  // realm table from meta detail or claims by day
+  const detail = state.meta.realm_review_ready_detail || SSOT.meta.realm_review_ready_detail || [];
+  let realmHtml = "";
+  if (detail.length) {
+    realmHtml = `<table><thead><tr><th>ID</th><th>Updated</th><th>Día ledger</th><th>Status</th><th>Game</th></tr></thead><tbody>` +
+      detail.slice().sort((a,b) => (a.updated+a.updated_hm).localeCompare(b.updated+b.updated_hm)).map(c =>
+        `<tr><td class="claim">${c.id}</td><td class="mono">${c.updated} ${c.updated_hm||""}</td><td>${c.updated}</td><td><span class="pill ok">${c.status||"Review Ready"}</span></td><td>${c.game||"Dishonored 2"}</td></tr>`
+      ).join("") + `</tbody></table>`;
+  } else {
+    realmHtml = `<p class="mono">` + realmIds.map(id => `<span class="claim">${id}</span>`).join(" · ") + `</p>`;
   }
+  document.getElementById("realm-table").innerHTML = realmHtml;
+  const logOnly = state.meta.log_only_exited_rr || SSOT.meta.log_only_exited_rr || [];
+  document.getElementById("log-only").textContent = logOnly.length
+    ? ("LOG-only (fuera RR): " + logOnly.map(x => x.id || x).join(" · "))
+    : "";
 
-  // Auto-pull ledger.json (works on http(s) ops host; file:// may block — use ↻)
-  pullLedgerJson(false).then((j) => {
-    if (j) {
-      const t = (j.days || []).reduce((s, d) => s + (+d.tasks_ok || 0), 0);
-      const el = $("sync_hint");
-      if (el) el.textContent = "ledger.json · " + t + " tasks · " + ((j.meta && j.meta.updated) || "");
-    }
-    render();
-  });
+  document.getElementById("day-body").innerHTML = c.rows.map(r => `
+    <tr>
+      <td class="mono">${r.date}</td>
+      <td><span class="pill ${r.phase==="stable"?"ok":r.phase==="setup"?"warn":"muted"}">${r.phase}</span></td>
+      <td>${fmt(r.intent_h,1)}</td>
+      <td>${fmt(r.hubstaff_h,2)}</td>
+      <td class="${deltaClass(r.d_h)}">${deltaStr(r.d_h,1)}</td>
+      <td>${fmt(r.intent_tasks,1)}</td>
+      <td><b>${r.tasks_ok}</b></td>
+      <td class="${deltaClass(r.d_t)}">${deltaStr(r.d_t,0)}</td>
+      <td>${money(r.usd)}</td>
+      <td>${r.tph==null?"—":fmt(r.tph,2)}</td>
+      <td>${pacePill(r.tph)}</td>
+      <td><span class="claim">${(r.claims||[]).join(" · ") || "—"}</span><br><span style="color:var(--muted)">${r.note||""}</span></td>
+    </tr>
+  `).join("");
 
-  $("btn_add").onclick = () => {
-    const date = $("d_date").value;
-    const hubstaff_h = Number($("d_h").value);
-    const tasks_ok = Number($("d_tasks").value);
-    if (!date || !Number.isFinite(hubstaff_h) || !Number.isFinite(tasks_ok)) {
-      alert("Fecha, horas y tasks requeridos");
-      return;
-    }
-    upsertDay({
-      date, hubstaff_h, tasks_ok,
-      claims_open_eod: Number($("d_claims").value) || 0,
-      olas_de_3: Number($("d_olas").value) || 0,
-      game: $("d_game").value || "",
-      note: $("d_note").value || "",
-      source: "manual",
-    });
-    render();
-  };
+  const updated = state.meta.updated || SSOT.meta.updated || "—";
+  document.getElementById("sync-hint").textContent =
+    `Fuente: ${state.from || "seed"} · MTD ${c.realT} tasks · ${money(c.realUsd)} · meta.updated ${updated} · pull multi-source listo`;
+}
 
-  $("btn_seed").onclick = () => {
-    if (confirm("¿Recargar seed realidad ago (merge 01–03 seed; no borra días nuevos)?")) {
-      const st = load();
-      save({ days: mergeDays(st.days, seedDays()) });
-      render();
-    }
-  };
-
-  $("btn_pull").onclick = async () => {
-    const j = await pullLedgerJson(true);
-    render();
-    if (j) {
-      const t = (j.days || []).reduce((s, d) => s + (+d.tasks_ok || 0), 0);
-      $("sync_hint").textContent = "ledger.json OK · " + t + " tasks MTD · updated " + ((j.meta && j.meta.updated) || "—");
-    } else {
-      $("sync_hint").textContent = "No se pudo leer ledger.json (serví la carpeta o Import manual). Corré: python3 m1-ledger-sync.py";
-    }
-  };
-
-  $("btn_parse").onclick = () => {
-    const text = $("paste_day").value || "";
-    const blocks = text.split(/###\s*DAY\s+/i).filter(Boolean);
-    let n = 0;
-    for (const b of blocks) {
-      const lines = b.trim().split(/\r?\n/);
-      const date = (lines[0] || "").trim().slice(0, 10);
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) continue;
-      const get = (key) => {
-        const m = b.match(new RegExp("^\\s*" + key + "\\s*:\\s*(.+)$", "im"));
-        return m ? m[1].trim() : "";
-      };
-      const hubstaff_h = parseFloat(get("hubstaff_h"));
-      const tasks_ok = parseInt(get("tasks_ok"), 10);
-      if (!Number.isFinite(hubstaff_h) || !Number.isFinite(tasks_ok)) continue;
-      upsertDay({
-        date, hubstaff_h, tasks_ok,
-        claims_open_eod: parseInt(get("claims_open_eod"), 10) || 0,
-        olas_de_3: parseInt(get("olas_de_3"), 10) || 0,
-        note: "from LOG footer",
-        source: "LOG",
-      });
-      n++;
-    }
-    alert(n ? `Realidad: ${n} día(s)` : "No se encontró ### DAY válido");
-    render();
-  };
-
-  $("btn_clear_paste").onclick = () => { $("paste_day").value = ""; };
-
-  $("btn_export").onclick = () => {
-    const st = load();
-    const ym = monthIso();
-    const intention = intentionMonth(ym);
-    const blob = new Blob([JSON.stringify({
-      meta: { ...META, intention_month: ym, exported_at: new Date().toISOString() },
-      intention,
-      days: st.days,
-    }, null, 2)], { type: "application/json" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "ledger-micro1-intencion-realidad.json";
-    a.click();
-  };
-
-  $("btn_import").onclick = () => $("file_import").click();
-  $("file_import").onchange = (e) => {
-    const f = e.target.files && e.target.files[0];
-    if (!f) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      try {
-        const j = JSON.parse(reader.result);
-        save({ days: Array.isArray(j.days) ? j.days : [] });
-        render();
-        alert("Import OK");
-      } catch { alert("JSON inválido"); }
-    };
-    reader.readAsText(f);
-  };
-
-  $("btn_wipe").onclick = () => {
-    if (confirm("¿Borrar toda la realidad local?")) {
-      save({ days: [] });
-      render();
-    }
-  };
-
+document.getElementById("btn-pull").onclick = async () => {
+  document.getElementById("sync-hint").textContent = "Cargando ledger…";
+  await pullLedger(true);
   render();
+};
+document.getElementById("btn-clear").onclick = () => {
+  Object.keys(localStorage).forEach(k => { if (k.startsWith("micro1_ivr")) localStorage.removeItem(k); });
+  saveState({ days: normalizeDays(SSOT.days), meta: SSOT.meta });
+  render();
+};
+document.getElementById("btn-export").onclick = () => {
+  const state = loadState();
+  const blob = new Blob([JSON.stringify({ meta: state.meta, days: state.days }, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "ledger-export.json";
+  a.click();
+};
+
+// boot: wipe old keys, prefer embedded SSOT, optional pull
+(async function boot() {
+  Object.keys(localStorage).forEach(k => {
+    if (/^micro1_ivr_ledger_v[1-7]/.test(k)) localStorage.removeItem(k);
+  });
+  // always write embedded SSOT first (zero-loss default)
+  saveState({ days: normalizeDays(SSOT.days), meta: SSOT.meta });
+  render();
+  try {
+    await pullLedger(true);
+    render();
+  } catch (e) { console.warn(e); }
 })();
-
-  /* SSOT_BOOT */
-  (async function ssotBoot() {
-    try {
-      // wipe stale pre-v5 if any leaked
-      Object.keys(localStorage).forEach((k) => {
-        if (/^micro1_ivr_ledger_v(?!7_realm$)/.test(k)) localStorage.removeItem(k);
-      });
-      await pullLedgerJson(true);
-      render();
-      const st = load();
-      const mtd = st.days.reduce((s, d) => s + (+d.tasks_ok || 0), 0);
-      const usd = st.days.reduce((s, d) => s + (+d.usd || ((+d.tasks_ok || 0) * (META.rate || 1.54))), 0);
-      const el = document.getElementById("ssot-mtd");
-      if (el) el.textContent = mtd + " · $" + usd.toFixed(2);
-      const bp = document.getElementById("btn_banner_pull");
-      if (bp) bp.onclick = async () => { await pullLedgerJson(true); render(); };
-    } catch (e) { console.warn("ssotBoot", e); render(); }
-  })();
-
 </script>
 </body>
 </html>
