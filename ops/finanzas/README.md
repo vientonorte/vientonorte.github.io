@@ -33,3 +33,5 @@ Datos de pace/meta son operativos personales. Hosted en `/ops/` (misma superfici
 - MICRO 1: `07-pagos/README.md`
 
 — GMac · 2026-08-02 · available en tablero ops
+
+<!-- ssot-deploy 2026-08-06T16:52Z split=80_micro1_10_vn_10_post mtd=13 -->
