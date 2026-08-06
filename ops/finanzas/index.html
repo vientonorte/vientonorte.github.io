@@ -63,11 +63,13 @@
 <meta name="ssot-deploy" content="2026-08-06T17:36Z" />
 </head>
 <body>
-<div id="ssot-banner" style="background:#0a0;color:#fff;padding:10px 14px;font:14px system-ui;position:sticky;top:0;z-index:9999">
-<strong>SSOT</strong> · 80/10/10 · MTD <span id="ssot-mtd">21 · $32.34</span>
-· hoy <span id="ssot-today">10 + 3 rework</span>
-· <button type="button" id="btn_banner_pull" style="margin-left:8px;cursor:pointer">↻ forzar ledger</button>
-· si diverge: <b>Borrar realidad</b> luego ↻ (localStorage v5)
+<div id="ssot-banner" style="background:#064;color:#fff;padding:10px 14px;font:14px system-ui;position:sticky;top:0;z-index:9999">
+<strong>OPS 4 t/h</strong> · setup≤05 sin deuda · estable desde 06 ·
+MTD <span id="ssot-mtd">21 · $32.34</span>
+· intent ops a hoy <span id="ssot-intent">36.6t · $56.36</span>
+· EOM@4 ~436.7t · $672.55
+· <button type="button" id="btn_banner_pull" style="cursor:pointer">↻ ledger</button>
+· localStorage v6
 </div>
 <header>
   <div>
@@ -169,31 +171,39 @@ tasks_ok: 34
 (function () {
   const META = {
     rate: 1.54,
-    tph: 5.6,
+    tph: 4.0,           // flujo estable actual (ops)
+    tphPlan: 5.6,       // techo plan / anti-cuello
     hMonth: 180,
-    tasksMonth: 1008,
-    usdMonth: 1552.32,
+    tasksMonth: 1008,   // techo teórico @5.6 — no KPI operativo ago
+    usdMonth: 1552.32,  // trainer path
     fx: 947,
     goalClp: 1600000,
     maxClaims: 3,
+    opsStableFrom: "2026-08-06",
+    opsSetupUntil: "2026-08-05",
+    opsModel: "setup_no_debt_then_stable_4tph",
   };
-  const KEY = "micro1_ivr_ledger_v5_ssot";
+  const KEY = "micro1_ivr_ledger_v6_ops4";
 // SSOT seed 2026-08-06 — always current on load
-const SSOT_SEED = {"intention": [{"date": "2026-08-01", "intent_h": 0.0, "intent_tasks": 0, "intent_usd": 0, "blocks": "off"}, {"date": "2026-08-02", "intent_h": 0.0, "intent_tasks": 0, "intent_usd": 0, "blocks": "off"}, {"date": "2026-08-03", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-04", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-05", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-06", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-07", "intent_h": 4.0, "intent_tasks": 22.4, "intent_usd": 34.5, "blocks": "M1 80% jornada"}, {"date": "2026-08-08", "intent_h": 0.0, "intent_tasks": 0, "intent_usd": 0, "blocks": "off"}, {"date": "2026-08-09", "intent_h": 0.0, "intent_tasks": 0, "intent_usd": 0, "blocks": "off"}, {"date": "2026-08-10", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-11", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-12", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-13", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-14", "intent_h": 4.0, "intent_tasks": 22.4, "intent_usd": 34.5, "blocks": "M1 80% jornada"}, {"date": "2026-08-15", "intent_h": 0.0, "intent_tasks": 0, "intent_usd": 0, "blocks": "off"}, {"date": "2026-08-16", "intent_h": 0.0, "intent_tasks": 0, "intent_usd": 0, "blocks": "off"}, {"date": "2026-08-17", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-18", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-19", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-20", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-21", "intent_h": 4.0, "intent_tasks": 22.4, "intent_usd": 34.5, "blocks": "M1 80% jornada"}, {"date": "2026-08-22", "intent_h": 0.0, "intent_tasks": 0, "intent_usd": 0, "blocks": "off"}, {"date": "2026-08-23", "intent_h": 0.0, "intent_tasks": 0, "intent_usd": 0, "blocks": "off"}, {"date": "2026-08-24", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-25", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-26", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-27", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}, {"date": "2026-08-28", "intent_h": 4.0, "intent_tasks": 22.4, "intent_usd": 34.5, "blocks": "M1 80% jornada"}, {"date": "2026-08-29", "intent_h": 0.0, "intent_tasks": 0, "intent_usd": 0, "blocks": "off"}, {"date": "2026-08-30", "intent_h": 0.0, "intent_tasks": 0, "intent_usd": 0, "blocks": "off"}, {"date": "2026-08-31", "intent_h": 6.4, "intent_tasks": 35.8, "intent_usd": 55.13, "blocks": "M1 80% jornada"}], "reality": [{"date": "2026-08-01", "hubstaff_h": 0, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": 0, "olas_de_3": 0, "game": "â€”", "note": "dry-run F7 ~7s x2 Â· NO submit Â· docs SSOT Â· Remnant instalando", "source": "LOG seed", "claims": [], "updated_at": "2026-08-06T14:42:45-04:00"}, {"date": "2026-08-02", "hubstaff_h": 0.5, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": 1, "olas_de_3": 0, "game": "â€”", "note": "cierre+matriz+dashboard setup M5 Â· 1 claim Realm Â· 0 submit $ Â· ~30min docs", "source": "Sessions seed", "claims": [], "updated_at": "2026-08-06T14:42:45-04:00"}, {"date": "2026-08-03", "hubstaff_h": 0.75, "tasks_ok": 3, "usd": 4.62, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "3 submit OK · claims 9483, 9484, 9485", "source": "LOG+Realm+humano-SSOT", "claims": ["9483", "9484", "9485"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-04", "hubstaff_h": 0, "tasks_ok": 2, "usd": 3.08, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "2 submit OK · claims 9566, 9568", "source": "LOG+Realm+humano-SSOT", "claims": ["9566", "9568"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-05", "hubstaff_h": 0, "tasks_ok": 6, "usd": 9.24, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "Dishonored 2", "note": "6 submit OK · claims 8714, 8716-8719, 9567", "source": "LOG+Realm+humano-SSOT", "claims": ["8714", "8716", "8717", "8718", "8719", "9567"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-06", "hubstaff_h": 1.67, "tasks_ok": 10, "usd": 15.4, "rework_done": 3, "claims_open_eod": 3, "olas_de_3": 3, "game": "Dishonored 2", "note": "10 entregadas · 3 rework done · SSOT humano · IDs partial (8715+)", "source": "LOG+Realm+humano-SSOT", "claims": ["8715"], "updated_at": "2026-08-06T18:42:45Z"}], "days": [{"date": "2026-08-01", "hubstaff_h": 0, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": 0, "olas_de_3": 0, "game": "â€”", "note": "dry-run F7 ~7s x2 Â· NO submit Â· docs SSOT Â· Remnant instalando", "source": "LOG seed", "claims": [], "updated_at": "2026-08-06T14:42:45-04:00"}, {"date": "2026-08-02", "hubstaff_h": 0.5, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": 1, "olas_de_3": 0, "game": "â€”", "note": "cierre+matriz+dashboard setup M5 Â· 1 claim Realm Â· 0 submit $ Â· ~30min docs", "source": "Sessions seed", "claims": [], "updated_at": "2026-08-06T14:42:45-04:00"}, {"date": "2026-08-03", "hubstaff_h": 0.75, "tasks_ok": 3, "usd": 4.62, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "3 submit OK · claims 9483, 9484, 9485", "source": "LOG+Realm+humano-SSOT", "claims": ["9483", "9484", "9485"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-04", "hubstaff_h": 0, "tasks_ok": 2, "usd": 3.08, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "2 submit OK · claims 9566, 9568", "source": "LOG+Realm+humano-SSOT", "claims": ["9566", "9568"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-05", "hubstaff_h": 0, "tasks_ok": 6, "usd": 9.24, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "Dishonored 2", "note": "6 submit OK · claims 8714, 8716-8719, 9567", "source": "LOG+Realm+humano-SSOT", "claims": ["8714", "8716", "8717", "8718", "8719", "9567"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-06", "hubstaff_h": 1.67, "tasks_ok": 10, "usd": 15.4, "rework_done": 3, "claims_open_eod": 3, "olas_de_3": 3, "game": "Dishonored 2", "note": "10 entregadas · 3 rework done · SSOT humano · IDs partial (8715+)", "source": "LOG+Realm+humano-SSOT", "claims": ["8715"], "updated_at": "2026-08-06T18:42:45Z"}], "meta": {"target_tasks_month": 1008, "intention_month": "2026-08", "fx_clp_per_usd": 947, "summary_gap_usd": -265.42, "calendar_finanzas": "9616f51a807e24559b4df624c70d7fe1d81de62f9aa8baf44c1190db5887b12f@group.calendar.google.com", "intention_note": "Jornada 8h L-J · 80% M1 6.4h / 10% VN / 10% Post · Vie M1 4.0h · meta 1.6M CLP", "intent_usd_month_tb_only": 1076.23, "goal_usd_equiv": 1689.55, "log_path": "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md", "intent_usd_day_lj": 55.19, "summary_mtd_usd": 32.34, "rate_usd": 1.54, "wind_down": "21:30", "sync": "ssot-fix-2026-08-06Tlive-outage", "intent_usd_week_tb": 255.26, "goal_clp_month": 1600000, "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf", "summary_v2": "SUMMARY-v2-2026-08-06.md", "sleep_hard_stop": "22:00", "target_usd_month": 1552.32, "trainer_share_of_goal": 0.919, "max_claims": 3, "intent_usd_day_fri": 34.5, "baseline_tph": 5.6, "trainer_usd_target": 1552.32, "updated": "2026-08-06T14:42:45-04:00", "intention_h_month": 162.3, "target_hours_month": 180, "split_policy": "80_micro1_10_vn_10_post", "intent_usd_week_80_20": 255.26, "workday_h_lj": 8.0, "workday_h_fri": 5.0, "summary_mtd_tasks": 21, "summary_today_tasks": 10, "summary_today_rework_done": 3, "summary_today_usd": 15.4, "summary_intent_to_date_usd": 285.44, "calendar_micro1": "18dcb7f8940e2f1b368dd8d28a8c5c4f8923ad9fa1bb64585e970749a34b88d4@group.calendar.google.com", "intent_usd_month_with_wave": 1399.63, "intention_h_month_lv_only": 124.8, "split_pct": {"micro1": 80, "vn": 10, "postulaciones": 10}, "intent_usd_week_80_10_10": 255.26, "hours_lj": {"m1": 6.4, "vn": 0.8, "post": 0.8}, "hours_fri": {"m1": 4.0, "vn": 0.5, "post": 0.5}, "reality_note": "2026-08-06 · 10 tasks · 3 rework · MTD 21 · $32.34 · live CDN blocked GH Pages outage", "realm_review_ready": ["9568", "9567", "9566", "8719", "8718", "8717", "8716", "8715", "8714"], "realm_review_ready_n": 9}};
+const SSOT_SEED = {"intention": [{"date": "2026-08-01", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "setup_no_debt", "ops": true}, {"date": "2026-08-02", "intent_h": 0.5, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "setup_no_debt", "ops": true}, {"date": "2026-08-03", "intent_h": 0.75, "intent_tasks": 3.0, "intent_usd": 4.62, "blocks": "setup_no_debt", "ops": true}, {"date": "2026-08-04", "intent_h": 0.0, "intent_tasks": 2.0, "intent_usd": 3.08, "blocks": "setup_no_debt", "ops": true}, {"date": "2026-08-05", "intent_h": 0.0, "intent_tasks": 6.0, "intent_usd": 9.24, "blocks": "setup_no_debt", "ops": true}, {"date": "2026-08-06", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-07", "intent_h": 4.0, "intent_tasks": 16.0, "intent_usd": 24.64, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-08", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-09", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-10", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-11", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-12", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-13", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-14", "intent_h": 4.0, "intent_tasks": 16.0, "intent_usd": 24.64, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-15", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-16", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-17", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-18", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-19", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-20", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-21", "intent_h": 4.0, "intent_tasks": 16.0, "intent_usd": 24.64, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-22", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-23", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-24", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-25", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-26", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-27", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-28", "intent_h": 4.0, "intent_tasks": 16.0, "intent_usd": 24.64, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-29", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-30", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "blocks": "stable_4tph", "ops": true}, {"date": "2026-08-31", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "blocks": "stable_4tph", "ops": true}], "reality": [{"date": "2026-08-01", "hubstaff_h": 0, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": 0, "olas_de_3": 0, "game": "â€”", "note": "dry-run F7 ~7s x2 Â· NO submit Â· docs SSOT Â· Remnant instalando", "source": "LOG seed", "claims": [], "updated_at": "2026-08-06T14:51:34-04:00"}, {"date": "2026-08-02", "hubstaff_h": 0.5, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": 1, "olas_de_3": 0, "game": "â€”", "note": "cierre+matriz+dashboard setup M5 Â· 1 claim Realm Â· 0 submit $ Â· ~30min docs", "source": "Sessions seed", "claims": [], "updated_at": "2026-08-06T14:51:34-04:00"}, {"date": "2026-08-03", "hubstaff_h": 0.75, "tasks_ok": 3, "usd": 4.62, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "3 submit OK · claims 9483, 9484, 9485", "source": "LOG+Realm+humano-SSOT", "claims": ["9483", "9484", "9485"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-04", "hubstaff_h": 0, "tasks_ok": 2, "usd": 3.08, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "2 submit OK · claims 9566, 9568", "source": "LOG+Realm+humano-SSOT", "claims": ["9566", "9568"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-05", "hubstaff_h": 0, "tasks_ok": 6, "usd": 9.24, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "Dishonored 2", "note": "6 submit OK · claims 8714, 8716-8719, 9567", "source": "LOG+Realm+humano-SSOT", "claims": ["8714", "8716", "8717", "8718", "8719", "9567"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-06", "hubstaff_h": 1.67, "tasks_ok": 10, "usd": 15.4, "rework_done": 3, "claims_open_eod": 3, "olas_de_3": 3, "game": "Dishonored 2", "note": "10 entregadas · 3 rework done · SSOT humano · IDs partial (8715+)", "source": "LOG+Realm+humano-SSOT", "claims": ["8715"], "updated_at": "2026-08-06T18:42:45Z"}], "days": [{"date": "2026-08-01", "hubstaff_h": 0, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": 0, "olas_de_3": 0, "game": "â€”", "note": "dry-run F7 ~7s x2 Â· NO submit Â· docs SSOT Â· Remnant instalando", "source": "LOG seed", "claims": [], "updated_at": "2026-08-06T14:51:34-04:00"}, {"date": "2026-08-02", "hubstaff_h": 0.5, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": 1, "olas_de_3": 0, "game": "â€”", "note": "cierre+matriz+dashboard setup M5 Â· 1 claim Realm Â· 0 submit $ Â· ~30min docs", "source": "Sessions seed", "claims": [], "updated_at": "2026-08-06T14:51:34-04:00"}, {"date": "2026-08-03", "hubstaff_h": 0.75, "tasks_ok": 3, "usd": 4.62, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "3 submit OK · claims 9483, 9484, 9485", "source": "LOG+Realm+humano-SSOT", "claims": ["9483", "9484", "9485"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-04", "hubstaff_h": 0, "tasks_ok": 2, "usd": 3.08, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "2 submit OK · claims 9566, 9568", "source": "LOG+Realm+humano-SSOT", "claims": ["9566", "9568"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-05", "hubstaff_h": 0, "tasks_ok": 6, "usd": 9.24, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "Dishonored 2", "note": "6 submit OK · claims 8714, 8716-8719, 9567", "source": "LOG+Realm+humano-SSOT", "claims": ["8714", "8716", "8717", "8718", "8719", "9567"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-06", "hubstaff_h": 1.67, "tasks_ok": 10, "usd": 15.4, "rework_done": 3, "claims_open_eod": 3, "olas_de_3": 3, "game": "Dishonored 2", "note": "10 entregadas · 3 rework done · SSOT humano · IDs partial (8715+)", "source": "LOG+Realm+humano-SSOT", "claims": ["8715"], "updated_at": "2026-08-06T18:42:45Z"}], "meta": {"target_tasks_month": 1008, "intention_month": "2026-08", "fx_clp_per_usd": 947, "summary_gap_usd": -265.42, "calendar_finanzas": "9616f51a807e24559b4df624c70d7fe1d81de62f9aa8baf44c1190db5887b12f@group.calendar.google.com", "intention_note": "Setup ≤05: sin deuda captura (rework/settings). Desde 06: M1 6.4/4.0h × 4 t/h flujo estable. Techo plan 5.6 aparte.", "intent_usd_month_tb_only": 1076.23, "goal_usd_equiv": 1689.55, "log_path": "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md", "intent_usd_day_lj": 55.19, "summary_mtd_usd": 32.34, "rate_usd": 1.54, "wind_down": "21:30", "sync": "ops-intent-4tph-ramp-2026-08-06", "intent_usd_week_tb": 255.26, "goal_clp_month": 1600000, "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf", "summary_v2": "SUMMARY-v2-2026-08-06.md", "sleep_hard_stop": "22:00", "target_usd_month": 1552.32, "trainer_share_of_goal": 0.919, "max_claims": 3, "intent_usd_day_fri": 34.5, "baseline_tph": 4.0, "trainer_usd_target": 1552.32, "updated": "2026-08-06T14:51:34-04:00", "intention_h_month": 162.3, "target_hours_month": 180, "split_policy": "80_micro1_10_vn_10_post", "intent_usd_week_80_20": 255.26, "workday_h_lj": 8.0, "workday_h_fri": 5.0, "summary_mtd_tasks": 21, "summary_today_tasks": 10, "summary_today_rework_done": 3, "summary_today_usd": 15.4, "summary_intent_to_date_usd": 285.44, "calendar_micro1": "18dcb7f8940e2f1b368dd8d28a8c5c4f8923ad9fa1bb64585e970749a34b88d4@group.calendar.google.com", "intent_usd_month_with_wave": 1399.63, "intention_h_month_lv_only": 124.8, "split_pct": {"micro1": 80, "vn": 10, "postulaciones": 10}, "intent_usd_week_80_10_10": 255.26, "hours_lj": {"m1": 6.4, "vn": 0.8, "post": 0.8}, "hours_fri": {"m1": 4.0, "vn": 0.5, "post": 0.5}, "reality_note": "2026-08-06 · MTD 21t $32.34 · intent ops a hoy 37t $56 · gap ops $-24 · proy EOM @4 ~437t $673", "realm_review_ready": ["9568", "9567", "9566", "8719", "8718", "8717", "8716", "8715", "8714"], "realm_review_ready_n": 9, "ops_tph": 4.0, "plan_tph": 5.6, "baseline_tph_plan_ceiling": 5.6, "ops_stable_from": "2026-08-06", "ops_setup_until": "2026-08-05", "ops_model": "setup_no_debt_then_stable_4tph", "summary_intent_to_date_h_ops": 7.65, "summary_intent_to_date_tasks_ops": 36.6, "summary_intent_to_date_usd_ops": 56.36, "summary_gap_usd_ops": -24.02, "summary_gap_tasks_ops": -15.6, "projection": {"as_of": "2026-08-06", "ops_tph": 4.0, "plan_tph": 5.6, "m1_h_remaining_incl_today_left": 103.93, "eom_tasks_at_4": 436.7, "eom_usd_at_4": 672.55, "eom_clp_at_4": 636904, "eom_tasks_at_5_6": 603.0, "eom_usd_at_5_6": 928.63, "week_runrate_tasks": 118.4, "week_runrate_usd": 182.34, "week_runrate_clp": 172672, "tasks_to_trainer_1552": 987.0, "hours_to_trainer_at_4": 246.8, "weeks_to_trainer_at_4": 8.3, "tasks_to_1_6M_clp": 1076.1, "req_tph_hit_trainer_eom": 9.5, "note": "4 t/h = flujo estable actual. 5.6 = techo plan. 1008 tasks/mes no es realista en resto ago @≤5.6."}, "ops_intent_days": [{"date": "2026-08-01", "phase": "setup_no_debt", "intent_h": 0.0, "intent_tasks": 0.0, "intent_usd": 0.0, "sched_m1_h": 0.0}, {"date": "2026-08-02", "phase": "setup_no_debt", "intent_h": 0.5, "intent_tasks": 0.0, "intent_usd": 0.0, "sched_m1_h": 0.0}, {"date": "2026-08-03", "phase": "setup_no_debt", "intent_h": 0.75, "intent_tasks": 3.0, "intent_usd": 4.62, "sched_m1_h": 6.4}, {"date": "2026-08-04", "phase": "setup_no_debt", "intent_h": 0.0, "intent_tasks": 2.0, "intent_usd": 3.08, "sched_m1_h": 6.4}, {"date": "2026-08-05", "phase": "setup_no_debt", "intent_h": 0.0, "intent_tasks": 6.0, "intent_usd": 9.24, "sched_m1_h": 6.4}, {"date": "2026-08-06", "phase": "stable_4tph", "intent_h": 6.4, "intent_tasks": 25.6, "intent_usd": 39.42, "sched_m1_h": 6.4}]}};
 
 
   // Intention: Mon-Fri 7h (4+3 WAVE), Sat 5, Sun 2.5
   function intentHoursForDate(iso) {
-    // MICRO1 captura 80% jornada · SSOT 2026-08-06: L-J 6.4h · Vie 4.0h · weekend WAVE opcional
+    // OPS: setup ≤ opsSetupUntil → 0 deuda captura; estable → M1 6.4 L-J / 4.0 Vie; fin de semana 0
     const d = new Date(iso + "T12:00:00");
-    const wd = d.getDay(); // 0 Sun
-    if (wd === 0) return 2.5; // WAVE dom corto
-    if (wd === 6) return 5.0; // WAVE sáb opcional
-    if (wd === 5) return 4.0; // Vie 80% de 5h
-    return 6.4; // L-J 80% de 8h
+    const wd = d.getDay();
+    if (iso <= META.opsSetupUntil) return 0; // setup/rework/settings: sin intención captura
+    if (wd === 0 || wd === 6) return 0;
+    if (wd === 5) return 4.0;
+    return 6.4;
   }
-  function intentTasks(h) { return h * META.tph; }
-  function intentUsd(h) { return intentTasks(h) * META.rate; }
+  function intentTasks(h, iso) {
+    if (iso && iso <= META.opsSetupUntil) return 0;
+    return h * META.tph; // 4 t/h ops
+  }
+  function intentUsd(h, iso) { return intentTasks(h, iso) * META.rate; }
+  function intentTasksPlan(h) { return h * META.tphPlan; }
 
   function monthIso(d = new Date()) {
     return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0");
@@ -207,8 +217,8 @@ const SSOT_SEED = {"intention": [{"date": "2026-08-01", "intent_h": 0.0, "intent
       if (filtered.length) return filtered.map((r) => ({
         date: r.date,
         intent_h: +r.intent_h || 0,
-        intent_tasks: +r.intent_tasks || intentTasks(+r.intent_h || 0),
-        intent_usd: +r.intent_usd || intentUsd(+r.intent_h || 0),
+        intent_tasks: +r.intent_tasks || intentTasks(+r.intent_h || 0, r.date),
+        intent_usd: +r.intent_usd || intentUsd(+r.intent_h || 0, r.date),
         blocks: r.blocks || "",
       }));
     }
@@ -218,7 +228,7 @@ const SSOT_SEED = {"intention": [{"date": "2026-08-01", "intent_h": 0.0, "intent
     for (let day = 1; day <= dim; day++) {
       const iso = ym + "-" + String(day).padStart(2, "0");
       const h = intentHoursForDate(iso);
-      out.push({ date: iso, intent_h: h, intent_tasks: intentTasks(h), intent_usd: intentUsd(h) });
+      out.push({ date: iso, intent_h: h, intent_tasks: intentTasks(h, iso), intent_usd: intentUsd(h, iso), blocks: iso <= META.opsSetupUntil ? "setup_no_debt" : "stable_4tph" });
     }
     return out;
   }
@@ -230,7 +240,7 @@ const SSOT_SEED = {"intention": [{"date": "2026-08-01", "intent_h": 0.0, "intent
 
   // Built-in seed (matches ledger.json · keep in sync via m1-ledger-sync.py)
   const SEED = {
-    days: [{"date": "2026-08-01", "hubstaff_h": 0, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": 0, "olas_de_3": 0, "game": "â€”", "note": "dry-run F7 ~7s x2 Â· NO submit Â· docs SSOT Â· Remnant instalando", "source": "LOG seed", "claims": [], "updated_at": "2026-08-06T14:42:45-04:00"}, {"date": "2026-08-02", "hubstaff_h": 0.5, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": 1, "olas_de_3": 0, "game": "â€”", "note": "cierre+matriz+dashboard setup M5 Â· 1 claim Realm Â· 0 submit $ Â· ~30min docs", "source": "Sessions seed", "claims": [], "updated_at": "2026-08-06T14:42:45-04:00"}, {"date": "2026-08-03", "hubstaff_h": 0.75, "tasks_ok": 3, "usd": 4.62, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "3 submit OK · claims 9483, 9484, 9485", "source": "LOG+Realm+humano-SSOT", "claims": ["9483", "9484", "9485"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-04", "hubstaff_h": 0, "tasks_ok": 2, "usd": 3.08, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "2 submit OK · claims 9566, 9568", "source": "LOG+Realm+humano-SSOT", "claims": ["9566", "9568"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-05", "hubstaff_h": 0, "tasks_ok": 6, "usd": 9.24, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "Dishonored 2", "note": "6 submit OK · claims 8714, 8716-8719, 9567", "source": "LOG+Realm+humano-SSOT", "claims": ["8714", "8716", "8717", "8718", "8719", "9567"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-06", "hubstaff_h": 1.67, "tasks_ok": 10, "usd": 15.4, "rework_done": 3, "claims_open_eod": 3, "olas_de_3": 3, "game": "Dishonored 2", "note": "10 entregadas · 3 rework done · SSOT humano · IDs partial (8715+)", "source": "LOG+Realm+humano-SSOT", "claims": ["8715"], "updated_at": "2026-08-06T18:42:45Z"}],
+    days: [{"date": "2026-08-01", "hubstaff_h": 0, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": 0, "olas_de_3": 0, "game": "â€”", "note": "dry-run F7 ~7s x2 Â· NO submit Â· docs SSOT Â· Remnant instalando", "source": "LOG seed", "claims": [], "updated_at": "2026-08-06T14:51:34-04:00"}, {"date": "2026-08-02", "hubstaff_h": 0.5, "tasks_ok": 0, "usd": 0.0, "rework_done": 0, "claims_open_eod": 1, "olas_de_3": 0, "game": "â€”", "note": "cierre+matriz+dashboard setup M5 Â· 1 claim Realm Â· 0 submit $ Â· ~30min docs", "source": "Sessions seed", "claims": [], "updated_at": "2026-08-06T14:51:34-04:00"}, {"date": "2026-08-03", "hubstaff_h": 0.75, "tasks_ok": 3, "usd": 4.62, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "3 submit OK · claims 9483, 9484, 9485", "source": "LOG+Realm+humano-SSOT", "claims": ["9483", "9484", "9485"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-04", "hubstaff_h": 0, "tasks_ok": 2, "usd": 3.08, "rework_done": 0, "claims_open_eod": 3, "olas_de_3": 0, "game": "Dishonored 2", "note": "2 submit OK · claims 9566, 9568", "source": "LOG+Realm+humano-SSOT", "claims": ["9566", "9568"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-05", "hubstaff_h": 0, "tasks_ok": 6, "usd": 9.24, "rework_done": 0, "claims_open_eod": null, "olas_de_3": 0, "game": "Dishonored 2", "note": "6 submit OK · claims 8714, 8716-8719, 9567", "source": "LOG+Realm+humano-SSOT", "claims": ["8714", "8716", "8717", "8718", "8719", "9567"], "updated_at": "2026-08-06T18:42:45Z"}, {"date": "2026-08-06", "hubstaff_h": 1.67, "tasks_ok": 10, "usd": 15.4, "rework_done": 3, "claims_open_eod": 3, "olas_de_3": 3, "game": "Dishonored 2", "note": "10 entregadas · 3 rework done · SSOT humano · IDs partial (8715+)", "source": "LOG+Realm+humano-SSOT", "claims": ["8715"], "updated_at": "2026-08-06T18:42:45Z"}],
   };
 
   let ledgerFileMeta = null; // last fetch of ledger.json
@@ -381,39 +391,80 @@ const SSOT_SEED = {"intention": [{"date": "2026-08-01", "intent_h": 0.0, "intent
 
     const today = new Date().toISOString().slice(0, 10);
     const intentToDate = intentAll.filter((x) => x.date <= today);
-    const intentH_td = intentToDate.reduce((s, x) => s + x.intent_h, 0);
-    const intentT_td = intentToDate.reduce((s, x) => s + x.intent_tasks, 0);
-    const intentUsd_td = intentT_td * META.rate;
+    // OPS intention: prefer plan rows; setup days already 0h in intentHoursForDate
+    // Overlay SSOT_SEED intention if present (includes setup_no_debt actuals)
+    let intentH_td = intentToDate.reduce((s, x) => s + x.intent_h, 0);
+    let intentT_td = intentToDate.reduce((s, x) => s + x.intent_tasks, 0);
+    let intentUsd_td = intentT_td * META.rate;
+    if (typeof SSOT_SEED !== "undefined" && Array.isArray(SSOT_SEED.intention)) {
+      const op = SSOT_SEED.intention.filter((x) => x.date <= today && String(x.date).startsWith(ym));
+      if (op.length) {
+        intentH_td = op.reduce((s, x) => s + (+x.intent_h || 0), 0);
+        intentT_td = op.reduce((s, x) => s + (+x.intent_tasks || 0), 0);
+        intentUsd_td = op.reduce((s, x) => s + (+x.intent_usd || ((+x.intent_tasks || 0) * META.rate)), 0);
+      }
+    }
 
     const realMonth = state.days.filter((d) => d.date.startsWith(ym));
     const realH = realMonth.reduce((s, d) => s + (+d.hubstaff_h || 0), 0);
     const realT = realMonth.reduce((s, d) => s + (+d.tasks_ok || 0), 0);
-    const realUsd = realT * META.rate;
+    const realUsd = realMonth.reduce((s, d) => {
+      const t = +d.tasks_ok || 0;
+      const u = d.usd != null ? +d.usd : t * META.rate;
+      return s + (Number.isFinite(u) ? u : t * META.rate);
+    }, 0);
     const realTph = realH > 0 ? realT / realH : 0;
 
     const dH = realH - intentH_td;
     const dT = realT - intentT_td;
     const dUsd = realUsd - intentUsd_td;
-    const fillH = intentH_td > 0 ? Math.min(100, (realH / intentH_td) * 100) : 0;
-    const fillT = intentT_td > 0 ? Math.min(100, (realT / intentT_td) * 100) : 0;
+    const fillH = intentH_td > 0 ? Math.min(100, (realH / intentH_td) * 100) : (realH > 0 ? 100 : 0);
+    const fillT = intentT_td > 0 ? Math.min(100, (realT / intentT_td) * 100) : (realT > 0 ? 100 : 0);
 
+    // Projections @ ops 4 t/h
+    const y = +ym.slice(0,4), mo = +ym.slice(5,7);
+    const dim = daysInMonth(y, mo);
+    let remH = 0;
+    for (let day = 1; day <= dim; day++) {
+      const iso = ym + "-" + String(day).padStart(2, "0");
+      if (iso <= today) continue;
+      remH += intentHoursForDate(iso);
+    }
+    const todayRow = realMonth.find((d) => d.date === today);
+    const todayDoneH = todayRow ? +todayRow.hubstaff_h || 0 : 0;
+    const todayLeftH = Math.max(0, intentHoursForDate(today) - todayDoneH);
+    const projH = remH + todayLeftH;
+    const eomT4 = realT + projH * META.tph;
+    const eomU4 = eomT4 * META.rate;
+    const eomT56 = realT + projH * META.tphPlan;
+    const eomU56 = eomT56 * META.rate;
+    const weekT = (6.4 * 4 + 4.0) * META.tph;
+    const weekU = weekT * META.rate;
+    const gapTrainerT = Math.max(0, META.usdMonth / META.rate - realT);
+    const hToTrainer = gapTrainerT / META.tph;
+    const weeksToTrainer = hToTrainer / (6.4 * 4 + 4.0);
+    const reqTphTrainerEom = projH > 0 ? gapTrainerT / projH : 0;
     const hrsLeftPlan = Math.max(0, META.hMonth - realH);
     const tasksLeft = Math.max(0, META.tasksMonth - realT);
     const reqTph = hrsLeftPlan > 0 ? tasksLeft / hrsLeftPlan : 0;
 
     $("kpis").innerHTML = `
       <div class="card"><div class="label">USD realidad MTD</div><div class="value">${money(realUsd)}</div>
-        <div class="hint">intención a hoy ${money(intentUsd_td)} · Δ <span class="${deltaClass(dUsd)}">${deltaStr(dUsd,2)}</span></div></div>
+        <div class="hint">intent <b>ops</b> a hoy ${money(intentUsd_td)} · Δ <span class="${deltaClass(dUsd)}">${deltaStr(dUsd,2)}</span>
+        <br><span style="opacity:.75">techo plan 5.6 no se usa en este Δ</span></div></div>
       <div class="card"><div class="label">CLP realidad</div><div class="value" style="font-size:1.05rem">${clp(realUsd)}</div>
-        <div class="hint">${fmt((realUsd*META.fx)/META.goalClp*100,1)}% de meta 1.6M total</div></div>
+        <div class="hint">${fmt((realUsd*META.fx)/META.goalClp*100,1)}% de meta 1.6M · EOM@4 ~${Math.round(eomU4*META.fx).toLocaleString("es-CL")} CLP</div></div>
       <div class="card"><div class="label">Tasks realidad</div><div class="value">${realT}</div>
-        <div class="hint">intención a hoy ${fmt(intentT_td,0)} · Δ <span class="${deltaClass(dT)}">${deltaStr(dT,0)}</span></div></div>
-      <div class="card"><div class="label">Horas realidad</div><div class="value">${fmt(realH)}</div>
-        <div class="hint">intención a hoy ${fmt(intentH_td,1)} · Δ <span class="${deltaClass(dH)}">${deltaStr(dH,1)}</span></div></div>
-      <div class="card"><div class="label">t/h realidad</div><div class="value ${realTph>=META.tph?"ok":realTph>=4?"warn":realH? "bad":""}">${fmt(realTph)}</div>
-        <div class="hint">baseline ${META.tph} · req resto ${fmt(reqTph)}</div></div>
-      <div class="card"><div class="label">Intención mes completo</div><div class="value" style="font-size:1.05rem">${fmt(intentTotalH,0)}h</div>
-        <div class="hint">${fmt(intentTotalTasks,0)} tasks · ${money(intentTotalUsd)} (Calendar WAVE)</div></div>
+        <div class="hint">intent ops a hoy ${fmt(intentT_td,0)} · Δ <span class="${deltaClass(dT)}">${deltaStr(dT,0)}</span>
+        <br>EOM@4 ~${fmt(eomT4,0)} t · @5.6 techo ~${fmt(eomT56,0)} t</div></div>
+      <div class="card"><div class="label">Horas realidad</div><div class="value">${fmt(realH,2)}</div>
+        <div class="hint">intent ops a hoy ${fmt(intentH_td,1)} · Δ <span class="${deltaClass(dH)}">${deltaStr(dH,1)}</span></div></div>
+      <div class="card"><div class="label">t/h realidad</div><div class="value">${fmt(realTph,2)}</div>
+        <div class="hint">ops estable <b>${META.tph}</b> · techo plan ${META.tphPlan} · req EOM→trainer ${fmt(reqTphTrainerEom,2)}</div></div>
+      <div class="card"><div class="label">Proyección @4 t/h</div><div class="value" style="font-size:1.05rem">${money(eomU4)}</div>
+        <div class="hint">EOM ~${fmt(eomT4,0)} tasks · semana run-rate ${fmt(weekT,0)}t / ${money(weekU)}
+        <br>→ trainer $1.55k: ~${fmt(weeksToTrainer,1)} sem @4 · ${fmt(hToTrainer,0)}h M1
+        <br>req t/h si quisieras cerrar trainer en ago: ${fmt(reqTphTrainerEom,2)} (hoy ops 4)</div></div>
     `;
 
     $("ivr").innerHTML = `
@@ -422,7 +473,7 @@ const SSOT_SEED = {"intention": [{"date": "2026-08-01", "intent_h": 0.0, "intent
         <div class="legend"><span><i class="i"></i>Intención (plan)</span><span><i class="r"></i>Realidad (LOG/Hubstaff)</span></div>
       </div>
       <p class="help" style="margin-top:.6rem">
-        Intención = jornada 8h L–J (5h Vie) × split 80/10/10 → M1 6.4h / 4.0h × 5.6 t/h. Ledger SoT vía jsDelivr/raw.<br />
+        Intención <b>ops</b> = setup≤05 sin deuda captura · desde 06: M1 6.4/4.0h × <b>4 t/h</b> flujo estable. Techo 5.6 solo proyección. Ledger SoT vía jsDelivr/raw.<br />
         Realidad = lo que cargaste / seed. <strong>Gap</strong> = realidad − intención a la fecha (negativo = atrasado).
       </p>
       <div class="grid" style="margin:0">
@@ -637,7 +688,7 @@ const SSOT_SEED = {"intention": [{"date": "2026-08-01", "intent_h": 0.0, "intent
     try {
       // wipe stale pre-v5 if any leaked
       Object.keys(localStorage).forEach((k) => {
-        if (/^micro1_ivr_ledger_v[1234]/.test(k)) localStorage.removeItem(k);
+        if (/^micro1_ivr_ledger_v(?!6_ops4$)/.test(k)) localStorage.removeItem(k);
       });
       await pullLedgerJson(true);
       render();
