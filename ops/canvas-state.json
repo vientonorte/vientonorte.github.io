@@ -70,7 +70,7 @@
             "https://finanzas.vientonorte.io/",
             "https://finanzas.vientonorte.io/"
           ],
-          "notes": "Canonical CF Worker · GH path deprecado · 2026-08-06"
+          "notes": "Canonical CF Worker · GH path deprecado · 2026-08-06 · next plan-deploy-finanzas-p0"
         }
       ],
       "done_archive": [
@@ -190,6 +190,41 @@
       "label": "Planificar",
       "owner": "Rö",
       "items": [
+        {
+          "id": "plan-deploy-finanzas-p0",
+          "title": "P0 · Deploy $ pipeline: worker repo + Realm→ledger→wrangler + smoke + guardrail",
+          "status": "todo",
+          "priority": "P0",
+          "track": "infra",
+          "token_pct": 10,
+          "human": false,
+          "people_job": "Agente: workers/ + scripts. Humano: CF API token secrets + orange-cloud opcional.",
+          "links": [
+            "https://finanzas.vientonorte.io/",
+            "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/DEPLOY-ROADMAP.md"
+          ],
+          "checklist": [
+            "Worker en git",
+            "deploy 1 cmd",
+            "validate ledger",
+            "smoke curl",
+            "guardrail UI",
+            "mail Retro deploy"
+          ],
+          "notes": "Retro 2026-08-06 · ops/DEPLOY-ROADMAP.md"
+        },
+        {
+          "id": "plan-deploy-finanzas-p1",
+          "title": "P1 · Monitor 6h + CI ledger→worker + Calendar plan@5.6 vs ops@4",
+          "status": "todo",
+          "priority": "P1",
+          "track": "infra",
+          "token_pct": 5,
+          "links": [
+            "https://finanzas.vientonorte.io/"
+          ],
+          "notes": "DEPLOY-ROADMAP P1"
+        },
         {
           "id": "plan-sprint-onboarding-envs",
           "title": "Sprint · Onboarding + ambientes públicos/privados VN",
@@ -1326,5 +1361,7 @@
       ]
     }
   ],
-  "progress_note": "2026-08-03: GSC verified+sitemap+inspección / · ops manual: smoke residual/favicon/H5 · firmas devices · GSC CWV/móvil P1 · SEM $0"
+  "progress_note": "2026-08-03: GSC verified+sitemap+inspección / · ops manual: smoke residual/favicon/H5 · firmas devices · GSC CWV/móvil P1 · SEM $0",
+  "updated_at": "2026-08-06T19:21:36Z",
+  "deploy_roadmap": "ops/DEPLOY-ROADMAP.md"
 }
