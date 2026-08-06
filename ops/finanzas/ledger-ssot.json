@@ -251,7 +251,7 @@
       "game": "Dishonored 2",
       "note": "3 submit OK · claims 9483, 9484, 9485",
       "source": "LOG+m1-ledger-sync",
-      "updated_at": "2026-08-04T19:00:56Z",
+      "updated_at": "2026-08-06T17:45:21Z",
       "hubstaff_h": 0.75,
       "claims_open_eod": 3,
       "olas_de_3": 0
@@ -259,40 +259,56 @@
     {
       "date": "2026-08-04",
       "hubstaff_h": 0,
-      "tasks_ok": 0,
-      "usd": 0,
+      "tasks_ok": 2,
+      "usd": 3.08,
       "claims_open_eod": 3,
       "olas_de_3": 0,
       "game": "Dishonored 2",
-      "note": "PREP A FOV80 reworks 9485-83 0 F7 $0",
-      "source": "GWin PREP A"
+      "note": "2 submit OK · claims 9566, 9568",
+      "source": "LOG+m1-ledger-sync",
+      "claims": [
+        "9566",
+        "9568"
+      ],
+      "updated_at": "2026-08-06T17:45:21Z"
     },
     {
       "date": "2026-08-05",
       "hubstaff_h": 0,
-      "tasks_ok": 0,
-      "usd": 0,
+      "tasks_ok": 6,
+      "usd": 9.24,
       "claims_open_eod": null,
       "olas_de_3": 0,
-      "game": "—",
-      "note": "sin submit contado en ledger · NO DATO claim ids",
-      "source": "gap-fill 2026-08-06 SSOT"
+      "game": "Dishonored 2",
+      "note": "6 submit OK · claims 8714, 8716, 8717, 8718, 8719, 9567",
+      "source": "LOG+m1-ledger-sync",
+      "claims": [
+        "8714",
+        "8716",
+        "8717",
+        "8718",
+        "8719",
+        "9567"
+      ],
+      "updated_at": "2026-08-06T17:45:21Z"
     },
     {
       "date": "2026-08-06",
       "hubstaff_h": 1.67,
       "hubstaff_note": "est min10×tasks · override con hubstaff real",
-      "tasks_ok": 10,
-      "usd": 15.4,
+      "tasks_ok": 1,
+      "usd": 1.54,
       "rework_done": 3,
-      "claims": [],
+      "claims": [
+        "8715"
+      ],
       "claims_note": "IDs no listados · Rö report 10 entregadas + 3 rework done",
-      "claims_open_eod": null,
+      "claims_open_eod": 3,
       "olas_de_3": 3,
       "game": "Dishonored 2",
-      "note": "REALIDAD HOY · 10 tasks entregadas · 3 rework done · $15.40 · SSOT 80/10/10",
-      "source": "Rö report 2026-08-06 · Grok SSOT align",
-      "updated_at": "2026-08-06T16:32:45Z"
+      "note": "1 submit OK · claims 8715",
+      "source": "LOG+m1-ledger-sync",
+      "updated_at": "2026-08-06T17:45:21Z"
     }
   ],
   "meta": {
@@ -301,15 +317,15 @@
     "fx_clp_per_usd": 947,
     "summary_gap_usd": -265.42,
     "calendar_finanzas": "9616f51a807e24559b4df624c70d7fe1d81de62f9aa8baf44c1190db5887b12f@group.calendar.google.com",
-    "intention_note": "Jornada 8.0h L-J (Vie 5.0h) · 80% M1 6.4h / 10% VN 0.8h / 10% Post 0.8h · Vie M1 4.0h · meta hogar 1600k CLP",
+    "intention_note": "Jornada 8h L-J · 80% M1 6.4h / 10% VN / 10% Post · Vie M1 4.0h · meta 1.6M CLP",
     "intent_usd_month_tb_only": 1076.23,
     "goal_usd_equiv": 1689.55,
     "log_path": "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md",
     "intent_usd_day_lj": 55.19,
-    "summary_mtd_usd": 20.02,
+    "summary_mtd_usd": 18.48,
     "rate_usd": 1.54,
     "wind_down": "21:30",
-    "sync": "ssot-refresh-2026-08-06",
+    "sync": "m1-ledger-sync+realm-ssot-2026-08-06",
     "intent_usd_week_tb": 255.26,
     "goal_clp_month": 1600000,
     "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -321,14 +337,14 @@
     "intent_usd_day_fri": 34.5,
     "baseline_tph": 5.6,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-08-06T13:21:06-04:00",
+    "updated": "2026-08-06T13:45:21-04:00",
     "intention_h_month": 162.3,
     "target_hours_month": 180,
     "split_policy": "80_micro1_10_vn_10_post",
     "intent_usd_week_80_20": 255.26,
     "workday_h_lj": 8.0,
     "workday_h_fri": 5.0,
-    "summary_mtd_tasks": 13,
+    "summary_mtd_tasks": 12,
     "summary_today_tasks": 10,
     "summary_today_rework_done": 3,
     "summary_today_usd": 15.4,
@@ -352,6 +368,18 @@
       "vn": 0.5,
       "post": 0.5
     },
-    "reality_note": "2026-08-06 · 10 tasks entregadas · 3 rework done · MTD 13 · $20.02"
+    "reality_note": "2026-08-06 · 10 tasks entregadas · 3 rework done · MTD 13 · $20.02",
+    "realm_review_ready": [
+      "9568",
+      "9567",
+      "9566",
+      "8719",
+      "8718",
+      "8717",
+      "8716",
+      "8715",
+      "8714"
+    ],
+    "realm_review_ready_n": 9
   }
 }
