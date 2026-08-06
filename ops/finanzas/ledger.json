@@ -221,32 +221,34 @@
   "days": [
     {
       "date": "2026-08-01",
-      "hubstaff_h": 0,
+      "hubstaff_h": 0.0,
       "tasks_ok": 0,
-      "note": "dry-run F7 · NO submit · docs SSOT",
-      "source": "LOG",
+      "usd": 0,
+      "claims": [],
       "game": "—",
-      "usd": 0
+      "note": "dry-run F7 · NO submit · docs SSOT",
+      "source": "LOG"
     },
     {
       "date": "2026-08-02",
       "hubstaff_h": 0.5,
       "tasks_ok": 0,
-      "note": "setup M5/dashboard · 0 submit $",
-      "source": "Sessions",
+      "usd": 0,
+      "claims": [],
       "game": "—",
-      "usd": 0
+      "note": "setup M5/dashboard · 0 submit $",
+      "source": "Sessions"
     },
     {
       "date": "2026-08-03",
       "hubstaff_h": 0.75,
       "tasks_ok": 0,
       "usd": 0,
-      "note": "LOG tuvo 9483·9484·9485 submit OK — NO aparecen en cola RR actual (pos. firmados/salieron). No suman MTD RR.",
-      "source": "LOG-vs-Realm",
-      "game": "Dishonored 2",
       "claims": [],
-      "claims_note": "9483/84/85 fuera de tabla Review Ready 2026-08-06",
+      "game": "Dishonored 2",
+      "note": "LOG 9483·9484·9485 submit OK — NO en cola RR actual. No suman MTD RR.",
+      "source": "LOG-vs-Realm",
+      "claims_note": "9483/84/85 fuera de tabla Review Ready",
       "log_only_claims": [
         "9483",
         "9484",
@@ -269,7 +271,7 @@
       "note": "2 Review Ready · Updated Realm · 9566 · 9568",
       "source": "Realm-table-Updated",
       "realm_status": "Review Ready",
-      "updated_at": "2026-08-06T14:53:46-04:00"
+      "updated_at": "2026-08-06T19:33:08Z"
     },
     {
       "date": "2026-08-05",
@@ -291,24 +293,25 @@
       "note": "6 Review Ready · Updated Realm · 9567 · 8719 · 8718 · 8717 · 8716 · 8714",
       "source": "Realm-table-Updated",
       "realm_status": "Review Ready",
-      "updated_at": "2026-08-06T14:53:46-04:00"
+      "updated_at": "2026-08-06T19:33:08Z"
     },
     {
       "date": "2026-08-06",
-      "hubstaff_h": 0.17,
-      "hubstaff_note": "est 1×10min Realm Updated",
-      "tasks_ok": 1,
-      "usd": 1.54,
+      "hubstaff_h": 0.33,
+      "hubstaff_note": "est 2×10min Realm Updated",
+      "tasks_ok": 2,
+      "usd": 3.08,
       "claims": [
-        "8715"
+        "8715",
+        "7952"
       ],
       "game": "Dishonored 2",
       "olas_de_3": 0,
       "claims_open_eod": 3,
-      "note": "1 Review Ready · Updated Realm · 8715",
+      "note": "2 Review Ready · Updated Realm · 8715 · 7952",
       "source": "Realm-table-Updated",
       "realm_status": "Review Ready",
-      "updated_at": "2026-08-06T14:53:46-04:00"
+      "updated_at": "2026-08-06T19:33:08Z"
     }
   ],
   "meta": {
@@ -322,10 +325,10 @@
     "goal_usd_equiv": 1689.55,
     "log_path": "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md",
     "intent_usd_day_lj": 55.19,
-    "summary_mtd_usd": 13.86,
+    "summary_mtd_usd": 15.4,
     "rate_usd": 1.54,
     "wind_down": "21:30",
-    "sync": "canonical-finanzas.vientonorte.io-cleanup",
+    "sync": "realm-table-+7952-2026-08-06",
     "intent_usd_week_tb": 255.26,
     "goal_clp_month": 1600000,
     "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -337,17 +340,17 @@
     "intent_usd_day_fri": 34.5,
     "baseline_tph": 4.0,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-08-06T15:10:40-04:00",
+    "updated": "2026-08-06T15:33:08-04:00",
     "intention_h_month": 162.3,
     "target_hours_month": 180,
     "split_policy": "80_micro1_10_vn_10_post",
     "intent_usd_week_80_20": 255.26,
     "workday_h_lj": 8.0,
     "workday_h_fri": 5.0,
-    "summary_mtd_tasks": 9,
-    "summary_today_tasks": 1,
+    "summary_mtd_tasks": 10,
+    "summary_today_tasks": 2,
     "summary_today_rework_done": 0,
-    "summary_today_usd": 1.54,
+    "summary_today_usd": 3.08,
     "summary_intent_to_date_usd": 285.44,
     "calendar_micro1": "18dcb7f8940e2f1b368dd8d28a8c5c4f8923ad9fa1bb64585e970749a34b88d4@group.calendar.google.com",
     "intent_usd_month_with_wave": 1399.63,
@@ -368,7 +371,7 @@
       "vn": 0.5,
       "post": 0.5
     },
-    "reality_note": "Realm RR n=9 · $13.86 · by Updated: 04→2, 05→6, 06→1 · 9483-85 LOG only (no RR)",
+    "reality_note": "Realm RR n=10 · $15.40 · by Updated: 04→2, 05→6, 06→2 (8715+7952)",
     "realm_review_ready": [
       "9568",
       "9567",
@@ -378,9 +381,10 @@
       "8717",
       "8716",
       "8715",
-      "8714"
+      "8714",
+      "7952"
     ],
-    "realm_review_ready_n": 9,
+    "realm_review_ready_n": 10,
     "ops_tph": 4.0,
     "plan_tph": 5.6,
     "baseline_tph_plan_ceiling": 5.6,
@@ -390,25 +394,20 @@
     "summary_intent_to_date_h_ops": 8.98,
     "summary_intent_to_date_tasks_ops": 33.6,
     "summary_intent_to_date_usd_ops": 51.74,
-    "summary_gap_usd_ops": -37.88,
-    "summary_gap_tasks_ops": -24.6,
+    "summary_gap_usd_ops": -36.34,
+    "summary_gap_tasks_ops": -23.6,
     "projection": {
       "as_of": "2026-08-06",
       "ops_tph": 4.0,
-      "m1_h_remaining_incl_today_left": 105.43,
-      "eom_tasks_at_4": 430.7,
-      "eom_usd_at_4": 663.31,
-      "eom_clp_at_4": 628153,
-      "eom_tasks_at_5_6": 599.4,
-      "eom_usd_at_5_6": 923.09,
+      "m1_h_remaining_incl_today_left": 105.27,
+      "eom_tasks_at_4": 431.1,
+      "eom_usd_at_4": 663.86,
+      "eom_clp_at_4": 628678,
       "week_runrate_tasks": 118.4,
       "week_runrate_usd": 182.34,
-      "week_runrate_clp": 172672,
-      "tasks_to_trainer_1552": 999.0,
-      "hours_to_trainer_at_4": 249.8,
-      "weeks_to_trainer_at_4": 8.4,
-      "pending_rr_usd": 13.86,
-      "note": "MTD=cola Review Ready (9). 9483-85 no están en tabla RR."
+      "tasks_to_trainer_1552": 998.0,
+      "hours_to_trainer_at_4": 249.5,
+      "weeks_to_trainer_at_4": 8.4
     },
     "ops_intent_days": [
       {
@@ -465,6 +464,7 @@
         "id": "9568",
         "updated": "2026-08-04",
         "updated_hm": "20:12",
+        "created": "2026-07-31",
         "status": "Review Ready",
         "game": "Dishonored 2",
         "mins": 10
@@ -473,6 +473,7 @@
         "id": "9567",
         "updated": "2026-08-05",
         "updated_hm": "14:10",
+        "created": "2026-07-31",
         "status": "Review Ready",
         "game": "Dishonored 2",
         "mins": 10
@@ -481,6 +482,7 @@
         "id": "9566",
         "updated": "2026-08-04",
         "updated_hm": "19:52",
+        "created": "2026-07-31",
         "status": "Review Ready",
         "game": "Dishonored 2",
         "mins": 10
@@ -489,6 +491,7 @@
         "id": "8719",
         "updated": "2026-08-05",
         "updated_hm": "14:14",
+        "created": "2026-07-31",
         "status": "Review Ready",
         "game": "Dishonored 2",
         "mins": 10
@@ -497,6 +500,7 @@
         "id": "8718",
         "updated": "2026-08-05",
         "updated_hm": "14:16",
+        "created": "2026-07-31",
         "status": "Review Ready",
         "game": "Dishonored 2",
         "mins": 10
@@ -505,6 +509,7 @@
         "id": "8717",
         "updated": "2026-08-05",
         "updated_hm": "14:57",
+        "created": "2026-07-31",
         "status": "Review Ready",
         "game": "Dishonored 2",
         "mins": 10
@@ -513,6 +518,7 @@
         "id": "8716",
         "updated": "2026-08-05",
         "updated_hm": "15:20",
+        "created": "2026-07-31",
         "status": "Review Ready",
         "game": "Dishonored 2",
         "mins": 10
@@ -521,6 +527,7 @@
         "id": "8715",
         "updated": "2026-08-06",
         "updated_hm": "13:40",
+        "created": "2026-07-31",
         "status": "Review Ready",
         "game": "Dishonored 2",
         "mins": 10
@@ -529,12 +536,22 @@
         "id": "8714",
         "updated": "2026-08-05",
         "updated_hm": "17:33",
+        "created": "2026-07-31",
+        "status": "Review Ready",
+        "game": "Dishonored 2",
+        "mins": 10
+      },
+      {
+        "id": "7952",
+        "updated": "2026-08-06",
+        "updated_hm": "15:28",
+        "created": "2026-07-31",
         "status": "Review Ready",
         "game": "Dishonored 2",
         "mins": 10
       }
     ],
-    "realm_ssot": "Updated date from Realm table paste Rö email/UI 2026-08-06",
+    "realm_ssot": "Updated date Realm paste Rö 2026-08-06 +7952",
     "log_only_exited_rr": [
       {
         "id": "9485",
