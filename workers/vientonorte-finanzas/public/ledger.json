@@ -363,7 +363,7 @@
                  "summary_mtd_usd":  23.1,
                  "rate_usd":  1.54,
                  "wind_down":  "21:30",
-                 "sync":  "live-fix-7t-15rr-2026-08-06",
+                 "sync":  "cierre-full-2026-08-06",
                  "intent_usd_week_tb":  255.26,
                  "goal_clp_month":  1600000,
                  "qa_pdf":  "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -375,7 +375,7 @@
                  "intent_usd_day_fri":  30.8,
                  "baseline_tph":  4,
                  "trainer_usd_target":  1552.32,
-                 "updated":  "2026-08-06T19:43:27-04:00",
+                 "updated":  "2026-08-06T19:49:40-04:00",
                  "intention_h_month":  172.5,
                  "target_hours_month":  180,
                  "split_policy":  "40m1_5vn_3post",
@@ -406,7 +406,7 @@
                                    "vn":  0.5,
                                    "post":  0.5
                                },
-                 "reality_note":  "LIVE FIX · dia 7t $10.78 · MTD 15·$23.10 · cal left 0 · RR 15 · offline 1",
+                 "reality_note":  "CIERRE FULL · 7t $10.78 · MTD 15·$23.10 · RR15 · offline1 · Ro SSOT",
                  "realm_review_ready":  [
                                             {
                                                 "id":  "9566",
