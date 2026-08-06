@@ -1,697 +1,834 @@
 {
-  "intention": [
-    {
-      "date": "2026-08-01",
-      "intent_h": 5.0,
-      "intent_tasks": 28.0,
-      "intent_usd": 43.12,
-      "blocks": "WAVE sáb M1 (opcional)"
-    },
-    {
-      "date": "2026-08-02",
-      "intent_h": 2.5,
-      "intent_tasks": 14.0,
-      "intent_usd": 21.56,
-      "blocks": "WAVE dom corto + TB45 $"
-    },
-    {
-      "date": "2026-08-03",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-04",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-05",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-06",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-07",
-      "intent_h": 4.0,
-      "intent_tasks": 22.4,
-      "intent_usd": 34.5,
-      "blocks": "Vie 5h · 80/10/10 M1 4.0h + VN 0.5h + Post 0.5h"
-    },
-    {
-      "date": "2026-08-08",
-      "intent_h": 5.0,
-      "intent_tasks": 28.0,
-      "intent_usd": 43.12,
-      "blocks": "WAVE sáb M1 (opcional)"
-    },
-    {
-      "date": "2026-08-09",
-      "intent_h": 2.5,
-      "intent_tasks": 14.0,
-      "intent_usd": 21.56,
-      "blocks": "WAVE dom corto + TB45 $"
-    },
-    {
-      "date": "2026-08-10",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-11",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-12",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-13",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-14",
-      "intent_h": 4.0,
-      "intent_tasks": 22.4,
-      "intent_usd": 34.5,
-      "blocks": "Vie 5h · 80/10/10 M1 4.0h + VN 0.5h + Post 0.5h"
-    },
-    {
-      "date": "2026-08-15",
-      "intent_h": 5.0,
-      "intent_tasks": 28.0,
-      "intent_usd": 43.12,
-      "blocks": "WAVE sáb M1 (opcional)"
-    },
-    {
-      "date": "2026-08-16",
-      "intent_h": 2.5,
-      "intent_tasks": 14.0,
-      "intent_usd": 21.56,
-      "blocks": "WAVE dom corto + TB45 $"
-    },
-    {
-      "date": "2026-08-17",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-18",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-19",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-20",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-21",
-      "intent_h": 4.0,
-      "intent_tasks": 22.4,
-      "intent_usd": 34.5,
-      "blocks": "Vie 5h · 80/10/10 M1 4.0h + VN 0.5h + Post 0.5h"
-    },
-    {
-      "date": "2026-08-22",
-      "intent_h": 5.0,
-      "intent_tasks": 28.0,
-      "intent_usd": 43.12,
-      "blocks": "WAVE sáb M1 (opcional)"
-    },
-    {
-      "date": "2026-08-23",
-      "intent_h": 2.5,
-      "intent_tasks": 14.0,
-      "intent_usd": 21.56,
-      "blocks": "WAVE dom corto + TB45 $"
-    },
-    {
-      "date": "2026-08-24",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-25",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-26",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-27",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    },
-    {
-      "date": "2026-08-28",
-      "intent_h": 4.0,
-      "intent_tasks": 22.4,
-      "intent_usd": 34.5,
-      "blocks": "Vie 5h · 80/10/10 M1 4.0h + VN 0.5h + Post 0.5h"
-    },
-    {
-      "date": "2026-08-29",
-      "intent_h": 5.0,
-      "intent_tasks": 28.0,
-      "intent_usd": 43.12,
-      "blocks": "WAVE sáb M1 (opcional)"
-    },
-    {
-      "date": "2026-08-30",
-      "intent_h": 2.5,
-      "intent_tasks": 14.0,
-      "intent_usd": 21.56,
-      "blocks": "WAVE dom corto + TB45 $"
-    },
-    {
-      "date": "2026-08-31",
-      "intent_h": 6.4,
-      "intent_tasks": 35.8,
-      "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
-    }
-  ],
-  "days": [
-    {
-      "date": "2026-08-01",
-      "hubstaff_h": 0.0,
-      "tasks_ok": 0,
-      "usd": 0,
-      "claims": [],
-      "note": "dry-run F7 · NO submit · docs SSOT",
-      "source": "LOG",
-      "game": "—"
-    },
-    {
-      "date": "2026-08-02",
-      "hubstaff_h": 0.5,
-      "tasks_ok": 0,
-      "usd": 0,
-      "claims": [],
-      "note": "setup M5/dashboard · 0 submit $",
-      "source": "Sessions",
-      "game": "—"
-    },
-    {
-      "date": "2026-08-03",
-      "hubstaff_h": 0.75,
-      "tasks_ok": 0,
-      "usd": 0,
-      "claims": [],
-      "note": "LOG 9483·9484·9485 fuera de cola RR",
-      "source": "LOG-vs-Realm",
-      "game": "Dishonored 2"
-    },
-    {
-      "date": "2026-08-04",
-      "hubstaff_h": 0.33,
-      "hubstaff_note": "est 2×10min Realm Updated",
-      "tasks_ok": 2,
-      "usd": 3.08,
-      "claims": [
-        "9566",
-        "9568"
-      ],
-      "game": "Dishonored 2",
-      "olas_de_3": 0,
-      "note": "2 Review Ready · Updated Realm · 9566 · 9568",
-      "source": "Realm-table-Updated",
-      "updated_at": "2026-08-06T20:04:53Z"
-    },
-    {
-      "date": "2026-08-05",
-      "hubstaff_h": 1.0,
-      "hubstaff_note": "est 6×10min Realm Updated",
-      "tasks_ok": 6,
-      "usd": 9.24,
-      "claims": [
-        "9567",
-        "8719",
-        "8718",
-        "8717",
-        "8716",
-        "8714"
-      ],
-      "game": "Dishonored 2",
-      "olas_de_3": 2,
-      "note": "6 Review Ready · Updated Realm · 9567 · 8719 · 8718 · 8717 · 8716 · 8714",
-      "source": "Realm-table-Updated",
-      "updated_at": "2026-08-06T20:04:53Z"
-    },
-    {
-      "date": "2026-08-06",
-      "hubstaff_h": 5.89,
-      "hubstaff_note": "calendar M1 used wall-clock · plantilla 7.5",
-      "tasks_ok": 3,
-      "usd": 4.62,
-      "claims": [
-        "8715",
-        "7952",
-        "7953"
-      ],
-      "game": "Dishonored 2",
-      "olas_de_3": 1,
-      "note": "3 RR · 8715·7952·7953 · cal M1 left live in UI · 3 Review Ready · Updated Realm · 8715 · 7952 · 7953 · UI MTD 12 (1 id pendiente)",
-      "source": "Realm-table-Updated+calendar-blocks",
-      "updated_at": "2026-08-06T20:08:11Z",
-      "calendar_m1_used_h": 5.89,
-      "calendar_m1_left_h": 1.61,
-      "calendar_m1_total_h": 7.5
-    }
-  ],
-  "meta": {
-    "target_tasks_month": 1008,
-    "intention_month": "2026-08",
-    "fx_clp_per_usd": 947,
-    "summary_gap_usd": -265.42,
-    "calendar_finanzas": "9616f51a807e24559b4df624c70d7fe1d81de62f9aa8baf44c1190db5887b12f@group.calendar.google.com",
-    "intention_note": "40h M1 + 5h VN + 3h Post/sem · Post=Computrabajo+entrevistas M1 (no LinkedIn) · ops 4.0 t/h · techo 5.6 · meta 1.6M CLP",
-    "intent_usd_month_tb_only": 1076.23,
-    "goal_usd_equiv": 1689.55,
-    "log_path": "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md",
-    "intent_usd_day_lj": 46.2,
-    "summary_mtd_usd": 16.94,
-    "rate_usd": 1.54,
-    "wind_down": "21:30",
-    "sync": "pulse-bar+cal-7.5-2026-08-06",
-    "intent_usd_week_tb": 255.26,
-    "goal_clp_month": 1600000,
-    "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
-    "summary_v2": "SUMMARY-v2-2026-08-06.md",
-    "sleep_hard_stop": "22:00",
-    "target_usd_month": 1552.32,
-    "trainer_share_of_goal": 0.919,
-    "max_claims": 3,
-    "intent_usd_day_fri": 30.8,
-    "baseline_tph": 4.0,
-    "trainer_usd_target": 1552.32,
-    "updated": "2026-08-06T17:23:28-04:00",
-    "intention_h_month": 172.5,
-    "target_hours_month": 180,
-    "split_policy": "40m1_5vn_3post",
-    "intent_usd_week_80_20": 255.26,
-    "workday_h_lj": 9.0,
-    "workday_h_fri": 6.0,
-    "summary_mtd_tasks": 11,
-    "summary_today_tasks": 3,
-    "summary_today_rework_done": 0,
-    "summary_today_usd": 4.62,
-    "summary_intent_to_date_usd": 285.44,
-    "calendar_micro1": "18dcb7f8940e2f1b368dd8d28a8c5c4f8923ad9fa1bb64585e970749a34b88d4@group.calendar.google.com",
-    "intent_usd_month_with_wave": 1399.63,
-    "intention_h_month_lv_only": 124.8,
-    "split_pct": {
-      "micro1": 83.3,
-      "vn": 10.4,
-      "postulaciones": 6.2
-    },
-    "intent_usd_week_80_10_10": 255.26,
-    "hours_lj": {
-      "m1": 7.5,
-      "vn": 1.0,
-      "post": 0.5
-    },
-    "hours_fri": {
-      "m1": 5.0,
-      "vn": 0.5,
-      "post": 0.5
-    },
-    "reality_note": "ops 4 · intent 30 · cal 7.5h L-J · used~5.9 left~1.6 · pulse bar",
-    "realm_review_ready": [
-      "9568",
-      "9567",
-      "9566",
-      "8719",
-      "8718",
-      "8717",
-      "8716",
-      "8715",
-      "8714",
-      "7952",
-      "7953"
-    ],
-    "realm_review_ready_n": 11,
-    "ops_tph": 4.0,
-    "plan_tph": 5.6,
-    "baseline_tph_plan_ceiling": 5.6,
-    "ops_stable_from": "2026-08-06",
-    "ops_setup_until": "2026-08-05",
-    "ops_model": "setup_no_debt_then_stable_4tph",
-    "summary_intent_to_date_h_ops": 10.08,
-    "summary_intent_to_date_tasks_ops": 45.5,
-    "summary_intent_to_date_usd_ops": 70.07,
-    "summary_gap_usd_ops": -53.13,
-    "summary_gap_tasks_ops": -34.5,
-    "projection": {
-      "as_of": "2026-08-06",
-      "ops_tph": 4.0,
-      "plan_tph": 5.6,
-      "m1_h_remaining_plantilla": 144.5,
-      "eom_tasks_at_ops": 589.0,
-      "eom_usd_at_ops": 907.06,
-      "eom_clp_at_ops": 858986,
-      "eom_tasks_at_5_6": 820.2,
-      "week_runrate_tasks": 160.0,
-      "week_runrate_usd": 246.4,
-      "week_m1_h_full": 40.0,
-      "work_week_h": 48.0,
-      "day_lj_intent_tasks": 30.0,
-      "day_lj_intent_usd": 46.2,
-      "day_fri_intent_tasks": 20.0,
-      "day_weekend_intent_tasks": 10.0,
-      "tasks_to_trainer": 997.0,
-      "weeks_to_trainer_at_ops": 6.2,
-      "calendar_day_h_lj": 7.5,
-      "calendar_day_h_fri": 5.0,
-      "calendar_day_h_weekend": 2.5,
-      "calendar_week_h_m1": 40.0,
-      "calendar_week_h_vn": 5.0,
-      "calendar_week_h_post": 3.0,
-      "calendar_month_h_aug_m1": 172.5,
-      "day_fri_intent_usd": 30.8
-    },
-    "ops_intent_days": [
-      {
-        "date": "2026-08-01",
-        "phase": "setup_no_debt",
-        "intent_h": 0.0,
-        "intent_tasks": 0.0,
-        "intent_usd": 0.0,
-        "sched_m1_h": 2.5
-      },
-      {
-        "date": "2026-08-02",
-        "phase": "setup_no_debt",
-        "intent_h": 0.5,
-        "intent_tasks": 0.0,
-        "intent_usd": 0.0,
-        "sched_m1_h": 2.5
-      },
-      {
-        "date": "2026-08-03",
-        "phase": "setup_no_debt",
-        "intent_h": 0.75,
-        "intent_tasks": 0.0,
-        "intent_usd": 0.0,
-        "sched_m1_h": 7.5
-      },
-      {
-        "date": "2026-08-04",
-        "phase": "setup_no_debt",
-        "intent_h": 0.33,
-        "intent_tasks": 2.0,
-        "intent_usd": 3.08,
-        "sched_m1_h": 7.5
-      },
-      {
-        "date": "2026-08-05",
-        "phase": "setup_no_debt",
-        "intent_h": 1.0,
-        "intent_tasks": 6.0,
-        "intent_usd": 9.24,
-        "sched_m1_h": 7.5
-      },
-      {
-        "date": "2026-08-06",
-        "phase": "stable",
-        "intent_h": 7.5,
-        "intent_tasks": 30.0,
-        "intent_usd": 46.2,
-        "sched_m1_h": 7.5
-      }
-    ],
-    "realm_review_ready_detail": [
-      {
-        "id": "9568",
-        "updated": "2026-08-04",
-        "updated_hm": "20:12",
-        "status": "Review Ready",
-        "game": "Dishonored 2",
-        "mins": 10
-      },
-      {
-        "id": "9567",
-        "updated": "2026-08-05",
-        "updated_hm": "14:10",
-        "status": "Review Ready",
-        "game": "Dishonored 2",
-        "mins": 10
-      },
-      {
-        "id": "9566",
-        "updated": "2026-08-04",
-        "updated_hm": "19:52",
-        "status": "Review Ready",
-        "game": "Dishonored 2",
-        "mins": 10
-      },
-      {
-        "id": "8719",
-        "updated": "2026-08-05",
-        "updated_hm": "14:14",
-        "status": "Review Ready",
-        "game": "Dishonored 2",
-        "mins": 10
-      },
-      {
-        "id": "8718",
-        "updated": "2026-08-05",
-        "updated_hm": "14:16",
-        "status": "Review Ready",
-        "game": "Dishonored 2",
-        "mins": 10
-      },
-      {
-        "id": "8717",
-        "updated": "2026-08-05",
-        "updated_hm": "14:57",
-        "status": "Review Ready",
-        "game": "Dishonored 2",
-        "mins": 10
-      },
-      {
-        "id": "8716",
-        "updated": "2026-08-05",
-        "updated_hm": "15:20",
-        "status": "Review Ready",
-        "game": "Dishonored 2",
-        "mins": 10
-      },
-      {
-        "id": "8715",
-        "updated": "2026-08-06",
-        "updated_hm": "13:40",
-        "status": "Review Ready",
-        "game": "Dishonored 2",
-        "mins": 10
-      },
-      {
-        "id": "8714",
-        "updated": "2026-08-05",
-        "updated_hm": "17:33",
-        "status": "Review Ready",
-        "game": "Dishonored 2",
-        "mins": 10
-      },
-      {
-        "id": "7952",
-        "updated": "2026-08-06",
-        "updated_hm": "15:28",
-        "status": "Review Ready",
-        "game": "Dishonored 2",
-        "mins": 10
-      },
-      {
-        "id": "7953",
-        "updated": "2026-08-06",
-        "updated_hm": "16:00",
-        "status": "Review Ready",
-        "game": "Dishonored 2",
-        "mins": 10
-      }
-    ],
-    "realm_ssot": "Updated +7953 · UI n=12 · IDs n=11 · 2026-08-06",
-    "log_only_exited_rr": [
-      {
-        "id": "9485",
-        "date": "2026-08-03",
-        "note": "LOG submit OK · NO en tabla RR actual"
-      },
-      {
-        "id": "9484",
-        "date": "2026-08-03",
-        "note": "LOG submit OK · NO en tabla RR actual"
-      },
-      {
-        "id": "9483",
-        "date": "2026-08-03",
-        "note": "LOG submit OK + rework · NO en tabla RR actual"
-      }
-    ],
-    "canonical_url": "https://finanzas.vientonorte.io/",
-    "deprecated_urls": [
-      "https://vientonorte.io/ops/finanzas/"
-    ],
-    "do_not_use": [
-      "jsDelivr @commit pins"
-    ],
-    "ops_tph_note": "2026-08-06 Rö: ops = 4 t/h (no 5). Plan techo sigue 5.6",
-    "calendar_hours": {
-      "source": "SSOT 40 M1 + 5 VN + 3 Post · 2026-08-06",
-      "plantilla_lj_h": 7.5,
-      "plantilla_fri_h": 5.0,
-      "plantilla_sat_h": 2.5,
-      "plantilla_sun_h": 2.5,
-      "plantilla_week_m1_h": 40.0,
-      "plantilla_week_vn_h": 5.0,
-      "plantilla_week_post_h": 3.0,
-      "plantilla_work_week_h": 48.0,
-      "plantilla_month_aug_m1_h": 172.5,
-      "distribution": {
-        "L-J": {
-          "m1": 7.5,
-          "vn": 1.0,
-          "post": 0.5
-        },
-        "Vie": {
-          "m1": 5.0,
-          "vn": 0.5,
-          "post": 0.5
-        },
-        "SabDom": {
-          "m1": 2.5,
-          "vn": 0.25,
-          "post": 0.25
-        }
-      },
-      "post_note": "Computrabajo + entrevistas Micro1 pendientes · NO LinkedIn",
-      "ops_tph": 4.0
-    },
-    "hours_weekend": {
-      "m1": 2.5,
-      "vn": 0.25,
-      "post": 0.25
-    },
-    "workday_h_weekend": 3.0,
-    "split_hours_week": {
-      "micro1": 40,
-      "vn": 5,
-      "postulaciones": 3,
-      "total": 48
-    },
-    "post_channels": [
-      "Computrabajo",
-      "entrevistas_micro1_pendientes"
-    ],
-    "post_channels_excluded": [
-      "LinkedIn"
-    ],
-    "realm_ui_reported_n": 12,
-    "realm_ui_gap_note": "Rö 2026-08-06: Realm UI 12 RR tras +7953 · ledger IDs listados=11 · falta 1 claim id",
-    "calendar_m1_blocks": {
-      "date": "2026-08-06",
-      "tz": "America/Santiago",
-      "source": "Calendar series rearm 7.5h L-J · 2026-08-06",
-      "blocks": [
-        {
-          "summary": "MICRO1 AM · 3.5h",
-          "start": "2026-08-06T09:00:00-04:00",
-          "end": "2026-08-06T12:30:00-04:00"
-        },
-        {
-          "summary": "MICRO1 A · 2.0h",
-          "start": "2026-08-06T15:00:00-04:00",
-          "end": "2026-08-06T17:00:00-04:00"
-        },
-        {
-          "summary": "MICRO1 B · 2.0h",
-          "start": "2026-08-06T17:00:00-04:00",
-          "end": "2026-08-06T19:00:00-04:00"
-        }
-      ],
-      "total_h": 7.5,
-      "synced_at": "2026-08-06T17:23:28-04:00",
-      "note": "AM 3.5 + A 2.0 + B 2.0 = 7.5 · C deprecado"
-    },
-    "calendar_m1_plantilla_blocks": {
-      "L-J": [
-        {
-          "start": "09:00",
-          "end": "12:30"
-        },
-        {
-          "start": "15:00",
-          "end": "17:00"
-        },
-        {
-          "start": "17:00",
-          "end": "19:00"
-        }
-      ],
-      "Vie": [
-        {
-          "start": "10:00",
-          "end": "13:00"
-        },
-        {
-          "start": "15:00",
-          "end": "17:00"
-        }
-      ],
-      "SabDom": [
-        {
-          "start": "10:00",
-          "end": "12:30"
-        }
-      ]
-    },
-    "summary_today_hubstaff_h": 6.47
-  }
+    "intention":  [
+                      {
+                          "date":  "2026-08-01",
+                          "intent_h":  5.0,
+                          "intent_tasks":  28.0,
+                          "intent_usd":  43.12,
+                          "blocks":  "WAVE sáb M1 (opcional)"
+                      },
+                      {
+                          "date":  "2026-08-02",
+                          "intent_h":  2.5,
+                          "intent_tasks":  14.0,
+                          "intent_usd":  21.56,
+                          "blocks":  "WAVE dom corto + TB45 $"
+                      },
+                      {
+                          "date":  "2026-08-03",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-04",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-05",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-06",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-07",
+                          "intent_h":  4.0,
+                          "intent_tasks":  22.4,
+                          "intent_usd":  34.5,
+                          "blocks":  "Vie 5h · 80/10/10 M1 4.0h + VN 0.5h + Post 0.5h"
+                      },
+                      {
+                          "date":  "2026-08-08",
+                          "intent_h":  5.0,
+                          "intent_tasks":  28.0,
+                          "intent_usd":  43.12,
+                          "blocks":  "WAVE sáb M1 (opcional)"
+                      },
+                      {
+                          "date":  "2026-08-09",
+                          "intent_h":  2.5,
+                          "intent_tasks":  14.0,
+                          "intent_usd":  21.56,
+                          "blocks":  "WAVE dom corto + TB45 $"
+                      },
+                      {
+                          "date":  "2026-08-10",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-11",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-12",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-13",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-14",
+                          "intent_h":  4.0,
+                          "intent_tasks":  22.4,
+                          "intent_usd":  34.5,
+                          "blocks":  "Vie 5h · 80/10/10 M1 4.0h + VN 0.5h + Post 0.5h"
+                      },
+                      {
+                          "date":  "2026-08-15",
+                          "intent_h":  5.0,
+                          "intent_tasks":  28.0,
+                          "intent_usd":  43.12,
+                          "blocks":  "WAVE sáb M1 (opcional)"
+                      },
+                      {
+                          "date":  "2026-08-16",
+                          "intent_h":  2.5,
+                          "intent_tasks":  14.0,
+                          "intent_usd":  21.56,
+                          "blocks":  "WAVE dom corto + TB45 $"
+                      },
+                      {
+                          "date":  "2026-08-17",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-18",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-19",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-20",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-21",
+                          "intent_h":  4.0,
+                          "intent_tasks":  22.4,
+                          "intent_usd":  34.5,
+                          "blocks":  "Vie 5h · 80/10/10 M1 4.0h + VN 0.5h + Post 0.5h"
+                      },
+                      {
+                          "date":  "2026-08-22",
+                          "intent_h":  5.0,
+                          "intent_tasks":  28.0,
+                          "intent_usd":  43.12,
+                          "blocks":  "WAVE sáb M1 (opcional)"
+                      },
+                      {
+                          "date":  "2026-08-23",
+                          "intent_h":  2.5,
+                          "intent_tasks":  14.0,
+                          "intent_usd":  21.56,
+                          "blocks":  "WAVE dom corto + TB45 $"
+                      },
+                      {
+                          "date":  "2026-08-24",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-25",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-26",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-27",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      },
+                      {
+                          "date":  "2026-08-28",
+                          "intent_h":  4.0,
+                          "intent_tasks":  22.4,
+                          "intent_usd":  34.5,
+                          "blocks":  "Vie 5h · 80/10/10 M1 4.0h + VN 0.5h + Post 0.5h"
+                      },
+                      {
+                          "date":  "2026-08-29",
+                          "intent_h":  5.0,
+                          "intent_tasks":  28.0,
+                          "intent_usd":  43.12,
+                          "blocks":  "WAVE sáb M1 (opcional)"
+                      },
+                      {
+                          "date":  "2026-08-30",
+                          "intent_h":  2.5,
+                          "intent_tasks":  14.0,
+                          "intent_usd":  21.56,
+                          "blocks":  "WAVE dom corto + TB45 $"
+                      },
+                      {
+                          "date":  "2026-08-31",
+                          "intent_h":  6.4,
+                          "intent_tasks":  35.8,
+                          "intent_usd":  55.19,
+                          "blocks":  "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+                      }
+                  ],
+    "days":  [
+                 {
+                     "date":  "2026-08-01",
+                     "hubstaff_h":  0.0,
+                     "tasks_ok":  0,
+                     "usd":  0,
+                     "claims":  [
+
+                                ],
+                     "note":  "dry-run F7 · NO submit · docs SSOT",
+                     "source":  "LOG",
+                     "game":  "—"
+                 },
+                 {
+                     "date":  "2026-08-02",
+                     "hubstaff_h":  0.5,
+                     "tasks_ok":  0,
+                     "usd":  0,
+                     "claims":  [
+
+                                ],
+                     "note":  "setup M5/dashboard · 0 submit $",
+                     "source":  "Sessions",
+                     "game":  "—"
+                 },
+                 {
+                     "date":  "2026-08-03",
+                     "hubstaff_h":  0.75,
+                     "tasks_ok":  0,
+                     "usd":  0,
+                     "claims":  [
+
+                                ],
+                     "note":  "LOG 9483·9484·9485 fuera de cola RR",
+                     "source":  "LOG-vs-Realm",
+                     "game":  "Dishonored 2"
+                 },
+                 {
+                     "date":  "2026-08-04",
+                     "hubstaff_h":  0.33,
+                     "hubstaff_note":  "est 2x10min Realm Updated",
+                     "tasks_ok":  2,
+                     "usd":  3.08,
+                     "claims":  [
+                                    "9566",
+                                    "9568"
+                                ],
+                     "game":  "Dishonored 2",
+                     "olas_de_3":  0,
+                     "note":  "2 RR · Updated Realm · 9566 · 9568",
+                     "source":  "Realm-table-Updated-RR",
+                     "updated_at":  "2026-08-06T23:30:53Z"
+                 },
+                 {
+                     "date":  "2026-08-05",
+                     "hubstaff_h":  1,
+                     "hubstaff_note":  "est 6x10min Realm Updated",
+                     "tasks_ok":  6,
+                     "usd":  9.24,
+                     "claims":  [
+                                    "9567",
+                                    "8719",
+                                    "8718",
+                                    "8717",
+                                    "8716",
+                                    "8714"
+                                ],
+                     "game":  "Dishonored 2",
+                     "olas_de_3":  2,
+                     "note":  "6 RR · Updated Realm · 9567 · 8719 · 8718 · 8717 · 8716 · 8714",
+                     "source":  "Realm-table-Updated-RR",
+                     "updated_at":  "2026-08-06T23:30:53Z"
+                 },
+                 {
+                     "date":  "2026-08-06",
+                     "hubstaff_h":  6.86,
+                     "hubstaff_note":  "calendar M1 wall-clock · plantilla 7.5 · bloque eve ~17:49-19:25",
+                     "tasks_ok":  6,
+                     "usd":  9.24,
+                     "claims":  [
+                                    "8715",
+                                    "7951",
+                                    "7952",
+                                    "7953",
+                                    "7954",
+                                    "7955"
+                                ],
+                     "game":  "Dishonored 2",
+                     "olas_de_3":  2,
+                     "note":  "6 RR Aug6 Updated · 8715·7951·7952·7953·7954·7955 · UI n=14 all RR · bloque eve 7954@18:52 + 7955@19:25 | offline buffer +2 takes (upload manana, no $ hasta RR)",
+                     "source":  "Realm-table-Updated-RR",
+                     "updated_at":  "2026-08-06T23:30:53Z",
+                     "calendar_m1_used_h":  6.86,
+                     "calendar_m1_left_h":  1,
+                     "calendar_m1_total_h":  7.5,
+                     "blocks":  [
+                                    {
+                                        "start":  "13:40",
+                                        "end":  "16:00",
+                                        "tasks":  4,
+                                        "usd":  6.16,
+                                        "claims":  [
+                                                       "8715",
+                                                       "7951",
+                                                       "7952",
+                                                       "7953"
+                                                   ],
+                                        "note":  "Updated Realm afternoon"
+                                    },
+                                    {
+                                        "start":  "17:49",
+                                        "end":  "19:25",
+                                        "tasks":  2,
+                                        "usd":  3.08,
+                                        "claims":  [
+                                                       "7954",
+                                                       "7955"
+                                                   ],
+                                        "note":  "Evening Updated · report Ro 17:49-18:47 (+5 verbal; Realm stamps 2 eve IDs + 4 earlier = 6 dia)"
+                                    }
+                                ],
+                     "offline_buffer_takes":  2
+                 }
+             ],
+    "meta":  {
+                 "target_tasks_month":  1008,
+                 "intention_month":  "2026-08",
+                 "fx_clp_per_usd":  947,
+                 "summary_gap_usd":  263.88,
+                 "calendar_finanzas":  "9616f51a807e24559b4df624c70d7fe1d81de62f9aa8baf44c1190db5887b12f@group.calendar.google.com",
+                 "intention_note":  "40h M1 + 5h VN + 3h Post/sem · Post=Computrabajo+entrevistas M1 (no LinkedIn) · ops 4.0 t/h · techo 5.6 · meta 1.6M CLP",
+                 "intent_usd_month_tb_only":  1076.23,
+                 "goal_usd_equiv":  1689.55,
+                 "log_path":  "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md",
+                 "intent_usd_day_lj":  46.2,
+                 "summary_mtd_usd":  21.56,
+                 "rate_usd":  1.54,
+                 "wind_down":  "21:30",
+                 "sync":  "cierre-2026-08-06",
+                 "intent_usd_week_tb":  255.26,
+                 "goal_clp_month":  1600000,
+                 "qa_pdf":  "QA-Financial-Dashboard-v2-2026-08-04.pdf",
+                 "summary_v2":  "SUMMARY-v2-2026-08-06.md",
+                 "sleep_hard_stop":  "22:00",
+                 "target_usd_month":  1552.32,
+                 "trainer_share_of_goal":  0.919,
+                 "max_claims":  3,
+                 "intent_usd_day_fri":  30.8,
+                 "baseline_tph":  4.0,
+                 "trainer_usd_target":  1552.32,
+                 "updated":  "2026-08-06T19:37:09-04:00",
+                 "intention_h_month":  172.5,
+                 "target_hours_month":  180,
+                 "split_policy":  "40m1_5vn_3post",
+                 "intent_usd_week_80_20":  255.26,
+                 "workday_h_lj":  9.0,
+                 "workday_h_fri":  6.0,
+                 "summary_mtd_tasks":  14,
+                 "summary_today_tasks":  6,
+                 "summary_today_rework_done":  0,
+                 "summary_today_usd":  9.24,
+                 "summary_intent_to_date_usd":  285.44,
+                 "calendar_micro1":  "18dcb7f8940e2f1b368dd8d28a8c5c4f8923ad9fa1bb64585e970749a34b88d4@group.calendar.google.com",
+                 "intent_usd_month_with_wave":  1399.63,
+                 "intention_h_month_lv_only":  124.8,
+                 "split_pct":  {
+                                   "micro1":  83.3,
+                                   "vn":  10.4,
+                                   "postulaciones":  6.2
+                               },
+                 "intent_usd_week_80_10_10":  255.26,
+                 "hours_lj":  {
+                                  "m1":  7.5,
+                                  "vn":  1.0,
+                                  "post":  0.5
+                              },
+                 "hours_fri":  {
+                                   "m1":  5.0,
+                                   "vn":  0.5,
+                                   "post":  0.5
+                               },
+                 "reality_note":  "CIERRE 2026-08-06 Â· 6t Â· $9.24 Â· MTD ·$21.56 Â· offline+2",
+                 "realm_review_ready":  [
+                                            {
+                                                "id":  "9566",
+                                                "updated":  "2026-08-04",
+                                                "updated_hm":  "19:52",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            },
+                                            {
+                                                "id":  "9568",
+                                                "updated":  "2026-08-04",
+                                                "updated_hm":  "20:12",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            },
+                                            {
+                                                "id":  "9567",
+                                                "updated":  "2026-08-05",
+                                                "updated_hm":  "14:10",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            },
+                                            {
+                                                "id":  "8719",
+                                                "updated":  "2026-08-05",
+                                                "updated_hm":  "14:14",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            },
+                                            {
+                                                "id":  "8718",
+                                                "updated":  "2026-08-05",
+                                                "updated_hm":  "14:16",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            },
+                                            {
+                                                "id":  "8717",
+                                                "updated":  "2026-08-05",
+                                                "updated_hm":  "14:57",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            },
+                                            {
+                                                "id":  "8716",
+                                                "updated":  "2026-08-05",
+                                                "updated_hm":  "15:20",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            },
+                                            {
+                                                "id":  "8714",
+                                                "updated":  "2026-08-05",
+                                                "updated_hm":  "17:33",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            },
+                                            {
+                                                "id":  "8715",
+                                                "updated":  "2026-08-06",
+                                                "updated_hm":  "13:40",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            },
+                                            {
+                                                "id":  "7951",
+                                                "updated":  "2026-08-06",
+                                                "updated_hm":  "14:11",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            },
+                                            {
+                                                "id":  "7952",
+                                                "updated":  "2026-08-06",
+                                                "updated_hm":  "15:28",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            },
+                                            {
+                                                "id":  "7953",
+                                                "updated":  "2026-08-06",
+                                                "updated_hm":  "16:00",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            },
+                                            {
+                                                "id":  "7954",
+                                                "updated":  "2026-08-06",
+                                                "updated_hm":  "18:52",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            },
+                                            {
+                                                "id":  "7955",
+                                                "updated":  "2026-08-06",
+                                                "updated_hm":  "19:25",
+                                                "status":  "Review Ready",
+                                                "game":  "Dishonored 2",
+                                                "mins":  10
+                                            }
+                                        ],
+                 "realm_review_ready_n":  11,
+                 "ops_tph":  4.0,
+                 "plan_tph":  5.6,
+                 "baseline_tph_plan_ceiling":  5.6,
+                 "ops_stable_from":  "2026-08-06",
+                 "ops_setup_until":  "2026-08-05",
+                 "ops_model":  "setup_no_debt_then_stable_4tph",
+                 "summary_intent_to_date_h_ops":  10.08,
+                 "summary_intent_to_date_tasks_ops":  45.5,
+                 "summary_intent_to_date_usd_ops":  70.07,
+                 "summary_gap_usd_ops":  48.51,
+                 "summary_gap_tasks_ops":  31.5,
+                 "projection":  {
+                                    "as_of":  "2026-08-06",
+                                    "ops_tph":  4.0,
+                                    "plan_tph":  5.6,
+                                    "m1_h_remaining_plantilla":  144.5,
+                                    "eom_tasks_at_ops":  589.0,
+                                    "eom_usd_at_ops":  907.06,
+                                    "eom_clp_at_ops":  858986,
+                                    "eom_tasks_at_5_6":  820.2,
+                                    "week_runrate_tasks":  160.0,
+                                    "week_runrate_usd":  246.4,
+                                    "week_m1_h_full":  40.0,
+                                    "work_week_h":  48.0,
+                                    "day_lj_intent_tasks":  30.0,
+                                    "day_lj_intent_usd":  46.2,
+                                    "day_fri_intent_tasks":  20.0,
+                                    "day_weekend_intent_tasks":  10.0,
+                                    "tasks_to_trainer":  997.0,
+                                    "weeks_to_trainer_at_ops":  6.2,
+                                    "calendar_day_h_lj":  7.5,
+                                    "calendar_day_h_fri":  5.0,
+                                    "calendar_day_h_weekend":  2.5,
+                                    "calendar_week_h_m1":  40.0,
+                                    "calendar_week_h_vn":  5.0,
+                                    "calendar_week_h_post":  3.0,
+                                    "calendar_month_h_aug_m1":  172.5,
+                                    "day_fri_intent_usd":  30.8
+                                },
+                 "ops_intent_days":  [
+                                         {
+                                             "date":  "2026-08-01",
+                                             "phase":  "setup_no_debt",
+                                             "intent_h":  0.0,
+                                             "intent_tasks":  0.0,
+                                             "intent_usd":  0.0,
+                                             "sched_m1_h":  2.5
+                                         },
+                                         {
+                                             "date":  "2026-08-02",
+                                             "phase":  "setup_no_debt",
+                                             "intent_h":  0.5,
+                                             "intent_tasks":  0.0,
+                                             "intent_usd":  0.0,
+                                             "sched_m1_h":  2.5
+                                         },
+                                         {
+                                             "date":  "2026-08-03",
+                                             "phase":  "setup_no_debt",
+                                             "intent_h":  0.75,
+                                             "intent_tasks":  0.0,
+                                             "intent_usd":  0.0,
+                                             "sched_m1_h":  7.5
+                                         },
+                                         {
+                                             "date":  "2026-08-04",
+                                             "phase":  "setup_no_debt",
+                                             "intent_h":  0.33,
+                                             "intent_tasks":  2.0,
+                                             "intent_usd":  3.08,
+                                             "sched_m1_h":  7.5
+                                         },
+                                         {
+                                             "date":  "2026-08-05",
+                                             "phase":  "setup_no_debt",
+                                             "intent_h":  1.0,
+                                             "intent_tasks":  6.0,
+                                             "intent_usd":  9.24,
+                                             "sched_m1_h":  7.5
+                                         },
+                                         {
+                                             "date":  "2026-08-06",
+                                             "phase":  "stable",
+                                             "intent_h":  7.5,
+                                             "intent_tasks":  30.0,
+                                             "intent_usd":  46.2,
+                                             "sched_m1_h":  7.5
+                                         }
+                                     ],
+                 "realm_review_ready_detail":  [
+                                                   {
+                                                       "id":  "9568",
+                                                       "updated":  "2026-08-04",
+                                                       "updated_hm":  "20:12",
+                                                       "status":  "Review Ready",
+                                                       "game":  "Dishonored 2",
+                                                       "mins":  10
+                                                   },
+                                                   {
+                                                       "id":  "9567",
+                                                       "updated":  "2026-08-05",
+                                                       "updated_hm":  "14:10",
+                                                       "status":  "Review Ready",
+                                                       "game":  "Dishonored 2",
+                                                       "mins":  10
+                                                   },
+                                                   {
+                                                       "id":  "9566",
+                                                       "updated":  "2026-08-04",
+                                                       "updated_hm":  "19:52",
+                                                       "status":  "Review Ready",
+                                                       "game":  "Dishonored 2",
+                                                       "mins":  10
+                                                   },
+                                                   {
+                                                       "id":  "8719",
+                                                       "updated":  "2026-08-05",
+                                                       "updated_hm":  "14:14",
+                                                       "status":  "Review Ready",
+                                                       "game":  "Dishonored 2",
+                                                       "mins":  10
+                                                   },
+                                                   {
+                                                       "id":  "8718",
+                                                       "updated":  "2026-08-05",
+                                                       "updated_hm":  "14:16",
+                                                       "status":  "Review Ready",
+                                                       "game":  "Dishonored 2",
+                                                       "mins":  10
+                                                   },
+                                                   {
+                                                       "id":  "8717",
+                                                       "updated":  "2026-08-05",
+                                                       "updated_hm":  "14:57",
+                                                       "status":  "Review Ready",
+                                                       "game":  "Dishonored 2",
+                                                       "mins":  10
+                                                   },
+                                                   {
+                                                       "id":  "8716",
+                                                       "updated":  "2026-08-05",
+                                                       "updated_hm":  "15:20",
+                                                       "status":  "Review Ready",
+                                                       "game":  "Dishonored 2",
+                                                       "mins":  10
+                                                   },
+                                                   {
+                                                       "id":  "8715",
+                                                       "updated":  "2026-08-06",
+                                                       "updated_hm":  "13:40",
+                                                       "status":  "Review Ready",
+                                                       "game":  "Dishonored 2",
+                                                       "mins":  10
+                                                   },
+                                                   {
+                                                       "id":  "8714",
+                                                       "updated":  "2026-08-05",
+                                                       "updated_hm":  "17:33",
+                                                       "status":  "Review Ready",
+                                                       "game":  "Dishonored 2",
+                                                       "mins":  10
+                                                   },
+                                                   {
+                                                       "id":  "7952",
+                                                       "updated":  "2026-08-06",
+                                                       "updated_hm":  "15:28",
+                                                       "status":  "Review Ready",
+                                                       "game":  "Dishonored 2",
+                                                       "mins":  10
+                                                   },
+                                                   {
+                                                       "id":  "7953",
+                                                       "updated":  "2026-08-06",
+                                                       "updated_hm":  "16:00",
+                                                       "status":  "Review Ready",
+                                                       "game":  "Dishonored 2",
+                                                       "mins":  10
+                                                   }
+                                               ],
+                 "realm_ssot":  "Realm UI 14 RR · IDs n=14 · full reconcile 2026-08-06",
+                 "log_only_exited_rr":  [
+                                            {
+                                                "id":  "9485",
+                                                "date":  "2026-08-03",
+                                                "note":  "LOG submit OK · NO en tabla RR actual"
+                                            },
+                                            {
+                                                "id":  "9484",
+                                                "date":  "2026-08-03",
+                                                "note":  "LOG submit OK · NO en tabla RR actual"
+                                            },
+                                            {
+                                                "id":  "9483",
+                                                "date":  "2026-08-03",
+                                                "note":  "LOG submit OK + rework · NO en tabla RR actual"
+                                            }
+                                        ],
+                 "canonical_url":  "https://finanzas.vientonorte.io/",
+                 "deprecated_urls":  [
+                                         "https://vientonorte.io/ops/finanzas/"
+                                     ],
+                 "do_not_use":  [
+                                    "jsDelivr @commit pins"
+                                ],
+                 "ops_tph_note":  "2026-08-06 Rö: ops = 4 t/h (no 5). Plan techo sigue 5.6",
+                 "calendar_hours":  {
+                                        "source":  "SSOT 40 M1 + 5 VN + 3 Post · 2026-08-06",
+                                        "plantilla_lj_h":  7.5,
+                                        "plantilla_fri_h":  5.0,
+                                        "plantilla_sat_h":  2.5,
+                                        "plantilla_sun_h":  2.5,
+                                        "plantilla_week_m1_h":  40.0,
+                                        "plantilla_week_vn_h":  5.0,
+                                        "plantilla_week_post_h":  3.0,
+                                        "plantilla_work_week_h":  48.0,
+                                        "plantilla_month_aug_m1_h":  172.5,
+                                        "distribution":  {
+                                                             "L-J":  {
+                                                                         "m1":  7.5,
+                                                                         "vn":  1.0,
+                                                                         "post":  0.5
+                                                                     },
+                                                             "Vie":  {
+                                                                         "m1":  5.0,
+                                                                         "vn":  0.5,
+                                                                         "post":  0.5
+                                                                     },
+                                                             "SabDom":  {
+                                                                            "m1":  2.5,
+                                                                            "vn":  0.25,
+                                                                            "post":  0.25
+                                                                        }
+                                                         },
+                                        "post_note":  "Computrabajo + entrevistas Micro1 pendientes · NO LinkedIn",
+                                        "ops_tph":  4.0
+                                    },
+                 "hours_weekend":  {
+                                       "m1":  2.5,
+                                       "vn":  0.25,
+                                       "post":  0.25
+                                   },
+                 "workday_h_weekend":  3.0,
+                 "split_hours_week":  {
+                                          "micro1":  40,
+                                          "vn":  5,
+                                          "postulaciones":  3,
+                                          "total":  48
+                                      },
+                 "post_channels":  [
+                                       "Computrabajo",
+                                       "entrevistas_micro1_pendientes"
+                                   ],
+                 "post_channels_excluded":  [
+                                                "LinkedIn"
+                                            ],
+                 "realm_ui_reported_n":  14,
+                 "realm_ui_gap_note":  "Rö paste: Showing 1-14 of 14 Review Ready · IDs complete · no gap",
+                 "calendar_m1_blocks":  {
+                                            "date":  "2026-08-06",
+                                            "tz":  "America/Santiago",
+                                            "source":  "Calendar series rearm 7.5h L-J · 2026-08-06",
+                                            "blocks":  [
+                                                           {
+                                                               "summary":  "MICRO1 AM · 3.5h",
+                                                               "start":  "2026-08-06T09:00:00-04:00",
+                                                               "end":  "2026-08-06T12:30:00-04:00"
+                                                           },
+                                                           {
+                                                               "summary":  "MICRO1 A · 2.0h",
+                                                               "start":  "2026-08-06T15:00:00-04:00",
+                                                               "end":  "2026-08-06T17:00:00-04:00"
+                                                           },
+                                                           {
+                                                               "summary":  "MICRO1 B · 2.0h",
+                                                               "start":  "2026-08-06T17:00:00-04:00",
+                                                               "end":  "2026-08-06T19:00:00-04:00"
+                                                           }
+                                                       ],
+                                            "total_h":  7.5,
+                                            "synced_at":  "2026-08-06T17:23:28-04:00",
+                                            "note":  "AM 3.5 + A 2.0 + B 2.0 = 7.5 · C deprecado"
+                                        },
+                 "calendar_m1_plantilla_blocks":  {
+                                                      "L-J":  [
+                                                                  {
+                                                                      "start":  "09:00",
+                                                                      "end":  "12:30"
+                                                                  },
+                                                                  {
+                                                                      "start":  "15:00",
+                                                                      "end":  "17:00"
+                                                                  },
+                                                                  {
+                                                                      "start":  "17:00",
+                                                                      "end":  "19:00"
+                                                                  }
+                                                              ],
+                                                      "Vie":  [
+                                                                  {
+                                                                      "start":  "10:00",
+                                                                      "end":  "13:00"
+                                                                  },
+                                                                  {
+                                                                      "start":  "15:00",
+                                                                      "end":  "17:00"
+                                                                  }
+                                                              ],
+                                                      "SabDom":  [
+                                                                     {
+                                                                         "start":  "10:00",
+                                                                         "end":  "12:30"
+                                                                     }
+                                                                 ]
+                                                  },
+                 "summary_today_hubstaff_h":  6.47
+             }
 }
