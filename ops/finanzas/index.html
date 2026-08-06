@@ -2,18 +2,514 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta http-equiv="refresh" content="0;url=https://finanzas.vientonorte.io/"/>
-<link rel="canonical" href="https://finanzas.vientonorte.io/"/>
-<meta name="robots" content="noindex"/>
-<title>Finanzas → finanzas.vientonorte.io</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="dark"/>
+<title>Micro1 · $ OPS</title>
 <style>
-  body{font-family:system-ui,sans-serif;background:#0b0f14;color:#e8eef4;max-width:36rem;margin:3rem auto;padding:0 1rem}
-  a{color:#3dd68c}
+:root{
+  --bg:#0a0e12;--surface:#121820;--surface2:#1a222d;--line:#2a3544;
+  --text:#eef3f8;--muted:#8b9aab;--faint:#5c6b7c;
+  --good:#3dd68c;--warn:#e8b84a;--bad:#ff6b6b;--accent:#6aa8e0;
+  --r:12px;--font:system-ui,-apple-system,"Segoe UI",sans-serif;--mono:ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.4}
+a{color:var(--accent)}
+.wrap{max-width:720px;margin:0 auto;padding:16px 14px 40px}
+.t-label{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.t-hero{font-size:2.35rem;font-weight:750;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1.1}
+.t-num{font-variant-numeric:tabular-nums}
+.t-muted{color:var(--muted);font-size:.85rem}
+.t-faint{color:var(--faint);font-size:.78rem}
+.pill{display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;font-size:.72rem;font-weight:650;border:1px solid var(--line);background:var(--surface2);color:var(--muted)}
+.pill.ok{color:var(--good);border-color:#2a5c44;background:#0f2419}
+.pill.on{color:var(--text);border-color:#3a6a9a;background:#152433}
+.btn{appearance:none;border:1px solid var(--line);background:var(--surface2);color:var(--text);border-radius:10px;padding:8px 12px;font:inherit;font-size:.84rem;cursor:pointer}
+.btn.primary{background:#1a4a35;border-color:#2f7a55;color:#d8ffec}
+.btn:hover{filter:brightness(1.08)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+.stat .v{font-size:1.25rem;font-weight:700;margin-top:2px;font-variant-numeric:tabular-nums}
+.stat .h{font-size:.78rem;color:var(--muted);margin-top:4px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:560px){.grid3{grid-template-columns:1fr 1fr}.t-hero{font-size:2rem}}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px}
+/* segment control */
+.seg{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;margin-bottom:12px}
+.seg button{flex:1;border:0;background:transparent;color:var(--muted);font:inherit;font-size:.88rem;font-weight:650;padding:8px 10px;border-radius:999px;cursor:pointer}
+.seg button[aria-selected="true"]{background:var(--surface2);color:var(--text);box-shadow:0 0 0 1px var(--line)}
+.hero{background:linear-gradient(145deg,#14261c,#121a28);border:1px solid #234033;border-radius:var(--r);padding:18px 16px;margin-bottom:12px}
+.hero .sub{margin-top:6px;color:#b7cfc0;font-size:.88rem}
+.bar{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden;border:1px solid var(--line);margin-top:8px}
+.bar>i{display:block;height:100%;background:var(--good);border-radius:99px;max-width:100%}
+.section{margin-top:12px}
+.section h2{margin:0 0 8px;font-size:.92rem;font-weight:650}
+details.card{padding:0}
+details.card>summary{list-style:none;cursor:pointer;padding:12px 14px;font-weight:650;font-size:.9rem;display:flex;justify-content:space-between;align-items:center}
+details.card>summary::-webkit-details-marker{display:none}
+details.card>summary::after{content:"▾";color:var(--faint);font-size:.8rem}
+details.card[open]>summary::after{content:"▴"}
+details.card .body{padding:0 14px 14px;border-top:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:.8rem}
+th,td{padding:7px 4px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.04em}
+.claim{font-family:var(--mono);color:#c5d9f5;font-size:.78rem}
+.alert{display:none;background:#2a1c0c;border:1px solid #6b5018;color:#ffe2a8;padding:10px 12px;border-radius:var(--r);font-size:.85rem;margin-bottom:12px}
+.alert.show{display:block}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+footer{margin-top:20px;color:var(--faint);font-size:.72rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{font-size:.75rem;padding:4px 8px;border-radius:8px;background:var(--surface2);border:1px solid var(--line);color:var(--muted)}
+.chip b{color:var(--text)}
 </style>
 </head>
 <body>
-  <h1>Finanzas se movió</h1>
-  <p>SSOT: <a href="https://finanzas.vientonorte.io/"><strong>https://finanzas.vientonorte.io/</strong></a></p>
-  <p>Path GitHub Pages deprecado. No usar mirrors jsDelivr de commits.</p>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <div class="t-label">Micro1 · $</div>
+      <div style="font-size:1.05rem;font-weight:700;margin-top:2px">OPS Finanzas</div>
+    </div>
+    <div class="row">
+      <span class="pill ok" id="pill-ssot">SSOT</span>
+      <span class="pill">40·5·3</span>
+      <span class="t-faint t-num" id="clock"></span>
+    </div>
+  </div>
+
+  <div class="seg" role="tablist" aria-label="Horizonte">
+    <button type="button" role="tab" id="tab-day" aria-selected="true" data-view="day">Día</button>
+    <button type="button" role="tab" id="tab-week" aria-selected="false" data-view="week">Semana</button>
+    <button type="button" role="tab" id="tab-month" aria-selected="false" data-view="month">Mes</button>
+  </div>
+
+  <div class="alert" id="alert"></div>
+
+  <div class="hero">
+    <div class="t-label" id="hero-label">—</div>
+    <div class="t-hero t-num" id="hero-usd">—</div>
+    <div class="sub" id="hero-sub"></div>
+    <div class="bar"><i id="hero-bar" style="width:0%"></i></div>
+    <div class="t-faint" style="margin-top:6px" id="hero-bar-caption"></div>
+    <div class="chips" id="hero-chips"></div>
+  </div>
+
+  <div class="grid3" id="stats"></div>
+
+  <div class="section card">
+    <div class="t-label" id="focus-label">Foco</div>
+    <div id="focus" style="margin-top:6px"></div>
+  </div>
+
+  <div class="section card">
+    <div class="t-label">Proyección @5 t/h</div>
+    <div class="stat"><div class="v t-num" id="proj-line" style="font-size:1.15rem">—</div>
+    <div class="h" id="proj-hint"></div></div>
+  </div>
+
+  <details class="card section" id="detail-list">
+    <summary id="detail-summary">Detalle</summary>
+    <div class="body" style="overflow:auto;margin-top:8px" id="detail-body"></div>
+  </details>
+
+  <details class="card section">
+    <summary>Cola RR <span class="t-muted t-num" id="rr-count" style="font-weight:500"></span></summary>
+    <div class="body" id="rr-body" style="overflow:auto;margin-top:8px"></div>
+  </details>
+
+  <details class="card section">
+    <summary>Más</summary>
+    <div class="body t-muted" style="margin-top:10px;font-size:.85rem">
+      <div id="more"></div>
+      <ul style="margin:10px 0 0;padding-left:1.1rem">
+        <li>Pool max 3 · F7 → 10′ → submit 6</li>
+        <li><b>Updated</b> Realm = día de realidad</li>
+        <li>ops 5 t/h · week 40h M1 + 5 VN + 3 Post · techo plan 5.6 · $1.54/t</li>
+      </ul>
+      <p class="t-faint" id="log-only" style="margin-top:10px"></p>
+    </div>
+  </details>
+
+  <div class="actions">
+    <button class="btn primary" id="btn-pull">↻ Actualizar</button>
+    <button class="btn" id="btn-reset">Reset local</button>
+  </div>
+  <div class="t-faint" id="sync" style="margin-top:8px"></div>
+  <footer>Canónico <a href="https://finanzas.vientonorte.io/">finanzas.vientonorte.io</a> · vistas Día / Semana / Mes · meta 1.6M multi-semana</footer>
+</div>
+<script>
+const KEY = "micro1_ivr_ledger_v14_7953";
+const SSOT = {"meta":{"rate_usd":1.54,"fx_clp_per_usd":947,"ops_tph":5.0,"plan_tph":5.6,"goal_clp_month":1600000,"trainer_usd_target":1552.32,"ops_setup_until":"2026-08-05","ops_stable_from":"2026-08-06","split_policy":"40m1_5vn_3post","split_hours_week":{"micro1":40,"vn":5,"postulaciones":3,"total":48},"hours_lj":{"m1":7.5,"vn":1.0,"post":0.5},"hours_fri":{"m1":5.0,"vn":0.5,"post":0.5},"hours_weekend":{"m1":2.5,"vn":0.25,"post":0.25},"summary_mtd_tasks":11,"summary_mtd_usd":16.94,"summary_today_tasks":3,"summary_today_usd":4.62,"realm_review_ready":["9568","9567","9566","8719","8718","8717","8716","8715","8714","7952","7953"],"realm_review_ready_n":11,"realm_ui_reported_n":12,"realm_ui_gap_note":"Rö 2026-08-06: Realm UI 12 RR tras +7953 · ledger IDs listados=11 · falta 1 claim id","realm_review_ready_detail":[{"id":"9568","updated":"2026-08-04","updated_hm":"20:12","status":"Review Ready","game":"Dishonored 2","mins":10},{"id":"9567","updated":"2026-08-05","updated_hm":"14:10","status":"Review Ready","game":"Dishonored 2","mins":10},{"id":"9566","updated":"2026-08-04","updated_hm":"19:52","status":"Review Ready","game":"Dishonored 2","mins":10},{"id":"8719","updated":"2026-08-05","updated_hm":"14:14","status":"Review Ready","game":"Dishonored 2","mins":10},{"id":"8718","updated":"2026-08-05","updated_hm":"14:16","status":"Review Ready","game":"Dishonored 2","mins":10},{"id":"8717","updated":"2026-08-05","updated_hm":"14:57","status":"Review Ready","game":"Dishonored 2","mins":10},{"id":"8716","updated":"2026-08-05","updated_hm":"15:20","status":"Review Ready","game":"Dishonored 2","mins":10},{"id":"8715","updated":"2026-08-06","updated_hm":"13:40","status":"Review Ready","game":"Dishonored 2","mins":10},{"id":"8714","updated":"2026-08-05","updated_hm":"17:33","status":"Review Ready","game":"Dishonored 2","mins":10},{"id":"7952","updated":"2026-08-06","updated_hm":"15:28","status":"Review Ready","game":"Dishonored 2","mins":10},{"id":"7953","updated":"2026-08-06","updated_hm":"16:00","status":"Review Ready","game":"Dishonored 2","mins":10}],"log_only_exited_rr":[{"id":"9485","date":"2026-08-03","note":"LOG submit OK · NO en tabla RR actual"},{"id":"9484","date":"2026-08-03","note":"LOG submit OK · NO en tabla RR actual"},{"id":"9483","date":"2026-08-03","note":"LOG submit OK + rework · NO en tabla RR actual"}],"updated":"2026-08-06T16:08:11-04:00","sync":"realm-+7953-ui12-2026-08-06","reality_note":"Realm RR IDs n=11 · $16.94 · UI reporta 12 · 06→3 (8715·7952·7953) · ops 5.0 · 40/5/3","canonical_url":"https://finanzas.vientonorte.io/","calendar_hours":{"source":"SSOT 40 M1 + 5 VN + 3 Post · 2026-08-06","plantilla_lj_h":7.5,"plantilla_fri_h":5.0,"plantilla_sat_h":2.5,"plantilla_sun_h":2.5,"plantilla_week_m1_h":40.0,"plantilla_week_vn_h":5.0,"plantilla_week_post_h":3.0,"plantilla_work_week_h":48.0,"plantilla_month_aug_m1_h":172.5,"distribution":{"L-J":{"m1":7.5,"vn":1.0,"post":0.5},"Vie":{"m1":5.0,"vn":0.5,"post":0.5},"SabDom":{"m1":2.5,"vn":0.25,"post":0.25}},"post_note":"Computrabajo + entrevistas Micro1 pendientes · NO LinkedIn"},"post_channels":["Computrabajo","entrevistas_micro1_pendientes"],"post_channels_excluded":["LinkedIn"],"projection":{"as_of":"2026-08-06","ops_tph":5.0,"plan_tph":5.6,"m1_h_remaining_plantilla":144.5,"eom_tasks_at_ops":733.5,"eom_usd_at_ops":1129.59,"eom_clp_at_ops":1069722,"eom_tasks_at_5_6":820.2,"week_runrate_tasks":200.0,"week_runrate_usd":308.0,"week_m1_h_full":40.0,"work_week_h":48.0,"day_lj_intent_tasks":37.5,"day_lj_intent_usd":57.75,"day_fri_intent_tasks":25.0,"day_weekend_intent_tasks":12.5,"tasks_to_trainer":997.0,"weeks_to_trainer_at_ops":5.0,"calendar_day_h_lj":7.5,"calendar_day_h_fri":5.0,"calendar_day_h_weekend":2.5,"calendar_week_h_m1":40.0,"calendar_week_h_vn":5.0,"calendar_week_h_post":3.0,"calendar_month_h_aug_m1":172.5}},"days":[{"date":"2026-08-01","hubstaff_h":0.0,"tasks_ok":0,"usd":0,"claims":[],"note":"dry-run F7 · NO submit · docs SSOT"},{"date":"2026-08-02","hubstaff_h":0.5,"tasks_ok":0,"usd":0,"claims":[],"note":"setup M5/dashboard · 0 submit $"},{"date":"2026-08-03","hubstaff_h":0.75,"tasks_ok":0,"usd":0,"claims":[],"note":"LOG 9483·9484·9485 fuera de cola RR"},{"date":"2026-08-04","hubstaff_h":0.33,"tasks_ok":2,"usd":3.08,"claims":["9566","9568"],"note":"2 Review Ready · Updated Realm · 9566 · 9568"},{"date":"2026-08-05","hubstaff_h":1.0,"tasks_ok":6,"usd":9.24,"claims":["9567","8719","8718","8717","8716","8714"],"note":"6 Review Ready · Updated Realm · 9567 · 8719 · 8718 · 8717 · 8716 · 8714"},{"date":"2026-08-06","hubstaff_h":0.5,"tasks_ok":3,"usd":4.62,"claims":["8715","7952","7953"],"note":"3 Review Ready · Updated Realm · 8715 · 7952 · 7953 · UI MTD 12 (1 id pendiente)"}]};
+const M = {
+  rate: SSOT.meta.rate_usd,
+  fx: SSOT.meta.fx_clp_per_usd,
+  ops: SSOT.meta.ops_tph,
+  plan: SSOT.meta.plan_tph,
+  goalClp: SSOT.meta.goal_clp_month,
+  trainer: SSOT.meta.trainer_usd_target,
+  setupUntil: SSOT.meta.ops_setup_until,
+  stableFrom: SSOT.meta.ops_stable_from,
+};
+let VIEW = localStorage.getItem(KEY + "_view") || "day";
+
+const SOURCES = [
+  "./ledger.json?t=" + Date.now(),
+  "./ledger-ssot.json?t=" + Date.now(),
+  "https://finanzas.vientonorte.io/ledger.json",
+];
+
+const money = n => Number.isFinite(+n) ? "$" + (+n).toFixed(2) : "—";
+const clp = usd => "CLP " + Math.round((+usd||0)*M.fx).toLocaleString("es-CL");
+const fmt = (n,d=1) => Number.isFinite(+n) ? (+n).toFixed(d) : "—";
+
+function m1h(iso) {
+  const wd = new Date(iso + "T12:00:00").getDay(); // 0 Sun
+  if (wd===0) return 2.5; // dom
+  if (wd===6) return 2.5; // sáb
+  if (wd===5) return 5.0; // vie
+  return 7.5; // L-J
+}
+function phase(iso) {
+  if (iso <= M.setupUntil) return "setup";
+  if (m1h(iso)<=0) return "off";
+  return "stable";
+}
+function isoAdd(iso, days) {
+  const d = new Date(iso + "T12:00:00");
+  d.setDate(d.getDate() + days);
+  return d.toISOString().slice(0,10);
+}
+/** Monday of week containing iso (ISO week, Mon-start) */
+function weekStart(iso) {
+  const d = new Date(iso + "T12:00:00");
+  const day = d.getDay(); // 0 Sun
+  const diff = day === 0 ? -6 : 1 - day;
+  d.setDate(d.getDate() + diff);
+  return d.toISOString().slice(0,10);
+}
+function weekEnd(ws) { return isoAdd(ws, 6); }
+
+function normalize(days) {
+  return (days||[]).map(d => ({
+    date: d.date,
+    hubstaff_h: +d.hubstaff_h || 0,
+    tasks_ok: +d.tasks_ok || 0,
+    usd: d.usd != null ? +d.usd : (+d.tasks_ok||0)*M.rate,
+    claims: Array.isArray(d.claims)?d.claims:[],
+    note: d.note || "",
+  })).sort((a,b)=> a.date < b.date ? 1 : -1);
+}
+
+function load() {
+  try {
+    const seed = normalize(SSOT.days);
+    const seedT = seed.reduce((s,d)=>s+d.tasks_ok,0);
+    const realmN = SSOT.meta.realm_review_ready_n || seedT;
+    const raw = localStorage.getItem(KEY);
+    if (!raw) return { days: seed, meta: SSOT.meta, from: "seed" };
+    const j = JSON.parse(raw);
+    const loc = normalize(j.days);
+    const locT = loc.reduce((s,d)=>s+d.tasks_ok,0);
+    if (realmN && locT !== realmN && seedT === realmN)
+      return { days: seed, meta: SSOT.meta, from: "seed-guard" };
+    return { days: loc.length?loc:seed, meta: Object.assign({}, SSOT.meta, j.meta||{}), from: "local" };
+  } catch {
+    return { days: normalize(SSOT.days), meta: SSOT.meta, from: "seed" };
+  }
+}
+function save(state) {
+  localStorage.setItem(KEY, JSON.stringify({ days: state.days, meta: state.meta, at: new Date().toISOString() }));
+}
+
+async function pull() {
+  for (const url of SOURCES) {
+    try {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) continue;
+      const j = await res.json();
+      const days = normalize(j.days||[]);
+      const meta = Object.assign({}, SSOT.meta, j.meta||{});
+      const t = days.reduce((s,d)=>s+d.tasks_ok,0);
+      const rn = meta.realm_review_ready_n || 0;
+      if (rn && t !== rn) continue;
+      const st = { days, meta, from: url };
+      save(st);
+      return st;
+    } catch {}
+  }
+  return load();
+}
+
+function intentTasksForDay(iso, realT) {
+  if (phase(iso) === "setup") return realT; // sin deuda
+  if (phase(iso) === "off") return 0;
+  return m1h(iso) * M.ops;
+}
+function intentHForDay(iso, realH) {
+  if (phase(iso) === "setup") return realH;
+  if (phase(iso) === "off") return 0;
+  return m1h(iso);
+}
+
+function compute(state) {
+  const today = new Date().toISOString().slice(0,10);
+  const ym = today.slice(0,7);
+  const all = state.days.filter(d => String(d.date).startsWith(ym));
+  const byDate = Object.fromEntries(all.map(d => [d.date, d]));
+
+  const ws = weekStart(today);
+  const we = weekEnd(ws);
+
+  function sumRange(from, to) {
+    let t=0,u=0,h=0,claims=[];
+    const rows=[];
+    // iterate dates
+    let cur = from;
+    while (cur <= to) {
+      const r = byDate[cur] || { date:cur, tasks_ok:0, usd:0, hubstaff_h:0, claims:[], note:"" };
+      t += r.tasks_ok; u += r.usd; h += r.hubstaff_h;
+      claims = claims.concat(r.claims||[]);
+      rows.push({ ...r, phase: phase(cur), intent_t: intentTasksForDay(cur, r.tasks_ok), intent_h: intentHForDay(cur, r.hubstaff_h) });
+      cur = isoAdd(cur, 1);
+    }
+    return { t, u, h, claims, rows };
+  }
+
+  // Day
+  const dayR = byDate[today] || { date:today, tasks_ok:0, usd:0, hubstaff_h:0, claims:[] };
+  const dayIntentT = intentTasksForDay(today, dayR.tasks_ok);
+  const dayIntentH = intentHForDay(today, dayR.hubstaff_h);
+  const dayLeft = Math.max(0, dayIntentH - dayR.hubstaff_h);
+
+  // Week (Mon-Sun of current week, only through today for real)
+  const weekReal = sumRange(ws, today < we ? today : we);
+  // intent week: full week laborable hours remaining for bar scale = Mon-today intent + remaining days intent
+  let weekIntentT = 0, weekIntentH = 0, weekRemH = 0;
+  let cur = ws;
+  while (cur <= we) {
+    const r = byDate[cur] || { tasks_ok:0, hubstaff_h:0 };
+    if (cur <= today) {
+      weekIntentT += intentTasksForDay(cur, r.tasks_ok);
+      weekIntentH += intentHForDay(cur, r.hubstaff_h);
+    } else {
+      weekRemH += m1h(cur);
+      weekIntentT += m1h(cur) * M.ops; // full week plan scale
+    }
+    cur = isoAdd(cur, 1);
+  }
+  // For "semana to date" bar use only through today intent
+  let weekIntentToDate = 0;
+  cur = ws;
+  while (cur <= today && cur <= we) {
+    const r = byDate[cur] || { tasks_ok:0, hubstaff_h:0 };
+    weekIntentToDate += intentTasksForDay(cur, r.tasks_ok);
+    cur = isoAdd(cur, 1);
+  }
+
+  // Month
+  const [y,m] = ym.split("-").map(Number);
+  const dim = new Date(y, m, 0).getDate();
+  const monthStart = ym + "-01";
+  const monthReal = sumRange(monthStart, today);
+  let monthIntentToDate = 0, monthRemH = 0;
+  for (let d=1; d<=dim; d++) {
+    const iso = ym + "-" + String(d).padStart(2,"0");
+    const r = byDate[iso] || { tasks_ok:0, hubstaff_h:0 };
+    if (iso <= today) monthIntentToDate += intentTasksForDay(iso, r.tasks_ok);
+    else monthRemH += m1h(iso);
+  }
+  const monthLeftToday = Math.max(0, intentHForDay(today, dayR.hubstaff_h) - dayR.hubstaff_h);
+  const projH = monthRemH + monthLeftToday;
+  const eomT = monthReal.t + projH * M.ops;
+  const eomU = eomT * M.rate;
+  const weekRunT = 40 * M.ops;
+  const weekRunU = weekRunT * M.rate;
+  const gapTrainerT = Math.max(0, M.trainer/M.rate - monthReal.t);
+  const weeksToTrainer = (gapTrainerT / M.ops) / 40;
+
+  // week remaining hours after today within week
+  let weekLeftH = 0;
+  cur = isoAdd(today, 1);
+  while (cur <= we) { weekLeftH += m1h(cur); cur = isoAdd(cur, 1); }
+  weekLeftH += Math.max(0, dayIntentH - dayR.hubstaff_h);
+  const weekEomT = weekReal.t + weekLeftH * M.ops;
+  const weekEomU = weekEomT * M.rate;
+
+  return {
+    today, ws, we, ym, dim,
+    dayR, dayIntentT, dayIntentH, dayLeft,
+    weekReal, weekIntentToDate, weekLeftH, weekEomT, weekEomU, weekRunT, weekRunU,
+    monthReal, monthIntentToDate, monthRemH, projH, eomT, eomU, weeksToTrainer,
+    realmN: state.meta.realm_review_ready_n || monthReal.t,
+    detail: state.meta.realm_review_ready_detail || SSOT.meta.realm_review_ready_detail || [],
+    logOnly: state.meta.log_only_exited_rr || SSOT.meta.log_only_exited_rr || [],
+    updated: state.meta.updated || SSOT.meta.updated || "—",
+    allRows: monthReal.rows.sort((a,b)=> a.date < b.date ? 1 : -1),
+  };
+}
+
+function setView(v) {
+  VIEW = v;
+  localStorage.setItem(KEY + "_view", v);
+  document.querySelectorAll(".seg button").forEach(b => {
+    b.setAttribute("aria-selected", b.dataset.view === v ? "true" : "false");
+  });
+  render();
+}
+
+function render() {
+  document.getElementById("clock").textContent = new Date().toLocaleString("es-CL",{hour:"2-digit",minute:"2-digit"});
+  const state = load();
+  const c = compute(state);
+
+  const al = document.getElementById("alert");
+  if (c.realmN && c.monthReal.t !== c.realmN) {
+    al.className = "alert show";
+    al.textContent = "Drift MTD " + c.monthReal.t + " ≠ Realm n=" + c.realmN + ". Reset o ↻.";
+  } else { al.className = "alert"; al.textContent = ""; }
+
+  document.getElementById("pill-ssot").textContent = "SSOT · " + c.monthReal.t + "t";
+
+  // Per-view pack
+  let heroLabel, heroUsd, heroSub, barPct, barCap, chips, stats, focusLabel, focusHtml, detailTitle, detailHtml, projLine, projHint;
+
+  if (VIEW === "day") {
+    const pct = c.dayIntentT > 0 ? Math.min(100, c.dayR.tasks_ok / c.dayIntentT * 100) : (c.dayR.tasks_ok?100:0);
+    const dT = c.dayR.tasks_ok - c.dayIntentT;
+    heroLabel = "Hoy · " + c.today;
+    heroUsd = money(c.dayR.usd);
+    heroSub = "<b class='t-num'>" + c.dayR.tasks_ok + " tasks</b> · " + clp(c.dayR.usd) + " · fase <span class='pill " + (phase(c.today)==="stable"?"ok":"warn") + "'>" + phase(c.today) + "</span>";
+    barPct = pct;
+    barCap = "Intent hoy " + fmt(c.dayIntentT,0) + " t @5 · real " + c.dayR.tasks_ok + " · Δ " + (dT>=0?"+":"") + fmt(dT,0) + " · left ~" + fmt(c.dayLeft,1) + "h";
+    chips = [
+      ["Claims", (c.dayR.claims||[]).join(" · ") || "—"],
+      ["t/h", c.dayR.hubstaff_h>0 ? fmt(c.dayR.tasks_ok/c.dayR.hubstaff_h,1) : "—"],
+      ["M1 left", fmt(c.dayLeft,1) + "h"],
+    ];
+    stats = [
+      ["Real", c.dayR.tasks_ok + " t", money(c.dayR.usd)],
+      ["Intent", fmt(c.dayIntentT,0) + " t", fmt(c.dayIntentH,1) + "h M1"],
+      ["Δ", (dT>=0?"+":"")+fmt(dT,0), "solo hoy"],
+    ];
+    focusLabel = "Acción hoy";
+    focusHtml = c.dayR.tasks_ok >= c.dayIntentT && c.dayIntentT > 0
+      ? "Meta del día alcanzada @5. Opcional: otra ola (max pool 3)."
+      : "Faltan <b class='t-num'>" + fmt(Math.max(0,c.dayIntentT - c.dayR.tasks_ok),0) + "</b> tasks para intent @5 (~" + fmt(c.dayLeft,1) + "h M1).";
+    detailTitle = "Claims hoy";
+    detailHtml = (c.dayR.claims||[]).length
+      ? "<span class='claim'>" + c.dayR.claims.join(" · ") + "</span>"
+      : "<span class='t-muted'>Sin claims hoy</span>";
+    projLine = "Si cierras el día @5 → día ≈ " + fmt(c.dayIntentT,0) + " t · " + money(c.dayIntentT*M.rate);
+    projHint = "Run-rate sem ≈ " + fmt(c.weekRunT,0) + " t · " + money(c.weekRunU);
+  } else if (VIEW === "week") {
+    const pct = c.weekIntentToDate > 0 ? Math.min(100, c.weekReal.t / c.weekIntentToDate * 100) : (c.weekReal.t?100:0);
+    const dT = c.weekReal.t - c.weekIntentToDate;
+    heroLabel = "Semana · " + c.ws.slice(5) + " → " + c.we.slice(5);
+    heroUsd = money(c.weekReal.u);
+    heroSub = "<b class='t-num'>" + c.weekReal.t + " tasks</b> a hoy · " + clp(c.weekReal.u) + " · " + c.ws + "–" + (c.today < c.we ? c.today : c.we);
+    barPct = pct;
+    barCap = "Intent semana→hoy " + fmt(c.weekIntentToDate,0) + " t · real " + c.weekReal.t + " · Δ " + (dT>=0?"+":"") + fmt(dT,0);
+    chips = [
+      ["Left sem", fmt(c.weekLeftH,1) + "h"],
+      ["Cierre sem @5", "~" + fmt(c.weekEomT,0) + " t"],
+      ["USD cierre", money(c.weekEomU)],
+    ];
+    stats = [
+      ["Real→hoy", c.weekReal.t + " t", money(c.weekReal.u)],
+      ["Intent→hoy", fmt(c.weekIntentToDate,0) + " t", "setup sin deuda"],
+      ["Fin sem @5", "~" + fmt(c.weekEomT,0) + " t", money(c.weekEomU)],
+    ];
+    focusLabel = "Semana en curso";
+    focusHtml = "Restan ~<b class='t-num'>" + fmt(c.weekLeftH,1) + "h</b> M1 esta semana → +" + fmt(c.weekLeftH*M.ops,0) + " t si mantienes 4 t/h.";
+    detailTitle = "Días de la semana";
+    const weekRows = c.allRows.filter(r => r.date >= c.ws && r.date <= c.we);
+    detailHtml = "<table><thead><tr><th>Día</th><th>Fase</th><th>Real</th><th>USD</th><th>Claims</th></tr></thead><tbody>" +
+      weekRows.map(r => "<tr><td class='t-num'>"+r.date.slice(5)+"</td><td><span class='pill "+(r.phase==="stable"?"ok":"warn")+"'>"+r.phase+"</span></td><td class='t-num'><b>"+r.tasks_ok+"</b></td><td class='t-num'>"+money(r.usd)+"</td><td class='claim'>"+(r.claims||[]).join(" · ")+"</td></tr>").join("") +
+      "</tbody></table>";
+    projLine = "Run-rate " + fmt(c.weekRunT,0) + " t/sem · " + money(c.weekRunU);
+    projHint = "Cierre semana proyectado @5 · " + money(c.weekEomU) + " · " + clp(c.weekEomU);
+  } else {
+    // month
+    const pct = c.monthIntentToDate > 0 ? Math.min(100, c.monthReal.t / c.monthIntentToDate * 100) : (c.monthReal.t?100:0);
+    const dT = c.monthReal.t - c.monthIntentToDate;
+    heroLabel = "Mes · " + c.ym + " (MTD RR)";
+    heroUsd = money(c.monthReal.u);
+    heroSub = "<b class='t-num'>" + c.monthReal.t + " tasks</b> Review Ready · " + clp(c.monthReal.u) + " · " + fmt((c.monthReal.u*M.fx)/M.goalClp*100,2) + "% de 1.6M";
+    barPct = pct;
+    barCap = "Intent ops→hoy " + fmt(c.monthIntentToDate,0) + " t (setup=realidad) · Δ " + (dT>=0?"+":"") + fmt(dT,0);
+    chips = [
+      ["EOM @5", "~" + fmt(c.eomT,0) + " t"],
+      ["EOM USD", money(c.eomU)],
+      ["→ trainer", fmt(c.weeksToTrainer,1) + " sem"],
+    ];
+    stats = [
+      ["MTD", c.monthReal.t + " t", money(c.monthReal.u)],
+      ["t/h", c.monthReal.h>0?fmt(c.monthReal.t/c.monthReal.h,1):"—", "ops "+M.ops],
+      ["EOM @5", "~"+fmt(c.eomT,0)+" t", money(c.eomU)],
+    ];
+    focusLabel = "Mes";
+    focusHtml = "1.6M CLP es <b>horizonte multi-semana</b>, no castigo de agosto. Trainer $1.55k ≈ <b class='t-num'>" + fmt(c.weeksToTrainer,1) + " sem</b> @5.";
+    detailTitle = "Día a día (mes)";
+    detailHtml = "<table><thead><tr><th>Día</th><th>Fase</th><th>Real</th><th>USD</th><th>Claims</th></tr></thead><tbody>" +
+      c.allRows.map(r => "<tr><td class='t-num'>"+r.date.slice(5)+"</td><td><span class='pill "+(r.phase==="stable"?"ok":"warn")+"'>"+r.phase+"</span></td><td class='t-num'><b>"+r.tasks_ok+"</b></td><td class='t-num'>"+money(r.usd)+"</td><td class='claim'>"+(r.claims||[]).join(" · ")+"</td></tr>").join("") +
+      "</tbody></table>";
+    projLine = "EOM @5 ~" + fmt(c.eomT,0) + " t · " + money(c.eomU) + " · " + clp(c.eomU);
+    projHint = "Run-rate " + fmt(c.weekRunT,0) + " t/sem · no forzar 9+ t/h para cerrar trainer en ago";
+  }
+
+  document.getElementById("hero-label").textContent = heroLabel;
+  document.getElementById("hero-usd").textContent = heroUsd;
+  document.getElementById("hero-sub").innerHTML = heroSub;
+  document.getElementById("hero-bar").style.width = barPct + "%";
+  document.getElementById("hero-bar-caption").textContent = barCap;
+  document.getElementById("hero-chips").innerHTML = chips.map(([k,v]) => "<span class='chip'>"+k+": <b class='t-num'>"+v+"</b></span>").join("");
+  document.getElementById("stats").innerHTML = stats.map(([l,v,h]) =>
+    "<div class='card stat'><div class='t-label'>"+l+"</div><div class='v'>"+v+"</div><div class='h'>"+h+"</div></div>"
+  ).join("");
+  document.getElementById("focus-label").textContent = focusLabel;
+  document.getElementById("focus").innerHTML = focusHtml;
+  document.getElementById("proj-line").textContent = projLine;
+  document.getElementById("proj-hint").textContent = projHint;
+  document.getElementById("detail-summary").childNodes[0].textContent = detailTitle + " ";
+  document.getElementById("detail-body").innerHTML = detailHtml;
+
+  // RR always month-level truth
+  document.getElementById("rr-count").textContent = "(" + c.monthReal.t + ")";
+  const det = c.detail.slice().sort((a,b)=> (a.updated+(a.updated_hm||"")).localeCompare(b.updated+(b.updated_hm||"")));
+  document.getElementById("rr-body").innerHTML = det.length
+    ? "<table><thead><tr><th>ID</th><th>Updated</th><th>Día</th></tr></thead><tbody>" +
+      det.map(x=>"<tr><td class='claim'>"+x.id+"</td><td class='t-num'>"+x.updated+" "+(x.updated_hm||"")+"</td><td>"+x.updated+"</td></tr>").join("") +
+      "</tbody></table>"
+    : "<span class='claim'>"+(SSOT.meta.realm_review_ready||[]).join(" · ")+"</span>";
+
+  document.getElementById("log-only").textContent = c.logOnly.length
+    ? "LOG-only (no RR): " + c.logOnly.map(x=>x.id||x).join(" · ") : "";
+  document.getElementById("more").innerHTML = "MTD RR <b class='t-num'>"+c.monthReal.t+" · "+money(c.monthReal.u)+"</b> · EOM@5 <b>"+money(c.eomU)+"</b>";
+  document.getElementById("sync").textContent = "Vista "+VIEW+" · fuente "+(state.from||"seed")+" · MTD "+c.monthReal.t+" · "+money(c.monthReal.u)+" · "+c.updated;
+}
+
+document.querySelectorAll(".seg button").forEach(b => {
+  b.addEventListener("click", () => setView(b.dataset.view));
+});
+document.getElementById("btn-pull").onclick = async () => {
+  document.getElementById("sync").textContent = "Actualizando…";
+  await pull(); render();
+};
+document.getElementById("btn-reset").onclick = () => {
+  Object.keys(localStorage).forEach(k => { if (k.startsWith("micro1_ivr")) localStorage.removeItem(k); });
+  save({ days: normalize(SSOT.days), meta: SSOT.meta });
+  setView(VIEW);
+};
+
+(async function boot() {
+  Object.keys(localStorage).forEach(k => { if (/^micro1_ivr_ledger_v[1-9]/.test(k) && k !== KEY) localStorage.removeItem(k); });
+  save({ days: normalize(SSOT.days), meta: SSOT.meta });
+  document.querySelectorAll(".seg button").forEach(b => {
+    b.setAttribute("aria-selected", b.dataset.view === VIEW ? "true" : "false");
+  });
+  render();
+  try { await pull(); render(); } catch(e) {}
+})();
+</script>
 </body>
 </html>
