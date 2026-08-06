@@ -325,7 +325,7 @@
     "summary_mtd_usd": 13.86,
     "rate_usd": 1.54,
     "wind_down": "21:30",
-    "sync": "realm-table-updated-ssot-2026-08-06",
+    "sync": "canonical-finanzas.vientonorte.io-cleanup",
     "intent_usd_week_tb": 255.26,
     "goal_clp_month": 1600000,
     "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -337,7 +337,7 @@
     "intent_usd_day_fri": 34.5,
     "baseline_tph": 4.0,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-08-06T14:53:46-04:00",
+    "updated": "2026-08-06T15:10:40-04:00",
     "intention_h_month": 162.3,
     "target_hours_month": 180,
     "split_policy": "80_micro1_10_vn_10_post",
@@ -551,6 +551,13 @@
         "date": "2026-08-03",
         "note": "LOG submit OK + rework · NO en tabla RR actual"
       }
+    ],
+    "canonical_url": "https://finanzas.vientonorte.io/",
+    "deprecated_urls": [
+      "https://vientonorte.io/ops/finanzas/"
+    ],
+    "do_not_use": [
+      "jsDelivr @commit pins"
     ]
   }
 }
