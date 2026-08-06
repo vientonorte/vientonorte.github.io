@@ -1,3 +1,4 @@
+{% raw %}
 ## Unreleased
 
 - `feat(ops)`: public canvas board at `/ops/` (UI + state snapshot; sprint execution remains local/vault)
@@ -357,3 +358,5 @@ Al cerrar cualquier cambio en el dashboard general:
 1. Agregar una entrada breve aquí (fecha + tipo + alcance).
 2. Referenciar commit hash si aplica.
 3. Mantener foco en cambios observables para operación (no solo detalle técnico).
+
+{% endraw %}
