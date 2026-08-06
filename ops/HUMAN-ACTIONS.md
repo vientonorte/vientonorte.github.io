@@ -122,3 +122,20 @@
 - **MTD:** 9 Review Ready · $13.86 (Updated 04→2 · 05→6 · 06→1)
 - **Calendar:** 80/10/10 · M1 6.4 L–J / 4.0 Vie · ops t/h **4** · techo 5.6
 - **No usar:** jsDelivr @commit · apex GH $4.62
+
+## E · Deploy $ pipeline (P0 esta semana) · retro 2026-08-06
+
+**Board:** [DEPLOY-ROADMAP.md](./DEPLOY-ROADMAP.md) · **Live:** https://finanzas.vientonorte.io/
+
+| # | Acción | DoD |
+|---|--------|-----|
+| E1 | Repo permanente Worker + `deploy-finanzas` 1 cmd | path en git, no /tmp |
+| E2 | Decidir: orange-cloud apex **o** deprec forever | Calendar/ops sin apex stale |
+| E3 | Pipeline Realm→ledger→wrangler | 1 script |
+| E4 | Guardrail UI MTD ≠ realm_n | banner rojo |
+| E5 | Smoke post-deploy | curl assert MTD/split/header |
+| E6 | Mail cierre | siempre `## Retro deploy` |
+
+P1: monitor 6h · Calendar plan@5.6 vs ops@4 · CI push ledger · same-origin only.  
+P2: Sessions superseded · no orphan gh-pages · ops/README canónico.
+
