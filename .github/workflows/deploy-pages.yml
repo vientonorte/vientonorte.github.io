@@ -2,7 +2,7 @@ name: Deploy Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -15,46 +15,33 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Prepare static site
+      - uses: actions/checkout@v4
+      - name: Prepare _site
         run: |
           mkdir -p _site
-          # full static tree without git metadata / workflows
-          rsync -a \
-            --exclude '.git/' \
-            --exclude '.github/' \
-            --exclude '_site/' \
-            --exclude 'node_modules/' \
-            ./ _site/
-          # ensure nojekyll for static
+          rsync -a --exclude '.git/' --exclude '.github/' --exclude '_site/' --exclude 'node_modules/' ./ _site/
           touch _site/.nojekyll
-          test -f _site/ops/finanzas/ledger.json
-          test -f _site/ops/finanzas/index.html
           python3 - <<'PY'
 import json
 m=json.load(open("_site/ops/finanzas/ledger.json"))["meta"]
-print("deploy ledger", m.get("split_policy"), m.get("summary_mtd_tasks"), m.get("summary_mtd_usd"), m.get("updated"))
-assert m.get("split_policy") == "80_micro1_10_vn_10_post", m.get("split_policy")
+print(m.get("split_policy"), m.get("summary_mtd_tasks"), m.get("summary_mtd_usd"))
+assert m.get("split_policy")=="80_micro1_10_vn_10_post"
 assert (m.get("summary_mtd_tasks") or 0) >= 12
-print("ledger assert OK")
 PY
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
-      - name: Deploy to GitHub Pages
-        id: deployment
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - id: deployment
         uses: actions/deploy-pages@v4
