@@ -4,7 +4,7 @@
 **Acciones con links de un clic:** [HUMAN-ACTIONS.md](./HUMAN-ACTIONS.md)  
 **HUs MVP hoy:** [HU-2026-08-06-MVP.md](./HU-2026-08-06-MVP.md)  
 **Ops:** https://vientonorte.io/ops/ · **table-ro:** https://vientonorte.io/table-ro/?view=ops  
-**Finanzas SoT:** [ledger raw](https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas/ledger.json) · live puede estar stale (Pages)
+**Finanzas SoT:** [https://finanzas.vientonorte.io/](https://finanzas.vientonorte.io/)
 
 ## Canon FO
 
@@ -14,7 +14,7 @@
 | SEM | https://vientonorte.io/#/consultoria |
 | Legacy embudo | https://vientonorte.io/#/consultoria/embudo → `/` |
 | ĀRŪḾA | https://vientonorte.io/aruma/ |
-| Finanzas UI | https://vientonorte.io/ops/finanzas/ |
+| Finanzas UI | https://finanzas.vientonorte.io/ |
 
 **Shipped FO:** PR #135 · #136 · #139 SEO HU-01…03  
 
@@ -28,7 +28,7 @@
 | **P0** | Firmas multi-device **I15 · W11 · GWin · I11** | Ro `00-sistema/PIPELINE-QA.md` §6 · **no inventar** · GMac+M5 ya pass |
 | **P0** | Gate SEM **$0** hasta Test path DS | Decider |
 | **P0** | ĀRŪḾA Google: cuenta tercera + 3 agendas → links | [ARUMA-CHECKLIST](./ARUMA-CHECKLIST.md) · bookingUrl vacío = mailto only |
-| **P0** | Pages ops: si ledger live aún 80/20 → hard refresh + ↻ · o usar jsDelivr | commit e99ad6c+ multi-source |
+| **P0** | Finanzas = https://finanzas.vientonorte.io/ | Realm RR 9 · $13.86 |
 | **P1** | Trello Key/Token Admin table-ro | 5 min · no P0 cash |
 | **P1** | GSC cobertura / CWV / móvil | cuando haya datos |
 
