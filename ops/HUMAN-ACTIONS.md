@@ -21,10 +21,10 @@
 | A6 | SEO **HU-02** canonical SEM | https://vientonorte.io/#/consultoria | canonical = `#/consultoria` |
 | A7 | Favicon / tab branding | https://vientonorte.io/ | icono VN visible Safari/Chrome |
 | A8 | **Gate SEM $0** (Decider) | — | no Ads spend hasta Test pass |
-| A9 | Unstick **Pages ops** (data finanzas) | https://github.com/vientonorte/vientonorte.github.io/settings/pages · https://github.com/vientonorte/vientonorte.github.io/actions | live ledger = raw 80/10/10 |
-| A10 | Verificar ledger SoT | https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas/ledger.json | MTD ~12 · $18.48 |
-| A11 | UI finanzas (tras Pages o jsDelivr) | https://vientonorte.io/ops/finanzas/ · ↻ | no $4.62 |
-| A12 | Ledger fresco bypass CDN | https://cdn.jsdelivr.net/gh/vientonorte/vientonorte.github.io@main/ops/finanzas/ledger-ssot.json | 80/10/10 |
+| A9 | Unstick **Pages ops** (data finanzas) | https://github.com/vientonorte/vientonorte.github.io/settings/pages · https://github.com/vientonorte/vientonorte.github.io/actions | UI = finanzas.vientonorte.io · 9·$13.86 |
+| A10 | Verificar ledger SoT | https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas/ledger.json | MTD **9 · $13.86** |
+| A11 | UI finanzas (tras Pages o jsDelivr) | https://finanzas.vientonorte.io/ · ↻ | no $4.62 |
+| A12 | Ledger fresco bypass CDN | https://finanzas.vientonorte.io/ledger.json | 80/10/10 |
 | A13 | ĀRŪḾA reserva UI | https://vientonorte.io/aruma/#reserva | padding OK · mailto o Calendar |
 | A14 | ĀRŪḾA brand pegar links | https://vientonorte.io/aruma/brand/ | bookingUrl válido |
 | A15 | Google Appointment Schedules | https://calendar.google.com/calendar/u/0/r/appointments | 3 agendas 30/90/120 |
@@ -39,7 +39,7 @@
 | B1 | Realm Review Ready (9) | https://realm.micro1.ai/ | ver cola 9568…8714 |
 | B2 | Captura ola (max 3 claims) | https://realm.micro1.ai/ | F7 10' → 6 files → Submit |
 | B3 | LOG + ledger sync | local `m1-ledger-sync` | MTD sube con IDs |
-| B4 | Finanzas tras submit | https://vientonorte.io/ops/finanzas/ | ↻ ledger |
+| B4 | Finanzas tras submit | https://finanzas.vientonorte.io/ | ↻ ledger |
 | B5 | Canon timebox HOST | Calendar **MICRO 1** | 6.4 h L–J plan |
 
 **IDs Review Ready:** `9568 · 9567 · 9566 · 8719 · 8718 · 8717 · 8716 · 8715 · 8714`
@@ -114,3 +114,11 @@
 ```
 
 — ops HUMAN-ACTIONS · 2026-08-06
+
+
+## SSOT $ 2026-08-06 (align)
+
+- **Canonical:** https://finanzas.vientonorte.io/
+- **MTD:** 9 Review Ready · $13.86 (Updated 04→2 · 05→6 · 06→1)
+- **Calendar:** 80/10/10 · M1 6.4 L–J / 4.0 Vie · ops t/h **4** · techo 5.6
+- **No usar:** jsDelivr @commit · apex GH $4.62
