@@ -4,110 +4,73 @@
       "max_items": 3,
       "items": [
         {
-          "id": "now-gsc-manual-followup",
-          "title": "HUMANO · GSC manual post-verify (cobertura sitemap · CWV · móvil)",
-          "status": "todo",
-          "priority": "P1",
-          "human": true,
-          "kind": "qa_manual",
-          "repo": "vientonorte-fo",
-          "people_job": "HECHO 03 ago: verify HTML + sitemap.xml enviado + inspección /. MANUAL luego: cobertura sitemap procesada, CWV field, usabilidad móvil GSC, opcional propiedad dominio DNS. SSOT: Obsidian Resources/SEM/2026-08-03 GSC Pruebas y Enlaces.",
-          "notes": "Creado 2026-08-03 · no bloquea SEM $ (gate Test DS aparte)",
-          "links": [
-            "https://search.google.com/search-console",
-            "https://vientonorte.io/sitemap.xml",
-            "https://vientonorte.io/",
-            "https://vientonorte.io/ops/"
-          ]
-        },
-        {
-          "id": "now-postdeploy-seo-test-gate",
-          "title": "P0 · Post-deploy SEO #139 + Test path gate (sin SEM $)",
+          "id": "now-hu-vn-test-path",
+          "title": "P0 · HU-VN-01/02 Test path FO (smoke H2/H4/H5/S2 + SEO) · cierra DS Test",
           "status": "todo",
           "priority": "P0",
-          "human": true,
-          "kind": "qa_manual",
-          "repo": "vientonorte-fo",
-          "people_job": "GSC base OK. Manual residual: favicon tab, H5 free visible, smoke H5/S2 notes, Test path DS. SEM spend $0.",
-          "notes": "Creado 2026-08-03 · PR #139 · HUs 01-03 code merged · HU-04 gate Decider · GSC 2026-08-03: verify+sitemap+inspección / HECHOS · falta smoke H2b favicon · H5 free · Test path · SEM $0",
-          "links": [
-            "https://vientonorte.io/",
-            "https://vientonorte.io/#/consultoria",
-            "https://github.com/vientonorte/mi-portafolio/pull/139",
-            "https://vientonorte.io/ops/"
-          ]
-        },
-        {
-          "id": "now-human-prod-smoke",
-          "title": "HUMANO P0 · Smoke FO residual + favicon + H5 free visible",
-          "repo": "vientonorte-fo",
-          "repo_git": "mi-portafolio",
-          "product": "vientonorte.io",
-          "status": "todo",
-          "owner": "Rö",
-          "people_job": "H2 PASS · H4 PASS (Empezar≠SEM). MANUAL: H5 free más visible, favicon ICO/tab Safari, S2 onboarding OK (CTA A). Code when M5 window; or note only.",
-          "checklist": [
-            "H1 https://vientonorte.io/ = embudo (hero pymes + packs + kickoff)",
-            "H2 sin breadcrumb Inicio›Inicio",
-            "H3 header primary = Proceso · Contacto (Negocios en Más)",
-            "H4 dock Empezar → #consultoria-onboarding",
-            "H5 Calendar free a11y abre <30 s",
-            "S1 https://vientonorte.io/#/consultoria = tour SEM fullscreen sin dock",
-            "S2 SEM Empezar → / (home embudo)",
-            "L1 /#/consultoria/embudo → /"
-          ],
-          "links": [
-            "https://vientonorte.io/",
-            "https://vientonorte.io/#/consultoria",
-            "https://github.com/vientonorte/mi-portafolio/pull/139"
-          ],
-          "notes": "QA MANUAL en /ops AHORA · humano destacado. PR #135 merged + Pages verde (2026-07-28). Proxy GMac headless 2026-08-01: señal PASS (no gate). Solo Rö marca done tras smoke manual en prod. Rö en W11 · Dishonored 2 (MICRO1 deck #1) · QA manual SIGUE abierto (no cerrar por agente) · stamp 2026-08-01T19:15:03Z. · P0 2026-08-03 post PR #139 SEO HU-01..03 · mail QA enviado · 2026-08-03 GSC verified; residual UI/SEO branding",
-          "assignee": "Rö",
-          "human": true,
-          "kind": "qa_manual",
-          "priority": "P0",
-          "highlight": "human"
-        },
-        {
-          "id": "now-multidevice-firmas",
-          "title": "HUMANO P0 · Firmas multi-device I15+W11+GWin+I11 (PIPELINE-QA)",
-          "repo": "Vientonorte",
-          "product": "ops",
-          "status": "todo",
-          "owner": "Rö",
-          "people_job": "ALTA PRIORIDAD: firmar en PIPELINE-QA §6 same artifact. GMac+M5 pass. No inventar. One-liners plantilla solo al abrir device.",
-          "links": [
-            "https://vientonorte.io/ops/",
-            "https://vientonorte.io/ops/SYNC-BOARD.md"
-          ],
-          "notes": "GMac pass tarde 08-02 · Selfradar+Alexa en Obsidian · firmas device siguen humano · 2026-08-03 M5: NO done — PIPELINE-QA §6 sigue pending I15/W11/GWin/I11; one-liners=plantilla. Solo GMac pass. Anti-patrón no inventar. · P0 2026-08-03 · mail QA",
           "human": true,
           "highlight": "human",
-          "assignee": "Rö",
-          "priority": "P0"
-        },
-        {
-          "id": "now-live-timebox-day",
-          "title": "HUMANO: vivir 1 día completo TB (café M5 → ClassPass → W11 A/B/C)",
-          "repo": "Vientonorte",
-          "product": "ops + micro1",
-          "status": "todo",
-          "owner": "Rö",
-          "people_job": "Probar timeboxes reales; FO Map lun 03 en café; no robar almuerzo 2h",
+          "kind": "design_sprint_test",
+          "token_pct": 10,
+          "track": "vn",
+          "mvp": "MVP-VN-01",
+          "people_job": "Rellenar smoke pass/fail. SEM $0. Links en HUMAN-ACTIONS A1–A8. Decider firma Test.",
           "checklist": [
-            "TB45 Post 08:30 café M5",
-            "FO Map 09:15–11 M5",
-            "ClassPass/bici 11:00",
-            "Almuerzo 13–15 sin laptop captura",
-            "MICRO1 A/B/C W11 15:00–17:30",
-            "CIERRE LOG + dashboard 17:30"
+            "H2 sin Inicio›Inicio",
+            "H4 Empezar → onboarding in-page",
+            "H5 free Calendar <30s",
+            "S2 SEM Empezar",
+            "HU-01 title/JSON-LD",
+            "HU-02 canonical SEM",
+            "favicon tab"
           ],
           "links": [
-            "https://vientonorte.io/ops/",
-            "https://vientonorte.io/table-ro/?view=ops",
-            "https://realm.micro1.ai"
+            "https://vientonorte.io/",
+            "https://vientonorte.io/#/consultoria",
+            "https://vientonorte.io/ops/HUMAN-ACTIONS.md",
+            "https://vientonorte.io/ops/HU-2026-08-06-MVP.md",
+            "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/HU-2026-08-06-MVP.md"
           ],
-          "notes": "Si ClassPass se alarga: skip MICRO1 pre · en curso 2026-08-03 Map+ClassPass+W11"
+          "notes": "DS-2026-08-03 day=Test · gap VN = Test no cerrado · 2026-08-06"
+        },
+        {
+          "id": "now-hu-m1-capture-gap",
+          "title": "P0 · HU-M1-01 captura 80% · olas Realm (max 3) · cierra gap $",
+          "status": "todo",
+          "priority": "P0",
+          "human": true,
+          "highlight": "human",
+          "kind": "micro1_capture",
+          "token_pct": 80,
+          "track": "m1",
+          "mvp": "MVP-M1-01",
+          "people_job": "Olas F7→tick→Submit. Review Ready ya: 9568…8714. No re-subir RR. LOG+m1-ledger-sync.",
+          "links": [
+            "https://realm.micro1.ai/",
+            "https://vientonorte.io/ops/finanzas/",
+            "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas/ledger.json",
+            "https://vientonorte.io/ops/HUMAN-ACTIONS.md"
+          ],
+          "notes": "MTD $18.48 / intent weekday ~$221 · gap cash se cierra con horas M1 no con features FO · 2026-08-06"
+        },
+        {
+          "id": "now-hu-vn-pages-data",
+          "title": "P0 · HU-VN-03 Pages ops live = raw (ledger 80/10/10 · $18.48)",
+          "status": "todo",
+          "priority": "P0",
+          "human": true,
+          "kind": "ops_infra",
+          "token_pct": 0,
+          "track": "vn",
+          "mvp": "MVP-VN-01",
+          "people_job": "GitHub Settings→Pages re-save main · Actions pages-build-deployment sin cancelar. Workaround: raw/jsDelivr.",
+          "links": [
+            "https://github.com/vientonorte/vientonorte.github.io/settings/pages",
+            "https://github.com/vientonorte/vientonorte.github.io/actions",
+            "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas/ledger.json",
+            "https://cdn.jsdelivr.net/gh/vientonorte/vientonorte.github.io@main/ops/finanzas/ledger-ssot.json"
+          ],
+          "notes": "Live still 80/20 $4.62 · root cause Pages errored · 2026-08-06"
         }
       ],
       "done_archive": [
@@ -462,14 +425,120 @@
           "cadence": "session"
         }
       ]
+    },
+    "later": {
+      "items": [
+        {
+          "id": "now-live-timebox-day",
+          "title": "HUMANO: vivir 1 día completo TB (café M5 → ClassPass → W11 A/B/C)",
+          "repo": "Vientonorte",
+          "product": "ops + micro1",
+          "status": "todo",
+          "owner": "Rö",
+          "people_job": "Probar timeboxes reales; FO Map lun 03 en café; no robar almuerzo 2h",
+          "checklist": [
+            "TB45 Post 08:30 café M5",
+            "FO Map 09:15–11 M5",
+            "ClassPass/bici 11:00",
+            "Almuerzo 13–15 sin laptop captura",
+            "MICRO1 A/B/C W11 15:00–17:30",
+            "CIERRE LOG + dashboard 17:30"
+          ],
+          "links": [
+            "https://vientonorte.io/ops/",
+            "https://vientonorte.io/table-ro/?view=ops",
+            "https://realm.micro1.ai"
+          ],
+          "notes": "Si ClassPass se alarga: skip MICRO1 pre · en curso 2026-08-03 Map+ClassPass+W11 · parked from NOW 2026-08-06 HU focus"
+        },
+        {
+          "id": "now-multidevice-firmas",
+          "title": "HUMANO P0 · Firmas multi-device I15+W11+GWin+I11 (PIPELINE-QA)",
+          "repo": "Vientonorte",
+          "product": "ops",
+          "status": "todo",
+          "owner": "Rö",
+          "people_job": "ALTA PRIORIDAD: firmar en PIPELINE-QA §6 same artifact. GMac+M5 pass. No inventar. One-liners plantilla solo al abrir device.",
+          "links": [
+            "https://vientonorte.io/ops/",
+            "https://vientonorte.io/ops/SYNC-BOARD.md"
+          ],
+          "notes": "GMac pass tarde 08-02 · Selfradar+Alexa en Obsidian · firmas device siguen humano · 2026-08-03 M5: NO done — PIPELINE-QA §6 sigue pending I15/W11/GWin/I11; one-liners=plantilla. Solo GMac pass. Anti-patrón no inventar. · P0 2026-08-03 · mail QA · parked from NOW 2026-08-06 HU focus",
+          "human": true,
+          "highlight": "human",
+          "assignee": "Rö",
+          "priority": "P0"
+        },
+        {
+          "id": "now-human-prod-smoke",
+          "title": "HUMANO P0 · Smoke FO residual + favicon + H5 free visible",
+          "repo": "vientonorte-fo",
+          "repo_git": "mi-portafolio",
+          "product": "vientonorte.io",
+          "status": "todo",
+          "owner": "Rö",
+          "people_job": "H2 PASS · H4 PASS (Empezar≠SEM). MANUAL: H5 free más visible, favicon ICO/tab Safari, S2 onboarding OK (CTA A). Code when M5 window; or note only.",
+          "checklist": [
+            "H1 https://vientonorte.io/ = embudo (hero pymes + packs + kickoff)",
+            "H2 sin breadcrumb Inicio›Inicio",
+            "H3 header primary = Proceso · Contacto (Negocios en Más)",
+            "H4 dock Empezar → #consultoria-onboarding",
+            "H5 Calendar free a11y abre <30 s",
+            "S1 https://vientonorte.io/#/consultoria = tour SEM fullscreen sin dock",
+            "S2 SEM Empezar → / (home embudo)",
+            "L1 /#/consultoria/embudo → /"
+          ],
+          "links": [
+            "https://vientonorte.io/",
+            "https://vientonorte.io/#/consultoria",
+            "https://github.com/vientonorte/mi-portafolio/pull/139"
+          ],
+          "notes": "QA MANUAL en /ops AHORA · humano destacado. PR #135 merged + Pages verde (2026-07-28). Proxy GMac headless 2026-08-01: señal PASS (no gate). Solo Rö marca done tras smoke manual en prod. Rö en W11 · Dishonored 2 (MICRO1 deck #1) · QA manual SIGUE abierto (no cerrar por agente) · stamp 2026-08-01T19:15:03Z. · P0 2026-08-03 post PR #139 SEO HU-01..03 · mail QA enviado · 2026-08-03 GSC verified; residual UI/SEO branding · parked from NOW 2026-08-06 HU focus",
+          "assignee": "Rö",
+          "human": true,
+          "kind": "qa_manual",
+          "priority": "P0",
+          "highlight": "human"
+        },
+        {
+          "id": "now-postdeploy-seo-test-gate",
+          "title": "P0 · Post-deploy SEO #139 + Test path gate (sin SEM $)",
+          "status": "todo",
+          "priority": "P0",
+          "human": true,
+          "kind": "qa_manual",
+          "repo": "vientonorte-fo",
+          "people_job": "GSC base OK. Manual residual: favicon tab, H5 free visible, smoke H5/S2 notes, Test path DS. SEM spend $0.",
+          "notes": "Creado 2026-08-03 · PR #139 · HUs 01-03 code merged · HU-04 gate Decider · GSC 2026-08-03: verify+sitemap+inspección / HECHOS · falta smoke H2b favicon · H5 free · Test path · SEM $0 · parked from NOW 2026-08-06 HU focus",
+          "links": [
+            "https://vientonorte.io/",
+            "https://vientonorte.io/#/consultoria",
+            "https://github.com/vientonorte/mi-portafolio/pull/139",
+            "https://vientonorte.io/ops/"
+          ]
+        },
+        {
+          "id": "now-gsc-manual-followup",
+          "title": "HUMANO · GSC manual post-verify (cobertura sitemap · CWV · móvil)",
+          "status": "todo",
+          "priority": "P1",
+          "human": true,
+          "kind": "qa_manual",
+          "repo": "vientonorte-fo",
+          "people_job": "HECHO 03 ago: verify HTML + sitemap.xml enviado + inspección /. MANUAL luego: cobertura sitemap procesada, CWV field, usabilidad móvil GSC, opcional propiedad dominio DNS. SSOT: Obsidian Resources/SEM/2026-08-03 GSC Pruebas y Enlaces.",
+          "notes": "Creado 2026-08-03 · no bloquea SEM $ (gate Test DS aparte) · parked from NOW 2026-08-06 HU focus",
+          "links": [
+            "https://search.google.com/search-console",
+            "https://vientonorte.io/sitemap.xml",
+            "https://vientonorte.io/",
+            "https://vientonorte.io/ops/"
+          ]
+        }
+      ]
     }
   },
-  "updated": "2026-08-04",
-  "last_sync": {
-    "at": "2026-08-03T13:44:19Z",
-    "source": "GMac sync_board refresh",
-    "note": "Devices tab · no full vault sync token required for board fields"
-  },
+  "updated": "2026-08-06T17:53:58Z",
+  "last_sync": "2026-08-06T17:53:58Z",
   "identity": {
     "org": "Viento Norte",
     "type": "empresa",
@@ -557,12 +626,11 @@
     }
   ],
   "active_sprint": {
-    "id": "ds-2026-08-03-path-oferta-analytics",
-    "name": "DS path oferta + analytics · Map→Test en café M5 TB",
-    "starts": "2026-08-03",
-    "ends": "2026-08-07",
+    "id": "DS-2026-08-03-path-oferta-analytics",
+    "day": "Test",
     "status": "active",
-    "note": "FO Map→Test en TB45/TB60 M5 café 09:15–11 · no ads scale · MICRO1 W11 no se come FO"
+    "note": "Cerrar Test path + SEM $0 · HUs MVP-VN-01",
+    "doc": "Viento Norte/Sprints/DS-2026-08-03 path-oferta-analytics.md"
   },
   "last_close": {
     "date": "2026-08-04",
@@ -624,7 +692,13 @@
       "cierre-sesion-vn"
     ]
   },
-  "objective": "Finanzas en ops · siguiente sprint core bien · luego onboarding + env pub/priv · smoke #135 humano si falta",
+  "objective": {
+    "today": "Cerrar gap VN (Test path) + avanzar gap cash M1 80%",
+    "tokens": "80_m1_10_vn_10_post",
+    "mtd_usd": 18.48,
+    "mtd_tasks": 12,
+    "gap_note": "intent weekday ~$221 vs reality $18.48 — close via M1 hours not FO features"
+  },
   "design_system": {
     "figma_sites": "https://dot-wool-76997229.figma.site",
     "code_repo": "vientonorte/vientonorte-core",

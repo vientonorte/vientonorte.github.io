@@ -39,4 +39,17 @@ Sync escribe vault vía Worker + token `ops_sync_token` (solo en el browser; no 
 
 `canvas-sprint start` · `vn-daily` · `vn-m5 status`
 
-<!-- ssot-refresh 2026-08-06T17:21Z ledger=80/10/10 mtd=13 -->
+<!-- ssot-refresh 2026-08-06T17:53Z hus-mvp gap-vn -->
+
+## Hoy · 2026-08-06 (gap VN + HUs)
+
+| Board | Link |
+|-------|------|
+| **Acciones humanas (links)** | [HUMAN-ACTIONS.md](./HUMAN-ACTIONS.md) |
+| **HUs MVP del día** | [HU-2026-08-06-MVP.md](./HU-2026-08-06-MVP.md) |
+| **Tareas humanas** | [HUMAN-TASKS.md](./HUMAN-TASKS.md) |
+| **ĀRŪḾA checklist** | [ARUMA-CHECKLIST.md](./ARUMA-CHECKLIST.md) |
+| **Ledger SoT** | [raw ledger.json](https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas/ledger.json) |
+| **Canvas** | [index.html](./) |
+
+**Tokens:** 80% M1 · 10% VN · 10% Post · **DS day = Test**

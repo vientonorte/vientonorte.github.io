@@ -1,8 +1,10 @@
 # Tareas humanas · FO + multi-device + ops SSOT
 
-**Dueño:** Rö · **Actualizado:** 2026-08-06 · **P0 humano + agente**  
+**Dueño:** Rö · **Actualizado:** 2026-08-06 tarde · **P0 humano + agente**  
+**Acciones con links de un clic:** [HUMAN-ACTIONS.md](./HUMAN-ACTIONS.md)  
+**HUs MVP hoy:** [HU-2026-08-06-MVP.md](./HU-2026-08-06-MVP.md)  
 **Ops:** https://vientonorte.io/ops/ · **table-ro:** https://vientonorte.io/table-ro/?view=ops  
-**Finanzas SoT:** [ledger-ssot jsDelivr](https://cdn.jsdelivr.net/gh/vientonorte/vientonorte.github.io@main/ops/finanzas/ledger-ssot.json) (no confiar en CDN Pages si dice 80/20)
+**Finanzas SoT:** [ledger raw](https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas/ledger.json) · live puede estar stale (Pages)
 
 ## Canon FO
 
