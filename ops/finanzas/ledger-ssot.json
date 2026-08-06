@@ -320,7 +320,7 @@
     "fx_clp_per_usd": 947,
     "summary_gap_usd": -265.42,
     "calendar_finanzas": "9616f51a807e24559b4df624c70d7fe1d81de62f9aa8baf44c1190db5887b12f@group.calendar.google.com",
-    "intention_note": "Jornada 8h L-J · Vie 5h · sáb+dom WAVE 1h M1 c/u · 80/10/10 · ops 5.0 t/h · techo 5.6 · meta 1.6M",
+    "intention_note": "40h M1 + 5h VN + 3h Post/sem · Post=Computrabajo+entrevistas M1 (no LinkedIn) · ops 5.0 t/h · techo 5.6 · meta 1.6M CLP",
     "intent_usd_month_tb_only": 1076.23,
     "goal_usd_equiv": 1689.55,
     "log_path": "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md",
@@ -328,7 +328,7 @@
     "summary_mtd_usd": 15.4,
     "rate_usd": 1.54,
     "wind_down": "21:30",
-    "sync": "weekend-1h+ops5-2026-08-06",
+    "sync": "split-40m1-5vn-3post-2026-08-06",
     "intent_usd_week_tb": 255.26,
     "goal_clp_month": 1600000,
     "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -340,13 +340,13 @@
     "intent_usd_day_fri": 34.5,
     "baseline_tph": 5.0,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-08-06T15:59:30-04:00",
-    "intention_h_month": 134.8,
+    "updated": "2026-08-06T16:02:23-04:00",
+    "intention_h_month": 172.5,
     "target_hours_month": 180,
-    "split_policy": "80_micro1_10_vn_10_post",
+    "split_policy": "40m1_5vn_3post",
     "intent_usd_week_80_20": 255.26,
-    "workday_h_lj": 8.0,
-    "workday_h_fri": 5.0,
+    "workday_h_lj": 9.0,
+    "workday_h_fri": 6.0,
     "summary_mtd_tasks": 10,
     "summary_today_tasks": 2,
     "summary_today_rework_done": 0,
@@ -356,22 +356,22 @@
     "intent_usd_month_with_wave": 1399.63,
     "intention_h_month_lv_only": 124.8,
     "split_pct": {
-      "micro1": 80,
-      "vn": 10,
-      "postulaciones": 10
+      "micro1": 83.3,
+      "vn": 10.4,
+      "postulaciones": 6.2
     },
     "intent_usd_week_80_10_10": 255.26,
     "hours_lj": {
-      "m1": 6.4,
-      "vn": 0.8,
-      "post": 0.8
+      "m1": 7.5,
+      "vn": 1.0,
+      "post": 0.5
     },
     "hours_fri": {
-      "m1": 4.0,
+      "m1": 5.0,
       "vn": 0.5,
       "post": 0.5
     },
-    "reality_note": "RR 10·$15.4 · ops 5.0 t/h · week M1 31.6h (L-V 29.6 + sáb1 + dom1) · work week 39h",
+    "reality_note": "RR 10·$15.4 · split 40/5/3 h/sem · ops 5.0 t/h · intent L-J 38t · sem 200t",
     "realm_review_ready": [
       "9568",
       "9567",
@@ -391,32 +391,37 @@
     "ops_stable_from": "2026-08-06",
     "ops_setup_until": "2026-08-05",
     "ops_model": "setup_no_debt_then_stable_4tph",
-    "summary_intent_to_date_h_ops": 8.98,
-    "summary_intent_to_date_tasks_ops": 40.0,
-    "summary_intent_to_date_usd_ops": 61.6,
-    "summary_gap_usd_ops": -46.2,
-    "summary_gap_tasks_ops": -30.0,
+    "summary_intent_to_date_h_ops": 10.08,
+    "summary_intent_to_date_tasks_ops": 45.5,
+    "summary_intent_to_date_usd_ops": 70.07,
+    "summary_gap_usd_ops": -54.67,
+    "summary_gap_tasks_ops": -35.5,
     "projection": {
       "as_of": "2026-08-06",
       "ops_tph": 5.0,
       "plan_tph": 5.6,
-      "m1_h_remaining_plantilla": 113.27,
-      "eom_tasks_at_ops": 576.4,
-      "eom_usd_at_ops": 887.58,
-      "eom_clp_at_ops": 840537,
-      "eom_tasks_at_5_6": 644.3,
-      "week_runrate_tasks": 158.0,
-      "week_runrate_usd": 243.32,
-      "week_m1_h_full": 31.6,
-      "work_week_h": 39,
-      "day_lj_intent_tasks": 32.0,
-      "day_weekend_intent_tasks": 5.0,
+      "m1_h_remaining_plantilla": 144.67,
+      "eom_tasks_at_ops": 733.4,
+      "eom_usd_at_ops": 1129.36,
+      "eom_clp_at_ops": 1069503,
+      "eom_tasks_at_5_6": 820.2,
+      "week_runrate_tasks": 200.0,
+      "week_runrate_usd": 308.0,
+      "week_m1_h_full": 40.0,
+      "work_week_h": 48.0,
+      "day_lj_intent_tasks": 37.5,
+      "day_lj_intent_usd": 57.75,
+      "day_fri_intent_tasks": 25.0,
+      "day_weekend_intent_tasks": 12.5,
       "tasks_to_trainer": 998.0,
-      "weeks_to_trainer_at_ops": 6.3,
-      "calendar_day_h_lj": 6.4,
-      "calendar_day_h_weekend": 1.0,
-      "calendar_week_h_full": 31.6,
-      "calendar_month_h_aug": 134.8
+      "weeks_to_trainer_at_ops": 5.0,
+      "calendar_day_h_lj": 7.5,
+      "calendar_day_h_fri": 5.0,
+      "calendar_day_h_weekend": 2.5,
+      "calendar_week_h_m1": 40.0,
+      "calendar_week_h_vn": 5.0,
+      "calendar_week_h_post": 3.0,
+      "calendar_month_h_aug_m1": 172.5
     },
     "ops_intent_days": [
       {
@@ -425,7 +430,7 @@
         "intent_h": 0.0,
         "intent_tasks": 0.0,
         "intent_usd": 0.0,
-        "sched_m1_h": 1.0
+        "sched_m1_h": 2.5
       },
       {
         "date": "2026-08-02",
@@ -433,7 +438,7 @@
         "intent_h": 0.5,
         "intent_tasks": 0.0,
         "intent_usd": 0.0,
-        "sched_m1_h": 1.0
+        "sched_m1_h": 2.5
       },
       {
         "date": "2026-08-03",
@@ -441,7 +446,7 @@
         "intent_h": 0.75,
         "intent_tasks": 0.0,
         "intent_usd": 0.0,
-        "sched_m1_h": 6.4
+        "sched_m1_h": 7.5
       },
       {
         "date": "2026-08-04",
@@ -449,7 +454,7 @@
         "intent_h": 0.33,
         "intent_tasks": 2.0,
         "intent_usd": 3.08,
-        "sched_m1_h": 6.4
+        "sched_m1_h": 7.5
       },
       {
         "date": "2026-08-05",
@@ -457,15 +462,15 @@
         "intent_h": 1.0,
         "intent_tasks": 6.0,
         "intent_usd": 9.24,
-        "sched_m1_h": 6.4
+        "sched_m1_h": 7.5
       },
       {
         "date": "2026-08-06",
         "phase": "stable_5tph",
-        "intent_h": 6.4,
-        "intent_tasks": 32.0,
-        "intent_usd": 49.28,
-        "sched_m1_h": 6.4
+        "intent_h": 7.5,
+        "intent_tasks": 37.5,
+        "intent_usd": 57.75,
+        "sched_m1_h": 7.5
       }
     ],
     "realm_review_ready_detail": [
@@ -587,22 +592,53 @@
     ],
     "ops_tph_note": "2026-08-06 raised 4.0→5.0 (learning curve + Calendar capacity); plan techo 5.6",
     "calendar_hours": {
-      "source": "SSOT 80/10/10 + WAVE sáb/dom 1h M1 each · 2026-08-06",
-      "plantilla_lj_h": 6.4,
-      "plantilla_fri_h": 4.0,
-      "plantilla_sat_h": 1.0,
-      "plantilla_sun_h": 1.0,
-      "plantilla_week_lv_h": 29.6,
-      "plantilla_week_full_h": 31.6,
-      "plantilla_work_week_h": 39,
-      "plantilla_month_aug_h": 134.8,
-      "live_day_2026_08_06_h": 8.0
+      "source": "SSOT 40 M1 + 5 VN + 3 Post · 2026-08-06",
+      "plantilla_lj_h": 7.5,
+      "plantilla_fri_h": 5.0,
+      "plantilla_sat_h": 2.5,
+      "plantilla_sun_h": 2.5,
+      "plantilla_week_m1_h": 40.0,
+      "plantilla_week_vn_h": 5.0,
+      "plantilla_week_post_h": 3.0,
+      "plantilla_work_week_h": 48.0,
+      "plantilla_month_aug_m1_h": 172.5,
+      "distribution": {
+        "L-J": {
+          "m1": 7.5,
+          "vn": 1.0,
+          "post": 0.5
+        },
+        "Vie": {
+          "m1": 5.0,
+          "vn": 0.5,
+          "post": 0.5
+        },
+        "SabDom": {
+          "m1": 2.5,
+          "vn": 0.25,
+          "post": 0.25
+        }
+      },
+      "post_note": "Computrabajo + entrevistas Micro1 pendientes · NO LinkedIn"
     },
     "hours_weekend": {
-      "m1": 1.0,
-      "vn": 0.0,
-      "post": 0.0
+      "m1": 2.5,
+      "vn": 0.25,
+      "post": 0.25
     },
-    "workday_h_weekend": 1.0
+    "workday_h_weekend": 3.0,
+    "split_hours_week": {
+      "micro1": 40,
+      "vn": 5,
+      "postulaciones": 3,
+      "total": 48
+    },
+    "post_channels": [
+      "Computrabajo",
+      "entrevistas_micro1_pendientes"
+    ],
+    "post_channels_excluded": [
+      "LinkedIn"
+    ]
   }
 }
