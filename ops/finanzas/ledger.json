@@ -250,8 +250,8 @@
       ],
       "game": "Dishonored 2",
       "note": "3 submit OK · claims 9483, 9484, 9485",
-      "source": "LOG+m1-ledger-sync",
-      "updated_at": "2026-08-06T17:45:21Z",
+      "source": "LOG+Realm+humano-SSOT",
+      "updated_at": "2026-08-06T18:42:45Z",
       "hubstaff_h": 0.75,
       "claims_open_eod": 3,
       "olas_de_3": 0
@@ -265,12 +265,12 @@
       "olas_de_3": 0,
       "game": "Dishonored 2",
       "note": "2 submit OK · claims 9566, 9568",
-      "source": "LOG+m1-ledger-sync",
+      "source": "LOG+Realm+humano-SSOT",
       "claims": [
         "9566",
         "9568"
       ],
-      "updated_at": "2026-08-06T17:45:21Z"
+      "updated_at": "2026-08-06T18:42:45Z"
     },
     {
       "date": "2026-08-05",
@@ -280,8 +280,8 @@
       "claims_open_eod": null,
       "olas_de_3": 0,
       "game": "Dishonored 2",
-      "note": "6 submit OK · claims 8714, 8716, 8717, 8718, 8719, 9567",
-      "source": "LOG+m1-ledger-sync",
+      "note": "6 submit OK · claims 8714, 8716-8719, 9567",
+      "source": "LOG+Realm+humano-SSOT",
       "claims": [
         "8714",
         "8716",
@@ -290,14 +290,14 @@
         "8719",
         "9567"
       ],
-      "updated_at": "2026-08-06T17:45:21Z"
+      "updated_at": "2026-08-06T18:42:45Z"
     },
     {
       "date": "2026-08-06",
       "hubstaff_h": 1.67,
       "hubstaff_note": "est min10×tasks · override con hubstaff real",
-      "tasks_ok": 1,
-      "usd": 1.54,
+      "tasks_ok": 10,
+      "usd": 15.4,
       "rework_done": 3,
       "claims": [
         "8715"
@@ -306,9 +306,9 @@
       "claims_open_eod": 3,
       "olas_de_3": 3,
       "game": "Dishonored 2",
-      "note": "1 submit OK · claims 8715",
-      "source": "LOG+m1-ledger-sync",
-      "updated_at": "2026-08-06T17:45:21Z"
+      "note": "10 entregadas · 3 rework done · SSOT humano · IDs partial (8715+)",
+      "source": "LOG+Realm+humano-SSOT",
+      "updated_at": "2026-08-06T18:42:45Z"
     }
   ],
   "meta": {
@@ -322,10 +322,10 @@
     "goal_usd_equiv": 1689.55,
     "log_path": "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md",
     "intent_usd_day_lj": 55.19,
-    "summary_mtd_usd": 18.48,
+    "summary_mtd_usd": 32.34,
     "rate_usd": 1.54,
     "wind_down": "21:30",
-    "sync": "m1-ledger-sync+realm-ssot-2026-08-06",
+    "sync": "ssot-fix-2026-08-06Tlive-outage",
     "intent_usd_week_tb": 255.26,
     "goal_clp_month": 1600000,
     "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -337,14 +337,14 @@
     "intent_usd_day_fri": 34.5,
     "baseline_tph": 5.6,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-08-06T13:45:21-04:00",
+    "updated": "2026-08-06T14:42:45-04:00",
     "intention_h_month": 162.3,
     "target_hours_month": 180,
     "split_policy": "80_micro1_10_vn_10_post",
     "intent_usd_week_80_20": 255.26,
     "workday_h_lj": 8.0,
     "workday_h_fri": 5.0,
-    "summary_mtd_tasks": 12,
+    "summary_mtd_tasks": 21,
     "summary_today_tasks": 10,
     "summary_today_rework_done": 3,
     "summary_today_usd": 15.4,
@@ -368,7 +368,7 @@
       "vn": 0.5,
       "post": 0.5
     },
-    "reality_note": "2026-08-06 · 10 tasks entregadas · 3 rework done · MTD 13 · $20.02",
+    "reality_note": "2026-08-06 · 10 tasks · 3 rework · MTD 21 · $32.34 · live CDN blocked GH Pages outage",
     "realm_review_ready": [
       "9568",
       "9567",
