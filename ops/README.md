@@ -53,3 +53,13 @@ Sync escribe vault vía Worker + token `ops_sync_token` (solo en el browser; no 
 | **Canvas** | [index.html](./) |
 
 **Tokens:** 80% M1 · 10% VN · 10% Post · **DS day = Test**
+
+## Finanzas $ (canónico)
+
+| | |
+|--|--|
+| **UI live** | https://finanzas.vientonorte.io/ |
+| **Ledger** | https://finanzas.vientonorte.io/ledger.json |
+| **Deploy roadmap P0–P2** | [DEPLOY-ROADMAP.md](./DEPLOY-ROADMAP.md) |
+| **Deprecado** | `vientonorte.io/ops/finanzas/` si smoke stale |
+| **Mail cierre** | siempre `## Retro deploy` |
