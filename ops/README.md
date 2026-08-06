@@ -38,3 +38,5 @@ Sync escribe vault vía Worker + token `ops_sync_token` (solo en el browser; no 
 ## CLI
 
 `canvas-sprint start` · `vn-daily` · `vn-m5 status`
+
+<!-- ssot-refresh 2026-08-06T17:21Z ledger=80/10/10 mtd=13 -->

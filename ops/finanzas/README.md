@@ -34,4 +34,10 @@ Datos de pace/meta son operativos personales. Hosted en `/ops/` (misma superfici
 
 — GMac · 2026-08-02 · available en tablero ops
 
-<!-- ssot-deploy 2026-08-06T16:52Z split=80_micro1_10_vn_10_post mtd=13 -->
+## Doc SSOT
+
+Obsidian: `Viento Norte/Resources/DASHBOARD-Finanzas-tablas-ROI-proyecciones.md`
+
+## Split live (2026-08-06)
+
+**80% MICRO1 · 10% VN · 10% Postulaciones** · L–J intent M1 ~$55.19 · Vie ~$34.50 · meta 1.6M CLP.
