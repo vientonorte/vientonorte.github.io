@@ -317,7 +317,7 @@
     "fx_clp_per_usd": 947,
     "summary_gap_usd": -265.42,
     "calendar_finanzas": "9616f51a807e24559b4df624c70d7fe1d81de62f9aa8baf44c1190db5887b12f@group.calendar.google.com",
-    "intention_note": "Jornada 8h L-J · 80% M1 6.4h / 10% VN / 10% Post · Vie M1 4.0h · meta 1.6M CLP",
+    "intention_note": "Setup ≤05: sin deuda captura (rework/settings). Desde 06: M1 6.4/4.0h × 4 t/h flujo estable. Techo plan 5.6 aparte.",
     "intent_usd_month_tb_only": 1076.23,
     "goal_usd_equiv": 1689.55,
     "log_path": "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md",
@@ -325,7 +325,7 @@
     "summary_mtd_usd": 32.34,
     "rate_usd": 1.54,
     "wind_down": "21:30",
-    "sync": "ssot-fix-2026-08-06Tlive-outage",
+    "sync": "ops-intent-4tph-ramp-2026-08-06",
     "intent_usd_week_tb": 255.26,
     "goal_clp_month": 1600000,
     "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -335,9 +335,9 @@
     "trainer_share_of_goal": 0.919,
     "max_claims": 3,
     "intent_usd_day_fri": 34.5,
-    "baseline_tph": 5.6,
+    "baseline_tph": 4.0,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-08-06T14:42:45-04:00",
+    "updated": "2026-08-06T14:51:34-04:00",
     "intention_h_month": 162.3,
     "target_hours_month": 180,
     "split_policy": "80_micro1_10_vn_10_post",
@@ -368,7 +368,7 @@
       "vn": 0.5,
       "post": 0.5
     },
-    "reality_note": "2026-08-06 · 10 tasks · 3 rework · MTD 21 · $32.34 · live CDN blocked GH Pages outage",
+    "reality_note": "2026-08-06 · MTD 21t $32.34 · intent ops a hoy 37t $56 · gap ops $-24 · proy EOM @4 ~437t $673",
     "realm_review_ready": [
       "9568",
       "9567",
@@ -380,6 +380,87 @@
       "8715",
       "8714"
     ],
-    "realm_review_ready_n": 9
+    "realm_review_ready_n": 9,
+    "ops_tph": 4.0,
+    "plan_tph": 5.6,
+    "baseline_tph_plan_ceiling": 5.6,
+    "ops_stable_from": "2026-08-06",
+    "ops_setup_until": "2026-08-05",
+    "ops_model": "setup_no_debt_then_stable_4tph",
+    "summary_intent_to_date_h_ops": 7.65,
+    "summary_intent_to_date_tasks_ops": 36.6,
+    "summary_intent_to_date_usd_ops": 56.36,
+    "summary_gap_usd_ops": -24.02,
+    "summary_gap_tasks_ops": -15.6,
+    "projection": {
+      "as_of": "2026-08-06",
+      "ops_tph": 4.0,
+      "plan_tph": 5.6,
+      "m1_h_remaining_incl_today_left": 103.93,
+      "eom_tasks_at_4": 436.7,
+      "eom_usd_at_4": 672.55,
+      "eom_clp_at_4": 636904,
+      "eom_tasks_at_5_6": 603.0,
+      "eom_usd_at_5_6": 928.63,
+      "week_runrate_tasks": 118.4,
+      "week_runrate_usd": 182.34,
+      "week_runrate_clp": 172672,
+      "tasks_to_trainer_1552": 987.0,
+      "hours_to_trainer_at_4": 246.8,
+      "weeks_to_trainer_at_4": 8.3,
+      "tasks_to_1_6M_clp": 1076.1,
+      "req_tph_hit_trainer_eom": 9.5,
+      "note": "4 t/h = flujo estable actual. 5.6 = techo plan. 1008 tasks/mes no es realista en resto ago @≤5.6."
+    },
+    "ops_intent_days": [
+      {
+        "date": "2026-08-01",
+        "phase": "setup_no_debt",
+        "intent_h": 0.0,
+        "intent_tasks": 0.0,
+        "intent_usd": 0.0,
+        "sched_m1_h": 0.0
+      },
+      {
+        "date": "2026-08-02",
+        "phase": "setup_no_debt",
+        "intent_h": 0.5,
+        "intent_tasks": 0.0,
+        "intent_usd": 0.0,
+        "sched_m1_h": 0.0
+      },
+      {
+        "date": "2026-08-03",
+        "phase": "setup_no_debt",
+        "intent_h": 0.75,
+        "intent_tasks": 3.0,
+        "intent_usd": 4.62,
+        "sched_m1_h": 6.4
+      },
+      {
+        "date": "2026-08-04",
+        "phase": "setup_no_debt",
+        "intent_h": 0.0,
+        "intent_tasks": 2.0,
+        "intent_usd": 3.08,
+        "sched_m1_h": 6.4
+      },
+      {
+        "date": "2026-08-05",
+        "phase": "setup_no_debt",
+        "intent_h": 0.0,
+        "intent_tasks": 6.0,
+        "intent_usd": 9.24,
+        "sched_m1_h": 6.4
+      },
+      {
+        "date": "2026-08-06",
+        "phase": "stable_4tph",
+        "intent_h": 6.4,
+        "intent_tasks": 25.6,
+        "intent_usd": 39.42,
+        "sched_m1_h": 6.4
+      }
+    ]
   }
 }
