@@ -287,8 +287,8 @@
     },
     {
       "date": "2026-08-06",
-      "hubstaff_h": 0.5,
-      "hubstaff_note": "est 3×10min Realm Updated",
+      "hubstaff_h": 6.47,
+      "hubstaff_note": "calendar M1 used wall-clock · no min10×tasks",
       "tasks_ok": 3,
       "usd": 4.62,
       "claims": [
@@ -298,9 +298,12 @@
       ],
       "game": "Dishonored 2",
       "olas_de_3": 1,
-      "note": "3 Review Ready · Updated Realm · 8715 · 7952 · 7953 · UI MTD 12 (1 id pendiente)",
-      "source": "Realm-table-Updated+user-ui12",
-      "updated_at": "2026-08-06T20:08:11Z"
+      "note": "3 RR · 8715·7952·7953 · cal M1 left live in UI · 3 Review Ready · Updated Realm · 8715 · 7952 · 7953 · UI MTD 12 (1 id pendiente)",
+      "source": "Realm-table-Updated+calendar-blocks",
+      "updated_at": "2026-08-06T20:08:11Z",
+      "calendar_m1_used_h": 6.47,
+      "calendar_m1_left_h": 1.53,
+      "calendar_m1_total_h": 8.0
     }
   ],
   "meta": {
@@ -317,7 +320,7 @@
     "summary_mtd_usd": 16.94,
     "rate_usd": 1.54,
     "wind_down": "21:30",
-    "sync": "realm-+7953-ui12-2026-08-06",
+    "sync": "cal-left-real-2026-08-06",
     "intent_usd_week_tb": 255.26,
     "goal_clp_month": 1600000,
     "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -329,7 +332,7 @@
     "intent_usd_day_fri": 34.5,
     "baseline_tph": 5.0,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-08-06T16:08:11-04:00",
+    "updated": "2026-08-06T17:13:05-04:00",
     "intention_h_month": 172.5,
     "target_hours_month": 180,
     "split_policy": "40m1_5vn_3post",
@@ -360,7 +363,7 @@
       "vn": 0.5,
       "post": 0.5
     },
-    "reality_note": "Realm RR IDs n=11 · $16.94 · UI reporta 12 · 06→3 (8715·7952·7953) · ops 5.0 · 40/5/3",
+    "reality_note": "Realm RR n=11 · $16.94 · cal M1 used~6.5h left~1.5h (no plantilla residual) · 40/5/3",
     "realm_review_ready": [
       "9568",
       "9567",
@@ -629,6 +632,65 @@
       "LinkedIn"
     ],
     "realm_ui_reported_n": 12,
-    "realm_ui_gap_note": "Rö 2026-08-06: Realm UI 12 RR tras +7953 · ledger IDs listados=11 · falta 1 claim id"
+    "realm_ui_gap_note": "Rö 2026-08-06: Realm UI 12 RR tras +7953 · ledger IDs listados=11 · falta 1 claim id",
+    "calendar_m1_blocks": {
+      "date": "2026-08-06",
+      "tz": "America/Santiago",
+      "source": "Google Calendar MICRO1 timed · 2026-08-06",
+      "blocks": [
+        {
+          "summary": "MICRO1 AM · W11",
+          "start": "2026-08-06T09:30:00-04:00",
+          "end": "2026-08-06T12:30:00-04:00"
+        },
+        {
+          "summary": "MICRO1 A · W11",
+          "start": "2026-08-06T12:30:00-04:00",
+          "end": "2026-08-06T13:45:00-04:00"
+        },
+        {
+          "summary": "MICRO1 B + pausa · W11",
+          "start": "2026-08-06T15:00:00-04:00",
+          "end": "2026-08-06T16:15:00-04:00"
+        },
+        {
+          "summary": "MICRO1 C · W11",
+          "start": "2026-08-06T16:15:00-04:00",
+          "end": "2026-08-06T18:45:00-04:00"
+        }
+      ],
+      "total_h": 8.0,
+      "synced_at": "2026-08-06T17:13:05-04:00",
+      "note": "left/used se recalculan en UI con reloj local · no usar hubstaff_est 0.5 como left"
+    },
+    "calendar_m1_plantilla_blocks": {
+      "L-J": [
+        {
+          "start": "09:00",
+          "end": "12:30"
+        },
+        {
+          "start": "15:00",
+          "end": "19:00"
+        }
+      ],
+      "Vie": [
+        {
+          "start": "10:00",
+          "end": "13:00"
+        },
+        {
+          "start": "15:00",
+          "end": "17:00"
+        }
+      ],
+      "SabDom": [
+        {
+          "start": "10:00",
+          "end": "12:30"
+        }
+      ]
+    },
+    "summary_today_hubstaff_h": 6.47
   }
 }
