@@ -10,7 +10,7 @@ param(
 )
 
 $ErrorActionPreference = "Continue"
-$fail = 0
+$script:fail = 0
 function Ok($m) { Write-Host "  PASS  $m" -ForegroundColor Green }
 function Bad($m) { Write-Host "  FAIL  $m" -ForegroundColor Red; $script:fail++ }
 function Warn($m) { Write-Host "  WARN  $m" -ForegroundColor Yellow }
@@ -63,14 +63,19 @@ elseif ($raw.mtd -ne $pages.mtd) { Warn "PAGES mtd $($pages.mtd) != GIT $($raw.m
 else { Ok "GIT_RAW == PAGES (mtd $($raw.mtd))" }
 
 if ($live.error) {
-  Bad "LIVE unreachable"
+  Bad "LIVE unreachable: $($live.error)"
 } elseif ($raw.error) {
-  Bad "cannot compare LIVE"
-} elseif ($live.mtd -eq $raw.mtd -and $live.today -eq $raw.today) {
-  Ok "LIVE == GIT (today $($live.today) mtd $($live.mtd)) — SSOT aligned"
+  Bad "cannot compare LIVE (no GIT_RAW)"
 } else {
-  $msg = "LIVE today=$($live.today)/mtd=$($live.mtd) != GIT today=$($raw.today)/mtd=$($raw.mtd) — Worker stale; run deploy-finanzas.cmd"
-  if ($AllowLiveLag) { Warn $msg } else { Bad $msg }
+  $lt = [int]$live.today; $lm = [int]$live.mtd
+  $rt = [int]$raw.today; $rm = [int]$raw.mtd
+  Write-Host "  CMP    LIVE t=$lt mtd=$lm  vs  GIT t=$rt mtd=$rm"
+  if ($lm -eq $rm -and $lt -eq $rt) {
+    Ok "LIVE == GIT (today $lt mtd $lm) — SSOT aligned"
+  } else {
+    $msg = "LIVE today=$lt/mtd=$lm != GIT today=$rt/mtd=$rm — Worker stale; run deploy-finanzas.cmd"
+    if ($AllowLiveLag) { Warn $msg } else { Bad $msg }
+  }
 }
 
 # health header
@@ -82,5 +87,5 @@ try {
 } catch { Warn "no live headers" }
 
 Write-Host ""
-if ($fail -eq 0) { Write-Host "RESULT: PASS" -ForegroundColor Green; exit 0 }
-Write-Host "RESULT: $fail FAIL" -ForegroundColor Red; exit 1
+if ($script:fail -eq 0) { Write-Host "RESULT: PASS" -ForegroundColor Green; exit 0 }
+Write-Host "RESULT: $($script:fail) FAIL" -ForegroundColor Red; exit 1
