@@ -71,9 +71,9 @@ if ($live.error) {
   $rt = [int]$raw.today; $rm = [int]$raw.mtd
   Write-Host "  CMP    LIVE t=$lt mtd=$lm  vs  GIT t=$rt mtd=$rm"
   if ($lm -eq $rm -and $lt -eq $rt) {
-    Ok "LIVE == GIT (today $lt mtd $lm) — SSOT aligned"
+    Ok "LIVE == GIT (today $lt mtd $lm) - SSOT aligned"
   } else {
-    $msg = "LIVE today=$lt/mtd=$lm != GIT today=$rt/mtd=$rm — Worker stale; run deploy-finanzas.cmd"
+    $msg = "LIVE today=$lt/mtd=$lm != GIT today=$rt/mtd=$rm - Worker stale; run deploy-finanzas.cmd"
     if ($AllowLiveLag) { Warn $msg } else { Bad $msg }
   }
 }
