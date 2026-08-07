@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/schema/edges-collection.schema.json",
+  "title": "Colección de Aristas",
+  "description": "Array de aristas del grafo para data/graph/edges.json",
+  "type": "array",
+  "items": {
+    "$ref": "./edge.schema.json"
+  },
+  "minItems": 0
+}

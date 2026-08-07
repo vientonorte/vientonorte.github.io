@@ -1,0 +1,10 @@
+# Viento Norte · vientonorte.io (canon sin /mi-portafolio/)
+User-agent: *
+Allow: /
+
+Sitemap: https://vientonorte.io/sitemap.xml
+
+# Superficies no indexables
+Disallow: /#/admin
+Disallow: /#/grafo
+Disallow: /ops/
