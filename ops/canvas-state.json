@@ -584,7 +584,7 @@
       ]
     }
   },
-  "updated": "2026-08-06T17:53:58Z",
+  "updated": "2026-08-06",
   "last_sync": "2026-08-06T17:53:58Z",
   "identity": {
     "org": "Viento Norte",
@@ -680,13 +680,13 @@
     "doc": "Viento Norte/Sprints/DS-2026-08-03 path-oferta-analytics.md"
   },
   "last_close": {
-    "date": "2026-08-04",
+    "date": "2026-08-06",
     "session": "vn-cierre-sesion",
     "status": "closed-auto",
-    "title": "SPRINT ĀRŪḾA parked · cuenta tercera Google Citas · deploy esta semana",
-    "at": "2026-08-04T04:28:33Z",
+    "title": "CierreVNHOY W11 + Session unificado + finanzas 7t MTD15",
+    "at": "2026-08-07T00:23:32Z",
     "docs": [
-      "vault:Viento Norte/Sprints/2026-08-04 LOG sesion.md"
+      "vault:Viento Norte/Sprints/2026-08-06 LOG sesion.md"
     ]
   },
   "github": {
