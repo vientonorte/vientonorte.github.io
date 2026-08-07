@@ -262,27 +262,25 @@
                      "date":  "2026-08-04",
                      "hubstaff_h":  0.33,
                      "hubstaff_note":  "est 2x10min Realm Updated",
-                     "tasks_ok":  2,
-                     "usd":  3.08,
+                     "tasks_ok":  0,
+                     "usd":  0,
                      "claims":  [
-                                    "9566",
-                                    "9568"
+
                                 ],
                      "game":  "Dishonored 2",
                      "olas_de_3":  0,
-                     "note":  "2 RR · Updated Realm · 9566 · 9568",
-                     "source":  "Realm-table-Updated-RR",
-                     "updated_at":  "2026-08-06T23:30:53Z",
-                     "tasks_tomadas":  2
+                     "note":  "9566+9568 → Rework Required Aug7 · 0 RR dia",
+                     "source":  "Realm-Rework-exit",
+                     "updated_at":  "2026-08-07T18:52:19Z",
+                     "tasks_tomadas":  0
                  },
                  {
                      "date":  "2026-08-05",
                      "hubstaff_h":  1,
                      "hubstaff_note":  "est 6x10min Realm Updated",
-                     "tasks_ok":  6,
-                     "usd":  9.24,
+                     "tasks_ok":  5,
+                     "usd":  7.7,
                      "claims":  [
-                                    "9567",
                                     "8719",
                                     "8718",
                                     "8717",
@@ -291,10 +289,10 @@
                                 ],
                      "game":  "Dishonored 2",
                      "olas_de_3":  2,
-                     "note":  "6 RR · Updated Realm · 9567 · 8719 · 8718 · 8717 · 8716 · 8714",
-                     "source":  "Realm-table-Updated-RR",
-                     "updated_at":  "2026-08-06T23:30:53Z",
-                     "tasks_tomadas":  6
+                     "note":  "9567 → Rework Aug7 · RR restan 8719-14",
+                     "source":  "Realm-Rework-exit",
+                     "updated_at":  "2026-08-07T18:52:19Z",
+                     "tasks_tomadas":  5
                  },
                  {
                      "date":  "2026-08-06",
@@ -351,17 +349,17 @@
                  {
                      "date":  "2026-08-07",
                      "hubstaff_h":  0.72,
-                     "hubstaff_note":  "est 4 takes ~43min wall · no Hubstaff real",
+                     "hubstaff_note":  "est 4 takes DH2 AM · rework upload PM",
                      "tasks_ok":  0,
                      "usd":  0,
                      "claims":  [
 
                                 ],
-                     "game":  "Dishonored 2",
+                     "game":  "Dishonored 2 → Remnant II",
                      "olas_de_3":  0,
-                     "note":  "REVIEW mid · 4 takes offline OK (10min+ 1080p en-US) · 0 RR hasta upload/Submit · no inventar claim IDs",
-                     "source":  "M1GC_Captures-session.json",
-                     "updated_at":  "2026-08-07T18:12:11Z",
+                     "note":  "BLOQUE1 CIERRE · 4 DH2 takes→rework 9568/67/66 · Remnant IP 6 claimed · 0 RR nuevo · $0",
+                     "source":  "CIERRE-BLOQUE1",
+                     "updated_at":  "2026-08-07T18:52:19Z",
                      "calendar_m1_used_h":  0.72,
                      "calendar_m1_left_h":  4.28,
                      "calendar_m1_total_h":  5,
@@ -375,34 +373,33 @@
                      "tasks_tomadas":  0,
                      "blocks":  [
                                     {
-                                        "end":  "11:51",
+                                        "end":  "13:42",
                                         "tasks":  0,
-                                        "note":  "take 1 offline 10.5m",
+                                        "note":  "BLOQUE1 DH2 captura 4 takes offline",
                                         "usd":  0,
                                         "start":  "11:39"
                                     },
                                     {
-                                        "end":  "12:25",
+                                        "end":  "14:30",
                                         "tasks":  0,
-                                        "note":  "take 2 offline 12.2m",
+                                        "note":  "Rework upload map + Remnant claim pool + launch",
                                         "usd":  0,
-                                        "start":  "12:11"
-                                    },
-                                    {
-                                        "end":  "13:00",
-                                        "tasks":  0,
-                                        "note":  "take 3 offline 10.4m",
-                                        "usd":  0,
-                                        "start":  "12:49"
-                                    },
-                                    {
-                                        "end":  "13:42",
-                                        "tasks":  0,
-                                        "note":  "take 4 offline 10.1m",
-                                        "usd":  0,
-                                        "start":  "13:31"
+                                        "start":  "13:40"
                                     }
-                                ]
+                                ],
+                     "rework_submitted":  [
+                                              "9568",
+                                              "9567",
+                                              "9566"
+                                          ],
+                     "remnant_in_progress":  [
+                                                 "13154",
+                                                 "13153",
+                                                 "13152",
+                                                 "13151",
+                                                 "13150",
+                                                 "13135"
+                                             ]
                  }
              ],
     "meta":  {
@@ -416,14 +413,14 @@
                  "goal_usd_equiv":  1689.55,
                  "log_path":  "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md",
                  "intent_usd_day_lj":  46.2,
-                 "summary_mtd_usd":  23.1,
+                 "summary_mtd_usd":  18.48,
                  "rate_usd":  1.54,
                  "wind_down":  "21:30",
-                 "sync":  "review-sessions-2026-08-07",
+                 "sync":  "cierre-bloque1-2026-08-07",
                  "intent_usd_week_tb":  255.26,
                  "goal_clp_month":  1600000,
                  "qa_pdf":  "QA-Financial-Dashboard-v2-2026-08-04.pdf",
-                 "summary_v2":  "SUMMARY-v2-2026-08-07.md",
+                 "summary_v2":  "SUMMARY-v2-2026-08-07-bloque1.md",
                  "sleep_hard_stop":  "22:00",
                  "target_usd_month":  1552.32,
                  "trainer_share_of_goal":  0.919,
@@ -431,16 +428,16 @@
                  "intent_usd_day_fri":  30.8,
                  "baseline_tph":  4,
                  "trainer_usd_target":  1552.32,
-                 "updated":  "2026-08-07T14:12:11-04:00",
+                 "updated":  "2026-08-07T14:52:19-04:00",
                  "intention_h_month":  172.5,
                  "target_hours_month":  180,
                  "split_policy":  "40m1_5vn_3post",
                  "intent_usd_week_80_20":  255.26,
                  "workday_h_lj":  9.0,
                  "workday_h_fri":  6.0,
-                 "summary_mtd_tasks":  15,
+                 "summary_mtd_tasks":  12,
                  "summary_today_tasks":  0,
-                 "summary_today_rework_done":  0,
+                 "summary_today_rework_done":  3,
                  "summary_today_usd":  0,
                  "summary_intent_to_date_usd":  285.44,
                  "calendar_micro1":  "18dcb7f8940e2f1b368dd8d28a8c5c4f8923ad9fa1bb64585e970749a34b88d4@group.calendar.google.com",
@@ -462,130 +459,106 @@
                                    "vn":  0.5,
                                    "post":  0.5
                                },
-                 "reality_note":  "REVIEW 2026-08-07 · offline 4 takes · RR dia 0 · MTD 15·$23.1 · live worker STALE hasta wrangler",
+                 "reality_note":  "CIERRE BLOQUE1 07 · rework 9568/67/66 · DH2x4 offline · Remnant IP 13154-13135 · MTD RR 12·$18.48 · $0 hoy",
                  "realm_review_ready":  [
-                                            {
-                                                "id":  "9566",
-                                                "updated":  "2026-08-04",
-                                                "updated_hm":  "19:52",
-                                                "status":  "Review Ready",
-                                                "game":  "Dishonored 2",
-                                                "mins":  10
-                                            },
-                                            {
-                                                "id":  "9568",
-                                                "updated":  "2026-08-04",
-                                                "updated_hm":  "20:12",
-                                                "status":  "Review Ready",
-                                                "game":  "Dishonored 2",
-                                                "mins":  10
-                                            },
-                                            {
-                                                "id":  "9567",
-                                                "updated":  "2026-08-05",
-                                                "updated_hm":  "14:10",
-                                                "status":  "Review Ready",
-                                                "game":  "Dishonored 2",
-                                                "mins":  10
-                                            },
                                             {
                                                 "id":  "8719",
                                                 "updated":  "2026-08-05",
-                                                "updated_hm":  "14:14",
-                                                "status":  "Review Ready",
+                                                "mins":  10,
                                                 "game":  "Dishonored 2",
-                                                "mins":  10
+                                                "updated_hm":  "14:14",
+                                                "status":  "Review Ready"
                                             },
                                             {
                                                 "id":  "8718",
                                                 "updated":  "2026-08-05",
-                                                "updated_hm":  "14:16",
-                                                "status":  "Review Ready",
+                                                "mins":  10,
                                                 "game":  "Dishonored 2",
-                                                "mins":  10
+                                                "updated_hm":  "14:16",
+                                                "status":  "Review Ready"
                                             },
                                             {
                                                 "id":  "8717",
                                                 "updated":  "2026-08-05",
-                                                "updated_hm":  "14:57",
-                                                "status":  "Review Ready",
+                                                "mins":  10,
                                                 "game":  "Dishonored 2",
-                                                "mins":  10
+                                                "updated_hm":  "14:57",
+                                                "status":  "Review Ready"
                                             },
                                             {
                                                 "id":  "8716",
                                                 "updated":  "2026-08-05",
-                                                "updated_hm":  "15:20",
-                                                "status":  "Review Ready",
+                                                "mins":  10,
                                                 "game":  "Dishonored 2",
-                                                "mins":  10
+                                                "updated_hm":  "15:20",
+                                                "status":  "Review Ready"
                                             },
                                             {
                                                 "id":  "8714",
                                                 "updated":  "2026-08-05",
-                                                "updated_hm":  "17:33",
-                                                "status":  "Review Ready",
+                                                "mins":  10,
                                                 "game":  "Dishonored 2",
-                                                "mins":  10
+                                                "updated_hm":  "17:33",
+                                                "status":  "Review Ready"
                                             },
                                             {
                                                 "id":  "8715",
                                                 "updated":  "2026-08-06",
-                                                "updated_hm":  "13:40",
-                                                "status":  "Review Ready",
+                                                "mins":  10,
                                                 "game":  "Dishonored 2",
-                                                "mins":  10
+                                                "updated_hm":  "13:40",
+                                                "status":  "Review Ready"
                                             },
                                             {
                                                 "id":  "7951",
                                                 "updated":  "2026-08-06",
-                                                "updated_hm":  "14:11",
-                                                "status":  "Review Ready",
+                                                "mins":  10,
                                                 "game":  "Dishonored 2",
-                                                "mins":  10
+                                                "updated_hm":  "14:11",
+                                                "status":  "Review Ready"
                                             },
                                             {
                                                 "id":  "7952",
                                                 "updated":  "2026-08-06",
-                                                "updated_hm":  "15:28",
-                                                "status":  "Review Ready",
+                                                "mins":  10,
                                                 "game":  "Dishonored 2",
-                                                "mins":  10
+                                                "updated_hm":  "15:28",
+                                                "status":  "Review Ready"
                                             },
                                             {
                                                 "id":  "7953",
                                                 "updated":  "2026-08-06",
-                                                "updated_hm":  "16:00",
-                                                "status":  "Review Ready",
+                                                "mins":  10,
                                                 "game":  "Dishonored 2",
-                                                "mins":  10
+                                                "updated_hm":  "16:00",
+                                                "status":  "Review Ready"
                                             },
                                             {
                                                 "id":  "7954",
                                                 "updated":  "2026-08-06",
-                                                "updated_hm":  "18:52",
-                                                "status":  "Review Ready",
+                                                "mins":  10,
                                                 "game":  "Dishonored 2",
-                                                "mins":  10
+                                                "updated_hm":  "18:52",
+                                                "status":  "Review Ready"
                                             },
                                             {
                                                 "id":  "7955",
                                                 "updated":  "2026-08-06",
-                                                "updated_hm":  "19:25",
-                                                "status":  "Review Ready",
+                                                "mins":  10,
                                                 "game":  "Dishonored 2",
-                                                "mins":  10
+                                                "updated_hm":  "19:25",
+                                                "status":  "Review Ready"
                                             },
                                             {
                                                 "id":  "7956",
                                                 "updated":  "2026-08-06",
-                                                "updated_hm":  "19:38",
-                                                "status":  "Review Ready",
+                                                "mins":  10,
                                                 "game":  "Dishonored 2",
-                                                "mins":  10
+                                                "updated_hm":  "19:38",
+                                                "status":  "Review Ready"
                                             }
                                         ],
-                 "realm_review_ready_n":  15,
+                 "realm_review_ready_n":  12,
                  "ops_tph":  4.0,
                  "plan_tph":  5.6,
                  "baseline_tph_plan_ceiling":  5.6,
@@ -685,142 +658,133 @@
                                      ],
                  "realm_review_ready_detail":  [
                                                    {
-                                                       "id":  "9566",
-                                                       "updated":  "2026-08-04",
-                                                       "updated_hm":  "19:52",
-                                                       "status":  "Review Ready",
-                                                       "game":  "Dishonored 2",
-                                                       "mins":  10
-                                                   },
-                                                   {
-                                                       "id":  "9568",
-                                                       "updated":  "2026-08-04",
-                                                       "updated_hm":  "20:12",
-                                                       "status":  "Review Ready",
-                                                       "game":  "Dishonored 2",
-                                                       "mins":  10
-                                                   },
-                                                   {
-                                                       "id":  "9567",
-                                                       "updated":  "2026-08-05",
-                                                       "updated_hm":  "14:10",
-                                                       "status":  "Review Ready",
-                                                       "game":  "Dishonored 2",
-                                                       "mins":  10
-                                                   },
-                                                   {
                                                        "id":  "8719",
                                                        "updated":  "2026-08-05",
-                                                       "updated_hm":  "14:14",
-                                                       "status":  "Review Ready",
+                                                       "mins":  10,
                                                        "game":  "Dishonored 2",
-                                                       "mins":  10
+                                                       "updated_hm":  "14:14",
+                                                       "status":  "Review Ready"
                                                    },
                                                    {
                                                        "id":  "8718",
                                                        "updated":  "2026-08-05",
-                                                       "updated_hm":  "14:16",
-                                                       "status":  "Review Ready",
+                                                       "mins":  10,
                                                        "game":  "Dishonored 2",
-                                                       "mins":  10
+                                                       "updated_hm":  "14:16",
+                                                       "status":  "Review Ready"
                                                    },
                                                    {
                                                        "id":  "8717",
                                                        "updated":  "2026-08-05",
-                                                       "updated_hm":  "14:57",
-                                                       "status":  "Review Ready",
+                                                       "mins":  10,
                                                        "game":  "Dishonored 2",
-                                                       "mins":  10
+                                                       "updated_hm":  "14:57",
+                                                       "status":  "Review Ready"
                                                    },
                                                    {
                                                        "id":  "8716",
                                                        "updated":  "2026-08-05",
-                                                       "updated_hm":  "15:20",
-                                                       "status":  "Review Ready",
+                                                       "mins":  10,
                                                        "game":  "Dishonored 2",
-                                                       "mins":  10
+                                                       "updated_hm":  "15:20",
+                                                       "status":  "Review Ready"
                                                    },
                                                    {
                                                        "id":  "8714",
                                                        "updated":  "2026-08-05",
-                                                       "updated_hm":  "17:33",
-                                                       "status":  "Review Ready",
+                                                       "mins":  10,
                                                        "game":  "Dishonored 2",
-                                                       "mins":  10
+                                                       "updated_hm":  "17:33",
+                                                       "status":  "Review Ready"
                                                    },
                                                    {
                                                        "id":  "8715",
                                                        "updated":  "2026-08-06",
-                                                       "updated_hm":  "13:40",
-                                                       "status":  "Review Ready",
+                                                       "mins":  10,
                                                        "game":  "Dishonored 2",
-                                                       "mins":  10
+                                                       "updated_hm":  "13:40",
+                                                       "status":  "Review Ready"
                                                    },
                                                    {
                                                        "id":  "7951",
                                                        "updated":  "2026-08-06",
-                                                       "updated_hm":  "14:11",
-                                                       "status":  "Review Ready",
+                                                       "mins":  10,
                                                        "game":  "Dishonored 2",
-                                                       "mins":  10
+                                                       "updated_hm":  "14:11",
+                                                       "status":  "Review Ready"
                                                    },
                                                    {
                                                        "id":  "7952",
                                                        "updated":  "2026-08-06",
-                                                       "updated_hm":  "15:28",
-                                                       "status":  "Review Ready",
+                                                       "mins":  10,
                                                        "game":  "Dishonored 2",
-                                                       "mins":  10
+                                                       "updated_hm":  "15:28",
+                                                       "status":  "Review Ready"
                                                    },
                                                    {
                                                        "id":  "7953",
                                                        "updated":  "2026-08-06",
-                                                       "updated_hm":  "16:00",
-                                                       "status":  "Review Ready",
+                                                       "mins":  10,
                                                        "game":  "Dishonored 2",
-                                                       "mins":  10
+                                                       "updated_hm":  "16:00",
+                                                       "status":  "Review Ready"
                                                    },
                                                    {
                                                        "id":  "7954",
                                                        "updated":  "2026-08-06",
-                                                       "updated_hm":  "18:52",
-                                                       "status":  "Review Ready",
+                                                       "mins":  10,
                                                        "game":  "Dishonored 2",
-                                                       "mins":  10
+                                                       "updated_hm":  "18:52",
+                                                       "status":  "Review Ready"
                                                    },
                                                    {
                                                        "id":  "7955",
                                                        "updated":  "2026-08-06",
-                                                       "updated_hm":  "19:25",
-                                                       "status":  "Review Ready",
+                                                       "mins":  10,
                                                        "game":  "Dishonored 2",
-                                                       "mins":  10
+                                                       "updated_hm":  "19:25",
+                                                       "status":  "Review Ready"
                                                    },
                                                    {
                                                        "id":  "7956",
                                                        "updated":  "2026-08-06",
-                                                       "updated_hm":  "19:38",
-                                                       "status":  "Review Ready",
+                                                       "mins":  10,
                                                        "game":  "Dishonored 2",
-                                                       "mins":  10
+                                                       "updated_hm":  "19:38",
+                                                       "status":  "Review Ready"
                                                    }
                                                ],
-                 "realm_ssot":  "Realm UI 15 RR complete · +7956 · 2026-08-06",
+                 "realm_ssot":  "BLOQUE1 2026-08-07 · RR12 (exited 9566/67/68 rework) · Remnant IP6",
                  "log_only_exited_rr":  [
                                             {
+                                                "date":  "2026-08-03",
                                                 "id":  "9485",
-                                                "date":  "2026-08-03",
-                                                "note":  "LOG submit OK · NO en tabla RR actual"
+                                                "note":  "hist"
                                             },
                                             {
+                                                "date":  "2026-08-03",
                                                 "id":  "9484",
-                                                "date":  "2026-08-03",
-                                                "note":  "LOG submit OK · NO en tabla RR actual"
+                                                "note":  "hist"
                                             },
                                             {
-                                                "id":  "9483",
                                                 "date":  "2026-08-03",
-                                                "note":  "LOG submit OK + rework · NO en tabla RR actual"
+                                                "id":  "9483",
+                                                "note":  "hist"
+                                            },
+                                            {
+                                                "date":  "2026-08-07",
+                                                "id":  "9566",
+                                                "note":  "Rework Required · fixed take hoy #3"
+                                            },
+                                            {
+                                                "date":  "2026-08-07",
+                                                "id":  "9567",
+                                                "note":  "Rework Required · fixed take hoy #2"
+                                            },
+                                            {
+                                                "date":  "2026-08-07",
+                                                "id":  "9568",
+                                                "note":  "Rework Required · fixed take hoy #1"
                                             }
                                         ],
                  "canonical_url":  "https://finanzas.vientonorte.io/",
@@ -881,7 +845,7 @@
                  "post_channels_excluded":  [
                                                 "LinkedIn"
                                             ],
-                 "realm_ui_reported_n":  15,
+                 "realm_ui_reported_n":  12,
                  "realm_ui_gap_note":  "15/15 IDs match portal · no gap",
                  "calendar_m1_blocks":  {
                                             "date":  "2026-08-07",
@@ -948,6 +912,20 @@
                  "ssot_session":  "Ro/Viento Norte/Sessions/2026-08-07.md",
                  "live_url":  "https://finanzas.vientonorte.io/",
                  "intent_usd_day_vie":  30.8,
-                 "offline_buffer_takes_total":  4
+                 "offline_buffer_takes_total":  4,
+                 "rework_open":  [
+                                     "9568",
+                                     "9567",
+                                     "9566"
+                                 ],
+                 "remnant_in_progress":  [
+                                             "13154",
+                                             "13153",
+                                             "13152",
+                                             "13151",
+                                             "13150",
+                                             "13135"
+                                         ],
+                 "bloque1_status":  "CERRADO"
              }
 }
