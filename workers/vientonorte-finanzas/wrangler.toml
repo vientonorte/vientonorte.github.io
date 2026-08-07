@@ -3,9 +3,9 @@ main = "src/index.js"
 compatibility_date = "2026-08-01"
 workers_dev = true
 
-[assets]
-directory = "./public"
-binding = "ASSETS"
-
-# Route (set in CF dashboard if not using routes here):
+# v21: NO [assets] as SoT — worker proxies git main.
+# Optional route (set in CF dashboard if not applied):
 # routes = [{ pattern = "finanzas.vientonorte.io/*", zone_name = "vientonorte.io" }]
+
+[vars]
+SSOT_MODE = "git-proxy"

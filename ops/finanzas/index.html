@@ -84,6 +84,21 @@ footer{margin-top:20px;color:var(--faint);font-size:.72rem}
 #gap-meta-card .gap-ok { color: var(--ok, #3dd68c); }
 #gap-meta-card .gap-need { color: var(--warn, #f5a524); }
 #gap-meta-card .gap-bad { color: var(--bad, #f31260); }
+
+/* Entorno / anti-confusion */
+.env-banner {
+  margin: 0 0 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: .82rem;
+  line-height: 1.35;
+  border: 1px solid var(--line);
+  background: var(--surface2, #1a1a22);
+}
+.env-banner.prod { border-color: #3dd68c55; }
+.env-banner.staging { border-color: #f5a52488; }
+.env-banner.dev { border-color: #8899aa88; }
+.env-banner.bad { border-color: #f3126088; background: #f3126012; }
 </style>
 </head>
 <body>
@@ -101,6 +116,7 @@ footer{margin-top:20px;color:var(--faint);font-size:.72rem}
   </div>
 
   <!-- Always visible: meta · real · Δ · cal left · caben · ops -->
+    <div class="env-banner" id="env-banner" role="status"></div>
   <div class="pulse" id="pulse" aria-live="polite">
     <div class="p-row" id="pulse-row">—</div>
     <div class="p-sub" id="pulse-sub"></div>
@@ -196,7 +212,7 @@ footer{margin-top:20px;color:var(--faint);font-size:.72rem}
     <button class="btn" id="btn-reset">Reset local</button>
   </div>
   <div class="t-faint" id="sync" style="margin-top:8px"></div>
-  <footer>Canónico <a href="https://finanzas.vientonorte.io/">finanzas.vientonorte.io</a> · vistas Día / Semana / Mes · meta 1.6M multi-semana</footer>
+  <footer>SoT <b>solo</b> <a href="https://finanzas.vientonorte.io/">finanzas.vientonorte.io</a> · staging <a href="https://vientonorte.github.io/ops/finanzas/">Pages</a> · local=DEV no cuenta · <code>ops/FINANZAS-SCRUM.md</code></footer>
 </div>
 <script>
 const KEY = "micro1_ivr_ledger_v21_rr15";
@@ -653,6 +669,28 @@ function compute(state) {
 
 
 /** Faltan a meta propuesta · según vista Día / Semana / Mes */
+
+function renderEnvBanner(state, c) {
+  const el = document.getElementById("env-banner");
+  if (!el) return;
+  const host = location.hostname || "file";
+  const isLive = host === "finanzas.vientonorte.io";
+  const isPages = host === "vientonorte.github.io";
+  let cls = "dev", title = "DEV local", msg = "No usar para cerrar el dia. Pipeline: ledger -> git push -> live.";
+  if (isLive) {
+    cls = "prod"; title = "PRODUCCION";
+    msg = "SoT unico. Worker debe ser v21-git-proxy. Si MTD != git: wrangler deploy pendiente.";
+  } else if (isPages) {
+    cls = "staging"; title = "STAGING Pages";
+    msg = "Fallback. Decision de $ = finanzas.vientonorte.io (tras Worker v21).";
+  }
+  const from = state.from || "seed";
+  el.className = "env-banner " + cls;
+  el.innerHTML = "<b>" + title + "</b> · <code>" + (host || "file") + "</code> · pull <code>"
+    + (String(from).length > 40 ? String(from).slice(0,40)+"…" : from) + "</code><br/>"
+    + msg + " · MTD <b class='t-num'>" + c.monthReal.t + "</b> · hoy <b class='t-num'>" + c.dayR.tasks_ok + "</b>";
+}
+
 function renderGapMeta(c) {
   const elStats = document.getElementById("gap-meta-stats");
   const elLabel = document.getElementById("gap-meta-label");
