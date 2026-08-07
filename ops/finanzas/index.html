@@ -78,6 +78,12 @@ footer{margin-top:20px;color:var(--faint);font-size:.72rem}
 .pulse .p-bad b{color:var(--bad)}
 .pulse .p-ok b{color:var(--good)}
 .pulse .p-sub{margin-top:4px;color:var(--muted);font-size:.7rem}
+
+/* Faltan a meta */
+#gap-meta-card .gap-big { font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+#gap-meta-card .gap-ok { color: var(--ok, #3dd68c); }
+#gap-meta-card .gap-need { color: var(--warn, #f5a524); }
+#gap-meta-card .gap-bad { color: var(--bad, #f31260); }
 </style>
 </head>
 <body>
@@ -100,7 +106,13 @@ footer{margin-top:20px;color:var(--faint);font-size:.72rem}
     <div class="p-sub" id="pulse-sub"></div>
   </div>
 
-  <div class="seg" role="tablist" aria-label="Horizonte">
+    <!-- Faltan a meta (cambia con Día / Semana / Mes) -->
+  <div class="section card" id="gap-meta-card" aria-live="polite">
+    <div class="t-label" id="gap-meta-label">Faltan a meta</div>
+    <div class="grid3" id="gap-meta-stats" style="margin-top:8px"></div>
+    <div class="t-faint" id="gap-meta-hint" style="margin-top:8px"></div>
+  </div>
+<div class="seg" role="tablist" aria-label="Horizonte">
     <button type="button" role="tab" id="tab-day" aria-selected="true" data-view="day">Día</button>
     <button type="button" role="tab" id="tab-week" aria-selected="false" data-view="week">Semana</button>
     <button type="button" role="tab" id="tab-month" aria-selected="false" data-view="month">Mes</button>
@@ -639,6 +651,77 @@ function compute(state) {
   };
 }
 
+
+/** Faltan a meta propuesta · según vista Día / Semana / Mes */
+function renderGapMeta(c) {
+  const elStats = document.getElementById("gap-meta-stats");
+  const elLabel = document.getElementById("gap-meta-label");
+  const elHint = document.getElementById("gap-meta-hint");
+  if (!elStats) return;
+
+  let horizon, metaT, realT, metaU, realU, metaName, hintExtra;
+
+  if (VIEW === "day") {
+    horizon = "Día";
+    metaName = "Meta ops hoy";
+    metaT = c.dayIntentT; // 7.5h × 4 t/h = 30
+    realT = c.dayR.tasks_ok;
+    metaU = metaT * M.rate;
+    realU = c.dayR.usd;
+    hintExtra = "Meta día = plantilla M1 × ops " + fmt(M.ops,0) + " t/h. Gap del día <b>no se arrastra</b> a mañana.";
+  } else if (VIEW === "week") {
+    horizon = "Semana";
+    metaName = "Meta ops sem";
+    metaT = c.weekRunT; // 40h × 4 = 160
+    realT = c.weekReal.t;
+    metaU = c.weekRunU;
+    realU = c.weekReal.u;
+    hintExtra = "Meta sem = 40h M1 × " + fmt(M.ops,0) + " t/h. Real = Mon→hoy. Aspiracional (no castiga días pasados).";
+  } else {
+    horizon = "Mes";
+    // Meta propuesta primaria: plantilla ops del mes (h plantilla × ops)
+    const monthH = (SSOT.meta.calendar_hours && SSOT.meta.calendar_hours.plantilla_month_aug_m1_h)
+      || SSOT.meta.intention_h_month
+      || 172.5;
+    const opsMonthT = monthH * M.ops;
+    const trainerT = M.trainer / M.rate;
+    horizon = "Mes";
+    metaName = "Meta ops mes";
+    metaT = opsMonthT;
+    realT = c.monthReal.t;
+    metaU = metaT * M.rate;
+    realU = c.monthReal.u;
+    const faltanTrainer = Math.max(0, trainerT - realT);
+    const faltanHogarT = Math.max(0, (M.goalClp / M.fx) / M.rate - realT);
+    hintExtra = "Meta ops mes ≈ " + fmt(monthH,1) + "h × " + fmt(M.ops,0) + " = " + fmt(opsMonthT,0) + " t · "
+      + money(opsMonthT * M.rate) + ". "
+      + "También: faltan <b class='t-num'>" + fmt(faltanTrainer,0) + "</b> t al path Trainer ($"
+      + M.trainer.toFixed(0) + ") · ~" + fmt(faltanHogarT,0) + " t al 1.6M CLP (desde MTD real).";
+  }
+
+  const faltanT = Math.max(0, metaT - realT);
+  const faltanU = faltanT * M.rate;
+  const pct = metaT > 0 ? Math.min(100, realT / metaT * 100) : 0;
+  const done = faltanT <= 0.05;
+  const gapCls = done ? "gap-ok" : (pct >= 40 ? "gap-need" : "gap-bad");
+
+  elLabel.textContent = "Faltan a meta · " + horizon;
+  elStats.innerHTML = [
+    ["Meta", fmtIntentT(metaT) + " t", money(metaU) + " · " + metaName],
+    ["Real", realT + " t", money(realU)],
+    ["Faltan", (done ? "0" : fmtIntentT(faltanT)) + " t", done ? "meta alcanzada" : money(faltanU) + " por hacer"],
+  ].map(([l,v,h], i) => {
+    const big = i === 2 ? " gap-big " + gapCls : "";
+    return "<div class='card stat'><div class='t-label'>"+l+"</div><div class='v"+big+"'>"+v+"</div><div class='h'>"+h+"</div></div>";
+  }).join("");
+
+  elHint.innerHTML = "Avance <b class='t-num'>" + fmt(pct,0) + "%</b> · "
+    + (done
+      ? "<span class='gap-ok'>Meta " + horizon.toLowerCase() + " cumplida o superada.</span> "
+      : "Para la meta propuesta faltan <b class='t-num " + gapCls + "'>" + fmtIntentT(faltanT) + " tareas</b> (~" + money(faltanU) + "). ")
+    + hintExtra;
+}
+
 function setView(v) {
   VIEW = v;
   localStorage.setItem(KEY + "_view", v);
@@ -758,7 +841,7 @@ function render() {
     stats = [
       ["Real sem", realT + " t", money(realU)],
       ["Meta sem", fmt(metaSem,0) + " t", money(metaSemU) + " · 40h×" + fmt(M.ops,0)],
-      ["Proy cierre", "~" + fmt(proyT,0) + " t", money(proyU)],
+      ["Faltan a meta", (faltanMeta>0?fmt(faltanMeta,0):"0") + " t", money(faltanMeta*M.rate) + " · meta " + fmt(metaSem,0)],
     ];
     focusLabel = "Semana consolidada";
     focusHtml = "Paquete semanal: real <b class='t-num'>" + realT + "</b> / meta <b class='t-num'>" + fmt(metaSem,0) + "</b>"
