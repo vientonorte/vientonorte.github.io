@@ -357,11 +357,11 @@
                                 ],
                      "game":  "Dishonored 2 → Remnant II",
                      "olas_de_3":  0,
-                     "note":  "BLOQUE1 CIERRE · 4 DH2 takes→rework 9568/67/66 · Remnant IP 6 claimed · 0 RR nuevo · $0",
-                     "source":  "CIERRE-BLOQUE1",
-                     "updated_at":  "2026-08-07T18:52:19Z",
-                     "calendar_m1_used_h":  0.72,
-                     "calendar_m1_left_h":  4.28,
+                     "note":  "EOD CIERRE · 0 RR · $0 · rework 9568/67/66 · Remnant IP6 · DH2x4 offline · B1 done · sin takes Remnant",
+                     "source":  "EOD-CIERRE",
+                     "updated_at":  "2026-08-07T18:57:06Z",
+                     "calendar_m1_used_h":  5,
+                     "calendar_m1_left_h":  0,
                      "calendar_m1_total_h":  5,
                      "offline_buffer_takes":  4,
                      "offline_sessions":  [
@@ -416,11 +416,11 @@
                  "summary_mtd_usd":  18.48,
                  "rate_usd":  1.54,
                  "wind_down":  "21:30",
-                 "sync":  "cierre-bloque1-2026-08-07",
+                 "sync":  "eod-cierre-2026-08-07",
                  "intent_usd_week_tb":  255.26,
                  "goal_clp_month":  1600000,
                  "qa_pdf":  "QA-Financial-Dashboard-v2-2026-08-04.pdf",
-                 "summary_v2":  "SUMMARY-v2-2026-08-07-bloque1.md",
+                 "summary_v2":  "SUMMARY-v2-2026-08-07.md",
                  "sleep_hard_stop":  "22:00",
                  "target_usd_month":  1552.32,
                  "trainer_share_of_goal":  0.919,
@@ -428,7 +428,7 @@
                  "intent_usd_day_fri":  30.8,
                  "baseline_tph":  4,
                  "trainer_usd_target":  1552.32,
-                 "updated":  "2026-08-07T14:52:19-04:00",
+                 "updated":  "2026-08-07T14:57:06-04:00",
                  "intention_h_month":  172.5,
                  "target_hours_month":  180,
                  "split_policy":  "40m1_5vn_3post",
@@ -459,7 +459,7 @@
                                    "vn":  0.5,
                                    "post":  0.5
                                },
-                 "reality_note":  "CIERRE BLOQUE1 07 · rework 9568/67/66 · DH2x4 offline · Remnant IP 13154-13135 · MTD RR 12·$18.48 · $0 hoy",
+                 "reality_note":  "EOD CIERRE 2026-08-07 · 0t · $0 · MTD 12·$18.48 · rework3 · Remnant IP6 · offline DH2x4",
                  "realm_review_ready":  [
                                             {
                                                 "id":  "8719",
@@ -926,6 +926,8 @@
                                              "13150",
                                              "13135"
                                          ],
-                 "bloque1_status":  "CERRADO"
+                 "bloque1_status":  "CERRADO",
+                 "eod":  true,
+                 "day_status":  "EOD_CERRADO"
              }
 }
