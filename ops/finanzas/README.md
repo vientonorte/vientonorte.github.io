@@ -38,6 +38,17 @@ Datos de pace/meta son operativos personales. Hosted en `/ops/` (misma superfici
 
 Obsidian: `Viento Norte/Resources/DASHBOARD-Finanzas-tablas-ROI-proyecciones.md`
 
-## Split live (2026-08-06)
+## Split live (2026-08-06 noche · unificado)
 
-**80% MICRO1 · 10% VN · 10% Postulaciones** · L–J intent M1 ~$55.19 · Vie ~$34.50 · meta 1.6M CLP.
+| | |
+|--|--|
+| Split sem | **40 h M1 · 5 h VN · 3 h Post** |
+| ops t/h | **4.0** intent · techo **5.6** |
+| L–J M1 | **7.5 h** → ~30 t · ~$46.20 |
+| Vie M1 | **5.0 h** → ~20 t · ~$30.80 |
+| SSOT día 06 | **7 t · $10.78** · MTD **15 · $23.10** |
+| Session stamps | **solo calendar Personal** |
+| Live | https://finanzas.vientonorte.io/ |
+
+Ledger seed: `ledger.json` (= `ledger-ssot.json`).  
+iCloud mirror: `Documents/MICRO 1/07-pagos/dashboard/`.
