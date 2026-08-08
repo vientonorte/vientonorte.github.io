@@ -230,3 +230,19 @@ preprod gate (FO)
 ---
 
 *Diseño 2026-08-08 · implementar Fase 1–3 en próximo bloque técnico (no bloquea Test path humano FO).*
+
+
+---
+
+## 10. Status live (2026-08-08 deploy)
+
+| Host | Worker | Estado |
+|------|--------|--------|
+| `ops-sync.vientonorte.io` | vientonorte-ops-sync | **LIVE** GET ok · CORS .io |
+| `contact.vientonorte.io` | mi-portafolio-contact | **LIVE** OPTIONS CORS .io (DNS público OK) |
+| `finanzas.vientonorte.io` | vientonorte-finanzas | **LIVE** |
+| table-ro AI | table-ro-ai-proxy | workers.dev · CORS `.io` added |
+| FO defaults | site-contact / admin-config | → `contact.vientonorte.io` |
+| Ops Sync UI default | `/ops` | → `ops-sync.vientonorte.io` |
+
+workers.dev se mantiene como fallback de deploy.
