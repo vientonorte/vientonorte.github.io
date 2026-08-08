@@ -12,6 +12,7 @@
 - **Finanzas $** — canónico [finanzas.vientonorte.io](https://finanzas.vientonorte.io/) · mirror [finanzas/](./finanzas/).
 - **Guía** — loops sprint / packages / multi-device.
 - **Cerrar AHORA** — [AHORA-CLOSE-CHECKLIST.md](./AHORA-CLOSE-CHECKLIST.md) · [HUMAN-ACTIONS.md](./HUMAN-ACTIONS.md).
+- **QA pre-prod** — [PIPELINE-QA-PREPROD.md](./PIPELINE-QA-PREPROD.md) · `npm run preprod` · workflow `/preprod-qa`.
 
 ### Siguientes sprints (VN)
 
