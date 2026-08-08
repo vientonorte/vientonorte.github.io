@@ -1,0 +1,153 @@
+[
+  {
+    "id": "agente-001",
+    "type": "agente",
+    "friction_score": 42.5,
+    "energy": 8750000,
+    "label": "Director de Compras — Ejemplo",
+    "evidence_refs": ["https://www.chilecompra.cl/licitacion/1234-56-LE20"],
+    "updated_at": "2026-05-01T00:00:00Z",
+    "attributes": {
+      "rut_id": "12.345.678-9",
+      "cargo": "Director de Abastecimiento",
+      "institucion": "Ministerio de Ejemplo",
+      "periodo_inicio": "2020-03-11",
+      "periodo_fin": null,
+      "monto_acumulado_gestionado": 4250000000,
+      "nivel_jerarquico": 3
+    }
+  },
+  {
+    "id": "flujo-001",
+    "type": "flujo",
+    "friction_score": 15.0,
+    "energy": 2100000,
+    "label": "Contrato TI — Trato Directo",
+    "evidence_refs": ["https://www.chilecompra.cl/licitacion/7890-12-TE21"],
+    "updated_at": "2026-05-01T00:00:00Z",
+    "attributes": {
+      "id_licitacion": "7890-12-TE21",
+      "monto": 185000000,
+      "moneda": "CLP",
+      "fecha": "2021-08-15",
+      "tipo_contrato": "trato_directo",
+      "proveedor_rut": "99.876.543-2",
+      "entidad_compradora": "MINISTERIO-EJEMPLO",
+      "fuente": "ChileCompra"
+    }
+  },
+  {
+    "id": "territorio-001",
+    "type": "territorio",
+    "friction_score": 31.2,
+    "energy": 12000000,
+    "label": "Ministerio de Ejemplo — Partida 25",
+    "evidence_refs": ["https://www.dipres.gob.cl/presupuesto/2023/partida25"],
+    "updated_at": "2026-05-01T00:00:00Z",
+    "attributes": {
+      "codigo_presupuestario": "25-01-001",
+      "clasificacion_cofog": "04.1",
+      "nombre_institucion": "Ministerio de Ejemplo",
+      "pais": "CL",
+      "presupuesto_asignado": 12500000000,
+      "presupuesto_ejecutado": 14750000000,
+      "tasa_ejecucion": 118.0,
+      "anio_fiscal": 2023
+    }
+  },
+  {
+    "id": "friccion-001",
+    "type": "friccion",
+    "friction_score": 71.0,
+    "energy": 5600000,
+    "label": "Sobreejercución presupuestaria sin autorización",
+    "evidence_refs": ["https://www.contraloria.cl/informe/2023-056"],
+    "updated_at": "2026-05-01T00:00:00Z",
+    "attributes": {
+      "tipo_friccion": "procesal",
+      "intensidad": 7.1,
+      "duracion_dias": 214,
+      "costo_estimado": 2250000000,
+      "descripcion_tecnica": "Ejecución presupuestaria en 118% sin decreto de ampliación previo",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-07-31"
+    }
+  },
+  {
+    "id": "puerta-giratoria-001",
+    "type": "puerta_giratoria",
+    "friction_score": 85.0,
+    "energy": 22000000,
+    "label": "Tránsito Director Compras → Proveedor Principal",
+    "evidence_refs": ["https://www.registrocivil.cl/contrato/99876543-2", "https://www.chilecompra.cl/proveedor/99876543-2"],
+    "updated_at": "2026-05-01T00:00:00Z",
+    "attributes": {
+      "agente_id": "agente-001",
+      "fecha_salida_publico": "2022-12-31",
+      "fecha_entrada_privado": "2023-02-01",
+      "empresa_destino": "Tecnologías Ejemplo SpA (99.876.543-2)",
+      "dias_ventana": 32,
+      "contratos_previos_relacionados": ["7890-12-TE21", "7891-34-TE22"],
+      "monto_contratos_previos": 785000000,
+      "restriccion_legal_aplicable": true
+    }
+  },
+  {
+    "id": "captura-regulatoria-001",
+    "type": "captura_regulatoria",
+    "friction_score": 90.0,
+    "energy": 45000000,
+    "label": "Modificación exención licitación TI",
+    "evidence_refs": ["https://www.diariooficial.cl/decreto/2023-0847"],
+    "updated_at": "2026-05-01T00:00:00Z",
+    "attributes": {
+      "entidad_reguladora": "Dirección ChileCompra",
+      "entidad_regulada": "Asociación de Proveedores TI",
+      "delta_normativo": [
+        {
+          "instrumento": "Decreto 847/2023",
+          "fecha": "2023-09-15",
+          "beneficio_estimado": 4800000000,
+          "descripcion": "Eleva umbral de trato directo de 100 UTM a 500 UTM para contratos TI, eliminando obligación de licitación pública"
+        }
+      ],
+      "mecanismo_captura": "puerta_giratoria",
+      "periodo_captura_inicio": "2022-01-01"
+    }
+  },
+  {
+    "id": "zona-gris-001",
+    "type": "zona_gris",
+    "friction_score": 62.0,
+    "energy": 9800000,
+    "label": "Fragmentación contratos TI 2022–2023",
+    "evidence_refs": ["https://www.chilecompra.cl/proveedor/99876543-2/contratos"],
+    "updated_at": "2026-05-01T00:00:00Z",
+    "attributes": {
+      "indicadores_gafi": ["fragmentacion_contratos", "proveedor_unico_recurrente", "urgencia_no_justificada"],
+      "percentil_monto_mercado": 94.2,
+      "concentracion_proveedor_hhi": 6840,
+      "flujo_id": "flujo-001",
+      "nivel_riesgo": "alto",
+      "recomendacion": "auditoria_inmediata"
+    }
+  },
+  {
+    "id": "vacio-institucional-001",
+    "type": "vacio_institucional",
+    "friction_score": 55.0,
+    "energy": 3300000,
+    "label": "Sin auditoría — Partida 25, 2020–2022",
+    "evidence_refs": ["https://www.contraloria.cl/planauditoria/2020-2022"],
+    "updated_at": "2026-05-01T00:00:00Z",
+    "attributes": {
+      "territorio_id": "territorio-001",
+      "cobertura_auditoria_pct": 12.5,
+      "meses_sin_control": 28,
+      "cgr_observaciones_pendientes": 14,
+      "cgr_monto_observado": 1950000000,
+      "ultimo_informe_auditoria": "2020-03-15",
+      "organismo_fiscalizador": "CGR"
+    }
+  }
+]
