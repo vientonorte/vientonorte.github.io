@@ -1531,7 +1531,11 @@
       moreMenu.classList.remove("open");
     };
 
-    const OPS_SYNC_URL = localStorage.getItem("ops_sync_url") || "https://vientonorte-ops-sync.vientonorte.workers.dev";
+    // Canónico ops-sync.vientonorte.io · override: localStorage ops_sync_url
+    // Fallback workers.dev if custom host fails (set ops_sync_url manually).
+    const OPS_SYNC_URL =
+      localStorage.getItem("ops_sync_url") ||
+      "https://ops-sync.vientonorte.io";
 
     function getOpsToken() {
       let t = localStorage.getItem("ops_sync_token") || "";
