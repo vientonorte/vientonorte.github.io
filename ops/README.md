@@ -13,6 +13,7 @@
 - **Guía** — loops sprint / packages / multi-device.
 - **Cerrar AHORA** — [AHORA-CLOSE-CHECKLIST.md](./AHORA-CLOSE-CHECKLIST.md) · [HUMAN-ACTIONS.md](./HUMAN-ACTIONS.md).
 - **QA pre-prod** — [PIPELINE-QA-PREPROD.md](./PIPELINE-QA-PREPROD.md) · `npm run preprod` · workflow `/preprod-qa`.
+- **APIs dominio** — [PLAN-APIS-VIENTONORTE.md](./PLAN-APIS-VIENTONORTE.md) (`contact.` · `ops-sync.` · `api.`).
 
 ### Siguientes sprints (VN)
 

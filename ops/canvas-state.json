@@ -704,14 +704,21 @@
     "doc": "Viento Norte/Sprints/DS-2026-08-03 path-oferta-analytics.md"
   },
   "last_close": {
-    "date": "2026-08-06",
-    "session": "vn-cierre-sesion",
-    "status": "closed-auto",
-    "title": "CierreVNHOY W11 + Session unificado + finanzas 7t MTD15",
-    "at": "2026-08-07T00:23:32Z",
-    "docs": [
-      "vault:Viento Norte/Sprints/2026-08-06 LOG sesion.md"
-    ]
+    "at": "2026-08-08T17:53:58Z",
+    "kind": "preprod-pipeline-handoff",
+    "note": "A/B/C ops + preprod QA pipeline + human QA package emailed. AHORA still 2 P0 human. API plan drafted.",
+    "dashboards": [
+      "https://vientonorte.io/ops/",
+      "https://finanzas.vientonorte.io/",
+      "https://vientonorte.io/table-ro/?view=ops",
+      "https://vientonorte.io/"
+    ],
+    "gates": {
+      "preprod_quick": "PASS",
+      "qa_production": "PASS 16/16",
+      "cors_ops_sync_io": "PASS",
+      "deploy_gated_ci": "branch fix/legacy-mi-portafolio-redirect (pending merge main)"
+    }
   },
   "github": {
     "owner": "vientonorte",
@@ -1117,9 +1124,9 @@
     "next_next_sprint": "plan-sprint-onboarding-envs · onboarding + ambientes pub/priv"
   },
   "human_tasks": {
-    "updated": "2026-08-03",
+    "updated": "2026-08-08",
     "owner": "Rö",
-    "title": "Manual P0/P1 · smoke residual · firmas · GSC follow-up · SEM $0",
+    "title": "QA humano post preprod pipeline",
     "when": "Lun 03+ en ritmo café M5 / W11 post-almuerzo",
     "items": [
       {
@@ -1385,9 +1392,15 @@
         "EMPLEO-STATUS no SURA",
         "Mail Selfradar a Camila (enviado humano)"
       ]
+    },
+    {
+      "at": "2026-08-08T17:53:58Z",
+      "device": "GMac",
+      "event": "handoff-human-qa+api-plan",
+      "summary": "preprod pipeline + ops sync + API plan for vientonorte domain"
     }
   ],
-  "progress_note": "2026-08-08 · ops A/B/C: CORS .io + noindex + plan prune + AHORA close checklist. AHORA: HU-VN Test path + HU-M1 captura. Plan ≤7 activos.",
-  "updated_at": "2026-08-08T17:47:08Z",
+  "progress_note": "2026-08-08 handoff: preprod-gate + Deploy post-CI + PIPELINE-QA-PREPROD + API plan. AHORA: HU-VN Test path + HU-M1. Human QA package → mail.",
+  "updated_at": "2026-08-08T17:53:58Z",
   "deploy_roadmap": "ops/DEPLOY-ROADMAP.md"
 }
