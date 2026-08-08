@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Viento Norte · Ops</title>
   <meta name="description" content="Canvas operativo: AHORA → sprint → release. Baja carga cognitiva." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <style>
@@ -770,18 +771,12 @@
         <div class="now-list" id="focusList" aria-label="Tareas abiertas en AHORA"></div>
         <div class="quick-links">
           <span>Ir a</span>
-          <a href="https://vientonorte.io/#/consultoria" target="_blank" rel="noopener">Oferta</a>
-          <a href="https://vientonorte.io/#/consultoria/embudo" target="_blank" rel="noopener">Embudo</a>
-          <a href="https://vientonorte.io/#/proceso" target="_blank" rel="noopener">Proceso</a>
-          <a href="https://vientonorte.io/#/demo/x-cms" target="_blank" rel="noopener">Demo X|CMS</a>
-          <a href="http://127.0.0.1:5173/#/consultoria">FO local</a>
-          <a href="./finanzas/"><strong>Finanzas $</strong></a>
-          <a href="./HUMAN-TASKS.md"><strong>Tareas humanas</strong></a>
-          <a href="./SYNC-BOARD.md"><strong>Sync multi-device</strong></a>
-          <a href="./VN-QA-manual-path-oferta-2026-07-28.pdf">QA manual PDF</a>
-          <a href="./SPRINT2-USABILIDAD-PREP.md">Prep usabilidad</a>
-          <a href="./packages-status.md">Packages / core</a>
-          <a href="./SPRINT-CORE-ONBOARDING.md">Sprint core → onboard</a>
+          <a href="./AHORA-CLOSE-CHECKLIST.md"><strong>Cerrar AHORA</strong></a>
+          <a href="./HUMAN-ACTIONS.md"><strong>Acciones 1 clic</strong></a>
+          <a href="https://finanzas.vientonorte.io/" target="_blank" rel="noopener"><strong>Finanzas $</strong></a>
+          <a href="https://vientonorte.io/" target="_blank" rel="noopener">FO prod</a>
+          <a href="./SYNC-BOARD.md">Devices / sync</a>
+          <a href="./HUMAN-TASKS.md">Tareas humanas</a>
         </div>
       </div>
     </section>
@@ -1083,7 +1078,7 @@
       el.innerHTML = `
         <div class="roadmap-head">
           <h2>${escapeHtml(rm.title || "Roadmap automaciones")}</h2>
-          <p class="obj">${escapeHtml(rm.objective || state.objective || "")}</p>
+          <p class="obj">${escapeHtml(typeof rm.objective === "string" ? rm.objective : formatObjective(rm.objective || state.objective))}</p>
         </div>
         <div class="roadmap-progress" aria-label="Progreso roadmap ${st.pct} por ciento">
           <div class="roadmap-bar"><i style="width:${st.pct}%"></i></div>
@@ -1106,10 +1101,27 @@
       return /^\s*HUMANO\b/i.test(t);
     }
 
+    /** objective may be string (v1) or object { today, tokens, mtd_usd, … } (v2) */
+    function formatObjective(obj) {
+      if (obj == null || obj === "") return "Sin objetivo en canvas-state";
+      if (typeof obj === "string") return obj;
+      if (typeof obj === "object") {
+        const parts = [];
+        if (obj.today) parts.push(String(obj.today));
+        else if (obj.summary) parts.push(String(obj.summary));
+        if (obj.tokens) parts.push("tokens " + obj.tokens);
+        if (obj.mtd_usd != null) parts.push("MTD $" + obj.mtd_usd);
+        if (obj.mtd_tasks != null) parts.push(obj.mtd_tasks + " tasks");
+        if (!parts.length && obj.gap_note) parts.push(String(obj.gap_note));
+        return parts.join(" · ") || "Sin objetivo en canvas-state";
+      }
+      return String(obj);
+    }
+
     function renderFocus() {
       const open = openNowItems();
       const qNow = state.quadrants?.now || {};
-      $("#focusObjective").textContent = state.objective || "Sin objetivo en canvas-state";
+      $("#focusObjective").textContent = formatObjective(state.objective);
       $("#focusOpen").textContent = String(open.length);
       $("#focusMax").textContent = String(maxNow());
       $("#focusOwner").textContent = qNow.owner || "Rö + Grok";
@@ -1123,7 +1135,7 @@
       }
       const humanOpen = open.filter(isHumanItem);
       const banner = humanOpen.length
-        ? `<div class="human-banner" role="status"><strong>HUMANO destacado:</strong> ${humanOpen.length} tarea(s) solo Rö en browser/device real. El agente no cierra QA manual. <a href="./HUMAN-TASKS.md">Checklist →</a></div>`
+        ? `<div class="human-banner" role="status"><strong>HUMANO destacado:</strong> ${humanOpen.length} tarea(s) solo Rö en browser/device real. El agente no cierra QA manual. <a href="./AHORA-CLOSE-CHECKLIST.md">Cerrar AHORA →</a> · <a href="./HUMAN-ACTIONS.md">Acciones</a></div>`
         : "";
       list.innerHTML = banner + open.map((item) => {
         const tags = [];

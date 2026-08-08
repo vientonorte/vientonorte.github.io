@@ -29,9 +29,10 @@
             "https://vientonorte.io/#/consultoria",
             "https://vientonorte.io/ops/HUMAN-ACTIONS.md",
             "https://vientonorte.io/ops/HU-2026-08-06-MVP.md",
-            "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/HU-2026-08-06-MVP.md"
+            "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/HU-2026-08-06-MVP.md",
+            "https://vientonorte.io/ops/AHORA-CLOSE-CHECKLIST.md"
           ],
-          "notes": "DS-2026-08-03 day=Test · gap VN = Test no cerrado · 2026-08-06"
+          "notes": "DS-2026-08-03 day=Test · gap VN = Test no cerrado · 2026-08-06 · checklist AHORA-CLOSE 2026-08-08"
         },
         {
           "id": "now-hu-m1-capture-gap",
@@ -49,9 +50,10 @@
             "https://realm.micro1.ai/",
             "https://finanzas.vientonorte.io/",
             "https://finanzas.vientonorte.io/",
-            "https://vientonorte.io/ops/HUMAN-ACTIONS.md"
+            "https://vientonorte.io/ops/HUMAN-ACTIONS.md",
+            "https://vientonorte.io/ops/AHORA-CLOSE-CHECKLIST.md"
           ],
-          "notes": "MTD $13.86 / 9 RR · ops @4 t/h · 2026-08-06"
+          "notes": "MTD $13.86 / 9 RR · ops @4 t/h · 2026-08-06 · checklist AHORA-CLOSE 2026-08-08"
         },
         {
           "id": "now-hu-vn-pages-data",
@@ -226,6 +228,47 @@
           "notes": "DEPLOY-ROADMAP P1"
         },
         {
+          "id": "plan-sprint-core-well",
+          "title": "Sprint · Usar vientonorte-core bien (pins, publish, FO sin CSS paralelo)",
+          "repo": "vientonorte-core",
+          "product": "packages + FO",
+          "status": "next",
+          "priority": "P0",
+          "atomic_level": "template",
+          "people_job": "Misma marca y DS versionado multi-repo; no copiar tokens a mano",
+          "data_loss_risk": "none",
+          "notes": "SIGUIENTE sprint VN. DoD C1–C6 en ops/SPRINT-CORE-ONBOARDING.md.",
+          "links": [
+            "https://vientonorte.io/ops/SPRINT-CORE-ONBOARDING.md",
+            "https://vientonorte.io/ops/packages-status.md",
+            "https://github.com/vientonorte/vientonorte-core/blob/main/docs/PACKAGES-CORE.md",
+            "https://github.com/vientonorte?tab=packages"
+          ]
+        },
+        {
+          "id": "plan-publish-core",
+          "title": "Fix publish @vientonorte/* (PAT write:packages) + consumir DS en FO web",
+          "repo": "vientonorte-core",
+          "status": "next",
+          "atomic_level": "template",
+          "people_job": "Design system versionado sin copiar tokens a mano",
+          "data_loss_risk": "none",
+          "notes": "Figma DS = marca. Consumir en vientonorte.io solo post-verde. · parte de plan-sprint-core-well",
+          "links": [
+            "https://dot-wool-76997229.figma.site",
+            "https://github.com/vientonorte/vientonorte-core/blob/main/docs/publish-packages.md"
+          ]
+        },
+        {
+          "id": "plan-brand-core-021",
+          "title": "Branding VN: publish tokens 0.2.1 + pin multi-repo",
+          "repo": "vientonorte-core",
+          "status": "next",
+          "people_job": "Misma marca VN multi-repo (no bloquea smoke FO humano)",
+          "notes": "Sacado de AHORA para dejar solo humanos post-#135 · parte de plan-sprint-core-well",
+          "links": []
+        },
+        {
           "id": "plan-sprint-onboarding-envs",
           "title": "Sprint · Onboarding + ambientes públicos/privados VN",
           "repo": "vientonorte-fo",
@@ -245,92 +288,14 @@
           "depends_on": "plan-sprint-core-well"
         },
         {
-          "id": "plan-sprint-core-well",
-          "title": "Sprint · Usar vientonorte-core bien (pins, publish, FO sin CSS paralelo)",
-          "repo": "vientonorte-core",
-          "product": "packages + FO",
-          "status": "next",
-          "priority": "P0",
+          "id": "plan-seo-hub",
+          "title": "SEO hub: title/description/oferta + Search Console",
+          "repo": "vientonorte.github.io",
           "atomic_level": "template",
-          "people_job": "Misma marca y DS versionado multi-repo; no copiar tokens a mano",
+          "people_job": "Encontrar Viento Norte desde búsqueda con promesa clara",
           "data_loss_risk": "none",
-          "notes": "SIGUIENTE sprint VN. DoD C1–C6 en ops/SPRINT-CORE-ONBOARDING.md.",
-          "links": [
-            "https://vientonorte.io/ops/SPRINT-CORE-ONBOARDING.md",
-            "https://vientonorte.io/ops/packages-status.md",
-            "https://github.com/vientonorte/vientonorte-core/blob/main/docs/PACKAGES-CORE.md",
-            "https://github.com/vientonorte?tab=packages"
-          ]
-        },
-        {
-          "id": "plan-micro1-timebox-volume",
-          "title": "MICRO1: decidir si TB noche opcional para acercar 180h/mes",
-          "repo": "MICRO1",
-          "product": "trainer",
-          "status": "todo",
-          "owner": "Rö",
-          "people_job": "Día TB diurno ~14–17h/sem captura; noche/sáb solo si $ manda",
-          "notes": "No sacrificar buen vivir sin Decide",
-          "links": [
-            "https://realm.micro1.ai"
-          ]
-        },
-        {
-          "id": "plan-brand-core-021",
-          "title": "Branding VN: publish tokens 0.2.1 + pin multi-repo",
-          "repo": "vientonorte-core",
-          "status": "next",
-          "people_job": "Misma marca VN multi-repo (no bloquea smoke FO humano)",
-          "notes": "Sacado de AHORA para dejar solo humanos post-#135 · parte de plan-sprint-core-well",
-          "links": []
-        },
-        {
-          "id": "plan-ds-0803-surfaces",
-          "title": "DS-08-03 Map: superficies FO público vs admin lab (OB-RIA park)",
-          "repo": "vientonorte-fo",
-          "repo_git": "mi-portafolio",
-          "product": "vientonorte.io",
-          "status": "backlog",
-          "atomic_level": "page",
-          "people_job": "Rö nombra en <15s qué es público FO vs admin vs case",
-          "data_loss_risk": "none",
-          "notes": "Vault: DS-2026-08-03 path-oferta-analytics · default B lab admin · C root gated descartado",
-          "links": [
-            "https://vientonorte.io/#/proceso"
-          ]
-        },
-        {
-          "id": "plan-publish-core",
-          "title": "Fix publish @vientonorte/* (PAT write:packages) + consumir DS en FO web",
-          "repo": "vientonorte-core",
-          "status": "next",
-          "atomic_level": "template",
-          "people_job": "Design system versionado sin copiar tokens a mano",
-          "data_loss_risk": "none",
-          "notes": "Figma DS = marca. Consumir en vientonorte.io solo post-verde. · parte de plan-sprint-core-well",
-          "links": [
-            "https://dot-wool-76997229.figma.site",
-            "https://github.com/vientonorte/vientonorte-core/blob/main/docs/publish-packages.md"
-          ]
-        },
-        {
-          "id": "plan-terraza-ci",
-          "title": "Arreglar CI terraza (antropologia) antes de reabrir Dependabot",
-          "repo": "antropologia-corrupcion",
-          "status": "backlog",
-          "atomic_level": "template",
-          "people_job": "QA Gate verde en main",
-          "data_loss_risk": "none",
-          "links": []
-        },
-        {
-          "id": "plan-github-pro-private-protect",
-          "title": "GitHub Pro (o públicos) para protect main en privados",
-          "repo": "Vientonorte",
-          "status": "backlog",
-          "atomic_level": "template",
-          "people_job": "archivo-privado / sura / idt sin force-push accidental",
-          "data_loss_risk": "none",
+          "status": "in_progress",
+          "notes": "sitemaps/robots · Search Console verification manual · URLs root .io",
           "links": []
         },
         {
@@ -340,17 +305,6 @@
           "status": "done",
           "atomic_level": "template",
           "people_job": "Cerrar sprint sin fricción y con trazabilidad en vault/ops",
-          "data_loss_risk": "none",
-          "links": []
-        },
-        {
-          "id": "plan-demo-mockup-mode",
-          "title": "Modo demo: preview estático + lightbox mockups (sin iframe interactivo)",
-          "repo": "vientonorte-fo",
-          "repo_git": "mi-portafolio",
-          "status": "backlog",
-          "atomic_level": "organism",
-          "people_job": "Ver pantallas de producto como mockups al pedir demo, sin sandbox confuso",
           "data_loss_risk": "none",
           "links": []
         },
@@ -369,39 +323,6 @@
           ]
         },
         {
-          "id": "plan-gees-mvp",
-          "title": "GEES: decidir MVP N2N (A) vs piloto (B) — PRD 1 página",
-          "repo": "vientonorte-fo",
-          "repo_git": "mi-portafolio",
-          "status": "backlog",
-          "atomic_level": "page",
-          "people_job": "Stakeholder entiende alcance funcional GEES según visión VN",
-          "data_loss_risk": "none",
-          "notes": "Capacidad: SÍ MVP decisión; NO SaaS real-time sin partner eng",
-          "links": []
-        },
-        {
-          "id": "plan-oauth-verify",
-          "title": "OAuth Calendar: Ruta A Testing+test user (o Ruta B GSC+logo si Publish)",
-          "repo": "table-ro",
-          "status": "backlog",
-          "atomic_level": "page",
-          "people_job": "Rö conecta GCal personal sin fricción; solo él (y test users) autorizan",
-          "data_loss_risk": "none — OAuth token en memoria/sesión; secret fuera de git",
-          "notes": "NO Publish salvo necesario",
-          "links": [
-            "https://vientonorte.github.io/table-ro/brand.html"
-          ]
-        },
-        {
-          "id": "plan-mail",
-          "title": "Gmail App Password secrets (mail canvas) + orquestación MCP lead a11y",
-          "repo": "Vientonorte",
-          "status": "backlog",
-          "notes": "Conectores Grok ya existen; falta pipeline y secrets ops-sync",
-          "links": []
-        },
-        {
           "id": "plan-gtm",
           "title": "GTM unificado hub + FO web (post-Test path)",
           "repo": "vientonorte-fo",
@@ -410,19 +331,10 @@
           "status": "parked",
           "notes": "Park hasta Test usabilidad path · no wire live esta semana",
           "links": []
-        },
-        {
-          "id": "plan-seo-hub",
-          "title": "SEO hub: title/description/oferta + Search Console",
-          "repo": "vientonorte.github.io",
-          "atomic_level": "template",
-          "people_job": "Encontrar Viento Norte desde búsqueda con promesa clara",
-          "data_loss_risk": "none",
-          "status": "in_progress",
-          "notes": "sitemaps/robots · Search Console verification manual · URLs root .io",
-          "links": []
         }
-      ]
+      ],
+      "max_visible": 7,
+      "notes": "Pruned 2026-08-08: activos ≤7. Backlog demoted → later."
     },
     "monitor": {
       "label": "Monitorear",
@@ -522,7 +434,7 @@
           "repo": "vientonorte-fo",
           "repo_git": "mi-portafolio",
           "product": "vientonorte.io",
-          "status": "todo",
+          "status": "done",
           "owner": "Rö",
           "people_job": "H2 PASS · H4 PASS (Empezar≠SEM). MANUAL: H5 free más visible, favicon ICO/tab Safari, S2 onboarding OK (CTA A). Code when M5 window; or note only.",
           "checklist": [
@@ -545,12 +457,14 @@
           "human": true,
           "kind": "qa_manual",
           "priority": "P0",
-          "highlight": "human"
+          "highlight": "human",
+          "closed_reason": "subsumed_by:now-hu-vn-test-path",
+          "closed_at": "2026-08-08"
         },
         {
           "id": "now-postdeploy-seo-test-gate",
           "title": "P0 · Post-deploy SEO #139 + Test path gate (sin SEM $)",
-          "status": "todo",
+          "status": "done",
           "priority": "P0",
           "human": true,
           "kind": "qa_manual",
@@ -562,7 +476,9 @@
             "https://vientonorte.io/#/consultoria",
             "https://github.com/vientonorte/mi-portafolio/pull/139",
             "https://vientonorte.io/ops/"
-          ]
+          ],
+          "closed_reason": "subsumed_by:now-hu-vn-test-path",
+          "closed_at": "2026-08-08"
         },
         {
           "id": "now-gsc-manual-followup",
@@ -580,11 +496,119 @@
             "https://vientonorte.io/",
             "https://vientonorte.io/ops/"
           ]
+        },
+        {
+          "id": "plan-micro1-timebox-volume",
+          "title": "MICRO1: decidir si TB noche opcional para acercar 180h/mes",
+          "repo": "MICRO1",
+          "product": "trainer",
+          "status": "backlog",
+          "owner": "Rö",
+          "people_job": "Día TB diurno ~14–17h/sem captura; noche/sáb solo si $ manda",
+          "notes": "No sacrificar buen vivir sin Decide",
+          "links": [
+            "https://realm.micro1.ai"
+          ],
+          "demoted_from": "plan",
+          "demoted_at": "2026-08-08"
+        },
+        {
+          "id": "plan-ds-0803-surfaces",
+          "title": "DS-08-03 Map: superficies FO público vs admin lab (OB-RIA park)",
+          "repo": "vientonorte-fo",
+          "repo_git": "mi-portafolio",
+          "product": "vientonorte.io",
+          "status": "backlog",
+          "atomic_level": "page",
+          "people_job": "Rö nombra en <15s qué es público FO vs admin vs case",
+          "data_loss_risk": "none",
+          "notes": "Vault: DS-2026-08-03 path-oferta-analytics · default B lab admin · C root gated descartado",
+          "links": [
+            "https://vientonorte.io/#/proceso"
+          ],
+          "demoted_from": "plan",
+          "demoted_at": "2026-08-08"
+        },
+        {
+          "id": "plan-terraza-ci",
+          "title": "Arreglar CI terraza (antropologia) antes de reabrir Dependabot",
+          "repo": "antropologia-corrupcion",
+          "status": "backlog",
+          "atomic_level": "template",
+          "people_job": "QA Gate verde en main",
+          "data_loss_risk": "none",
+          "links": [],
+          "demoted_from": "plan",
+          "demoted_at": "2026-08-08"
+        },
+        {
+          "id": "plan-github-pro-private-protect",
+          "title": "GitHub Pro (o públicos) para protect main en privados",
+          "repo": "Vientonorte",
+          "status": "backlog",
+          "atomic_level": "template",
+          "people_job": "archivo-privado / sura / idt sin force-push accidental",
+          "data_loss_risk": "none",
+          "links": [],
+          "demoted_from": "plan",
+          "demoted_at": "2026-08-08"
+        },
+        {
+          "id": "plan-demo-mockup-mode",
+          "title": "Modo demo: preview estático + lightbox mockups (sin iframe interactivo)",
+          "repo": "vientonorte-fo",
+          "repo_git": "mi-portafolio",
+          "status": "backlog",
+          "atomic_level": "organism",
+          "people_job": "Ver pantallas de producto como mockups al pedir demo, sin sandbox confuso",
+          "data_loss_risk": "none",
+          "links": [],
+          "demoted_from": "plan",
+          "demoted_at": "2026-08-08"
+        },
+        {
+          "id": "plan-gees-mvp",
+          "title": "GEES: decidir MVP N2N (A) vs piloto (B) — PRD 1 página",
+          "repo": "vientonorte-fo",
+          "repo_git": "mi-portafolio",
+          "status": "backlog",
+          "atomic_level": "page",
+          "people_job": "Stakeholder entiende alcance funcional GEES según visión VN",
+          "data_loss_risk": "none",
+          "notes": "Capacidad: SÍ MVP decisión; NO SaaS real-time sin partner eng",
+          "links": [],
+          "demoted_from": "plan",
+          "demoted_at": "2026-08-08"
+        },
+        {
+          "id": "plan-oauth-verify",
+          "title": "OAuth Calendar: Ruta A Testing+test user (o Ruta B GSC+logo si Publish)",
+          "repo": "table-ro",
+          "status": "backlog",
+          "atomic_level": "page",
+          "people_job": "Rö conecta GCal personal sin fricción; solo él (y test users) autorizan",
+          "data_loss_risk": "none — OAuth token en memoria/sesión; secret fuera de git",
+          "notes": "NO Publish salvo necesario",
+          "links": [
+            "https://vientonorte.github.io/table-ro/brand.html"
+          ],
+          "demoted_from": "plan",
+          "demoted_at": "2026-08-08"
+        },
+        {
+          "id": "plan-mail",
+          "title": "Gmail App Password secrets (mail canvas) + orquestación MCP lead a11y",
+          "repo": "Vientonorte",
+          "status": "backlog",
+          "notes": "Conectores Grok ya existen; falta pipeline y secrets ops-sync",
+          "links": [],
+          "demoted_from": "plan",
+          "demoted_at": "2026-08-08"
         }
       ]
     }
   },
-  "updated": "2026-08-06",
+  "updated": "2026-08-08",
   "last_sync": "2026-08-06T17:53:58Z",
   "identity": {
     "org": "Viento Norte",
@@ -1322,7 +1346,9 @@
     "sync_board": "ops Devices tab",
     "sot": "hosted canvas-state.json",
     "draft": "localStorage only · never trust as multi-device truth",
-    "sync_ritual": "Clear draft + Reload hosted on every device"
+    "sync_ritual": "Clear draft + Reload hosted on every device",
+    "plan_max_active": 7,
+    "pruned_at": "2026-08-08T17:47:08Z"
   },
   "links": {
     "finanzas": "https://finanzas.vientonorte.io/",
@@ -1361,7 +1387,7 @@
       ]
     }
   ],
-  "progress_note": "2026-08-03: GSC verified+sitemap+inspección / · ops manual: smoke residual/favicon/H5 · firmas devices · GSC CWV/móvil P1 · SEM $0",
-  "updated_at": "2026-08-06T19:21:36Z",
+  "progress_note": "2026-08-08 · ops A/B/C: CORS .io + noindex + plan prune + AHORA close checklist. AHORA: HU-VN Test path + HU-M1 captura. Plan ≤7 activos.",
+  "updated_at": "2026-08-08T17:47:08Z",
   "deploy_roadmap": "ops/DEPLOY-ROADMAP.md"
 }
