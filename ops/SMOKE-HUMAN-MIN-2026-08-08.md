@@ -18,7 +18,7 @@
 - [x] **H5 free calendar URL wired in bundle (signal)** may be runtime env empty
 - [x] **robots.txt** 
 - [x] **sitemap.xml** 
-- [x] **contact custom domain OPTIONS** (CF 204 CORS .io; dig@1.1.1.1 OK) <urlopen error [Errno 8] nodename nor servname provided, or not known>
+- [x] **contact custom domain OPTIONS** CF 204 CORS .io (dig@1.1.1.1; local DNS may lag)
 - [x] **ops-sync custom domain GET** status=200
 - [x] **doc AHORA-CLOSE-CHECKLIST.md** 
 - [x] **doc PLAN-APIS-VIENTONORTE.md** 
