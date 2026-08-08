@@ -1,8 +1,64 @@
+---
+title: Auditoría profunda · prácticas de codificación VN
+date: 2026-08-08
+type: audit
+ssot: true
+tags:
+  - audit
+  - coding-practices
+  - viento-norte
+  - fo
+  - security
+  - devops
+  - ssot
+status: closed-synthesis
+method: 5-agent-parallel-explore
+composite_grade: "C− / D+"
+scope:
+  - mi-portafolio
+  - workers
+  - vientonorte.github.io/ops
+  - table-ro
+  - CI/deploy
+ssot_paths:
+  ops_live: "https://vientonorte.io/ops/AUDIT-CODING-PRACTICES-2026-08-08.md"
+  ops_raw: "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/AUDIT-CODING-PRACTICES-2026-08-08.md"
+  hub_repo: "vientonorte.github.io/ops/AUDIT-CODING-PRACTICES-2026-08-08.md"
+  obsidian_ro: "Viento Norte/Resources/AUDIT-CODING-PRACTICES-2026-08-08.md"
+  session_log: "Viento Norte/Sessions/2026-08-08.md"
+p0_ids:
+  - P0-1
+  - P0-2
+  - P0-3
+  - P0-4
+  - P0-5
+  - P0-6
+agent_ids:
+  architecture: "019fe28c-92c5-70e3-962b-71b6256d0820"
+  security: "019fe28c-92c5-70e3-962b-71c650024476"
+  tests_qa: "019fe28c-92c5-70e3-962b-71d323761eb2"
+  ts_react: "019fe28c-92c5-70e3-962b-71e3a6017e05"
+  devops: "019fe28c-92c5-70e3-962b-71fb361bf932"
+---
+
 # Auditoría profunda · prácticas de codificación VN
 
 **Fecha:** 2026-08-08  
 **Método:** 5 agentes explore en paralelo (read-only) + síntesis  
 **Scope:** `mi-portafolio` FO · workers · ops hub · table-ro · CI/deploy  
+**Composite:** **C− / D+**
+
+## SSOT · rutas canónicas
+
+| Destino | Path |
+|---------|------|
+| **Ops live (público)** | https://vientonorte.io/ops/AUDIT-CODING-PRACTICES-2026-08-08.md |
+| **GitHub raw** | https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/AUDIT-CODING-PRACTICES-2026-08-08.md |
+| **Repo hub** | `vientonorte.github.io/ops/AUDIT-CODING-PRACTICES-2026-08-08.md` |
+| **Obsidian Ro** | `Viento Norte/Resources/AUDIT-CODING-PRACTICES-2026-08-08.md` |
+| **Session log** | `Viento Norte/Sessions/2026-08-08.md` § Auditoría coding practices |
+
+> **Regla:** editar primero el archivo en **hub ops** (este), luego espejar a Obsidian. No divergir tablas P0.
 
 ---
 
@@ -133,4 +189,50 @@ El stack **sabe** buenas prácticas (gates, allowlists, noindex, human residual,
 
 Prioridad absoluta: **P0-1 (passkey)** y **P0-2 (ops clobber)** antes de más features FO.
 
-*Síntesis 2026-08-08 · 5 agentes Grok explore*
+---
+
+## Bloque mail (copiar)
+
+**Asunto:** VN · SSOT auditoría coding practices 2026-08-08 · composite C−/D+ · 6 P0
+
+```
+Rö — auditoría SSOT lista (correo + Obsidian + Sessions).
+
+SSOT live:
+https://vientonorte.io/ops/AUDIT-CODING-PRACTICES-2026-08-08.md
+
+Obsidian:
+Viento Norte/Resources/AUDIT-CODING-PRACTICES-2026-08-08.md
+Session log:
+Viento Norte/Sessions/2026-08-08.md
+
+Composite: C− / D+  (5 agentes)
+
+P0 (orden):
+1. Passkey admin sin verify crypto (S0) → off o simplewebauthn
+2. Deploy FO puede clobber ops/ (S0)
+3. @vientonorte/* declarado no usado (S0)
+4. AI proxy table-ro solo CORS (S1)
+5. Dual/triple Pages publisher (S1)
+6. Image registry FO≠worker (S1)
+
+Sprint A Safety: passkey · no-clobber ops · AI auth · un Pages
+Antes de SEM gasto serio: Test path humano + (ideal) GTM; auditoría no bloquea embudo soft-launch.
+
+— Grok · 2026-08-08
+```
+
+---
+
+## Bloque Session log (plantilla)
+
+```markdown
+### Auditoría coding practices · 5 agentes
+- **SSOT:** [[AUDIT-CODING-PRACTICES-2026-08-08]] · https://vientonorte.io/ops/AUDIT-CODING-PRACTICES-2026-08-08.md
+- **Composite:** C− / D+
+- **P0:** passkey admin · ops clobber deploy · packages theater · AI CORS · dual Pages · image registry
+- **Next:** Sprint A Safety (antes de confiar admin / ship sensible)
+- **SEM lunes:** embudo usable; medición GTM no en shell; residual humano H4/H5
+```
+
+*Síntesis 2026-08-08 · 5 agentes Grok explore · SSOT multi-destino*
