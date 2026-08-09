@@ -43,7 +43,22 @@ def test_live_projects_include_aruma_and_uxtools() -> None:
     assert by_id["aruma"]["badge"] == "live"
     assert by_id["uxtools"]["badge"] == "live"
     aruma_links = [link["href"] for link in by_id["aruma"]["links"]]
-    assert "https://vientonorte.github.io/aruma/" in aruma_links
+    ux_links = [link["href"] for link in by_id["uxtools"]["links"]]
+    # Canon brand root (post SPA-at-apex); legacy github.io still accepted
+    assert any(
+        href in aruma_links
+        for href in (
+            "https://vientonorte.io/aruma/",
+            "https://vientonorte.github.io/aruma/",
+        )
+    ), aruma_links
+    assert any(
+        href in ux_links
+        for href in (
+            "https://vientonorte.io/uxtools/",
+            "https://vientonorte.github.io/uxtools/",
+        )
+    ), ux_links
 
 
 def test_stats_not_hardcoded_when_absent() -> None:

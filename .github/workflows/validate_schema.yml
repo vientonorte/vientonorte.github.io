@@ -185,7 +185,12 @@ jobs:
       - name: Lychee link check
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --config scripts/lychee.toml --no-progress index.html data/projects.json sitemap.xml img/og-hub.svg
+          # --root-dir: SPA shell uses root-relative /assets/* and /favicon.*
+          args: >-
+            --config scripts/lychee.toml
+            --root-dir .
+            --no-progress
+            index.html data/projects.json sitemap.xml img/og-hub.svg
           fail: true
 
   accessibility:
@@ -207,9 +212,11 @@ jobs:
 
       - name: Serve site and run pa11y
         run: |
+          # Root index is SPA shell (from mi-portafolio); a11y of SPA is in that repo.
+          # Hub workflow audits static ops surface.
           npx serve . -l 3456 &
           for i in 1 2 3 4 5; do
-            curl -sf http://127.0.0.1:3456/index.html > /dev/null && break
+            curl -sf http://127.0.0.1:3456/ops/finanzas/index.html > /dev/null && break
             sleep 2
           done
           npx pa11y-ci --config .pa11yci.json

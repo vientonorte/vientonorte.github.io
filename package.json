@@ -4,12 +4,12 @@
   "description": "Dashboard unificado de proyectos de @vientonorte",
   "private": true,
   "scripts": {
-    "lint:js": "eslint index.html --ext .html",
-    "lint:html": "htmlhint index.html",
+    "lint:js": "bash scripts/lint-index.sh js",
+    "lint:html": "bash scripts/lint-index.sh html",
     "lint:css": "stylelint '**/*.html'",
-    "lint": "npm run lint:js && npm run lint:html",
+    "lint": "bash scripts/lint-index.sh all",
     "test": "echo 'Run pytest tests/ for manifest and pipeline tests'",
-    "test:a11y": "npx serve . -l 3456 & sleep 2 && npx pa11y-ci http://127.0.0.1:3456/index.html --config .pa11yci.json",
+    "test:a11y": "npx serve . -l 3456 & sleep 2 && npx pa11y-ci --config .pa11yci.json",
     "serve": "npx serve ."
   },
   "devDependencies": {
