@@ -6,17 +6,24 @@ on:
       - 'data/**'
       - 'pipeline/**'
       - 'tests/**'
-      - '*.html'
-      - '*.json'
+      - 'ops/**'
+      - 'scripts/**'
+      - 'package.json'
+      - '**/*.html'
+      - '**/*.json'
       - '.github/workflows/**'
   pull_request:
     paths:
       - 'data/**'
       - 'pipeline/**'
       - 'tests/**'
-      - '*.html'
-      - '*.json'
+      - 'ops/**'
+      - 'scripts/**'
+      - 'package.json'
+      - '**/*.html'
+      - '**/*.json'
       - '.github/workflows/**'
+  workflow_dispatch:
 
 jobs:
   validate-schema:
