@@ -27,9 +27,12 @@ jobs:
           python3 - <<'PY'
 import json
 m=json.load(open("_site/ops/finanzas/ledger.json"))["meta"]
-print(m.get("split_policy"), m.get("summary_mtd_tasks"), m.get("summary_mtd_usd"))
-assert m.get("split_policy")=="80_micro1_10_vn_10_post"
-assert (m.get("summary_mtd_tasks") or 0) >= 12
+policy = m.get("split_policy")
+tasks = m.get("summary_mtd_tasks") or 0
+print(policy, tasks, m.get("summary_mtd_usd"))
+# SSOT actual: 40 Micro1 / 5 VN / 3 post (antes 80/10/10)
+assert policy == "40m1_5vn_3post", f"split_policy inesperado: {policy}"
+assert tasks >= 12, f"summary_mtd_tasks < 12: {tasks}"
 PY
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
