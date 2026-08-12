@@ -4,6 +4,34 @@
       "max_items": 3,
       "items": [
         {
+          "id": "now-lg-teamwork-benchmark-week",
+          "title": "P0 · Benchmark LG + Teamwork → semana FO (debrief + message match)",
+          "status": "todo",
+          "priority": "P0",
+          "human": true,
+          "highlight": "human",
+          "kind": "research_fo",
+          "token_pct": 15,
+          "track": "vn",
+          "mvp": "MVP-VN-01",
+          "people_job": "Mié: LG debrief. Jue: message match Teamwork. Vie: VB móvil sobre-mí.",
+          "checklist": [
+            "Debrief LG Sessions/2026-08-12",
+            "1 postulación",
+            "Jue FO copy job+profit",
+            "Vie VB 5 checks",
+            "No Ads sin Decide"
+          ],
+          "links": [
+            "https://vientonorte.io/ops/BENCHMARK-TEAMWORK-LG-2026-08-12.md",
+            "https://www.teamwork.com/",
+            "https://www.lg.com/cl/",
+            "https://vientonorte.io/#/sobre-mi",
+            "https://vientonorte.io/#/consultoria"
+          ],
+          "notes": "Benchmark 2026-08-12. Teamwork=PSA profit+AI jobs. LG=retail+support+design insights."
+        },
+        {
           "id": "now-hu-vn-test-path",
           "title": "P0 · HU-VN-01/02 Test path FO (smoke H2/H4/H5/S2 + SEO) · cierra DS Test",
           "status": "todo",
@@ -30,9 +58,10 @@
             "https://vientonorte.io/ops/HUMAN-ACTIONS.md",
             "https://vientonorte.io/ops/HU-2026-08-06-MVP.md",
             "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/HU-2026-08-06-MVP.md",
-            "https://vientonorte.io/ops/AHORA-CLOSE-CHECKLIST.md"
+            "https://vientonorte.io/ops/AHORA-CLOSE-CHECKLIST.md",
+            "https://vientonorte.io/ops/BENCHMARK-TEAMWORK-LG-2026-08-12.md"
           ],
-          "notes": "DS-2026-08-03 day=Test · gap VN = Test no cerrado · 2026-08-06 · checklist AHORA-CLOSE 2026-08-08"
+          "notes": "2026-08-12 benchmark Teamwork: smoke+message match. VB Vie14."
         },
         {
           "id": "now-hu-m1-capture-gap",
@@ -54,25 +83,6 @@
             "https://vientonorte.io/ops/AHORA-CLOSE-CHECKLIST.md"
           ],
           "notes": "MTD $13.86 / 9 RR · ops @4 t/h · 2026-08-06 · checklist AHORA-CLOSE 2026-08-08"
-        },
-        {
-          "id": "now-hu-vn-pages-data",
-          "title": "P0 · HU-VN-03 Finanzas = finanzas.vientonorte.io (9·$13.86)",
-          "status": "done",
-          "priority": "P0",
-          "human": true,
-          "kind": "ops_infra",
-          "token_pct": 0,
-          "track": "vn",
-          "mvp": "MVP-VN-01",
-          "people_job": "GitHub Settings→Pages re-save main · Actions pages-build-deployment sin cancelar. Workaround: raw/jsDelivr.",
-          "links": [
-            "https://github.com/vientonorte/vientonorte.github.io/settings/pages",
-            "https://github.com/vientonorte/vientonorte.github.io/actions",
-            "https://finanzas.vientonorte.io/",
-            "https://finanzas.vientonorte.io/"
-          ],
-          "notes": "Canonical CF Worker · GH path deprecado · 2026-08-06 · next plan-deploy-finanzas-p0"
         }
       ],
       "done_archive": [
@@ -144,6 +154,26 @@
           "id": "done-domain-io-2026-07-27",
           "title": "Custom domain vientonorte.io + HTTPS + SEO base URLs",
           "status": "done"
+        },
+        {
+          "id": "now-hu-vn-pages-data",
+          "title": "P0 · HU-VN-03 Finanzas = finanzas.vientonorte.io (9·$13.86)",
+          "status": "done",
+          "priority": "P0",
+          "human": true,
+          "kind": "ops_infra",
+          "token_pct": 0,
+          "track": "vn",
+          "mvp": "MVP-VN-01",
+          "people_job": "GitHub Settings→Pages re-save main · Actions pages-build-deployment sin cancelar. Workaround: raw/jsDelivr.",
+          "links": [
+            "https://github.com/vientonorte/vientonorte.github.io/settings/pages",
+            "https://github.com/vientonorte/vientonorte.github.io/actions",
+            "https://finanzas.vientonorte.io/",
+            "https://finanzas.vientonorte.io/"
+          ],
+          "notes": "Canonical CF Worker · GH path deprecado · 2026-08-06 · next plan-deploy-finanzas-p0",
+          "archived_at": "2026-08-12"
         }
       ],
       "owner": "Rö · tareas HUMANAS primero"
@@ -192,6 +222,35 @@
       "label": "Planificar",
       "owner": "Rö",
       "items": [
+        {
+          "id": "plan-week-2026-08-12-macroprocess-refs",
+          "title": "P2 · Parking · 5 macroprocesos con refs",
+          "status": "parked",
+          "priority": "P2",
+          "track": "vn"
+        },
+        {
+          "id": "plan-week-2026-08-12-vb-mobile",
+          "title": "P1 · Vie 14 · VB humano sobre-mí móvil",
+          "status": "next",
+          "priority": "P1",
+          "human": true,
+          "track": "vn",
+          "links": [
+            "https://vientonorte.io/#/sobre-mi"
+          ]
+        },
+        {
+          "id": "plan-week-2026-08-12-message-match",
+          "title": "P1 · Jue 13 · Message match Teamwork en consultoría",
+          "status": "next",
+          "priority": "P1",
+          "track": "vn",
+          "notes": "From Teamwork benchmark",
+          "links": [
+            "https://vientonorte.io/ops/BENCHMARK-TEAMWORK-LG-2026-08-12.md"
+          ]
+        },
         {
           "id": "plan-deploy-finanzas-p0",
           "title": "P0 · Deploy $ pipeline: worker repo + Realm→ledger→wrangler + smoke + guardrail",
@@ -608,7 +667,7 @@
       ]
     }
   },
-  "updated": "2026-08-08",
+  "updated": "2026-08-12",
   "last_sync": "2026-08-06T17:53:58Z",
   "identity": {
     "org": "Viento Norte",
@@ -770,11 +829,10 @@
     ]
   },
   "objective": {
-    "today": "Cerrar gap VN (Test path) + avanzar gap cash M1 80%",
-    "tokens": "80_m1_10_vn_10_post",
-    "mtd_usd": 18.48,
-    "mtd_tasks": 12,
-    "gap_note": "intent weekday ~$221 vs reality $13.86 — close via M1 hours not FO features"
+    "today": "LG entrevista + Postulación + debrief benchmark Teamwork/LG",
+    "week": "Mié LG · Jue message match Teamwork · Vie VB sobre-mi",
+    "tokens": "10_vn_10_post_80_m1_when_capture",
+    "benchmark": "ops/BENCHMARK-TEAMWORK-LG-2026-08-12.md"
   },
   "design_system": {
     "figma_sites": "https://dot-wool-76997229.figma.site",
@@ -1399,7 +1457,7 @@
       "summary": "preprod pipeline + ops sync + API plan for vientonorte domain"
     }
   ],
-  "progress_note": "2026-08-08 handoff: preprod-gate + Deploy post-CI + PIPELINE-QA-PREPROD + API plan. AHORA: HU-VN Test path + HU-M1. Human QA package → mail.",
-  "updated_at": "2026-08-08T17:53:58Z",
+  "progress_note": "2026-08-12 benchmark Teamwork+LG; week plan FO; sobre-mi GO 8382111",
+  "updated_at": "2026-08-12T15:12Z",
   "deploy_roadmap": "ops/DEPLOY-ROADMAP.md"
 }
