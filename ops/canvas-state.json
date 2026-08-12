@@ -608,7 +608,7 @@
       ]
     }
   },
-  "updated": "2026-08-08",
+  "updated": "2026-08-11",
   "last_sync": "2026-08-06T17:53:58Z",
   "identity": {
     "org": "Viento Norte",
@@ -704,19 +704,13 @@
     "doc": "Viento Norte/Sprints/DS-2026-08-03 path-oferta-analytics.md"
   },
   "last_close": {
-    "at": "2026-08-11T22:31Z",
-    "title": "Sobre-mi ship + 404/5xx QA + /qa VB",
-    "session": "2026-08-11",
-    "note": "Sessions/2026-08-11.md",
-    "ship": [
-      "mi-portafolio #145-#159",
-      "error UI 404/500/503",
-      "qa:production",
-      "/qa/#/sobre-mi"
-    ],
-    "live": [
-      "https://vientonorte.io/#/sobre-mi",
-      "https://vientonorte.io/qa/#/sobre-mi"
+    "date": "2026-08-11",
+    "session": "vn-cierre-sesion",
+    "status": "closed-auto",
+    "title": "Sobre-mi GO prod · Flujo Mejora Continua · radar · timeline dots · cierre night",
+    "at": "2026-08-12T01:37:32Z",
+    "docs": [
+      "vault:Viento Norte/Sprints/2026-08-11 LOG sesion.md"
     ]
   },
   "github": {
