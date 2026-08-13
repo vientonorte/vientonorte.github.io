@@ -4,6 +4,33 @@
       "max_items": 3,
       "items": [
         {
+          "id": "now-p0-share-og-s",
+          "title": "P0 · Share OG 1200×630 + /s/consultoria (crawlers) · gate Ads/IG",
+          "status": "doing",
+          "priority": "P0",
+          "human": true,
+          "highlight": "human",
+          "kind": "seo_share",
+          "token_pct": 10,
+          "track": "vn",
+          "mvp": "MVP-SHARE-01",
+          "people_job": "Tras deploy: LinkedIn Post Inspector + Meta debugger en /s/consultoria. GBP en business.google.com. No Ads/IG spend.",
+          "checklist": [
+            "OG 1200x630",
+            "/s/consultoria",
+            "debugger LinkedIn+Meta",
+            "reclamar GBP",
+            "GTM no live"
+          ],
+          "links": [
+            "https://vientonorte.io/s/consultoria",
+            "https://www.linkedin.com/post-inspector/",
+            "https://developers.facebook.com/tools/debug/",
+            "https://business.google.com/"
+          ],
+          "notes": "2026-08-13 Decider · 2026-08-13"
+        },
+        {
           "id": "now-lg-teamwork-benchmark-week",
           "title": "P0 · Benchmark LG + Teamwork → semana FO (debrief + message match)",
           "status": "todo",
@@ -62,27 +89,6 @@
             "https://vientonorte.io/ops/BENCHMARK-TEAMWORK-LG-2026-08-12.md"
           ],
           "notes": "2026-08-12 benchmark Teamwork: smoke+message match. VB Vie14."
-        },
-        {
-          "id": "now-hu-m1-capture-gap",
-          "title": "P0 · HU-M1-01 captura 80% · olas Realm (max 3) · cierra gap $",
-          "status": "todo",
-          "priority": "P0",
-          "human": true,
-          "highlight": "human",
-          "kind": "micro1_capture",
-          "token_pct": 80,
-          "track": "m1",
-          "mvp": "MVP-M1-01",
-          "people_job": "Olas F7→tick→Submit. Review Ready ya: 9568…8714. No re-subir RR. LOG+m1-ledger-sync.",
-          "links": [
-            "https://realm.micro1.ai/",
-            "https://finanzas.vientonorte.io/",
-            "https://finanzas.vientonorte.io/",
-            "https://vientonorte.io/ops/HUMAN-ACTIONS.md",
-            "https://vientonorte.io/ops/AHORA-CLOSE-CHECKLIST.md"
-          ],
-          "notes": "MTD $13.86 / 9 RR · ops @4 t/h · 2026-08-06 · checklist AHORA-CLOSE 2026-08-08"
         }
       ],
       "done_archive": [
@@ -222,6 +228,16 @@
       "label": "Planificar",
       "owner": "Rö",
       "items": [
+        {
+          "id": "plan-ads-ig-gate",
+          "title": "Gate · Google Ads + Instagram Business/Ads — no spend hasta GTM + OG + GBP",
+          "status": "todo",
+          "priority": "P0",
+          "track": "vn",
+          "human": true,
+          "people_job": "AUDITORIA-ADS-INSTAGRAM.md. Crear GBP. GTM-XXXX.",
+          "notes": "Workspace: GSC+Calendar+Forms. GBP no es repo. GTM/GA no en HTML."
+        },
         {
           "id": "plan-week-2026-08-12-macroprocess-refs",
           "title": "P2 · Parking · 5 macroprocesos con refs",

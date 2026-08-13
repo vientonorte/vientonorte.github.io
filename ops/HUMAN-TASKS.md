@@ -1,6 +1,6 @@
 # Tareas humanas · FO + multi-device + ops SSOT
 
-**Dueño:** Rö · **Actualizado:** 2026-08-06 tarde · **P0 humano + agente**  
+**Dueño:** Rö · **Actualizado:** 2026-08-13 · **P0 humano + agente**  
 **Acciones con links de un clic:** [HUMAN-ACTIONS.md](./HUMAN-ACTIONS.md)  
 **HUs MVP hoy:** [HU-2026-08-06-MVP.md](./HU-2026-08-06-MVP.md)  
 **Ops:** https://vientonorte.io/ops/ · **table-ro:** https://vientonorte.io/table-ro/?view=ops  
@@ -19,6 +19,16 @@
 **Shipped FO:** PR #135 · #136 · #139 SEO HU-01…03  
 
 ---
+
+## P0 · Hoy (2026-08-13) — share + Google Business + gate paid
+
+Workspace **ya tiene** Search Console, Calendar y Forms. **No** hay GTM/GA en el HTML live. **Google Business Profile no vive en el repo**.
+
+| P | Tarea | Notas / links |
+|---|--------|----------------|
+| **P0** | Scrapear OG | https://vientonorte.io/s/consultoria · LinkedIn Post Inspector · Meta debugger |
+| **P0** | Reclamar Google Business Profile | https://business.google.com/ · web vientonorte.io |
+| **P0** | Gate Ads + Instagram \$0 | docs/AUDITORIA-ADS-INSTAGRAM.md |
 
 ## P0 · Hoy (2026-08-06) — humano
 
