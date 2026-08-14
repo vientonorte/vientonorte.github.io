@@ -411,11 +411,11 @@
       "tasks_ok": 42,
       "usd": 64.68,
       "claims": [],
-      "game": "Ghost Recon Wildlands",
+      "game": "Ghost Recon Wildlands + Remnant II",
       "olas_de_3": 0,
-      "note": "Realm CR IDs 20729-20744 (16) · +42 signed vs ledger 17 = MTD 59 · CR fuera de $ · pool Remnant 930",
+      "note": "CR 20729-20744 (16) · RR Remnant 12101+12100 (2) 20:25/20:27 · noche 2/4 · cupo dia 12/18 · no $ hasta signed · vie14 meta 22 lock",
       "source": "Realm-client-review-paste-Rö",
-      "updated_at": "2026-08-13T20:10:00-04:00",
+      "updated_at": "2026-08-13T20:30:00-04:00",
       "tasks_tomadas": 42,
       "offline_buffer_takes": 17,
       "realm_signed_off_mtd": 59,
@@ -438,7 +438,17 @@
         "20731",
         "20730",
         "20729"
-      ]
+      ],
+      "claims_review_ready": [
+        "12101",
+        "12100"
+      ],
+      "claims_remnant_ids": [
+        "12101",
+        "12100"
+      ],
+      "claims_remnant_count": 2,
+      "remnant_submitted_count": 2
     }
   ],
   "meta": {
@@ -455,7 +465,7 @@
     "summary_mtd_usd": 90.86,
     "rate_usd": 1.54,
     "wind_down": "21:30",
-    "sync": "cierre-2026-08-13",
+    "sync": "cierre-eod-2026-08-13",
     "intent_usd_week_tb": 308,
     "goal_clp_month": 1600000,
     "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -467,7 +477,7 @@
     "intent_usd_day_fri": 61.6,
     "baseline_tph": 4,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-08-13T19:40:00-04:00",
+    "updated": "2026-08-13T20:40:00-04:00",
     "intention_h_month": 199.2,
     "target_hours_month": 180,
     "split_policy": "50m1_lv_10h",
@@ -498,14 +508,35 @@
       "vn": 0.5,
       "post": 0.5
     },
-    "reality_note": "CIERRE 2026-08-13 · 0t RR ·  · MTD 59·.86 · CR16 20729-20744 · cupo  18/d · vie 14=22 · F7 resume",
+    "reality_note": "CIERRE EOD 2026-08-13 · 0t signed ·  · MTD 59·.86 · RR2 12101/12100 · CR16 · hoy 12/18 · vie 14=22",
     "realm_signed_off_n": 59,
     "realm_signed_off_usd": 90.86,
     "realm_client_review_n": 16,
     "realm_client_review_usd_pending": 24.64,
     "remnant_ii_claim_pool_week": 930,
-    "realm_review_ready": [],
-    "realm_review_ready_n": 0,
+    "realm_review_ready": [
+      {
+        "id": "12101",
+        "updated": "2026-08-13",
+        "updated_hm": "20:25",
+        "created": "2026-07-31",
+        "mins": 10,
+        "game": "Remnant II",
+        "status": "Review Ready",
+        "trainer": "Rodrigo Gaete"
+      },
+      {
+        "id": "12100",
+        "updated": "2026-08-13",
+        "updated_hm": "20:27",
+        "created": "2026-07-31",
+        "mins": 10,
+        "game": "Remnant II",
+        "status": "Review Ready",
+        "trainer": "Rodrigo Gaete"
+      }
+    ],
+    "realm_review_ready_n": 2,
     "ops_tph": 4,
     "plan_tph": 5.6,
     "baseline_tph_plan_ceiling": 5.6,
@@ -1092,6 +1123,8 @@
       "20731",
       "20730",
       "20729"
-    ]
+    ],
+    "realm_review_ready_usd_pending": 3.08,
+    "cupo_2026_08_14": 22
   }
 }
