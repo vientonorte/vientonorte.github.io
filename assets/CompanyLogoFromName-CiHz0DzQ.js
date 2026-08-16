@@ -1,0 +1,1 @@
+import{X as e}from"./vendor-radix-D4ZRyzv4.js";import{n as t,t as n}from"./CompanyLogo-DvqolbxY.js";var r=e();function i({company:e,size:i=`md`,className:a,flat:o=!1}){let s=t(e);return(0,r.jsx)(n,{src:s?.src,alt:`${e} logo`,size:i,className:a,wordmark:s?.wordmark,flat:o})}export{i as t};
