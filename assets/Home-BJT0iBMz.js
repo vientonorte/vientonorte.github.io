@@ -1,1 +1,0 @@
-import{X as e}from"./vendor-radix-D4ZRyzv4.js";import t from"./ConsultoriaVientoNorte-GuPC8odI.js";var n=e();function r(){return(0,n.jsx)(t,{variant:`home`})}export{r as default};
