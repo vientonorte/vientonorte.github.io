@@ -683,7 +683,7 @@
       ]
     }
   },
-  "updated": "2026-08-12",
+  "updated": "2026-08-16",
   "last_sync": "2026-08-06T17:53:58Z",
   "identity": {
     "org": "Viento Norte",
@@ -779,19 +779,13 @@
     "doc": "Viento Norte/Sprints/DS-2026-08-03 path-oferta-analytics.md"
   },
   "last_close": {
-    "at": "2026-08-11T22:31Z",
-    "title": "Sobre-mi ship + 404/5xx QA + /qa VB",
-    "session": "2026-08-11",
-    "note": "Sessions/2026-08-11.md",
-    "ship": [
-      "mi-portafolio #145-#159",
-      "error UI 404/500/503",
-      "qa:production",
-      "/qa/#/sobre-mi"
-    ],
-    "live": [
-      "https://vientonorte.io/#/sobre-mi",
-      "https://vientonorte.io/qa/#/sobre-mi"
+    "date": "2026-08-16",
+    "session": "vn-cierre-sesion",
+    "status": "closed-auto",
+    "title": "SEM funnel + GTM/GA4 + demos timed + PDD",
+    "at": "2026-08-16T21:06:22Z",
+    "docs": [
+      "vault:Viento Norte/Sessions/2026-08-16.md"
     ]
   },
   "github": {
