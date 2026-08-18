@@ -19,21 +19,21 @@
       "intent_h": 6.4,
       "intent_tasks": 35.8,
       "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+      "blocks": "Calendar 18 ago · M1 5.5h + VN 1.5h + Post 0.75h · Algonova 3.5 (tarde)"
     },
     {
       "date": "2026-08-04",
       "intent_h": 6.4,
       "intent_tasks": 35.8,
       "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+      "blocks": "Calendar 18 ago · M1 5.5h + VN 1.5h + Post 0.75h · Algonova 3.5 (tarde)"
     },
     {
       "date": "2026-08-05",
       "intent_h": 6.4,
       "intent_tasks": 35.8,
       "intent_usd": 55.19,
-      "blocks": "8h · 80/10/10 M1 6.4h + VN 0.8h + Post 0.8h"
+      "blocks": "Calendar 18 ago · M1 5.5h + VN 1.5h + Post 0.75h · Algonova 3.5 (tarde)"
     },
     {
       "date": "2026-08-06",
@@ -480,7 +480,7 @@
     "updated": "2026-08-13T20:40:00-04:00",
     "intention_h_month": 199.2,
     "target_hours_month": 180,
-    "split_policy": "50m1_lv_10h",
+    "split_policy": "calendar_2026_08_18",
     "intent_usd_week_80_20": 255.26,
     "workday_h_lj": 9,
     "workday_h_fri": 6,
@@ -493,20 +493,20 @@
     "intent_usd_month_with_wave": 1399.63,
     "intention_h_month_lv_only": 124.8,
     "split_pct": {
-      "micro1": 83.3,
-      "vn": 10.4,
-      "postulaciones": 6.2
+      "micro1": 70.97,
+      "vn": 19.35,
+      "postulaciones": 9.68
     },
     "intent_usd_week_80_10_10": 255.26,
     "hours_lj": {
-      "m1": 10,
-      "vn": 1,
-      "post": 0.5
+      "m1": 5.5,
+      "vn": 1.5,
+      "post": 0.75
     },
     "hours_fri": {
-      "m1": 10,
-      "vn": 0.5,
-      "post": 0.5
+      "m1": 5.5,
+      "vn": 1.5,
+      "post": 0.75
     },
     "reality_note": "CIERRE EOD 2026-08-13 · 0t signed ·  · MTD 59·.86 · RR2 12101/12100 · CR16 · hoy 12/18 · vie 14=22",
     "realm_signed_off_n": 59,
@@ -799,14 +799,14 @@
     ],
     "ops_tph_note": "2026-08-06 Rö: ops = 4 t/h (no 5). Plan techo sigue 5.6",
     "calendar_hours": {
-      "source": "SSOT 10h L–V · 2026-08-07 cierre",
-      "plantilla_lj_h": 10,
-      "plantilla_fri_h": 10,
+      "source": "Calendar 18 ago · Método Ro",
+      "plantilla_lj_h": 5.5,
+      "plantilla_fri_h": 5.5,
       "plantilla_sat_h": 0,
       "plantilla_sun_h": 0,
-      "plantilla_week_m1_h": 50,
-      "plantilla_week_vn_h": 5,
-      "plantilla_week_post_h": 3,
+      "plantilla_week_m1_h": 27.5,
+      "plantilla_week_vn_h": 7.5,
+      "plantilla_week_post_h": 3.75,
       "plantilla_work_week_h": 58,
       "distribution": {
         "L-V": {
@@ -832,10 +832,12 @@
     },
     "workday_h_weekend": 3,
     "split_hours_week": {
-      "micro1": 50,
-      "vn": 5,
-      "postulaciones": 3,
-      "total": 58
+      "micro1": 27.5,
+      "vn": 7.5,
+      "postulaciones": 3.75,
+      "algonova": 17.5,
+      "total_sin_algo": 38.75,
+      "total_con_algo": 56.25
     },
     "post_channels": [
       "Computrabajo",
@@ -1125,6 +1127,7 @@
       "20729"
     ],
     "realm_review_ready_usd_pending": 3.08,
-    "cupo_2026_08_14": 22
+    "cupo_2026_08_14": 22,
+    "plantilla_note": "Decider 2026-08-18 Calendar: M1 5.5 · VN 1.5 · Post 0.75 · Algonova 3.5. No 80/10/10. MTD/realm numbers unchanged."
   }
 }

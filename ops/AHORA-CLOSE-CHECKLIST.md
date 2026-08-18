@@ -3,10 +3,10 @@
 **Dueño:** Rö (humano) · **Agente no cierra** estos P0  
 **Canvas:** [vientonorte.io/ops/](https://vientonorte.io/ops/) · **1 clic:** [HUMAN-ACTIONS.md](./HUMAN-ACTIONS.md)  
 **HUs:** [HU-2026-08-06-MVP.md](./HU-2026-08-06-MVP.md)  
-**Actualizado:** 2026-08-08
+**Actualizado:** 2026-08-18
 
-> Objetivo del día (tokens **80 M1 · 10 VN · 10 Post**):  
-> cerrar **gap VN** (Test path) y **no matar cash M1** (captura). SEM **$0** hasta Test pass.
+> Objetivo del día (Método Ro · Calendar 18 ago: **M1 5.5 · VN 1.5 · Post 0.75 · Algonova 4º**):  
+> cerrar **gap VN** (Test path) en el tramo 15:30–17:00 y **no comer M1 5.5h**. SEM **$0** hasta Test pass.
 
 ---
 
@@ -15,7 +15,7 @@
 | Bloque | Tiempo | Por qué primero |
 |--------|--------|-----------------|
 | **1 · HU-VN** Test path | 25–40 min | Cierra DS day=Test · desbloquea SEM later |
-| **2 · HU-M1** captura | resto del día | 80% tokens · cierra gap $ |
+| **2 · HU-M1** captura | 09:00–13:00 + 14:00–15:30 | M1 **5.5h** · cierra gap $ |
 | Post / multi-device | solo si sobra | later · no diluye AHORA |
 
 ---
