@@ -13,6 +13,7 @@
 - **Guía** — loops sprint / packages / multi-device.
 - **Cerrar AHORA** — [AHORA-CLOSE-CHECKLIST.md](./AHORA-CLOSE-CHECKLIST.md) · [HUMAN-ACTIONS.md](./HUMAN-ACTIONS.md).
 - **QA pre-prod** — [PIPELINE-QA-PREPROD.md](./PIPELINE-QA-PREPROD.md) · `npm run preprod` · workflow `/preprod-qa`.
+- **Catálogo skills** — [skills/](./skills/) · `/vn-agent` · `/check-work` · `/check-safety` · `/org-hygiene` · `/preprod-qa`.
 - **APIs dominio** — [PLAN-APIS-VIENTONORTE.md](./PLAN-APIS-VIENTONORTE.md) (`contact.` · `ops-sync.` · `api.`).
 - **Auditoría coding practices (SSOT)** — [AUDIT-CODING-PRACTICES-2026-08-08.md](./AUDIT-CODING-PRACTICES-2026-08-08.md) · composite C−/D+ · 5 agentes.
 
