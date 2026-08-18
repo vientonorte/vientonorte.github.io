@@ -1,7 +1,7 @@
 # Checklist ĀRŪḾA · cuenta Google + 3 agendas + deploy
 
 **Estado:** bloqueado en **paso humano** · sitio live en https://vientonorte.io/aruma/  
-**Token roadmap:** 10% VN (no robar 80% M1)  
+**Horas:** tramo VN 1.5h (no comer M1 5.5h). Método Ro 18 ago.  
 **SoT código:** `aruma/SPRINT_ARUMA.md` · `lib/brand.config.ts` (`bookingUrl: ''`)
 
 ---

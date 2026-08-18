@@ -1,15 +1,15 @@
 # Acciones humanas · links de un clic · 2026-08-06
 
-**Dueño:** Rö · **Actualizado:** 2026-08-06  
+**Dueño:** Rö · **Actualizado:** 2026-08-18  
 **Board HUs hoy:** [HU-2026-08-06-MVP.md](./HU-2026-08-06-MVP.md)  
 **Tareas humanas detalle:** [HUMAN-TASKS.md](./HUMAN-TASKS.md)  
 **Ops canvas:** https://vientonorte.io/ops/
 
-> Objetivo del día: **cerrar gap VN (10%)** con Test path + ops data viva, y **no matar 80% M1** (captura).
+> Objetivo del día (Método Ro · Calendar 18 ago): **VN 1.5h** Test path + ops viva · **no comer M1 5.5h**. Post 0.75 · Algonova 4º. No 80/10/10.
 
 ---
 
-## A · Gap VN (10%) — Design Sprint Test + ops
+## A · Gap VN (1.5h) — Design Sprint Test + ops
 
 | # | Acción humana | Link / path | DoD |
 |---|---------------|-------------|-----|
@@ -24,7 +24,7 @@
 | A9 | Unstick **Pages ops** (data finanzas) | https://github.com/vientonorte/vientonorte.github.io/settings/pages · https://github.com/vientonorte/vientonorte.github.io/actions | UI = finanzas.vientonorte.io · 9·$13.86 |
 | A10 | Verificar ledger SoT | https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas/ledger.json | MTD **9 · $13.86** |
 | A11 | UI finanzas (tras Pages o jsDelivr) | https://finanzas.vientonorte.io/ · ↻ | no $4.62 |
-| A12 | Ledger fresco bypass CDN | https://finanzas.vientonorte.io/ledger.json | 80/10/10 |
+| A12 | Ledger fresco bypass CDN | https://finanzas.vientonorte.io/ledger.json | plantilla Calendar 18 ago (M1 5.5) · MTD = dato, no % |
 | A13 | ĀRŪḾA reserva UI | https://vientonorte.io/aruma/#reserva | padding OK · mailto o Calendar |
 | A14 | ĀRŪḾA brand pegar links | https://vientonorte.io/aruma/brand/ | bookingUrl válido |
 | A15 | Google Appointment Schedules | https://calendar.google.com/calendar/u/0/r/appointments | 3 agendas 30/90/120 |
@@ -32,7 +32,7 @@
 
 ---
 
-## B · Gap M1 (80%) — cash / Realm
+## B · Gap M1 (5.5h) — cash / Realm
 
 | # | Acción | Link | DoD |
 |---|--------|------|-----|
@@ -40,17 +40,17 @@
 | B2 | Captura ola (max 3 claims) | https://realm.micro1.ai/ | F7 10' → 6 files → Submit |
 | B3 | LOG + ledger sync | local `m1-ledger-sync` | MTD sube con IDs |
 | B4 | Finanzas tras submit | https://finanzas.vientonorte.io/ | ↻ ledger |
-| B5 | Canon timebox HOST | Calendar **MICRO 1** | 6.4 h L–J plan |
+| B5 | Canon timebox HOST | Calendar **MICRO 1** | **5.5 h** L–V (09–13 + 14–15:30) |
 
 **IDs Review Ready:** `9568 · 9567 · 9566 · 8719 · 8718 · 8717 · 8716 · 8715 · 8714`
 
 ---
 
-## C · Gap Post (10%)
+## C · Gap Post (0.75h)
 
 | # | Acción | Link | DoD |
 |---|--------|------|-----|
-| C1 | Bloque Post 08:45–09:30 | Calendar Personal | 1 envío o follow-up |
+| C1 | Bloque Post **08:15–09:00** | Calendar Personal | 1 envío o follow-up |
 | C2 | LinkedIn / portales | https://www.linkedin.com/in/rodrigo-gaete-ux/ | tracker 1 línea Session |
 | C3 | Portfolio para postulación | https://vientonorte.io/ | link en mensaje |
 
@@ -83,7 +83,7 @@
 
 | # | Acción | Link |
 |---|--------|------|
-| E1 | DS activo note | Obsidian `Sprints/DS-2026-08-03 path-oferta-analytics.md` |
+| E1 | DS activo note | Obsidian `Sprints/DS-2026-08-15 landing-ob-packs.md` (08-03 parked) |
 | E2 | Marco DS VN | Obsidian `Resources/Design Sprint VN - marco de trabajo.md` |
 | E3 | Skill agente | `/design-sprint-vn` |
 | E4 | Día = **Test** | smoke A1–A7 + Decider SEM gate A8 |
@@ -102,15 +102,14 @@
 
 ---
 
-## Orden sugerido hoy (80/10/10)
+## Orden sugerido hoy (Calendar 18 ago)
 
 ```
-1) C1 Post 45'          (10%)
-2) A1–A7 Test path smoke (10% VN · cierra DS Test)
-3) A9 Pages unstick      (desbloquea data $ en prod)
-4) B2 M1 olas resto día  (80%)
-5) D1–D4 firmas si hay device
-6) A13–A16 ĀRŪḾA solo si sobra VN
+1) C1 Post 08:15–09:00     (0.75h)
+2) B2 M1 09:00–13:00 + 14:00–15:30  (5.5h)
+3) A1–A7 Test path         (VN 15:30–17:00 · 1.5h)
+4) D1–D4 firmas si hay device
+5) 18:00–21:30 Algonova    (4º stream · no ops VN)
 ```
 
 — ops HUMAN-ACTIONS · 2026-08-06
@@ -120,7 +119,7 @@
 
 - **Canonical:** https://finanzas.vientonorte.io/
 - **MTD:** 9 Review Ready · $13.86 (Updated 04→2 · 05→6 · 06→1)
-- **Calendar:** 80/10/10 · M1 6.4 L–J / 4.0 Vie · ops t/h **4** · techo 5.6
+- **Calendar:** Método Ro 18 ago · M1 **5.5** · VN **1.5** · Post **0.75** · Algonova **3.5** · ops t/h **4** · techo 5.6
 - **No usar:** jsDelivr @commit · apex GH $4.62
 
 ## E · Deploy $ pipeline (P0 esta semana) · retro 2026-08-06

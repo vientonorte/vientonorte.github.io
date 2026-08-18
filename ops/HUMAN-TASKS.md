@@ -71,20 +71,21 @@ Workspace **ya tiene** Search Console, Calendar y Forms. **No** hay GTM/GA en el
 | Smoke agent #135/#136 | done 02 ago |
 | GSC verify + sitemap | done 03 ago |
 | Pre-Decide DS Map **B** | firmado 03 ago |
-| Ledger SSOT 80/10/10 · 10 tasks · 3 rework | **datos** 06 ago (raw/jsDelivr) |
+| Ledger SSOT (hist. 80/10/10 06 ago) · plantilla **Calendar 18 ago** | **datos** 06 ago; horas Decider 18 ago |
 | Dual vault Obsidian → Ro canónico | done 06 ago |
 | Skills email `.io` · night-worker día | done 06 ago |
 | ĀRŪḾA site live + mailto fallback | live; agendas Google **pendiente humano** |
 
 ---
 
-## Roadmap tokens (atención)
+## Horas (Método Ro · Calendar 18 ago)
 
-| % | Track |
+| h | Track |
 |---|--------|
-| **80%** | MICRO1 captura (6.4 h L–J / 4.0 h Vie) |
-| **10%** | VN / FO / ĀRŪḾA |
-| **10%** | Postulaciones |
+| **5.5** | MICRO1 captura (09:00–13:00 + 14:00–15:30) |
+| **1.5** | VN / FO / ĀRŪḾA (15:30–17:00) |
+| **0.75** | Postulaciones (08:15–09:00) |
+| **3.5** | Algonova (18:00–21:30 · 4º stream) |
 
 Meta hogar **1.6M CLP**. Intent M1 L–J **~$55.19**.
 

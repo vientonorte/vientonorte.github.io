@@ -1,7 +1,8 @@
 # QA · Skills + Automatizaciones + GitHub · 2026-08-06
 
+> **Superseded 2026-08-18:** horas = Método Ro Calendar (M1 5.5 · VN 1.5 · Post 0.75 · Algonova 4º). El 80/10/10 de este QA es **histórico**.
+
 **Status:** audit data-driven · calidad en baja por **drift multi-vault + Pages stuck**  
-**Roadmap tokens:** 80% M1 · 10% VN · 10% Post  
 **Autor:** Grok QA pass
 
 ---

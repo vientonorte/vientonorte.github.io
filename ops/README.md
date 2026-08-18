@@ -21,7 +21,7 @@
 
 | Orden | Foco | Doc |
 |-------|------|-----|
-| **AHORA** | Test path FO + captura M1 (80/10/10) | [AHORA-CLOSE-CHECKLIST.md](./AHORA-CLOSE-CHECKLIST.md) |
+| **AHORA** | Test path FO (VN 1.5h) + captura M1 5.5h | [AHORA-CLOSE-CHECKLIST.md](./AHORA-CLOSE-CHECKLIST.md) |
 | **Plan** | Deploy $ · core pins · onboard envs | [SPRINT-CORE-ONBOARDING.md](./SPRINT-CORE-ONBOARDING.md) |
 
 ## State (buenas prácticas)
@@ -55,7 +55,7 @@ Sync: Worker `vientonorte-ops-sync` + token `ops_sync_token` (solo browser; no e
 | **Tareas humanas** | [HUMAN-TASKS.md](./HUMAN-TASKS.md) |
 | **Ledger SoT** | [finanzas.vientonorte.io/ledger.json](https://finanzas.vientonorte.io/ledger.json) |
 
-**Tokens:** 80% M1 · 10% VN · 10% Post · **DS day = Test**
+**Horas:** Método Ro 18 ago · M1 5.5 · VN 1.5 · Post 0.75 · Algonova 4º · **DS day = Test**
 
 ## Finanzas $ (canónico)
 
