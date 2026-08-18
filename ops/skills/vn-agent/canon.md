@@ -50,9 +50,14 @@ Contrato: `docs/API-KICKOFF.md`
 | 9 | `cierre-vn-hoy` | Cierre del día → Session |
 | 10 | `m5-vn` | Atajos locales /ops |
 
-## Tokens
+## Horas (Método Ro)
 
-Split **80% M1 · 10% VN · 10% Post**. Ledger: `MICRO 1/07-pagos/dashboard/ledger.json` · live `https://finanzas.vientonorte.io/`.
+SSOT: vault `00-sistema/CALENDAR-SESSION-UNIFICADO.md` · `00-sistema/METODO-RO-AGENT.md`.  
+**No 80/10/10 ni 80/20.** Decider 2026-08-18.
+
+L–V: **Post 0.75** · **M1 5.5** · **VN 1.5** · **Algonova 3.5** (4º stream). Un stamp `✓ SESSION` en Personal.
+
+Ledger $: `MICRO 1/07-pagos/dashboard/ledger.json` · live `https://finanzas.vientonorte.io/` (puede ir atrasado vs plantilla).
 
 ## Decider
 
