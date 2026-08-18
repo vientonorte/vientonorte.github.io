@@ -29,7 +29,7 @@
             "https://vientonorte.io/#/sobre-mi",
             "https://vientonorte.io/#/consultoria"
           ],
-          "notes": "Benchmark 2026-08-12. Teamwork=PSA client profit+AI jobs. LG=retail+support+design insights."
+          "notes": "Benchmark 2026-08-12. Teamwork=PSA client profit+AI jobs. LG=retail+support+design insights. 2026-08-13 Decider: loop paid (GTM/Ads/IG) PARKED hasta «activar campañas»."
         },
         {
           "id": "now-hu-vn-test-path",
@@ -42,7 +42,7 @@
           "token_pct": 10,
           "track": "vn",
           "mvp": "MVP-VN-01",
-          "people_job": "Rellenar smoke pass/fail. SEM $0. Links en HUMAN-ACTIONS A1–A8. Decider firma Test.",
+          "people_job": "H4/H5/S2 FIRMADOS 18 ago (Decider). Queda H2/Fav/HU-02. SEM $0.",
           "checklist": [
             "H2 sin Inicio›Inicio",
             "H4 Empezar → onboarding in-page",
@@ -62,7 +62,7 @@
             "https://vientonorte.io/ops/BENCHMARK-TEAMWORK-LG-2026-08-12.md",
             "https://vientonorte.io/#/sobre-mi"
           ],
-          "notes": "2026-08-12: tras benchmark Teamwork — smoke path + message match profit/job clarity. VB sobre-mi móvil en Vie 14."
+          "notes": "2026-08-18 Decider firmó H4/H5/S2. Playwright live: H4 onboarding in-page · H5 Calendar 1120ms · S2 SEM onboarding. Residual: H2, favicon, HU-02. SEM $0."
         },
         {
           "id": "now-hu-m1-capture-gap",
@@ -257,6 +257,19 @@
           "priority": "P2",
           "track": "vn",
           "notes": "No abrir sin Decide post-LG week"
+        },
+        {
+          "id": "plan-paid-loop-parked",
+          "title": "Loop paid GTM→Ads→IG PARKED hasta activar campañas",
+          "status": "parked",
+          "priority": "P0",
+          "track": "vn",
+          "people_job": "No GTM, no spend. Reactivar solo con frase «activar campañas».",
+          "notes": "Decider Rö 2026-08-13. A share /s/consultoria live. D/E/F no. SSOT: docs/CHECKLIST-CANALES-PAID.md",
+          "links": [
+            "https://vientonorte.io/s/consultoria",
+            "https://github.com/vientonorte/mi-portafolio/blob/main/docs/CHECKLIST-CANALES-PAID.md"
+          ]
         },
         {
           "id": "plan-deploy-finanzas-p0",
@@ -664,7 +677,7 @@
       ]
     }
   },
-  "updated": "2026-08-12",
+  "updated": "2026-08-16",
   "last_sync": "2026-08-06T17:53:58Z",
   "identity": {
     "org": "Viento Norte",
@@ -760,13 +773,13 @@
     "doc": "Viento Norte/Sprints/DS-2026-08-03 path-oferta-analytics.md"
   },
   "last_close": {
-    "date": "2026-08-11",
+    "date": "2026-08-16",
     "session": "vn-cierre-sesion",
     "status": "closed-auto",
-    "title": "Sobre-mi GO prod · Flujo Mejora Continua · radar · timeline dots · cierre night",
-    "at": "2026-08-12T01:37:32Z",
+    "title": "SEM funnel + GTM/GA4 + demos timed + PDD",
+    "at": "2026-08-16T21:05:34Z",
     "docs": [
-      "vault:Viento Norte/Sprints/2026-08-11 LOG sesion.md"
+      "vault:Viento Norte/Sprints/2026-08-16 LOG sesion.md"
     ]
   },
   "github": {
