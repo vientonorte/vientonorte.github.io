@@ -16,8 +16,8 @@ Script técnico: `mi-portafolio/scripts/preprod-gate.sh`
 
 Human Test path (H2, favicon, HU-01 title, HU-02 canonical, SEM $0) **no** lo cierra el agente.
 
-## Tokens
+## Horas
 
-Split **80% M1 · 10% VN · 10% Post**. Este gate es el 10% VN. No gastar Ads.
+Método Ro (canon). Este gate es el tramo **VN 1.5h**. No gastar Ads.
 
 Verdict: **GO / NO-GO** con evidencia de comando. Sin script → `NO DATO`.
