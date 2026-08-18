@@ -1,0 +1,1 @@
+import{X as e}from"./vendor-radix-D4ZRyzv4.js";import t from"./TimedServiceDemo-DR3gLgV-.js";var n=e();function r(){return(0,n.jsx)(t,{forcedPath:`prototype`})}export{r as default};
