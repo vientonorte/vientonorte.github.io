@@ -29,9 +29,9 @@
 | ☐ | ID | Criterio | URL | pass/fail |
 |---|----|----------|-----|-----------|
 | ☐ | H2 | Sin breadcrumb «Inicio › Inicio» | https://vientonorte.io/ | |
-| ☐ | H4 | Dock **Empezar** → onboarding in-page (no salta a SEM) | https://vientonorte.io/ | |
-| ☐ | H5 | CTA free a11y Calendar abre **&lt;30 s** | https://vientonorte.io/ | |
-| ☐ | S2 | SEM «Empezar» coherente | https://vientonorte.io/#/consultoria | |
+| ☑ | H4 | Dock **Empezar** → onboarding in-page (no salta a SEM) | https://vientonorte.io/ | **PASS** 18 ago · Playwright · onboarding visible · no `#/consultoria` |
+| ☑ | H5 | CTA free a11y Calendar abre **&lt;30 s** | https://vientonorte.io/ | **PASS** 18 ago · 1120 ms · `calendar.app.google/NvXgpHrpSnJ2186X7` |
+| ☑ | S2 | SEM «Empezar» coherente | https://vientonorte.io/#/consultoria | **PASS** 18 ago · Playwright · onboarding visible en SEM |
 | ☐ | Fav | Favicon / tab branding VN visible | Safari + Chrome | |
 
 ### SEO (HU-VN-02)
