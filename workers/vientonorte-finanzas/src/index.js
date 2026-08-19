@@ -8,6 +8,8 @@
  *   npx wrangler login && deploy-finanzas.cmd
  * Then every git push to ops/finanzas updates live automatically.
  */
+const GH_API =
+  "https://api.github.com/repos/vientonorte/vientonorte.github.io/contents/ops/finanzas";
 const GH_RAW =
   "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas";
 const GH_PAGES = "https://vientonorte.github.io/ops/finanzas";
@@ -29,6 +31,18 @@ function baseHeaders(extra = {}) {
 
 async function fetchUpstream(file) {
   const bust = `t=${Date.now()}`;
+  try {
+    const res = await fetch(`${GH_API}/${file}?ref=main&${bust}`, {
+      headers: {
+        Accept: "application/vnd.github.raw+json",
+        "User-Agent": "vientonorte-finanzas",
+      },
+      cf: { cacheTtl: 0, cacheEverything: false },
+    });
+    if (res.ok) return { res, source: `${GH_API}/${file}` };
+  } catch (_) {
+    /* fall through */
+  }
   for (const base of [GH_RAW, GH_PAGES]) {
     try {
       const res = await fetch(`${base}/${file}?${bust}`, {
