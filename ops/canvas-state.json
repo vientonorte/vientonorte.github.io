@@ -677,7 +677,7 @@
       ]
     }
   },
-  "updated": "2026-08-16",
+  "updated": "2026-08-19",
   "last_sync": "2026-08-06T17:53:58Z",
   "identity": {
     "org": "Viento Norte",
@@ -773,13 +773,13 @@
     "doc": "Viento Norte/Sprints/DS-2026-08-03 path-oferta-analytics.md"
   },
   "last_close": {
-    "date": "2026-08-16",
+    "date": "2026-08-19",
     "session": "vn-cierre-sesion",
     "status": "closed-auto",
-    "title": "SEM funnel + GTM/GA4 + demos timed + PDD",
-    "at": "2026-08-16T21:05:34Z",
+    "title": "Kit role play Algonova 15' PDF",
+    "at": "2026-08-19T14:32:33Z",
     "docs": [
-      "vault:Viento Norte/Sprints/2026-08-16 LOG sesion.md"
+      "vault:Viento Norte/Sprints/2026-08-19 LOG sesion.md"
     ]
   },
   "github": {
