@@ -2,16 +2,22 @@
 <html lang="es">
   <head>
     <script>
-      // Legacy /mi-portafolio/* → root (preserves hash). Soft-404 SPA shell also hits this.
+      // Legacy paths. Soft-404 SPA shell also hits this (Pages 404.html = index).
       (function () {
         var p = location.pathname || "/";
+        var q = location.search || "";
         if (p === "/mi-portafolio" || p.indexOf("/mi-portafolio/") === 0) {
           var h = location.hash || "#/";
           if (h.charAt(0) !== "#") h = "#" + h;
           if (h.indexOf("#/mi-portafolio") === 0) {
             h = "#" + (h.slice("#/mi-portafolio".length) || "/");
           }
-          location.replace("https://vientonorte.io/" + h + location.search);
+          location.replace("https://vientonorte.io/" + h + q);
+          return;
+        }
+        // Deprecated: /poc#/auditoria is NOT freemium. Paid = /s/consultoria.
+        if (p === "/poc" || p.indexOf("/poc/") === 0) {
+          location.replace(location.origin + "/#/consultoria" + q);
         }
       })();
     </script>
@@ -179,15 +185,15 @@
         }
       }
     </style>
-    <script type="module" crossorigin src="/assets/index-Cvpnwvhl.js"></script>
+    <script type="module" crossorigin src="/assets/index-MCojiAkx.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-CNC7AqOf.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-motion-CDreM9qj.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-radix-DkRrg4Y5.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-react-DKjR74SS.js">
-    <link rel="modulepreload" crossorigin href="/assets/vendor-ui-gQkkURRE.js">
-    <link rel="modulepreload" crossorigin href="/assets/Logo-B3_UQ0Ej.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-ui-Bh0s7C5E.js">
+    <link rel="modulepreload" crossorigin href="/assets/Logo-tS2EG1FW.js">
     <link rel="modulepreload" crossorigin href="/assets/scroll-to-section-CVT2hr2b.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-DPehHJJ4.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-DRBIABAZ.css">
   </head>
 
   <body>
