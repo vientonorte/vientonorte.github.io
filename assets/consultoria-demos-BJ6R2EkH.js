@@ -1,0 +1,1 @@
+var e={id:`x-cms-n2n`,figmaSitesUrl:`https://pouch-growl-74881457.figma.site`,figmaMakeUrl:`https://www.figma.com/make/nHrKYiEtbE0gYnTFB4Ast6/X-%7C-CMS`,poster:`xCmsDashboard`};export{e as t};
