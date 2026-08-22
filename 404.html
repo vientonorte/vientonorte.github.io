@@ -131,8 +131,20 @@
     <link rel="manifest" href="/manifest.json" />
     <link rel="apple-touch-icon" href="/icon-192x192.png" />
 
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin="anonymous" />
-    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin="anonymous" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/chillax/chillax-400.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/chillax/chillax-700.woff2"
+      crossorigin
+    />
 
     <!-- CSR fallback: feedback while JS hydrates (Gemini QA + brand VN) -->
     <style>
@@ -184,19 +196,63 @@
           border-top-color: #1a8fdc;
         }
       }
+      /* Static LCP: texto del documento (no React). Se oculta cuando pinta #inicio. */
+      #lcp-shell {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 1.5rem;
+        background: #050a14;
+        color: #f7f2e7;
+        text-align: center;
+        pointer-events: none;
+      }
+      #lcp-shell[hidden] {
+        display: none !important;
+      }
+      #lcp-shell h1 {
+        margin: 0;
+        max-width: 40rem;
+        font-family: Chillax, ui-sans-serif, system-ui, sans-serif;
+        font-size: clamp(1.875rem, 4vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.12;
+      }
+      #lcp-shell p {
+        margin: 0;
+        max-width: 36rem;
+        font-family: Chillax, ui-sans-serif, system-ui, sans-serif;
+        font-size: clamp(1rem, 2.2vw, 1.125rem);
+        font-weight: 400;
+        line-height: 1.55;
+        color: rgba(247, 242, 231, 0.72);
+      }
     </style>
-    <script type="module" crossorigin src="/assets/index-MCojiAkx.js"></script>
+    <script type="module" crossorigin src="/assets/index-aJODY_YM.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-CNC7AqOf.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-motion-CDreM9qj.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-radix-DkRrg4Y5.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-react-DKjR74SS.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-ui-Bh0s7C5E.js">
-    <link rel="modulepreload" crossorigin href="/assets/Logo-tS2EG1FW.js">
+    <link rel="modulepreload" crossorigin href="/assets/Logo-Ce5I7_Xi.js">
     <link rel="modulepreload" crossorigin href="/assets/scroll-to-section-CVT2hr2b.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-DRBIABAZ.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-DRmiu5RU.css">
   </head>
 
   <body>
+    <div id="lcp-shell" aria-hidden="true">
+      <h1>Tecnología para empresas.</h1>
+      <p class="section-header__description">
+        Un tap: Diagnóstico, Prototipo o Proceso de equipo. Un solo paso: Agendar
+        30 min. Sin precios en la web.
+      </p>
+    </div>
     <div id="root"></div>
   </body>
 </html>

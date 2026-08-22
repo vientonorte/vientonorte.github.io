@@ -1,0 +1,1 @@
+import{O as e,t}from"./vendor-motion-CDreM9qj.js";var n=e();function r({children:e}){return(0,n.jsx)(t.div,{initial:{scale:.9,opacity:0},animate:{scale:1,opacity:1},transition:{type:`spring`,stiffness:260,damping:20},children:e})}export{r as LogoAnimatedMark};
