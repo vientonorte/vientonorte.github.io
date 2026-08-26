@@ -4,65 +4,57 @@
       "max_items": 3,
       "items": [
         {
-          "id": "now-lg-teamwork-benchmark-week",
-          "title": "P0 · Benchmark LG + Teamwork → semana FO (debrief + message match)",
+          "id": "now-sem-paste-rsa-27",
+          "title": "P0 · 27 ago · Pegar RSA + techo 150.000 CLP + publicar Search Chile",
           "status": "todo",
           "priority": "P0",
           "human": true,
           "highlight": "human",
-          "kind": "research_fo",
-          "token_pct": 15,
+          "kind": "sem_launch",
+          "token_pct": 20,
           "track": "vn",
-          "mvp": "MVP-VN-01",
-          "people_job": "Mié: Entrevista LG + debrief 10 líneas. Jue: copy consultoría estilo Teamwork (job+profit). Vie: VB móvil sobre-mí.",
+          "mvp": "MVP-VN-SEM",
+          "people_job": "Ads UI: campaña VN · piloto a11y_gratis_pymes. Diario ~5.000. Conversiones GA4 generate_lead (primaria) + book_call. Final /s/consultoria + UTM. Sin Display/PMax/partners.",
           "checklist": [
-            "Debrief LG en Sessions/2026-08-12",
-            "1 postulación enviada",
-            "Jue: 1 entregable FO message match",
-            "Vie: VB 5 checks mobile sobre-mi",
-            "No Ads spend sin Decide"
+            "Importar GA4 generate_lead + book_call (G-G7JXJKGCDV)",
+            "Pegar 15 titulares + 4 descripciones RSA",
+            "Sitelinks: Agendar / Diagnóstico / Gratis a11y / Ver alcance (no Auditoría)",
+            "Keywords phrase + negativos (mentoría, portfolio, curso, empleo)",
+            "Techo 150.000 CLP · ~5.000/día · Chile",
+            "Final URL https://vientonorte.io/s/consultoria/?utm_source=google&utm_medium=cpc&utm_campaign=a11y_gratis_pymes",
+            "Publicar piloto Search only"
           ],
           "links": [
-            "https://vientonorte.io/ops/BENCHMARK-TEAMWORK-LG-2026-08-12.md",
-            "https://www.teamwork.com/",
-            "https://www.lg.com/cl/",
-            "https://vientonorte.io/#/sobre-mi",
+            "https://vientonorte.io/s/consultoria",
+            "https://ads.google.com/",
             "https://vientonorte.io/#/consultoria"
           ],
-          "notes": "Benchmark 2026-08-12. Teamwork=PSA client profit+AI jobs. LG=retail+support+design insights. 2026-08-13 Decider: loop paid (GTM/Ads/IG) PARKED hasta «activar campañas»."
+          "notes": "SSOT: vault Resources/SEM/2026-08-26 RSA piloto a11y.md · RESEARCH 150k · campaigns/2026-08-26-piloto-a11y/assets. DS-2026-08-26 Decide A."
         },
         {
-          "id": "now-hu-vn-test-path",
-          "title": "P0 · HU-VN-01/02 Test path FO (smoke H2/H4/H5/S2 + SEO) · cierra DS Test",
+          "id": "now-sem-day1-watch",
+          "title": "P0 · 27 ago · Día 1 SEM: Ads UI live + GA4 RT generate_lead",
           "status": "todo",
           "priority": "P0",
           "human": true,
           "highlight": "human",
-          "kind": "design_sprint_test",
+          "kind": "sem_watch",
           "token_pct": 10,
           "track": "vn",
-          "mvp": "MVP-VN-01",
-          "people_job": "H4/H5/S2 FIRMADOS 18 ago (Decider). Queda H2/Fav/HU-02. SEM $0.",
+          "mvp": "MVP-VN-SEM",
+          "people_job": "Tras publicar: campaña ENABLED. GA4 Tiempo real: generate_lead/book_call si hay clic. No optimizar a page_view. Safari+AdGuard off para smoke.",
           "checklist": [
-            "H2 sin Inicio›Inicio",
-            "H4 Empezar → onboarding in-page",
-            "H5 free Calendar <30s",
-            "S2 SEM Empezar",
-            "HU-01 title/JSON-LD",
-            "HU-02 canonical SEM",
-            "favicon tab"
+            "Campaña ENABLED (no pausada)",
+            "Impresiones > 0 o keywords sin search anotado",
+            "Conversión = evento no clic de página",
+            "Si 0 clics en 24h: revisar geo Chile + phrase match"
           ],
           "links": [
-            "https://vientonorte.io/",
-            "https://vientonorte.io/#/consultoria",
-            "https://vientonorte.io/ops/HUMAN-ACTIONS.md",
-            "https://vientonorte.io/ops/HU-2026-08-06-MVP.md",
-            "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/HU-2026-08-06-MVP.md",
-            "https://vientonorte.io/ops/AHORA-CLOSE-CHECKLIST.md",
-            "https://vientonorte.io/ops/BENCHMARK-TEAMWORK-LG-2026-08-12.md",
-            "https://vientonorte.io/#/sobre-mi"
+            "https://ads.google.com/",
+            "https://analytics.google.com/",
+            "https://vientonorte.io/s/consultoria"
           ],
-          "notes": "2026-08-18 Decider firmó H4/H5/S2. Playwright live: H4 onboarding in-page · H5 Calendar 1120ms · S2 SEM onboarding. Residual: H2, favicon, HU-02. SEM $0."
+          "notes": "Éxito mes 150k = aprender (≥40 clics, ≥1 generate_lead). No pipeline lleno."
         },
         {
           "id": "now-hu-m1-capture-gap",
@@ -87,6 +79,36 @@
         }
       ],
       "done_archive": [
+        {
+          "id": "now-lg-teamwork-benchmark-week",
+          "title": "P0 · Benchmark LG + Teamwork → semana FO (debrief + message match)",
+          "status": "done",
+          "priority": "P0",
+          "human": true,
+          "highlight": "human",
+          "kind": "research_fo",
+          "token_pct": 15,
+          "track": "vn",
+          "mvp": "MVP-VN-01",
+          "people_job": "Mié: Entrevista LG + debrief 10 líneas. Jue: copy consultoría estilo Teamwork (job+profit). Vie: VB móvil sobre-mí.",
+          "checklist": [
+            "Debrief LG en Sessions/2026-08-12",
+            "1 postulación enviada",
+            "Jue: 1 entregable FO message match",
+            "Vie: VB 5 checks mobile sobre-mi",
+            "No Ads spend sin Decide"
+          ],
+          "links": [
+            "https://vientonorte.io/ops/BENCHMARK-TEAMWORK-LG-2026-08-12.md",
+            "https://www.teamwork.com/",
+            "https://www.lg.com/cl/",
+            "https://vientonorte.io/#/sobre-mi",
+            "https://vientonorte.io/#/consultoria"
+          ],
+          "notes": "Benchmark 2026-08-12. Teamwork=PSA client profit+AI jobs. LG=retail+support+design insights. 2026-08-13 Decider: loop paid (GTM/Ads/IG) PARKED hasta «activar campañas». · Semana 12-14 ago pasada. SEM 27 ago es AHORA.",
+          "closed_at": "2026-08-26",
+          "closed_reason": "window_elapsed"
+        },
         {
           "id": "done-calendar-timeboxes-2026-08-02",
           "title": "Calendar SSOT · TB45/TB60 · M5 café · ClassPass · W11 MICRO1 · almuerzo 2h",
@@ -225,6 +247,39 @@
       "owner": "Rö",
       "items": [
         {
+          "id": "plan-hu-vn-test-path-residual",
+          "title": "Residual Test path FO · H2 / favicon / HU-02 (no bloquea SEM 27 ago)",
+          "status": "todo",
+          "priority": "P1",
+          "human": true,
+          "highlight": "human",
+          "kind": "design_sprint_test",
+          "token_pct": 10,
+          "track": "vn",
+          "mvp": "MVP-VN-01",
+          "people_job": "H4/H5/S2 firmados 18 ago. generate_lead Preview PASS 26 ago. Residual H2/favicon. No bloquea pegar RSA.",
+          "checklist": [
+            "H2 sin Inicio›Inicio",
+            "H4 Empezar → onboarding in-page",
+            "H5 free Calendar <30s",
+            "S2 SEM Empezar",
+            "HU-01 title/JSON-LD",
+            "HU-02 canonical SEM",
+            "favicon tab"
+          ],
+          "links": [
+            "https://vientonorte.io/",
+            "https://vientonorte.io/#/consultoria",
+            "https://vientonorte.io/ops/HUMAN-ACTIONS.md",
+            "https://vientonorte.io/ops/HU-2026-08-06-MVP.md",
+            "https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/HU-2026-08-06-MVP.md",
+            "https://vientonorte.io/ops/AHORA-CLOSE-CHECKLIST.md",
+            "https://vientonorte.io/ops/BENCHMARK-TEAMWORK-LG-2026-08-12.md",
+            "https://vientonorte.io/#/sobre-mi"
+          ],
+          "notes": "2026-08-18 Decider firmó H4/H5/S2. Playwright live: H4 onboarding in-page · H5 Calendar 1120ms · S2 SEM onboarding. Residual: H2, favicon, HU-02. SEM $0. · Movido de AHORA 26 ago para SEM 27."
+        },
+        {
           "id": "plan-week-2026-08-12-message-match",
           "title": "P1 · Jue 13 · Message match Teamwork en path consultoría (jobs/profit language)",
           "status": "next",
@@ -260,12 +315,12 @@
         },
         {
           "id": "plan-paid-loop-parked",
-          "title": "Loop paid GTM→Ads→IG PARKED hasta activar campañas",
-          "status": "parked",
+          "title": "Loop paid GTM→Ads · piloto Search 27 ago (IG parked)",
+          "status": "in_progress",
           "priority": "P0",
           "track": "vn",
-          "people_job": "No GTM, no spend. Reactivar solo con frase «activar campañas».",
-          "notes": "Decider Rö 2026-08-13. A share /s/consultoria live. D/E/F no. SSOT: docs/CHECKLIST-CANALES-PAID.md",
+          "people_job": "Pegar RSA + techo 150.000 CLP + importar generate_lead/book_call. IG Ads sigue parked.",
+          "notes": "Decider 26 ago «activar campañas». Preview generate_lead PASS. RSA vault SEM 2026-08-26. Mix 100% Search.",
           "links": [
             "https://vientonorte.io/s/consultoria",
             "https://github.com/vientonorte/mi-portafolio/blob/main/docs/CHECKLIST-CANALES-PAID.md"
@@ -677,7 +732,7 @@
       ]
     }
   },
-  "updated": "2026-08-19",
+  "updated": "2026-08-22",
   "last_sync": "2026-08-06T17:53:58Z",
   "identity": {
     "org": "Viento Norte",
@@ -773,13 +828,13 @@
     "doc": "Viento Norte/Sprints/DS-2026-08-03 path-oferta-analytics.md"
   },
   "last_close": {
-    "date": "2026-08-19",
+    "date": "2026-08-22",
     "session": "vn-cierre-sesion",
     "status": "closed-auto",
-    "title": "Kit role play Algonova 15' PDF",
-    "at": "2026-08-19T14:32:33Z",
+    "title": "CierreVNHOY FO GTM+Agendar+sobre-mi LCP · Polijuego v1 lock",
+    "at": "2026-08-23T00:18:40Z",
     "docs": [
-      "vault:Viento Norte/Sprints/2026-08-19 LOG sesion.md"
+      "vault:Viento Norte/Sprints/2026-08-22 LOG sesion.md"
     ]
   },
   "github": {
@@ -949,9 +1004,9 @@
   "roadmap": {
     "title": "Roadmap · Automaciones M5 / Google / Packages · FO empresa",
     "source_pdf": "ops/VN-Automaciones-M5-Google-2026-07-26.pdf",
-    "updated": "2026-08-02",
-    "objective": "Ops multi-device + finanzas en tablero · siguiente: vientonorte-core bien · luego onboarding y ambientes públicos/privados",
-    "progress_note": "Finanzas $ en /ops/finanzas · siguiente sprint = core bien · después onboarding + ambientes pub/priv · #135 smoke humano sigue",
+    "updated": "2026-08-26",
+    "objective": "Salir a SEM 27 ago: piloto Search 150.000 CLP · generate_lead/book_call · final /s/consultoria",
+    "progress_note": "Preview generate_lead PASS 26 ago · RSA+assets listos · AHORA = pegar Ads + día 1 RT. IG parked. Tour Apple no paid.",
     "priorities": {
       "P0": {
         "title": "Desbloqueantes",
@@ -1056,6 +1111,16 @@
         "title": "Google comercial",
         "items": [
           {
+            "id": "p2-sem-piloto-150k",
+            "title": "Piloto Search 150.000 CLP · RSA a11y · 27 ago",
+            "status": "in_progress",
+            "notes": "Decide A funnel /s/consultoria. Mix 100% Search. IG/LI parked. Techo humano 150k.",
+            "links": [
+              "https://vientonorte.io/s/consultoria",
+              "https://github.com/vientonorte/mi-portafolio/blob/main/docs/CHECKLIST-CANALES-PAID.md"
+            ]
+          },
+          {
             "id": "p2-scaffold",
             "title": "Labels + Drive + skill lead-a11y",
             "status": "done"
@@ -1079,8 +1144,8 @@
           {
             "id": "p2-generate-lead",
             "title": "Evento generate_lead + path contacto",
-            "status": "in_progress",
-            "notes": "Post path Test · no GTM full esta semana"
+            "status": "done",
+            "notes": "Preview 26 ago Tag Assistant: GA4 · generate_lead Activado 1 vez + book_call. v4 GTM-PM5LBQRP."
           }
         ]
       },
@@ -1182,15 +1247,36 @@
       "note": "API B+C requiere Key/Token en browser Admin → Sync Trello"
     },
     "finanzas": "https://finanzas.vientonorte.io/",
-    "next_sprint": "plan-sprint-core-well · SPRINT-CORE-ONBOARDING.md",
-    "next_next_sprint": "plan-sprint-onboarding-envs · onboarding + ambientes pub/priv"
+    "next_sprint": "SEM piloto Search 27 ago · 150.000 CLP · RSA a11y",
+    "next_next_sprint": "plan-sprint-onboarding-envs · onboarding + ambientes pub/priv",
+    "sem_2026_08_26": {
+      "decide": "A funnel /s/consultoria",
+      "preview": "generate_lead Activado 1 vez 26 ago 13:27",
+      "budget_clp": 150000,
+      "mix": "100% Google Search",
+      "rsa": "Resources/SEM/2026-08-26 RSA piloto a11y.md",
+      "research": "Resources/SEM/2026-08-26 RESEARCH proyecciones 150k.md",
+      "assets": "mi-portafolio/campaigns/2026-08-26-piloto-a11y/assets"
+    }
   },
   "human_tasks": {
-    "updated": "2026-08-08",
+    "updated": "2026-08-26",
     "owner": "Rö",
-    "title": "QA humano post preprod pipeline",
-    "when": "Lun 03+ en ritmo café M5 / W11 post-almuerzo",
+    "title": "SEM 27 ago · pegar RSA + techo 150k",
+    "when": "Jue 27 ago · bloque VN",
     "items": [
+      {
+        "id": "now-human-ads-paste-27",
+        "title": "Pegar RSA piloto a11y + publicar Search Chile 150.000 CLP",
+        "status": "todo",
+        "owner": "Rö",
+        "priority": "P0",
+        "links": [
+          "https://ads.google.com/",
+          "https://vientonorte.io/s/consultoria"
+        ],
+        "notes": "Vault SEM/2026-08-26 RSA piloto a11y.md · logos+PNG en campaigns/2026-08-26-piloto-a11y/assets"
+      },
       {
         "id": "now-human-prod-smoke",
         "title": "Smoke residual + favicon + H5 free",
@@ -1226,10 +1312,10 @@
       },
       {
         "id": "now-postdeploy-seo-test-gate",
-        "title": "Gate SEM $0 hasta Test path DS",
-        "status": "todo",
+        "title": "Gate SEM abierto · piloto Search (no IG)",
+        "status": "done",
         "owner": "Rö",
-        "notes": "GSC base OK · no spend · Test embudo",
+        "notes": "Preview generate_lead PASS 26 ago · Decider activar campañas 26 ago · techo 150k",
         "links": [
           "https://vientonorte.io/ops/"
         ],
@@ -1252,11 +1338,11 @@
   "sync_board": {
     "id": "sync-board-multidevice",
     "title": "Tablero sync multi-device",
-    "updated": "2026-08-03T14:18:22Z",
-    "updated_local": "2026-08-03 · GSC checklist done · manual residuals in AHORA",
+    "updated": "2026-08-26T18:41Z",
+    "updated_local": "2026-08-26 · AHORA SEM 27 ago pegar RSA 150k · generate_lead PASS · Decide A",
     "source": "GMac M5 · cierre AM Map + SEO #139 + SSOT smoke/CTA + SEM prompt contenedor",
-    "global_status": "partial_ok",
-    "global_note": "2026-08-03 AM: Map seed sellado · SEO HU-01…03 live (#139) · CTA matrix firmada (Home A · SEM A default · Free B) · Roadmap SoT 66% hosted (si ves 70% = draft: Limpiar+Recargar hosted). Smoke: H2/H4 P · GSC 2026-08-03: verify+sitemap+URL inspection DONE. Manual AHORA: smoke residual/favicon/H5 · firmas I15/W11 · GSC field CWV/móvil · SEM $0.",
+    "global_status": "go_sem_piloto",
+    "global_note": "2026-08-26: DS SEM/SEO Decide A. Preview generate_lead+book_call PASS. RSA+PNG listos. AHORA: pegar Ads 27 ago techo 150.000 CLP 100% Search. Mix LI/Meta 0. Tour Apple no paid. M1 sigue 3er slot AHORA.",
     "artifact": {
       "id": "pipeline-qa-v1",
       "path_ro": "Obsidian Vault/00-sistema/PIPELINE-QA.md",
