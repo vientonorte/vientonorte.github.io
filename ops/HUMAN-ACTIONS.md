@@ -1,15 +1,67 @@
-# Acciones humanas · links de un clic · 2026-08-06
+# Acciones humanas · links de un clic · 2026-08-26
 
-**Dueño:** Rö · **Actualizado:** 2026-08-18  
+**Dueño:** Rö · **Actualizado:** 2026-08-26 noche (27 ago = Ads + LI config + GSC)  
 **Board HUs hoy:** [HU-2026-08-06-MVP.md](./HU-2026-08-06-MVP.md)  
 **Tareas humanas detalle:** [HUMAN-TASKS.md](./HUMAN-TASKS.md)  
 **Ops canvas:** https://vientonorte.io/ops/
 
-> Objetivo del día (Método Ro · Calendar 18 ago): **VN 1.5h** Test path + ops viva · **no comer M1 5.5h**. Post 0.75 · Algonova 4º. No 80/10/10.
+> **27 ago AHORA (max 3):** (1) pegar RSA Search + **150.000 CLP** (2) LinkedIn Campaign Manager **PAUSED** (3) GSC inspección `/` + `/s/consultoria`. Preview `generate_lead` PASS 26 ago. LI **no** gasta el techo. IG parked. M1 → later.
+
+**Reloj VN:** GSC 20' → LinkedIn 35' → Ads 45–60'. Runbook: vault `Resources/SEM/2026-08-26 RUNBOOK 27 ago LinkedIn + GSC.md`.
 
 ---
 
-## A · Gap VN (1.5h) — Design Sprint Test + ops
+## E · Google Ads 27 ago (P0 · el spend)
+
+| # | Acción humana | Link / path | DoD |
+|---|---------------|-------------|-----|
+| E1 | Importar conversiones GA4 | Ads → Objetivos · `G-G7JXJKGCDV` | `generate_lead` primaria · `book_call` secundaria · **no** `page_view` |
+| E2 | Pegar RSA (15 H + 4 D) | vault `Ro/Viento Norte/Resources/SEM/2026-08-26 RSA piloto a11y.md` | titulares Diagnóstico/a11y · no Radar · no Auditoría |
+| E3 | Sitelinks + keywords phrase | misma nota RSA | 4 sitelinks · negativos mentoría/portfolio/curso/empleo |
+| E4 | Techo + geo | Ads campaña `VN · piloto a11y_gratis_pymes` | **150.000 CLP** · ~5.000/día · Chile · Search only |
+| E5 | Final URL + UTM | https://vientonorte.io/s/consultoria/?utm_source=google&utm_medium=cpc&utm_campaign=a11y_gratis_pymes | no hash-only |
+| E6 | Logo Ads (opcional) | `mi-portafolio/campaigns/2026-08-26-piloto-a11y/assets/ad-logo-1200.png` | 1:1 isologo · sin rostro |
+| E7 | Publicar piloto | Ads UI | campaña ENABLED |
+| E8 | Día 1 watch | Ads + GA4 RT | impresiones/clics · evento ≠ clic de página · si el bloque se acaba: 28 ago |
+
+---
+
+## L · LinkedIn SEM 27 ago (P0 · **config**, $0)
+
+| # | Acción humana | Link / path | DoD |
+|---|---------------|-------------|-----|
+| L1 | Página empresa Viento Norte | https://www.linkedin.com/company/setup/new | URL `linkedin.com/company/…` · vault hoy solo perfil personal |
+| L2 | Post Inspector `/s/consultoria` | https://www.linkedin.com/post-inspector/ | card título Consultoría UX · imagen 1200×630 |
+| L3 | Campaign group + campaign Website visits · Classic · Chile | https://www.linkedin.com/campaignmanager/ | **PAUSED** · Audience Network OFF |
+| L4 | Ad single image + copy + UTM | `campaigns/2026-08-26-piloto-a11y/assets/ad-1200x628.png` · vault `SEM/2026-08-26 LinkedIn config PAUSED.md` | destination `/s/consultoria/?utm_source=linkedin&utm_medium=cpc&utm_campaign=a11y_gratis_pymes` · **PAUSED** |
+| L5 | Insight Tag Partner ID → GTM workspace | GTM `GTM-PM5LBQRP` · tag LinkedIn Insight 2.0 | **unpublished** · no v5 live mañana |
+| L6 | Verificar spend | Campaign Manager | **0** |
+
+No ACTIVE “para probar un clic”. Mín. UI ~USD 10/día **no se sirve**.
+
+---
+
+## S · Google SEO 27 ago (P0 · GSC, $0)
+
+| # | Acción humana | Link / path | DoD |
+|---|---------------|-------------|-----|
+| S1 | Abrir propiedad `https://vientonorte.io/` | https://search.google.com/search-console | ya verificada 03 ago · no re-verify |
+| S2 | Reenviar sitemap | https://vientonorte.io/sitemap.xml | Success · 4 URLs (no hash, no `/s/proceso`) |
+| S3 | Inspección + live `/` | GSC URL inspection | indexada o solicitar |
+| S4 | Inspección `/s/` | same | title Tecnología para empresas |
+| S5 | Inspección + **solicitar indexación** | https://vientonorte.io/s/consultoria/ | HTML funnel · GTM en view-source |
+| S5b | Inspección + **solicitar indexación** | https://vientonorte.io/s/proceso/ | 200 live post-#214 · H1 reduce el ruido · OG 1200 |
+| S6 | Pages / cobertura | GSC → Pages | anotar n · NO DATO hasta UI |
+| S7 | Rich Results | https://search.google.com/test/rich-results | ProfessionalService `/s/consultoria/` · WebPage `/s/proceso/` |
+| S8 | PosicionApp si el mes Austral vive | https://panel.posicion.app/activacion-curso | vence ~28 ago · captura o NO DATO |
+
+**No** inspeccionar `/#/consultoria` ni `/#/proceso` (hash). `/s/proceso/` sí.
+
+---
+
+---
+
+## A · Gap VN (10%) — Design Sprint Test + ops
 
 | # | Acción humana | Link / path | DoD |
 |---|---------------|-------------|-----|
@@ -24,7 +76,7 @@
 | A9 | Unstick **Pages ops** (data finanzas) | https://github.com/vientonorte/vientonorte.github.io/settings/pages · https://github.com/vientonorte/vientonorte.github.io/actions | UI = finanzas.vientonorte.io · 9·$13.86 |
 | A10 | Verificar ledger SoT | https://raw.githubusercontent.com/vientonorte/vientonorte.github.io/main/ops/finanzas/ledger.json | MTD **9 · $13.86** |
 | A11 | UI finanzas (tras Pages o jsDelivr) | https://finanzas.vientonorte.io/ · ↻ | no $4.62 |
-| A12 | Ledger fresco bypass CDN | https://finanzas.vientonorte.io/ledger.json | plantilla Calendar 18 ago (M1 5.5) · MTD = dato, no % |
+| A12 | Ledger fresco bypass CDN | https://finanzas.vientonorte.io/ledger.json | 80/10/10 |
 | A13 | ĀRŪḾA reserva UI | https://vientonorte.io/aruma/#reserva | padding OK · mailto o Calendar |
 | A14 | ĀRŪḾA brand pegar links | https://vientonorte.io/aruma/brand/ | bookingUrl válido |
 | A15 | Google Appointment Schedules | https://calendar.google.com/calendar/u/0/r/appointments | 3 agendas 30/90/120 |
@@ -32,7 +84,7 @@
 
 ---
 
-## B · Gap M1 (5.5h) — cash / Realm
+## B · Gap M1 (80%) — cash / Realm
 
 | # | Acción | Link | DoD |
 |---|--------|------|-----|
@@ -40,17 +92,17 @@
 | B2 | Captura ola (max 3 claims) | https://realm.micro1.ai/ | F7 10' → 6 files → Submit |
 | B3 | LOG + ledger sync | local `m1-ledger-sync` | MTD sube con IDs |
 | B4 | Finanzas tras submit | https://finanzas.vientonorte.io/ | ↻ ledger |
-| B5 | Canon timebox HOST | Calendar **MICRO 1** | **5.5 h** L–V (09–13 + 14–15:30) |
+| B5 | Canon timebox HOST | Calendar **MICRO 1** | 6.4 h L–J plan |
 
 **IDs Review Ready:** `9568 · 9567 · 9566 · 8719 · 8718 · 8717 · 8716 · 8715 · 8714`
 
 ---
 
-## C · Gap Post (0.75h)
+## C · Gap Post (10%)
 
 | # | Acción | Link | DoD |
 |---|--------|------|-----|
-| C1 | Bloque Post **08:15–09:00** | Calendar Personal | 1 envío o follow-up |
+| C1 | Bloque Post 08:45–09:30 | Calendar Personal | 1 envío o follow-up |
 | C2 | LinkedIn / portales | https://www.linkedin.com/in/rodrigo-gaete-ux/ | tracker 1 línea Session |
 | C3 | Portfolio para postulación | https://vientonorte.io/ | link en mensaje |
 
@@ -83,7 +135,7 @@
 
 | # | Acción | Link |
 |---|--------|------|
-| E1 | DS activo note | Obsidian `Sprints/DS-2026-08-15 landing-ob-packs.md` (08-03 parked) |
+| E1 | DS activo note | Obsidian `Sprints/DS-2026-08-03 path-oferta-analytics.md` |
 | E2 | Marco DS VN | Obsidian `Resources/Design Sprint VN - marco de trabajo.md` |
 | E3 | Skill agente | `/design-sprint-vn` |
 | E4 | Día = **Test** | smoke A1–A7 + Decider SEM gate A8 |
@@ -102,14 +154,15 @@
 
 ---
 
-## Orden sugerido hoy (Calendar 18 ago)
+## Orden sugerido hoy (80/10/10)
 
 ```
-1) C1 Post 08:15–09:00     (0.75h)
-2) B2 M1 09:00–13:00 + 14:00–15:30  (5.5h)
-3) A1–A7 Test path         (VN 15:30–17:00 · 1.5h)
-4) D1–D4 firmas si hay device
-5) 18:00–21:30 Algonova    (4º stream · no ops VN)
+1) C1 Post 45'          (10%)
+2) A1–A7 Test path smoke (10% VN · cierra DS Test)
+3) A9 Pages unstick      (desbloquea data $ en prod)
+4) B2 M1 olas resto día  (80%)
+5) D1–D4 firmas si hay device
+6) A13–A16 ĀRŪḾA solo si sobra VN
 ```
 
 — ops HUMAN-ACTIONS · 2026-08-06
@@ -119,7 +172,7 @@
 
 - **Canonical:** https://finanzas.vientonorte.io/
 - **MTD:** 9 Review Ready · $13.86 (Updated 04→2 · 05→6 · 06→1)
-- **Calendar:** Método Ro 18 ago · M1 **5.5** · VN **1.5** · Post **0.75** · Algonova **3.5** · ops t/h **4** · techo 5.6
+- **Calendar:** 80/10/10 · M1 6.4 L–J / 4.0 Vie · ops t/h **4** · techo 5.6
 - **No usar:** jsDelivr @commit · apex GH $4.62
 
 ## E · Deploy $ pipeline (P0 esta semana) · retro 2026-08-06
