@@ -5,7 +5,7 @@
       "items": [
         {
           "id": "now-sem-paste-rsa-27",
-          "title": "P0 · 27 ago · Pegar RSA + techo 150.000 CLP + publicar Search Chile",
+          "title": "P0 · 27 ago · Pegar RSA Search + techo 150.000 CLP + publicar",
           "status": "todo",
           "priority": "P0",
           "human": true,
@@ -14,7 +14,7 @@
           "token_pct": 20,
           "track": "vn",
           "mvp": "MVP-VN-SEM",
-          "people_job": "Ads UI: campaña VN · piloto a11y_gratis_pymes. Diario ~5.000. Conversiones GA4 generate_lead (primaria) + book_call. Final /s/consultoria + UTM. Sin Display/PMax/partners.",
+          "people_job": "Ads UI: campaña VN · piloto a11y_gratis_pymes. Diario ~5.000. Conversiones GA4 generate_lead (primaria) + book_call. Final /s/consultoria + UTM google. Sin Display/PMax/partners. Día 1 watch si alcanza el bloque; si no, 28 ago.",
           "checklist": [
             "Importar GA4 generate_lead + book_call (G-G7JXJKGCDV)",
             "Pegar 15 titulares + 4 descripciones RSA",
@@ -22,60 +22,71 @@
             "Keywords phrase + negativos (mentoría, portfolio, curso, empleo)",
             "Techo 150.000 CLP · ~5.000/día · Chile",
             "Final URL https://vientonorte.io/s/consultoria/?utm_source=google&utm_medium=cpc&utm_campaign=a11y_gratis_pymes",
-            "Publicar piloto Search only"
+            "Publicar piloto Search only",
+            "Tras ENABLED: impresiones o keywords sin search (día 1 / 28 ago)"
           ],
           "links": [
             "https://vientonorte.io/s/consultoria",
             "https://ads.google.com/",
             "https://vientonorte.io/#/consultoria"
           ],
-          "notes": "SSOT: vault Resources/SEM/2026-08-26 RSA piloto a11y.md · RESEARCH 150k · campaigns/2026-08-26-piloto-a11y/assets. DS-2026-08-26 Decide A."
+          "notes": "SSOT: vault Resources/SEM/2026-08-26 RSA piloto a11y.md · RESEARCH 150k · RUNBOOK 27 ago. Mix LI=0."
         },
         {
-          "id": "now-sem-day1-watch",
-          "title": "P0 · 27 ago · Día 1 SEM: Ads UI live + GA4 RT generate_lead",
+          "id": "now-li-config-paused-27",
+          "title": "P0 · 27 ago · LinkedIn SEM config PAUSED (Post Inspector + CM, $0)",
           "status": "todo",
           "priority": "P0",
           "human": true,
           "highlight": "human",
-          "kind": "sem_watch",
-          "token_pct": 10,
+          "kind": "sem_config",
+          "token_pct": 15,
           "track": "vn",
           "mvp": "MVP-VN-SEM",
-          "people_job": "Tras publicar: campaña ENABLED. GA4 Tiempo real: generate_lead/book_call si hay clic. No optimizar a page_view. Safari+AdGuard off para smoke.",
+          "people_job": "Página empresa VN · Post Inspector /s/consultoria card 1200 · Campaign Manager Website visits Chile Classic · ad 1200x628 PAUSED · Insight Tag en GTM unpublished. No ACTIVE. No come 150k.",
           "checklist": [
-            "Campaña ENABLED (no pausada)",
-            "Impresiones > 0 o keywords sin search anotado",
-            "Conversión = evento no clic de página",
-            "Si 0 clics en 24h: revisar geo Chile + phrase match"
+            "Página empresa linkedin.com/company/… (hoy NO DATO)",
+            "Post Inspector https://vientonorte.io/s/consultoria/",
+            "Campaign group + campaign PAUSED · Audience Network OFF",
+            "Ad ad-1200x628.png + UTM linkedin · PAUSED",
+            "Partner ID anotado · GTM Insight 2.0 unpublished",
+            "Spend CM = 0"
           ],
           "links": [
-            "https://ads.google.com/",
-            "https://analytics.google.com/",
+            "https://www.linkedin.com/post-inspector/",
+            "https://www.linkedin.com/campaignmanager/",
             "https://vientonorte.io/s/consultoria"
           ],
-          "notes": "Éxito mes 150k = aprender (≥40 clics, ≥1 generate_lead). No pipeline lleno."
+          "notes": "SSOT: vault Resources/SEM/2026-08-26 LinkedIn config PAUSED.md · RUNBOOK 27 ago. CPC Chile 3500–9000 · 150k≈25 clics si ACTIVE → por eso PAUSED."
         },
         {
-          "id": "now-hu-m1-capture-gap",
-          "title": "P0 · HU-M1-01 captura 80% · olas Realm (max 3) · cierra gap $",
+          "id": "now-gsc-seo-config-27",
+          "title": "P0 · 27 ago · Google SEO: GSC sitemap + inspección / y /s/consultoria",
           "status": "todo",
           "priority": "P0",
           "human": true,
           "highlight": "human",
-          "kind": "micro1_capture",
-          "token_pct": 80,
-          "track": "m1",
-          "mvp": "MVP-M1-01",
-          "people_job": "Olas F7→tick→Submit. Review Ready ya: 9568…8714. No re-subir RR. LOG+m1-ledger-sync.",
-          "links": [
-            "https://realm.micro1.ai/",
-            "https://finanzas.vientonorte.io/",
-            "https://finanzas.vientonorte.io/",
-            "https://vientonorte.io/ops/HUMAN-ACTIONS.md",
-            "https://vientonorte.io/ops/AHORA-CLOSE-CHECKLIST.md"
+          "kind": "seo_gsc",
+          "token_pct": 10,
+          "track": "vn",
+          "mvp": "MVP-VN-SEO",
+          "people_job": "Propiedad ya verificada 03 ago. Reenviar sitemap. Inspección live / · /s/ · /s/consultoria (solicitar index). No inspeccionar hash. No /s/proceso (404). PosicionApp si el mes Austral vive (~28 ago).",
+          "checklist": [
+            "GSC propiedad https://vientonorte.io/",
+            "Reenviar https://vientonorte.io/sitemap.xml",
+            "Inspección / y /s/",
+            "Inspección + solicitar indexación /s/consultoria/",
+            "Pages: anotar n indexadas",
+            "Rich Results /s/consultoria/",
+            "PosicionApp o NO DATO"
           ],
-          "notes": "MTD $13.86 / 9 RR · ops @4 t/h · 2026-08-06 · checklist AHORA-CLOSE 2026-08-08"
+          "links": [
+            "https://search.google.com/search-console",
+            "https://vientonorte.io/sitemap.xml",
+            "https://search.google.com/test/rich-results",
+            "https://vientonorte.io/s/consultoria/"
+          ],
+          "notes": "SSOT: vault SEM/2026-08-03 GSC Pruebas y Enlaces.md + RUNBOOK 27 ago. Live 26 ago: sitemap 4 URLs · OG consultoría 1200×630 · og-portfolio 512 · /s/proceso 404."
         }
       ],
       "done_archive": [
@@ -511,6 +522,52 @@
     },
     "later": {
       "items": [
+        {
+          "id": "now-hu-m1-capture-gap",
+          "title": "P0 · HU-M1-01 captura 80% · olas Realm (max 3) · cierra gap $",
+          "status": "todo",
+          "priority": "P0",
+          "human": true,
+          "highlight": "human",
+          "kind": "micro1_capture",
+          "token_pct": 80,
+          "track": "m1",
+          "mvp": "MVP-M1-01",
+          "people_job": "Olas F7→tick→Submit. Review Ready ya: 9568…8714. No re-subir RR. LOG+m1-ledger-sync.",
+          "links": [
+            "https://realm.micro1.ai/",
+            "https://finanzas.vientonorte.io/",
+            "https://finanzas.vientonorte.io/",
+            "https://vientonorte.io/ops/HUMAN-ACTIONS.md",
+            "https://vientonorte.io/ops/AHORA-CLOSE-CHECKLIST.md"
+          ],
+          "notes": "MTD $13.86 / 9 RR · ops @4 t/h · 2026-08-06 · checklist AHORA-CLOSE 2026-08-08 · Parqueado de AHORA 26 ago noche para bloque VN 27 ago (Ads+LI+GSC)."
+        },
+        {
+          "id": "now-sem-day1-watch",
+          "title": "P0 · 27 ago · Día 1 SEM: Ads UI live + GA4 RT generate_lead",
+          "status": "todo",
+          "priority": "P0",
+          "human": true,
+          "highlight": "human",
+          "kind": "sem_watch",
+          "token_pct": 10,
+          "track": "vn",
+          "mvp": "MVP-VN-SEM",
+          "people_job": "Tras publicar: campaña ENABLED. GA4 Tiempo real: generate_lead/book_call si hay clic. No optimizar a page_view. Safari+AdGuard off para smoke.",
+          "checklist": [
+            "Campaña ENABLED (no pausada)",
+            "Impresiones > 0 o keywords sin search anotado",
+            "Conversión = evento no clic de página",
+            "Si 0 clics en 24h: revisar geo Chile + phrase match"
+          ],
+          "links": [
+            "https://ads.google.com/",
+            "https://analytics.google.com/",
+            "https://vientonorte.io/s/consultoria"
+          ],
+          "notes": "Éxito mes 150k = aprender (≥40 clics, ≥1 generate_lead). No pipeline lleno. · Movido de AHORA 26 ago noche: bloque 27 = Ads paste + LI config + GSC (max 3)."
+        },
         {
           "id": "now-live-timebox-day",
           "title": "HUMANO: vivir 1 día completo TB (café M5 → ClassPass → W11 A/B/C)",
@@ -1005,8 +1062,8 @@
     "title": "Roadmap · Automaciones M5 / Google / Packages · FO empresa",
     "source_pdf": "ops/VN-Automaciones-M5-Google-2026-07-26.pdf",
     "updated": "2026-08-26",
-    "objective": "Salir a SEM 27 ago: piloto Search 150.000 CLP · generate_lead/book_call · final /s/consultoria",
-    "progress_note": "Preview generate_lead PASS 26 ago · RSA+assets listos · AHORA = pegar Ads + día 1 RT. IG parked. Tour Apple no paid.",
+    "objective": "27 ago: Search 150k + LinkedIn config PAUSED + GSC SEO",
+    "progress_note": "Preview generate_lead PASS 26 ago · RSA listos · LI config runbook · GSC follow-up. Mix LI/Meta 0. Tour Apple no paid. M1 later.",
     "priorities": {
       "P0": {
         "title": "Desbloqueantes",
@@ -1247,7 +1304,7 @@
       "note": "API B+C requiere Key/Token en browser Admin → Sync Trello"
     },
     "finanzas": "https://finanzas.vientonorte.io/",
-    "next_sprint": "SEM piloto Search 27 ago · 150.000 CLP · RSA a11y",
+    "next_sprint": "27 ago · Search 150k + LI PAUSED + GSC",
     "next_next_sprint": "plan-sprint-onboarding-envs · onboarding + ambientes pub/priv",
     "sem_2026_08_26": {
       "decide": "A funnel /s/consultoria",
@@ -1256,13 +1313,15 @@
       "mix": "100% Google Search",
       "rsa": "Resources/SEM/2026-08-26 RSA piloto a11y.md",
       "research": "Resources/SEM/2026-08-26 RESEARCH proyecciones 150k.md",
-      "assets": "mi-portafolio/campaigns/2026-08-26-piloto-a11y/assets"
+      "assets": "mi-portafolio/campaigns/2026-08-26-piloto-a11y/assets",
+      "linkedin": "config PAUSED 27 ago · $0",
+      "seo_gsc": "inspección / y /s/consultoria 27 ago"
     }
   },
   "human_tasks": {
     "updated": "2026-08-26",
     "owner": "Rö",
-    "title": "SEM 27 ago · pegar RSA + techo 150k",
+    "title": "27 ago · Ads 150k + LinkedIn PAUSED + GSC SEO",
     "when": "Jue 27 ago · bloque VN",
     "items": [
       {
@@ -1275,7 +1334,19 @@
           "https://ads.google.com/",
           "https://vientonorte.io/s/consultoria"
         ],
-        "notes": "Vault SEM/2026-08-26 RSA piloto a11y.md · logos+PNG en campaigns/2026-08-26-piloto-a11y/assets"
+        "notes": "Vault SEM/2026-08-26 RSA piloto a11y.md · RUNBOOK 27 ago. Techo 150k Search only."
+      },
+      {
+        "id": "now-human-li-config-27",
+        "title": "LinkedIn Campaign Manager PAUSED + Post Inspector /s/consultoria",
+        "status": "todo",
+        "owner": "Rö",
+        "priority": "P0",
+        "links": [
+          "https://www.linkedin.com/post-inspector/",
+          "https://www.linkedin.com/campaignmanager/"
+        ],
+        "notes": "Vault SEM/2026-08-26 LinkedIn config PAUSED.md · $0 · no ACTIVE"
       },
       {
         "id": "now-human-prod-smoke",
@@ -1323,26 +1394,26 @@
       },
       {
         "id": "now-gsc-manual-followup",
-        "title": "GSC: cobertura sitemap · CWV · móvil (post-verify)",
+        "title": "GSC 27 ago: sitemap + inspección / y /s/consultoria (solicitar index)",
         "status": "todo",
         "owner": "Rö",
-        "notes": "Verify+sitemap+inspección / HECHOS 03 ago · follow-up field data",
+        "notes": "Verify+sitemap 03 ago · 27 ago follow-up S1–S8 RUNBOOK. No hash. No /s/proceso.",
         "links": [
           "https://search.google.com/search-console",
           "https://vientonorte.io/sitemap.xml"
         ],
-        "priority": "P1"
+        "priority": "P0"
       }
     ]
   },
   "sync_board": {
     "id": "sync-board-multidevice",
     "title": "Tablero sync multi-device",
-    "updated": "2026-08-26T18:41Z",
-    "updated_local": "2026-08-26 · AHORA SEM 27 ago pegar RSA 150k · generate_lead PASS · Decide A",
+    "updated": "2026-08-26T19:40Z",
+    "updated_local": "2026-08-26 noche · AHORA 27 ago Ads 150k + LI PAUSED + GSC",
     "source": "GMac M5 · cierre AM Map + SEO #139 + SSOT smoke/CTA + SEM prompt contenedor",
     "global_status": "go_sem_piloto",
-    "global_note": "2026-08-26: DS SEM/SEO Decide A. Preview generate_lead+book_call PASS. RSA+PNG listos. AHORA: pegar Ads 27 ago techo 150.000 CLP 100% Search. Mix LI/Meta 0. Tour Apple no paid. M1 sigue 3er slot AHORA.",
+    "global_note": "2026-08-26 noche: Decider configurar LinkedIn SEM + Google SEO mañana. Mix 150k sigue 100% Search. LI = PAUSED $0. GSC inspección /s/consultoria. M1 out of AHORA.",
     "artifact": {
       "id": "pipeline-qa-v1",
       "path_ro": "Obsidian Vault/00-sistema/PIPELINE-QA.md",
