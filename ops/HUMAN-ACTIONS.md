@@ -20,7 +20,7 @@
 | E3 | Sitelinks + keywords phrase | misma nota RSA | 4 sitelinks · negativos mentoría/portfolio/curso/empleo |
 | E4 | Techo + geo | Ads campaña `VN · piloto a11y_gratis_pymes` | **150.000 CLP** · ~5.000/día · Chile · Search only |
 | E5 | Final URL + UTM | https://vientonorte.io/s/consultoria/?utm_source=google&utm_medium=cpc&utm_campaign=a11y_gratis_pymes | no hash-only |
-| E6 | Logo Ads (opcional) | `mi-portafolio/campaigns/2026-08-26-piloto-a11y/assets/ad-logo-1200.png` | 1:1 isologo · sin rostro |
+| E6 | Logo Ads | [DS Make v3](https://www.figma.com/make/OR8iCIpokgaPKjerCyZAKy/Rodrigo-Gaete---Desing-System) · negativo `#0A0A0A` | isologo **circular** · sin recuadro blanco · sin rostro |
 | E7 | Publicar piloto | Ads UI | campaña ENABLED |
 | E8 | Día 1 watch | Ads + GA4 RT | impresiones/clics · evento ≠ clic de página · si el bloque se acaba: 28 ago |
 
