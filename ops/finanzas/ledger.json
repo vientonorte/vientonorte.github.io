@@ -184,38 +184,48 @@
     },
     {
       "date": "2026-08-27",
-      "intent_h": 10,
-      "intent_tasks": 40,
-      "intent_usd": 61.6,
-      "blocks": "L–V · 10h M1 · AM5+A3+B2 · ops 4.0"
+      "intent_h": 0,
+      "intent_tasks": 0,
+      "intent_usd": 0,
+      "blocks": "Algo 8h × $4 = $32 · M1 PARK · VN 1.5h 18:00 · Contra 10%",
+      "intent_algo_h": 8.0,
+      "intent_algo_usd": 32.0
     },
     {
       "date": "2026-08-28",
-      "intent_h": 10,
-      "intent_tasks": 40,
-      "intent_usd": 61.6,
-      "blocks": "L–V · 10h M1 · AM5+A3+B2 · ops 4.0"
+      "intent_h": 0,
+      "intent_tasks": 0,
+      "intent_usd": 0,
+      "blocks": "Algo 8h × $4 = $32 · M1 PARK · VN 1.5h 18:00 · Contra 10%",
+      "intent_algo_h": 8.0,
+      "intent_algo_usd": 32.0
     },
     {
       "date": "2026-08-29",
       "intent_h": 0,
       "intent_tasks": 0,
       "intent_usd": 0,
-      "blocks": "fin de semana · sin plantilla M1 (10h L–V)"
+      "blocks": "fin de semana · sin plantilla M1 (10h L–V) · Algo 0 (L–V only)",
+      "intent_algo_h": 0,
+      "intent_algo_usd": 0
     },
     {
       "date": "2026-08-30",
       "intent_h": 0,
       "intent_tasks": 0,
       "intent_usd": 0,
-      "blocks": "fin de semana · sin plantilla M1 (10h L–V)"
+      "blocks": "fin de semana · sin plantilla M1 (10h L–V) · Algo 0 (L–V only)",
+      "intent_algo_h": 0,
+      "intent_algo_usd": 0
     },
     {
       "date": "2026-08-31",
-      "intent_h": 10,
-      "intent_tasks": 40,
-      "intent_usd": 61.6,
-      "blocks": "L–V · 10h M1 · AM5+A3+B2 · ops 4.0"
+      "intent_h": 0,
+      "intent_tasks": 0,
+      "intent_usd": 0,
+      "blocks": "Algo 8h × $4 = $32 · M1 PARK · VN 1.5h 18:00 · Contra 10%",
+      "intent_algo_h": 8.0,
+      "intent_algo_usd": 32.0
     }
   ],
   "days": [
@@ -457,7 +467,7 @@
     "fx_clp_per_usd": 947,
     "summary_gap_usd": 1461.46,
     "calendar_finanzas": "9616f51a807e24559b4df624c70d7fe1d81de62f9aa8baf44c1190db5887b12f@group.calendar.google.com",
-    "intention_note": "Método Ro Calendar 18 ago · M1 5.5 · VN 1.5 · Post 0.75 · Algonova 4º · ops 4.0",
+    "intention_note": "27 ago · Algonova 40h L–V × $4/h = $160/sem · M1 PARK · VN 7.5 · Post 3.75 · Contra 10%",
     "intent_usd_month_tb_only": 1292.85,
     "goal_usd_equiv": 1689.55,
     "log_path": "/Users/ro/Library/Mobile Documents/com~apple~CloudDocs/Documents/MICRO 1/LOG.md",
@@ -465,7 +475,7 @@
     "summary_mtd_usd": 90.86,
     "rate_usd": 1.54,
     "wind_down": "21:30",
-    "sync": "p0-metodo-ro-2026-08-19",
+    "sync": "ssot-algo40-2026-08-27",
     "intent_usd_week_tb": 308,
     "goal_clp_month": 1600000,
     "qa_pdf": "QA-Financial-Dashboard-v2-2026-08-04.pdf",
@@ -477,10 +487,10 @@
     "intent_usd_day_fri": 61.6,
     "baseline_tph": 4,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-08-19T15:56:39-04:00",
+    "updated": "2026-08-27T12:50:00-04:00",
     "intention_h_month": 199.2,
     "target_hours_month": 180,
-    "split_policy": "calendar_2026_08_18",
+    "split_policy": "algo40_lv_m1_park",
     "intent_usd_week_80_20": 255.26,
     "workday_h_lj": 9,
     "workday_h_fri": 6,
@@ -493,20 +503,24 @@
     "intent_usd_month_with_wave": 1399.63,
     "intention_h_month_lv_only": 124.8,
     "split_pct": {
-      "micro1": 70.97,
-      "vn": 19.35,
-      "postulaciones": 9.68
+      "micro1": 83.3,
+      "vn": 10.4,
+      "postulaciones": 6.2
     },
     "intent_usd_week_80_10_10": 255.26,
     "hours_lj": {
-      "m1": 5.5,
+      "algo": 8,
+      "m1": 0,
       "vn": 1.5,
-      "post": 0.75
+      "post": 0.75,
+      "contra": 0.75
     },
     "hours_fri": {
-      "m1": 10,
-      "vn": 0.5,
-      "post": 0.5
+      "algo": 8,
+      "m1": 0,
+      "vn": 1.5,
+      "post": 0.75,
+      "contra": 0.75
     },
     "reality_note": "CIERRE 2026-08-19 Â· 0t Â· $0 Â· MTD ·$90.86 Â· offline+0",
     "realm_signed_off_n": 59,
@@ -799,14 +813,14 @@
     ],
     "ops_tph_note": "2026-08-06 Rö: ops = 4 t/h (no 5). Plan techo sigue 5.6",
     "calendar_hours": {
-      "source": "SSOT 10h L–V · 2026-08-07 cierre",
+      "source": "CALENDAR-SESSION-UNIFICADO 2026-08-27",
       "plantilla_lj_h": 10,
       "plantilla_fri_h": 10,
       "plantilla_sat_h": 0,
       "plantilla_sun_h": 0,
-      "plantilla_week_m1_h": 50,
-      "plantilla_week_vn_h": 5,
-      "plantilla_week_post_h": 3,
+      "plantilla_week_m1_h": 0,
+      "plantilla_week_vn_h": 7.5,
+      "plantilla_week_post_h": 3.75,
       "plantilla_work_week_h": 58,
       "distribution": {
         "L-V": {
@@ -823,7 +837,10 @@
       },
       "ops_tph": 4,
       "intent_tasks_day": 40,
-      "intent_usd_day": 61.6
+      "intent_usd_day": 61.6,
+      "plantilla_week_algo_h": 40.0,
+      "plantilla_week_contra_h": 3.75,
+      "algo_usd_per_hour": 4.0
     },
     "hours_weekend": {
       "m1": 0,
@@ -1125,6 +1142,19 @@
       "20729"
     ],
     "realm_review_ready_usd_pending": 3.08,
-    "cupo_2026_08_14": 22
+    "cupo_2026_08_14": 22,
+    "algonova_usd_per_hour": 4.0,
+    "algonova_usd_per_60min": 4.0,
+    "algonova_usd_per_90min_group": 6.0,
+    "algonova_hours_day_lv": 8.0,
+    "algonova_hours_week": 40.0,
+    "algonova_intent_usd_day_lv": 32.0,
+    "algonova_intent_usd_week": 160.0,
+    "algonova_intent_usd_month_4sem": 640.0,
+    "algonova_intent_clp_week": 151520,
+    "algonova_intent_clp_month_4sem": 606080,
+    "algonova_status": "canon-lv-2026-08-27",
+    "algonova_earned_usd_mtd": 0,
+    "algonova_note": "Intent 8h L–V × $4/h. Real=0 hasta clases asignadas post-OB. M1 PARK."
   }
 }

@@ -110,7 +110,7 @@ footer{margin-top:20px;color:var(--faint);font-size:.72rem}
     </div>
     <div class="row">
       <span class="pill ok" id="pill-ssot">SSOT</span>
-      <span class="pill">40·5·3</span>
+      <span class="pill" id="pill-split">Algo 40</span>
       <span class="t-faint t-num" id="clock"></span>
     </div>
   </div>
@@ -120,6 +120,16 @@ footer{margin-top:20px;color:var(--faint);font-size:.72rem}
   <div class="pulse" id="pulse" aria-live="polite">
     <div class="p-row" id="pulse-row">—</div>
     <div class="p-sub" id="pulse-sub"></div>
+  </div>
+
+  <div class="card section" id="algo-card">
+    <div class="t-label">Algonova · ingreso /h · SSOT 27 ago</div>
+    <div class="grid3" style="margin-top:10px">
+      <div class="stat"><div class="t-faint">Tarifa</div><div class="v t-num" id="algo-rate">$4/h</div><div class="h">60′ ind · 90′ grupal $6 (= $4/h)</div></div>
+      <div class="stat"><div class="t-faint">Intent L–V</div><div class="v t-num" id="algo-day">8h · $32</div><div class="h">40 h/sem · $160/sem</div></div>
+      <div class="stat"><div class="t-faint">Real cobrado</div><div class="v t-num" id="algo-real">$0</div><div class="h">hasta clases post-OB · no inventar</div></div>
+    </div>
+    <div class="t-faint" id="algo-note" style="margin-top:8px">Obsidian + Calendar FINANZAS. M1 PARK. FX 947.</div>
   </div>
 
     <!-- Faltan a meta (cambia con Día / Semana / Mes) -->
@@ -201,7 +211,7 @@ footer{margin-top:20px;color:var(--faint);font-size:.72rem}
       <ul style="margin:10px 0 0;padding-left:1.1rem">
         <li>Pool max 3 · F7 → 10′ → submit 6</li>
         <li><b>Updated</b> Realm = día de realidad</li>
-        <li id="ops-bullet">ops 4 t/h · week 40h M1 + 5 VN + 3 Post · techo plan 5.6 · $1.54/t</li>
+        <li id="ops-bullet">Algo 40 h L–V × $4/h = $160/sem · M1 PARK · VN 7.5 · Post 3.75 · Contra 10% · M1 $1.54/t histórico</li>
       </ul>
       <p class="t-faint" id="log-only" style="margin-top:10px"></p>
     </div>
@@ -781,6 +791,27 @@ function render() {
   } else { al.className = "alert"; al.textContent = ""; }
 
   document.getElementById("pill-ssot").textContent = "SSOT · " + c.monthReal.t + "t";
+  (function renderAlgo() {
+    const meta = (state && state.meta) || SSOT.meta || {};
+    const rate = +(meta.algonova_usd_per_hour || 4);
+    const h = +(meta.algonova_hours_day_lv || 8);
+    const day = +(meta.algonova_intent_usd_day_lv || rate * h);
+    const week = +(meta.algonova_intent_usd_week || day * 5);
+    const real = +(meta.algonova_earned_usd_mtd || 0);
+    const fx = +(meta.fx_clp_per_usd || 947);
+    const elRate = document.getElementById("algo-rate");
+    const elDay = document.getElementById("algo-day");
+    const elReal = document.getElementById("algo-real");
+    const elNote = document.getElementById("algo-note");
+    if (elRate) elRate.textContent = "$" + rate.toFixed(0) + "/h";
+    if (elDay) elDay.textContent = h + "h · $" + day.toFixed(0);
+    if (elReal) elReal.textContent = "$" + real.toFixed(0);
+    if (elNote) elNote.textContent = (meta.algonova_note || "Intent no es cobrado.")
+      + " · $" + week.toFixed(0) + "/sem · CLP " + Math.round(week * fx).toLocaleString("es-CL")
+      + " · 4 sem ~$" + (meta.algonova_intent_usd_month_4sem || 640);
+    const pill = document.getElementById("pill-split");
+    if (pill) pill.textContent = "Algo 40 · $4/h";
+  })();
 
   // Pulse = SOLO día (intento diario vs realidad). Sin acumulados.
   (function renderPulse() {

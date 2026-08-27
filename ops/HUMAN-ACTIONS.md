@@ -1,11 +1,11 @@
 # Acciones humanas · links de un clic · 2026-08-26
 
-**Dueño:** Rö · **Actualizado:** 2026-08-26 16:58 (OG circular + RSA en Smart, no publicado)  
+**Dueño:** Rö · **Actualizado:** 2026-08-27 · Algo **$4/h** en ledger + Calendar FINANZAS (SSOT Obsidian)  
 **Board HUs hoy:** [HU-2026-08-06-MVP.md](./HU-2026-08-06-MVP.md)  
 **Tareas humanas detalle:** [HUMAN-TASKS.md](./HUMAN-TASKS.md)  
 **Ops canvas:** https://vientonorte.io/ops/
 
-> **27 ago AHORA (max 3):** (1) **salir de Smart** → Búsqueda RSA **150.000 CLP** (copy ya pegado) (2) LinkedIn Post Inspector **recrawl OG** (sin recuadro blanco) + CM **PAUSED** (3) GSC residual: Rich Results + Pages. `/` ya IN_GOOGLE. LI **no** gasta el techo. AdGuard Mini off en Ads.
+> **27 ago AHORA (max 3):** (1) pegar RSA Search + **150.000 CLP** (2) LinkedIn Campaign Manager **PAUSED** (3) GSC inspección `/` + `/s/consultoria`. Preview `generate_lead` PASS 26 ago. LI **no** gasta el techo. IG parked. M1 → later.
 
 **Reloj VN:** GSC 20' → LinkedIn 35' → Ads 45–60'. Runbook: vault `Resources/SEM/2026-08-26 RUNBOOK 27 ago LinkedIn + GSC.md`.
 
@@ -20,7 +20,7 @@
 | E3 | Sitelinks + keywords phrase | misma nota RSA | 4 sitelinks · negativos mentoría/portfolio/curso/empleo |
 | E4 | Techo + geo | Ads campaña `VN · piloto a11y_gratis_pymes` | **150.000 CLP** · ~5.000/día · Chile · Search only |
 | E5 | Final URL + UTM | https://vientonorte.io/s/consultoria/?utm_source=google&utm_medium=cpc&utm_campaign=a11y_gratis_pymes | no hash-only |
-| E6 | Logo Ads | [DS Make v3](https://www.figma.com/make/OR8iCIpokgaPKjerCyZAKy/Rodrigo-Gaete---Desing-System) · negativo `#0A0A0A` | isologo **circular** · sin recuadro blanco · sin rostro |
+| E6 | Logo Ads (opcional) | `mi-portafolio/campaigns/2026-08-26-piloto-a11y/assets/ad-logo-1200.png` | 1:1 isologo · sin rostro |
 | E7 | Publicar piloto | Ads UI | campaña ENABLED |
 | E8 | Día 1 watch | Ads + GA4 RT | impresiones/clics · evento ≠ clic de página · si el bloque se acaba: 28 ago |
 
@@ -31,7 +31,7 @@
 | # | Acción humana | Link / path | DoD |
 |---|---------------|-------------|-----|
 | L1 | Página empresa Viento Norte | https://www.linkedin.com/company/setup/new | URL `linkedin.com/company/…` · vault hoy solo perfil personal |
-| L2 | Post Inspector recrawl `/s/consultoria` | https://www.linkedin.com/post-inspector/ | card 1200×630 **sin recuadro blanco** · hub `232720d` |
+| L2 | Post Inspector `/s/consultoria` | https://www.linkedin.com/post-inspector/ | card título Consultoría UX · imagen 1200×630 |
 | L3 | Campaign group + campaign Website visits · Classic · Chile | https://www.linkedin.com/campaignmanager/ | **PAUSED** · Audience Network OFF |
 | L4 | Ad single image + copy + UTM | `campaigns/2026-08-26-piloto-a11y/assets/ad-1200x628.png` · vault `SEM/2026-08-26 LinkedIn config PAUSED.md` | destination `/s/consultoria/?utm_source=linkedin&utm_medium=cpc&utm_campaign=a11y_gratis_pymes` · **PAUSED** |
 | L5 | Insight Tag Partner ID → GTM workspace | GTM `GTM-PM5LBQRP` · tag LinkedIn Insight 2.0 | **unpublished** · no v5 live mañana |
@@ -46,7 +46,7 @@ No ACTIVE “para probar un clic”. Mín. UI ~USD 10/día **no se sirve**.
 | # | Acción humana | Link / path | DoD |
 |---|---------------|-------------|-----|
 | S1 | Abrir propiedad `https://vientonorte.io/` | https://search.google.com/search-console | ya verificada 03 ago · no re-verify |
-| S2 | Reenviar sitemap | https://vientonorte.io/sitemap.xml | Success · 5 URLs (incluye `/s/proceso/`, no hash) |
+| S2 | Reenviar sitemap | https://vientonorte.io/sitemap.xml | Success · 4 URLs (no hash, no `/s/proceso`) |
 | S3 | Inspección + live `/` | GSC URL inspection | indexada o solicitar |
 | S4 | Inspección `/s/` | same | title Tecnología para empresas |
 | S5 | Inspección + **solicitar indexación** | https://vientonorte.io/s/consultoria/ | HTML funnel · GTM en view-source |
