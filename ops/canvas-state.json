@@ -70,23 +70,25 @@
           "token_pct": 10,
           "track": "vn",
           "mvp": "MVP-VN-SEO",
-          "people_job": "Propiedad ya verificada 03 ago. Reenviar sitemap. Inspección live / · /s/ · /s/consultoria (solicitar index). No inspeccionar hash. No /s/proceso (404). PosicionApp si el mes Austral vive (~28 ago).",
+          "people_job": "Propiedad ya verificada 03 ago. Reenviar sitemap (ahora incluye /s/proceso/). Inspección live / · /s/ · /s/consultoria · /s/proceso (solicitar index). No inspeccionar hash. PosicionApp si el mes Austral vive (~28 ago).",
           "checklist": [
             "GSC propiedad https://vientonorte.io/",
             "Reenviar https://vientonorte.io/sitemap.xml",
             "Inspección / y /s/",
             "Inspección + solicitar indexación /s/consultoria/",
+            "Inspección + solicitar indexación /s/proceso/ (200 live post-#214)",
             "Pages: anotar n indexadas",
-            "Rich Results /s/consultoria/",
+            "Rich Results /s/consultoria/ y /s/proceso/",
             "PosicionApp o NO DATO"
           ],
           "links": [
             "https://search.google.com/search-console",
             "https://vientonorte.io/sitemap.xml",
             "https://search.google.com/test/rich-results",
-            "https://vientonorte.io/s/consultoria/"
+            "https://vientonorte.io/s/consultoria/",
+            "https://vientonorte.io/s/proceso/"
           ],
-          "notes": "SSOT: vault SEM/2026-08-03 GSC Pruebas y Enlaces.md + RUNBOOK 27 ago. Live 26 ago: sitemap 4 URLs · OG consultoría 1200×630 · og-portfolio 512 · /s/proceso 404."
+          "notes": "SSOT: vault SEM/2026-08-03 GSC + RUNBOOK 27 ago. Live 26 ago noche: /s/proceso 200 · OG 1200 · sitemap 5 URLs. PR FO #214 merged. SPA capa método espera HUB_TOKEN."
         }
       ],
       "done_archive": [
@@ -789,7 +791,7 @@
       ]
     }
   },
-  "updated": "2026-08-22",
+  "updated": "2026-08-27",
   "last_sync": "2026-08-06T17:53:58Z",
   "identity": {
     "org": "Viento Norte",
@@ -885,13 +887,13 @@
     "doc": "Viento Norte/Sprints/DS-2026-08-03 path-oferta-analytics.md"
   },
   "last_close": {
-    "date": "2026-08-22",
+    "date": "2026-08-27",
     "session": "vn-cierre-sesion",
     "status": "closed-auto",
-    "title": "CierreVNHOY FO GTM+Agendar+sobre-mi LCP · Polijuego v1 lock",
-    "at": "2026-08-23T00:18:40Z",
+    "title": "CierreVNHOY ship #218 ops copy live · GTM /s/ · FigJam 3 tableros",
+    "at": "2026-08-27T21:57:42Z",
     "docs": [
-      "vault:Viento Norte/Sprints/2026-08-22 LOG sesion.md"
+      "vault:Viento Norte/Sprints/2026-08-27 LOG sesion.md"
     ]
   },
   "github": {
@@ -1061,9 +1063,9 @@
   "roadmap": {
     "title": "Roadmap · Automaciones M5 / Google / Packages · FO empresa",
     "source_pdf": "ops/VN-Automaciones-M5-Google-2026-07-26.pdf",
-    "updated": "2026-08-26",
-    "objective": "27 ago: Search 150k + LinkedIn config PAUSED + GSC SEO",
-    "progress_note": "Preview generate_lead PASS 26 ago · RSA listos · LI config runbook · GSC follow-up. Mix LI/Meta 0. Tour Apple no paid. M1 later.",
+    "updated": "2026-08-28",
+    "objective": "28 ago: TA generate_lead Activadas + mockup merge + PoC Fintoc en roadmap",
+    "progress_note": "GTM v6 live. TA 28 ago: generate_lead NO en Activadas. RSA clipboard. PoC Fintoc DS A→C. Mix LI/Meta 0.",
     "priorities": {
       "P0": {
         "title": "Desbloqueantes",
@@ -1201,8 +1203,8 @@
           {
             "id": "p2-generate-lead",
             "title": "Evento generate_lead + path contacto",
-            "status": "done",
-            "notes": "Preview 26 ago Tag Assistant: GA4 · generate_lead Activado 1 vez + book_call. v4 GTM-PM5LBQRP."
+            "status": "in_progress",
+            "notes": "GTM v6 live (generate_lead, book_call, demo_funnel). TA 28 ago 12:53/14:00: Activadas = solo Google tag. 26 ago Safari PASS no gana al UI 28 ago."
           }
         ]
       },
@@ -1245,6 +1247,16 @@
             "title": "Decide: rename git mi-portafolio → vientonorte-fo (post ship)",
             "status": "parked",
             "notes": "Solo alias en canvas ahora; rename GH es Decide Rö"
+          },
+          {
+            "id": "p3-poc-fintoc-bdp",
+            "title": "PoC Fintoc × X|CMS · /vn-bdp (Payment Link post-kickoff)",
+            "status": "next",
+            "notes": "DS-2026-08-28 A→C. Worker /api/pay. Hero no cobra. Keys Fintoc NO DATO. Admin /#/admin/roadmap",
+            "links": [
+              "https://vientonorte.io/#/admin/roadmap",
+              "https://docs.fintoc.com/guides/payments/overview-payment-initiation/quickstart-payments"
+            ]
           }
         ]
       }
