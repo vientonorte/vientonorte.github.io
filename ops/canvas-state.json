@@ -4,9 +4,89 @@
       "max_items": 3,
       "items": [
         {
-          "id": "now-sem-paste-rsa-27",
-          "title": "P0 · 27 ago · Salir de Smart → Búsqueda RSA 150k + publicar",
+          "id": "now-sem-ads-polish",
+          "title": "P0 · 28 ago · Ads polish: rename + AG-D/B/C + negativos + sitelinks",
           "status": "todo",
+          "priority": "P0",
+          "human": true,
+          "highlight": "human",
+          "kind": "sem_polish",
+          "token_pct": 15,
+          "track": "vn",
+          "mvp": "MVP-VN-SEM",
+          "people_job": "UI aún Leads-Search-1. Renombrar a VN · piloto a11y_gratis_pymes. AG-D/B/C phrase, negativos mentoría/portfolio/curso/empleo, sitelinks. Quitar objetivo llamadas. IA Max si reaparece: off. No subir techo.",
+          "checklist": [
+            "Renombrar Leads-Search-1 → VN · piloto a11y_gratis_pymes",
+            "Keywords phrase AG-D, AG-B, AG-C (AG-A ya ×12)",
+            "Negativos: mentoría, portfolio, curso, empleo",
+            "Sitelinks: Agendar / Diagnóstico / Gratis a11y / Ver alcance (no Auditoría)",
+            "Quitar objetivo llamadas si sigue",
+            "IA Max off si reaparece",
+            "No subir 5.000/día ni 150k"
+          ],
+          "links": [
+            "https://ads.google.com/aw/campaigns?ocid=8398019470",
+            "https://vientonorte.io/s/consultoria/?utm_source=google&utm_medium=cpc&utm_campaign=a11y_gratis_pymes"
+          ],
+          "notes": "SSOT: vault SEM/2026-08-28 HUMANO lanzar piloto.md + paste /tmp/vn-sem-paste-2026-08-28.txt. Smart detenido."
+        },
+        {
+          "id": "now-posicionapp-vn",
+          "title": "P0 · 28 ago · PosicionApp VN · 25 kws Chile (a11y / design / privacy)",
+          "status": "todo",
+          "priority": "P0",
+          "human": true,
+          "highlight": "human",
+          "kind": "seo_rank",
+          "token_pct": 10,
+          "track": "vn",
+          "mvp": "MVP-VN-SEO",
+          "people_job": "panel.posicion.app proyecto vientonorte.io Chile. Clusters a11y / design / privacy. Tracking 28 ago. Pos 21 = fuera top 20. Ley 21.719 vol. 1,6k.",
+          "checklist": [
+            "Proyecto VN-ACCESIBILITY-DESIGN-PRIVACY activo",
+            "25 kws Chile anotadas",
+            "Captura ranking 28 ago",
+            "No pedir index de hash /#/"
+          ],
+          "links": [
+            "https://panel.posicion.app/proyectos/q1NSHH1azZwuazuSwaZt",
+            "https://search.google.com/search-console",
+            "https://vientonorte.io/s/consultoria/"
+          ],
+          "notes": "SSOT: vault Resources/SEM/2026-08-28 PosicionApp VN-ACCESIBILITY-DESIGN-PRIVACY.md"
+        },
+        {
+          "id": "now-sem-day1-watch",
+          "title": "P0 · 28 ago · Día 1 watch Search ENABLED 24184249593",
+          "status": "todo",
+          "priority": "P0",
+          "human": true,
+          "highlight": "human",
+          "kind": "sem_watch",
+          "token_pct": 10,
+          "track": "vn",
+          "mvp": "MVP-VN-SEM",
+          "people_job": "Campaña Habilitada. GA4 RT: generate_lead/book_call si hay clic. No optimizar a page_view. No subir techo. AdGuard Mini off para Ads UI.",
+          "checklist": [
+            "Campaña 24184249593 Habilitada (no pausada)",
+            "Impresiones > 0 o keywords sin search anotado",
+            "Conversión = generate_lead/book_call, no clic de página",
+            "Si 0 clics en 24h: geo Chile + phrase AG-A",
+            "No reactivar Smart / Display / PMax / partners"
+          ],
+          "links": [
+            "https://ads.google.com/aw/campaigns?ocid=8398019470",
+            "https://analytics.google.com/",
+            "https://vientonorte.io/s/consultoria/?utm_source=google&utm_medium=cpc&utm_campaign=a11y_gratis_pymes"
+          ],
+          "notes": "Éxito research 150k = aprender (>1.000 imp · ≥40 clics · ≥1 generate_lead). No pipeline lleno. Brief mail 28 ago D1–D30. Si 14d 0 leads y CPC observado >2.500 CLP: pausar, no subir presupuesto."
+        }
+      ],
+      "done_archive": [
+        {
+          "id": "now-sem-paste-rsa-27",
+          "title": "P0 · 27–28 ago · Pegar RSA Search + techo 150k + publicar",
+          "status": "done",
           "priority": "P0",
           "human": true,
           "highlight": "human",
@@ -32,69 +112,10 @@
             "https://vientonorte.io/s/consultoria",
             "https://www.figma.com/design/C2ZgaajABQa3NiFJTnFF45"
           ],
-          "notes": "26 ago 16:54 Safari: RSA pegado, preview a11y, Siguiente no avanza (AdGuard). Mix LI=0. DS fuente Make https://www.figma.com/make/OR8iCIpokgaPKjerCyZAKy · campañas https://www.figma.com/design/C2ZgaajABQa3NiFJTnFF45 · tokens #FF1D25/#FF931E/#0A0A0A · isologo circular negativo."
+          "notes": "28 ago: Search Leads-Search-1 · 24184249593 · CID 811-405-3092 · Habilitada · 5.000 CLP/día · Chile · generate_lead principal + book_call secundario · AG-A phrase ×12. Smart detenido. TA 14:31 Activadas generate_lead 2× + book_call 2×.",
+          "closed_at": "2026-08-28",
+          "closed_reason": "shipped"
         },
-        {
-          "id": "now-li-config-paused-27",
-          "title": "P0 · 27 ago · LinkedIn Post Inspector recrawl OG (sin recuadro blanco) + CM PAUSED $0",
-          "status": "todo",
-          "priority": "P0",
-          "human": true,
-          "highlight": "human",
-          "kind": "sem_config",
-          "token_pct": 15,
-          "track": "vn",
-          "mvp": "MVP-VN-SEM",
-          "people_job": "OG live hub 232720d: isologo circular, sin placa blanca. Post Inspector cachea el card viejo → recrawl /s/consultoria. CM Website visits Chile Classic PAUSED. No ACTIVE. No come 150k.",
-          "checklist": [
-            "Post Inspector recrawl https://vientonorte.io/s/consultoria/ (card 1200×630 sin cuadro blanco)",
-            "Ver OG https://vientonorte.io/images/branding/og-consultoria-1200.png",
-            "Página empresa linkedin.com/company/… (hoy NO DATO)",
-            "Campaign group + campaign PAUSED · Audience Network OFF",
-            "Ad Figma LI 1200×627 + UTM linkedin · PAUSED",
-            "Spend CM = 0"
-          ],
-          "links": [
-            "https://www.linkedin.com/post-inspector/",
-            "https://vientonorte.io/s/consultoria",
-            "https://vientonorte.io/images/branding/og-consultoria-1200.png",
-            "https://www.figma.com/design/C2ZgaajABQa3NiFJTnFF45",
-            "https://www.linkedin.com/campaignmanager/"
-          ],
-          "notes": "QA branding 26 ago: isologo-512 tenía esquinas opacas. Figma + hub sin placa. 2FA LinkedIn CM sigue humano. CPC Chile 3500–9000."
-        },
-        {
-          "id": "now-gsc-seo-config-27",
-          "title": "P0 · 27 ago · Google SEO: GSC sitemap + inspección / y /s/consultoria",
-          "status": "todo",
-          "priority": "P0",
-          "human": true,
-          "highlight": "human",
-          "kind": "seo_gsc",
-          "token_pct": 10,
-          "track": "vn",
-          "mvp": "MVP-VN-SEO",
-          "people_job": "Propiedad verificada. Safari 26 ago: / IN_GOOGLE; /s/consultoria + /s/ + /s/proceso en cola de index. Falta Rich Results + PosicionApp. OG isologo circular live (recrawl social ≠ GSC).",
-          "checklist": [
-            "GSC propiedad https://vientonorte.io/ (verificada)",
-            "Reenviar https://vientonorte.io/sitemap.xml (5 URLs, incluye /s/proceso/)",
-            "[hecho 26 ago] Inspección / → IN_GOOGLE",
-            "[hecho 26 ago] Inspección + solicitar /s/consultoria/ · /s/ · /s/proceso/",
-            "Pages: anotar n indexadas",
-            "Rich Results /s/consultoria/ y /s/proceso/",
-            "PosicionApp o NO DATO (~28 ago)"
-          ],
-          "links": [
-            "https://search.google.com/search-console",
-            "https://vientonorte.io/sitemap.xml",
-            "https://search.google.com/test/rich-results",
-            "https://vientonorte.io/s/consultoria/",
-            "https://vientonorte.io/s/proceso/"
-          ],
-          "notes": "SSOT vault GSC + RUNBOOK 27 ago. OG consultoria/proceso sin recuadro blanco hub 232720d. SPA capa /#/proceso espera HUB_TOKEN. No inspeccionar hash."
-        }
-      ],
-      "done_archive": [
         {
           "id": "now-lg-teamwork-benchmark-week",
           "title": "P0 · Benchmark LG + Teamwork → semana FO (debrief + message match)",
@@ -528,6 +549,65 @@
     "later": {
       "items": [
         {
+          "id": "now-li-config-paused-27",
+          "title": "P0 · 27 ago · LinkedIn Post Inspector recrawl OG (sin recuadro blanco) + CM PAUSED $0",
+          "status": "todo",
+          "priority": "P0",
+          "human": true,
+          "highlight": "human",
+          "kind": "sem_config",
+          "token_pct": 15,
+          "track": "vn",
+          "mvp": "MVP-VN-SEM",
+          "people_job": "OG live hub 232720d: isologo circular, sin placa blanca. Post Inspector cachea el card viejo → recrawl /s/consultoria. CM Website visits Chile Classic PAUSED. No ACTIVE. No come 150k.",
+          "checklist": [
+            "Post Inspector recrawl https://vientonorte.io/s/consultoria/ (card 1200×630 sin cuadro blanco)",
+            "Ver OG https://vientonorte.io/images/branding/og-consultoria-1200.png",
+            "Página empresa linkedin.com/company/… (hoy NO DATO)",
+            "Campaign group + campaign PAUSED · Audience Network OFF",
+            "Ad Figma LI 1200×627 + UTM linkedin · PAUSED",
+            "Spend CM = 0"
+          ],
+          "links": [
+            "https://www.linkedin.com/post-inspector/",
+            "https://vientonorte.io/s/consultoria",
+            "https://vientonorte.io/images/branding/og-consultoria-1200.png",
+            "https://www.figma.com/design/C2ZgaajABQa3NiFJTnFF45",
+            "https://www.linkedin.com/campaignmanager/"
+          ],
+          "notes": "QA branding 26 ago: isologo-512 tenía esquinas opacas. Figma + hub sin placa. 2FA LinkedIn CM sigue humano. CPC Chile 3500–9000."
+        },
+        {
+          "id": "now-gsc-seo-config-27",
+          "title": "P0 · 27 ago · Google SEO: GSC sitemap + inspección / y /s/consultoria",
+          "status": "todo",
+          "priority": "P0",
+          "human": true,
+          "highlight": "human",
+          "kind": "seo_gsc",
+          "token_pct": 10,
+          "track": "vn",
+          "mvp": "MVP-VN-SEO",
+          "people_job": "Propiedad verificada. Safari 26 ago: / IN_GOOGLE; /s/consultoria + /s/ + /s/proceso en cola de index. Falta Rich Results + PosicionApp. OG isologo circular live (recrawl social ≠ GSC).",
+          "checklist": [
+            "GSC propiedad https://vientonorte.io/ (verificada)",
+            "Reenviar https://vientonorte.io/sitemap.xml (5 URLs, incluye /s/proceso/)",
+            "[hecho 26 ago] Inspección / → IN_GOOGLE",
+            "[hecho 26 ago] Inspección + solicitar /s/consultoria/ · /s/ · /s/proceso/",
+            "Pages: anotar n indexadas",
+            "Rich Results /s/consultoria/ y /s/proceso/",
+            "PosicionApp o NO DATO (~28 ago)"
+          ],
+          "links": [
+            "https://search.google.com/search-console",
+            "https://vientonorte.io/sitemap.xml",
+            "https://search.google.com/test/rich-results",
+            "https://vientonorte.io/s/consultoria/",
+            "https://vientonorte.io/s/proceso/"
+          ],
+          "notes": "SSOT vault GSC + RUNBOOK 27 ago. OG consultoria/proceso sin recuadro blanco hub 232720d. SPA capa /#/proceso espera HUB_TOKEN. No inspeccionar hash. · Movido de AHORA 28 ago: Search ya ENABLED. Residual GSC/PosicionApp split: PosicionApp entra a AHORA."
+        },
+        {
           "id": "now-hu-m1-capture-gap",
           "title": "P0 · HU-M1-01 captura 80% · olas Realm (max 3) · cierra gap $",
           "status": "todo",
@@ -547,31 +627,6 @@
             "https://vientonorte.io/ops/AHORA-CLOSE-CHECKLIST.md"
           ],
           "notes": "MTD $13.86 / 9 RR · ops @4 t/h · 2026-08-06 · checklist AHORA-CLOSE 2026-08-08 · Parqueado de AHORA 26 ago noche para bloque VN 27 ago (Ads+LI+GSC)."
-        },
-        {
-          "id": "now-sem-day1-watch",
-          "title": "P0 · 27 ago · Día 1 SEM: Ads UI live + GA4 RT generate_lead",
-          "status": "todo",
-          "priority": "P0",
-          "human": true,
-          "highlight": "human",
-          "kind": "sem_watch",
-          "token_pct": 10,
-          "track": "vn",
-          "mvp": "MVP-VN-SEM",
-          "people_job": "Tras publicar: campaña ENABLED. GA4 Tiempo real: generate_lead/book_call si hay clic. No optimizar a page_view. Safari+AdGuard off para smoke.",
-          "checklist": [
-            "Campaña ENABLED (no pausada)",
-            "Impresiones > 0 o keywords sin search anotado",
-            "Conversión = evento no clic de página",
-            "Si 0 clics en 24h: revisar geo Chile + phrase match"
-          ],
-          "links": [
-            "https://ads.google.com/",
-            "https://analytics.google.com/",
-            "https://vientonorte.io/s/consultoria"
-          ],
-          "notes": "Éxito mes 150k = aprender (≥40 clics, ≥1 generate_lead). No pipeline lleno. · Movido de AHORA 26 ago noche: bloque 27 = Ads paste + LI config + GSC (max 3)."
         },
         {
           "id": "now-live-timebox-day",
@@ -794,7 +849,7 @@
       ]
     }
   },
-  "updated": "2026-08-26",
+  "updated": "2026-08-28",
   "last_sync": "2026-08-06T17:53:58Z",
   "identity": {
     "org": "Viento Norte",
@@ -1066,9 +1121,9 @@
   "roadmap": {
     "title": "Roadmap · Automaciones M5 / Google / Packages · FO empresa",
     "source_pdf": "ops/VN-Automaciones-M5-Google-2026-07-26.pdf",
-    "updated": "2026-08-26",
-    "objective": "27 ago: Search RSA 150k (no Smart) + LI recrawl OG + GSC residual",
-    "progress_note": "26 ago noche: RSA pegado en Smart (no publicar) · OG isologo circular live 232720d · GSC / IN_GOOGLE + 3 URLs en cola. Mix LI/Meta 0. AdGuard Mini bloquea Ads UI.",
+    "updated": "2026-08-28",
+    "objective": "28 ago: Search ENABLED 150k + TA generate_lead/book_call Activadas + PosicionApp",
+    "progress_note": "28 ago: TA 14:31 generate_lead 2× + book_call 2× Activadas (GTM v6). Search 24184249593 Habilitada · 5.000/día Chile · AG-A ×12. Smart detenido. Hero v3 X|CMS merged #220. Admin roadmap PR #221. Mix LI/Meta 0.",
     "priorities": {
       "P0": {
         "title": "Desbloqueantes",
@@ -1175,11 +1230,11 @@
           {
             "id": "p2-sem-piloto-150k",
             "title": "Piloto Search 150.000 CLP · RSA a11y · 27 ago",
-            "status": "in_progress",
-            "notes": "Decide A funnel /s/consultoria. Mix 100% Search. IG/LI parked. Techo humano 150k.",
+            "status": "done",
+            "notes": "28 ago ENABLED Leads-Search-1 24184249593 · 5.000/día Chile · generate_lead + book_call. Polish (rename/AG-D/B/C/sitelinks) en AHORA.",
             "links": [
-              "https://vientonorte.io/s/consultoria",
-              "https://github.com/vientonorte/mi-portafolio/blob/main/docs/CHECKLIST-CANALES-PAID.md"
+              "https://ads.google.com/aw/campaigns?ocid=8398019470",
+              "https://vientonorte.io/s/consultoria/?utm_source=google&utm_medium=cpc&utm_campaign=a11y_gratis_pymes"
             ]
           },
           {
@@ -1207,7 +1262,7 @@
             "id": "p2-generate-lead",
             "title": "Evento generate_lead + path contacto",
             "status": "done",
-            "notes": "Preview 26 ago Tag Assistant: GA4 · generate_lead Activado 1 vez + book_call. v4 GTM-PM5LBQRP."
+            "notes": "GTM v6 live. TA 28 ago 14:31 Chrome sin extensiones: Activadas generate_lead 2× + book_call 2×. Conectado vientonorte.io. 12:53 FAIL no gana a 14:31."
           }
         ]
       },
@@ -1250,6 +1305,16 @@
             "title": "Decide: rename git mi-portafolio → vientonorte-fo (post ship)",
             "status": "parked",
             "notes": "Solo alias en canvas ahora; rename GH es Decide Rö"
+          },
+          {
+            "id": "p3-poc-fintoc-bdp",
+            "title": "PoC Fintoc × X|CMS · /vn-bdp (Payment Link post-kickoff)",
+            "status": "next",
+            "notes": "DS-2026-08-28 A→C. Worker /api/pay. Hero no cobra. Keys Fintoc NO DATO. Wait apply=true.",
+            "links": [
+              "https://vientonorte.io/#/admin/roadmap",
+              "https://docs.fintoc.com/guides/payments/overview-payment-initiation/quickstart-payments"
+            ]
           }
         ]
       }
@@ -1631,6 +1696,6 @@
     }
   ],
   "progress_note": "2026-08-12 benchmark Teamwork+LG; week plan FO updated; sobre-mi still GO 8382111",
-  "updated_at": "2026-08-12T15:11Z",
+  "updated_at": "2026-08-28T19:50:00Z",
   "deploy_roadmap": "ops/DEPLOY-ROADMAP.md"
 }

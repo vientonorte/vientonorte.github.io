@@ -1,13 +1,13 @@
 # Acciones humanas · links de un clic · 2026-08-26
 
-**Dueño:** Rö · **Actualizado:** 2026-08-27 · Algo **$4/h** en ledger + Calendar FINANZAS (SSOT Obsidian)  
+**Dueño:** Rö · **Actualizado:** 2026-08-28 · Search ENABLED + TA PASS  
 **Board HUs hoy:** [HU-2026-08-06-MVP.md](./HU-2026-08-06-MVP.md)  
 **Tareas humanas detalle:** [HUMAN-TASKS.md](./HUMAN-TASKS.md)  
 **Ops canvas:** https://vientonorte.io/ops/
 
-> **27 ago AHORA (max 3):** (1) pegar RSA Search + **150.000 CLP** (2) LinkedIn Campaign Manager **PAUSED** (3) GSC inspección `/` + `/s/consultoria`. Preview `generate_lead` PASS 26 ago. LI **no** gasta el techo. IG parked. M1 → later.
+> **28 ago AHORA (max 3):** (1) Ads polish rename + AG-D/B/C + negativos + sitelinks (2) PosicionApp VN 25 kws Chile (3) Día 1 watch Search `24184249593`. TA 14:31 `generate_lead`+`book_call` Activadas. LI PAUSED y GSC residual → later. M1 → later.
 
-**Reloj VN:** GSC 20' → LinkedIn 35' → Ads 45–60'. Runbook: vault `Resources/SEM/2026-08-26 RUNBOOK 27 ago LinkedIn + GSC.md`.
+**Reloj VN:** Ads polish 30' → PosicionApp 20' → watch. Runbook: vault `Resources/SEM/2026-08-28 HUMANO lanzar piloto.md`.
 
 ---
 
@@ -15,14 +15,17 @@
 
 | # | Acción humana | Link / path | DoD |
 |---|---------------|-------------|-----|
-| E1 | Importar conversiones GA4 | Ads → Objetivos · `G-G7JXJKGCDV` | `generate_lead` primaria · `book_call` secundaria · **no** `page_view` |
+| E1 | Importar conversiones GA4 | Ads → Objetivos · `G-G7JXJKGCDV` | **DONE 28 ago** · `generate_lead` primaria · `book_call` secundaria · **no** `page_view` |
 | E2 | Pegar RSA (15 H + 4 D) | vault `Ro/Viento Norte/Resources/SEM/2026-08-26 RSA piloto a11y.md` | titulares Diagnóstico/a11y · no Radar · no Auditoría |
 | E3 | Sitelinks + keywords phrase | misma nota RSA | 4 sitelinks · negativos mentoría/portfolio/curso/empleo |
-| E4 | Techo + geo | Ads campaña `VN · piloto a11y_gratis_pymes` | **150.000 CLP** · ~5.000/día · Chile · Search only |
+| E4 | Techo + geo | Ads campaña `Leads-Search-1` (`24184249593`) | **DONE 28 ago** · 5.000/día · Chile · Search only · techo 150k |
 | E5 | Final URL + UTM | https://vientonorte.io/s/consultoria/?utm_source=google&utm_medium=cpc&utm_campaign=a11y_gratis_pymes | no hash-only |
 | E6 | Logo Ads (opcional) | `mi-portafolio/campaigns/2026-08-26-piloto-a11y/assets/ad-logo-1200.png` | 1:1 isologo · sin rostro |
-| E7 | Publicar piloto | Ads UI | campaña ENABLED |
-| E8 | Día 1 watch | Ads + GA4 RT | impresiones/clics · evento ≠ clic de página · si el bloque se acaba: 28 ago |
+| E7 | Publicar piloto | Ads UI | **DONE 28 ago** · `24184249593` Habilitada · 5.000/día Chile |
+| E8 | Día 1 watch | Ads + GA4 RT | impresiones/clics · evento ≠ clic de página |
+| E9 | Polish | Ads UI | rename Leads-Search-1 · AG-D/B/C · negativos · sitelinks · no llamadas · IA Max off |
+
+**28 ago:** E1 conversiones GA4 · E4 techo 5.000/día · E7 ENABLED. Smart detenido. Falta E3/E9.
 
 ---
 
@@ -53,7 +56,7 @@ No ACTIVE “para probar un clic”. Mín. UI ~USD 10/día **no se sirve**.
 | S5b | Inspección + **solicitar indexación** | https://vientonorte.io/s/proceso/ | 200 live post-#214 · H1 reduce el ruido · OG 1200 |
 | S6 | Pages / cobertura | GSC → Pages | anotar n · NO DATO hasta UI |
 | S7 | Rich Results | https://search.google.com/test/rich-results | ProfessionalService `/s/consultoria/` · WebPage `/s/proceso/` |
-| S8 | PosicionApp si el mes Austral vive | https://panel.posicion.app/activacion-curso | vence ~28 ago · captura o NO DATO |
+| S8 | PosicionApp VN 25 kws Chile | https://panel.posicion.app/proyectos/q1NSHH1azZwuazuSwaZt | a11y / design / privacy · tracking 28 ago |
 
 **No** inspeccionar `/#/consultoria` ni `/#/proceso` (hash). `/s/proceso/` sí.
 
