@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <script>
+      // Legacy paths. Soft-404 SPA shell also hits this (Pages 404.html = index).
+      (function () {
+        var p = location.pathname || "/";
+        var q = location.search || "";
+        if (p === "/mi-portafolio" || p.indexOf("/mi-portafolio/") === 0) {
+          var h = location.hash || "#/";
+          if (h.charAt(0) !== "#") h = "#" + h;
+          if (h.indexOf("#/mi-portafolio") === 0) {
+            h = "#" + (h.slice("#/mi-portafolio".length) || "/");
+          }
+          location.replace("https://vientonorte.io/" + h + q);
+          return;
+        }
+        // Deprecated: /poc#/auditoria is NOT freemium. Paid = /s/consultoria.
+        if (p === "/poc" || p.indexOf("/poc/") === 0) {
+          location.replace(location.origin + "/#/consultoria" + q);
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Viento Norte · Rodrigo Gaete" />
+    <meta name="robots" content="index, follow" />
+    <!-- GSC ownership: HTML file method → /google5858e011b32ea566.html (public/) · no inventar meta token -->
+
+    <!-- Static SEO (no JS required) — LinkedIn / WhatsApp / crawlers -->
+    <title>Tecnología para empresas · Viento Norte</title>
+    <meta
+      name="description"
+      content="Tecnología para empresas: operaciones digitales y el flujo que usa tu cliente, en su CMS o CRM. Diagnóstico 5–7 días. Gratis: accesibilidad de un flujo. Kickoff 30 min."
+    />
+    <meta
+      name="keywords"
+      content="Viento Norte, UXtech, consultoría UX, módulos a medida, front office, fintech, Design Ops, accesibilidad WCAG, dueño del dato, design sprint, pyme Chile"
+    />
+
+    <!-- Canonical brand root (no /mi-portafolio/) — SEO orgánico -->
+    <link rel="canonical" href="https://vientonorte.io/" />
+    <!-- SEM paid final URL (HashRouter; crawlers + Ads message-match) -->
+    <link rel="alternate" href="https://vientonorte.io/#/consultoria" title="Consultoría · Elige tu alcance" />
+
+    <!-- Open Graph (static — no JS required for share/crawlers) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Viento Norte" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:url" content="https://vientonorte.io/" />
+    <meta property="og:title" content="Tecnología para empresas · Viento Norte" />
+    <meta
+      property="og:description"
+      content="Tecnología para empresas: operaciones digitales y el flujo que usa tu cliente, en su CMS o CRM. Diagnóstico 5–7 días. Gratis: accesibilidad de un flujo."
+    />
+    <meta
+      property="og:image"
+      content="https://vientonorte.io/images/branding/og-home-1200.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Viento Norte — UXtech y módulos a medida" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://vientonorte.io/" />
+    <meta name="twitter:title" content="Tecnología para empresas · Viento Norte" />
+    <meta
+      name="twitter:description"
+      content="Tecnología para empresas. El flujo que usa tu cliente, en su CMS o CRM. Diagnóstico 5–7 días."
+    />
+    <meta
+      name="twitter:image"
+      content="https://vientonorte.io/images/branding/og-home-1200.png"
+    />
+
+    <!-- JSON-LD (Google rich results / Knowledge — static, pre-JS) · Audit QA SEO 2026-07 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://vientonorte.io/#organization",
+            "name": "Viento Norte",
+            "url": "https://vientonorte.io/",
+            "logo": "https://vientonorte.io/icon-512x512.png",
+            "description": "UXtech y front office. Módulos a medida, software que se instala, dueño del dato.",
+            "founder": {
+              "@type": "Person",
+              "name": "Rodrigo Gaete",
+              "jobTitle": "UX Lead"
+            },
+            "areaServed": "CL",
+            "sameAs": []
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://vientonorte.io/#website",
+            "url": "https://vientonorte.io/",
+            "name": "Viento Norte",
+            "description": "Tecnología para empresas: operaciones digitales y el flujo que usa tu cliente, en su CMS o CRM. Diagnóstico 5–7 días. Gratis: accesibilidad de un flujo.",
+            "publisher": { "@id": "https://vientonorte.io/#organization" },
+            "inLanguage": "es-CL"
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://vientonorte.io/#consultoria",
+            "name": "Consultoría UX · Viento Norte",
+            "url": "https://vientonorte.io/#/consultoria",
+            "image": "https://vientonorte.io/images/branding/og-home-1200.png",
+            "provider": { "@id": "https://vientonorte.io/#organization" },
+            "areaServed": { "@type": "Country", "name": "Chile" },
+            "serviceType": [
+              "Consultoría UX",
+              "Design Sprint",
+              "Accesibilidad WCAG",
+              "Front office producto"
+            ],
+            "description": "Diagnóstico, prototipo, proceso de equipo o app. Entrada gratis: accesibilidad WCAG 2.2 AA de un flujo crítico."
+          }
+        ]
+      }
+    </script>
+
+    <meta name="theme-color" content="#0d1b3d" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#050a14" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icon-192x192.png" />
+
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/chillax/chillax-400.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/chillax/chillax-700.woff2"
+      crossorigin
+    />
+
+    <!-- CSR fallback: feedback while JS hydrates (Gemini QA + brand VN) -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: #050a14;
+      }
+      #root:empty {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        min-height: 100dvh;
+        background: #050a14;
+        color: rgba(247, 242, 231, 0.55);
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 0.875rem;
+        letter-spacing: 0.04em;
+      }
+      #root:empty::before {
+        content: "";
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 3px solid rgba(247, 242, 231, 0.12);
+        border-top-color: #1a8fdc;
+        border-right-color: #e8401c;
+        animation: vn-spin 0.85s linear infinite;
+      }
+      #root:empty::after {
+        content: "Viento Norte";
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        color: rgba(247, 242, 231, 0.45);
+      }
+      @keyframes vn-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #root:empty::before {
+          animation: none;
+          border-top-color: #1a8fdc;
+        }
+      }
+      /* Static LCP: texto del documento (no React). Se oculta cuando pinta #inicio. */
+      #lcp-shell {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 1.5rem;
+        background: #050a14;
+        color: #f7f2e7;
+        text-align: center;
+        pointer-events: none;
+      }
+      #lcp-shell[hidden] {
+        display: none !important;
+      }
+      /* Inner HashRouter routes: never paint the home LCP overlay on reload. */
+      html[data-vn-route="inner"] #lcp-shell {
+        display: none !important;
+      }
+      #lcp-shell h1 {
+        margin: 0;
+        max-width: 40rem;
+        font-family: Chillax, ui-sans-serif, system-ui, sans-serif;
+        font-size: clamp(1.875rem, 4vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.12;
+      }
+      #lcp-shell p {
+        margin: 0;
+        max-width: 36rem;
+        font-family: Chillax, ui-sans-serif, system-ui, sans-serif;
+        font-size: clamp(1rem, 2.2vw, 1.125rem);
+        font-weight: 400;
+        line-height: 1.55;
+        color: rgba(247, 242, 231, 0.72);
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-CAfwg068.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-B0Z9INg1.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-motion-BTWl2dYi.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-radix-BmcoBQIX.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-0LSMU85-.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-ui-DgXEvzuH.js">
+    <link rel="modulepreload" crossorigin href="/assets/seo-UKdrlbTS.js">
+    <link rel="modulepreload" crossorigin href="/assets/scroll-to-section-CVT2hr2b.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-B1TMvJkN.css">
+  </head>
+
+  <body>
+    <script>
+      (function () {
+        var h = (location.hash || "#/").replace(/^#/, "").split("?")[0] || "/";
+        if (h.charAt(0) !== "/") h = "/" + h;
+        if (h.length > 1 && h.slice(-1) === "/") h = h.slice(0, -1);
+        if (h !== "/" && h !== "/consultoria") {
+          document.documentElement.setAttribute("data-vn-route", "inner");
+        }
+      })();
+    </script>
+    <div id="lcp-shell" aria-hidden="true">
+      <h1>Tecnología para empresas.</h1>
+      <p class="section-header__description">
+        Operaciones digitales y el flujo que usa tu cliente, en su CMS o CRM.
+        Diagnóstico 5–7 días. Gratis: accesibilidad de un flujo. Kickoff 30 min.
+      </p>
+    </div>
+    <div id="root"></div>
+  </body>
+</html>
