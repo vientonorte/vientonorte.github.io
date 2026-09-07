@@ -1,1 +1,0 @@
-import{O as e}from"./vendor-motion-BTWl2dYi.js";import t from"./ConsultoriaVientoNorte-C83n6mP_.js";var n=e();function r(){return(0,n.jsx)(t,{variant:`home`})}export{r as default};
