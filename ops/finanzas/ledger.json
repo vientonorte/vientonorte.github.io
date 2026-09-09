@@ -497,10 +497,10 @@
     "intent_usd_day_fri": 61.6,
     "baseline_tph": 4,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-09-04T08:05:13-04:00",
+    "updated": "2026-09-09T13:48:28-03:00",
     "intention_h_month": 199.2,
     "target_hours_month": 180,
-    "split_policy": "50m1_lv_10h",
+    "split_policy": "algo40_lv_m1_park",
     "intent_usd_week_80_20": 255.26,
     "workday_h_lj": 9,
     "workday_h_fri": 6,
@@ -513,20 +513,21 @@
     "intent_usd_month_with_wave": 1399.63,
     "intention_h_month_lv_only": 124.8,
     "split_pct": {
-      "micro1": 83.3,
-      "vn": 10.4,
-      "postulaciones": 6.2
+      "m1": 0,
+      "vn": 66.7,
+      "post": 33.3,
+      "note": "hours 0/1.5/0.75 of 2.25"
     },
     "intent_usd_week_80_10_10": 255.26,
     "hours_lj": {
-      "m1": 10,
-      "vn": 1,
-      "post": 0.5
+      "m1": 0,
+      "vn": 1.5,
+      "post": 0.75
     },
     "hours_fri": {
-      "m1": 10,
-      "vn": 0.5,
-      "post": 0.5
+      "m1": 0,
+      "vn": 1.5,
+      "post": 0.75
     },
     "reality_note": "CIERRE 2026-09-04 · 0t · $0 · MTD Sep 0 · NO DATO Realm/LOG submit OK post-2026-08-27 · Aug close preserved 59t/$90.86",
     "realm_signed_off_n": 0,
@@ -830,15 +831,19 @@
       "plantilla_work_week_h": 58,
       "distribution": {
         "L-V": {
-          "m1": 10,
-          "blocks": "08:00–13:00 (5) · 15:00–18:00 (3) · 18:00–20:00 (2)"
+          "m1": 0,
+          "vn": 1.5,
+          "post": 0.75
         },
         "Vie": {
-          "m1": 10,
-          "same_as": "L-V"
+          "m1": 0,
+          "vn": 1.5,
+          "post": 0.75
         },
         "SabDom": {
-          "m1": 0
+          "m1": 0,
+          "vn": 0,
+          "post": 0
         }
       },
       "ops_tph": 4,
@@ -1154,6 +1159,8 @@
       "updated": "2026-08-27T17:25:00-04:00"
     },
     "algonova_earned_usd_mtd": 0,
-    "algonova_note": "Intent only · Real=0 hasta Deel+clases"
+    "algonova_note": "Rate SSOT $4/h · Algonova renuncia 2026-09-09 · Real=0 · M1 PARK en Método Ro",
+    "algonova_usd_per_hour": 4,
+    "sync_note": "vn-improve 2026-09-09 Decider: Método Ro post-Algonova (m1 park)"
   }
 }

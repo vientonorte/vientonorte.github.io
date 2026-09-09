@@ -497,10 +497,10 @@
     "intent_usd_day_fri": 61.6,
     "baseline_tph": 4,
     "trainer_usd_target": 1552.32,
-    "updated": "2026-09-04T08:05:13-04:00",
+    "updated": "2026-09-09T13:48:28-03:00",
     "intention_h_month": 199.2,
     "target_hours_month": 180,
-    "split_policy": "50m1_lv_10h",
+    "split_policy": "algo40_lv_m1_park",
     "intent_usd_week_80_20": 255.26,
     "workday_h_lj": 9,
     "workday_h_fri": 6,
@@ -519,9 +519,9 @@
     },
     "intent_usd_week_80_10_10": 255.26,
     "hours_lj": {
-      "m1": 10,
-      "vn": 1,
-      "post": 0.5
+      "m1": 0,
+      "vn": 1.5,
+      "post": 0.75
     },
     "hours_fri": {
       "m1": 10,
@@ -1154,6 +1154,7 @@
       "updated": "2026-08-27T17:25:00-04:00"
     },
     "algonova_earned_usd_mtd": 0,
-    "algonova_note": "Intent only · Real=0 hasta Deel+clases"
+    "algonova_note": "Rate SSOT $4/h · Algonova renuncia 2026-09-09 · Real=0 · M1 PARK en Método Ro",
+    "algonova_usd_per_hour": 4
   }
 }
