@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/schema/nodes/agente.schema.json",
+  "title": "Nodo Agente",
+  "description": "Persona o entidad con capacidad de decisión sobre flujos de recursos públicos.",
+  "allOf": [
+    { "$ref": "../node.schema.json" },
+    {
+      "properties": {
+        "type": { "const": "agente" },
+        "attributes": {
+          "type": "object",
+          "required": ["rut_id", "cargo", "periodo_inicio", "monto_acumulado_gestionado"],
+          "properties": {
+            "rut_id": {
+              "type": "string",
+              "description": "RUT (Chile) o identificador oficial del agente"
+            },
+            "cargo": {
+              "type": "string",
+              "description": "Cargo o función institucional"
+            },
+            "institucion": {
+              "type": "string",
+              "description": "Nombre de la institución a la que pertenece"
+            },
+            "periodo_inicio": {
+              "type": "string",
+              "format": "date",
+              "description": "Fecha de inicio del período de gestión (YYYY-MM-DD)"
+            },
+            "periodo_fin": {
+              "type": ["string", "null"],
+              "format": "date",
+              "description": "Fecha de término del período de gestión; null si está activo"
+            },
+            "monto_acumulado_gestionado": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Monto total en CLP gestionado/adjudicado durante el período"
+            },
+            "nivel_jerarquico": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10,
+              "description": "Nivel en la estructura organizacional (1 = máxima autoridad)"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

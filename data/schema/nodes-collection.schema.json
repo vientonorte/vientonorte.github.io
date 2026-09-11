@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://vientonorte.github.io/schema/nodes-collection.schema.json",
+  "title": "Colección de Nodos",
+  "description": "Array de nodos del grafo para data/graph/nodes.json",
+  "type": "array",
+  "items": {
+    "$ref": "./node.schema.json"
+  },
+  "minItems": 0
+}
