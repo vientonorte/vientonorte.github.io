@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Viento Norte · Ops</title>
+  <meta name="description" content="Canvas operativo: AHORA → sprint → release. Baja carga cognitiva." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --surface: #12181f;
+      --card: #161d27;
+      --border: #2a3441;
+      --border-soft: #1e2732;
+      --text: #e8eef4;
+      --muted: #8b98a8;
+      --faint: #5c6b7a;
+      --now: #f85149;
+      --delegate: #d29922;
+      --plan: #58a6ff;
+      --monitor: #3fb950;
+      --ok: #3fb950;
+      --warn: #d29922;
+      --link: #79c0ff;
+      --focus: #1f6feb;
+      --radius: 12px;
+      --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+      font-size: 15px;
+      min-height: 100dvh;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      font-family: var(--mono);
+      font-size: 0.86em;
+      color: #a5d6ff;
+      background: #0d1117;
+      padding: 0.1em 0.35em;
+      border-radius: 4px;
+    }
+
+    /* ── Shell ── */
+    .shell {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 20px 18px 48px;
+    }
+
+    /* ── Top bar: one job ── */
+    .top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px 20px;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .brand h1 {
+      margin: 0;
+      font-size: 1.35rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .brand .lede {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      max-width: 36ch;
+    }
+    .top-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    button, .btn {
+      font: inherit;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 8px 12px;
+      font-size: 0.86rem;
+      cursor: pointer;
+      line-height: 1.2;
+    }
+    button:hover, .btn:hover { border-color: #3d4a5c; background: #1a222d; }
+    button.primary {
+      background: #238636;
+      border-color: #2ea043;
+      font-weight: 600;
+      color: #fff;
+    }
+    button.primary:hover { filter: brightness(1.08); }
+    button.ghost {
+      background: transparent;
+      color: var(--muted);
+    }
+    button:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-more { position: relative; }
+    .more-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: calc(100% + 6px);
+      min-width: 200px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 6px;
+      z-index: 40;
+      box-shadow: 0 12px 40px rgba(0,0,0,.45);
+    }
+    .more-menu.open { display: flex; flex-direction: column; gap: 2px; }
+    .more-menu button, .more-menu label.btn {
+      width: 100%;
+      text-align: left;
+      border: none;
+      background: transparent;
+      border-radius: 7px;
+      padding: 9px 10px;
+    }
+    .more-menu button:hover, .more-menu label.btn:hover {
+      background: #21262d;
+    }
+
+    #status {
+      min-height: 1.25em;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+    #status.ok { color: var(--ok); }
+    #status.err { color: var(--now); }
+
+    .sprint-banner {
+      display: none;
+      margin: 0 0 14px;
+      padding: 10px 12px;
+      background: #152033;
+      border: 1px solid #243447;
+      border-radius: 10px;
+      font-size: 0.86rem;
+      color: var(--text);
+    }
+    .sprint-banner.show { display: block; }
+
+    /* ── View tabs ── */
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin: 0 0 18px;
+      padding: 4px;
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 11px;
+      overflow-x: auto;
+    }
+    .tabs button {
+      flex: 1 1 auto;
+      min-width: max-content;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 550;
+      padding: 9px 12px;
+      border-radius: 8px;
+    }
+    .tabs button[aria-selected="true"] {
+      background: var(--card);
+      color: var(--text);
+      box-shadow: 0 0 0 1px var(--border);
+    }
+    .tabs button .count {
+      display: inline-block;
+      margin-left: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--faint);
+      font-variant-numeric: tabular-nums;
+    }
+    .tabs button[aria-selected="true"] .count { color: var(--now); }
+
+    .view { display: none; }
+    .view.active { display: block; }
+
+    /* ── Focus / Hoy ── */
+    .focus-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+      border-left: 4px solid var(--now);
+    }
+    .focus-card .eyebrow {
+      margin: 0 0 6px;
+      font-size: 0.72rem;
+      font-weight: 650;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--now);
+    }
+    .focus-card .obj {
+      margin: 0 0 14px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.35;
+      max-width: 48ch;
+    }
+    .focus-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      margin-bottom: 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .focus-meta strong { color: var(--text); font-weight: 600; }
+
+    .now-list { display: flex; flex-direction: column; gap: 8px; }
+    .now-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px 12px;
+      align-items: start;
+      padding: 12px 14px;
+      background: #0d1218;
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+    }
+    .now-item.empty {
+      color: var(--muted);
+      font-size: 0.9rem;
+      grid-template-columns: 1fr;
+    }
+    .now-item label {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      cursor: pointer;
+      grid-column: 1 / -1;
+    }
+    .now-item input[type="checkbox"] {
+      margin-top: 3px;
+      width: 16px;
+      height: 16px;
+      accent-color: var(--ok);
+      flex-shrink: 0;
+    }
+    .now-item .title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+    .now-item .why {
+      margin-top: 4px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .now-item .tags {
+      grid-column: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: -2px;
+    }
+    .tag {
+      font-size: 0.72rem;
+      color: var(--faint);
+      border: 1px solid var(--border-soft);
+      border-radius: 999px;
+      padding: 2px 8px;
+    }
+    .tag.repo { color: var(--plan); border-color: #243d5c; }
+    .focus-empty {
+      padding: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-soft);
+      font-size: 0.82rem;
+    }
+    .quick-links span { color: var(--faint); }
+
+    /* ── Board (canvas) ── */
+    .board-tools {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .board-tools .hint {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .toggle-row input { accent-color: var(--plan); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .q {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      min-height: 120px;
+      border-top: 3px solid var(--border);
+    }
+    .q.now { border-top-color: var(--now); }
+    .q.delegate { border-top-color: var(--delegate); }
+    .q.plan { border-top-color: var(--plan); }
+    .q.monitor { border-top-color: var(--monitor); }
+    .q h2 {
+      margin: 0 0 2px;
+      font-size: 0.88rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+    }
+    .who {
+      color: var(--muted);
+      font-size: 0.76rem;
+      margin: 0 0 10px;
+    }
+    .item {
+      background: #0d1218;
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: 9px 10px;
+      margin: 6px 0;
+      font-size: 0.86rem;
+    }
+    .item.done {
+      opacity: 0.45;
+    }
+    .item.done .title-line { text-decoration: line-through; }
+    .item label {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      cursor: pointer;
+    }
+    .item input[type="checkbox"] {
+      margin-top: 2px;
+      accent-color: var(--ok);
+      flex-shrink: 0;
+    }
+    .item .title-line { font-weight: 600; line-height: 1.3; }
+    .item .meta-line {
+      margin: 4px 0 0 24px;
+      color: var(--faint);
+      font-size: 0.75rem;
+      line-height: 1.35;
+    }
+    .add-row {
+      display: grid;
+      gap: 6px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-soft);
+    }
+    .add-row input, .add-row select {
+      width: 100%;
+      background: #0d1218;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 7px;
+      padding: 8px 10px;
+      font: inherit;
+      font-size: 0.84rem;
+    }
+    .add-row button { justify-self: start; }
+
+    /* ── Roadmap ── */
+    .roadmap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .roadmap-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .roadmap-head h2 { margin: 0; font-size: 1rem; }
+    .roadmap-head .obj { color: var(--muted); font-size: 0.84rem; max-width: 48ch; }
+    .roadmap-progress {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .roadmap-bar {
+      flex: 1;
+      height: 8px;
+      background: #0d1218;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+    }
+    .roadmap-bar > i {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, #238636, #3fb950);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+    .roadmap-pct {
+      font-size: 0.85rem;
+      font-weight: 650;
+      color: var(--ok);
+      min-width: 3.2rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .roadmap-cols {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .rm-col {
+      background: #0d1218;
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      padding: 10px;
+    }
+    .rm-col h3 {
+      margin: 0 0 8px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      align-items: baseline;
+    }
+    .rm-col h3 span { color: var(--text); font-weight: 650; font-size: 0.8rem; }
+    .rm-item {
+      font-size: 0.78rem;
+      padding: 5px 0;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      gap: 7px;
+      align-items: flex-start;
+      line-height: 1.35;
+      color: var(--text);
+    }
+    .rm-item:first-of-type { border-top: none; }
+    .rm-item .dot {
+      flex-shrink: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin-top: 5px;
+    }
+    .rm-item.done .dot { background: var(--ok); }
+    .rm-item.partial .dot { background: var(--warn); }
+    .rm-item.open .dot { background: var(--now); }
+    .rm-item.done { color: var(--faint); }
+    .rm-item.done span:last-child { text-decoration: line-through; }
+    .rm-links {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ── Guide ── */
+    .guide-stack { display: flex; flex-direction: column; gap: 12px; }
+    .guide-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .guide-card h2 {
+      margin: 0 0 8px;
+      font-size: 0.95rem;
+    }
+    .guide-card p, .guide-card li {
+      margin: 0 0 6px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .guide-card ol, .guide-card ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+    .principles-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .pill {
+      font-size: 0.72rem;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .pill.on { border-color: #2a5a3a; color: var(--ok); background: #0f1a14; }
+
+    details.help {
+      margin-top: 8px;
+      border-top: 1px solid var(--border-soft);
+      padding-top: 8px;
+    }
+    details.help summary {
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 550;
+    }
+    details.help[open] summary { margin-bottom: 8px; color: var(--text); }
+    details.help .body {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    footer.site {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-soft);
+      font-size: 0.78rem;
+      color: var(--faint);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+    }
+
+    /* ── Devices / sync board ── */
+    .sync-board { display: flex; flex-direction: column; gap: 14px; }
+    .sync-head {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+    .sync-head h2 { margin: 0 0 6px; font-size: 1.05rem; }
+    .sync-head .status-line { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    .sync-head .status-line strong { color: var(--text); }
+    .sync-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .sync-table th, .sync-table td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-soft);
+      vertical-align: top;
+    }
+    .sync-table th {
+      background: #0d131a;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .sync-table tr:last-child td { border-bottom: none; }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 650;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #0d1117;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .badge.ok, .badge.pass { color: #3fb950; border-color: #238636; }
+    .badge.pending, .badge.signal_only, .badge.mirror_ready_mac { color: #d29922; border-color: #9e6a03; }
+    .badge.no_dato { color: var(--faint); }
+
+    .badge.human, .tag.human {
+      color: #ff7b72;
+      border-color: #da3633;
+      background: rgba(218, 54, 51, 0.12);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .now-item.human-highlight, .item.human-highlight {
+      border-color: #da3633;
+      box-shadow: inset 3px 0 0 #da3633;
+      background: linear-gradient(90deg, rgba(218,54,51,0.08), transparent 40%);
+    }
+    .now-item.human-highlight .title,
+    .item.human-highlight .title-line {
+      font-weight: 700;
+    }
+    .human-banner {
+      margin: 0 0 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #da3633;
+      background: rgba(218, 54, 51, 0.1);
+      color: #ffb1ab;
+      font-size: 0.86rem;
+      line-height: 1.4;
+    }
+    .human-banner strong { color: #ff7b72; }
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .store-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+    }
+    .store-card h3 { margin: 0 0 6px; font-size: 0.92rem; }
+    .store-card p { margin: 0; color: var(--muted); font-size: 0.82rem; line-height: 1.4; }
+    .action-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .action-list li {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.86rem;
+    }
+    .action-list .owner { color: var(--muted); font-size: 0.78rem; }
+    .action-list code.one-liner { display: block; margin-top: 6px; white-space: pre-wrap; word-break: break-word; }
+
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .roadmap-cols { grid-template-columns: 1fr 1fr; }
+      .store-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .roadmap-cols { grid-template-columns: 1fr; }
+      .shell { padding: 14px 12px 36px; }
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    body.embed .brand .lede,
+    body.embed footer.site,
+    body.embed #view-guide { display: none !important; }
+    body.embed { padding: 0; }
+    body.embed .shell { padding: 10px; max-width: none; }
+
+    @media print {
+      body { background: #fff; color: #111; }
+      .tabs, .top-actions, .add-row, .more-menu { display: none !important; }
+      .view { display: block !important; }
+      .q, .focus-card, .roadmap, .guide-card { break-inside: avoid; background: #fff; border-color: #ccc; }
+      .item { background: #f6f8fa; }
+      .muted, .who, .meta-line, footer { color: #444; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="top">
+      <div class="brand">
+        <h1>Ops · Viento Norte</h1>
+        <p class="lede">Solo lo de ahora. El resto en pestañas.</p>
+      </div>
+      <div class="top-actions">
+        <a class="btn" href="./finanzas/" title="Dashboard financiero · meta 1.6M CLP">Finanzas $</a>
+        <button type="button" class="primary" id="btnSync" title="Escribe canvas al vault + mail">Sync</button>
+        <button type="button" id="btnStart" title="Empaqueta AHORA como sprint">Iniciar sprint</button>
+        <div class="btn-more">
+          <button type="button" class="ghost" id="btnMore" aria-expanded="false" aria-haspopup="true">Más ▾</button>
+          <div class="more-menu" id="moreMenu" role="menu">
+            <button type="button" id="btnExport" role="menuitem">Exportar JSON</button>
+            <label class="btn" role="menuitem">Importar JSON<input type="file" id="fileIn" accept="application/json,.json" hidden /></label>
+            <button type="button" id="btnReloadHosted" role="menuitem" title="Descarta draft local y recarga canvas-state.json">Recargar hosted (SoT)</button>
+            <button type="button" id="btnClearLocal" role="menuitem" title="Borra draft en localStorage">Limpiar draft local</button>
+            <button type="button" id="btnRelease" role="menuitem">Checklist release</button>
+            <button type="button" id="btnPrint" role="menuitem">Print / PDF</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="status" role="status" aria-live="polite"></div>
+    <div class="sprint-banner" id="sprintBanner"></div>
+
+    <nav class="tabs" role="tablist" aria-label="Vistas ops">
+      <button type="button" role="tab" id="tab-hoy" data-view="hoy" aria-selected="true" aria-controls="view-hoy">
+        Hoy<span class="count" id="count-now"></span>
+      </button>
+      <button type="button" role="tab" id="tab-canvas" data-view="canvas" aria-selected="false" aria-controls="view-canvas">
+        Canvas
+      </button>
+      <button type="button" role="tab" id="tab-roadmap" data-view="roadmap" aria-selected="false" aria-controls="view-roadmap">
+        Roadmap<span class="count" id="count-rm"></span>
+      </button>
+      <button type="button" role="tab" id="tab-devices" data-view="devices" aria-selected="false" aria-controls="view-devices">
+        Devices<span class="count" id="count-devices"></span>
+      </button>
+      <button type="button" role="tab" id="tab-guide" data-view="guide" aria-selected="false" aria-controls="view-guide">
+        Guía
+      </button>
+    </nav>
+
+    <!-- HOY: low cognitive load -->
+    <section class="view active" id="view-hoy" role="tabpanel" aria-labelledby="tab-hoy">
+      <div class="focus-card">
+        <p class="eyebrow">Hacer ahora</p>
+        <p class="obj" id="focusObjective">—</p>
+        <div class="focus-meta">
+          <span>Abiertos: <strong id="focusOpen">0</strong> / máx <strong id="focusMax">3</strong></span>
+          <span>Dueño: <strong id="focusOwner">Rö + Grok</strong></span>
+          <span>Actualizado: <strong id="focusUpdated">—</strong></span>
+        </div>
+        <div class="now-list" id="focusList" aria-label="Tareas abiertas en AHORA"></div>
+        <div class="quick-links">
+          <span>Ir a</span>
+          <a href="./AHORA-CLOSE-CHECKLIST.md"><strong>Cerrar AHORA</strong></a>
+          <a href="./HUMAN-ACTIONS.md"><strong>Acciones 1 clic</strong></a>
+          <a href="https://finanzas.vientonorte.io/" target="_blank" rel="noopener"><strong>Finanzas $</strong></a>
+          <a href="https://vientonorte.io/" target="_blank" rel="noopener">FO prod</a>
+          <a href="./SYNC-BOARD.md">Devices / sync</a>
+          <a href="./HUMAN-TASKS.md">Tareas humanas</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEVICES: tablero sync multi-device -->
+    <section class="view" id="view-devices" role="tabpanel" aria-labelledby="tab-devices" hidden>
+      <div class="sync-board" id="syncBoard" aria-label="Tablero sync multi-device"></div>
+    </section>
+
+    <!-- CANVAS: full Eisenhower -->
+    <section class="view" id="view-canvas" role="tabpanel" aria-labelledby="tab-canvas" hidden>
+      <div class="board-tools">
+        <p class="hint">Eisenhower · marcar done oculta en Hoy</p>
+        <label class="toggle-row">
+          <input type="checkbox" id="showDone" />
+          Mostrar hechos
+        </label>
+      </div>
+      <div class="grid" id="board"></div>
+    </section>
+
+    <!-- ROADMAP: secondary -->
+    <section class="view" id="view-roadmap" role="tabpanel" aria-labelledby="tab-roadmap" hidden>
+      <div class="roadmap" id="roadmap" aria-label="Dashboard roadmap automaciones"></div>
+    </section>
+
+    <!-- GUIDE: loops + principles + paths (collapsed knowledge) -->
+    <section class="view" id="view-guide" role="tabpanel" aria-labelledby="tab-guide" hidden>
+      <div class="guide-stack">
+        <article class="guide-card">
+          <h2>Cómo se usa</h2>
+          <ol>
+            <li><strong>Hoy</strong> = solo ítems abiertos de AHORA (máx. N).</li>
+            <li>Marca done cuando esté shipado o invalidado.</li>
+            <li><strong>Sync</strong> escribe vault + mail. <strong>Iniciar sprint</strong> empaqueta AHORA.</li>
+            <li>Canvas / Roadmap / Guía = profundidad cuando la necesitas.</li>
+          </ol>
+          <div class="principles-inline" id="principlesPills"></div>
+        </article>
+        <article class="guide-card">
+          <h2>① Loop sprint</h2>
+          <p>AHORA → <code>canvas-sprint start</code> → issues → build → QA personas + zero data loss → release → deploy → MONITOREAR.</p>
+          <details class="help">
+            <summary>Gates y PDF</summary>
+            <div class="body">
+              Gates: Build · TypeScript · a11y · Tests/QA en main.
+              · <a href="./VN-Automaciones-M5-Google-2026-07-26.pdf">PDF Automaciones M5/Google</a>
+            </div>
+          </details>
+        </article>
+        <article class="guide-card">
+          <h2>② Loop packages (core)</h2>
+          <p><code>vientonorte-core</code> → bump packages → Publish → <code>@vientonorte/*</code> → apps <code>npm ci</code> (token) → PR pins.</p>
+          <details class="help">
+            <summary>Links packages</summary>
+            <div class="body">
+              <a href="https://github.com/vientonorte?tab=packages" target="_blank" rel="noopener">Packages GitHub</a>
+              · <a href="https://github.com/vientonorte/vientonorte-core/blob/main/docs/PACKAGES-CORE.md" target="_blank" rel="noopener">PACKAGES-CORE.md</a>
+              · <a href="https://dot-wool-76997229.figma.site" target="_blank" rel="noopener">DS Figma Sites</a>
+            </div>
+          </details>
+        </article>
+        <article class="guide-card">
+          <h2>③ Loop multi-device</h2>
+          <p><strong>Tablero vivo:</strong> pestaña <strong>Devices</strong> (state <code>sync_board</code>). Notas: vault <strong>Ro</strong> (M5/I15) ↔ rsync espejo W11. Código: <code>Documents/GitHub/&lt;repo&gt;</code> → push → otro device pull.</p>
+          <details class="help">
+            <summary>Rutas + firmas</summary>
+            <div class="body">
+              Ro: contenedor Obsidian iCloud · Espejo W11: <code>Documents/Obsidian Vault</code>
+              · Strike: <code>Documents/MICRO 1</code>
+              · Código: <code>Documents/GitHub/</code> (no solo <code>~/code</code>)
+              · Same artifact firmas: <code>00-sistema/PIPELINE-QA.md</code>
+              · Markdown: <a href="./SYNC-BOARD.md">SYNC-BOARD.md</a>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <footer class="site">
+      <span>State: <code>canvas-state.json</code></span>
+      <a href="https://vientonorte.io/ops/">vientonorte.io/ops</a>
+      <a href="https://vientonorte.github.io/ops/">github.io/ops</a>
+      <span id="footerPolicy">SoT: hosted canvas-state · draft local hasta Sync</span>
+    </footer>
+  </div>
+
+  <script>
+    const DEFAULT_STATE = {
+      version: 1,
+      updated: new Date().toISOString().slice(0, 10),
+      objective: "FO: usabilidad + ship path oferta · no analytics",
+      principles: { people_centered_qa: true, zero_data_loss: true, atomic_design_only: true },
+      github: {
+        owner: "vientonorte",
+        vault_repo: "Vientonorte",
+        default_product_repo: "vientonorte.github.io",
+        product_repos: ["vientonorte.github.io","mi-portafolio","table-ro","uxtools","aruma","vientonorte-core"]
+      },
+      active_sprint: null,
+      quadrants: {
+        now: {
+          label: "Hacer ahora", owner: "Rö + Grok", max_items: 3,
+          items: []
+        },
+        delegate: {
+          label: "Delegar / automatizar", owner: "Grok · CI · scripts",
+          items: []
+        },
+        plan: {
+          label: "Planificar", owner: "Rö",
+          items: []
+        },
+        monitor: {
+          label: "Monitorear", owner: "Rö + Grok",
+          signals: []
+        }
+      },
+      gates: {
+        release_requires: ["people_qa_pass","zero_data_loss_pass","atomic_review_pass","ci_green"]
+      }
+    };
+
+    let state = structuredClone(DEFAULT_STATE);
+    let showDone = localStorage.getItem("ops_show_done") === "1";
+    let activeView = localStorage.getItem("ops_view") || "hoy";
+    /** true only after user edit — avoids clobbering hosted SoT on first paint */
+    let dirty = false;
+    let stateSource = "default"; // default | local | hosted | import
+
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => Array.from(document.querySelectorAll(s));
+
+    function setStatus(msg, cls) {
+      const el = $("#status");
+      el.textContent = msg || "";
+      el.className = cls || "";
+    }
+
+    function markDirty() {
+      dirty = true;
+      persistLocal();
+    }
+
+    function lastSyncMs(st) {
+      const at = st && st.last_sync && st.last_sync.at;
+      if (!at) return 0;
+      const t = Date.parse(at);
+      return Number.isFinite(t) ? t : 0;
+    }
+
+    function persistLocal() {
+      if (!dirty && stateSource === "hosted") return;
+      try {
+        localStorage.setItem(
+          "vientonorte-canvas-state",
+          JSON.stringify({
+            _meta: {
+              dirty,
+              source: stateSource,
+              saved_at: new Date().toISOString(),
+            },
+            state,
+          })
+        );
+      } catch (_) {}
+    }
+
+    function loadLocalDraft() {
+      try {
+        const raw = localStorage.getItem("vientonorte-canvas-state");
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        // legacy: raw state object without envelope
+        if (parsed && parsed.quadrants) {
+          return { state: parsed, dirty: true, source: "local-legacy" };
+        }
+        if (parsed && parsed.state && parsed.state.quadrants) {
+          return {
+            state: parsed.state,
+            dirty: !!(parsed._meta && parsed._meta.dirty),
+            source: "local",
+          };
+        }
+      } catch (_) {}
+      return null;
+    }
+
+    function clearLocalDraft() {
+      try {
+        localStorage.removeItem("vientonorte-canvas-state");
+      } catch (_) {}
+      dirty = false;
+    }
+
+    function download(filename, text) {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([text], { type: "application/json" }));
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    function isOpen(item) {
+      return item && item.status !== "done" && item.status !== "wontfix";
+    }
+
+    function openNowItems() {
+      return (state.quadrants?.now?.items || []).filter(isOpen);
+    }
+
+    function maxNow() {
+      return state.quadrants?.now?.max_items || 3;
+    }
+
+    function metaOneLine(item) {
+      const bits = [];
+      if (item.repo) bits.push(item.repo);
+      if (item.atomic_level) bits.push(item.atomic_level);
+      if (item.assignee) bits.push("→ " + item.assignee);
+      if (item.data_loss_risk && item.data_loss_risk !== "none") bits.push("risk:" + item.data_loss_risk);
+      return bits.join(" · ");
+    }
+
+    function renderItem(qKey, item) {
+      const done = !isOpen(item);
+      if (done && !showDone && qKey !== "monitor") return "";
+      const human = isHumanItem(item);
+      const people = item.people_job
+        ? `<div class="meta-line">${escapeHtml(item.people_job)}</div>`
+        : "";
+      const meta = metaOneLine(item);
+      const metaHtml = meta ? `<div class="meta-line">${escapeHtml(meta)}</div>` : "";
+      const humanBadge = human ? `<span class="badge human">HUMANO</span> ` : "";
+      return `<div class="item ${done ? "done" : ""}${human ? " human-highlight" : ""}" data-q="${qKey}" data-id="${item.id}"${human ? ' data-human="1"' : ""}>
+        <label>
+          <input type="checkbox" data-action="toggle" ${done ? "checked" : ""} />
+          <span class="title-line">${humanBadge}${escapeHtml(item.title)}</span>
+        </label>
+        ${people}${metaHtml}
+      </div>`;
+    }
+
+    function escapeHtml(s) {
+      return String(s ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function roadmapStats(rm) {
+      if (!rm || !rm.priorities) return { done: 0, total: 0, pct: 0 };
+      let done = 0, total = 0;
+      for (const p of Object.values(rm.priorities)) {
+        for (const it of p.items || []) {
+          total += 1;
+          if (it.status === "done") done += 1;
+          else if (it.status === "partial") done += 0.5;
+        }
+      }
+      const pct = total ? Math.round((done / total) * 100) : 0;
+      return { done, total, pct };
+    }
+
+    function renderRoadmap() {
+      const el = document.getElementById("roadmap");
+      if (!el) return;
+      const rm = state.roadmap;
+      if (!rm || !rm.priorities) {
+        el.innerHTML = `<div class="roadmap-head"><h2>Roadmap</h2>
+          <p class="obj">Sin bloque roadmap en canvas-state — reimporta snapshot.</p></div>`;
+        $("#count-rm").textContent = "";
+        return;
+      }
+      const st = roadmapStats(rm);
+      $("#count-rm").textContent = st.pct + "%";
+      const order = ["P0", "P1", "P2", "P3"];
+      const cols = order.map((key) => {
+        const col = rm.priorities[key] || { title: key, items: [] };
+        const openFirst = [...(col.items || [])].sort((a, b) => {
+          const rank = (s) => (s === "open" || !s ? 0 : s === "partial" ? 1 : 2);
+          return rank(a.status) - rank(b.status);
+        });
+        const items = openFirst.map((it) => {
+          const cls = it.status === "done" ? "done" : it.status === "partial" ? "partial" : "open";
+          return `<div class="rm-item ${cls}"><span class="dot" aria-hidden="true"></span><span>${escapeHtml(it.title)}</span></div>`;
+        }).join("");
+        const nDone = (col.items || []).filter((i) => i.status === "done").length;
+        const nTot = (col.items || []).length;
+        return `<div class="rm-col">
+          <h3>${escapeHtml(key)} · ${escapeHtml(col.title || "")} <span>${nDone}/${nTot}</span></h3>
+          ${items || '<div class="rm-item open"><span class="dot"></span><span>—</span></div>'}
+        </div>`;
+      }).join("");
+      const links = (rm.links || [])
+        .map((l) => `<a href="${escapeHtml(l.href)}" ${String(l.href).startsWith("http") ? 'target="_blank" rel="noopener"' : ""}>${escapeHtml(l.label)}</a>`)
+        .join("");
+      el.innerHTML = `
+        <div class="roadmap-head">
+          <h2>${escapeHtml(rm.title || "Roadmap automaciones")}</h2>
+          <p class="obj">${escapeHtml(typeof rm.objective === "string" ? rm.objective : formatObjective(rm.objective || state.objective))}</p>
+        </div>
+        <div class="roadmap-progress" aria-label="Progreso roadmap ${st.pct} por ciento">
+          <div class="roadmap-bar"><i style="width:${st.pct}%"></i></div>
+          <span class="roadmap-pct">${st.pct}%</span>
+        </div>
+        <div class="roadmap-cols">${cols}</div>
+        <div class="rm-links">
+          <span>Actualizado: <code>${escapeHtml(rm.updated || state.updated || "—")}</code></span>
+          ${links}
+          <a href="./VN-Automaciones-M5-Google-2026-07-26.pdf">PDF roadmap</a>
+          <a href="./packages-status.md">Packages status</a>
+        </div>`;
+    }
+
+
+    function isHumanItem(item) {
+      if (!item) return false;
+      if (item.human === true || item.highlight === "human" || item.kind === "qa_manual") return true;
+      const t = String(item.title || "");
+      return /^\s*HUMANO\b/i.test(t);
+    }
+
+    /** objective may be string (v1) or object { today, tokens, mtd_usd, … } (v2) */
+    function formatObjective(obj) {
+      if (obj == null || obj === "") return "Sin objetivo en canvas-state";
+      if (typeof obj === "string") return obj;
+      if (typeof obj === "object") {
+        const parts = [];
+        if (obj.today) parts.push(String(obj.today));
+        else if (obj.summary) parts.push(String(obj.summary));
+        if (obj.tokens) parts.push("tokens " + obj.tokens);
+        if (obj.mtd_usd != null) parts.push("MTD $" + obj.mtd_usd);
+        if (obj.mtd_tasks != null) parts.push(obj.mtd_tasks + " tasks");
+        if (!parts.length && obj.gap_note) parts.push(String(obj.gap_note));
+        return parts.join(" · ") || "Sin objetivo en canvas-state";
+      }
+      return String(obj);
+    }
+
+    function renderFocus() {
+      const open = openNowItems();
+      const qNow = state.quadrants?.now || {};
+      $("#focusObjective").textContent = formatObjective(state.objective);
+      $("#focusOpen").textContent = String(open.length);
+      $("#focusMax").textContent = String(maxNow());
+      $("#focusOwner").textContent = qNow.owner || "Rö + Grok";
+      $("#focusUpdated").textContent = state.updated || "—";
+      $("#count-now").textContent = String(open.length);
+
+      const list = $("#focusList");
+      if (!open.length) {
+        list.innerHTML = `<div class="now-item empty">Nada abierto en AHORA. Añade en Canvas o importa canvas-state.</div>`;
+        return;
+      }
+      const humanOpen = open.filter(isHumanItem);
+      const banner = humanOpen.length
+        ? `<div class="human-banner" role="status"><strong>HUMANO destacado:</strong> ${humanOpen.length} tarea(s) solo Rö en browser/device real. El agente no cierra QA manual. <a href="./AHORA-CLOSE-CHECKLIST.md">Cerrar AHORA →</a> · <a href="./HUMAN-ACTIONS.md">Acciones</a></div>`
+        : "";
+      list.innerHTML = banner + open.map((item) => {
+        const tags = [];
+        const human = isHumanItem(item);
+        if (human) tags.push(`<span class="tag human">HUMANO</span>`);
+        if (item.kind === "qa_manual") tags.push(`<span class="tag human">QA manual</span>`);
+        if (item.repo) tags.push(`<span class="tag repo">${escapeHtml(item.repo)}</span>`);
+        if (item.status === "in_progress") tags.push(`<span class="tag">en curso</span>`);
+        if (item.links && item.links[0]) {
+          tags.push(`<a class="tag" href="${escapeHtml(item.links[0])}" target="_blank" rel="noopener">link</a>`);
+        }
+        return `<div class="now-item${human ? " human-highlight" : ""}" data-q="now" data-id="${escapeHtml(item.id)}"${human ? ' data-human="1"' : ""}>
+          <label>
+            <input type="checkbox" data-action="toggle" />
+            <span>
+              <span class="title">${escapeHtml(item.title)}</span>
+              ${item.people_job ? `<div class="why">${escapeHtml(item.people_job)}</div>` : ""}
+            </span>
+          </label>
+          ${tags.length ? `<div class="tags">${tags.join("")}</div>` : ""}
+        </div>`;
+      }).join("");
+    }
+
+    function renderPrinciples() {
+      const el = $("#principlesPills");
+      if (!el) return;
+      const map = [
+        ["people_centered_qa", "People QA"],
+        ["zero_data_loss", "Zero data loss"],
+        ["atomic_design_only", "Atomic only"],
+      ];
+      const p = state.principles || {};
+      el.innerHTML = map
+        .map(([k, label]) => `<span class="pill ${p[k] ? "on" : ""}">${label}</span>`)
+        .join("") +
+        `<span class="pill on">GitHub ↔ Obsidian</span>
+         <span class="pill on">iCloud multi-device</span>`;
+    }
+
+    function badgeClass(v) {
+      const s = String(v || "no_dato");
+      if (s === "ok" || s === "pass") return "ok";
+      if (s === "pending" || s === "signal_only" || s === "mirror_ready_mac" || s === "pending_documented") return "pending";
+      return "no_dato";
+    }
+
+    function renderSyncBoard() {
+      const el = $("#syncBoard");
+      if (!el) return;
+      const b = state.sync_board;
+      const countEl = $("#count-devices");
+      if (!b) {
+        el.innerHTML = `<div class="sync-head"><h2>Tablero sync multi-device</h2>
+          <p class="status-line">Sin <code>sync_board</code> en canvas-state. Ver <a href="./SYNC-BOARD.md">SYNC-BOARD.md</a>.</p></div>`;
+        if (countEl) countEl.textContent = "";
+        return;
+      }
+      const pending = (b.devices || []).filter((d) => d.firma !== "pass").length;
+      if (countEl) countEl.textContent = String(pending);
+
+      const stores = (b.stores || []).map((s) => `
+        <div class="store-card">
+          <h3>${escapeHtml(s.label || s.id)} <span class="badge ${badgeClass(s.status)}">${escapeHtml(s.status || "—")}</span></h3>
+          <p><code>${escapeHtml(s.path || "")}</code></p>
+          <p>${escapeHtml((s.devices || []).join(" · "))} · ${escapeHtml(s.note || "")}</p>
+        </div>`).join("");
+
+      const rows = (b.devices || []).map((d) => `
+        <tr>
+          <th scope="row"><strong>${escapeHtml(d.nick)}</strong><div class="meta-line">${escapeHtml(d.role || "")}</div></th>
+          <td><code>${escapeHtml(d.opens || "")}</code></td>
+          <td><span class="badge ${badgeClass(d.content_sync)}">${escapeHtml(d.content_sync || "—")}</span></td>
+          <td><span class="badge ${badgeClass(d.firma)}">${escapeHtml(d.firma || "—")}</span></td>
+          <td class="meta-line">${escapeHtml(d.measured || "")}</td>
+        </tr>`).join("");
+
+      const actions = (b.actions || []).map((a) => `
+        <li>
+          <div class="owner">${escapeHtml(a.owner || "")}</div>
+          <strong>${escapeHtml(a.title || "")}</strong>
+          ${a.one_liner ? `<code class="one-liner">${escapeHtml(a.one_liner)}</code>` : ""}
+          ${a.cmd ? `<code class="one-liner">${escapeHtml(a.cmd)}</code>` : ""}
+        </li>`).join("");
+
+      const art = b.artifact || {};
+      el.innerHTML = `
+        <div class="sync-head">
+          <h2>${escapeHtml(b.title || "Tablero sync multi-device")}</h2>
+          <p class="status-line">Global: <strong><span class="badge ${badgeClass(b.global_status)}">${escapeHtml(b.global_status || "—")}</span></strong>
+            · actualizado <code>${escapeHtml(b.updated_local || b.updated || "—")}</code>
+            · ${escapeHtml(b.source || "")}</p>
+          <p class="status-line" style="margin-top:8px">${escapeHtml(b.global_note || "")}</p>
+          <p class="status-line" style="margin-top:8px">
+            Artifact: <code>${escapeHtml(art.id || "pipeline-qa")}</code>
+            · <a href="./SYNC-BOARD.md">SYNC-BOARD.md</a>
+            · firmas en vault <code>${escapeHtml(art.path_ro || "00-sistema/PIPELINE-QA.md")}</code>
+          </p>
+        </div>
+        <div class="store-grid">${stores}</div>
+        <table class="sync-table">
+          <caption class="visually-hidden">Estado sync por device</caption>
+          <thead>
+            <tr>
+              <th scope="col">Device</th>
+              <th scope="col">Abre</th>
+              <th scope="col">Content</th>
+              <th scope="col">Firma</th>
+              <th scope="col">Medido</th>
+            </tr>
+          </thead>
+          <tbody>${rows || "<tr><td colspan=5>Sin devices</td></tr>"}</tbody>
+        </table>
+        <div>
+          <p class="eyebrow" style="margin:0 0 8px;color:var(--muted);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.04em">Acciones</p>
+          <ul class="action-list">${actions || "<li>Sin acciones</li>"}</ul>
+        </div>`;
+    }
+
+    function renderBoard() {
+      const board = $("#board");
+      const q = state.quadrants || {};
+      const nowItems = (q.now?.items || []).map((it) => renderItem("now", it)).join("");
+      const delItems = (q.delegate?.items || []).map((it) => renderItem("delegate", it)).join("");
+      const planItems = (q.plan?.items || []).map((it) => renderItem("plan", it)).join("");
+      const monItems = (q.monitor?.signals || []).map((s) =>
+        `<div class="item"><span class="title-line">${escapeHtml(s.title)}</span>
+          <div class="meta-line">${escapeHtml((s.source || "") + " · " + (s.cadence || ""))}</div></div>`
+      ).join("");
+
+      const repos = (state.github?.product_repos || []).map((r) =>
+        `<option value="${escapeHtml(r)}">${escapeHtml(r)}</option>`
+      ).join("");
+
+      board.innerHTML = `
+        <section class="q now">
+          <h2>AHORA</h2>
+          <p class="who">${escapeHtml(q.now?.owner || "Rö + Grok")} · máx ${maxNow()} abiertos</p>
+          ${nowItems || '<div class="item"><span class="title-line" style="font-weight:400;color:var(--muted)">Vacío</span></div>'}
+          <div class="add-row">
+            <input id="addNowTitle" placeholder="Nueva tarea AHORA…" autocomplete="off" />
+            <select id="addNowRepo">${repos}</select>
+            <select id="addNowAtomic">
+              <option value="atom">atom</option><option value="molecule">molecule</option>
+              <option value="organism" selected>organism</option>
+              <option value="template">template</option><option value="page">page</option>
+            </select>
+            <button type="button" data-add="now">+ Añadir</button>
+          </div>
+        </section>
+        <section class="q delegate">
+          <h2>DELEGAR</h2>
+          <p class="who">${escapeHtml(q.delegate?.owner || "Grok · CI")}</p>
+          ${delItems || '<div class="item"><span class="title-line" style="font-weight:400;color:var(--muted)">Vacío</span></div>'}
+        </section>
+        <section class="q plan">
+          <h2>PLAN</h2>
+          <p class="who">${escapeHtml(q.plan?.owner || "Rö")}</p>
+          ${planItems || '<div class="item"><span class="title-line" style="font-weight:400;color:var(--muted)">Vacío</span></div>'}
+          <div class="add-row">
+            <input id="addPlanTitle" placeholder="Nueva tarea PLAN…" autocomplete="off" />
+            <button type="button" data-add="plan">+ Añadir</button>
+          </div>
+        </section>
+        <section class="q monitor">
+          <h2>MONITOREAR</h2>
+          <p class="who">${escapeHtml(q.monitor?.owner || "Rö + Grok")}</p>
+          ${monItems || '<div class="item"><span class="title-line" style="font-weight:400;color:var(--muted)">Vacío</span></div>'}
+        </section>`;
+    }
+
+    function renderSprintBanner() {
+      const b = $("#sprintBanner");
+      if (state.active_sprint) {
+        b.classList.add("show");
+        b.innerHTML = `<strong>Sprint activo:</strong> ${escapeHtml(state.active_sprint.id)}
+          · foco <code>${escapeHtml(state.active_sprint.focus_repo || "—")}</code>
+          · issues ${(state.active_sprint.issue_urls || []).length}
+          · <span style="color:var(--muted)">tras exportar: <code>canvas-sprint start</code></span>`;
+      } else {
+        b.classList.remove("show");
+        b.innerHTML = "";
+      }
+    }
+
+    function setView(name) {
+      activeView = name;
+      localStorage.setItem("ops_view", name);
+      $$(".tabs [role=tab]").forEach((btn) => {
+        const on = btn.dataset.view === name;
+        btn.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      $$(".view").forEach((v) => {
+        const on = v.id === "view-" + name;
+        v.classList.toggle("active", on);
+        if (on) v.removeAttribute("hidden");
+        else v.setAttribute("hidden", "");
+      });
+    }
+
+    function render() {
+      renderFocus();
+      renderBoard();
+      renderRoadmap();
+      renderSyncBoard();
+      renderPrinciples();
+      renderSprintBanner();
+      const pol = $("#footerPolicy");
+      if (pol) {
+        const dirtyMark = dirty ? " · draft local dirty" : "";
+        pol.textContent =
+          "SoT: " +
+          (stateSource === "hosted" ? "hosted" : stateSource) +
+          dirtyMark +
+          " · schema " +
+          (state.schema_version || "—");
+      }
+      // no auto-persist on every paint — only markDirty / sync
+    }
+
+    /* Tabs */
+    $$(".tabs [role=tab]").forEach((btn) => {
+      btn.addEventListener("click", () => setView(btn.dataset.view));
+    });
+
+    /* Show done */
+    const showDoneEl = $("#showDone");
+    if (showDoneEl) {
+      showDoneEl.checked = showDone;
+      showDoneEl.addEventListener("change", () => {
+        showDone = showDoneEl.checked;
+        localStorage.setItem("ops_show_done", showDone ? "1" : "0");
+        renderBoard();
+      });
+    }
+
+    /* More menu */
+    const moreBtn = $("#btnMore");
+    const moreMenu = $("#moreMenu");
+    moreBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = !moreMenu.classList.contains("open");
+      moreMenu.classList.toggle("open", open);
+      moreBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.addEventListener("click", () => {
+      moreMenu.classList.remove("open");
+      moreBtn.setAttribute("aria-expanded", "false");
+    });
+    moreMenu.addEventListener("click", (e) => e.stopPropagation());
+
+    document.addEventListener("click", (e) => {
+      const t = e.target;
+      if (t.dataset && t.dataset.action === "toggle") {
+        const itemEl = t.closest("[data-q][data-id]");
+        if (!itemEl) return;
+        const qKey = itemEl.dataset.q;
+        const id = itemEl.dataset.id;
+        const list = state.quadrants[qKey]?.items;
+        if (!list) return;
+        const it = list.find((x) => x.id === id);
+        if (it) {
+          it.status = t.checked ? "done" : (it.status === "done" ? "todo" : it.status || "todo");
+          if (!t.checked && it.status === "done") it.status = "todo";
+          if (t.checked) it.status = "done";
+          state.updated = new Date().toISOString().slice(0, 10);
+          markDirty();
+          render();
+          setStatus("Draft local. Sync o «Recargar hosted» para descartar.", "ok");
+        }
+      }
+      if (t.dataset && t.dataset.add === "now") {
+        const title = $("#addNowTitle")?.value.trim();
+        if (!title) return;
+        const items = state.quadrants.now.items || (state.quadrants.now.items = []);
+        if (items.filter(isOpen).length >= maxNow()) {
+          setStatus("AHORA admite máx. " + maxNow() + " abiertos — cierra o mueve a PLAN", "err");
+          return;
+        }
+        items.push({
+          id: "now-" + Date.now(),
+          title,
+          repo: $("#addNowRepo")?.value,
+          atomic_level: $("#addNowAtomic")?.value,
+          people_job: "",
+          data_loss_risk: "review",
+          status: "todo"
+        });
+        state.updated = new Date().toISOString().slice(0, 10);
+        markDirty();
+        render();
+        setStatus("Añadido a AHORA (draft local)", "ok");
+      }
+      if (t.dataset && t.dataset.add === "plan") {
+        const title = $("#addPlanTitle")?.value.trim();
+        if (!title) return;
+        if (!state.quadrants.plan.items) state.quadrants.plan.items = [];
+        state.quadrants.plan.items.push({
+          id: "plan-" + Date.now(),
+          title,
+          repo: state.github?.default_product_repo,
+          atomic_level: "organism",
+          status: "backlog"
+        });
+        state.updated = new Date().toISOString().slice(0, 10);
+        markDirty();
+        render();
+        setStatus("Añadido a PLAN (draft local)", "ok");
+      }
+    });
+
+    $("#btnExport").onclick = () => {
+      state.updated = new Date().toISOString().slice(0, 10);
+      download("canvas-state.json", JSON.stringify(state, null, 2));
+      setStatus("Descargado canvas-state.json", "ok");
+      moreMenu.classList.remove("open");
+    };
+
+    $("#fileIn").onchange = async (e) => {
+      const f = e.target.files && e.target.files[0];
+      if (!f) return;
+      try {
+        state = JSON.parse(await f.text());
+        stateSource = "import";
+        dirty = true;
+        persistLocal();
+        render();
+        setStatus("JSON importado (draft). Sync para publicar.", "ok");
+      } catch (err) {
+        setStatus("JSON inválido: " + err.message, "err");
+      }
+      moreMenu.classList.remove("open");
+    };
+
+    $("#btnStart").onclick = () => {
+      const openNow = openNowItems();
+      if (!openNow.length) {
+        setStatus("No hay ítems abiertos en AHORA", "err");
+        return;
+      }
+      const id = "sprint-" + new Date().toISOString().slice(0, 10);
+      const focus = openNow[0].repo || state.github?.default_product_repo;
+      state.active_sprint = {
+        id,
+        started: new Date().toISOString(),
+        focus_repo: focus,
+        item_ids: openNow.map((i) => i.id),
+        principles: state.principles,
+        issue_urls: []
+      };
+      state.updated = new Date().toISOString().slice(0, 10);
+
+      const pack = {
+        sprint_id: id,
+        objective: state.objective,
+        principles: state.principles,
+        focus_repo: focus,
+        now: openNow,
+        delegate: state.quadrants.delegate?.items || [],
+        plan: state.quadrants.plan?.items || [],
+        monitor: state.quadrants.monitor?.signals || [],
+        gates: state.gates,
+        github: state.github,
+        instructions: [
+          "1. Guarda canvas-state.json en vault 40-ops/",
+          "2. Corre: canvas-sprint start",
+          "3. QA personas + zero data loss antes de release",
+          "4. canvas-sprint release cuando gates PASS"
+        ]
+      };
+
+      download("sprint-pack-" + id + ".json", JSON.stringify(pack, null, 2));
+      download("canvas-state.json", JSON.stringify(state, null, 2));
+      markDirty();
+      render();
+      setStatus("Sprint " + id + " empaquetado (draft). Sync o sube JSON al vault.", "ok");
+    };
+
+    $("#btnRelease").onclick = () => {
+      const lines = [
+        "# Checklist release (gates)",
+        "",
+        "- [ ] People-centered QA PASS",
+        "- [ ] Zero data loss PASS",
+        "- [ ] Atomic design review PASS",
+        "- [ ] CI green en repos del sprint",
+        "- [ ] AHORA: done o wontfix documentado",
+        "",
+        "Luego: `canvas-sprint release` + deploy"
+      ].join("\n");
+      download("release-checklist.md", lines);
+      setStatus("Checklist release descargado", "ok");
+      moreMenu.classList.remove("open");
+    };
+
+    // Canónico ops-sync.vientonorte.io · override: localStorage ops_sync_url
+    // Fallback workers.dev if custom host fails (set ops_sync_url manually).
+    const OPS_SYNC_URL =
+      localStorage.getItem("ops_sync_url") ||
+      "https://ops-sync.vientonorte.io";
+
+    function getOpsToken() {
+      let t = localStorage.getItem("ops_sync_token") || "";
+      if (!t) {
+        t = prompt("OPS_SYNC_TOKEN (Worker). Solo en este dispositivo.") || "";
+        if (t) localStorage.setItem("ops_sync_token", t);
+      }
+      return t;
+    }
+
+    async function syncToGitHub() {
+      const token = getOpsToken();
+      if (!token) {
+        setStatus("Sync cancelado: falta OPS_SYNC_TOKEN", "err");
+        return;
+      }
+      setStatus("Sincronizando…", "");
+      state.updated = new Date().toISOString().slice(0, 10);
+      const openNow = openNowItems();
+      const summary = `AHORA (${openNow.length}): ` + openNow.map((i) => i.title).join(" · ");
+      try {
+        const res = await fetch(OPS_SYNC_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Ops-Token": token,
+          },
+          body: JSON.stringify({ state, summary }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          setStatus("Sync falló: " + (data.error || res.status) + (data.hint ? " — " + data.hint : ""), "err");
+          return;
+        }
+        dirty = false;
+        stateSource = "hosted";
+        clearLocalDraft();
+        let msg = "Sync OK · " + (data.commit || "").slice(0, 7);
+        if (data.issue_url) msg += " · issue";
+        setStatus(msg, "ok");
+        if (data.issue_url) {
+          const a = document.createElement("a");
+          a.href = data.issue_url;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.textContent = " Ver issue";
+          a.style.color = "#79c0ff";
+          $("#status").appendChild(a);
+        }
+      } catch (e) {
+        setStatus("Sync error de red: " + e.message, "err");
+      }
+    }
+
+    $("#btnSync").onclick = () => syncToGitHub();
+    $("#btnPrint").onclick = () => {
+      moreMenu.classList.remove("open");
+      window.print();
+    };
+
+    /**
+     * Hosted canvas-state.json is source of truth.
+     * localStorage holds dirty drafts only; never wins over newer hosted.
+     */
+    async function fetchHostedState() {
+      if (location.protocol === "file:") return null;
+      const bust = "v=" + Date.now();
+      const res = await fetch("./canvas-state.json?" + bust, {
+        cache: "no-store",
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    }
+
+    async function applyHostedState(opts) {
+      const force = !!(opts && opts.force);
+      setStatus("Cargando hosted…", "");
+      try {
+        const hosted = await fetchHostedState();
+        if (!hosted || !hosted.quadrants) {
+          setStatus("Hosted state inválido", "err");
+          return false;
+        }
+        const draft = loadLocalDraft();
+
+        // Preserve dirty local edits unless force reload
+        if (!force && draft && draft.dirty) {
+          state = draft.state;
+          stateSource = "local";
+          dirty = true;
+          render();
+          const hostedNewer = lastSyncMs(hosted) > lastSyncMs(draft.state);
+          const dPct = roadmapStats(draft.state.roadmap || {}).pct;
+          const hPct = roadmapStats(hosted.roadmap || {}).pct;
+          const pctMismatch = dPct !== hPct;
+          // Multi-device: 70% en un device vs 66% hosted = draft local, no otro SoT
+          let msg = hostedNewer
+            ? "Draft local activo · hosted más nuevo → «Recargar hosted» (SoT) o Sync"
+            : "Draft local activo · Sync para publicar · «Recargar hosted» descarta";
+          if (pctMismatch) {
+            msg =
+              "DESYNC multi-device · Roadmap draft " +
+              dPct +
+              "% vs hosted " +
+              hPct +
+              "% → en M5/I15/W11: Más → Limpiar draft + Recargar hosted";
+          }
+          setStatus(msg, hostedNewer || pctMismatch ? "err" : "ok");
+          return true;
+        }
+
+        // Clean load: hosted is SoT
+        if (draft && !draft.dirty) clearLocalDraft();
+        state = hosted;
+        stateSource = "hosted";
+        dirty = false;
+        render();
+        const hPct = roadmapStats((state.roadmap || {})).pct;
+        setStatus(
+          "State hosted (SoT)" +
+            (state.sync_board ? " · Devices" : "") +
+            " · Roadmap " +
+            hPct +
+            "%" +
+            " · updated " +
+            (state.updated || "—") +
+            ". Mismo % en M5/I15/W11 solo con hosted (sin draft).",
+          "ok"
+        );
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    async function bootState() {
+      const ok = await applyHostedState({ force: false });
+      if (ok) return;
+      const draft = loadLocalDraft();
+      if (draft && draft.state) {
+        state = draft.state;
+        stateSource = draft.source || "local";
+        dirty = !!draft.dirty;
+        render();
+        setStatus("Offline/fallback: draft local. Sin hosted.", "err");
+        return;
+      }
+      stateSource = "default";
+      render();
+      setStatus("Sin hosted ni draft — DEFAULT_STATE vacío.", "err");
+    }
+
+    const btnReload = $("#btnReloadHosted");
+    if (btnReload) {
+      btnReload.onclick = async () => {
+        moreMenu.classList.remove("open");
+        clearLocalDraft();
+        dirty = false;
+        const ok = await applyHostedState({ force: true });
+        if (!ok) setStatus("No se pudo recargar hosted", "err");
+      };
+    }
+    const btnClear = $("#btnClearLocal");
+    if (btnClear) {
+      btnClear.onclick = () => {
+        moreMenu.classList.remove("open");
+        clearLocalDraft();
+        dirty = false;
+        setStatus("Draft local borrado. Recarga hosted o F5.", "ok");
+      };
+    }
+
+    if (new URLSearchParams(location.search).get("embed") === "1") {
+      document.body.classList.add("embed");
+    }
+    setView(activeView);
+    render(); // skeleton
+    bootState();
+  </script>
+</body>
+</html>

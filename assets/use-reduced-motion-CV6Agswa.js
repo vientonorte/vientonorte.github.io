@@ -1,0 +1,1 @@
+import{a as e}from"./rolldown-runtime-B0Z9INg1.js";import{a as t,i as n,k as r,o as i}from"./vendor-motion-BTWl2dYi.js";var a=e(r(),1);function o(){!t.current&&n();let[e]=(0,a.useState)(i.current);return e}export{o as t};

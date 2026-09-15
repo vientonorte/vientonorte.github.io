@@ -1,0 +1,65 @@
+# Pre-commit hooks para vientonorte.github.io
+#
+# Instalación:
+#   pip install pre-commit
+#   pre-commit install
+#
+# Ejecución manual:
+#   pre-commit run --all-files
+
+repos:
+  # Python: formateo y linting
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  # Python: type checking
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0
+    hooks:
+      - id: mypy
+        args: [--ignore-missing-imports]
+        files: ^pipeline/
+
+  # Validación JSON
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-json
+      - id: pretty-format-json
+        args: [--autofix, --indent=2, --no-sort-keys]
+        files: ^data/.*\.json$
+
+  # JavaScript/HTML linting
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v8.57.0
+    hooks:
+      - id: eslint
+        files: \.(html|js)$
+        types: [file]
+        additional_dependencies:
+          - eslint@8.57.0
+          - eslint-plugin-html@8.1.1
+
+  # Trailing whitespace y final newline
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: \.(min\.js|min\.css)$
+      - id: end-of-file-fixer
+        exclude: \.(min\.js|min\.css)$
+      - id: check-yaml
+      - id: check-added-large-files
+        args: [--maxkb=500]
+
+  # Validar que no se commiteen secrets
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: [--baseline, .secrets.baseline]
+        exclude: package-lock\.json
