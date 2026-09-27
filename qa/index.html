@@ -3,16 +3,26 @@
   <head>
     <meta name="robots" content="noindex, nofollow" />
     <script>
-      // Legacy /mi-portafolio/* → root (preserves hash). Soft-404 SPA shell also hits this.
+      // Legacy paths. Soft-404 SPA shell also hits this (Pages 404.html = index).
       (function () {
         var p = location.pathname || "/";
+        var q = location.search || "";
         if (p === "/mi-portafolio" || p.indexOf("/mi-portafolio/") === 0) {
-          var h = location.hash || "#/";
-          if (h.charAt(0) !== "#") h = "#" + h;
+          var h = location.hash || "";
           if (h.indexOf("#/mi-portafolio") === 0) {
             h = "#" + (h.slice("#/mi-portafolio".length) || "/");
           }
-          location.replace("https://vientonorte.io/" + h + location.search);
+          // Empty/#/ → apex HTTP. Hash hops look like GSC "Error de redirección".
+          if (!h || h === "#" || h === "#/") {
+            location.replace("https://vientonorte.io/" + q);
+          } else {
+            location.replace("https://vientonorte.io/" + h + q);
+          }
+          return;
+        }
+        // Deprecated: /poc#/auditoria is NOT freemium. Paid = /s/consultoria.
+        if (p === "/poc" || p.indexOf("/poc/") === 0) {
+          location.replace(location.origin + "/s/consultoria/" + q);
         }
       })();
     </script>
@@ -23,10 +33,10 @@
     <!-- GSC ownership: HTML file method → /google5858e011b32ea566.html (public/) · no inventar meta token -->
 
     <!-- Static SEO (no JS required) — LinkedIn / WhatsApp / crawlers -->
-    <title>Viento Norte · UXtech · Módulos a medida</title>
+    <title>Tecnología para empresas · Viento Norte</title>
     <meta
       name="description"
-      content="Tecnología para empresas: diagnóstico, prototipo, proceso de equipo o app. UXtech y front office. Software que se instala, dueño del dato. Consultoría y craft enterprise."
+      content="Tecnología para empresas: operaciones digitales y el flujo que usa tu cliente, en su CMS o CRM. Diagnóstico 5–7 días. Gratis: accesibilidad de un flujo. Kickoff 30 min."
     />
     <meta
       name="keywords"
@@ -43,14 +53,14 @@
     <meta property="og:site_name" content="Viento Norte" />
     <meta property="og:locale" content="es_CL" />
     <meta property="og:url" content="https://vientonorte.io/" />
-    <meta property="og:title" content="Viento Norte · UXtech · Módulos a medida" />
+    <meta property="og:title" content="Tecnología para empresas · Viento Norte" />
     <meta
       property="og:description"
-      content="Tecnología para empresas: diagnóstico, prototipo, proceso o app. Software que se instala, dueño del dato."
+      content="Tecnología para empresas: operaciones digitales y el flujo que usa tu cliente, en su CMS o CRM. Diagnóstico 5–7 días. Gratis: accesibilidad de un flujo."
     />
     <meta
       property="og:image"
-      content="https://vientonorte.io/images/branding/og-portfolio.png"
+      content="https://vientonorte.io/images/branding/og-home-1200.png"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -59,14 +69,14 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://vientonorte.io/" />
-    <meta name="twitter:title" content="Viento Norte · UXtech · Módulos a medida" />
+    <meta name="twitter:title" content="Tecnología para empresas · Viento Norte" />
     <meta
       name="twitter:description"
-      content="Tecnología para empresas. Módulos a medida, dueño del dato. Front office y craft enterprise."
+      content="Tecnología para empresas. El flujo que usa tu cliente, en su CMS o CRM. Diagnóstico 5–7 días."
     />
     <meta
       name="twitter:image"
-      content="https://vientonorte.io/images/branding/og-portfolio.png"
+      content="https://vientonorte.io/images/branding/og-home-1200.png"
     />
 
     <!-- JSON-LD (Google rich results / Knowledge — static, pre-JS) · Audit QA SEO 2026-07 -->
@@ -94,7 +104,7 @@
             "@id": "https://vientonorte.io/#website",
             "url": "https://vientonorte.io/",
             "name": "Viento Norte",
-            "description": "Tecnología para empresas: diagnóstico, prototipo, proceso de equipo o app funcional.",
+            "description": "Tecnología para empresas: operaciones digitales y el flujo que usa tu cliente, en su CMS o CRM. Diagnóstico 5–7 días. Gratis: accesibilidad de un flujo.",
             "publisher": { "@id": "https://vientonorte.io/#organization" },
             "inLanguage": "es-CL"
           },
@@ -103,7 +113,7 @@
             "@id": "https://vientonorte.io/#consultoria",
             "name": "Consultoría UX · Viento Norte",
             "url": "https://vientonorte.io/#/consultoria",
-            "image": "https://vientonorte.io/images/branding/og-portfolio.png",
+            "image": "https://vientonorte.io/images/branding/og-home-1200.png",
             "provider": { "@id": "https://vientonorte.io/#organization" },
             "areaServed": { "@type": "Country", "name": "Chile" },
             "serviceType": [
@@ -126,8 +136,20 @@
     <link rel="manifest" href="/qa/manifest.json" />
     <link rel="apple-touch-icon" href="/qa/icon-192x192.png" />
 
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin="anonymous" />
-    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin="anonymous" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/qa/fonts/chillax/chillax-400.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/qa/fonts/chillax/chillax-700.woff2"
+      crossorigin
+    />
 
     <!-- CSR fallback: feedback while JS hydrates (Gemini QA + brand VN) -->
     <style>
@@ -179,24 +201,94 @@
           border-top-color: #1a8fdc;
         }
       }
+      /* Static LCP: texto del documento (no React). Se oculta cuando pinta #inicio. */
+      #lcp-shell {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 1.5rem;
+        background: #050a14;
+        color: #f7f2e7;
+        text-align: center;
+        pointer-events: none;
+      }
+      #lcp-shell[hidden] {
+        display: none !important;
+      }
+      /* Inner HashRouter routes: never paint the home LCP overlay on reload. */
+      html[data-vn-route="inner"] #lcp-shell {
+        display: none !important;
+      }
+      #lcp-shell h1 {
+        margin: 0;
+        max-width: 40rem;
+        font-family: Chillax, ui-sans-serif, system-ui, sans-serif;
+        font-size: clamp(1.875rem, 4vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.12;
+      }
+      #lcp-shell p {
+        margin: 0;
+        max-width: 36rem;
+        font-family: Chillax, ui-sans-serif, system-ui, sans-serif;
+        font-size: clamp(1rem, 2.2vw, 1.125rem);
+        font-weight: 400;
+        line-height: 1.55;
+        color: rgba(247, 242, 231, 0.72);
+      }
     </style>
-    <script type="module" crossorigin src="/qa/assets/index-C__xNmqF.js"></script>
-    <link rel="modulepreload" crossorigin href="/qa/assets/rolldown-runtime-CNC7AqOf.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-radix-C-H6FjsY.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-react-CE87AGGn.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-ui-Cnroxd-N.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/seo-CjT_5oX4.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/Logo-BTl9vCGB.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/routes-DfVM59Qk.js">
+    <script type="module" crossorigin src="/qa/assets/index-aT1M-tAI.js"></script>
+    <link rel="modulepreload" crossorigin href="/qa/assets/rolldown-runtime-B0Z9INg1.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-motion-BTWl2dYi.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-radix-BmcoBQIX.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-react-0LSMU85-.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/chunk-62JRHF6Z-C8fqIcN0.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-ui-IRczcpjd.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/seo-W5nVRMTp.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/dist-rtFTi0oa.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/fo-events-Ba-LoJ6P.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/AnimatePresence-BCCgyPxb.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/routes-DVW4mcZd.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/scroll-to-section-CVT2hr2b.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/SubpageToolbar-T3bFkKzr.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/portfolio-image-urls-CAe5M949.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/PageShell-BeytpykX.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/Logo-BtvI8qFq.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/SubpageToolbar-mJff19vb.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/site-contact-BIV724JV.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/navigate-to-section-DPORLD9E.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/normalize-hash-url-D42i7qtF.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/card-Dix7plsS.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/admin-config-DkWTKoWG.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/image-manifest-context-BROSK3ED.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/portfolio-image-urls-Bx4PkhEK.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/image-overrides-D-ZVCcNq.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/PageShell-C3ZRfCx4.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/breadcrumb-helpers-T0dw0lWK.js">
-    <link rel="stylesheet" crossorigin href="/qa/assets/index-BWsODwjQ.css">
+    <link rel="stylesheet" crossorigin href="/qa/assets/index-OOlJjJed.css">
   </head>
 
   <body>
+    <script>
+      (function () {
+        var h = (location.hash || "#/").replace(/^#/, "").split("?")[0] || "/";
+        if (h.charAt(0) !== "/") h = "/" + h;
+        if (h.length > 1 && h.slice(-1) === "/") h = h.slice(0, -1);
+        if (h !== "/" && h !== "/consultoria") {
+          document.documentElement.setAttribute("data-vn-route", "inner");
+        }
+      })();
+    </script>
+    <div id="lcp-shell" aria-hidden="true">
+      <h1>Tecnología para empresas.</h1>
+      <p class="section-header__description">
+        Operaciones digitales y el flujo que usa tu cliente, en su CMS o CRM.
+        Diagnóstico 5–7 días. Gratis: accesibilidad de un flujo. Kickoff 30 min.
+      </p>
+    </div>
     <div id="root"></div>
   </body>
 </html>
