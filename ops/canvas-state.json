@@ -14,7 +14,7 @@
           "token_pct": 0,
           "track": "vn",
           "mvp": "VN-41",
-          "people_job": "Todas las pruebas de este corte van en https://vientonorte.io/qa/ . Esa página es el main 84da888. El draft #306 no está ahí.",
+          "people_job": "Todas las pruebas de este corte van en https://vientonorte.io/qa/ . Esa página es el preview 4376517 (PR #309), no el main. El draft #306 no está ahí.",
           "checklist": [
             "Abrir solo https://vientonorte.io/qa/",
             "Recorrer home, servicios y digitalización en esa misma página",
@@ -22,9 +22,13 @@
             "El draft #306 sigue fuera de esta página"
           ],
           "links": [
-            "https://vientonorte.io/qa/"
+            "https://vientonorte.io/qa/",
+            "https://vientonorte.io/qa/servicios/#web-pymes",
+            "https://vientonorte.io/qa/servicios/#revision-gratis",
+            "https://vientonorte.io/qa/servicios/#consultoria-ux",
+            "https://vientonorte.io/qa/#/digitalizacion"
           ],
-          "notes": "Acuerdo 2026-10-06: main se mira en una sola página de QA. main ya está en 84da888 (merge 2026-10-07). #306 sigue draft."
+          "notes": "Acuerdo 2026-10-06: una sola página de QA. main sigue en 84da888. La página /qa/ es el preview 4376517 (PR #309, 2026-10-07). #306 sigue draft. La tarjeta la cierra Rö."
         },
         {
           "id": "now-sprint-vn-41",
@@ -990,7 +994,7 @@
     "id": "VN-41",
     "day": "Map",
     "status": "active",
-    "note": "DS-2026-10-06 journey URLs Ads en Map. main 84da888. QA única https://vientonorte.io/qa/ . #306 sigue draft.",
+    "note": "DS-2026-10-06 journey URLs Ads en Map. main 84da888. QA única https://vientonorte.io/qa/ en preview 4376517 (PR #309). #306 sigue draft.",
     "doc": "Viento Norte/Sprints/DS-2026-10-06-journey-urls-ads.md"
   },
   "last_close": {
