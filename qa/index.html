@@ -169,14 +169,16 @@
         font-size: 0.875rem;
         letter-spacing: 0.04em;
       }
+      /* Boot (antes del CSS de la app): espejo de --vn-primitive-naranja en vn-tokens.css. */
+      :root { --vn-boot-brand: #FF931E; }
       #root:empty::before {
         content: "";
         width: 40px;
         height: 40px;
         border-radius: 50%;
         border: 3px solid rgba(247, 242, 231, 0.12);
-        border-top-color: #1a8fdc;
-        border-right-color: #e8401c;
+        border-top-color: var(--vn-boot-brand);
+        border-right-color: var(--vn-boot-brand);
         animation: vn-spin 0.85s linear infinite;
       }
       #root:empty::after {
@@ -195,7 +197,7 @@
       @media (prefers-reduced-motion: reduce) {
         #root:empty::before {
           animation: none;
-          border-top-color: #1a8fdc;
+          border-top-color: var(--vn-boot-brand);
         }
       }
       /* Static LCP: texto del documento (no React). Se oculta cuando pinta #inicio. */
@@ -240,7 +242,7 @@
         color: rgba(247, 242, 231, 0.72);
       }
     </style>
-    <script type="module" crossorigin src="/qa/assets/main-C0oERTgn.js"></script>
+    <script type="module" crossorigin src="/qa/assets/main-BHFovALp.js"></script>
     <link rel="modulepreload" crossorigin href="/qa/assets/rolldown-runtime-B0Z9INg1.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/vendor-motion-BTWl2dYi.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/vendor-radix-BmcoBQIX.js">
@@ -256,8 +258,8 @@
     <link rel="modulepreload" crossorigin href="/qa/assets/servicios-links-ckijY3ZY.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/nav-config-DAfz0FNv.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/seo-sj0gp04V.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/Logo-rpUJTA7G.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/track-BoGTDgjf.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/Logo-YGUrEdh1.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/track-BiGzy2G-.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/vendor-react-CbKrdSZk.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/index.esm-ynwUBP1K.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/dist-rtFTi0oa.js">
@@ -266,11 +268,11 @@
     <link rel="modulepreload" crossorigin href="/qa/assets/image-manifest-context-BROSK3ED.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/portfolio-image-urls-Bx4PkhEK.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/image-overrides-D-ZVCcNq.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/SubpageToolbar-DZYZBrad.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/PageShell-DHa4TQqi.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/SubpageToolbar-DlMVpeda.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/PageShell-BP78Dq9x.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/breadcrumb-helpers-T0dw0lWK.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/normalize-hash-url-CIjb3_f8.js">
-    <link rel="stylesheet" crossorigin href="/qa/assets/track-DEAyRmBe.css">
+    <link rel="stylesheet" crossorigin href="/qa/assets/track-DKk_v9B9.css">
     <link rel="stylesheet" crossorigin href="/qa/assets/main-CviNgnCK.css">
   </head>
 
