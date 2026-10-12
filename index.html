@@ -19,6 +19,16 @@
           }
           return;
         }
+        // S42 v3: vista hash #/news (y #/news/<slug>, #/news?utm…) → /noticias/ antes de montar la SPA
+        // (sin doble carga). Conserva la query real y la de la ruta hash. Respeta la base (/ o /qa/).
+        var hn = location.hash || "";
+        if (/^#\/news(\/|\?|$)/.test(hn)) {
+          var hq = hn.indexOf("?") >= 0 ? hn.slice(hn.indexOf("?")) : "";
+          var qs = q || hq;
+          if (q && hq) qs = q + "&" + hq.slice(1);
+          location.replace("/noticias/" + qs);
+          return;
+        }
         // Deprecated: /poc (y /poc#/auditoria) → /servicios/ (canon 2026-09-27). Conserva UTMs.
         if (p === "/poc" || p.indexOf("/poc/") === 0) {
           location.replace(location.origin + "/servicios/" + q);
@@ -169,14 +179,16 @@
         font-size: 0.875rem;
         letter-spacing: 0.04em;
       }
+      /* Boot (antes del CSS de la app): espejo de --vn-primitive-naranja en vn-tokens.css. */
+      :root { --vn-boot-brand: #FF931E; }
       #root:empty::before {
         content: "";
         width: 40px;
         height: 40px;
         border-radius: 50%;
         border: 3px solid rgba(247, 242, 231, 0.12);
-        border-top-color: #1a8fdc;
-        border-right-color: #e8401c;
+        border-top-color: var(--vn-boot-brand);
+        border-right-color: var(--vn-boot-brand);
         animation: vn-spin 0.85s linear infinite;
       }
       #root:empty::after {
@@ -195,7 +207,7 @@
       @media (prefers-reduced-motion: reduce) {
         #root:empty::before {
           animation: none;
-          border-top-color: #1a8fdc;
+          border-top-color: var(--vn-boot-brand);
         }
       }
       /* Static LCP: texto del documento (no React). Se oculta cuando pinta #inicio. */
@@ -240,7 +252,7 @@
         color: rgba(247, 242, 231, 0.72);
       }
     </style>
-    <script type="module" crossorigin src="/assets/main-Q0cdhUbp.js"></script>
+    <script type="module" crossorigin src="/assets/main-BlPhLvr9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-B0Z9INg1.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-motion-BTWl2dYi.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-radix-BmcoBQIX.js">
@@ -251,10 +263,10 @@
     <link rel="modulepreload" crossorigin href="/assets/scroll-to-section-CVT2hr2b.js">
     <link rel="modulepreload" crossorigin href="/assets/navigate-to-section-DPORLD9E.js">
     <link rel="modulepreload" crossorigin href="/assets/seo-sj0gp04V.js">
-    <link rel="modulepreload" crossorigin href="/assets/track-C2x01qtN.js">
+    <link rel="modulepreload" crossorigin href="/assets/track-CiF5BQno.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-react-CbKrdSZk.js">
     <link rel="modulepreload" crossorigin href="/assets/admin-config-DkWTKoWG.js">
-    <link rel="stylesheet" crossorigin href="/assets/track-BgGhY4zT.css">
+    <link rel="stylesheet" crossorigin href="/assets/track-DxIhJ838.css">
     <link rel="stylesheet" crossorigin href="/assets/main-CviNgnCK.css">
   </head>
 
