@@ -36,11 +36,13 @@
           return;
         }
         // 13-oct: vista hash #/sobre-mi (y #/sobre-mi?utm…) → /sobre-mi/ (página estática). Conserva query.
+        // #/sobre-mi/<sección> → /sobre-mi/#<sección> (deep link).
         if (/^#\/sobre-mi(\/|\?|$)/.test(hn)) {
           var sq = hn.indexOf("?") >= 0 ? hn.slice(hn.indexOf("?")) : "";
           var sqs = q || sq;
           if (q && sq) sqs = q + "&" + sq.slice(1);
-          location.replace("/qa/sobre-mi/" + sqs);
+          var ssec = (hn.split("?")[0].match(/^#\/sobre-mi\/([a-z0-9-]+)\/?$/) || [])[1];
+          location.replace("/qa/sobre-mi/" + sqs + (ssec ? "#" + ssec : ""));
           return;
         }
         // Deprecated: /poc (y /poc#/auditoria) → /servicios/ (canon 2026-09-27). Conserva UTMs.
@@ -266,7 +268,7 @@
         color: rgba(247, 242, 231, 0.72);
       }
     </style>
-    <script type="module" crossorigin src="/qa/assets/main-PpkdoS2R.js"></script>
+    <script type="module" crossorigin src="/qa/assets/main-JLnRPj10.js"></script>
     <link rel="modulepreload" crossorigin href="/qa/assets/rolldown-runtime-B0Z9INg1.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/vendor-motion-BTWl2dYi.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/vendor-radix-BmcoBQIX.js">
@@ -279,11 +281,11 @@
     <link rel="modulepreload" crossorigin href="/qa/assets/site-contact-CKathh6R.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/fo-events-Ba-LoJ6P.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/servicios-links-ckijY3ZY.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/utm-Dml1EjCU.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/nav-config-D7WQfURd.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/utm-CPVty2P2.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/nav-config-CmT5AF6x.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/seo-sj0gp04V.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/Logo-FdnkGnhs.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/track-B6z8g2hF.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/track-CsPAHKjD.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/vendor-react-CbKrdSZk.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/index.esm-ynwUBP1K.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/dist-rtFTi0oa.js">
