@@ -29,6 +29,15 @@
           location.replace("/noticias/" + qs);
           return;
         }
+        // Definición: la ruta hash de una ficha HTTP redirige a la URL con barra.
+        // #/sobre-mi, #/sobre-mi/ y #/sobre-mi?utm → /sobre-mi/. Ancla de sección (#experiencia) no entra.
+        if (/^#\/sobre-mi(\/|\?|$)/.test(hn)) {
+          var smq = hn.indexOf("?") >= 0 ? hn.slice(hn.indexOf("?")) : "";
+          var sms = q || smq;
+          if (q && smq) sms = q + "&" + smq.slice(1);
+          location.replace("/sobre-mi/" + sms);
+          return;
+        }
         // /sobre-mi (sin barra) no es archivo. La ficha es /sobre-mi/. Sin hop a hash.
         var basePath = "/";
         if (basePath.charAt(0) !== "/") basePath = "/" + basePath;
@@ -260,7 +269,7 @@
         color: rgba(247, 242, 231, 0.72);
       }
     </style>
-    <script type="module" crossorigin src="/assets/main-DtO9lKuS.js"></script>
+    <script type="module" crossorigin src="/assets/main-BkixqijL.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-B0Z9INg1.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-motion-BTWl2dYi.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-radix-CzC0mKNG.js">
@@ -272,12 +281,11 @@
     <link rel="modulepreload" crossorigin href="/assets/mobile-header-classes-Dukt10Tq.js">
     <link rel="modulepreload" crossorigin href="/assets/site-contact-BZUPtmP2.js">
     <link rel="modulepreload" crossorigin href="/assets/fo-events-Ba-LoJ6P.js">
-    <link rel="modulepreload" crossorigin href="/assets/navigate-to-section-DPORLD9E.js">
     <link rel="modulepreload" crossorigin href="/assets/servicios-links-CF3aYX9u.js">
-    <link rel="modulepreload" crossorigin href="/assets/nav-config-BddDvA92.js">
+    <link rel="modulepreload" crossorigin href="/assets/nav-config-Wf48L2Cu.js">
     <link rel="modulepreload" crossorigin href="/assets/seo-AqCcHCTK.js">
     <link rel="modulepreload" crossorigin href="/assets/Logo-CP28v174.js">
-    <link rel="modulepreload" crossorigin href="/assets/track-CkhyQEKS.js">
+    <link rel="modulepreload" crossorigin href="/assets/track-B1_ttIm5.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-react-bAd8_qro.js">
     <link rel="modulepreload" crossorigin href="/assets/index.esm-ynwUBP1K.js">
     <link rel="modulepreload" crossorigin href="/assets/dist-DA8SDTf1.js">
@@ -290,7 +298,7 @@
     <link rel="modulepreload" crossorigin href="/assets/PageShell-NVo-lk6H.js">
     <link rel="modulepreload" crossorigin href="/assets/breadcrumb-helpers-T0dw0lWK.js">
     <link rel="modulepreload" crossorigin href="/assets/NotFoundPage-C0HQZFCe.js">
-    <link rel="modulepreload" crossorigin href="/assets/App-ClwQSPHX.js">
+    <link rel="modulepreload" crossorigin href="/assets/App-B5KNj4_Z.js">
     <link rel="modulepreload" crossorigin href="/assets/normalize-hash-url-CIjb3_f8.js">
     <link rel="stylesheet" crossorigin href="/assets/track-DxIhJ838.css">
     <link rel="stylesheet" crossorigin href="/assets/main-CviNgnCK.css">
