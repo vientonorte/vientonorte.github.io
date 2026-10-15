@@ -29,20 +29,21 @@
           location.replace("/qa/noticias/" + qs);
           return;
         }
-        // 13-oct: vista hash #/privacy → /privacidad/ (página estática). Conserva la query.
-        if (/^#\/privacy(\/|\?|$)/.test(hn)) {
-          var pq = hn.indexOf("?") >= 0 ? hn.slice(hn.indexOf("?")) : "";
-          location.replace("/qa/privacidad/" + (q || pq));
+        // Definición: la ruta hash de una ficha HTTP redirige a la URL con barra.
+        // #/sobre-mi, #/sobre-mi/ y #/sobre-mi?utm → /sobre-mi/. Ancla de sección (#experiencia) no entra.
+        if (/^#\/sobre-mi(\/|\?|$)/.test(hn)) {
+          var smq = hn.indexOf("?") >= 0 ? hn.slice(hn.indexOf("?")) : "";
+          var sms = q || smq;
+          if (q && smq) sms = q + "&" + smq.slice(1);
+          location.replace("/qa/sobre-mi/" + sms);
           return;
         }
-        // 13-oct: vista hash #/sobre-mi (y #/sobre-mi?utm…) → /sobre-mi/ (página estática). Conserva query.
-        // #/sobre-mi/<sección> → /sobre-mi/#<sección> (deep link).
-        if (/^#\/sobre-mi(\/|\?|$)/.test(hn)) {
-          var sq = hn.indexOf("?") >= 0 ? hn.slice(hn.indexOf("?")) : "";
-          var sqs = q || sq;
-          if (q && sq) sqs = q + "&" + sq.slice(1);
-          var ssec = (hn.split("?")[0].match(/^#\/sobre-mi\/([a-z0-9-]+)\/?$/) || [])[1];
-          location.replace("/qa/sobre-mi/" + sqs + (ssec ? "#" + ssec : ""));
+        // /sobre-mi (sin barra) no es archivo. La ficha es /sobre-mi/. Sin hop a hash.
+        var basePath = "/qa/";
+        if (basePath.charAt(0) !== "/") basePath = "/" + basePath;
+        if (basePath.slice(-1) !== "/") basePath += "/";
+        if (p === basePath + "sobre-mi") {
+          location.replace(basePath + "sobre-mi/" + q);
           return;
         }
         // Deprecated: /poc (y /poc#/auditoria) → /servicios/ (canon 2026-09-27). Conserva UTMs.
@@ -268,37 +269,38 @@
         color: rgba(247, 242, 231, 0.72);
       }
     </style>
-    <script type="module" crossorigin src="/qa/assets/main-JLnRPj10.js"></script>
+    <script type="module" crossorigin src="/qa/assets/main-CNKkuHmg.js"></script>
     <link rel="modulepreload" crossorigin href="/qa/assets/rolldown-runtime-B0Z9INg1.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/vendor-motion-BTWl2dYi.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-radix-BmcoBQIX.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/routes-B0CODcxO.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-ui--QIRr5JS.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/utils-CXvOotEF.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-radix-CzC0mKNG.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/routes-DIhLQtYY.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-ui-CeqjX38A.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/utils-D4rIfN_8.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/AnimatePresence-BCCgyPxb.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/scroll-to-section-CVT2hr2b.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/mobile-header-classes-Br65ajjd.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/site-contact-CKathh6R.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/mobile-header-classes-Wj4OAkoO.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/site-contact-CkKqupa0.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/fo-events-Ba-LoJ6P.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/servicios-links-ckijY3ZY.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/utm-CPVty2P2.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/nav-config-CmT5AF6x.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/seo-sj0gp04V.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/Logo-FdnkGnhs.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/track-CsPAHKjD.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-react-CbKrdSZk.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/nav-config-BUuhLO58.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/seo-AqCcHCTK.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/Logo-CvmwPhJ7.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/track-CL0Z9FE8.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-react-bAd8_qro.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/index.esm-ynwUBP1K.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/dist-rtFTi0oa.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/card-BioZqLc-.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/dist-DA8SDTf1.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/card-CGWDhVxM.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/admin-config-DkWTKoWG.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/image-manifest-context-BROSK3ED.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/portfolio-image-urls-Bx4PkhEK.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/image-overrides-D-ZVCcNq.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/SubpageToolbar-Dc6i48d9.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/PageShell-DJwgu8aV.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/image-overrides-CejYGOmc.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/SubpageToolbar-NR09OytO.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/PageShell-DjlMKLsD.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/breadcrumb-helpers-T0dw0lWK.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/NotFoundPage-CDwQRAOY.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/App-BQo0JXK0.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/normalize-hash-url-CIjb3_f8.js">
-    <link rel="stylesheet" crossorigin href="/qa/assets/track-C4nzo9JQ.css">
+    <link rel="stylesheet" crossorigin href="/qa/assets/track-DSP56IeE.css">
     <link rel="stylesheet" crossorigin href="/qa/assets/main-CviNgnCK.css">
   </head>
 

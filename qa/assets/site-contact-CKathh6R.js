@@ -1,1 +1,0 @@
-var e=`contacto@vientonorte.io`,t={email:e,linkedin:`https://www.linkedin.com/in/rodrigo-gaete-ux/`,github:`https://github.com/vientonorte`};function n(e){return e(),!1}function r(e){return!1}var i=`https://contact.vientonorte.io/api/contact`;function a(){return`mailto:${e}`}var o=a;export{n as a,a as i,t as n,r as o,o as r,i as t};
