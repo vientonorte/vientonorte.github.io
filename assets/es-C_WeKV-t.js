@@ -1,0 +1,1 @@
+import{t as e}from"./i18n-es-BowXVngw.js";export{e as default};
