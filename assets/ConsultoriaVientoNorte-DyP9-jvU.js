@@ -1,0 +1,1 @@
+export{t as default}from"./ConsultoriaVientoNorte-DMqaTA_7.js";
