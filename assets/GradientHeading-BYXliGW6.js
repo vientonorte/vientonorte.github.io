@@ -1,1 +1,0 @@
-import{O as e}from"./vendor-motion-C9AafUYm.js";import{t}from"./utils-DswpiDHO.js";var n=e();function r({children:e,as:r=`span`,className:i}){return(0,n.jsx)(r,{className:t(`heading-gradient block`,i),children:e})}export{r as t};

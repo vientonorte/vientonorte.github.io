@@ -1,1 +1,0 @@
-import{O as e}from"./vendor-motion-C9AafUYm.js";import{t}from"./TimedServiceDemo-CmwPsego.js";var n=e();function r(){return(0,n.jsx)(t,{forcedPath:`prototype`})}export{r as default};
