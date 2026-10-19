@@ -1,1 +1,0 @@
-export{t as default}from"./ConsultoriaVientoNorte-CJxbgB6f.js";

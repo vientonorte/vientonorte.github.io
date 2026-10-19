@@ -1,1 +1,0 @@
-export{t as default}from"./i18n-es-Cr49TOH1.js";

@@ -1,0 +1,1 @@
+export{t as default}from"./TimedServiceDemo-DosZ0TfT.js";
