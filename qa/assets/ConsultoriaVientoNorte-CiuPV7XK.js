@@ -1,0 +1,1 @@
+import{t as e}from"./ConsultoriaVientoNorte-riiZBT0N.js";export{e as default};
