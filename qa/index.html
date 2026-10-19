@@ -176,131 +176,40 @@
     />
 
     <!-- CSR fallback: feedback while JS hydrates (Gemini QA + brand VN) -->
-    <style>
-      html,
-      body {
-        margin: 0;
-        min-height: 100%;
-        background: #050a14;
-      }
-      #root:empty {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        min-height: 100dvh;
-        background: #050a14;
-        color: rgba(247, 242, 231, 0.55);
-        font-family: system-ui, -apple-system, sans-serif;
-        font-size: 0.875rem;
-        letter-spacing: 0.04em;
-      }
-      /* Boot (antes del CSS de la app): espejo de --vn-primitive-naranja en vn-tokens.css. */
-      :root { --vn-boot-brand: #FF931E; }
-      #root:empty::before {
-        content: "";
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 3px solid rgba(247, 242, 231, 0.12);
-        border-top-color: var(--vn-boot-brand);
-        border-right-color: var(--vn-boot-brand);
-        animation: vn-spin 0.85s linear infinite;
-      }
-      #root:empty::after {
-        content: "Viento Norte";
-        font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        font-size: 0.7rem;
-        color: rgba(247, 242, 231, 0.45);
-      }
-      @keyframes vn-spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        #root:empty::before {
-          animation: none;
-          border-top-color: var(--vn-boot-brand);
-        }
-      }
-      /* Static LCP: texto del documento (no React). Se oculta cuando pinta #inicio. */
-      #lcp-shell {
-        position: fixed;
-        inset: 0;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1.25rem;
-        padding: 1.5rem;
-        background: #050a14;
-        color: #f7f2e7;
-        text-align: center;
-        pointer-events: none;
-      }
-      #lcp-shell[hidden] {
-        display: none !important;
-      }
-      /* Inner HashRouter routes: never paint the home LCP overlay on reload. */
-      html[data-vn-route="inner"] #lcp-shell {
-        display: none !important;
-      }
-      #lcp-shell h1 {
-        margin: 0;
-        max-width: 40rem;
-        font-family: Chillax, ui-sans-serif, system-ui, sans-serif;
-        font-size: clamp(1.875rem, 4vw, 2.5rem);
-        font-weight: 700;
-        letter-spacing: -0.03em;
-        line-height: 1.12;
-      }
-      #lcp-shell p {
-        margin: 0;
-        max-width: 36rem;
-        font-family: Chillax, ui-sans-serif, system-ui, sans-serif;
-        font-size: clamp(1rem, 2.2vw, 1.125rem);
-        font-weight: 400;
-        line-height: 1.55;
-        color: rgba(247, 242, 231, 0.72);
-      }
-    </style>
-    <script type="module" crossorigin src="/qa/assets/main-rtTdrelx.js"></script>
+    <style>html,body{background:#050a14;min-height:100%;margin:0}#root:empty{color:#f7f2e78c;letter-spacing:.04em;background:#050a14;flex-direction:column;justify-content:center;align-items:center;gap:1rem;min-height:100dvh;font-family:system-ui,-apple-system,sans-serif;font-size:.875rem;display:flex}:root{--vn-boot-brand:#ff931e}#root:empty:before{content:"";border:3px solid #f7f2e71f;border-top-color:var(--vn-boot-brand);border-right-color:var(--vn-boot-brand);border-radius:50%;width:40px;height:40px;animation:.85s linear infinite vn-spin}#root:empty:after{content:"Viento Norte";letter-spacing:.12em;text-transform:uppercase;color:#f7f2e773;font-size:.7rem;font-weight:600}@keyframes vn-spin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){#root:empty:before{border-top-color:var(--vn-boot-brand);animation:none}}#lcp-shell{z-index:1;color:#f7f2e7;text-align:center;pointer-events:none;background:#050a14;flex-direction:column;justify-content:center;align-items:center;gap:1.25rem;padding:1.5rem;display:flex;position:fixed;inset:0}#lcp-shell[hidden],html[data-vn-route=inner] #lcp-shell{display:none!important}#lcp-shell h1{letter-spacing:-.03em;max-width:40rem;margin:0;font-family:Chillax,ui-sans-serif,system-ui,sans-serif;font-size:clamp(1.875rem,4vw,2.5rem);font-weight:700;line-height:1.12}#lcp-shell p{color:#f7f2e7b8;max-width:36rem;margin:0;font-family:Chillax,ui-sans-serif,system-ui,sans-serif;font-size:clamp(1rem,2.2vw,1.125rem);font-weight:400;line-height:1.55}</style>
+    <script type="module" crossorigin src="/qa/assets/main-C475Iz39.js"></script>
     <link rel="modulepreload" crossorigin href="/qa/assets/rolldown-runtime-B0Z9INg1.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-motion-BTWl2dYi.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-radix-CzC0mKNG.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/routes-DIhLQtYY.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-ui-CeqjX38A.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/utils-CTGXhrpg.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/AnimatePresence-BCCgyPxb.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-motion-CA9hY4LE.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-radix-CsLpiWC9.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/routes-Dwlvcf8f.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-ui-BvkEhlkf.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/utils-l37tHkHv.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/AnimatePresence-BY_guPdd.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/scroll-to-section-CVT2hr2b.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/mobile-header-classes-C_5LUI6C.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/mobile-header-classes-DJpRx5Tp.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/site-contact-CkKqupa0.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/fo-events-Ba-LoJ6P.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/fo-events-D0JENIeF.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/servicios-links-ckijY3ZY.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/nav-config-BUuhLO58.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/nav-config-BN5U5ZOW.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/seo-AqCcHCTK.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/Logo-DKRN2o2W.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/track-M-x4eeSh.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-react-bAd8_qro.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/index.esm-ynwUBP1K.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/dist-DA8SDTf1.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/card-khKArqqH.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/Logo-DCkSKFvm.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/utm-CEfywFok.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/track-BgOWK1w9.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-react-BdikQ5oX.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/index.esm-ClsBz2a3.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/dist-DbztquZo.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/card-CcS9tHoN.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/admin-config-DkWTKoWG.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/image-manifest-context-BROSK3ED.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/image-manifest-context-C0XHHEeI.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/portfolio-image-urls-DepZ9zLG.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/image-overrides-DwFdy4Fl.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/SubpageToolbar-BeckSWMD.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/PageShell-DKT2JGn5.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/image-overrides-BtQReQPP.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/SubpageToolbar-DyMZyUsZ.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/PageShell-CTuQ0Amr.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/breadcrumb-helpers-T0dw0lWK.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/NotFoundPage-DC6iHKra.js">
-    <link rel="modulepreload" crossorigin href="/qa/assets/App-Bc7-50DL.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/NotFoundPage-Cx3TfmEP.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/App-Dy8kz5tv.js">
     <link rel="modulepreload" crossorigin href="/qa/assets/normalize-hash-url-CIjb3_f8.js">
-    <link rel="stylesheet" crossorigin href="/qa/assets/track-2OVYF8yM.css">
+    <link rel="stylesheet" crossorigin href="/qa/assets/track-se94TaLg.css">
     <link rel="stylesheet" crossorigin href="/qa/assets/main-CviNgnCK.css">
   </head>
 
