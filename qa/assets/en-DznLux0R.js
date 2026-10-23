@@ -1,1 +1,0 @@
-export{t as default}from"./i18n-en-DpC1UQmM.js";

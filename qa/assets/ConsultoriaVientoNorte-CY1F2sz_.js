@@ -1,1 +1,0 @@
-export{t as default}from"./ConsultoriaVientoNorte--KJ_hDGM.js";
