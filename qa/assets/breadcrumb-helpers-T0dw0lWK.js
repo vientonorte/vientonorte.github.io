@@ -1,1 +1,0 @@
-function e(e,t,n){return[{label:e,onClick:t},...n]}export{e as t};

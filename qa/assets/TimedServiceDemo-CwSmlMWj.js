@@ -1,1 +1,0 @@
-export{t as default}from"./TimedServiceDemo-B3f5i_Id.js";
