@@ -1,0 +1,1 @@
+export{t as default}from"./ConsultoriaVientoNorte-NUOANKu4.js";
