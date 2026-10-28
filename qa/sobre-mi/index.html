@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio de Rodrigo Gaete · ro.vientonorte.io</title>
+    <meta
+      name="description"
+      content="El portafolio de Rodrigo Gaete se mudó a https://ro.vientonorte.io/"
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href="https://ro.vientonorte.io/" />
+    <meta property="og:url" content="https://ro.vientonorte.io/" />
+    <!-- Redirect cliente (GitHub Pages no tiene 301). Conserva query (utm) y ancla:
+         /sobre-mi/#experiencia → https://ro.vientonorte.io/#experiencia.
+         El script va antes del meta refresh: con JS gana location.replace (con hash);
+         sin JS, el refresh lleva a la raíz. -->
+    <script>
+      (function () {
+        var h = window.location.hash || "";
+        if (h.indexOf("#/") === 0) h = "";
+        window.location.replace("https://ro.vientonorte.io/" + window.location.search + h);
+      })();
+    </script>
+    <meta http-equiv="refresh" content="0;url=https://ro.vientonorte.io/" />
+  </head>
+  <body>
+    <main>
+      <h1>El portafolio se mudó</h1>
+      <p>
+        El portafolio de Rodrigo Gaete ahora está en
+        <a href="https://ro.vientonorte.io/">ro.vientonorte.io</a>.
+      </p>
+    </main>
+  </body>
+</html>

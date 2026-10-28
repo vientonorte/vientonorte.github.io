@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <script>
+      // Legacy paths. Soft-404 SPA shell also hits this (Pages 404.html = index).
+      (function () {
+        var p = location.pathname || "/";
+        var q = location.search || "";
+        if (p === "/mi-portafolio" || p.indexOf("/mi-portafolio/") === 0) {
+          var h = location.hash || "";
+          if (h.indexOf("#/mi-portafolio") === 0) {
+            h = "#" + (h.slice("#/mi-portafolio".length) || "/");
+          }
+          // Empty/#/ → apex HTTP. Hash hops look like GSC "Error de redirección".
+          if (!h || h === "#" || h === "#/") {
+            location.replace("https://vientonorte.io/" + q);
+          } else {
+            location.replace("https://vientonorte.io/" + h + q);
+          }
+          return;
+        }
+        // S42 v3: vista hash #/news (y #/news/<slug>, #/news?utm…) → /noticias/ antes de montar la SPA
+        // (sin doble carga). Conserva la query real y la de la ruta hash. Respeta la base (/ o /qa/).
+        var hn = location.hash || "";
+        if (/^#\/news(\/|\?|$)/.test(hn)) {
+          var hq = hn.indexOf("?") >= 0 ? hn.slice(hn.indexOf("?")) : "";
+          var qs = q || hq;
+          if (q && hq) qs = q + "&" + hq.slice(1);
+          location.replace("/qa/noticias/" + qs);
+          return;
+        }
+        // Definición: la ruta hash de una ficha HTTP redirige a la URL con barra.
+        // #/sobre-mi, #/sobre-mi/ y #/sobre-mi?utm → https://ro.vientonorte.io/. Ancla de sección (#experiencia) no entra.
+        if (/^#\/sobre-mi(\/|\?|$)/.test(hn)) {
+          var smq = hn.indexOf("?") >= 0 ? hn.slice(hn.indexOf("?")) : "";
+          var sms = q || smq;
+          if (q && smq) sms = q + "&" + smq.slice(1);
+          location.replace("https://ro.vientonorte.io/" + sms);
+          return;
+        }
+        // /sobre-mi (sin barra) no es archivo. La ficha es /sobre-mi/. Sin hop a hash.
+        var basePath = "/qa/";
+        if (basePath.charAt(0) !== "/") basePath = "/" + basePath;
+        if (basePath.slice(-1) !== "/") basePath += "/";
+        // /sobre-mi y /sobre-mi/<sub> (404 → este shell) → ro.vientonorte.io, con query y ancla.
+        if (p === basePath + "sobre-mi" || p.indexOf(basePath + "sobre-mi/") === 0) {
+          location.replace("https://ro.vientonorte.io/" + q + (hn.indexOf("#/") === 0 ? "" : hn));
+          return;
+        }
+        // 13-oct: vista hash #/privacy → /privacidad/ (página estática). Conserva la query.
+        if (/^#\/privacy(\/|\?|$)/.test(hn)) {
+          var pq = hn.indexOf("?") >= 0 ? hn.slice(hn.indexOf("?")) : "";
+          location.replace("/qa/privacidad/" + (q || pq));
+          return;
+        }
+        // Deprecated: /poc (y /poc#/auditoria) → /servicios/ (canon 2026-09-27). Conserva UTMs.
+        if (p === "/poc" || p.indexOf("/poc/") === 0) {
+          location.replace(location.origin + "/servicios/" + q);
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Viento Norte · Rodrigo Gaete" />
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- GSC ownership: HTML file method → /google5858e011b32ea566.html (public/) · no inventar meta token -->
+
+    <!-- Static SEO (no JS required) — LinkedIn / WhatsApp / crawlers -->
+    <title>Tecnología para empresas · Viento Norte</title>
+    <meta
+      name="description"
+      content="Tecnología para empresas: operaciones digitales y el flujo que usa tu cliente, en su CMS o CRM. Diagnóstico 5–7 días. Gratis: accesibilidad de un flujo. Kickoff 30 min."
+    />
+    <meta
+      name="keywords"
+      content="Viento Norte, UXtech, consultoría UX, módulos a medida, front office, fintech, Design Ops, accesibilidad WCAG, dueño del dato, design sprint, pyme Chile"
+    />
+
+    <!-- Canonical brand root (no /mi-portafolio/) — SEO orgánico -->
+    <link rel="canonical" href="https://vientonorte.io/" />
+
+    <!-- Open Graph (static — no JS required for share/crawlers) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Viento Norte" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:url" content="https://vientonorte.io/" />
+    <meta property="og:title" content="Tecnología para empresas · Viento Norte" />
+    <meta
+      property="og:description"
+      content="Tecnología para empresas: operaciones digitales y el flujo que usa tu cliente, en su CMS o CRM. Diagnóstico 5–7 días. Gratis: accesibilidad de un flujo."
+    />
+    <meta
+      property="og:image"
+      content="https://vientonorte.io/images/branding/og-home-1200.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Viento Norte — UXtech y módulos a medida" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://vientonorte.io/" />
+    <meta name="twitter:title" content="Tecnología para empresas · Viento Norte" />
+    <meta
+      name="twitter:description"
+      content="Tecnología para empresas. El flujo que usa tu cliente, en su CMS o CRM. Diagnóstico 5–7 días."
+    />
+    <meta
+      name="twitter:image"
+      content="https://vientonorte.io/images/branding/og-home-1200.png"
+    />
+
+    <!-- JSON-LD (Google rich results / Knowledge — static, pre-JS) · Audit QA SEO 2026-07 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://vientonorte.io/#organization",
+            "name": "Viento Norte",
+            "url": "https://vientonorte.io/",
+            "logo": "https://vientonorte.io/icon-512x512.png",
+            "description": "UXtech y front office. Módulos a medida, software que se instala, dueño del dato.",
+            "founder": {
+              "@type": "Person",
+              "name": "Rodrigo Gaete",
+              "jobTitle": "UX Lead"
+            },
+            "areaServed": "CL",
+            "sameAs": []
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://vientonorte.io/#website",
+            "url": "https://vientonorte.io/",
+            "name": "Viento Norte",
+            "description": "Tecnología para empresas: operaciones digitales y el flujo que usa tu cliente, en su CMS o CRM. Diagnóstico 5–7 días. Gratis: accesibilidad de un flujo.",
+            "publisher": { "@id": "https://vientonorte.io/#organization" },
+            "inLanguage": "es-CL"
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://vientonorte.io/servicios/#consultoria-ux",
+            "name": "Consultoría UX · Viento Norte",
+            "url": "https://vientonorte.io/servicios/",
+            "image": "https://vientonorte.io/images/branding/og-home-1200.png",
+            "provider": { "@id": "https://vientonorte.io/#organization" },
+            "areaServed": { "@type": "Country", "name": "Chile" },
+            "serviceType": [
+              "Consultoría UX",
+              "Design Sprint",
+              "Accesibilidad WCAG",
+              "Front office producto"
+            ],
+            "description": "Diagnóstico, prototipo, proceso de equipo o app. Entrada gratis: accesibilidad WCAG 2.2 AA de un flujo crítico."
+          }
+        ]
+      }
+    </script>
+
+    <meta name="theme-color" content="#0d1b3d" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#050a14" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" type="image/svg+xml" href="/qa/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/qa/favicon.ico" />
+    <link rel="manifest" href="/qa/manifest.json" />
+    <link rel="apple-touch-icon" href="/qa/icon-192x192.png" />
+
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/qa/fonts/chillax/chillax-400.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/qa/fonts/chillax/chillax-700.woff2"
+      crossorigin
+    />
+
+    <!-- CSR fallback: feedback while JS hydrates (Gemini QA + brand VN) -->
+    <style>html,body{background:#050a14;min-height:100%;margin:0}#root:empty{color:#f7f2e78c;letter-spacing:.04em;background:#050a14;flex-direction:column;justify-content:center;align-items:center;gap:1rem;min-height:100dvh;font-family:system-ui,-apple-system,sans-serif;font-size:.875rem;display:flex}:root{--vn-boot-brand:#ff931e}#root:empty:before{content:"";border:3px solid #f7f2e71f;border-top-color:var(--vn-boot-brand);border-right-color:var(--vn-boot-brand);border-radius:50%;width:40px;height:40px;animation:.85s linear infinite vn-spin}#root:empty:after{content:"Viento Norte";letter-spacing:.12em;text-transform:uppercase;color:#f7f2e773;font-size:.7rem;font-weight:600}@keyframes vn-spin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){#root:empty:before{border-top-color:var(--vn-boot-brand);animation:none}}#lcp-shell{z-index:1;color:#f7f2e7;text-align:center;pointer-events:none;background:#050a14;flex-direction:column;justify-content:center;align-items:center;gap:1.25rem;padding:1.5rem;display:flex;position:fixed;inset:0}#lcp-shell[hidden],html[data-vn-route=inner] #lcp-shell{display:none!important}#lcp-shell h1{letter-spacing:-.03em;max-width:40rem;margin:0;font-family:Chillax,ui-sans-serif,system-ui,sans-serif;font-size:clamp(1.875rem,4vw,2.5rem);font-weight:700;line-height:1.12}#lcp-shell p{color:#f7f2e7b8;max-width:36rem;margin:0;font-family:Chillax,ui-sans-serif,system-ui,sans-serif;font-size:clamp(1rem,2.2vw,1.125rem);font-weight:400;line-height:1.55}</style>
+    <script type="module" crossorigin src="/qa/assets/main-CpqN7GuO.js"></script>
+    <link rel="modulepreload" crossorigin href="/qa/assets/rolldown-runtime-B0Z9INg1.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-motion-CA9hY4LE.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-radix-DuoRXvJs.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/routes-HDdeMe4R.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-ui-BoIjguQ6.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/utils-sj6pLCVy.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/fo-events-D0JENIeF.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/seo-1T0sSS9_.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/i18n-es-D7QU22H8.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/track-C02waV9v.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/vendor-react-Br0ViYQ-.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/Breadcrumbs-vKnuCSN0.js">
+    <link rel="modulepreload" crossorigin href="/qa/assets/SubpageToolbar-BDzYOz3K.js">
+    <link rel="stylesheet" crossorigin href="/qa/assets/track-GhHNOPeu.css">
+    <link rel="stylesheet" crossorigin href="/qa/assets/main-CviNgnCK.css">
+  </head>
+
+  <body>
+    <script>
+      (function () {
+        var h = (location.hash || "#/").replace(/^#/, "").split("?")[0] || "/";
+        if (h.charAt(0) !== "/") h = "/" + h;
+        if (h.length > 1 && h.slice(-1) === "/") h = h.slice(0, -1);
+        if (h !== "/" && h !== "/consultoria") {
+          document.documentElement.setAttribute("data-vn-route", "inner");
+        }
+      })();
+    </script>
+    <div id="lcp-shell" aria-hidden="true">
+      <h1>Tecnología para empresas.</h1>
+      <p class="section-header__description">
+        Operaciones digitales y el flujo que usa tu cliente, en su CMS o CRM.
+        Diagnóstico 5–7 días. Gratis: accesibilidad de un flujo. Kickoff 30 min.
+      </p>
+    </div>
+    <div id="root"></div>
+  </body>
+</html>
