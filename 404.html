@@ -54,6 +54,11 @@
           location.replace(basePath + "sobre-mi/" + q);
           return;
         }
+        // /contacto (sin barra) no es archivo. La ficha es /contacto/.
+        if (p === basePath + "contacto") {
+          location.replace(basePath + "contacto/" + q);
+          return;
+        }
         // Deprecated: /poc (y /poc#/auditoria) → /servicios/ (canon 2026-09-27). Conserva UTMs.
         if (p === "/poc" || p.indexOf("/poc/") === 0) {
           location.replace(location.origin + "/servicios/" + q);
@@ -190,7 +195,7 @@
 
     <!-- CSR fallback: feedback while JS hydrates (Gemini QA + brand VN) -->
     <style>html,body{background:#050a14;min-height:100%;margin:0}#root:empty{color:#f7f2e78c;letter-spacing:.04em;background:#050a14;flex-direction:column;justify-content:center;align-items:center;gap:1rem;min-height:100dvh;font-family:system-ui,-apple-system,sans-serif;font-size:.875rem;display:flex}:root{--vn-boot-brand:#ff931e}#root:empty:before{content:"";border:3px solid #f7f2e71f;border-top-color:var(--vn-boot-brand);border-right-color:var(--vn-boot-brand);border-radius:50%;width:40px;height:40px;animation:.85s linear infinite vn-spin}#root:empty:after{content:"Viento Norte";letter-spacing:.12em;text-transform:uppercase;color:#f7f2e773;font-size:.7rem;font-weight:600}@keyframes vn-spin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){#root:empty:before{border-top-color:var(--vn-boot-brand);animation:none}}#lcp-shell{z-index:1;color:#f7f2e7;text-align:center;pointer-events:none;background:#050a14;flex-direction:column;justify-content:center;align-items:center;gap:1.25rem;padding:1.5rem;display:flex;position:fixed;inset:0}#lcp-shell[hidden],html[data-vn-route=inner] #lcp-shell{display:none!important}#lcp-shell h1{letter-spacing:-.03em;max-width:40rem;margin:0;font-family:Chillax,ui-sans-serif,system-ui,sans-serif;font-size:clamp(1.875rem,4vw,2.5rem);font-weight:700;line-height:1.12}#lcp-shell p{color:#f7f2e7b8;max-width:36rem;margin:0;font-family:Chillax,ui-sans-serif,system-ui,sans-serif;font-size:clamp(1rem,2.2vw,1.125rem);font-weight:400;line-height:1.55}</style>
-    <script type="module" crossorigin src="/assets/main--SmOS8S4.js"></script>
+    <script type="module" crossorigin src="/assets/main-CSBxA-tM.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-B0Z9INg1.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-motion-CA9hY4LE.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-radix-CsLpiWC9.js">
@@ -206,10 +211,10 @@
     <link rel="modulepreload" crossorigin href="/assets/fo-events-D0JENIeF.js">
     <link rel="modulepreload" crossorigin href="/assets/nav-config-CtZ_yRpm.js">
     <link rel="modulepreload" crossorigin href="/assets/page-sections-DQ_XTsHE.js">
-    <link rel="modulepreload" crossorigin href="/assets/seo-AqCcHCTK.js">
-    <link rel="modulepreload" crossorigin href="/assets/Logo-Dk-2tiGD.js">
+    <link rel="modulepreload" crossorigin href="/assets/seo-BAgmwDYB.js">
+    <link rel="modulepreload" crossorigin href="/assets/Logo-DteZ9YFH.js">
     <link rel="modulepreload" crossorigin href="/assets/i18n-es-D0Ndzzhl.js">
-    <link rel="modulepreload" crossorigin href="/assets/track-CPlWS6vR.js">
+    <link rel="modulepreload" crossorigin href="/assets/track-C4zzgWmn.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-react-BdikQ5oX.js">
     <link rel="modulepreload" crossorigin href="/assets/index.esm-ClsBz2a3.js">
     <link rel="modulepreload" crossorigin href="/assets/dist-DbztquZo.js">
@@ -219,11 +224,11 @@
     <link rel="modulepreload" crossorigin href="/assets/portfolio-image-urls-DjfKrTN-.js">
     <link rel="modulepreload" crossorigin href="/assets/image-overrides-vB4rN0sm.js">
     <link rel="modulepreload" crossorigin href="/assets/Breadcrumbs-DM27k98U.js">
-    <link rel="modulepreload" crossorigin href="/assets/SubpageToolbar-BNcfqnpf.js">
-    <link rel="modulepreload" crossorigin href="/assets/PageShell-BThSpmft.js">
+    <link rel="modulepreload" crossorigin href="/assets/SubpageToolbar-CKX77bsx.js">
+    <link rel="modulepreload" crossorigin href="/assets/PageShell-mPt1eziv.js">
     <link rel="modulepreload" crossorigin href="/assets/breadcrumb-helpers-T0dw0lWK.js">
-    <link rel="modulepreload" crossorigin href="/assets/NotFoundPage-CmuyoDpX.js">
-    <link rel="modulepreload" crossorigin href="/assets/App-BUqi4_yT.js">
+    <link rel="modulepreload" crossorigin href="/assets/NotFoundPage-DSIyZSBS.js">
+    <link rel="modulepreload" crossorigin href="/assets/App-BiOjZaR5.js">
     <link rel="modulepreload" crossorigin href="/assets/normalize-hash-url-CIjb3_f8.js">
     <link rel="stylesheet" crossorigin href="/assets/track-BaKLu1Hl.css">
     <link rel="stylesheet" crossorigin href="/assets/main-CviNgnCK.css">

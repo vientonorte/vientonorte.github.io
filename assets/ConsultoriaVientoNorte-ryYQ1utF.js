@@ -1,1 +1,0 @@
-export{t as default}from"./ConsultoriaVientoNorte-BjPEU31R.js";
