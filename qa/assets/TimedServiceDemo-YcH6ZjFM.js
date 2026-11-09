@@ -1,1 +1,0 @@
-export{t as default}from"./TimedServiceDemo-D-G4Ie0K.js";
