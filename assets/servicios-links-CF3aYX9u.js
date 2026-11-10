@@ -1,0 +1,1 @@
+function e(e){let t=`${`/`.endsWith(`/`)?`/`:`//`}servicios/`;return e?`${t}#${e.replace(/^#/,``)}`:t}export{e as t};

@@ -1,0 +1,1 @@
+export{t as default}from"./Contacto-VdaCDD2C.js";
