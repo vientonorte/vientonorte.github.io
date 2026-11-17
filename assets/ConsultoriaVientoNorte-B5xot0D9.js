@@ -1,0 +1,1 @@
+export{t as default}from"./ConsultoriaVientoNorte-CA453xDT.js";
