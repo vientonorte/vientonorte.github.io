@@ -1,0 +1,15 @@
+# Viento Norte · vientonorte.io (canon sin /mi-portafolio/)
+User-agent: *
+Allow: /
+
+Sitemap: https://vientonorte.io/sitemap.xml
+
+# Superficies no indexables. Sin líneas /#/: el fragmento no llega al servidor (sin efecto).
+Disallow: /admin
+Disallow: /admin/
+Disallow: /mi-portafolio
+Disallow: /mi-portafolio/
+Disallow: /poc
+Disallow: /poc/
+Disallow: /ads/
+Disallow: /ops/
