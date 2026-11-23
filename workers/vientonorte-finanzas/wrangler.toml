@@ -1,0 +1,19 @@
+name = "vientonorte-finanzas"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+# workers.dev would publish the ledger without the custom hostname.
+# A deploy still needs a human. This file does not deploy.
+workers_dev = false
+
+# v21: NO [assets] as SoT — worker proxies git main.
+# Optional route (set in CF dashboard if not applied):
+# routes = [{ pattern = "finanzas.vientonorte.io/*", zone_name = "vientonorte.io" }]
+
+[vars]
+SSOT_MODE = "git-proxy"
+# Access application AUD tag. Empty on purpose: the worker refuses
+# every request until this is set to the tag of the Access app that
+# covers finanzas.vientonorte.io, the workers.dev hostname, and /ops/finanzas.
+# Do not put the tag in git until the app exists. Set it in the dashboard
+# or with `wrangler secret` / a var at deploy time. Deploy stays human.
+POLICY_AUD = ""
