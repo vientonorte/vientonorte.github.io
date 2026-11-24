@@ -1,0 +1,1 @@
+export{t as default}from"./ConsultoriaVientoNorte-B_M4RH8O.js";

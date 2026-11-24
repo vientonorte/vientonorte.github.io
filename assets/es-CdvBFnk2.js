@@ -1,0 +1,1 @@
+export{t as default}from"./i18n-es-fVNK6f_u.js";
